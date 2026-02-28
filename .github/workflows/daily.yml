@@ -71,11 +71,9 @@ jobs:
           hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
 
           print(f"Régénération HTML pour {g.date_fr(today)} #{puzzle_num} '{word}'")
-          g.generate_index_html(today, puzzle_num, word, hints)
-
-          archive_dates = g.collect_archive_dates()
-          g.update_sitemap(today, archive_dates)
-          print("✅ index.html + sitemap.xml régénérés")
+          # Génère index, toutes les pages d'archive HTML et le sitemap
+          g._generate_all_html(today, puzzle_num, word, hints)
+          print("✅ HTML complet régénéré (index + archives + sitemap)")
           EOF
 
       - name: Commit and push if HTML changed
@@ -83,7 +81,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html docs/sitemap.xml
+          git add docs/
           git diff --staged --quiet || git commit -m "chore: HTML $(date +'%Y-%m-%d') [skip ci]"
           git push
 

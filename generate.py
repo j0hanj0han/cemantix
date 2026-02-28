@@ -9,6 +9,8 @@ Produit :
   docs/solution.json
   docs/index.html
   docs/archive/YYYY-MM-DD.json
+  docs/archive/YYYY-MM-DD.html
+  docs/archive/index.html
   docs/sitemap.xml
 """
 
@@ -148,6 +150,38 @@ def select_hints(nearby: list[dict]) -> dict:
     }
 
 
+# ── Chargement des archives ───────────────────────────────────────────────────
+
+def load_all_archives() -> list[dict]:
+    """
+    Charge tous les fichiers JSON du dossier archive/.
+    Retourne une liste triée par date DESC (plus récent en premier).
+    """
+    entries = []
+    if ARCHIVE_DIR.exists():
+        for f in ARCHIVE_DIR.glob("????-??-??.json"):
+            try:
+                data = json.loads(f.read_text(encoding="utf-8"))
+                if "date" in data and "word" in data and "puzzle_num" in data:
+                    entries.append(data)
+            except Exception:
+                pass
+    entries.sort(key=lambda x: x["date"], reverse=True)
+    return entries
+
+
+def collect_archive_dates() -> list[date]:
+    """Retourne les dates des fichiers JSON déjà dans le dossier archive."""
+    dates = []
+    if ARCHIVE_DIR.exists():
+        for f in ARCHIVE_DIR.glob("????-??-??.json"):
+            try:
+                dates.append(date.fromisoformat(f.stem))
+            except ValueError:
+                pass
+    return dates
+
+
 # ── Génération des fichiers ───────────────────────────────────────────────────
 
 def generate_solution_json(
@@ -176,16 +210,332 @@ def generate_archive_json(today: date, data: dict) -> None:
                  json.dumps(data, ensure_ascii=False, indent=2))
 
 
-def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) -> None:
+def _hints_html(hints: dict) -> tuple:
+    """Retourne (hints_l1, hints_l2, hints_l3) comme chaînes HTML."""
+    def words_html(words: list) -> str:
+        return "".join(f'<span class="hint-tag">{w}</span>' for w in words)
+    return (
+        words_html(hints.get("level1", [])),
+        words_html(hints.get("level2", [])),
+        words_html(hints.get("level3", [])),
+    )
+
+
+def generate_archive_html(
+    d: date,
+    puzzle_num: int,
+    word: str,
+    hints: dict,
+    prev_date,  # date | None — plus ancienne
+    next_date,  # date | None — plus récente (None → lien vers index.html)
+) -> None:
+    """
+    Génère docs/archive/YYYY-MM-DD.html pour une archive individuelle.
+    prev_date : date plus ancienne (ou None si c'est la plus ancienne connue)
+    next_date : date plus récente (ou None → bouton "Aujourd'hui" vers index)
+    """
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    date_str = d.isoformat()
+    date_display = date_fr(d)
+    hints_l1, hints_l2, hints_l3 = _hints_html(hints)
+
+    # Navigation prev/next
+    if prev_date is not None:
+        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}.html">&#8592; {date_fr(prev_date)}</a>'
+    else:
+        nav_prev = '<span class="nav-disabled">&#8592; Plus ancien</span>'
+
+    if next_date is not None:
+        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}.html">{date_fr(next_date)} &#8594;</a>'
+    else:
+        nav_next = '<a class="nav-link" href="../index.html">Solution du jour &#8594;</a>'
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cémantix {date_display} — Solution #{puzzle_num} · Archive</title>
+  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Retrouvez la réponse et les indices progressifs de ce puzzle.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{SITE_URL}/archive/{date_str}.html">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
+  <meta property="og:description" content="Réponse et indices du Cémantix du {date_display} (puzzle #{puzzle_num}).">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{SITE_URL}/archive/{date_str}.html">
+  <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
+    "datePublished": "{date_str}T08:00:00+01:00",
+    "dateModified": "{date_str}T08:00:00+01:00",
+    "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
+    "url": "{SITE_URL}/archive/{date_str}.html",
+    "author": {{"@type": "Organization", "name": "Cémantix Solution"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Quelle est la solution du Cémantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "La réponse du Cémantix #{puzzle_num} du {date_display} est : {word}."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Cémantix — Archive</h1>
+  <p class="subtitle">Solution du {date_display} — #{puzzle_num}</p>
+</header>
+
+<main>
+  <nav class="nav-archive" aria-label="Navigation entre les archives">
+    {nav_prev}
+    <a class="nav-center" href="index.html">Toutes les archives</a>
+    {nav_next}
+  </nav>
+
+  <article>
+
+    <div class="card">
+      <h2>Cémantix #{puzzle_num} — <time datetime="{date_str}">{date_display}</time></h2>
+      <p>
+        Retrouvez la <strong>solution du Cémantix du {date_display}</strong> (puzzle #{puzzle_num})
+        et les <strong>indices progressifs</strong> pour ce puzzle.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Indices progressifs</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
+      </p>
+
+      <div class="hint-level">
+        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
+          &#127777; Niveau 1 — Indices vagues (cliquer pour révéler)
+        </button>
+        <div class="hint-content" id="content-l1">
+          <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
+          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
+        </div>
+      </div>
+
+      <div class="hint-level">
+        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
+          &#128293; Niveau 2 — Indices proches (déverrouillé après niveau 1)
+        </button>
+        <div class="hint-content" id="content-l2">
+          <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
+          <div class="hint-words">{hints_l2 or "<em>Aucun indice disponible</em>"}</div>
+        </div>
+      </div>
+
+      <div class="hint-level">
+        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
+          &#128561; Niveau 3 — Indices très proches (déverrouillé après niveau 2)
+        </button>
+        <div class="hint-content" id="content-l3">
+          <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
+          <div class="hint-words">{hints_l3 or "<em>Aucun indice disponible</em>"}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>La solution du {date_display}</h2>
+      <div style="text-align:center;margin:.5rem 0 1rem;">
+        <!-- Toujours dans le DOM pour les crawlers — visuellement flouté avant clic -->
+        <div class="solution-blur" id="solution-wrap">
+          <span class="solution-word">{word}</span>
+        </div>
+        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
+          Cliquer pour révéler la réponse
+        </button>
+      </div>
+      <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
+    </div>
+
+  </article>
+
+  <nav class="nav-archive" aria-label="Navigation entre les archives">
+    {nav_prev}
+    <a class="nav-center" href="index.html">Toutes les archives</a>
+    {nav_next}
+  </nav>
+</main>
+
+<footer>
+  <p>
+    <a href="../index.html">Solution du jour</a> ·
+    <a href="index.html">Archives</a> ·
+    <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
+</footer>
+
+<script>
+  var revealed = [false, false, false];
+
+  function revealHint(level) {{
+    if (level > 1 && !revealed[level - 2]) return;
+    var btn = document.getElementById('btn-l' + level);
+    var content = document.getElementById('content-l' + level);
+    content.classList.add('visible');
+    btn.disabled = true;
+    revealed[level - 1] = true;
+    var next = level + 1;
+    if (next <= 3) {{
+      var nextBtn = document.getElementById('btn-l' + next);
+      if (nextBtn) nextBtn.disabled = false;
+    }}
+  }}
+
+  function revealSolution() {{
+    document.getElementById('solution-wrap').classList.add('revealed');
+    document.getElementById('reveal-btn').style.display = 'none';
+  }}
+</script>
+
+</body>
+</html>"""
+
+    atomic_write(ARCHIVE_DIR / f"{date_str}.html", html)
+
+
+def generate_archive_index(entries: list[dict]) -> None:
+    """
+    Génère docs/archive/index.html — liste de toutes les solutions passées.
+    entries : liste triée par date DESC (plus récent en premier).
+    """
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+
+    def item_html(e: dict) -> str:
+        d = date.fromisoformat(e["date"])
+        return (
+            f'      <li class="arch-item">'
+            f'<span class="arch-date">{date_fr(d)}</span>'
+            f'<span class="arch-num">#{e["puzzle_num"]}</span>'
+            f'<a class="arch-link" href="{e["date"]}.html">{e["word"].upper()}</a>'
+            f'</li>'
+        )
+
+    items_html = "\n".join(item_html(e) for e in entries)
+    count = len(entries)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Archives Cémantix — Toutes les solutions du jour</title>
+  <meta name="description" content="Retrouvez toutes les solutions passées de Cémantix : réponses et indices de chaque puzzle depuis le début.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{SITE_URL}/archive/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Archives Cémantix — Toutes les solutions">
+  <meta property="og:description" content="Toutes les solutions passées du jeu Cémantix avec indices progressifs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{SITE_URL}/archive/">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Archives Cémantix</h1>
+  <p class="subtitle">{count} solution{"s" if count > 1 else ""} enregistrée{"s" if count > 1 else ""}</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Toutes les solutions Cémantix</h2>
+    <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+      Cliquez sur un mot pour voir la solution complète et les indices de ce jour.
+    </p>
+    <ul class="arch-list">
+{items_html}
+    </ul>
+  </div>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../index.html">Solution du jour &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="../index.html">Solution du jour</a> ·
+    <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(ARCHIVE_DIR / "index.html", html)
+
+
+def generate_index_html(
+    today: date,
+    puzzle_num: int,
+    word: str,
+    hints: dict,
+    recent_archives: list | None = None,
+) -> None:
     date_str = today.isoformat()
     date_display = date_fr(today)
+    hints_l1, hints_l2, hints_l3 = _hints_html(hints)
 
-    def words_html(words: list[str]) -> str:
-        return "".join(f'<span class="hint-tag">{w}</span>' for w in words)
-
-    hints_l1 = words_html(hints.get("level1", []))
-    hints_l2 = words_html(hints.get("level2", []))
-    hints_l3 = words_html(hints.get("level3", []))
+    # Section "Solutions précédentes"
+    recent_archives_card = ""
+    if recent_archives:
+        def arch_item(e: dict) -> str:
+            d = date.fromisoformat(e["date"])
+            return (
+                f'      <li class="arch-item">'
+                f'<span class="arch-date">{date_fr(d)}</span>'
+                f'<span class="arch-num">#{e["puzzle_num"]}</span>'
+                f'<a class="arch-link" href="archive/{e["date"]}.html">{e["word"].upper()}</a>'
+                f'</li>'
+            )
+        items = "\n".join(arch_item(e) for e in recent_archives[:7])
+        recent_archives_card = f"""
+    <div class="card">
+      <h2>Solutions précédentes</h2>
+      <ul class="arch-list">
+{items}
+      </ul>
+      <p style="margin-top:.75rem;font-size:.9rem;">
+        <a href="archive/">Voir toutes les archives &#8594;</a>
+      </p>
+    </div>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -285,7 +635,7 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
 
       <div class="hint-level">
         <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          🌡 Niveau 1 — Indices vagues (cliquer pour révéler)
+          &#127777; Niveau 1 — Indices vagues (cliquer pour révéler)
         </button>
         <div class="hint-content" id="content-l1">
           <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
@@ -295,7 +645,7 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
 
       <div class="hint-level">
         <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          🔥 Niveau 2 — Indices proches (déverrouillé après niveau 1)
+          &#128293; Niveau 2 — Indices proches (déverrouillé après niveau 1)
         </button>
         <div class="hint-content" id="content-l2">
           <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
@@ -305,7 +655,7 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
 
       <div class="hint-level">
         <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          😱 Niveau 3 — Indices très proches (déverrouillé après niveau 2)
+          &#128561; Niveau 3 — Indices très proches (déverrouillé après niveau 2)
         </button>
         <div class="hint-content" id="content-l3">
           <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
@@ -345,12 +695,12 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
         Vous êtes au bon endroit.
       </p>
     </div>
-
+{recent_archives_card}
   </article>
 </main>
 
 <footer>
-  <p>Site non officiel — Solution générée automatiquement · <a href="{SITE_URL}/">Accueil</a></p>
+  <p>Site non officiel — Solution générée automatiquement · <a href="{SITE_URL}/">Accueil</a> · <a href="archive/">Archives</a></p>
   <p style="margin-top:.4rem;">Jouer sur <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">cemantix.certitudes.org</a></p>
 </footer>
 
@@ -383,8 +733,8 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
     atomic_write(DOCS_DIR / "index.html", html)
 
 
-def update_sitemap(today: date, archive_dates: list[date]) -> None:
-    """Génère un sitemap.xml avec la page principale et les archives."""
+def update_sitemap(today: date, archive_dates: list) -> None:
+    """Génère un sitemap.xml avec la page principale, l'index et les pages HTML d'archive."""
     urls = [f"""  <url>
     <loc>{SITE_URL}/</loc>
     <lastmod>{today.isoformat()}</lastmod>
@@ -392,12 +742,22 @@ def update_sitemap(today: date, archive_dates: list[date]) -> None:
     <priority>1.0</priority>
   </url>"""]
 
-    for d in sorted(archive_dates, reverse=True)[:30]:  # 30 dernières archives
+    if archive_dates:
+        latest = max(archive_dates).isoformat() if archive_dates else today.isoformat()
         urls.append(f"""  <url>
-    <loc>{SITE_URL}/archive/{d.isoformat()}.json</loc>
-    <lastmod>{d.isoformat()}</lastmod>
+    <loc>{SITE_URL}/archive/</loc>
+    <lastmod>{latest}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    for d in sorted(archive_dates, reverse=True)[:60]:
+        d_str = d.isoformat()
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/archive/{d_str}.html</loc>
+    <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>""")
 
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -408,16 +768,48 @@ def update_sitemap(today: date, archive_dates: list[date]) -> None:
     atomic_write(DOCS_DIR / "sitemap.xml", sitemap)
 
 
-def collect_archive_dates() -> list[date]:
-    """Retourne les dates des fichiers JSON déjà dans le dossier archive."""
-    dates = []
-    if ARCHIVE_DIR.exists():
-        for f in ARCHIVE_DIR.glob("????-??-??.json"):
-            try:
-                dates.append(date.fromisoformat(f.stem))
-            except ValueError:
-                pass
-    return dates
+# ── Orchestration HTML ────────────────────────────────────────────────────────
+
+def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict) -> None:
+    """
+    Génère tous les fichiers HTML à partir des JSON déjà en place :
+    - docs/archive/YYYY-MM-DD.html pour chaque archive passée
+    - docs/archive/index.html
+    - docs/index.html (avec section "Solutions précédentes")
+    - docs/sitemap.xml
+    """
+    # Charger toutes les archives (JSON), trier par date DESC
+    all_archives = load_all_archives()
+
+    # Séparer les archives passées (tout sauf aujourd'hui)
+    today_str = today.isoformat()
+    past_archives = [e for e in all_archives if e["date"] != today_str]
+
+    # Pages HTML individuelles pour chaque archive passée
+    print(f"Génération des pages HTML d'archive ({len(past_archives)} pages)…")
+    for i, entry in enumerate(past_archives):
+        d = date.fromisoformat(entry["date"])
+        # past_archives trié DESC : [0]=plus récent, [-1]=plus ancien
+        # prev = plus ancienne = past_archives[i+1]
+        # next = plus récente  = past_archives[i-1]
+        prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
+        next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
+        entry_hints = entry.get("hints", {"level1": [], "level2": [], "level3": []})
+        generate_archive_html(d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date)
+
+    # Index des archives
+    print("Génération de docs/archive/index.html…")
+    generate_archive_index(past_archives)
+
+    # Page principale avec les 7 dernières archives
+    recent_archives = past_archives[:7]
+    print("Génération de docs/index.html…")
+    generate_index_html(today, puzzle_num, word, hints, recent_archives)
+
+    # Sitemap incluant les pages HTML d'archive
+    print("Mise à jour de docs/sitemap.xml…")
+    archive_dates = [date.fromisoformat(e["date"]) for e in past_archives]
+    update_sitemap(today, archive_dates)
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────
@@ -450,10 +842,8 @@ def main():
             word = existing["word"]
             hints = existing.get("hints", {"level1": [], "level2": [], "level3": []})
             print(f"ℹ Solution déjà présente pour aujourd'hui : {word!r} — régénération HTML uniquement.")
-            generate_index_html(today, puzzle_num, word, hints)
             generate_archive_json(today, existing)
-            archive_dates = collect_archive_dates()
-            update_sitemap(today, archive_dates)
+            _generate_all_html(today, puzzle_num, word, hints)
             print(f"🎉 HTML régénéré ({today.isoformat()}, #{puzzle_num}, {word!r})\n")
             return
 
@@ -468,39 +858,35 @@ def main():
 
     print(f"\n✅ Solution trouvée : {word!r} ({len(tried)} mots testés)\n")
 
-    # 3. Récupération des voisins depuis l'API
+    # 4. Récupération des voisins depuis l'API
     print("Récupération des 1000 voisins proches via /nearby…")
     nearby = get_nearby(word, puzzle_num)
     print(f"   {len(nearby)} voisins récupérés")
 
-    # 4. Sélection des indices
+    # 5. Sélection des indices
     hints = select_hints(nearby)
     print(f"   Indices niveau 1 : {hints['level1']}")
     print(f"   Indices niveau 2 : {hints['level2']}")
     print(f"   Indices niveau 3 : {hints['level3']}")
 
-    # 5. solution.json
+    # 6. solution.json
     print("\nGénération de docs/solution.json…")
     data = generate_solution_json(today, puzzle_num, word, hints, len(tried))
 
-    # 6. index.html
-    print("Génération de docs/index.html…")
-    generate_index_html(today, puzzle_num, word, hints)
-
-    # 7. archive
+    # 7. archive JSON
     print(f"Génération de docs/archive/{today.isoformat()}.json…")
     generate_archive_json(today, data)
 
-    # 8. sitemap
-    print("Mise à jour de docs/sitemap.xml…")
-    archive_dates = collect_archive_dates()
-    update_sitemap(today, archive_dates)
+    # 8. Tout le HTML (index, archives, sitemap)
+    _generate_all_html(today, puzzle_num, word, hints)
 
     print(f"\n🎉 Site généré avec succès pour le {date_fr(today)} (puzzle #{puzzle_num} — {word!r})")
-    print(f"   docs/index.html      ✓")
-    print(f"   docs/solution.json   ✓")
-    print(f"   docs/archive/        ✓")
-    print(f"   docs/sitemap.xml     ✓\n")
+    print(f"   docs/index.html           ✓")
+    print(f"   docs/solution.json        ✓")
+    print(f"   docs/archive/*.json       ✓")
+    print(f"   docs/archive/*.html       ✓")
+    print(f"   docs/archive/index.html   ✓")
+    print(f"   docs/sitemap.xml          ✓\n")
 
 
 if __name__ == "__main__":

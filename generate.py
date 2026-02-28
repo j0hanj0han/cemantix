@@ -199,6 +199,7 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Indices progressifs en 3 niveaux pour trouver la réponse au mot secret du jour sans spoiler immédiat.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
   <meta property="og:description" content="Réponse et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret sans vous faire spoiler.">
@@ -253,6 +254,8 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
   </script>
 
   <link rel="stylesheet" href="css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 

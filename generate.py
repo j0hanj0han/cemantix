@@ -441,7 +441,22 @@ def main():
         puzzle_num = get_puzzle_number()
         print(f"Puzzle du jour : #{puzzle_num}")
 
-    # 2. Résolution via solver.py
+    # 2. Vérifier si la solution est déjà générée pour aujourd'hui
+    solution_path = DOCS_DIR / "solution.json"
+    if solution_path.exists():
+        existing = json.loads(solution_path.read_text(encoding="utf-8"))
+        if existing.get("date") == today.isoformat() and existing.get("word"):
+            word = existing["word"]
+            hints = existing.get("hints", {"level1": [], "level2": [], "level3": []})
+            print(f"ℹ Solution déjà présente pour aujourd'hui : {word!r} — régénération HTML uniquement.")
+            generate_index_html(today, puzzle_num, word, hints)
+            generate_archive_json(today, existing)
+            archive_dates = collect_archive_dates()
+            update_sitemap(today, archive_dates)
+            print(f"🎉 HTML régénéré ({today.isoformat()}, #{puzzle_num}, {word!r})\n")
+            return
+
+    # 3. Résolution via solver.py
     print(f"\nRésolution du puzzle #{puzzle_num}…")
     from solver import solve
     word, tried = solve(puzzle_num, args.model)

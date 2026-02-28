@@ -3,10 +3,15 @@ name: Generate daily solution
 on:
   schedule:
     - cron: '0 7 * * *'   # 8h00 heure de Paris (UTC+1)
-  workflow_dispatch:        # déclenchement manuel pour tests
+  workflow_dispatch:        # déclenchement manuel
 
 permissions:
   contents: write
+
+# Note : ce workflow régénère le HTML si docs/solution.json contient déjà
+# la solution du jour (mise à jour via cron local sur Mac).
+# Si l'API Cémantix est inaccessible depuis GitHub Actions, le job échoue
+# gracieusement sans casser le site existant.
 
 jobs:
   generate:
@@ -47,6 +52,8 @@ jobs:
         run: pip install -r requirements.txt
 
       # ── Génération ─────────────────────────────────────────────────────────
+      # Si docs/solution.json est déjà à jour (mis par le cron local Mac),
+      # generate.py régénère juste le HTML sans appeler l'API Cémantix.
       - name: Generate daily solution
         run: python generate.py
 

@@ -1,67 +1,97 @@
-name: Generate daily solution
+name: Regenerate HTML from solution
 
 on:
-  schedule:
-    - cron: '0 7 * * *'   # 8h00 heure de Paris (UTC+1)
-  workflow_dispatch:        # déclenchement manuel
+  push:
+    paths:
+      - 'docs/solution.json'   # déclenché quand le Mac pousse la solution
+  workflow_dispatch:            # déclenchement manuel
 
 permissions:
   contents: write
 
-# Note : ce workflow régénère le HTML si docs/solution.json contient déjà
-# la solution du jour (mise à jour via cron local sur Mac).
-# Si l'API Cémantix est inaccessible depuis GitHub Actions, le job échoue
-# gracieusement sans casser le site existant.
+# Architecture :
+# - Le solveur tourne en CRON LOCAL sur Mac (run_daily.sh) — IP résidentielle
+# - Mac génère docs/ et pousse sur GitHub
+# - Ce workflow se déclenche sur le push et régénère le HTML si besoin
+# - Pas besoin du modèle .bin ici (solution déjà dans docs/solution.json)
 
 jobs:
-  generate:
+  regenerate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── Cache du modèle word2vec (~120 Mo) ─────────────────────────────────
-      - name: Cache word2vec model
-        id: cache-model
-        uses: actions/cache@v4
-        with:
-          path: frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin
-          key: word2vec-frwac-v1
-
-      - name: Download model if not cached
-        if: steps.cache-model.outputs.cache-hit != 'true'
+      - name: Check if solution.json is for today
+        id: check
         run: |
-          curl -L -o frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin \
-            "https://embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
+          TODAY=$(date +'%Y-%m-%d')
+          if [ -f docs/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/solution.json')); print(d.get('date',''))")
+            echo "doc_date=$DOC_DATE" >> "$GITHUB_OUTPUT"
+            if [ "$DOC_DATE" = "$TODAY" ]; then
+              echo "up_to_date=true" >> "$GITHUB_OUTPUT"
+              echo "✅ solution.json est à jour pour $TODAY"
+            else
+              echo "up_to_date=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ solution.json date=$DOC_DATE, aujourd'hui=$TODAY — pas encore mis à jour par le Mac"
+            fi
+          else
+            echo "up_to_date=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/solution.json introuvable"
+          fi
 
-      # ── Python ─────────────────────────────────────────────────────────────
-      - name: Set up Python
+      - name: Set up Python (only if solution is ready)
+        if: steps.check.outputs.up_to_date == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Cache pip dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: pip-
+      - name: Install minimal dependencies (only if solution is ready)
+        if: steps.check.outputs.up_to_date == 'true'
+        run: pip install requests cloudscraper beautifulsoup4
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Regenerate HTML from existing solution.json
+        if: steps.check.outputs.up_to_date == 'true'
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+          from pathlib import Path
+          from datetime import date
 
-      # ── Génération ─────────────────────────────────────────────────────────
-      # Si docs/solution.json est déjà à jour (mis par le cron local Mac),
-      # generate.py régénère juste le HTML sans appeler l'API Cémantix.
-      - name: Generate daily solution
-        run: python generate.py
+          # Import generate.py helpers sans lancer main()
+          sys.path.insert(0, '.')
+          import generate as g
 
-      # ── Commit & push ──────────────────────────────────────────────────────
-      - name: Commit and push generated files
+          data = json.loads(Path('docs/solution.json').read_text(encoding='utf-8'))
+          today = date.fromisoformat(data['date'])
+          puzzle_num = data['puzzle_num']
+          word = data['word']
+          hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
+
+          print(f"Régénération HTML pour {g.date_fr(today)} #{puzzle_num} '{word}'")
+          g.generate_index_html(today, puzzle_num, word, hints)
+
+          archive_dates = g.collect_archive_dates()
+          g.update_sitemap(today, archive_dates)
+          print("✅ index.html + sitemap.xml régénérés")
+          EOF
+
+      - name: Commit and push if HTML changed
+        if: steps.check.outputs.up_to_date == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
-          git diff --staged --quiet || git commit -m "chore: solution $(date +'%Y-%m-%d') [skip ci]"
+          git add docs/index.html docs/sitemap.xml
+          git diff --staged --quiet || git commit -m "chore: HTML $(date +'%Y-%m-%d') [skip ci]"
           git push
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.check.outputs.up_to_date }}" = "true" ]; then
+            echo "### ✅ HTML régénéré pour ${{ steps.check.outputs.doc_date }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ℹ Pas d'action — solution.json pas encore mis à jour par le cron local Mac" >> $GITHUB_STEP_SUMMARY
+            echo "Le cron local tourne à 08h05 heure de Paris. Vérifier run_daily.log si problème." >> $GITHUB_STEP_SUMMARY
+          fi

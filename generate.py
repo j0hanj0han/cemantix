@@ -257,102 +257,98 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
 <body>
 
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="site-logo" href="{SITE_URL}/">Cémantix — Solution du jour</a>
-    <span class="site-date"><time datetime="{date_str}">{date_display}</time></span>
-  </div>
-  <div class="hero">
-    <p class="hero-eyebrow">Puzzle #{puzzle_num} &middot; Réponse &amp; indices progressifs</p>
-    <h1>Cémantix du <em>{date_display}</em></h1>
-    <p class="hero-intro">
-      Vous cherchez la <strong>solution du Cémantix #{puzzle_num}</strong> ?
-      Déverrouillez les indices progressivement ou révélez directement la
-      <strong>réponse du jour</strong> si vous êtes bloqué.
-    </p>
-  </div>
+  <h1>Cémantix — Solution du jour</h1>
+  <p class="subtitle">Réponse &amp; indices progressifs — #{puzzle_num}</p>
 </header>
 
 <main>
   <article>
 
-    <section aria-label="Indices progressifs">
-      <h2 class="section-label">Indices progressifs</h2>
+    <div class="card">
+      <h2>Cémantix #{puzzle_num} — <time datetime="{date_str}">{date_display}</time></h2>
+      <p>
+        Vous cherchez la <strong>solution du Cémantix du {date_display}</strong> (puzzle #{puzzle_num}) ?
+        Cette page vous propose d'abord des <strong>indices progressifs</strong> pour ne pas
+        vous spoiler, puis la <strong>réponse complète</strong> si vous êtes bloqué.
+        La réponse au <em>mot du jour</em> et à la <em>réponse sémantix</em> est disponible ci-dessous.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Indices progressifs</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
+      </p>
 
       <div class="hint-level">
-        <button class="hint-btn lvl1" id="btn-l1" onclick="revealHint(1)">
-          <span class="temp-pip"></span>
-          <span class="btn-label">Niveau 1 — Indices tièdes</span>
-          <span class="btn-action">Révéler</span>
+        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
+          🌡 Niveau 1 — Indices vagues (cliquer pour révéler)
         </button>
-        <div class="hint-content lvl1" id="content-l1">
+        <div class="hint-content" id="content-l1">
           <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
-          <div class="hint-words">{hints_l1 or "<em>Indices indisponibles</em>"}</div>
+          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
         </div>
       </div>
 
       <div class="hint-level">
-        <button class="hint-btn lvl2" id="btn-l2" onclick="revealHint(2)" disabled>
-          <span class="temp-pip"></span>
-          <span class="btn-label">Niveau 2 — Indices chauds</span>
-          <span class="btn-action">Après niveau 1</span>
+        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
+          🔥 Niveau 2 — Indices proches (déverrouillé après niveau 1)
         </button>
-        <div class="hint-content lvl2" id="content-l2">
+        <div class="hint-content" id="content-l2">
           <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
-          <div class="hint-words">{hints_l2 or "<em>Indices indisponibles</em>"}</div>
+          <div class="hint-words">{hints_l2 or "<em>Aucun indice disponible</em>"}</div>
         </div>
       </div>
 
       <div class="hint-level">
-        <button class="hint-btn lvl3" id="btn-l3" onclick="revealHint(3)" disabled>
-          <span class="temp-pip"></span>
-          <span class="btn-label">Niveau 3 — Indices brûlants</span>
-          <span class="btn-action">Après niveau 2</span>
+        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
+          😱 Niveau 3 — Indices très proches (déverrouillé après niveau 2)
         </button>
-        <div class="hint-content lvl3" id="content-l3">
+        <div class="hint-content" id="content-l3">
           <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
-          <div class="hint-words">{hints_l3 or "<em>Indices indisponibles</em>"}</div>
+          <div class="hint-words">{hints_l3 or "<em>Aucun indice disponible</em>"}</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section aria-label="Solution du jour">
-      <h2 class="section-label">La réponse du {date_display}</h2>
-      <div class="solution-card">
+    <div class="card">
+      <h2>La solution du {date_display}</h2>
+      <div style="text-align:center;margin:.5rem 0 1rem;">
         <!-- Toujours dans le DOM pour les crawlers — visuellement flouté avant clic -->
         <div class="solution-blur" id="solution-wrap">
           <span class="solution-word">{word}</span>
         </div>
-        <p class="puzzle-meta">Puzzle #{puzzle_num} &middot; {date_display}</p>
         <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Révéler la solution
+          Cliquer pour révéler la réponse
         </button>
       </div>
-    </section>
+      <p class="puzzle-meta">Puzzle #{puzzle_num} · Généré automatiquement le {date_display}</p>
+    </div>
 
-    <section class="seo-section" aria-label="À propos de Cémantix">
-      <h2 class="section-label">À propos de Cémantix</h2>
+    <div class="card">
+      <h2>Comment jouer à Cémantix ?</h2>
       <p>
         <strong>Cémantix</strong> est un jeu de devinettes sémantiques quotidien disponible sur
         <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">cemantix.certitudes.org</a>.
-        Chaque jour, un nouveau <strong>mot secret</strong> est à deviner en soumettant des propositions.
-        Vous recevez un <em>score de température</em> : plus votre mot est sémantiquement proche de la
-        solution, plus la température monte — jusqu'à 100 °C pour la bonne réponse.
+        Chaque jour, un nouveau mot secret est à deviner. Les joueurs soumettent des propositions
+        et reçoivent un <em>score de température</em> indiquant la proximité sémantique avec la solution.
+        Plus le mot est proche, plus la température est élevée.
       </p>
-      <p>
-        Cette page publie chaque matin la <strong>réponse cémantix du jour</strong> ainsi que des
-        <strong>indices cémantix</strong> progressifs pour vous aider sans spoiler immédiat.
-        Revenez chaque jour pour la nouvelle <em>solution cémantix</em>.
+      <p style="margin-top:.75rem;">
+        Cette page est mise à jour automatiquement chaque matin avec la <strong>solution du jour</strong>
+        et des <strong>indices cémantix</strong> pour vous aider si vous êtes bloqué.
+        Revenez chaque jour pour la nouvelle <em>réponse cémantix</em> !
         Vous cherchez la <em>réponse sémantix</em> ou le <em>mot du jour cémantix</em> ?
         Vous êtes au bon endroit.
       </p>
-    </section>
+    </div>
 
   </article>
 </main>
 
 <footer>
-  <p>Site non officiel &middot; Solution générée automatiquement &middot;
-  <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a></p>
+  <p>Site non officiel — Solution générée automatiquement · <a href="{SITE_URL}/">Accueil</a></p>
+  <p style="margin-top:.4rem;">Jouer sur <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">cemantix.certitudes.org</a></p>
 </footer>
 
 <script>
@@ -360,20 +356,15 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
 
   function revealHint(level) {{
     if (level > 1 && !revealed[level - 2]) return;
-    document.getElementById('content-l' + level).classList.add('visible');
     var btn = document.getElementById('btn-l' + level);
+    var content = document.getElementById('content-l' + level);
+    content.classList.add('visible');
     btn.disabled = true;
-    var action = btn.querySelector('.btn-action');
-    if (action) action.textContent = 'Révélé';
     revealed[level - 1] = true;
     var next = level + 1;
     if (next <= 3) {{
-      var nb = document.getElementById('btn-l' + next);
-      if (nb) {{
-        nb.disabled = false;
-        var na = nb.querySelector('.btn-action');
-        if (na) na.textContent = 'Révéler';
-      }}
+      var nextBtn = document.getElementById('btn-l' + next);
+      if (nextBtn) nextBtn.disabled = false;
     }}
   }}
 

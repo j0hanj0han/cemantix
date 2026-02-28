@@ -252,28 +252,25 @@ def generate_index_html(today: date, puzzle_num: int, word: str, hints: dict) ->
   }}
   </script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="site-header-inner">
-    <a class="site-logo" href="{SITE_URL}/">Céman<span class="logo-accent">tix</span></a>
+    <a class="site-logo" href="{SITE_URL}/">Cémantix — Solution du jour</a>
     <span class="site-date"><time datetime="{date_str}">{date_display}</time></span>
   </div>
+  <div class="hero">
+    <p class="hero-eyebrow">Puzzle #{puzzle_num} &middot; Réponse &amp; indices progressifs</p>
+    <h1>Cémantix du <em>{date_display}</em></h1>
+    <p class="hero-intro">
+      Vous cherchez la <strong>solution du Cémantix #{puzzle_num}</strong> ?
+      Déverrouillez les indices progressivement ou révélez directement la
+      <strong>réponse du jour</strong> si vous êtes bloqué.
+    </p>
+  </div>
 </header>
-
-<div class="hero">
-  <p class="hero-eyebrow">Solution du jour &middot; Puzzle #{puzzle_num}</p>
-  <h1>Cémantix du <em>{date_display}</em><br>— Réponse &amp; Indices</h1>
-  <p class="hero-intro">
-    Vous cherchez la <strong>solution du Cémantix #{puzzle_num}</strong> ?
-    Déverrouillez les indices progressivement ou révélez directement la
-    <strong>réponse du jour</strong> si vous êtes bloqué.
-    Mis à jour automatiquement chaque matin.
-  </p>
-</div>
 
 <main>
   <article>

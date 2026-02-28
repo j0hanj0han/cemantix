@@ -26,7 +26,7 @@ import sys
 import time
 
 import numpy as np
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://cemantix.certitudes.org"
@@ -35,11 +35,10 @@ HEADERS = {
     "Content-Type": "application/x-www-form-urlencoded",
     "Origin": BASE_URL,
     "Referer": BASE_URL + "/",
-    "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
-    ),
 }
+
+# Session cloudscraper : gère automatiquement les défis Cloudflare JS
+_session = cloudscraper.create_scraper()
 
 SEEDS = [
     "vie", "mort", "amour", "temps", "monde", "homme", "femme", "enfant",
@@ -53,7 +52,7 @@ SEEDS = [
 # ── API ────────────────────────────────────────────────────────────────────────
 
 def get_puzzle_number() -> int:
-    resp = requests.get(BASE_URL, headers=HEADERS, timeout=10)
+    resp = _session.get(BASE_URL, headers=HEADERS, timeout=10)
     soup = BeautifulSoup(resp.text, "html.parser")
     script = soup.find("script", id="script")
     if not script:
@@ -69,7 +68,7 @@ def score_word(word: str, puzzle_num: int, delay: float = 0.2) -> dict | None:
     global api_calls
     time.sleep(delay)
     try:
-        resp = requests.post(
+        resp = _session.post(
             f"{BASE_URL}/score?n={puzzle_num}",
             data=f"word={word}",
             headers=HEADERS,
@@ -222,9 +221,12 @@ def solve(puzzle_num: int, model_path: str):
         print(f"\n   Meilleur jusqu'ici : '{best}' ({tried[best]*100:.2f}°C) — {attempt} essais")
         log_stats()
 
-    best = max(tried, key=tried.get)
+    if tried:
+        best = max(tried, key=tried.get)
+        print(f"❌ Non trouvé après {attempt} essais. Meilleur : '{best}' ({tried[best]*100:.2f}°C)")
+    else:
+        print("❌ Aucune réponse API obtenue (site inaccessible ou bloqué).")
     log_stats()
-    print(f"❌ Non trouvé après {attempt} essais. Meilleur : '{best}' ({tried[best]*100:.2f}°C)")
     return None, tried
 
 

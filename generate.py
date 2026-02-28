@@ -19,7 +19,7 @@ import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-import requests
+import cloudscraper
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -33,11 +33,10 @@ HEADERS = {
     "Content-Type": "application/x-www-form-urlencoded",
     "Origin": BASE_URL,
     "Referer": BASE_URL + "/",
-    "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
-    ),
 }
+
+# Session cloudscraper partagée (gère les défis Cloudflare JS)
+_session = cloudscraper.create_scraper()
 
 MONTHS_FR = [
     "", "janvier", "février", "mars", "avril", "mai", "juin",
@@ -74,7 +73,7 @@ def get_puzzle_number() -> int:
     """
     from bs4 import BeautifulSoup
     try:
-        resp = requests.get(BASE_URL, headers=HEADERS, timeout=10)
+        resp = _session.get(BASE_URL, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(resp.text, "html.parser")
         script = soup.find("script", id="script")
         if script and "data-puzzle-number" in script.attrs:
@@ -98,7 +97,7 @@ def get_nearby(word: str, puzzle_num: int) -> list[dict]:
     Réponse API : {"mot": [percentile, similarity], ...}
     """
     try:
-        resp = requests.post(
+        resp = _session.post(
             f"{BASE_URL}/nearby?n={puzzle_num}",
             data=f"word={word}",
             headers=HEADERS,

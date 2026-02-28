@@ -7,22 +7,48 @@ Site statique publiant automatiquement la solution quotidienne de [Cémantix](ht
 ## Architecture
 
 ```
-Mac (cron launchd, 08h05)
-  └─ run_daily.sh
-       └─ generate.py  ──► résout Cémantix via API (IP résidentielle)
-                       ──► génère docs/ (HTML, JSON, archives)
-                       └─ git push
+┌─────────────────────────────────────────────────────────────────────┐
+│  TON MAC  (IP résidentielle — non bloquée par Cémantix)             │
+│                                                                     │
+│  ⏰ launchd  →  run_daily.sh  →  generate.py                        │
+│  (08h05)                         │                                  │
+│                                  ├─ 1. Résout le puzzle via API     │
+│                                  ├─ 2. Génère docs/ (HTML + JSON)   │
+│                                  └─ 3. git commit + git push ──────►│
+└─────────────────────────────────────────────────────────────────────┘
+                                                                      │
+                                                          push vers   │
+                                                          GitHub      │
+                                                                      ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  GITHUB                                                             │
+│                                                                     │
+│  push docs/solution.json                                            │
+│        │                                                            │
+│        ▼                                                            │
+│  daily.yml (GitHub Actions)                                         │
+│        ├─ solution.json est pour aujourd'hui ?                      │
+│        │   OUI ──► _generate_all_html() (régénère tout le HTML)     │
+│        │   NON ──► rien (Mac n'a pas encore tourné)                 │
+│        └─ git commit + git push (si HTML changé)                   │
+│                                                                     │
+│  branch main / docs/  ──►  GitHub Pages                            │
+└─────────────────────────────────────────────────────────────────────┘
+                                                                      │
+                                                                      ▼
+                              https://j0hanj0han.github.io/cemantix/
 
-GitHub (déclenché sur push de docs/solution.json)
-  └─ .github/workflows/daily.yml
-       └─ régénère le HTML si solution.json est pour aujourd'hui
-
-GitHub Pages (automatique)
-  └─ sert docs/ depuis branch main
+Fichiers générés chaque jour :
+  docs/index.html              ← solution du jour + indices
+  docs/solution.json           ← données brutes
+  docs/archive/YYYY-MM-DD.json ← historique JSON
+  docs/archive/YYYY-MM-DD.html ← page d'archive avec nav prev/next
+  docs/archive/index.html      ← liste de toutes les solutions
+  docs/sitemap.xml             ← mis à jour
 ```
 
 **Pourquoi le solveur tourne en local ?**
-L'API Cémantix bloque les IPs des datacenters GitHub Actions. Le Mac utilise une IP résidentielle non bloquée.
+L'API Cémantix bloque les IPs des datacenters GitHub Actions (Cloudflare). Le Mac utilise une IP résidentielle non bloquée. GitHub Actions ne fait que régénérer le HTML à partir du JSON déjà produit.
 
 ---
 

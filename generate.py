@@ -44,6 +44,11 @@ MONTHS_FR = [
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
 
+# Point de référence pour calculer le numéro de puzzle par la date
+# (fallback si le site bloque la requête HTML)
+_REF_DATE = date(2026, 2, 28)
+_REF_PUZZLE = 1459
+
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -62,13 +67,27 @@ def atomic_write(path: Path, content: str) -> None:
 # ── API Cémantix ──────────────────────────────────────────────────────────────
 
 def get_puzzle_number() -> int:
+    """
+    Récupère le numéro du puzzle depuis le HTML du site.
+    Fallback : calcul à partir d'un point de référence connu si le site
+    bloque la requête (ex : IP GitHub Actions).
+    """
     from bs4 import BeautifulSoup
-    resp = requests.get(BASE_URL, headers=HEADERS, timeout=10)
-    soup = BeautifulSoup(resp.text, "html.parser")
-    script = soup.find("script", id="script")
-    if not script:
-        raise RuntimeError("Impossible de trouver le numéro du puzzle.")
-    return int(script["data-puzzle-number"])
+    try:
+        resp = requests.get(BASE_URL, headers=HEADERS, timeout=10)
+        soup = BeautifulSoup(resp.text, "html.parser")
+        script = soup.find("script", id="script")
+        if script and "data-puzzle-number" in script.attrs:
+            return int(script["data-puzzle-number"])
+        print("   ⚠ Tag <script id='script'> non trouvé — utilisation du fallback date")
+    except Exception as e:
+        print(f"   ⚠ Erreur lors de la récupération du puzzle : {e}")
+
+    # Fallback : le puzzle avance d'1 par jour
+    delta = (date.today() - _REF_DATE).days
+    puzzle_num = _REF_PUZZLE + delta
+    print(f"   Fallback : puzzle #{puzzle_num} (calculé à partir du {_REF_DATE.isoformat()} = #{_REF_PUZZLE})")
+    return puzzle_num
 
 
 def get_nearby(word: str, puzzle_num: int) -> list[dict]:

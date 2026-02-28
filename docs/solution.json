@@ -1,0 +1,24 @@
+{
+  "date": "2026-02-28",
+  "puzzle_num": 1459,
+  "word": "cancer",
+  "hints": {
+    "level1": [
+      "alcoologie",
+      "dérembourser",
+      "infectieux"
+    ],
+    "level2": [
+      "macrolide",
+      "micronutriment",
+      "malaria"
+    ],
+    "level3": [
+      "trithérapie",
+      "andrologie",
+      "asbestose"
+    ]
+  },
+  "tried_count": 138,
+  "generated_at": "2026-02-28T08:00:04.394588+00:00"
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://j0hanj0han.github.io/cemantix/sitemap.xml

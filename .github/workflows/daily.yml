@@ -1,0 +1,60 @@
+name: Generate daily solution
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 8h00 heure de Paris (UTC+1)
+  workflow_dispatch:        # déclenchement manuel pour tests
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Cache du modèle word2vec (~120 Mo) ─────────────────────────────────
+      - name: Cache word2vec model
+        id: cache-model
+        uses: actions/cache@v4
+        with:
+          path: frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin
+          key: word2vec-frwac-v1
+
+      - name: Download model if not cached
+        if: steps.cache-model.outputs.cache-hit != 'true'
+        run: |
+          curl -L -o frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin \
+            "https://embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
+
+      # ── Python ─────────────────────────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── Génération ─────────────────────────────────────────────────────────
+      - name: Generate daily solution
+        run: python generate.py
+
+      # ── Commit & push ──────────────────────────────────────────────────────
+      - name: Commit and push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "chore: solution $(date +'%Y-%m-%d') [skip ci]"
+          git push

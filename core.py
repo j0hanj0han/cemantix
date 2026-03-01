@@ -33,3 +33,25 @@ def atomic_write(path: Path, content: str) -> None:
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(content, encoding="utf-8")
     tmp.replace(path)
+
+
+def load_all_archives(archive_dir: Path, required_keys: list[str] | None = None) -> list[dict]:
+    """
+    Charge tous les fichiers JSON d'un dossier archive (pattern YYYY-MM-DD.json).
+    Retourne une liste triée par date DESC.
+    required_keys : clés JSON obligatoires (défaut : ["date", "word"]).
+    """
+    import json
+    if required_keys is None:
+        required_keys = ["date", "word"]
+    entries = []
+    if archive_dir.exists():
+        for f in archive_dir.glob("????-??-??.json"):
+            try:
+                data = json.loads(f.read_text(encoding="utf-8"))
+                if all(k in data for k in required_keys):
+                    entries.append(data)
+            except Exception:
+                pass
+    entries.sort(key=lambda x: x["date"], reverse=True)
+    return entries

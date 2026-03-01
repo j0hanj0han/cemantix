@@ -14,7 +14,7 @@ import json
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write
+from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
 
 # ── Configuration Sutom ───────────────────────────────────────────────────────
 
@@ -72,18 +72,7 @@ def generate_archive_json(today: date, data: dict) -> None:
 
 
 def load_all_archives() -> list[dict]:
-    """Charge tous les JSON de sutom/archive/, triés par date DESC."""
-    entries = []
-    if SUTOM_ARCHIVE.exists():
-        for f in SUTOM_ARCHIVE.glob("????-??-??.json"):
-            try:
-                data = json.loads(f.read_text(encoding="utf-8"))
-                if "date" in data and "word" in data:
-                    entries.append(data)
-            except Exception:
-                pass
-    entries.sort(key=lambda x: x["date"], reverse=True)
-    return entries
+    return _load_archives(SUTOM_ARCHIVE)
 
 
 def generate_archive_html(

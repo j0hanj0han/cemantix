@@ -26,8 +26,9 @@ import sys
 import time
 
 import numpy as np
-import cloudscraper
 from bs4 import BeautifulSoup
+
+from core import _session
 
 BASE_URL = "https://cemantix.certitudes.org"
 SIMILARITY_THRESHOLD = 0.1  # seuil cosinus minimum pour soumettre un candidat local
@@ -36,9 +37,6 @@ HEADERS = {
     "Origin": BASE_URL,
     "Referer": BASE_URL + "/",
 }
-
-# Session cloudscraper : gère automatiquement les défis Cloudflare JS
-_session = cloudscraper.create_scraper()
 
 SEEDS = [
     "vie", "mort", "amour", "temps", "monde", "homme", "femme", "enfant",

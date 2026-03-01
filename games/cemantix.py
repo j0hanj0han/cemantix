@@ -13,7 +13,7 @@ import json
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write
+from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
 
@@ -115,21 +115,7 @@ def select_hints(nearby: list[dict]) -> dict:
 # ── Chargement des archives ───────────────────────────────────────────────────
 
 def load_all_archives() -> list[dict]:
-    """
-    Charge tous les fichiers JSON du dossier cemantix/archive/.
-    Retourne une liste triée par date DESC.
-    """
-    entries = []
-    if CEMANTIX_ARCHIVE.exists():
-        for f in CEMANTIX_ARCHIVE.glob("????-??-??.json"):
-            try:
-                data = json.loads(f.read_text(encoding="utf-8"))
-                if "date" in data and "word" in data and "puzzle_num" in data:
-                    entries.append(data)
-            except Exception:
-                pass
-    entries.sort(key=lambda x: x["date"], reverse=True)
-    return entries
+    return _load_archives(CEMANTIX_ARCHIVE, required_keys=["date", "word", "puzzle_num"])
 
 
 # ── Génération des fichiers ───────────────────────────────────────────────────

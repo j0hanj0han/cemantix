@@ -22,8 +22,10 @@ SUTOM_DIR = DOCS_DIR / "sutom"
 SUTOM_ARCHIVE = SUTOM_DIR / "archive"
 SUTOM_SITE_URL = f"{SITE_URL}/sutom"
 
-# Date de lancement de Sutom
-_SUTOM_LAUNCH = date(2022, 1, 10)
+# Identifiant de partie par défaut (source : js/instanceConfiguration.js)
+_SUTOM_PARTIE_ID = "34ccc522-c264-4e51-b293-fd5bd60ef7aa"
+# Date d'origine (source : instanceConfiguration.dateOrigine = new Date(2022, 0, 8))
+_SUTOM_LAUNCH = date(2022, 1, 8)
 
 
 # ── API Sutom ─────────────────────────────────────────────────────────────────
@@ -31,20 +33,20 @@ _SUTOM_LAUNCH = date(2022, 1, 10)
 def get_sutom_solution(today: date) -> tuple[str | None, int | None]:
     """
     Récupère la solution Sutom du jour via l'endpoint fichier direct.
+    URL : https://sutom.nocle.fr/mots/{btoa(uuid-YYYY-MM-DD)}.txt
     Retourne (word, puzzle_num) ou (None, None) si indisponible.
     """
-    for game_id in ["default", "sutom"]:
-        raw = f"{game_id}-{today.isoformat()}".encode()
-        filename = base64.b64encode(raw).decode().rstrip("=")
-        url = f"https://sutom.nocle.fr/public/mots/{filename}.txt"
-        try:
-            resp = _session.get(url, timeout=10)
-            if resp.status_code == 200 and resp.text.strip():
-                word = resp.text.strip().upper()
-                puzzle_num = (today - _SUTOM_LAUNCH).days + 1
-                return word, puzzle_num
-        except Exception as e:
-            print(f"   ⚠ Sutom [{game_id}] : {e}")
+    raw = f"{_SUTOM_PARTIE_ID}-{today.isoformat()}".encode()
+    filename = base64.b64encode(raw).decode()  # padding = conservé (comme btoa JS)
+    url = f"https://sutom.nocle.fr/mots/{filename}.txt"
+    try:
+        resp = _session.get(url, timeout=10)
+        if resp.status_code == 200 and resp.text.strip():
+            word = resp.text.strip().upper()
+            puzzle_num = (today - _SUTOM_LAUNCH).days + 1
+            return word, puzzle_num
+    except Exception as e:
+        print(f"   ⚠ Sutom : {e}")
 
     return None, None
 

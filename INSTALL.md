@@ -1,6 +1,7 @@
-# Cémantix Solution — Guide d'installation et déploiement
+# Solutions du Jour — Guide d'installation et déploiement
 
-Site statique publiant automatiquement la solution quotidienne de [Cémantix](https://cemantix.certitudes.org) sur GitHub Pages.
+Site statique multi-jeux publiant automatiquement les solutions quotidiennes de
+[Cémantix](https://cemantix.certitudes.org) et [Sutom](https://sutom.nocle.fr) sur GitHub Pages.
 
 ---
 
@@ -12,9 +13,12 @@ Site statique publiant automatiquement la solution quotidienne de [Cémantix](ht
 │                                                                     │
 │  ⏰ launchd  →  run_daily.sh  →  generate.py                        │
 │  (08h05)                         │                                  │
-│                                  ├─ 1. Résout le puzzle via API     │
-│                                  ├─ 2. Génère docs/ (HTML + JSON)   │
-│                                  └─ 3. git commit + git push ──────►│
+│                                  ├─ 1. games/cemantix.run()         │
+│                                  │     → résout via word2vec        │
+│                                  ├─ 2. games/sutom.run()            │
+│                                  │     → récupère via API           │
+│                                  ├─ 3. Hub + sitemap global         │
+│                                  └─ 4. git commit + git push ──────►│
 └─────────────────────────────────────────────────────────────────────┘
                                                                       │
                                                           push vers   │
@@ -23,13 +27,14 @@ Site statique publiant automatiquement la solution quotidienne de [Cémantix](ht
 ┌─────────────────────────────────────────────────────────────────────┐
 │  GITHUB                                                             │
 │                                                                     │
-│  push docs/solution.json                                            │
+│  push docs/cemantix/solution.json                                   │
+│       docs/sutom/solution.json                                      │
 │        │                                                            │
 │        ▼                                                            │
 │  daily.yml (GitHub Actions)                                         │
-│        ├─ solution.json est pour aujourd'hui ?                      │
-│        │   OUI ──► _generate_all_html() (régénère tout le HTML)     │
-│        │   NON ──► rien (Mac n'a pas encore tourné)                 │
+│        ├─ solution Cémantix à jour ? → _generate_all_html()        │
+│        ├─ solution Sutom à jour ?    → _generate_all_html()        │
+│        ├─ hub page + sitemap global                                 │
 │        └─ git commit + git push (si HTML changé)                   │
 │                                                                     │
 │  branch main / docs/  ──►  GitHub Pages                            │
@@ -39,16 +44,41 @@ Site statique publiant automatiquement la solution quotidienne de [Cémantix](ht
                               https://j0hanj0han.github.io/cemantix/
 
 Fichiers générés chaque jour :
-  docs/index.html              ← solution du jour + indices
-  docs/solution.json           ← données brutes
-  docs/archive/YYYY-MM-DD.json ← historique JSON
-  docs/archive/YYYY-MM-DD.html ← page d'archive avec nav prev/next
-  docs/archive/index.html      ← liste de toutes les solutions
-  docs/sitemap.xml             ← mis à jour
+  docs/index.html                       ← hub multi-jeux
+  docs/sitemap.xml                      ← sitemap global
+  docs/cemantix/index.html              ← solution + indices Cémantix
+  docs/cemantix/solution.json           ← {date, puzzle_num, word, hints, tried_count}
+  docs/cemantix/archive/YYYY-MM-DD.json
+  docs/cemantix/archive/YYYY-MM-DD.html
+  docs/cemantix/archive/index.html
+  docs/sutom/index.html                 ← solution Sutom
+  docs/sutom/solution.json              ← {date, puzzle_num, word, letter_count, first_letter}
+  docs/sutom/archive/YYYY-MM-DD.json
+  docs/sutom/archive/YYYY-MM-DD.html
+  docs/sutom/archive/index.html
 ```
 
-**Pourquoi le solveur tourne en local ?**
+**Pourquoi le solveur Cémantix tourne en local ?**
 L'API Cémantix bloque les IPs des datacenters GitHub Actions (Cloudflare). Le Mac utilise une IP résidentielle non bloquée. GitHub Actions ne fait que régénérer le HTML à partir du JSON déjà produit.
+
+Sutom n'a pas cette contrainte — son API est publique — mais on le génère aussi en local pour simplifier.
+
+---
+
+## Structure du code
+
+```
+cemantix/
+├── core.py               ← utilitaires partagés (session, date_fr, atomic_write, load_all_archives)
+├── games/
+│   ├── cemantix.py       ← logique Cémantix complète (API, hints, HTML)
+│   ├── solver.py         ← algorithme word2vec (phases seeds→reconstruction→itération)
+│   └── sutom.py          ← récupération Sutom + HTML
+├── generate.py           ← orchestrateur (hub + sitemap global)
+├── run_daily.sh          ← script lancé par launchd
+├── io.cemantix.daily.plist
+└── docs/                 ← racine GitHub Pages
+```
 
 ---
 
@@ -76,7 +106,6 @@ cd cemantix
 python3 -m venv venv
 venv/bin/pip install --upgrade pip
 venv/bin/pip install -r requirements.txt
-venv/bin/pip install cloudscraper  # si pas déjà dans requirements.txt
 ```
 
 Vérifier l'installation :
@@ -87,14 +116,13 @@ venv/bin/python -c "import cloudscraper, gensim, bs4; print('OK')"
 
 ---
 
-## 3. Télécharger le modèle word2vec
+## 3. Télécharger le modèle word2vec (Cémantix uniquement)
 
 Le fichier `.bin` n'est pas dans le repo (`.gitignore`). Le placer à la racine du projet :
 
 ```bash
 # Télécharger depuis embeddings.org (≈120 Mo)
 # https://embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin
-# Ou via curl :
 curl -L -o frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin "URL_DU_MODELE"
 ```
 
@@ -103,27 +131,25 @@ curl -L -o frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin "URL_DU_MODELE"
 ## 4. Tester en local
 
 ```bash
-bash run_daily.sh
-```
-
-Ou directement :
-
-```bash
+# Lancement complet (Cémantix + Sutom + hub + sitemap)
 venv/bin/python generate.py
+
+# Ou via le script cron (identique à ce que fait launchd)
+bash run_daily.sh
 ```
 
 Vérifier le résultat :
 
 ```bash
-# La solution du jour
-cat docs/solution.json
-
-# Le site généré
-open docs/index.html
+cat docs/cemantix/solution.json   # solution Cémantix
+cat docs/sutom/solution.json      # solution Sutom
+open docs/index.html              # hub
+open docs/cemantix/index.html     # page Cémantix
+open docs/sutom/index.html        # page Sutom
 ```
 
-**Mode régénération uniquement** (si `docs/solution.json` contient déjà la solution du jour,
-`generate.py` ne relance pas le solveur — il régénère juste le HTML) :
+**Mode régénération uniquement** — si les `solution.json` contiennent déjà la solution du jour,
+`generate.py` ne relance pas les solveurs et régénère juste le HTML :
 
 ```bash
 venv/bin/python generate.py  # détecte automatiquement
@@ -144,10 +170,7 @@ Le fichier `io.cemantix.daily.plist` configure launchd pour lancer `run_daily.sh
 ### Installer le plist
 
 ```bash
-# Copier dans le dossier LaunchAgents de l'utilisateur
 cp io.cemantix.daily.plist ~/Library/LaunchAgents/
-
-# Charger l'agent (active le cron)
 launchctl load ~/Library/LaunchAgents/io.cemantix.daily.plist
 ```
 
@@ -162,7 +185,6 @@ launchctl list | grep cemantix
 
 ```bash
 launchctl start io.cemantix.daily
-# Puis vérifier les logs :
 tail run_daily.log
 ```
 
@@ -176,7 +198,7 @@ launchctl unload ~/Library/LaunchAgents/io.cemantix.daily.plist
 
 - Si le Mac est **éteint** à 08h05, le cron ne tourne pas ce jour-là (`RunAtLoad: false`).
 - Les logs sont dans `run_daily.log` (exclu du git).
-- Pour changer l'heure, modifier `Hour` et `Minute` dans le plist, puis recharger avec `unload` + `load`.
+- Pour changer l'heure, modifier `Hour` et `Minute` dans le plist, puis `unload` + `load`.
 
 ---
 
@@ -194,15 +216,14 @@ Le site sera disponible sur : `https://j0hanj0han.github.io/cemantix/`
 
 ## 7. Vérifier le workflow GitHub Actions
 
-Le workflow `.github/workflows/daily.yml` se déclenche automatiquement sur chaque push vers `docs/solution.json`.
+Le workflow `.github/workflows/daily.yml` se déclenche sur push vers
+`docs/cemantix/solution.json` ou `docs/sutom/solution.json`.
 
 Pour déclencher manuellement :
 
 ```bash
-# Via GitHub CLI
 gh workflow run daily.yml
-
-# Ou dans l'interface GitHub : Actions → "Regenerate HTML from solution" → Run workflow
+# Ou : Actions → "Regenerate HTML from solution" → Run workflow
 ```
 
 Pour vérifier les dernières exécutions :
@@ -213,38 +234,13 @@ gh run list --workflow=daily.yml
 
 ---
 
-## Structure des fichiers générés
-
-```
-docs/
-├── index.html              ← solution du jour (mise à jour quotidiennement)
-├── solution.json           ← {date, puzzle_num, word, hints, tried_count}
-├── sitemap.xml             ← mis à jour quotidiennement
-├── robots.txt              ← statique
-├── css/style.css           ← statique, mobile-first
-└── archive/
-    ├── index.html          ← liste de toutes les solutions passées
-    ├── 2026-02-28.json     ← données JSON de chaque jour
-    ├── 2026-02-28.html     ← page HTML avec nav prev/next
-    └── ...
-```
-
----
-
-## Mettre à jour les dépendances
-
-```bash
-venv/bin/pip install --upgrade -r requirements.txt
-```
-
----
-
 ## Résolution de problèmes
 
 | Symptôme | Cause probable | Solution |
 |---|---|---|
 | `ModuleNotFoundError: cloudscraper` | cloudscraper pas installé dans le venv | `venv/bin/pip install cloudscraper` |
-| `0 appels API` dans les logs | IP bloquée par Cloudflare | Normal si lancé depuis un datacenter. Le Mac (IP résidentielle) contourne ça |
-| Puzzle number incorrect | Site Cémantix inaccessible | Fallback automatique par calcul de date. Mettre à jour `_REF_DATE`/`_REF_PUZZLE` dans `generate.py` si décalé |
+| `0 appels API` dans les logs | IP bloquée par Cloudflare | Normal depuis un datacenter. Le Mac (IP résidentielle) contourne ça |
+| Puzzle number incorrect | Site Cémantix inaccessible | Fallback automatique par calcul de date. Mettre à jour `_REF_DATE`/`_REF_PUZZLE` dans `games/cemantix.py` si décalé |
+| Solution Sutom `None` | UUID ou URL Sutom changé | Vérifier `js/instanceConfiguration.js` sur sutom.nocle.fr pour le nouvel UUID (`idPartieParDefaut`) |
 | Rien dans les archives | Premier jour d'utilisation | Normal — les archives s'accumulent à partir du lendemain |
 | GitHub Actions échoue | `solution.json` pas pour aujourd'hui | Normal — le Mac n'a pas encore tourné. Le workflow attend le push local |

@@ -717,7 +717,7 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
 
     # Résolution via solver.py
     print(f"[Cémantix] Résolution du puzzle #{puzzle_num}…")
-    from solver import solve
+    from games.solver import solve
     word, tried = solve(puzzle_num, model_path)
 
     if not word:

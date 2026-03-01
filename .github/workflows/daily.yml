@@ -3,17 +3,18 @@ name: Regenerate HTML from solution
 on:
   push:
     paths:
-      - 'docs/solution.json'   # déclenché quand le Mac pousse la solution
-  workflow_dispatch:            # déclenchement manuel
+      - 'docs/cemantix/solution.json'  # déclenché quand le Mac pousse la solution Cémantix
+      - 'docs/sutom/solution.json'     # déclenché quand le Mac pousse la solution Sutom
+  workflow_dispatch:                    # déclenchement manuel
 
 permissions:
   contents: write
 
 # Architecture :
-# - Le solveur tourne en CRON LOCAL sur Mac (run_daily.sh) — IP résidentielle
+# - Les solveurs tournent en CRON LOCAL sur Mac (run_daily.sh) — IP résidentielle
 # - Mac génère docs/ et pousse sur GitHub
 # - Ce workflow se déclenche sur le push et régénère le HTML si besoin
-# - Pas besoin du modèle .bin ici (solution déjà dans docs/solution.json)
+# - Pas besoin du modèle .bin ici (solutions déjà dans les solution.json)
 
 jobs:
   regenerate:
@@ -23,61 +24,103 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check if solution.json is for today
+      - name: Check which solutions are ready for today
         id: check
         run: |
           TODAY=$(date +'%Y-%m-%d')
-          if [ -f docs/solution.json ]; then
-            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/solution.json')); print(d.get('date',''))")
-            echo "doc_date=$DOC_DATE" >> "$GITHUB_OUTPUT"
+          ANY_READY=false
+
+          # Vérification Cémantix
+          if [ -f docs/cemantix/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/cemantix/solution.json')); print(d.get('date',''))")
             if [ "$DOC_DATE" = "$TODAY" ]; then
-              echo "up_to_date=true" >> "$GITHUB_OUTPUT"
-              echo "✅ solution.json est à jour pour $TODAY"
+              echo "cemantix_ready=true" >> "$GITHUB_OUTPUT"
+              ANY_READY=true
+              echo "✅ cemantix/solution.json est à jour pour $TODAY"
             else
-              echo "up_to_date=false" >> "$GITHUB_OUTPUT"
-              echo "⚠ solution.json date=$DOC_DATE, aujourd'hui=$TODAY — pas encore mis à jour par le Mac"
+              echo "cemantix_ready=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ cemantix/solution.json date=$DOC_DATE, aujourd'hui=$TODAY"
             fi
           else
-            echo "up_to_date=false" >> "$GITHUB_OUTPUT"
-            echo "⚠ docs/solution.json introuvable"
+            echo "cemantix_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/cemantix/solution.json introuvable"
           fi
 
-      - name: Set up Python (only if solution is ready)
-        if: steps.check.outputs.up_to_date == 'true'
+          # Vérification Sutom
+          if [ -f docs/sutom/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/sutom/solution.json')); print(d.get('date',''))")
+            if [ "$DOC_DATE" = "$TODAY" ]; then
+              echo "sutom_ready=true" >> "$GITHUB_OUTPUT"
+              ANY_READY=true
+              echo "✅ sutom/solution.json est à jour pour $TODAY"
+            else
+              echo "sutom_ready=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ sutom/solution.json date=$DOC_DATE, aujourd'hui=$TODAY"
+            fi
+          else
+            echo "sutom_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/sutom/solution.json introuvable"
+          fi
+
+          echo "any_ready=$ANY_READY" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python (only if a solution is ready)
+        if: steps.check.outputs.any_ready == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install minimal dependencies (only if solution is ready)
-        if: steps.check.outputs.up_to_date == 'true'
+      - name: Install minimal dependencies (only if a solution is ready)
+        if: steps.check.outputs.any_ready == 'true'
         run: pip install requests cloudscraper beautifulsoup4
 
-      - name: Regenerate HTML from existing solution.json
-        if: steps.check.outputs.up_to_date == 'true'
+      - name: Regenerate HTML from existing solution.json files
+        if: steps.check.outputs.any_ready == 'true'
         run: |
           python3 - <<'EOF'
           import json, sys
           from pathlib import Path
           from datetime import date
 
-          # Import generate.py helpers sans lancer main()
           sys.path.insert(0, '.')
+          today = date.today()
+          today_str = today.isoformat()
+
+          cemantix_data = None
+          sutom_data = None
+
+          # Cémantix
+          cemantix_json = Path('docs/cemantix/solution.json')
+          if cemantix_json.exists():
+              data = json.loads(cemantix_json.read_text(encoding='utf-8'))
+              if data.get('date') == today_str:
+                  cemantix_data = data
+                  hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
+                  from games import cemantix as c
+                  print(f"Régénération HTML Cémantix #{data['puzzle_num']} '{data['word']}'")
+                  c._generate_all_html(today, data['puzzle_num'], data['word'], hints)
+                  print("✅ HTML Cémantix régénéré")
+
+          # Sutom
+          sutom_json = Path('docs/sutom/solution.json')
+          if sutom_json.exists():
+              data = json.loads(sutom_json.read_text(encoding='utf-8'))
+              if data.get('date') == today_str:
+                  sutom_data = data
+                  from games import sutom as s
+                  print(f"Régénération HTML Sutom #{data['puzzle_num']} '{data['word']}'")
+                  s._generate_all_html(today, data['puzzle_num'], data['word'])
+                  print("✅ HTML Sutom régénéré")
+
+          # Hub + sitemap global
           import generate as g
-
-          data = json.loads(Path('docs/solution.json').read_text(encoding='utf-8'))
-          today = date.fromisoformat(data['date'])
-          puzzle_num = data['puzzle_num']
-          word = data['word']
-          hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
-
-          print(f"Régénération HTML pour {g.date_fr(today)} #{puzzle_num} '{word}'")
-          # Génère index, toutes les pages d'archive HTML et le sitemap
-          g._generate_all_html(today, puzzle_num, word, hints)
-          print("✅ HTML complet régénéré (index + archives + sitemap)")
+          g.generate_hub_html(today, {'cemantix': cemantix_data, 'sutom': sutom_data})
+          g.generate_global_sitemap(today)
+          print("✅ Hub + sitemap global régénérés")
           EOF
 
       - name: Commit and push if HTML changed
-        if: steps.check.outputs.up_to_date == 'true'
+        if: steps.check.outputs.any_ready == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -87,9 +130,11 @@ jobs:
 
       - name: Summary
         run: |
-          if [ "${{ steps.check.outputs.up_to_date }}" = "true" ]; then
-            echo "### ✅ HTML régénéré pour ${{ steps.check.outputs.doc_date }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.any_ready }}" = "true" ]; then
+            echo "### ✅ HTML régénéré" >> $GITHUB_STEP_SUMMARY
+            echo "- Cémantix : ${{ steps.check.outputs.cemantix_ready }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Sutom    : ${{ steps.check.outputs.sutom_ready }}" >> $GITHUB_STEP_SUMMARY
           else
-            echo "### ℹ Pas d'action — solution.json pas encore mis à jour par le cron local Mac" >> $GITHUB_STEP_SUMMARY
+            echo "### ℹ Pas d'action — aucune solution n'est à jour pour aujourd'hui" >> $GITHUB_STEP_SUMMARY
             echo "Le cron local tourne à 08h05 heure de Paris. Vérifier run_daily.log si problème." >> $GITHUB_STEP_SUMMARY
           fi

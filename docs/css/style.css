@@ -500,6 +500,21 @@ footer a { color: var(--color-primary); }
   border-color: #fcd34d;
 }
 
+/* Badge EuroMillions (hub) */
+.game-badge-em {
+  background: #ede9fe;
+  color: #5b21b6;
+  border-color: #c4b5fd;
+}
+
+/* EuroMillions : étoile (fond violet) */
+.em-star {
+  background: #7c3aed;
+  border-color: #6d28d9;
+  color: #fff;
+  font-size: .8rem;
+}
+
 /* ── Responsive ── */
 
 @media (min-width: 600px) {

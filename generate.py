@@ -35,6 +35,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     cemantix = game_data.get("cemantix")
     sutom = game_data.get("sutom")
     loto = game_data.get("loto")
+    em = game_data.get("euromillions")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -135,14 +136,47 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <span class="game-link-arrow">Aller sur Loto &#8594;</span>
     </a>"""
 
+    # ── Carte EuroMillions ──
+    if em:
+        from games.euromillions import _em_balls_html
+        draw_date_em = date.fromisoformat(em["date"])
+        em_date_display = date_fr(draw_date_em)
+        em_balls_str = " · ".join(str(b) for b in em["balls"])
+        em_stars_str = " · ".join(str(s) for s in em["stars"])
+        em_card = f"""
+    <a class="game-card" href="euromillions/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">EuroMillions</h2>
+        <span class="game-badge game-badge-em">&#9733; Multi-pays</span>
+      </div>
+      <p class="game-card-desc">Tirage du {em_date_display} — 5 boules + 2 étoiles.</p>
+      <div class="game-card-solution">
+        <span class="game-label">Numéros gagnants</span>
+        {_em_balls_html(em["balls"], em["stars"], small=True)}
+        <p style="font-size:.75rem;color:#6b7280;margin:.25rem 0 0;">{em_balls_str} &#9733; {em_stars_str}</p>
+      </div>
+      <span class="game-link-arrow">Voir tous les résultats &#8594;</span>
+    </a>"""
+    else:
+        em_card = """
+    <a class="game-card game-card-unavailable" href="euromillions/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">EuroMillions</h2>
+        <span class="game-badge game-badge-em">&#9733; Multi-pays</span>
+      </div>
+      <p class="game-card-desc">Résultats du tirage EuroMillions (mar/ven).</p>
+      <p class="game-unavailable">Résultats en cours de récupération…</p>
+      <span class="game-link-arrow">Aller sur EuroMillions &#8594;</span>
+    </a>"""
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Solutions du Jour — Cémantix, Sutom, Loto · {date_display}</title>
-  <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Résultats du tirage Loto. Mis à jour automatiquement chaque jour.">
+  <title>Solutions du Jour — Cémantix, Sutom, Loto, EuroMillions · {date_display}</title>
+  <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Résultats Loto et EuroMillions. Mis à jour automatiquement chaque jour.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -171,7 +205,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 
 <header class="site-header">
   <h1>Solutions du Jour</h1>
-  <p class="subtitle">Cémantix · Sutom · Loto · <time datetime="{date_str}">{date_display}</time></p>
+  <p class="subtitle">Cémantix · Sutom · Loto · EuroMillions · <time datetime="{date_str}">{date_display}</time></p>
 </header>
 
 <main class="hub-main">
@@ -184,6 +218,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 {cemantix_card}
 {sutom_card}
 {loto_card}
+{em_card}
   </div>
 </main>
 
@@ -192,7 +227,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <p style="margin-top:.4rem;">
     <a href="cemantix/">Cémantix</a> ·
     <a href="sutom/">Sutom</a> ·
-    <a href="loto/">Loto</a>
+    <a href="loto/">Loto</a> ·
+    <a href="euromillions/">EuroMillions</a>
   </p>
 </footer>
 
@@ -219,6 +255,7 @@ def generate_global_sitemap(today: date) -> None:
     from games.cemantix import CEMANTIX_ARCHIVE
     from games.sutom import SUTOM_ARCHIVE
     from games.loto import LOTO_ARCHIVE
+    from games.euromillions import EM_ARCHIVE
 
     today_str = today.isoformat()
     urls = []
@@ -318,6 +355,35 @@ def generate_global_sitemap(today: date) -> None:
     <priority>0.7</priority>
   </url>""")
 
+    # ── EuroMillions ──
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/</loc>
+    <lastmod>{today_str}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    em_dates = sorted(
+        [date.fromisoformat(f.stem) for f in EM_ARCHIVE.glob("????-??-??.json")]
+        if EM_ARCHIVE.exists() else [],
+        reverse=True,
+    )
+    if em_dates:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/archive/</loc>
+    <lastmod>{em_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+        for d in em_dates[:60]:
+            d_str = d.isoformat()
+            urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/archive/{d_str}.html</loc>
+    <lastmod>{d_str}</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "\n".join(urls)
@@ -354,12 +420,20 @@ def main():
     from games.loto import run as run_loto
     loto_data = run_loto(today)
 
-    # 4. Hub page
+    # 4. EuroMillions
+    print("\n─── EuroMillions ───────────────────────────────────────")
+    from games.euromillions import run as run_em
+    em_data = run_em(today)
+
+    # 5. Hub page
     print("\n─── Hub ────────────────────────────────────────────────")
     print("Génération de docs/index.html (hub)…")
-    generate_hub_html(today, {"cemantix": cemantix_data, "sutom": sutom_data, "loto": loto_data})
+    generate_hub_html(today, {
+        "cemantix": cemantix_data, "sutom": sutom_data,
+        "loto": loto_data, "euromillions": em_data,
+    })
 
-    # 5. Sitemap global
+    # 6. Sitemap global
     print("Génération de docs/sitemap.xml (global)…")
     generate_global_sitemap(today)
 
@@ -368,6 +442,7 @@ def main():
     print(f"   docs/cemantix/index.html     {'✓' if cemantix_data else '⚠ indisponible'}")
     print(f"   docs/sutom/index.html        {'✓' if sutom_data else '⚠ indisponible'}")
     print(f"   docs/loto/index.html         {'✓' if loto_data else '⚠ indisponible'}")
+    print(f"   docs/euromillions/index.html {'✓' if em_data else '⚠ indisponible'}")
     print(f"   docs/sitemap.xml             ✓\n")
 
 

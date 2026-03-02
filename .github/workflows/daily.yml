@@ -5,7 +5,8 @@ on:
     paths:
       - 'docs/cemantix/solution.json'  # déclenché quand le Mac pousse la solution Cémantix
       - 'docs/sutom/solution.json'     # déclenché quand le Mac pousse la solution Sutom
-      - 'docs/loto/solution.json'      # déclenché quand le Mac pousse les résultats Loto
+      - 'docs/loto/solution.json'          # déclenché quand le Mac pousse les résultats Loto
+      - 'docs/euromillions/solution.json'  # déclenché quand le Mac pousse les résultats EuroMillions
   workflow_dispatch:                    # déclenchement manuel
 
 permissions:
@@ -73,6 +74,16 @@ jobs:
             echo "⚠ docs/loto/solution.json introuvable"
           fi
 
+          # Vérification EuroMillions
+          if [ -f docs/euromillions/solution.json ]; then
+            echo "em_ready=true" >> "$GITHUB_OUTPUT"
+            ANY_READY=true
+            echo "✅ euromillions/solution.json présent"
+          else
+            echo "em_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/euromillions/solution.json introuvable"
+          fi
+
           echo "any_ready=$ANY_READY" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python (only if a solution is ready)
@@ -136,9 +147,25 @@ jobs:
               lt._generate_all_html(draw_date, data)
               print("✅ HTML Loto régénéré")
 
+          # EuroMillions
+          em_data = None
+          em_json = Path('docs/euromillions/solution.json')
+          if em_json.exists():
+              data = json.loads(em_json.read_text(encoding='utf-8'))
+              em_data = data
+              from games import euromillions as em
+              from datetime import date as _date2
+              draw_date_em = _date2.fromisoformat(data['date'])
+              print(f"Régénération HTML EuroMillions {data['date']}")
+              em._generate_all_html(draw_date_em, data)
+              print("✅ HTML EuroMillions régénéré")
+
           # Hub + sitemap global
           import generate as g
-          g.generate_hub_html(today, {'cemantix': cemantix_data, 'sutom': sutom_data, 'loto': loto_data})
+          g.generate_hub_html(today, {
+              'cemantix': cemantix_data, 'sutom': sutom_data,
+              'loto': loto_data, 'euromillions': em_data,
+          })
           g.generate_global_sitemap(today)
           print("✅ Hub + sitemap global régénérés")
           EOF

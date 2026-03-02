@@ -5,6 +5,7 @@ on:
     paths:
       - 'docs/cemantix/solution.json'  # déclenché quand le Mac pousse la solution Cémantix
       - 'docs/sutom/solution.json'     # déclenché quand le Mac pousse la solution Sutom
+      - 'docs/loto/solution.json'      # déclenché quand le Mac pousse les résultats Loto
   workflow_dispatch:                    # déclenchement manuel
 
 permissions:
@@ -62,6 +63,16 @@ jobs:
             echo "⚠ docs/sutom/solution.json introuvable"
           fi
 
+          # Vérification Loto (toujours "prêt" si solution.json existe)
+          if [ -f docs/loto/solution.json ]; then
+            echo "loto_ready=true" >> "$GITHUB_OUTPUT"
+            ANY_READY=true
+            echo "✅ loto/solution.json présent"
+          else
+            echo "loto_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/loto/solution.json introuvable"
+          fi
+
           echo "any_ready=$ANY_READY" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python (only if a solution is ready)
@@ -112,9 +123,22 @@ jobs:
                   s._generate_all_html(today, data['puzzle_num'], data['word'])
                   print("✅ HTML Sutom régénéré")
 
+          # Loto
+          loto_data = None
+          loto_json = Path('docs/loto/solution.json')
+          if loto_json.exists():
+              data = json.loads(loto_json.read_text(encoding='utf-8'))
+              loto_data = data
+              from games import loto as lt
+              from datetime import date as _date
+              draw_date = _date.fromisoformat(data['date'])
+              print(f"Régénération HTML Loto n°{data['draw_num']} {data['date']}")
+              lt._generate_all_html(draw_date, data)
+              print("✅ HTML Loto régénéré")
+
           # Hub + sitemap global
           import generate as g
-          g.generate_hub_html(today, {'cemantix': cemantix_data, 'sutom': sutom_data})
+          g.generate_hub_html(today, {'cemantix': cemantix_data, 'sutom': sutom_data, 'loto': loto_data})
           g.generate_global_sitemap(today)
           print("✅ Hub + sitemap global régénérés")
           EOF

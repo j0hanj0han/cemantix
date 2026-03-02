@@ -1,0 +1,574 @@
+"""
+games/loto.py — Résultats du tirage Loto (FDJ).
+
+Données : API OpenDataSoft (publique, sans auth)
+  https://data.opendatasoft.com — dataset resultats-loto-2019-a-aujourd-hui@agrall
+
+Génère :
+  docs/loto/solution.json          ← dernier tirage {date, draw_num, balls, lucky_ball}
+  docs/loto/index.html             ← résultats du dernier tirage
+  docs/loto/archive/YYYY-MM-DD.json
+  docs/loto/archive/YYYY-MM-DD.html
+  docs/loto/archive/index.html
+"""
+
+import json
+from datetime import date, datetime, timezone
+from pathlib import Path
+
+from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
+
+# ── Configuration ─────────────────────────────────────────────────────────────
+
+LOTO_DIR = DOCS_DIR / "loto"
+LOTO_ARCHIVE = LOTO_DIR / "archive"
+LOTO_SITE_URL = f"{SITE_URL}/loto"
+
+_LOTO_API = (
+    "https://data.opendatasoft.com/api/records/1.0/search/"
+    "?dataset=resultats-loto-2019-a-aujourd-hui%40agrall"
+    "&rows=1&sort=date_de_tirage"
+)
+
+
+# ── API ───────────────────────────────────────────────────────────────────────
+
+def get_loto_latest() -> dict | None:
+    """
+    Récupère le dernier tirage Loto depuis l'API OpenDataSoft.
+    Retourne {date, draw_num, balls, lucky_ball} ou None si indisponible.
+    Les boules sont triées par ordre croissant (comme l'affichage officiel FDJ).
+    """
+    try:
+        resp = _session.get(_LOTO_API, timeout=15)
+        resp.raise_for_status()
+        records = resp.json().get("records", [])
+        if not records:
+            return None
+        fields = records[0]["fields"]
+        balls = sorted(fields[f"boule_{i}"] for i in range(1, 6))
+        return {
+            "date": fields["date_de_tirage"],
+            "draw_num": fields.get("annee_numero_de_tirage", ""),
+            "balls": balls,
+            "lucky_ball": int(fields["numero_chance"]),
+        }
+    except Exception as e:
+        print(f"   ⚠ Loto API : {e}")
+        return None
+
+
+# ── Helpers HTML ──────────────────────────────────────────────────────────────
+
+def _balls_html(balls: list[int], lucky: int, small: bool = False) -> str:
+    """Retourne le bloc HTML des boules + boule chance."""
+    cls = "loto-ball loto-ball-sm" if small else "loto-ball"
+    cls_c = f"{cls} loto-ball-chance"
+    wrap = "loto-balls loto-balls-sm" if small else "loto-balls"
+    inner = "".join(f'<span class="{cls}">{b}</span>' for b in balls)
+    inner += f'<span class="{cls_c}">{lucky}</span>'
+    return f'<div class="{wrap}">{inner}</div>'
+
+
+# ── Fichiers JSON ─────────────────────────────────────────────────────────────
+
+def generate_solution_json(draw: dict) -> dict:
+    data = {**draw, "generated_at": datetime.now(timezone.utc).isoformat()}
+    LOTO_DIR.mkdir(parents=True, exist_ok=True)
+    atomic_write(LOTO_DIR / "solution.json", json.dumps(data, ensure_ascii=False, indent=2))
+    return data
+
+
+def generate_archive_json(data: dict) -> None:
+    LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    atomic_write(LOTO_ARCHIVE / f"{data['date']}.json",
+                 json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def load_all_archives() -> list[dict]:
+    return _load_archives(LOTO_ARCHIVE, required_keys=["date", "balls", "lucky_ball"])
+
+
+# ── Génération HTML ───────────────────────────────────────────────────────────
+
+def generate_archive_html(
+    draw_date: date,
+    draw_num: str,
+    balls: list[int],
+    lucky: int,
+    prev_date,
+    next_date,
+) -> None:
+    """Génère docs/loto/archive/YYYY-MM-DD.html."""
+    LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    date_str = draw_date.isoformat()
+    date_display = date_fr(draw_date)
+    balls_str = " · ".join(str(b) for b in balls)
+
+    if prev_date is not None:
+        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}.html">&#8592; {date_fr(prev_date)}</a>'
+    else:
+        nav_prev = '<span class="nav-disabled">&#8592; Plus ancien</span>'
+
+    if next_date is not None:
+        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}.html">{date_fr(next_date)} &#8594;</a>'
+    else:
+        nav_next = '<a class="nav-link" href="../index.html">Dernier tirage &#8594;</a>'
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Résultats Loto {date_display} — Numéros gagnants · Archive</title>
+  <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}.html">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
+  <meta property="og:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{LOTO_SITE_URL}/archive/{date_str}.html">
+  <meta property="article:published_time" content="{date_str}T22:00:00+01:00">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
+    "datePublished": "{date_str}T22:00:00+01:00",
+    "dateModified": "{date_str}T22:00:00+01:00",
+    "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
+    "url": "{LOTO_SITE_URL}/archive/{date_str}.html",
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Quels sont les numéros du Loto du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Les numéros gagnants du Loto du {date_display} (tirage n°{draw_num}) sont : {balls_str} avec le numéro chance {lucky}."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Loto — Archive</h1>
+  <p class="subtitle">Résultats du {date_display} — tirage n°{draw_num}</p>
+</header>
+
+<main>
+  <nav class="nav-archive" aria-label="Navigation entre les tirages">
+    {nav_prev}
+    <a class="nav-center" href="index.html">Tous les tirages</a>
+    {nav_next}
+  </nav>
+
+  <article>
+
+    <div class="card">
+      <h2>Tirage Loto n°{draw_num} — <time datetime="{date_str}">{date_display}</time></h2>
+      <p>
+        Retrouvez les <strong>résultats du tirage Loto du {date_display}</strong> (tirage n°{draw_num}).
+        Les numéros sont affichés dans l'ordre croissant.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Numéros gagnants</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        5 boules + 1 numéro chance (en doré)
+      </p>
+      {_balls_html(balls, lucky)}
+      <p class="puzzle-meta">{balls_str} + chance <strong>{lucky}</strong></p>
+    </div>
+
+  </article>
+
+  <nav class="nav-archive" aria-label="Navigation entre les tirages">
+    {nav_prev}
+    <a class="nav-center" href="index.html">Tous les tirages</a>
+    {nav_next}
+  </nav>
+</main>
+
+<footer>
+  <p>
+    <a href="../index.html">Dernier tirage</a> ·
+    <a href="index.html">Tous les tirages</a> ·
+    <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">Jouer au Loto</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Résultats récupérés automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(LOTO_ARCHIVE / f"{date_str}.html", html)
+
+
+def generate_archive_index(entries: list[dict]) -> None:
+    """Génère docs/loto/archive/index.html."""
+    LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
+
+    def item_html(e: dict) -> str:
+        d = date.fromisoformat(e["date"])
+        balls_str = " · ".join(str(b) for b in e["balls"])
+        return (
+            f'      <li class="arch-item">'
+            f'<span class="arch-date">{date_fr(d)}</span>'
+            f'<span class="arch-num">n°{e["draw_num"]}</span>'
+            f'<a class="arch-link" href="{e["date"]}.html">{balls_str} + {e["lucky_ball"]}</a>'
+            f'</li>'
+        )
+
+    items_html = "\n".join(item_html(e) for e in entries)
+    count = len(entries)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Archives Loto — Tous les tirages et numéros gagnants</title>
+  <meta name="description" content="Retrouvez tous les résultats des tirages Loto : numéros gagnants et numéros chance pour chaque tirage depuis 2019.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{LOTO_SITE_URL}/archive/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Archives Loto — Tous les numéros gagnants">
+  <meta property="og:description" content="Tous les résultats des tirages Loto avec numéros et numéros chance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{LOTO_SITE_URL}/archive/">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Archives Loto</h1>
+  <p class="subtitle">{count} tirage{"s" if count > 1 else ""} enregistré{"s" if count > 1 else ""}</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Tous les tirages Loto</h2>
+    <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+      Cliquez sur un tirage pour voir les détails. Format : boules (croissant) + numéro chance.
+    </p>
+    <ul class="arch-list">
+{items_html}
+    </ul>
+  </div>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../index.html">Dernier tirage &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="../index.html">Dernier tirage</a> ·
+    <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">Jouer au Loto</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Résultats récupérés automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(LOTO_ARCHIVE / "index.html", html)
+
+
+def generate_index_html(
+    draw_date: date,
+    draw_num: str,
+    balls: list[int],
+    lucky: int,
+    recent_archives: list | None = None,
+) -> None:
+    """Génère docs/loto/index.html — dernier tirage."""
+    date_str = draw_date.isoformat()
+    date_display = date_fr(draw_date)
+    balls_str = " · ".join(str(b) for b in balls)
+
+    recent_archives_card = ""
+    if recent_archives:
+        def arch_item(e: dict) -> str:
+            d = date.fromisoformat(e["date"])
+            b_str = " · ".join(str(b) for b in e["balls"])
+            return (
+                f'      <li class="arch-item">'
+                f'<span class="arch-date">{date_fr(d)}</span>'
+                f'<span class="arch-num">n°{e["draw_num"]}</span>'
+                f'<a class="arch-link" href="archive/{e["date"]}.html">{b_str} + {e["lucky_ball"]}</a>'
+                f'</li>'
+            )
+        items = "\n".join(arch_item(e) for e in recent_archives[:7])
+        recent_archives_card = f"""
+    <div class="card">
+      <h2>Tirages précédents</h2>
+      <ul class="arch-list">
+{items}
+      </ul>
+      <p style="margin-top:.75rem;font-size:.9rem;">
+        <a href="archive/">Voir tous les tirages &#8594;</a>
+      </p>
+    </div>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Résultats Loto {date_display} — Numéros gagnants tirage n°{draw_num}</title>
+  <meta name="description" content="Résultats du tirage Loto du {date_display} (n°{draw_num}). Numéros gagnants : {balls_str} + numéro chance {lucky}. Mis à jour automatiquement après chaque tirage.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{LOTO_SITE_URL}/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
+  <meta property="og:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{LOTO_SITE_URL}/">
+  <meta property="article:published_time" content="{date_str}T22:00:00+01:00">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
+    "datePublished": "{date_str}T22:00:00+01:00",
+    "dateModified": "{date_str}T22:00:00+01:00",
+    "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
+    "url": "{LOTO_SITE_URL}/",
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Quels sont les numéros gagnants du Loto du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Les numéros gagnants du tirage Loto n°{draw_num} du {date_display} sont : {balls_str}, avec le numéro chance {lucky}."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quand a lieu le prochain tirage Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le Loto tire le lundi, le mercredi et le samedi soir (vers 20h20). Cette page est mise à jour automatiquement après chaque tirage."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quel est le numéro chance du Loto du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le numéro chance du tirage Loto du {date_display} est le {lucky}."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Résultats Loto</h1>
+  <p class="subtitle">Numéros gagnants — tirage n°{draw_num}</p>
+</header>
+
+<main>
+  <article>
+
+    <div class="card">
+      <h2>Tirage Loto n°{draw_num} — <time datetime="{date_str}">{date_display}</time></h2>
+      <p>
+        Retrouvez les <strong>résultats du tirage Loto du {date_display}</strong> (tirage n°{draw_num}).
+        Les numéros sont affichés dans l'ordre croissant, comme sur le site officiel FDJ.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Numéros gagnants du {date_display}</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        5 boules numérotées + 1 numéro chance (en doré)
+      </p>
+      {_balls_html(balls, lucky)}
+      <p class="puzzle-meta">
+        Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Rappel des règles du Loto</h2>
+      <p>
+        Le <strong>Loto</strong> est le jeu de tirage de la <a href="https://www.fdj.fr" rel="noopener" target="_blank">FDJ</a>.
+        Chaque tirage, 5 boules (de 1 à 49) et 1 numéro chance (de 1 à 10) sont tirés au sort.
+        Les tirages ont lieu le <strong>lundi, mercredi et samedi</strong> à partir de 20h20.
+      </p>
+      <p style="margin-top:.75rem;">
+        Pour vérifier si vous avez gagné ou pour jouer, rendez-vous sur
+        <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">fdj.fr</a>.
+        Cette page est mise à jour automatiquement après chaque tirage.
+      </p>
+    </div>
+{recent_archives_card}
+  </article>
+</main>
+
+<footer>
+  <p>Site non officiel — Résultats récupérés automatiquement · <a href="{SITE_URL}/">Accueil</a> · <a href="archive/">Archives</a></p>
+  <p style="margin-top:.4rem;">Jouer sur <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">fdj.fr</a></p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(LOTO_DIR / "index.html", html)
+
+
+def generate_unavailable_html(today: date) -> None:
+    """Génère une page 'résultats non disponibles' si l'API est inaccessible."""
+    LOTO_DIR.mkdir(parents=True, exist_ok=True)
+    date_display = date_fr(today)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Résultats Loto — Non disponibles</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Résultats Loto</h1>
+  <p class="subtitle">{date_display}</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Résultats non disponibles</h2>
+    <p>
+      Les résultats du Loto ne sont pas encore disponibles ou n'ont pas pu être récupérés.
+      Le prochain tirage a lieu lundi, mercredi ou samedi soir à partir de 20h20.
+      Rendez-vous directement sur
+      <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">fdj.fr</a>.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <p><a href="{SITE_URL}/">Accueil</a> · <a href="archive/">Archives Loto</a></p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(LOTO_DIR / "index.html", html)
+
+
+# ── Orchestration HTML ────────────────────────────────────────────────────────
+
+def _generate_all_html(draw_date: date, data: dict) -> None:
+    """Génère tous les fichiers HTML Loto à partir des JSON déjà en place."""
+    all_archives = load_all_archives()
+    draw_str = draw_date.isoformat()
+    past_archives = [e for e in all_archives if e["date"] != draw_str]
+
+    print(f"[Loto] Génération des pages HTML d'archive ({len(past_archives)} pages)…")
+    for i, entry in enumerate(past_archives):
+        d = date.fromisoformat(entry["date"])
+        prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
+        next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
+        generate_archive_html(
+            d, entry["draw_num"], entry["balls"], entry["lucky_ball"],
+            prev_date, next_date,
+        )
+
+    print("[Loto] Génération de docs/loto/archive/index.html…")
+    generate_archive_index(past_archives)
+
+    recent_archives = past_archives[:7]
+    print("[Loto] Génération de docs/loto/index.html…")
+    generate_index_html(
+        draw_date, data["draw_num"], data["balls"], data["lucky_ball"],
+        recent_archives,
+    )
+
+
+# ── Point d'entrée ────────────────────────────────────────────────────────────
+
+def run(today: date) -> dict | None:
+    """
+    Récupère le dernier tirage Loto et génère tous les fichiers.
+    Retourne le dict data ou None si le tirage est indisponible.
+    Note : contrairement aux jeux de mots, le tirage peut dater d'avant aujourd'hui
+    (le Loto tire lun/mer/sam soir — la mise à jour a lieu le lendemain matin).
+    """
+    LOTO_DIR.mkdir(parents=True, exist_ok=True)
+    LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
+
+    print("[Loto] Récupération du dernier tirage…")
+    draw = get_loto_latest()
+
+    if not draw:
+        print("[Loto] ⚠ Tirage non disponible — génération page indisponible.")
+        generate_unavailable_html(today)
+        return None
+
+    draw_date_str = draw["date"]
+    print(f"[Loto] ✅ Dernier tirage : {draw_date_str} — {draw['balls']} + chance {draw['lucky_ball']}")
+
+    # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
+    solution_path = LOTO_DIR / "solution.json"
+    if solution_path.exists():
+        existing = json.loads(solution_path.read_text(encoding="utf-8"))
+        if existing.get("date") == draw_date_str:
+            print(f"[Loto] ℹ Tirage déjà présent ({draw_date_str}) — régénération HTML uniquement.")
+            _generate_all_html(date.fromisoformat(draw_date_str), existing)
+            return existing
+
+    # Nouveau tirage → sauvegarder
+    data = generate_solution_json(draw)
+    generate_archive_json(data)
+    _generate_all_html(date.fromisoformat(draw_date_str), data)
+
+    print(f"[Loto] 🎉 Tirage sauvegardé et HTML généré ({draw_date_str}, n°{data['draw_num']})")
+    return data

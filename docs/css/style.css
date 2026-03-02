@@ -453,6 +453,53 @@ footer a { color: var(--color-primary); }
   font-size: .8rem;
 }
 
+/* ── Loto balls ── */
+
+.loto-balls {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: .75rem 0;
+}
+
+.loto-ball {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #1f2937;
+  font-weight: 700;
+  font-size: .95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+}
+
+.loto-ball-chance {
+  background: #fbbf24;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
+/* Variantes petites (hub) */
+.loto-balls-sm { gap: .25rem; margin: .4rem 0; }
+
+.loto-ball-sm {
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: .75rem;
+}
+
+/* Badge Loto (hub) */
+.game-badge-loto {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
 /* ── Responsive ── */
 
 @media (min-width: 600px) {

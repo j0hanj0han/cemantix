@@ -27,13 +27,14 @@ MODEL_PATH_DEFAULT = "frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
 def generate_hub_html(today: date, game_data: dict) -> None:
     """
     Génère docs/index.html — page d'accueil listant tous les jeux.
-    game_data : {"cemantix": dict|None, "sutom": dict|None}
+    game_data : {"cemantix": dict|None, "sutom": dict|None, "loto": dict|None}
     """
     date_display = date_fr(today)
     date_str = today.isoformat()
 
     cemantix = game_data.get("cemantix")
     sutom = game_data.get("sutom")
+    loto = game_data.get("loto")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -101,14 +102,47 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <span class="game-link-arrow">Aller sur Sutom &#8594;</span>
     </a>"""
 
+    # ── Carte Loto ──
+    if loto:
+        from games.loto import _balls_html as _loto_balls
+        draw_date_display = date_fr(date.fromisoformat(loto["date"]))
+        balls = loto["balls"]
+        lucky = loto["lucky_ball"]
+        balls_str = " · ".join(str(b) for b in balls)
+        loto_card = f"""
+    <a class="game-card" href="loto/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Loto</h2>
+        <span class="game-badge game-badge-loto">FDJ</span>
+      </div>
+      <p class="game-card-desc">Résultats du tirage n°{loto["draw_num"]} du {draw_date_display}.</p>
+      <div class="game-card-solution">
+        <span class="game-label">Numéros gagnants</span>
+        {_loto_balls(balls, lucky, small=True)}
+        <p style="font-size:.75rem;color:#6b7280;margin:.25rem 0 0;">{balls_str} + chance {lucky}</p>
+      </div>
+      <span class="game-link-arrow">Voir tous les résultats &#8594;</span>
+    </a>"""
+    else:
+        loto_card = """
+    <a class="game-card game-card-unavailable" href="loto/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Loto</h2>
+        <span class="game-badge game-badge-loto">FDJ</span>
+      </div>
+      <p class="game-card-desc">Résultats du tirage Loto (lun/mer/sam).</p>
+      <p class="game-unavailable">Résultats en cours de récupération…</p>
+      <span class="game-link-arrow">Aller sur Loto &#8594;</span>
+    </a>"""
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Solutions du Jour — Cémantix, Sutom · {date_display}</title>
-  <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Réponses et indices pour tous les jeux de mots quotidiens francophones.">
+  <title>Solutions du Jour — Cémantix, Sutom, Loto · {date_display}</title>
+  <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Résultats du tirage Loto. Mis à jour automatiquement chaque jour.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -137,7 +171,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 
 <header class="site-header">
   <h1>Solutions du Jour</h1>
-  <p class="subtitle">Cémantix · Sutom · <time datetime="{date_str}">{date_display}</time></p>
+  <p class="subtitle">Cémantix · Sutom · Loto · <time datetime="{date_str}">{date_display}</time></p>
 </header>
 
 <main class="hub-main">
@@ -149,6 +183,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <div class="games-grid">
 {cemantix_card}
 {sutom_card}
+{loto_card}
   </div>
 </main>
 
@@ -156,7 +191,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <p>Site non officiel — Solutions générées automatiquement</p>
   <p style="margin-top:.4rem;">
     <a href="cemantix/">Cémantix</a> ·
-    <a href="sutom/">Sutom</a>
+    <a href="sutom/">Sutom</a> ·
+    <a href="loto/">Loto</a>
   </p>
 </footer>
 
@@ -182,6 +218,7 @@ def generate_global_sitemap(today: date) -> None:
     """Génère docs/sitemap.xml — toutes les URLs de tous les jeux."""
     from games.cemantix import CEMANTIX_ARCHIVE
     from games.sutom import SUTOM_ARCHIVE
+    from games.loto import LOTO_ARCHIVE
 
     today_str = today.isoformat()
     urls = []
@@ -252,6 +289,35 @@ def generate_global_sitemap(today: date) -> None:
     <priority>0.7</priority>
   </url>""")
 
+    # ── Loto ──
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/</loc>
+    <lastmod>{today_str}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    loto_dates = sorted(
+        [date.fromisoformat(f.stem) for f in LOTO_ARCHIVE.glob("????-??-??.json")]
+        if LOTO_ARCHIVE.exists() else [],
+        reverse=True,
+    )
+    if loto_dates:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/archive/</loc>
+    <lastmod>{loto_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+        for d in loto_dates[:60]:
+            d_str = d.isoformat()
+            urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/archive/{d_str}.html</loc>
+    <lastmod>{d_str}</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "\n".join(urls)
@@ -283,12 +349,17 @@ def main():
     from games.sutom import run as run_sutom
     sutom_data = run_sutom(today)
 
-    # 3. Hub page
+    # 3. Loto
+    print("\n─── Loto ───────────────────────────────────────────────")
+    from games.loto import run as run_loto
+    loto_data = run_loto(today)
+
+    # 4. Hub page
     print("\n─── Hub ────────────────────────────────────────────────")
     print("Génération de docs/index.html (hub)…")
-    generate_hub_html(today, {"cemantix": cemantix_data, "sutom": sutom_data})
+    generate_hub_html(today, {"cemantix": cemantix_data, "sutom": sutom_data, "loto": loto_data})
 
-    # 4. Sitemap global
+    # 5. Sitemap global
     print("Génération de docs/sitemap.xml (global)…")
     generate_global_sitemap(today)
 
@@ -296,6 +367,7 @@ def main():
     print(f"   docs/index.html              ✓ (hub)")
     print(f"   docs/cemantix/index.html     {'✓' if cemantix_data else '⚠ indisponible'}")
     print(f"   docs/sutom/index.html        {'✓' if sutom_data else '⚠ indisponible'}")
+    print(f"   docs/loto/index.html         {'✓' if loto_data else '⚠ indisponible'}")
     print(f"   docs/sitemap.xml             ✓\n")
 
 

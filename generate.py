@@ -182,9 +182,13 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Solutions du Jour — {date_display}">
-  <meta property="og:description" content="Solutions et indices pour Cémantix et Sutom du {date_display}.">
+  <meta property="og:description" content="Solutions Cémantix, Sutom et résultats Loto, EuroMillions du {date_display}.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/">
+  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Solutions du Jour — {date_display}">
+  <meta name="twitter:description" content="Solutions Cémantix, Sutom et résultats Loto, EuroMillions du {date_display}.">
 
   <script type="application/ld+json">
   {{
@@ -192,26 +196,37 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     "@type": "WebSite",
     "name": "Solutions du Jour",
     "url": "{SITE_URL}/",
-    "description": "Solutions quotidiennes pour Cémantix, Sutom et autres jeux de mots francophones.",
+    "description": "Solutions quotidiennes pour Cémantix, Sutom, Loto et EuroMillions.",
     "inLanguage": "fr"
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}}
+    ]
   }}
   </script>
 
   <link rel="stylesheet" href="css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+          async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 
 <header class="site-header">
-  <h1>Solutions du Jour</h1>
-  <p class="subtitle">Cémantix · Sutom · Loto · EuroMillions · <time datetime="{date_str}">{date_display}</time></p>
+  <h1>Solutions du Jour — Cémantix, Sutom, Loto, EuroMillions</h1>
+  <p class="subtitle"><time datetime="{date_str}">{date_display}</time></p>
 </header>
 
 <main class="hub-main">
   <p class="hub-intro">
-    Retrouvez chaque jour les <strong>solutions et indices</strong> des meilleurs jeux de mots francophones.
-    Mises à jour automatiquement chaque matin.
+    Retrouvez chaque jour les <strong>solutions Cémantix et Sutom</strong> ainsi que les
+    <strong>résultats Loto et EuroMillions</strong>.
+    Mis à jour automatiquement après chaque tirage et chaque nouveau puzzle.
   </p>
 
   <div class="games-grid">
@@ -327,18 +342,19 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
 
     # ── Loto ──
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
     loto_dates = sorted(
         [date.fromisoformat(f.stem) for f in LOTO_ARCHIVE.glob("????-??-??.json")]
         if LOTO_ARCHIVE.exists() else [],
         reverse=True,
     )
+    loto_lastmod = loto_dates[0].isoformat() if loto_dates else today_str
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/</loc>
+    <lastmod>{loto_lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
     if loto_dates:
         urls.append(f"""  <url>
     <loc>{SITE_URL}/loto/archive/</loc>
@@ -356,18 +372,19 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
 
     # ── EuroMillions ──
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
     em_dates = sorted(
         [date.fromisoformat(f.stem) for f in EM_ARCHIVE.glob("????-??-??.json")]
         if EM_ARCHIVE.exists() else [],
         reverse=True,
     )
+    em_lastmod = em_dates[0].isoformat() if em_dates else today_str
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/</loc>
+    <lastmod>{em_lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
     if em_dates:
         urls.append(f"""  <url>
     <loc>{SITE_URL}/euromillions/archive/</loc>

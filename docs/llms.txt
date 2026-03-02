@@ -1,0 +1,28 @@
+# Solutions du Jour
+
+> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque matin.
+
+## Pages principales
+
+- [Accueil](https://j0hanj0han.github.io/cemantix/): Hub multi-jeux avec les solutions et résultats du jour.
+- [Cémantix — Solution du jour](https://j0hanj0han.github.io/cemantix/cemantix/): Solution et indices progressifs du Cémantix quotidien (jeu sémantique francophone).
+- [Sutom — Solution du jour](https://j0hanj0han.github.io/cemantix/sutom/): Solution du Wordle français (Sutom) quotidien.
+- [Loto — Résultats du dernier tirage](https://j0hanj0han.github.io/cemantix/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
+- [EuroMillions — Résultats du dernier tirage](https://j0hanj0han.github.io/cemantix/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
+
+## Archives
+
+- [Archives Cémantix](https://j0hanj0han.github.io/cemantix/cemantix/archive/): Toutes les solutions passées du Cémantix.
+- [Archives Sutom](https://j0hanj0han.github.io/cemantix/sutom/archive/): Toutes les solutions passées du Sutom.
+- [Archives Loto](https://j0hanj0han.github.io/cemantix/loto/archive/): Tous les tirages Loto depuis 2024.
+- [Archives EuroMillions](https://j0hanj0han.github.io/cemantix/euromillions/archive/): Tous les tirages EuroMillions depuis 2021.
+
+## Fréquence de mise à jour
+
+- Cémantix et Sutom : chaque matin vers 8h05 (heure de Paris)
+- Loto : après chaque tirage du soir (lundi, mercredi, samedi ~20h20)
+- EuroMillions : après chaque tirage du soir (mardi, vendredi ~21h05)
+
+## Format des données
+
+Chaque page contient des données structurées JSON-LD avec les schémas Article et FAQPage pour faciliter l'extraction par les modèles de langage et les moteurs de recherche.

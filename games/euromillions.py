@@ -168,6 +168,10 @@ def generate_archive_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}.html">
+  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
+  <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="article:published_time" content="{date_str}T21:30:00+01:00">
 
   <script type="application/ld+json">
@@ -179,7 +183,8 @@ def generate_archive_html(
     "dateModified": "{date_str}T21:30:00+01:00",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/archive/{date_str}.html",
-    "author": {{"@type": "Organization", "name": "Solutions du Jour"}}
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
   }}
   </script>
 
@@ -200,9 +205,24 @@ def generate_archive_html(
   }}
   </script>
 
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://j0hanj0han.github.io/cemantix/euromillions/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://j0hanj0han.github.io/cemantix/euromillions/archive/"}},
+      {{"@type": "ListItem", "position": 4, "name": "Tirage du {date_display}"}}
+    ]
+  }}
+  </script>
+  {f'<link rel="prev" href="{prev_date.isoformat()}.html">' if prev_date else ''}
+  {f'<link rel="next" href="{next_date.isoformat()}.html">' if next_date else ''}
+
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+          async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -212,6 +232,12 @@ def generate_archive_html(
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="../index.html">EuroMillions</a> &rsaquo;
+  <a href="index.html">Archives</a> &rsaquo;
+  <span>Tirage du {date_display}</span>
+</nav>
   <nav class="nav-archive" aria-label="Navigation entre les tirages">
     {nav_prev}
     <a class="nav-center" href="index.html">Tous les tirages</a>
@@ -236,6 +262,17 @@ def generate_archive_html(
       {_em_balls_html(balls, stars)}
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>À propos de ce tirage</h2>
+      <p>
+        Ce tirage EuroMillions a eu lieu le <strong>{date_display}</strong>.
+        Les tirages EuroMillions ont lieu le mardi et le vendredi soir à partir de 21h05.
+        5 numéros sont tirés parmi les boules 1 à 50, et 2 étoiles parmi 1 à 12.
+        Pour vérifier vos gains ou rejouer, rendez-vous sur
+        <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">fdj.fr</a>.
       </p>
     </div>
 
@@ -279,7 +316,7 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'</li>'
         )
 
-    items_html = "\n".join(item_html(e) for e in entries)
+    items_html = "\n".join(item_html(e) for e in entries[:60])
     count = len(entries)
 
     html = f"""<!DOCTYPE html>
@@ -301,7 +338,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+          async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -319,6 +356,7 @@ def generate_archive_index(entries: list[dict]) -> None:
     <ul class="arch-list">
 {items_html}
     </ul>
+    {f'<p style="margin-top:.75rem;font-size:.9rem;color:#6b7280;">Affichage des 60 derniers tirages. Tous les tirages sont disponibles dans le <a href="/cemantix/sitemap.xml">sitemap</a>.</p>' if len(entries) > 60 else ''}
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">
@@ -393,6 +431,10 @@ def generate_index_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/">
+  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
+  <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="article:published_time" content="{date_str}T21:30:00+01:00">
 
   <script type="application/ld+json">
@@ -404,7 +446,8 @@ def generate_index_html(
     "dateModified": "{date_str}T21:30:00+01:00",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
-    "author": {{"@type": "Organization", "name": "Solutions du Jour"}}
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
   }}
   </script>
 
@@ -441,9 +484,20 @@ def generate_index_html(
   }}
   </script>
 
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://j0hanj0han.github.io/cemantix/euromillions/"}}
+    ]
+  }}
+  </script>
+
   <link rel="stylesheet" href="../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+          async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -453,6 +507,10 @@ def generate_index_html(
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <span>EuroMillions</span>
+</nav>
   <article>
 
     <div class="card">

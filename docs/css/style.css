@@ -515,6 +515,27 @@ footer a { color: var(--color-primary); }
   font-size: .8rem;
 }
 
+/* ── Breadcrumb ── */
+
+.breadcrumb {
+  font-size: .8rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { text-decoration: underline; }
+
+.breadcrumb span { color: var(--color-muted); }
+
 /* ── Responsive ── */
 
 @media (min-width: 600px) {

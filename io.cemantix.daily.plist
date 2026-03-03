@@ -9,26 +9,21 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/johan.chapelain@dataiku.com/Documents/code/cemantix/run_daily.sh</string>
+    <string>/Users/johan/Documents/code/cemantix/run_daily.sh</string>
   </array>
 
-  <!-- Lancement chaque jour à 08h05 (heure locale) -->
+  <!-- Lancement chaque jour à 00h15 (heure locale) -->
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key>
-    <integer>8</integer>
+    <integer>0</integer>
     <key>Minute</key>
-    <integer>5</integer>
+    <integer>15</integer>
   </dict>
 
   <!-- Si le Mac était éteint à l'heure prévue, lancer au prochain démarrage -->
   <key>RunAtLoad</key>
   <false/>
 
-  <key>StandardOutPath</key>
-  <string>/Users/johan.chapelain@dataiku.com/Documents/code/cemantix/run_daily.log</string>
-
-  <key>StandardErrorPath</key>
-  <string>/Users/johan.chapelain@dataiku.com/Documents/code/cemantix/run_daily.log</string>
 </dict>
 </plist>

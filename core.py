@@ -9,7 +9,7 @@ import cloudscraper
 
 # ── Configuration globale ─────────────────────────────────────────────────────
 
-SITE_URL = "https://j0hanj0han.github.io/cemantix"
+SITE_URL = "https://solution-du-jour.fr"
 DOCS_DIR = Path("docs")
 
 MONTHS_FR = [

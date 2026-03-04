@@ -2,21 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/cemantix/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/cemantix/archive/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://j0hanj0han.github.io/cemantix/cemantix/archive/2026-03-04.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/cemantix/archive/2026-03-03.html</loc>
@@ -44,15 +50,21 @@
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/sutom/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/sutom/archive/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://j0hanj0han.github.io/cemantix/sutom/archive/2026-03-04.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/sutom/archive/2026-03-03.html</loc>
@@ -446,15 +458,21 @@
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/euromillions/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/euromillions/archive/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://j0hanj0han.github.io/cemantix/euromillions/archive/2026-03-03.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/euromillions/archive/2026-02-27.html</loc>
@@ -807,12 +825,6 @@
   <url>
     <loc>https://j0hanj0han.github.io/cemantix/euromillions/archive/2025-08-08.html</loc>
     <lastmod>2025-08-08</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://j0hanj0han.github.io/cemantix/euromillions/archive/2025-08-05.html</loc>
-    <lastmod>2025-08-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>

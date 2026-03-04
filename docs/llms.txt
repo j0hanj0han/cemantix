@@ -4,18 +4,18 @@
 
 ## Pages principales
 
-- [Accueil](https://j0hanj0han.github.io/cemantix/): Hub multi-jeux avec les solutions et résultats du jour.
-- [Cémantix — Solution du jour](https://j0hanj0han.github.io/cemantix/cemantix/): Solution et indices progressifs du Cémantix quotidien (jeu sémantique francophone).
-- [Sutom — Solution du jour](https://j0hanj0han.github.io/cemantix/sutom/): Solution du Wordle français (Sutom) quotidien.
-- [Loto — Résultats du dernier tirage](https://j0hanj0han.github.io/cemantix/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
-- [EuroMillions — Résultats du dernier tirage](https://j0hanj0han.github.io/cemantix/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
+- [Accueil](https://solution-du-jour.fr/): Hub multi-jeux avec les solutions et résultats du jour.
+- [Cémantix — Solution du jour](https://solution-du-jour.fr/cemantix/): Solution et indices progressifs du Cémantix quotidien (jeu sémantique francophone).
+- [Sutom — Solution du jour](https://solution-du-jour.fr/sutom/): Solution du Wordle français (Sutom) quotidien.
+- [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
+- [EuroMillions — Résultats du dernier tirage](https://solution-du-jour.fr/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
 
 ## Archives
 
-- [Archives Cémantix](https://j0hanj0han.github.io/cemantix/cemantix/archive/): Toutes les solutions passées du Cémantix.
-- [Archives Sutom](https://j0hanj0han.github.io/cemantix/sutom/archive/): Toutes les solutions passées du Sutom.
-- [Archives Loto](https://j0hanj0han.github.io/cemantix/loto/archive/): Tous les tirages Loto depuis 2024.
-- [Archives EuroMillions](https://j0hanj0han.github.io/cemantix/euromillions/archive/): Tous les tirages EuroMillions depuis 2021.
+- [Archives Cémantix](https://solution-du-jour.fr/cemantix/archive/): Toutes les solutions passées du Cémantix.
+- [Archives Sutom](https://solution-du-jour.fr/sutom/archive/): Toutes les solutions passées du Sutom.
+- [Archives Loto](https://solution-du-jour.fr/loto/archive/): Tous les tirages Loto depuis 2024.
+- [Archives EuroMillions](https://solution-du-jour.fr/euromillions/archive/): Tous les tirages EuroMillions depuis 2021.
 
 ## Fréquence de mise à jour
 

@@ -10,6 +10,10 @@
 - [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
 - [EuroMillions — Résultats du dernier tirage](https://solution-du-jour.fr/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
 
+## Statistiques
+
+- [Statistiques Loto 2025-2026](https://solution-du-jour.fr/loto/stats/): Numéros les plus fréquents, numéro chance, et retardataires sur les 100 derniers tirages Loto FDJ.
+
 ## Archives
 
 - [Archives Cémantix](https://solution-du-jour.fr/cemantix/archive/): Toutes les solutions passées du Cémantix.

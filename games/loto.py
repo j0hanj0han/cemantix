@@ -10,9 +10,11 @@ Génère :
   docs/loto/archive/YYYY-MM-DD.json
   docs/loto/archive/YYYY-MM-DD.html
   docs/loto/archive/index.html
+  docs/loto/stats/index.html       ← statistiques des N derniers tirages
 """
 
 import json
+from collections import Counter
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -562,6 +564,288 @@ def generate_unavailable_html(today: date) -> None:
     atomic_write(LOTO_DIR / "index.html", html)
 
 
+# ── Statistiques ──────────────────────────────────────────────────────────────
+
+def compute_loto_stats(archives: list[dict]) -> dict:
+    """Calcule les statistiques des tirages à partir des archives JSON."""
+    ball_counts = Counter()
+    lucky_counts = Counter()
+    last_seen = {}  # ball → index du dernier tirage où elle est apparue (0 = plus récent)
+
+    for i, draw in enumerate(archives):
+        for b in draw["balls"]:
+            ball_counts[b] += 1
+            if b not in last_seen:
+                last_seen[b] = i
+        lucky_counts[draw["lucky_ball"]] += 1
+
+    # Retardataires : boules absentes depuis le plus de tirages
+    all_balls = set(range(1, 50))
+    for b in all_balls:
+        if b not in last_seen:
+            last_seen[b] = len(archives)  # jamais vu dans nos archives
+
+    sorted_by_freq = sorted(ball_counts.items(), key=lambda x: -x[1])
+    sorted_lucky = sorted(lucky_counts.items(), key=lambda x: -x[1])
+    sorted_retard = sorted(last_seen.items(), key=lambda x: -x[1])
+
+    return {
+        "total_draws": len(archives),
+        "date_from": archives[-1]["date"] if archives else "",
+        "date_to": archives[0]["date"] if archives else "",
+        "top_balls": sorted_by_freq[:10],        # 10 boules les plus fréquentes
+        "bottom_balls": sorted_by_freq[-5:],     # 5 boules les moins fréquentes
+        "top_lucky": sorted_lucky[:5],           # 5 numéros chance les plus fréquents
+        "retardataires": sorted_retard[:5],      # 5 boules absentes depuis le plus longtemps
+        "all_balls": dict(ball_counts),
+    }
+
+
+def generate_stats_html(stats: dict) -> None:
+    """Génère docs/loto/stats/index.html."""
+    stats_dir = LOTO_DIR / "stats"
+    stats_dir.mkdir(parents=True, exist_ok=True)
+
+    n = stats["total_draws"]
+    date_from = date_fr(date.fromisoformat(stats["date_from"])) if stats["date_from"] else "—"
+    date_to = date_fr(date.fromisoformat(stats["date_to"])) if stats["date_to"] else "—"
+
+    def ball_row(b, count):
+        pct = round(count / n * 100, 1) if n else 0
+        return (
+            f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+            f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+            f'<td>{count}</td><td>{pct}%</td></tr>'
+        )
+
+    top_rows = "\n".join(ball_row(b, c) for b, c in stats["top_balls"])
+    lucky_rows = "\n".join(
+        f'<tr><td><span class="loto-ball loto-ball-chance" style="width:2rem;height:2rem;'
+        f'font-size:.85rem;display:inline-flex;align-items:center;justify-content:center;">'
+        f'{b}</span></td><td>{c}</td><td>{round(c/n*100,1) if n else 0}%</td></tr>'
+        for b, c in stats["top_lucky"]
+    )
+    retard_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{d} tirage{"s" if d > 1 else ""}</td></tr>'
+        for b, d in stats["retardataires"]
+    )
+
+    top_ball = stats["top_balls"][0][0] if stats["top_balls"] else "—"
+    top_lucky = stats["top_lucky"][0][0] if stats["top_lucky"] else "—"
+    retard_ball = stats["retardataires"][0][0] if stats["retardataires"] else "—"
+    retard_draws = stats["retardataires"][0][1] if stats["retardataires"] else 0
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Statistiques Loto 2025-2026 — Numéros les plus sortis | Solution du Jour</title>
+  <meta name="description" content="Numéros les plus sortis au Loto FDJ sur les {n} derniers tirages ({date_from[:7].replace('-', '/')} → {date_to[:7].replace('-', '/')}). Chance, retardataires. Mis à jour.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{LOTO_SITE_URL}/stats/">
+
+  <meta property="og:title" content="Statistiques Loto 2025-2026 — Numéros les plus sortis">
+  <meta property="og:description" content="Fréquence des numéros sur les {n} derniers tirages Loto FDJ. Mis à jour automatiquement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{LOTO_SITE_URL}/stats/">
+  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Statistiques Loto FDJ 2024-2026",
+    "description": "Fréquence des numéros sur les {n} derniers tirages Loto FDJ",
+    "temporalCoverage": "{stats['date_from']}/{stats['date_to']}",
+    "url": "{LOTO_SITE_URL}/stats/",
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Quel numéro sort le plus souvent au Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur les {n} derniers tirages Loto analysés ({date_from} au {date_to}), le numéro {top_ball} est le plus fréquemment sorti."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quel est le numéro chance le plus sorti au Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur les {n} derniers tirages, le numéro chance {top_lucky} est sorti le plus souvent."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quel est le numéro retardataire du Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le numéro {retard_ball} est absent depuis {retard_draws} tirages consécutifs — c'est le plus grand retard actuel."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Ces statistiques garantissent-elles de gagner au Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Non. Le Loto est un jeu de hasard : chaque boule a exactement la même probabilité de sortir à chaque tirage (1 chance sur 49). Les statistiques historiques sont un indicateur descriptif, pas prédictif."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "{LOTO_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Statistiques"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Statistiques Loto 2025-2026</h1>
+  <p class="subtitle">Numéros les plus fréquents — {n} derniers tirages</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">Loto</a> &rsaquo;
+  <span>Statistiques</span>
+</nav>
+
+  <div class="card">
+    <h2>À propos de ces statistiques</h2>
+    <p>
+      Ces statistiques sont calculées automatiquement à partir des <strong>{n} derniers tirages Loto FDJ</strong>
+      ({date_from} au {date_to}). Elles sont mises à jour après chaque tirage.
+    </p>
+    <p style="margin-top:.6rem;font-size:.9rem;color:#6b7280;">
+      ⚠️ Le Loto est un jeu de hasard : chaque boule a la même probabilité de sortir à chaque tirage.
+      Ces statistiques sont descriptives, pas prédictives.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Numéros les plus sortis (sur {n} tirages)</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Période : {date_from} → {date_to}
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Boule</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{top_rows}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Numéro Chance le plus fréquent</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">N° Chance</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{lucky_rows}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Numéros retardataires</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Boules absentes depuis le plus grand nombre de tirages consécutifs.
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Boule</th>
+          <th style="padding:.4rem .5rem;">Absent depuis</th>
+        </tr>
+      </thead>
+      <tbody>
+{retard_rows}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Questions fréquentes</h2>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel numéro sort le plus souvent au Loto ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Sur les {n} derniers tirages analysés, le numéro <strong>{top_ball}</strong> est le plus fréquemment sorti.
+      Le numéro chance le plus fréquent est le <strong>{top_lucky}</strong>.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel est le numéro retardataire du Loto ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Le numéro <strong>{retard_ball}</strong> est absent depuis <strong>{retard_draws} tirages</strong> consécutifs.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Ces stats garantissent-elles de gagner ?</h3>
+    <p style="font-size:.9rem;">
+      Non — le Loto est un jeu d'équiprobabilité. Chaque boule a exactement 1 chance sur 49 de sortir
+      à chaque tirage, indépendamment de l'historique.
+    </p>
+  </div>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../index.html">Dernier tirage Loto &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="{SITE_URL}/">Accueil</a> ·
+    <a href="../index.html">Dernier tirage</a> ·
+    <a href="../archive/">Archives</a> ·
+    <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">Jouer au Loto</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Statistiques calculées automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(stats_dir / "index.html", html)
+    print("[Loto] Génération de docs/loto/stats/index.html…")
+
+
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
 def _generate_all_html(draw_date: date, data: dict) -> None:
@@ -589,6 +873,9 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         draw_date, data["draw_num"], data["balls"], data["lucky_ball"],
         recent_archives,
     )
+
+    stats = compute_loto_stats(all_archives)
+    generate_stats_html(stats)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────

@@ -357,6 +357,12 @@ def generate_global_sitemap(today: date) -> None:
 
     if loto_dates:
         urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/stats/</loc>
+    <lastmod>{loto_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+        urls.append(f"""  <url>
     <loc>{SITE_URL}/loto/archive/</loc>
     <lastmod>{loto_dates[0].isoformat()}</lastmod>
     <changefreq>weekly</changefreq>

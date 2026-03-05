@@ -469,12 +469,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/loto/archive/2025-10-15.html</loc>
-    <lastmod>2025-10-15</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://solution-du-jour.fr/euromillions/</loc>
     <lastmod>2026-03-03</lastmod>
     <changefreq>daily</changefreq>
@@ -482,9 +476,15 @@
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/euromillions/archive/2026-03-03.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2026-02-27.html</loc>
@@ -837,12 +837,6 @@
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2025-08-08.html</loc>
     <lastmod>2025-08-08</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/archive/2025-08-05.html</loc>
-    <lastmod>2025-08-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>

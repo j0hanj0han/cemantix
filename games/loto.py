@@ -35,6 +35,49 @@ _LOTO_API = (
 
 # ── API ───────────────────────────────────────────────────────────────────────
 
+def backfill_archives() -> int:
+    """Télécharge tout l'historique Loto FDJ depuis 2019 et sauvegarde
+    les tirages manquants dans LOTO_ARCHIVE. Retourne le nombre ajoutés."""
+    LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    added = 0
+    start = 0
+    batch = 100
+    while True:
+        url = (
+            "https://data.opendatasoft.com/api/records/1.0/search/"
+            "?dataset=resultats-loto-2019-a-aujourd-hui%40agrall"
+            f"&rows={batch}&start={start}&sort=date_de_tirage"
+        )
+        resp = _session.get(url, timeout=15)
+        resp.raise_for_status()
+        records = resp.json().get("records", [])
+        if not records:
+            break
+        for rec in records:
+            f = rec["fields"]
+            draw_date = f.get("date_de_tirage", "")[:10]
+            if not draw_date:
+                continue
+            out = LOTO_ARCHIVE / f"{draw_date}.json"
+            if out.exists():
+                start += 1  # count but skip
+                continue
+            balls = sorted([
+                f["boule_1"], f["boule_2"], f["boule_3"],
+                f["boule_4"], f["boule_5"]
+            ])
+            lucky = f["numero_chance"]
+            draw_num = f.get("annee_numero_de_tirage", "")
+            data = {"date": draw_date, "draw_num": draw_num,
+                    "balls": balls, "lucky_ball": lucky}
+            atomic_write(out, json.dumps(data, ensure_ascii=False, indent=2))
+            added += 1
+        if len(records) < batch:
+            break
+        start += batch
+    return added
+
+
 def get_loto_latest() -> dict | None:
     """
     Récupère le dernier tirage Loto depuis l'API OpenDataSoft.
@@ -346,6 +389,7 @@ def generate_index_html(
     balls: list[int],
     lucky: int,
     recent_archives: list | None = None,
+    total_archives: int = 0,
 ) -> None:
     """Génère docs/loto/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -365,6 +409,7 @@ def generate_index_html(
                 f'</li>'
             )
         items = "\n".join(arch_item(e) for e in recent_archives[:7])
+        n_label = f"{total_archives} tirages analysés" if total_archives else "tous les tirages"
         recent_archives_card = f"""
     <div class="card">
       <h2>Tirages précédents</h2>
@@ -374,6 +419,13 @@ def generate_index_html(
       <p style="margin-top:.75rem;font-size:.9rem;">
         <a href="archive/">Voir tous les tirages &#8594;</a>
       </p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <h2 style="font-size:1rem;margin-bottom:.4rem;">Statistiques Loto depuis 2008</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:.75rem;">
+        Numéros les plus sortis, retardataires et tendances récentes sur {n_label}.
+      </p>
+      <a class="reveal-btn" href="stats/">Voir les statistiques &#8594;</a>
     </div>"""
 
     html = f"""<!DOCTYPE html>
@@ -589,6 +641,13 @@ def compute_loto_stats(archives: list[dict]) -> dict:
     sorted_lucky = sorted(lucky_counts.items(), key=lambda x: -x[1])
     sorted_retard = sorted(last_seen.items(), key=lambda x: -x[1])
 
+    # Fenêtre "50 derniers tirages"
+    recent_counts = Counter()
+    for draw in archives[:50]:
+        for b in draw["balls"]:
+            recent_counts[b] += 1
+    recent_sorted = sorted(recent_counts.items(), key=lambda x: -x[1])
+
     return {
         "total_draws": len(archives),
         "date_from": archives[-1]["date"] if archives else "",
@@ -598,6 +657,8 @@ def compute_loto_stats(archives: list[dict]) -> dict:
         "top_lucky": sorted_lucky[:5],           # 5 numéros chance les plus fréquents
         "retardataires": sorted_retard[:5],      # 5 boules absentes depuis le plus longtemps
         "all_balls": dict(ball_counts),
+        "recent_top_balls": recent_sorted[:5],   # 5 boules les plus fréquentes sur 50 derniers
+        "recent_bottom_balls": recent_sorted[-5:],  # 5 boules les moins fréquentes sur 50 derniers
     }
 
 
@@ -607,6 +668,7 @@ def generate_stats_html(stats: dict) -> None:
     stats_dir.mkdir(parents=True, exist_ok=True)
 
     n = stats["total_draws"]
+    year_from = stats["date_from"][:4] if stats["date_from"] else "2008"
     date_from = date_fr(date.fromisoformat(stats["date_from"])) if stats["date_from"] else "—"
     date_to = date_fr(date.fromisoformat(stats["date_to"])) if stats["date_to"] else "—"
 
@@ -636,6 +698,22 @@ def generate_stats_html(stats: dict) -> None:
     top_lucky = stats["top_lucky"][0][0] if stats["top_lucky"] else "—"
     retard_ball = stats["retardataires"][0][0] if stats["retardataires"] else "—"
     retard_draws = stats["retardataires"][0][1] if stats["retardataires"] else 0
+    bottom_balls_list = ", ".join(str(b) for b, _ in stats["bottom_balls"])
+
+    bottom_rows = "\n".join(ball_row(b, c) for b, c in stats["bottom_balls"])
+
+    recent_top_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{c}</td></tr>'
+        for b, c in stats["recent_top_balls"]
+    )
+    recent_bottom_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{c}</td></tr>'
+        for b, c in stats["recent_bottom_balls"]
+    )
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -643,13 +721,13 @@ def generate_stats_html(stats: dict) -> None:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Statistiques Loto 2025-2026 — Numéros les plus sortis | Solution du Jour</title>
-  <meta name="description" content="Numéros les plus sortis au Loto FDJ sur les {n} derniers tirages ({date_from[:7].replace('-', '/')} → {date_to[:7].replace('-', '/')}). Chance, retardataires. Mis à jour.">
+  <title>Statistiques Loto FDJ depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
+  <meta name="description" content="Numéros les plus sortis au Loto FDJ depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/stats/">
 
-  <meta property="og:title" content="Statistiques Loto 2025-2026 — Numéros les plus sortis">
-  <meta property="og:description" content="Fréquence des numéros sur les {n} derniers tirages Loto FDJ. Mis à jour automatiquement.">
+  <meta property="og:title" content="Statistiques Loto FDJ depuis {year_from} — Numéros les plus sortis">
+  <meta property="og:description" content="Fréquence des numéros sur {n} tirages Loto FDJ depuis {year_from}. Mis à jour automatiquement.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/stats/">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
@@ -659,8 +737,8 @@ def generate_stats_html(stats: dict) -> None:
   {{
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": "Statistiques Loto FDJ 2024-2026",
-    "description": "Fréquence des numéros sur les {n} derniers tirages Loto FDJ",
+    "name": "Statistiques Loto FDJ depuis {year_from}",
+    "description": "Fréquence des numéros sur {n} tirages Loto FDJ depuis {year_from}",
     "temporalCoverage": "{stats['date_from']}/{stats['date_to']}",
     "url": "{LOTO_SITE_URL}/stats/",
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
@@ -677,7 +755,7 @@ def generate_stats_html(stats: dict) -> None:
         "name": "Quel numéro sort le plus souvent au Loto ?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Sur les {n} derniers tirages Loto analysés ({date_from} au {date_to}), le numéro {top_ball} est le plus fréquemment sorti."
+          "text": "Sur les {n} tirages Loto analysés depuis {year_from} ({date_from} au {date_to}), le numéro {top_ball} est le plus fréquemment sorti."
         }}
       }},
       {{
@@ -685,7 +763,7 @@ def generate_stats_html(stats: dict) -> None:
         "name": "Quel est le numéro chance le plus sorti au Loto ?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Sur les {n} derniers tirages, le numéro chance {top_lucky} est sorti le plus souvent."
+          "text": "Sur les {n} tirages analysés depuis {year_from}, le numéro chance {top_lucky} est sorti le plus souvent."
         }}
       }},
       {{
@@ -702,6 +780,22 @@ def generate_stats_html(stats: dict) -> None:
         "acceptedAnswer": {{
           "@type": "Answer",
           "text": "Non. Le Loto est un jeu de hasard : chaque boule a exactement la même probabilité de sortir à chaque tirage (1 chance sur 49). Les statistiques historiques sont un indicateur descriptif, pas prédictif."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de tirages Loto ont eu lieu depuis {year_from} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "{n} tirages Loto ont eu lieu depuis {year_from}, à raison de 3 tirages par semaine (lundi, mercredi, samedi)."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quels sont les numéros les moins sortis au Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur {n} tirages depuis {year_from}, les numéros les moins sortis sont : {bottom_balls_list}."
         }}
       }}
     ]
@@ -727,8 +821,8 @@ def generate_stats_html(stats: dict) -> None:
 <body>
 
 <header class="site-header">
-  <h1>Statistiques Loto 2025-2026</h1>
-  <p class="subtitle">Numéros les plus fréquents — {n} derniers tirages</p>
+  <h1>Statistiques Loto FDJ depuis {year_from}</h1>
+  <p class="subtitle">Numéros les plus sortis sur {n} tirages — Mis à jour le {date_to}</p>
 </header>
 
 <main>
@@ -741,7 +835,7 @@ def generate_stats_html(stats: dict) -> None:
   <div class="card">
     <h2>À propos de ces statistiques</h2>
     <p>
-      Ces statistiques sont calculées automatiquement à partir des <strong>{n} derniers tirages Loto FDJ</strong>
+      Ces statistiques sont calculées automatiquement à partir des <strong>{n} tirages Loto FDJ depuis {year_from}</strong>
       ({date_from} au {date_to}). Elles sont mises à jour après chaque tirage.
     </p>
     <p style="margin-top:.6rem;font-size:.9rem;color:#6b7280;">
@@ -751,9 +845,9 @@ def generate_stats_html(stats: dict) -> None:
   </div>
 
   <div class="card">
-    <h2>Numéros les plus sortis (sur {n} tirages)</h2>
+    <h2>Numéros les plus sortis depuis {year_from}</h2>
     <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
-      Période : {date_from} → {date_to}
+      Période : {date_from} → {date_to} ({n} tirages)
     </p>
     <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
       <thead>
@@ -767,6 +861,62 @@ def generate_stats_html(stats: dict) -> None:
 {top_rows}
       </tbody>
     </table>
+  </div>
+
+  <div class="card">
+    <h2>Numéros les moins sortis depuis {year_from}</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Les 5 boules les plus rares sur l'ensemble des {n} tirages.
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Boule</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{bottom_rows}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Tendances récentes — 50 derniers tirages</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Numéros chauds et froids sur les 50 derniers tirages uniquement.
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.5rem;">🔥 Numéros chauds</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Boule</th>
+              <th style="padding:.3rem .4rem;">Sorties</th>
+            </tr>
+          </thead>
+          <tbody>
+{recent_top_rows}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.5rem;">❄️ Numéros froids</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Boule</th>
+              <th style="padding:.3rem .4rem;">Sorties</th>
+            </tr>
+          </thead>
+          <tbody>
+{recent_bottom_rows}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -808,8 +958,19 @@ def generate_stats_html(stats: dict) -> None:
 
     <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel numéro sort le plus souvent au Loto ?</h3>
     <p style="font-size:.9rem;margin-bottom:.75rem;">
-      Sur les {n} derniers tirages analysés, le numéro <strong>{top_ball}</strong> est le plus fréquemment sorti.
+      Sur les {n} tirages analysés depuis {year_from}, le numéro <strong>{top_ball}</strong> est le plus fréquemment sorti.
       Le numéro chance le plus fréquent est le <strong>{top_lucky}</strong>.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quels sont les numéros les moins sortis au Loto ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Sur {n} tirages depuis {year_from}, les numéros les moins fréquents sont : <strong>{bottom_balls_list}</strong>.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Combien de tirages Loto ont eu lieu depuis {year_from} ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      <strong>{n} tirages</strong> ont eu lieu depuis {year_from},
+      à raison de 3 tirages par semaine (lundi, mercredi, samedi).
     </p>
 
     <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel est le numéro retardataire du Loto ?</h3>
@@ -872,6 +1033,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     generate_index_html(
         draw_date, data["draw_num"], data["balls"], data["lucky_ball"],
         recent_archives,
+        total_archives=len(all_archives),
     )
 
     stats = compute_loto_stats(all_archives)

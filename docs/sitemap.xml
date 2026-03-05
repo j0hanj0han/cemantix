@@ -103,6 +103,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://solution-du-jour.fr/loto/stats/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://solution-du-jour.fr/loto/archive/</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>weekly</changefreq>

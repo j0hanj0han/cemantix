@@ -9,7 +9,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/johan/Documents/code/cemantix/run_daily.sh</string>
+    <string>/Users/johan/code/cemantix/run_daily.sh</string>
   </array>
 
   <!-- Lancement chaque jour à 00h15 (heure locale) -->

@@ -303,7 +303,7 @@ def generate_global_sitemap(today: date) -> None:
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>""")
-        for d in cemantix_dates[:60]:
+        for d in cemantix_dates:
             d_str = d.isoformat()
             urls.append(f"""  <url>
     <loc>{SITE_URL}/cemantix/archive/{d_str}.html</loc>
@@ -332,7 +332,7 @@ def generate_global_sitemap(today: date) -> None:
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>""")
-        for d in sutom_dates[:60]:
+        for d in sutom_dates:
             d_str = d.isoformat()
             urls.append(f"""  <url>
     <loc>{SITE_URL}/sutom/archive/{d_str}.html</loc>
@@ -368,7 +368,7 @@ def generate_global_sitemap(today: date) -> None:
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>""")
-        for d in loto_dates[:60]:
+        for d in loto_dates:
             d_str = d.isoformat()
             urls.append(f"""  <url>
     <loc>{SITE_URL}/loto/archive/{d_str}.html</loc>
@@ -398,7 +398,7 @@ def generate_global_sitemap(today: date) -> None:
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>""")
-        for d in em_dates[:60]:
+        for d in em_dates:
             d_str = d.isoformat()
             urls.append(f"""  <url>
     <loc>{SITE_URL}/euromillions/archive/{d_str}.html</loc>

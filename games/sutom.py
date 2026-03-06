@@ -117,7 +117,7 @@ def generate_archive_html(
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{SUTOM_SITE_URL}/archive/{date_str}.html">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sutom {date_display} — Solution #{puzzle_num}">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
@@ -133,7 +133,7 @@ def generate_archive_html(
     "description": "Solution du Sutom #{puzzle_num} pour le {date_display} : {word}.",
     "url": "{SUTOM_SITE_URL}/archive/{date_str}.html",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -159,9 +159,9 @@ def generate_archive_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Sutom", "item": "https://j0hanj0han.github.io/cemantix/sutom/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://j0hanj0han.github.io/cemantix/sutom/archive/"}},
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Sutom", "item": "https://solution-du-jour.fr/sutom/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/sutom/archive/"}},
       {{"@type": "ListItem", "position": 4, "name": "Solution du {date_display}"}}
     ]
   }}
@@ -182,7 +182,7 @@ def generate_archive_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../index.html">Sutom</a> &rsaquo;
   <a href="index.html">Archives</a> &rsaquo;
   <span>Solution du {date_display}</span>
@@ -388,7 +388,7 @@ def generate_index_html(
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{SUTOM_SITE_URL}/">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sutom {date_display} — Solution #{puzzle_num}">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
@@ -404,7 +404,7 @@ def generate_index_html(
     "description": "Solution et réponse du jeu Sutom #{puzzle_num} pour le {date_display}.",
     "url": "{SUTOM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -446,8 +446,8 @@ def generate_index_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Sutom", "item": "https://j0hanj0han.github.io/cemantix/sutom/"}}
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Sutom", "item": "https://solution-du-jour.fr/sutom/"}}
     ]
   }}
   </script>
@@ -465,7 +465,7 @@ def generate_index_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <span>Sutom</span>
 </nav>
   <article>

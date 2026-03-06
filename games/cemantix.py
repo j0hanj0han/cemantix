@@ -197,7 +197,7 @@ def generate_archive_html(
   <meta property="og:description" content="Réponse et indices du Cémantix du {date_display} (puzzle #{puzzle_num}).">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{date_str}.html">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
   <meta name="twitter:description" content="Réponse et indices du Cémantix du {date_display} (puzzle #{puzzle_num}).">
@@ -213,7 +213,7 @@ def generate_archive_html(
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}.html",
     "author": {{"@type": "Organization", "name": "Cémantix Solution"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -239,9 +239,9 @@ def generate_archive_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://j0hanj0han.github.io/cemantix/cemantix/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://j0hanj0han.github.io/cemantix/cemantix/archive/"}},
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://solution-du-jour.fr/cemantix/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/cemantix/archive/"}},
       {{"@type": "ListItem", "position": 4, "name": "Solution du {date_display}"}}
     ]
   }}
@@ -262,7 +262,7 @@ def generate_archive_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../index.html">Cémantix</a> &rsaquo;
   <a href="index.html">Archives</a> &rsaquo;
   <span>Solution du {date_display}</span>
@@ -506,7 +506,7 @@ def generate_index_html(
   <meta property="og:description" content="Réponse et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret sans vous faire spoiler.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
   <meta name="twitter:description" content="Réponse et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret sans vous faire spoiler.">
@@ -522,7 +522,7 @@ def generate_index_html(
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Cémantix Solution"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -564,8 +564,8 @@ def generate_index_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://j0hanj0han.github.io/cemantix/cemantix/"}}
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://solution-du-jour.fr/cemantix/"}}
     ]
   }}
   </script>
@@ -583,7 +583,7 @@ def generate_index_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <span>Cémantix</span>
 </nav>
   <article>

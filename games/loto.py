@@ -176,7 +176,7 @@ def generate_archive_html(
   <meta property="og:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{LOTO_SITE_URL}/archive/{date_str}.html">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
@@ -192,7 +192,7 @@ def generate_archive_html(
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/archive/{date_str}.html",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -218,9 +218,9 @@ def generate_archive_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://j0hanj0han.github.io/cemantix/loto/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://j0hanj0han.github.io/cemantix/loto/archive/"}},
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://solution-du-jour.fr/loto/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/loto/archive/"}},
       {{"@type": "ListItem", "position": 4, "name": "Tirage du {date_display}"}}
     ]
   }}
@@ -241,7 +241,7 @@ def generate_archive_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../index.html">Loto</a> &rsaquo;
   <a href="index.html">Archives</a> &rsaquo;
   <span>Tirage du {date_display}</span>
@@ -444,7 +444,7 @@ def generate_index_html(
   <meta property="og:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{LOTO_SITE_URL}/">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
@@ -460,7 +460,7 @@ def generate_index_html(
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -502,8 +502,8 @@ def generate_index_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://j0hanj0han.github.io/cemantix/loto/"}}
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://solution-du-jour.fr/loto/"}}
     ]
   }}
   </script>
@@ -521,7 +521,7 @@ def generate_index_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <span>Loto</span>
 </nav>
   <article>

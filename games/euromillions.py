@@ -168,7 +168,7 @@ def generate_archive_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}.html">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
@@ -184,7 +184,7 @@ def generate_archive_html(
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/archive/{date_str}.html",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -210,9 +210,9 @@ def generate_archive_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://j0hanj0han.github.io/cemantix/euromillions/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://j0hanj0han.github.io/cemantix/euromillions/archive/"}},
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://solution-du-jour.fr/euromillions/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/euromillions/archive/"}},
       {{"@type": "ListItem", "position": 4, "name": "Tirage du {date_display}"}}
     ]
   }}
@@ -233,7 +233,7 @@ def generate_archive_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../index.html">EuroMillions</a> &rsaquo;
   <a href="index.html">Archives</a> &rsaquo;
   <span>Tirage du {date_display}</span>
@@ -431,7 +431,7 @@ def generate_index_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/">
-  <meta property="og:image" content="https://j0hanj0han.github.io/cemantix/og-image.png">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
@@ -447,7 +447,7 @@ def generate_index_html(
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://j0hanj0han.github.io/cemantix/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
 
@@ -489,8 +489,8 @@ def generate_index_html(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://j0hanj0han.github.io/cemantix/"}},
-      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://j0hanj0han.github.io/cemantix/euromillions/"}}
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://solution-du-jour.fr/euromillions/"}}
     ]
   }}
   </script>
@@ -508,7 +508,7 @@ def generate_index_html(
 
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://j0hanj0han.github.io/cemantix/">Accueil</a> &rsaquo;
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <span>EuroMillions</span>
 </nav>
   <article>

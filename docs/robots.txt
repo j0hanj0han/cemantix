@@ -22,4 +22,4 @@ Allow: /
 User-agent: GoogleOther
 Allow: /
 
-Sitemap: https://j0hanj0han.github.io/cemantix/sitemap.xml
+Sitemap: https://solution-du-jour.fr/sitemap.xml

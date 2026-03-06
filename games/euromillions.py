@@ -175,6 +175,8 @@ def generate_archive_html(
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}.html">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
@@ -295,6 +297,7 @@ def generate_archive_html(
   <p>
     <a href="../index.html">Dernier tirage</a> ·
     <a href="index.html">Tous les tirages</a> ·
+    <a href="../stats/">Statistiques</a> ·
     <a href="https://www.euro-millions.com/fr" rel="noopener" target="_blank">euro-millions.com</a>
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Résultats récupérés automatiquement</p>
@@ -343,6 +346,10 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta property="og:url" content="{EM_SITE_URL}/archive/">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
+  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Archives EuroMillions — Tous les numéros gagnants">
+  <meta name="twitter:description" content="Tous les résultats des tirages EuroMillions avec numéros et étoiles depuis 2004.">
 
   <script type="application/ld+json">
   {{
@@ -391,6 +398,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <footer>
   <p>
     <a href="../index.html">Dernier tirage</a> ·
+    <a href="../stats/">Statistiques</a> ·
     <a href="https://www.euro-millions.com/fr" rel="noopener" target="_blank">euro-millions.com</a>
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Résultats récupérés automatiquement</p>
@@ -457,6 +465,8 @@ def generate_index_html(
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
@@ -583,7 +593,7 @@ def generate_index_html(
 </main>
 
 <footer>
-  <p>Site non officiel — Résultats récupérés automatiquement · <a href="{SITE_URL}/">Accueil</a> · <a href="archive/">Archives</a></p>
+  <p>Site non officiel — Résultats récupérés automatiquement · <a href="{SITE_URL}/">Accueil</a> · <a href="archive/">Archives</a> · <a href="stats/">Statistiques</a></p>
   <p style="margin-top:.4rem;">Jouer sur <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">fdj.fr</a></p>
 </footer>
 
@@ -885,6 +895,9 @@ def generate_em_stats_html(stats: dict) -> None:
   <meta property="og:site_name" content="Solutions du Jour">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis">
+  <meta name="twitter:description" content="Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}. Mis à jour automatiquement.">
+  <meta property="article:modified_time" content="{stats['date_to']}T22:00:00+01:00">
 
   <script type="application/ld+json">
   {{

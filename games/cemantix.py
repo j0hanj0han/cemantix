@@ -212,7 +212,7 @@ def generate_archive_html(
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}.html",
-    "author": {{"@type": "Organization", "name": "Cémantix Solution"}},
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>
@@ -413,6 +413,20 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta property="og:description" content="Toutes les solutions passées du jeu Cémantix avec indices progressifs.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "{CEMANTIX_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives"}}
+    ]
+  }}
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -426,8 +440,13 @@ def generate_archive_index(entries: list[dict]) -> None:
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">Cémantix</a> &rsaquo;
+  <span>Archives</span>
+</nav>
   <div class="card">
-    <h2>Toutes les solutions Cémantix</h2>
+    <h2>Toutes les solutions Cémantix ({count})</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
       Cliquez sur un mot pour voir la solution complète et les indices de ce jour.
     </p>
@@ -521,7 +540,7 @@ def generate_index_html(
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
-    "author": {{"@type": "Organization", "name": "Cémantix Solution"}},
+    "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
   </script>

@@ -536,6 +536,21 @@ footer a { color: var(--color-primary); }
 
 .breadcrumb span { color: var(--color-muted); }
 
+/* ── Tables responsive ── */
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Grid tendances récentes (stats Loto) ── */
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /* ── Responsive ── */
 
 @media (min-width: 600px) {
@@ -546,5 +561,22 @@ footer a { color: var(--color-primary); }
 @media (min-width: 640px) {
   .games-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .recent-grid {
+    grid-template-columns: 1fr;
+  }
+  .arch-item {
+    flex-wrap: wrap;
+    gap: .35rem;
+  }
+  .arch-date {
+    min-width: unset;
+    width: 100%;
+  }
+  .arch-num {
+    min-width: unset;
   }
 }

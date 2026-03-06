@@ -316,7 +316,7 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'</li>'
         )
 
-    items_html = "\n".join(item_html(e) for e in entries[:60])
+    items_html = "\n".join(item_html(e) for e in entries)
     count = len(entries)
 
     html = f"""<!DOCTYPE html>
@@ -335,6 +335,20 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta property="og:description" content="Tous les résultats des tirages EuroMillions avec numéros et étoiles.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{EM_SITE_URL}/archive/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "{EM_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives"}}
+    ]
+  }}
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -348,15 +362,19 @@ def generate_archive_index(entries: list[dict]) -> None:
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">EuroMillions</a> &rsaquo;
+  <span>Archives</span>
+</nav>
   <div class="card">
-    <h2>Tous les tirages EuroMillions</h2>
+    <h2>Tous les tirages EuroMillions ({count})</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
       Cliquez sur un tirage pour voir les détails. Format : boules | &#9733; étoiles.
     </p>
     <ul class="arch-list">
 {items_html}
     </ul>
-    {f'<p style="margin-top:.75rem;font-size:.9rem;color:#6b7280;">Affichage des 60 derniers tirages. Tous les tirages sont disponibles dans le <a href="/cemantix/sitemap.xml">sitemap</a>.</p>' if len(entries) > 60 else ''}
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">

@@ -295,6 +295,20 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta property="og:description" content="Toutes les solutions passées du jeu Sutom.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SUTOM_SITE_URL}/archive/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Sutom", "item": "{SUTOM_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives"}}
+    ]
+  }}
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -308,8 +322,13 @@ def generate_archive_index(entries: list[dict]) -> None:
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">Sutom</a> &rsaquo;
+  <span>Archives</span>
+</nav>
   <div class="card">
-    <h2>Toutes les solutions Sutom</h2>
+    <h2>Toutes les solutions Sutom ({count})</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
       Cliquez sur un mot pour voir la solution complète de ce jour.
     </p>

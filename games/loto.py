@@ -321,7 +321,7 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'</li>'
         )
 
-    items_html = "\n".join(item_html(e) for e in entries[:60])
+    items_html = "\n".join(item_html(e) for e in entries)
     count = len(entries)
 
     html = f"""<!DOCTYPE html>
@@ -330,16 +330,30 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Archives Loto — Tous les tirages et numéros gagnants</title>
-  <meta name="description" content="Retrouvez tous les résultats des tirages Loto : numéros gagnants et numéros chance pour chaque tirage depuis 2019.">
+  <title>Archives Loto — Tous les tirages et numéros gagnants depuis 2008</title>
+  <meta name="description" content="Retrouvez tous les résultats des tirages Loto depuis 2008 : numéros gagnants et numéros chance pour chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Archives Loto — Tous les numéros gagnants">
-  <meta property="og:description" content="Tous les résultats des tirages Loto avec numéros et numéros chance.">
+  <meta property="og:title" content="Archives Loto — Tous les numéros gagnants depuis 2008">
+  <meta property="og:description" content="Tous les résultats des tirages Loto depuis 2008 avec numéros et numéros chance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/archive/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "{LOTO_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives"}}
+    ]
+  }}
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -353,15 +367,19 @@ def generate_archive_index(entries: list[dict]) -> None:
 </header>
 
 <main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">Loto</a> &rsaquo;
+  <span>Archives</span>
+</nav>
   <div class="card">
-    <h2>Tous les tirages Loto</h2>
+    <h2>Tous les tirages Loto ({count})</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
       Cliquez sur un tirage pour voir les détails. Format : boules (croissant) + numéro chance.
     </p>
     <ul class="arch-list">
 {items_html}
     </ul>
-    {f'<p style="margin-top:.75rem;font-size:.9rem;color:#6b7280;">Affichage des 60 derniers tirages. Tous les tirages sont disponibles dans le <a href="/cemantix/sitemap.xml">sitemap</a>.</p>' if len(entries) > 60 else ''}
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">
@@ -849,6 +867,7 @@ def generate_stats_html(stats: dict) -> None:
     <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
       Période : {date_from} → {date_to} ({n} tirages)
     </p>
+    <div class="table-scroll">
     <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
       <thead>
         <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -861,6 +880,7 @@ def generate_stats_html(stats: dict) -> None:
 {top_rows}
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="card">
@@ -868,6 +888,7 @@ def generate_stats_html(stats: dict) -> None:
     <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
       Les 5 boules les plus rares sur l'ensemble des {n} tirages.
     </p>
+    <div class="table-scroll">
     <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
       <thead>
         <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -880,6 +901,7 @@ def generate_stats_html(stats: dict) -> None:
 {bottom_rows}
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="card">
@@ -887,9 +909,10 @@ def generate_stats_html(stats: dict) -> None:
     <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
       Numéros chauds et froids sur les 50 derniers tirages uniquement.
     </p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+    <div class="recent-grid">
       <div>
         <h3 style="font-size:.95rem;margin-bottom:.5rem;">🔥 Numéros chauds</h3>
+        <div class="table-scroll">
         <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
           <thead>
             <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -901,9 +924,11 @@ def generate_stats_html(stats: dict) -> None:
 {recent_top_rows}
           </tbody>
         </table>
+        </div>
       </div>
       <div>
         <h3 style="font-size:.95rem;margin-bottom:.5rem;">❄️ Numéros froids</h3>
+        <div class="table-scroll">
         <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
           <thead>
             <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -915,12 +940,14 @@ def generate_stats_html(stats: dict) -> None:
 {recent_bottom_rows}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="card">
     <h2>Numéro Chance le plus fréquent</h2>
+    <div class="table-scroll">
     <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
       <thead>
         <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -933,6 +960,7 @@ def generate_stats_html(stats: dict) -> None:
 {lucky_rows}
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="card">
@@ -940,6 +968,7 @@ def generate_stats_html(stats: dict) -> None:
     <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
       Boules absentes depuis le plus grand nombre de tirages consécutifs.
     </p>
+    <div class="table-scroll">
     <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
       <thead>
         <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
@@ -951,6 +980,7 @@ def generate_stats_html(stats: dict) -> None:
 {retard_rows}
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="card">

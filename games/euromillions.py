@@ -11,10 +11,16 @@ Génère :
   docs/euromillions/archive/YYYY-MM-DD.json
   docs/euromillions/archive/YYYY-MM-DD.html
   docs/euromillions/archive/index.html
+  docs/euromillions/stats/index.html       ← statistiques
 """
 
+import csv
+import io
 import json
 import re
+import urllib.request
+import zipfile
+from collections import Counter
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -80,8 +86,8 @@ def get_euromillions_latest() -> dict | None:
         if m:
             day, month_str, year = int(m.group(1)), m.group(2).lower(), int(m.group(3))
             draw_date = date(year, _MONTHS_FR[month_str], day)
-            balls = sorted(int(b.text.strip()) for b in node.find_all(class_="ball")[:5])
-            stars = sorted(int(s.text.strip()) for s in node.find_all(class_="lucky-star")[:2])
+            balls = sorted(int(b.text.strip()) for b in node.find_all(class_="ball")[:5] if b.text.strip().isdigit())
+            stars = sorted(int(s.text.strip()) for s in node.find_all(class_="lucky-star")[:2] if s.text.strip().isdigit())
             if len(balls) == 5 and len(stars) == 2:
                 return {
                     "date": draw_date.isoformat(),
@@ -401,6 +407,7 @@ def generate_index_html(
     balls: list[int],
     stars: list[int],
     recent_archives: list | None = None,
+    total_archives: int = 0,
 ) -> None:
     """Génère docs/euromillions/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -565,6 +572,13 @@ def generate_index_html(
       </p>
     </div>
 {recent_archives_card}
+    <div class="card" style="text-align:center;">
+      <h2 style="font-size:1rem;margin-bottom:.4rem;">Statistiques EuroMillions depuis 2004</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:.75rem;">
+        Numéros les plus sortis, étoiles fréquentes et retardataires sur {total_archives} tirages analysés.
+      </p>
+      <a class="reveal-btn" href="stats/">Voir les statistiques &#8594;</a>
+    </div>
   </article>
 </main>
 
@@ -622,6 +636,563 @@ def generate_unavailable_html(today: date) -> None:
     atomic_write(EM_DIR / "index.html", html)
 
 
+# ── Backfill historique ────────────────────────────────────────────────────────
+
+_FDJ_ZIPS = [
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_200402.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201105.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201402.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201609.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201902.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip",
+]
+_PEDRO_API = "https://euromillions.api.pedromealha.dev/v1/draws"
+
+
+def _parse_em_date(s: str) -> date | None:
+    """Parse une date FDJ en format YYYYMMDD, DD/MM/YYYY ou DD/MM/YY."""
+    s = s.strip()
+    if re.match(r"^\d{8}$", s):
+        try:
+            return date(int(s[:4]), int(s[4:6]), int(s[6:8]))
+        except ValueError:
+            return None
+    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{2,4})$", s)
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if y < 100:
+            y += 2000
+        try:
+            return date(y, mo, d)
+        except ValueError:
+            return None
+    return None
+
+
+def backfill_euromillions() -> int:
+    """
+    Télécharge tout l'historique EuroMillions depuis les ZIPs FDJ (2004→2024)
+    puis comble le gap via l'API pedro-mealha jusqu'à aujourd'hui.
+    Retourne le nombre de tirages ajoutés.
+    """
+    EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    added = 0
+    max_fdj_date = date(2000, 1, 1)
+
+    # ── Phase 1 : 6 ZIPs FDJ ──
+    for url in _FDJ_ZIPS:
+        print(f"   → {url.split('/')[-1]}…", end=" ", flush=True)
+        try:
+            raw = urllib.request.urlopen(url, timeout=30).read()
+        except Exception as e:
+            print(f"erreur : {e}")
+            continue
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            fname = z.namelist()[0]
+            content = z.read(fname).decode("latin-1").splitlines()
+        reader = csv.DictReader(content, delimiter=";")
+        n = 0
+        for row in reader:
+            draw_date = _parse_em_date(row.get("date_de_tirage", ""))
+            if not draw_date:
+                continue
+            out = EM_ARCHIVE / f"{draw_date.isoformat()}.json"
+            if out.exists():
+                max_fdj_date = max(max_fdj_date, draw_date)
+                continue
+            try:
+                balls = sorted(int(row[f"boule_{i}"]) for i in range(1, 6))
+                stars = sorted(int(row[f"etoile_{i}"]) for i in range(1, 3))
+            except (KeyError, ValueError):
+                continue
+            data = {"date": draw_date.isoformat(), "balls": balls, "stars": stars}
+            atomic_write(out, json.dumps(data, ensure_ascii=False, indent=2))
+            max_fdj_date = max(max_fdj_date, draw_date)
+            added += 1
+            n += 1
+        print(f"{n} nouveaux")
+
+    # ── Phase 2 : gap via API pedro-mealha ──
+    print(f"   → API pedro-mealha (après {max_fdj_date})…", end=" ", flush=True)
+    try:
+        resp = _session.get(_PEDRO_API, timeout=30)
+        resp.raise_for_status()
+        draws = resp.json()
+    except Exception as e:
+        print(f"erreur : {e}")
+        return added
+
+    n = 0
+    for draw in draws:
+        draw_date_str = draw.get("date", "")
+        if not draw_date_str:
+            continue
+        try:
+            draw_date = date.fromisoformat(draw_date_str)
+        except ValueError:
+            continue
+        if draw_date <= max_fdj_date:
+            continue
+        out = EM_ARCHIVE / f"{draw_date_str}.json"
+        if out.exists():
+            continue
+        try:
+            balls = sorted(int(x) for x in draw["numbers"])
+            stars = sorted(int(x) for x in draw["stars"])
+        except (KeyError, ValueError):
+            continue
+        data = {"date": draw_date_str, "balls": balls, "stars": stars}
+        atomic_write(out, json.dumps(data, ensure_ascii=False, indent=2))
+        added += 1
+        n += 1
+    print(f"{n} nouveaux")
+    return added
+
+
+# ── Statistiques ───────────────────────────────────────────────────────────────
+
+def compute_em_stats(archives: list[dict]) -> dict:
+    """Calcule les statistiques EuroMillions à partir des archives JSON."""
+    ball_counts = Counter()
+    star_counts = Counter()
+    last_seen_ball = {}
+    last_seen_star = {}
+
+    for i, draw in enumerate(archives):
+        for b in draw["balls"]:
+            ball_counts[b] += 1
+            if b not in last_seen_ball:
+                last_seen_ball[b] = i
+        for s in draw["stars"]:
+            star_counts[s] += 1
+            if s not in last_seen_star:
+                last_seen_star[s] = i
+
+    for b in range(1, 51):
+        if b not in last_seen_ball:
+            last_seen_ball[b] = len(archives)
+    for s in range(1, 13):
+        if s not in last_seen_star:
+            last_seen_star[s] = len(archives)
+
+    sorted_balls = sorted(ball_counts.items(), key=lambda x: -x[1])
+    sorted_stars = sorted(star_counts.items(), key=lambda x: -x[1])
+    sorted_retard_balls = sorted(last_seen_ball.items(), key=lambda x: -x[1])
+    sorted_retard_stars = sorted(last_seen_star.items(), key=lambda x: -x[1])
+
+    recent_balls = Counter()
+    recent_stars = Counter()
+    for draw in archives[:50]:
+        for b in draw["balls"]:
+            recent_balls[b] += 1
+        for s in draw["stars"]:
+            recent_stars[s] += 1
+    recent_balls_sorted = sorted(recent_balls.items(), key=lambda x: -x[1])
+    recent_stars_sorted = sorted(recent_stars.items(), key=lambda x: -x[1])
+
+    return {
+        "total_draws": len(archives),
+        "date_from": archives[-1]["date"] if archives else "",
+        "date_to": archives[0]["date"] if archives else "",
+        "top_balls": sorted_balls[:10],
+        "bottom_balls": sorted_balls[-5:],
+        "top_stars": sorted_stars[:6],
+        "retardataires_balls": sorted_retard_balls[:5],
+        "retardataires_stars": sorted_retard_stars[:3],
+        "recent_top_balls": recent_balls_sorted[:5],
+        "recent_bottom_balls": recent_balls_sorted[-5:],
+        "recent_top_stars": recent_stars_sorted[:3],
+    }
+
+
+def generate_em_stats_html(stats: dict) -> None:
+    """Génère docs/euromillions/stats/index.html."""
+    stats_dir = EM_DIR / "stats"
+    stats_dir.mkdir(parents=True, exist_ok=True)
+
+    n = stats["total_draws"]
+    year_from = stats["date_from"][:4] if stats["date_from"] else "2004"
+    date_from = date_fr(date.fromisoformat(stats["date_from"])) if stats["date_from"] else "—"
+    date_to   = date_fr(date.fromisoformat(stats["date_to"]))   if stats["date_to"]   else "—"
+
+    top_ball   = stats["top_balls"][0][0]   if stats["top_balls"]   else "—"
+    top_star   = stats["top_stars"][0][0]   if stats["top_stars"]   else "—"
+    retard_ball  = stats["retardataires_balls"][0][0]  if stats["retardataires_balls"]  else "—"
+    retard_draws = stats["retardataires_balls"][0][1]  if stats["retardataires_balls"]  else 0
+    bottom_balls_list = ", ".join(str(b) for b, _ in stats["bottom_balls"])
+
+    def ball_row(b, count):
+        pct = round(count / n * 100, 1) if n else 0
+        return (
+            f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+            f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+            f'<td>{count}</td><td>{pct}%</td></tr>'
+        )
+
+    def star_row(s, count):
+        pct = round(count / n * 100, 1) if n else 0
+        return (
+            f'<tr><td><span class="loto-ball em-star" style="width:2rem;height:2rem;font-size:.85rem;'
+            f'display:inline-flex;align-items:center;justify-content:center;">&#9733;{s}</span></td>'
+            f'<td>{count}</td><td>{pct}%</td></tr>'
+        )
+
+    top_rows    = "\n".join(ball_row(b, c) for b, c in stats["top_balls"])
+    bottom_rows = "\n".join(ball_row(b, c) for b, c in stats["bottom_balls"])
+    star_rows   = "\n".join(star_row(s, c) for s, c in stats["top_stars"])
+    retard_ball_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{d} tirage{"s" if d > 1 else ""}</td></tr>'
+        for b, d in stats["retardataires_balls"]
+    )
+    retard_star_rows = "\n".join(
+        f'<tr><td><span class="loto-ball em-star" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">&#9733;{s}</span></td>'
+        f'<td>{d} tirage{"s" if d > 1 else ""}</td></tr>'
+        for s, d in stats["retardataires_stars"]
+    )
+    recent_top_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{c}</td></tr>'
+        for b, c in stats["recent_top_balls"]
+    )
+    recent_bottom_rows = "\n".join(
+        f'<tr><td><span class="loto-ball" style="width:2rem;height:2rem;font-size:.85rem;'
+        f'display:inline-flex;align-items:center;justify-content:center;">{b}</span></td>'
+        f'<td>{c}</td></tr>'
+        for b, c in stats["recent_bottom_balls"]
+    )
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
+  <meta name="description" content="Numéros et étoiles les plus sortis à l'EuroMillions depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{EM_SITE_URL}/stats/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis">
+  <meta property="og:description" content="Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}. Mis à jour automatiquement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{EM_SITE_URL}/stats/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Statistiques EuroMillions depuis {year_from}",
+    "description": "Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}",
+    "temporalCoverage": "{stats['date_from']}/{stats['date_to']}",
+    "url": "{EM_SITE_URL}/stats/",
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Quel numéro sort le plus souvent à l'EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur les {n} tirages EuroMillions analysés depuis {year_from}, le numéro {top_ball} est le plus fréquemment sorti."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quelle étoile sort le plus souvent à l'EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur les {n} tirages analysés depuis {year_from}, l'étoile {top_star} est sortie le plus souvent."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quel est le numéro retardataire de l'EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le numéro {retard_ball} est absent depuis {retard_draws} tirages consécutifs — c'est le plus grand retard actuel."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de tirages EuroMillions ont eu lieu depuis {year_from} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "{n} tirages EuroMillions ont eu lieu depuis {year_from}, à raison de 2 tirages par semaine (mardi et vendredi)."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quels sont les numéros les moins sortis à l'EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sur {n} tirages depuis {year_from}, les numéros les moins fréquents sont : {bottom_balls_list}."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Ces statistiques garantissent-elles de gagner à l'EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Non. L'EuroMillions est un jeu de hasard : chaque numéro a la même probabilité de sortir à chaque tirage. Les statistiques historiques sont descriptives, pas prédictives."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "{EM_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Statistiques"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Statistiques EuroMillions depuis {year_from}</h1>
+  <p class="subtitle">Numéros les plus sortis sur {n} tirages — Mis à jour le {date_to}</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../index.html">EuroMillions</a> &rsaquo;
+  <span>Statistiques</span>
+</nav>
+
+  <div class="card">
+    <h2>À propos de ces statistiques</h2>
+    <p>
+      Ces statistiques sont calculées automatiquement à partir des <strong>{n} tirages EuroMillions depuis {year_from}</strong>
+      ({date_from} au {date_to}). Elles sont mises à jour après chaque tirage.
+    </p>
+    <p style="margin-top:.6rem;font-size:.9rem;color:#6b7280;">
+      ⚠️ L'EuroMillions est un jeu de hasard : chaque numéro a la même probabilité de sortir à chaque tirage.
+      Ces statistiques sont descriptives, pas prédictives.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Numéros les plus sortis depuis {year_from}</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Période : {date_from} → {date_to} ({n} tirages)
+    </p>
+    <div class="table-scroll">
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Numéro</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{top_rows}
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Numéros les moins sortis depuis {year_from}</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Les 5 numéros les plus rares sur l'ensemble des {n} tirages.
+    </p>
+    <div class="table-scroll">
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Numéro</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{bottom_rows}
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tendances récentes — 50 derniers tirages</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Numéros chauds et froids sur les 50 derniers tirages uniquement.
+    </p>
+    <div class="recent-grid">
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.5rem;">🔥 Numéros chauds</h3>
+        <div class="table-scroll">
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Numéro</th>
+              <th style="padding:.3rem .4rem;">Sorties</th>
+            </tr>
+          </thead>
+          <tbody>
+{recent_top_rows}
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.5rem;">❄️ Numéros froids</h3>
+        <div class="table-scroll">
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Numéro</th>
+              <th style="padding:.3rem .4rem;">Sorties</th>
+            </tr>
+          </thead>
+          <tbody>
+{recent_bottom_rows}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Étoiles les plus fréquentes</h2>
+    <div class="table-scroll">
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+          <th style="padding:.4rem .5rem;">Étoile</th>
+          <th style="padding:.4rem .5rem;">Sorties</th>
+          <th style="padding:.4rem .5rem;">Fréquence</th>
+        </tr>
+      </thead>
+      <tbody>
+{star_rows}
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Numéros retardataires</h2>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;">
+      Numéros et étoiles absents depuis le plus grand nombre de tirages consécutifs.
+    </p>
+    <div class="recent-grid">
+      <div>
+        <h3 style="font-size:.9rem;margin-bottom:.5rem;">Numéros</h3>
+        <div class="table-scroll">
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Numéro</th>
+              <th style="padding:.3rem .4rem;">Absent depuis</th>
+            </tr>
+          </thead>
+          <tbody>
+{retard_ball_rows}
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.9rem;margin-bottom:.5rem;">Étoiles</h3>
+        <div class="table-scroll">
+        <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+          <thead>
+            <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
+              <th style="padding:.3rem .4rem;">Étoile</th>
+              <th style="padding:.3rem .4rem;">Absent depuis</th>
+            </tr>
+          </thead>
+          <tbody>
+{retard_star_rows}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Questions fréquentes</h2>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel numéro sort le plus souvent à l'EuroMillions ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Sur les {n} tirages analysés depuis {year_from}, le numéro <strong>{top_ball}</strong> est le plus fréquent.
+      L'étoile la plus fréquente est la <strong>{top_star}</strong>.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quels sont les numéros les moins sortis ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Sur {n} tirages depuis {year_from}, les numéros les plus rares sont : <strong>{bottom_balls_list}</strong>.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Combien de tirages depuis {year_from} ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      <strong>{n} tirages</strong> ont eu lieu depuis {year_from},
+      à raison de 2 tirages par semaine (mardi et vendredi).
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Quel est le numéro retardataire ?</h3>
+    <p style="font-size:.9rem;margin-bottom:.75rem;">
+      Le numéro <strong>{retard_ball}</strong> est absent depuis <strong>{retard_draws} tirages</strong> consécutifs.
+    </p>
+
+    <h3 style="font-size:1rem;margin-bottom:.3rem;">Ces stats garantissent-elles de gagner ?</h3>
+    <p style="font-size:.9rem;">
+      Non — l'EuroMillions est un jeu d'équiprobabilité. Chaque numéro a exactement 1 chance sur 50 de sortir
+      à chaque tirage, indépendamment de l'historique.
+    </p>
+  </div>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../index.html">Dernier tirage EuroMillions &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="{SITE_URL}/">Accueil</a> ·
+    <a href="../index.html">Dernier tirage</a> ·
+    <a href="../archive/">Archives</a> ·
+    <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">Jouer à l'EuroMillions</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Statistiques calculées automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(stats_dir / "index.html", html)
+    print("[EuroMillions] Génération de docs/euromillions/stats/index.html…")
+
+
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
 def _generate_all_html(draw_date: date, data: dict) -> None:
@@ -640,9 +1211,13 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     print("[EuroMillions] Génération de docs/euromillions/archive/index.html…")
     generate_archive_index(past_archives)
 
+    print("[EuroMillions] Calcul des statistiques…")
+    em_stats = compute_em_stats(all_archives)
+    generate_em_stats_html(em_stats)
+
     recent_archives = past_archives[:7]
     print("[EuroMillions] Génération de docs/euromillions/index.html…")
-    generate_index_html(draw_date, data["balls"], data["stars"], recent_archives)
+    generate_index_html(draw_date, data["balls"], data["stars"], recent_archives, total_archives=len(all_archives))
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -660,6 +1235,13 @@ def run(today: date) -> dict | None:
     draw = get_euromillions_latest()
 
     if not draw:
+        # Fallback : si solution.json existe déjà, régénérer HTML depuis les archives
+        solution_path = EM_DIR / "solution.json"
+        if solution_path.exists():
+            existing = json.loads(solution_path.read_text(encoding="utf-8"))
+            print(f"[EuroMillions] ℹ Fallback sur tirage existant ({existing.get('date')}) — régénération HTML.")
+            _generate_all_html(date.fromisoformat(existing["date"]), existing)
+            return existing
         print("[EuroMillions] ⚠ Tirage non disponible — génération page indisponible.")
         generate_unavailable_html(today)
         return None

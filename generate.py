@@ -393,6 +393,12 @@ def generate_global_sitemap(today: date) -> None:
 
     if em_dates:
         urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/stats/</loc>
+    <lastmod>{em_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+        urls.append(f"""  <url>
     <loc>{SITE_URL}/euromillions/archive/</loc>
     <lastmod>{em_dates[0].isoformat()}</lastmod>
     <changefreq>weekly</changefreq>

@@ -17,6 +17,10 @@ MONTHS_FR = [
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
 
+DAYS_FR = [
+    "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche",
+]
+
 # Session cloudscraper partagée (gère les défis Cloudflare JS)
 _session = cloudscraper.create_scraper()
 
@@ -24,8 +28,8 @@ _session = cloudscraper.create_scraper()
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def date_fr(d: date) -> str:
-    """Retourne une date en français : '28 février 2026'."""
-    return f"{d.day} {MONTHS_FR[d.month]} {d.year}"
+    """Retourne une date en français : 'samedi 28 février 2026'."""
+    return f"{DAYS_FR[d.weekday()]} {d.day} {MONTHS_FR[d.month]} {d.year}"
 
 
 def atomic_write(path: Path, content: str) -> None:

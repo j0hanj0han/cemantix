@@ -438,6 +438,7 @@ def generate_index_html(
     jackpot_amount=None,
     jackpot_winners=0,
     jackpot_won=False,
+    next_jackpot: float | None = None,
 ) -> None:
     """Génère docs/euromillions/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -604,6 +605,13 @@ def generate_index_html(
         Cette page est mise à jour automatiquement après chaque tirage.
       </p>
     </div>
+{(f"""    <div class="card" style="text-align:center;">
+      <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot EuroMillions</h2>
+      <p style="font-size:1.4rem;font-weight:700;color:#7c3aed;margin:.4rem 0;">
+        {f"{next_jackpot:,.0f}".replace(",", "\u202f")} \u20ac
+      </p>
+      <p style="font-size:.85rem;color:#6b7280;">Prochain tirage : mardi ou vendredi à 21h05</p>
+    </div>""") if next_jackpot else ""}
 {recent_archives_card}
     <div class="card" style="text-align:center;">
       <h2 style="font-size:1rem;margin-bottom:.4rem;">Statistiques EuroMillions depuis 2004</h2>
@@ -680,6 +688,29 @@ _FDJ_ZIPS = [
     "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip",
 ]
 _PEDRO_API = "https://euromillions.api.pedromealha.dev/v1/draws"
+
+
+def get_em_next_jackpot() -> float | None:
+    """Récupère le montant du prochain jackpot EuroMillions depuis tirage-gagnant.com."""
+    try:
+        req = urllib.request.Request(
+            "https://www.tirage-gagnant.com/euromillions/resultats-euromillions/",
+            headers={"User-Agent": "Mozilla/5.0 (compatible; solution-du-jour/1.0)"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"   ⚠ tirage-gagnant.com (EM next jackpot) : {e}")
+        return None
+    soup = BeautifulSoup(html, "html.parser")
+    montant = soup.find(class_="montant")
+    if not montant:
+        return None
+    try:
+        raw = montant.get_text(strip=True).replace("€", "").replace(" ", "").replace(".", "").replace("\xa0", "").replace(",", "")
+        return float(raw)
+    except ValueError:
+        return None
 
 
 def fetch_jackpot_data() -> dict:
@@ -1322,6 +1353,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         jackpot_amount=data.get("jackpot_amount"),
         jackpot_winners=data.get("jackpot_winners", 0),
         jackpot_won=data.get("jackpot_won", False),
+        next_jackpot=data.get("next_jackpot"),
     )
 
 
@@ -1363,14 +1395,26 @@ def run(today: date) -> dict | None:
         won_str = f"Jackpot {'remporté' if jk['jackpot_won'] else 'non remporté'}"
         print(f"   {won_str} — {jk['jackpot_amount']:,.0f} €".replace(",", "\u202f"))
 
+    # Prochain jackpot depuis tirage-gagnant.com
+    next_jk = get_em_next_jackpot()
+    if next_jk:
+        draw["next_jackpot"] = next_jk
+        print(f"[EuroMillions] Prochain jackpot : {next_jk:,.0f} €".replace(",", "\u202f"))
+
     # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
     solution_path = EM_DIR / "solution.json"
     if solution_path.exists():
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
         if existing.get("date") == draw_date_str:
-            # Mettre à jour jackpot si manquant dans le JSON existant
+            # Mettre à jour jackpot si manquant
+            updated = False
             if "jackpot_amount" not in existing and "jackpot_amount" in draw:
                 existing.update({k: draw[k] for k in ("jackpot_amount", "jackpot_winners", "jackpot_won")})
+                updated = True
+            if next_jk and existing.get("next_jackpot") != next_jk:
+                existing["next_jackpot"] = next_jk
+                updated = True
+            if updated:
                 atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[EuroMillions] ℹ Tirage déjà présent ({draw_date_str}) — régénération HTML uniquement.")
             _generate_all_html(date.fromisoformat(draw_date_str), existing)

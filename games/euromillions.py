@@ -103,6 +103,21 @@ def get_euromillions_latest() -> dict | None:
 
 # ── Helpers HTML ──────────────────────────────────────────────────────────────
 
+def _jackpot_html(jackpot_amount, jackpot_winners, jackpot_won) -> str:
+    """Retourne le HTML du bloc jackpot (vide si données absentes)."""
+    if jackpot_amount is None:
+        return ""
+    amount_str = f"{jackpot_amount:,.0f}".replace(",", "\u202f") + "\u202f\u20ac"
+    if jackpot_won:
+        label = "gagnant" if jackpot_winners == 1 else "gagnants"
+        status = (f'<span style="color:#16a34a;font-weight:600;">'
+                  f'Jackpot remport\u00e9 — {jackpot_winners}\u202f{label}</span>')
+    else:
+        status = '<span style="color:#6b7280;">Jackpot non remport\u00e9 — report\u00e9</span>'
+    return (f'      <p class="puzzle-meta" style="margin-top:.5rem;">'
+            f'Jackpot\u202f: <strong>{amount_str}</strong> \u00b7 {status}</p>')
+
+
 def _em_balls_html(balls: list[int], stars: list[int], small: bool = False) -> str:
     """Retourne le bloc HTML des boules + étoiles EuroMillions."""
     cls = "loto-ball loto-ball-sm" if small else "loto-ball"
@@ -140,6 +155,9 @@ def generate_archive_html(
     stars: list[int],
     prev_date,
     next_date,
+    jackpot_amount=None,
+    jackpot_winners=0,
+    jackpot_won=False,
 ) -> None:
     """Génère docs/euromillions/archive/YYYY-MM-DD.html."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
@@ -271,6 +289,7 @@ def generate_archive_html(
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
       </p>
+{_jackpot_html(jackpot_amount, jackpot_winners, jackpot_won)}
     </div>
 
     <div class="card">
@@ -416,6 +435,9 @@ def generate_index_html(
     stars: list[int],
     recent_archives: list | None = None,
     total_archives: int = 0,
+    jackpot_amount=None,
+    jackpot_winners=0,
+    jackpot_won=False,
 ) -> None:
     """Génère docs/euromillions/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -565,6 +587,7 @@ def generate_index_html(
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
       </p>
+{_jackpot_html(jackpot_amount, jackpot_winners, jackpot_won)}
     </div>
 
     <div class="card">
@@ -657,6 +680,62 @@ _FDJ_ZIPS = [
     "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip",
 ]
 _PEDRO_API = "https://euromillions.api.pedromealha.dev/v1/draws"
+
+
+def fetch_jackpot_data() -> dict:
+    """
+    Récupère les données jackpot de tous les tirages EuroMillions via pedro-mealha.
+    Retourne {date_str: {jackpot_amount, jackpot_winners, jackpot_won}}.
+    """
+    try:
+        resp = _session.get(_PEDRO_API, timeout=30)
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"   ⚠ pedro-mealha jackpot : {e}")
+        return {}
+    result = {}
+    for draw in resp.json():
+        d = draw.get("date", "")
+        if not d:
+            continue
+        jackpot_prize = next(
+            (p for p in draw.get("prizes", [])
+             if p["matched_numbers"] == 5 and p["matched_stars"] == 2),
+            None,
+        )
+        result[d] = {
+            "jackpot_amount": jackpot_prize["prize"] if jackpot_prize else None,
+            "jackpot_winners": jackpot_prize["winners"] if jackpot_prize else 0,
+            "jackpot_won": draw.get("has_winner", False),
+        }
+    return result
+
+
+def enrich_archives_with_jackpot() -> int:
+    """
+    Enrichit les archives EuroMillions avec les données jackpot de pedro-mealha.
+    Retourne le nombre de fichiers mis à jour.
+    """
+    print("[EuroMillions] Récupération données jackpot (pedro-mealha)…")
+    jackpot_map = fetch_jackpot_data()
+    if not jackpot_map:
+        return 0
+    updated = 0
+    for f in EM_ARCHIVE.glob("????-??-??.json"):
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        d = data.get("date", "")
+        if d not in jackpot_map:
+            continue
+        jk = jackpot_map[d]
+        if "jackpot_amount" not in data and jk["jackpot_amount"] is not None:
+            data.update(jk)
+            atomic_write(f, json.dumps(data, ensure_ascii=False, indent=2))
+            updated += 1
+    print(f"[EuroMillions] {updated} archives enrichies avec données jackpot")
+    return updated
 
 
 def _parse_em_date(s: str) -> date | None:
@@ -1221,7 +1300,12 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         d = date.fromisoformat(entry["date"])
         prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
         next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
-        generate_archive_html(d, entry["balls"], entry["stars"], prev_date, next_date)
+        generate_archive_html(
+            d, entry["balls"], entry["stars"], prev_date, next_date,
+            jackpot_amount=entry.get("jackpot_amount"),
+            jackpot_winners=entry.get("jackpot_winners", 0),
+            jackpot_won=entry.get("jackpot_won", False),
+        )
 
     print("[EuroMillions] Génération de docs/euromillions/archive/index.html…")
     generate_archive_index(past_archives)
@@ -1232,7 +1316,13 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
 
     recent_archives = past_archives[:7]
     print("[EuroMillions] Génération de docs/euromillions/index.html…")
-    generate_index_html(draw_date, data["balls"], data["stars"], recent_archives, total_archives=len(all_archives))
+    generate_index_html(
+        draw_date, data["balls"], data["stars"], recent_archives,
+        total_archives=len(all_archives),
+        jackpot_amount=data.get("jackpot_amount"),
+        jackpot_winners=data.get("jackpot_winners", 0),
+        jackpot_won=data.get("jackpot_won", False),
+    )
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -1264,11 +1354,24 @@ def run(today: date) -> dict | None:
     draw_date_str = draw["date"]
     print(f"[EuroMillions] ✅ Dernier tirage : {draw_date_str} — {draw['balls']} ★ {draw['stars']}")
 
+    # Enrichir avec données jackpot (pedro-mealha)
+    print("[EuroMillions] Récupération données jackpot…")
+    jackpot_map = fetch_jackpot_data()
+    if draw_date_str in jackpot_map:
+        draw.update(jackpot_map[draw_date_str])
+        jk = jackpot_map[draw_date_str]
+        won_str = f"Jackpot {'remporté' if jk['jackpot_won'] else 'non remporté'}"
+        print(f"   {won_str} — {jk['jackpot_amount']:,.0f} €".replace(",", "\u202f"))
+
     # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
     solution_path = EM_DIR / "solution.json"
     if solution_path.exists():
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
         if existing.get("date") == draw_date_str:
+            # Mettre à jour jackpot si manquant dans le JSON existant
+            if "jackpot_amount" not in existing and "jackpot_amount" in draw:
+                existing.update({k: draw[k] for k in ("jackpot_amount", "jackpot_winners", "jackpot_won")})
+                atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[EuroMillions] ℹ Tirage déjà présent ({draw_date_str}) — régénération HTML uniquement.")
             _generate_all_html(date.fromisoformat(draw_date_str), existing)
             return existing

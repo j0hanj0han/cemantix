@@ -11,5 +11,8 @@
     6,
     10
   ],
-  "generated_at": "2026-03-02T16:59:05.940673+00:00"
+  "generated_at": "2026-03-02T16:59:05.940673+00:00",
+  "jackpot_amount": 159922317,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

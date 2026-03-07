@@ -10,5 +10,8 @@
   "stars": [
     6,
     11
-  ]
+  ],
+  "jackpot_amount": 30241215.35,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

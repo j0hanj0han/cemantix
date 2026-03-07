@@ -9,5 +9,8 @@
     47
   ],
   "lucky_ball": 4,
-  "generated_at": "2026-03-04T23:15:50.914224+00:00"
+  "generated_at": "2026-03-04T23:15:50.914224+00:00",
+  "jackpot_won": false,
+  "jackpot_winners": 0,
+  "jackpot_amount": null
 }

@@ -8,5 +8,8 @@
     40,
     44
   ],
-  "lucky_ball": 3
+  "lucky_ball": 3,
+  "jackpot_won": true,
+  "jackpot_winners": 1,
+  "jackpot_amount": 17000000.0
 }

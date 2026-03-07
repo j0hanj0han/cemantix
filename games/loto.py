@@ -759,6 +759,8 @@ def generate_stats_html(stats: dict) -> None:
     "description": "Fréquence des numéros sur {n} tirages Loto FDJ depuis {year_from}",
     "temporalCoverage": "{stats['date_from']}/{stats['date_to']}",
     "url": "{LOTO_SITE_URL}/stats/",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "creator": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
   }}
   </script>

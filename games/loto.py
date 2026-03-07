@@ -21,7 +21,11 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
+from core import (
+    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
+    fetch_static_html, jackpot_html,
+    load_all_archives as _load_archives,
+)
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -144,16 +148,8 @@ def get_loto_current_jackpot(draw_date_str: str | None = None) -> dict | None:
     Retourne {jackpot_amount, jackpot_won, jackpot_winners, next_jackpot} ou None si indisponible.
     draw_date_str : date ISO attendue (ex: '2026-03-04') pour vérifier qu'on lit le bon tirage.
     """
-    import urllib.request
-    try:
-        req = urllib.request.Request(
-            "https://www.tirage-gagnant.com/loto/resultats-loto/",
-            headers={"User-Agent": "Mozilla/5.0 (compatible; solution-du-jour/1.0)"},
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"   ⚠ tirage-gagnant.com (loto) : {e}")
+    html = fetch_static_html("https://www.tirage-gagnant.com/loto/resultats-loto/")
+    if html is None:
         return None
 
     soup = BeautifulSoup(html, "html.parser")
@@ -196,7 +192,7 @@ def get_loto_current_jackpot(draw_date_str: str | None = None) -> dict | None:
     return {
         "jackpot_amount": jackpot_amount,
         "jackpot_won": won,
-        "jackpot_winners": 0 if not won else 1,  # default ; overridden by reducmiz
+        "jackpot_winners": 0,  # overridden by reducmiz if won
         "next_jackpot": next_jackpot,
     }
 
@@ -249,27 +245,6 @@ def _balls_html(balls: list[int], lucky: int, small: bool = False) -> str:
     inner = "".join(f'<span class="{cls}">{b}</span>' for b in balls)
     inner += f'<span class="{cls_c}">{lucky}</span>'
     return f'<div class="{wrap}">{inner}</div>'
-
-
-def _jackpot_html(jackpot_won: bool | None, jackpot_winners: int, jackpot_amount: float | None) -> str:
-    """Retourne le HTML pour l'affichage jackpot d'un tirage Loto (même format qu'EuroMillions)."""
-    if jackpot_won is None:
-        return ""
-    if jackpot_won:
-        label = "gagnant" if jackpot_winners == 1 else "gagnants"
-        status = (
-            f'<span style="color:#16a34a;font-weight:600;">'
-            f'Jackpot remport\u00e9 \u2014 {jackpot_winners}\u202f{label}</span>'
-        )
-    else:
-        status = '<span style="color:#6b7280;">Jackpot non remport\u00e9 \u2014 report\u00e9</span>'
-    if jackpot_amount is not None:
-        amount_str = f"{jackpot_amount:,.0f}".replace(",", "\u202f") + "\u202f\u20ac"
-        return (
-            f'      <p class="puzzle-meta" style="margin-top:.5rem;">'
-            f'Jackpot\u202f: <strong>{amount_str}</strong> \u00b7 {status}</p>'
-        )
-    return f'      <p class="puzzle-meta" style="margin-top:.5rem;">{status}</p>'
 
 
 # ── Fichiers JSON ─────────────────────────────────────────────────────────────
@@ -429,7 +404,7 @@ def generate_archive_html(
       </p>
       {_balls_html(balls, lucky)}
       <p class="puzzle-meta">{balls_str} + chance <strong>{lucky}</strong></p>
-{_jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
     </div>
 
     <div class="card">
@@ -726,7 +701,7 @@ def generate_index_html(
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
       </p>
-{_jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
     </div>
 
     <div class="card">
@@ -1284,23 +1259,20 @@ def run(today: date) -> dict | None:
             _generate_all_html(date.fromisoformat(draw_date_str), existing)
             return existing
 
-    # Nouveau tirage → enrichir avec jackpot depuis tirage-gagnant.com (montant exact)
+    # Nouveau tirage → enrichir avec jackpot
+    reducmiz_info = get_loto_jackpot_latest(nb=10)
     tg_info = get_loto_current_jackpot(draw_date_str)
     if tg_info:
         draw.update(tg_info)
         print(f"[Loto] Jackpot tirage-gagnant : {tg_info.get('jackpot_amount')} € (won={tg_info.get('jackpot_won')}), prochain={tg_info.get('next_jackpot')}")
         # Compléter avec nombre de gagnants depuis reducmiz
-        reducmiz_info = get_loto_jackpot_latest(nb=10)
         if reducmiz_info and draw_date_str in reducmiz_info:
             draw["jackpot_winners"] = reducmiz_info[draw_date_str].get("jackpot_winners", 0)
+    elif reducmiz_info and draw_date_str in reducmiz_info:
+        draw.update(reducmiz_info[draw_date_str])
+        print(f"[Loto] Jackpot reducmiz : won={draw.get('jackpot_won')}, winners={draw.get('jackpot_winners')}")
     else:
-        # Fallback: reducmiz seulement (pas de montant pour les non-remportés)
-        jackpot_info = get_loto_jackpot_latest(nb=10)
-        if jackpot_info and draw_date_str in jackpot_info:
-            draw.update(jackpot_info[draw_date_str])
-            print(f"[Loto] Jackpot reducmiz : won={draw.get('jackpot_won')}, winners={draw.get('jackpot_winners')}")
-        else:
-            print(f"[Loto] ⚠ Jackpot non disponible pour {draw_date_str}")
+        print(f"[Loto] ⚠ Jackpot non disponible pour {draw_date_str}")
 
     data = generate_solution_json(draw)
     generate_archive_json(data)

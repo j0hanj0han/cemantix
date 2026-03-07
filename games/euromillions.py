@@ -26,7 +26,11 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
+from core import (
+    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
+    fetch_static_html, jackpot_html,
+    load_all_archives as _load_archives,
+)
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -102,21 +106,6 @@ def get_euromillions_latest() -> dict | None:
 
 
 # ── Helpers HTML ──────────────────────────────────────────────────────────────
-
-def _jackpot_html(jackpot_amount, jackpot_winners, jackpot_won) -> str:
-    """Retourne le HTML du bloc jackpot (vide si données absentes)."""
-    if jackpot_amount is None:
-        return ""
-    amount_str = f"{jackpot_amount:,.0f}".replace(",", "\u202f") + "\u202f\u20ac"
-    if jackpot_won:
-        label = "gagnant" if jackpot_winners == 1 else "gagnants"
-        status = (f'<span style="color:#16a34a;font-weight:600;">'
-                  f'Jackpot remport\u00e9 — {jackpot_winners}\u202f{label}</span>')
-    else:
-        status = '<span style="color:#6b7280;">Jackpot non remport\u00e9 — report\u00e9</span>'
-    return (f'      <p class="puzzle-meta" style="margin-top:.5rem;">'
-            f'Jackpot\u202f: <strong>{amount_str}</strong> \u00b7 {status}</p>')
-
 
 def _em_balls_html(balls: list[int], stars: list[int], small: bool = False) -> str:
     """Retourne le bloc HTML des boules + étoiles EuroMillions."""
@@ -289,7 +278,7 @@ def generate_archive_html(
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
       </p>
-{_jackpot_html(jackpot_amount, jackpot_winners, jackpot_won)}
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
     </div>
 
     <div class="card">
@@ -588,7 +577,7 @@ def generate_index_html(
       <p class="puzzle-meta">
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
       </p>
-{_jackpot_html(jackpot_amount, jackpot_winners, jackpot_won)}
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
     </div>
 
     <div class="card">
@@ -692,15 +681,8 @@ _PEDRO_API = "https://euromillions.api.pedromealha.dev/v1/draws"
 
 def get_em_next_jackpot() -> float | None:
     """Récupère le montant du prochain jackpot EuroMillions depuis tirage-gagnant.com."""
-    try:
-        req = urllib.request.Request(
-            "https://www.tirage-gagnant.com/euromillions/resultats-euromillions/",
-            headers={"User-Agent": "Mozilla/5.0 (compatible; solution-du-jour/1.0)"},
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"   ⚠ tirage-gagnant.com (EM next jackpot) : {e}")
+    html = fetch_static_html("https://www.tirage-gagnant.com/euromillions/resultats-euromillions/")
+    if html is None:
         return None
     soup = BeautifulSoup(html, "html.parser")
     montant = soup.find(class_="montant")
@@ -1386,31 +1368,24 @@ def run(today: date) -> dict | None:
     draw_date_str = draw["date"]
     print(f"[EuroMillions] ✅ Dernier tirage : {draw_date_str} — {draw['balls']} ★ {draw['stars']}")
 
-    # Enrichir avec données jackpot (pedro-mealha)
-    print("[EuroMillions] Récupération données jackpot…")
-    jackpot_map = fetch_jackpot_data()
-    if draw_date_str in jackpot_map:
-        draw.update(jackpot_map[draw_date_str])
-        jk = jackpot_map[draw_date_str]
-        won_str = f"Jackpot {'remporté' if jk['jackpot_won'] else 'non remporté'}"
-        print(f"   {won_str} — {jk['jackpot_amount']:,.0f} €".replace(",", "\u202f"))
-
-    # Prochain jackpot depuis tirage-gagnant.com
-    next_jk = get_em_next_jackpot()
-    if next_jk:
-        draw["next_jackpot"] = next_jk
-        print(f"[EuroMillions] Prochain jackpot : {next_jk:,.0f} €".replace(",", "\u202f"))
-
-    # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
+    # Si ce tirage est déjà sauvegardé → mettre à jour jackpot si besoin + régénérer HTML
     solution_path = EM_DIR / "solution.json"
     if solution_path.exists():
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
         if existing.get("date") == draw_date_str:
-            # Mettre à jour jackpot si manquant
             updated = False
-            if "jackpot_amount" not in existing and "jackpot_amount" in draw:
-                existing.update({k: draw[k] for k in ("jackpot_amount", "jackpot_winners", "jackpot_won")})
-                updated = True
+            if "jackpot_amount" not in existing:
+                print("[EuroMillions] Récupération données jackpot…")
+                jackpot_map = fetch_jackpot_data()
+                if draw_date_str in jackpot_map:
+                    jk = jackpot_map[draw_date_str]
+                    existing.update({k: jk[k] for k in ("jackpot_amount", "jackpot_winners", "jackpot_won")})
+                    won_str = f"Jackpot {'remporté' if jk['jackpot_won'] else 'non remporté'}"
+                    print(f"   {won_str} — {jk['jackpot_amount']:,.0f} €".replace(",", "\u202f"))
+                    updated = True
+            next_jk = get_em_next_jackpot()
+            if next_jk:
+                print(f"[EuroMillions] Prochain jackpot : {next_jk:,.0f} €".replace(",", "\u202f"))
             if next_jk and existing.get("next_jackpot") != next_jk:
                 existing["next_jackpot"] = next_jk
                 updated = True
@@ -1420,7 +1395,20 @@ def run(today: date) -> dict | None:
             _generate_all_html(date.fromisoformat(draw_date_str), existing)
             return existing
 
-    # Nouveau tirage → sauvegarder
+    # Nouveau tirage → enrichir avec jackpot puis sauvegarder
+    print("[EuroMillions] Récupération données jackpot…")
+    jackpot_map = fetch_jackpot_data()
+    if draw_date_str in jackpot_map:
+        draw.update(jackpot_map[draw_date_str])
+        jk = jackpot_map[draw_date_str]
+        won_str = f"Jackpot {'remporté' if jk['jackpot_won'] else 'non remporté'}"
+        print(f"   {won_str} — {jk['jackpot_amount']:,.0f} €".replace(",", "\u202f"))
+
+    next_jk = get_em_next_jackpot()
+    if next_jk:
+        draw["next_jackpot"] = next_jk
+        print(f"[EuroMillions] Prochain jackpot : {next_jk:,.0f} €".replace(",", "\u202f"))
+
     data = generate_solution_json(draw)
     generate_archive_json(data)
     _generate_all_html(date.fromisoformat(draw_date_str), data)

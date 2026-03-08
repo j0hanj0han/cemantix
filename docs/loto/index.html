@@ -105,18 +105,6 @@
     </div>
 
     <div class="card">
-      <h2>Numéros gagnants du samedi 7 mars 2026</h2>
-      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        5 boules numérotées + 1 numéro chance (en doré)
-      </p>
-      <div class="loto-balls"><span class="loto-ball">9</span><span class="loto-ball">10</span><span class="loto-ball">11</span><span class="loto-ball">21</span><span class="loto-ball">22</span><span class="loto-ball loto-ball-chance">9</span></div>
-      <p class="puzzle-meta">
-        Boules : <strong>9 · 10 · 11 · 21 · 22</strong> · Numéro chance : <strong>9</strong>
-      </p>
-      <p class="puzzle-meta" style="margin-top:.5rem;">Jackpot : <strong>8 000 000 €</strong> · <span style="color:#16a34a;font-weight:600;">Jackpot remporté — 1 gagnant</span></p>
-    </div>
-
-    <div class="card">
       <h2>Vérifiez votre grille</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
         Sélectionnez vos 5 numéros + votre numéro chance pour savoir si vous avez gagné.
@@ -207,6 +195,24 @@
       <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
         Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur Loto depuis 2019 &#8594;</a>
       </p>
+    </div>
+
+    <div class="card">
+      <h2>Numéros gagnants du samedi 7 mars 2026</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        5 boules numérotées + 1 numéro chance (en doré)
+      </p>
+      <div class="solution-blur" id="loto-balls-blur">
+        <div class="loto-balls"><span class="loto-ball">9</span><span class="loto-ball">10</span><span class="loto-ball">11</span><span class="loto-ball">21</span><span class="loto-ball">22</span><span class="loto-ball loto-ball-chance">9</span></div>
+        <p class="puzzle-meta">
+          Boules : <strong>9 · 10 · 11 · 21 · 22</strong> · Numéro chance : <strong>9</strong>
+        </p>
+      <p class="puzzle-meta" style="margin-top:.5rem;">Jackpot : <strong>8 000 000 €</strong> · <span style="color:#16a34a;font-weight:600;">Jackpot remporté — 1 gagnant</span></p>
+      </div>
+      <button class="reveal-btn" id="loto-reveal-btn"
+        onclick="document.getElementById('loto-balls-blur').classList.add('revealed');this.style.display='none';">
+        Voir les numéros gagnants
+      </button>
     </div>
 
     <div class="card">

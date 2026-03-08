@@ -693,18 +693,6 @@ def generate_index_html(
     </div>
 
     <div class="card">
-      <h2>Numéros gagnants du {date_display}</h2>
-      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        5 boules numérotées + 1 numéro chance (en doré)
-      </p>
-      {_balls_html(balls, lucky)}
-      <p class="puzzle-meta">
-        Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
-      </p>
-{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
-    </div>
-
-    <div class="card">
       <h2>Vérifiez votre grille</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
         Sélectionnez vos 5 numéros + votre numéro chance pour savoir si vous avez gagné.
@@ -795,6 +783,24 @@ def generate_index_html(
       <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
         Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur Loto depuis 2019 &#8594;</a>
       </p>
+    </div>
+
+    <div class="card">
+      <h2>Numéros gagnants du {date_display}</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        5 boules numérotées + 1 numéro chance (en doré)
+      </p>
+      <div class="solution-blur" id="loto-balls-blur">
+        {_balls_html(balls, lucky)}
+        <p class="puzzle-meta">
+          Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
+        </p>
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+      </div>
+      <button class="reveal-btn" id="loto-reveal-btn"
+        onclick="document.getElementById('loto-balls-blur').classList.add('revealed');this.style.display='none';">
+        Voir les numéros gagnants
+      </button>
     </div>
 
     <div class="card">

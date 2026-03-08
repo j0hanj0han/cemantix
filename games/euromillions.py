@@ -569,18 +569,6 @@ def generate_index_html(
     </div>
 
     <div class="card">
-      <h2>Numéros gagnants du {date_display}</h2>
-      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        5 boules (1–50) + 2 étoiles &#9733; (1–12, fond doré)
-      </p>
-      {_em_balls_html(balls, stars)}
-      <p class="puzzle-meta">
-        Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
-      </p>
-{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
-    </div>
-
-    <div class="card">
       <h2>Vérifiez votre grille</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
         Sélectionnez vos 5 numéros + 2 étoiles pour savoir si vous avez gagné.
@@ -673,6 +661,24 @@ def generate_index_html(
       <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
         Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur EuroMillions depuis 2004 &#8594;</a>
       </p>
+    </div>
+
+    <div class="card">
+      <h2>Numéros gagnants du {date_display}</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        5 boules (1–50) + 2 étoiles &#9733; (1–12, fond doré)
+      </p>
+      <div class="solution-blur" id="em-balls-blur">
+        {_em_balls_html(balls, stars)}
+        <p class="puzzle-meta">
+          Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
+        </p>
+{jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+      </div>
+      <button class="reveal-btn" id="em-reveal-btn"
+        onclick="document.getElementById('em-balls-blur').classList.add('revealed');this.style.display='none';">
+        Voir les numéros gagnants
+      </button>
     </div>
 
     <div class="card">

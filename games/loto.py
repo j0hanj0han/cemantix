@@ -803,6 +803,14 @@ def generate_index_html(
       </button>
     </div>
 
+{(f"""    <div class="card" style="text-align:center;">
+      <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot Loto</h2>
+      <p style="font-size:1.4rem;font-weight:700;color:#ca8a04;margin:.4rem 0;">
+        {f"{next_jackpot:,.0f}".replace(",", "\u202f")} \u20ac
+      </p>
+      <p style="font-size:.85rem;color:#6b7280;">Prochain tirage : lundi, mercredi ou samedi à 20h20</p>
+    </div>""") if next_jackpot else ""}
+{recent_archives_card}
     <div class="card">
       <h2>Rappel des règles du Loto</h2>
       <p>
@@ -816,14 +824,6 @@ def generate_index_html(
         Cette page est mise à jour automatiquement après chaque tirage.
       </p>
     </div>
-{(f"""    <div class="card" style="text-align:center;">
-      <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot Loto</h2>
-      <p style="font-size:1.4rem;font-weight:700;color:#ca8a04;margin:.4rem 0;">
-        {f"{next_jackpot:,.0f}".replace(",", "\u202f")} \u20ac
-      </p>
-      <p style="font-size:.85rem;color:#6b7280;">Prochain tirage : lundi, mercredi ou samedi à 20h20</p>
-    </div>""") if next_jackpot else ""}
-{recent_archives_card}
   </article>
 </main>
 

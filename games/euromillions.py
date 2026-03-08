@@ -681,20 +681,6 @@ def generate_index_html(
       </button>
     </div>
 
-    <div class="card">
-      <h2>Comment fonctionne l'EuroMillions ?</h2>
-      <p>
-        L'<strong>EuroMillions</strong> est une loterie multi-pays organisée notamment par
-        la <a href="https://www.fdj.fr" rel="noopener" target="_blank">FDJ</a> en France.
-        Chaque tirage, 5 numéros (de 1 à 50) et 2 étoiles (de 1 à 12) sont tirés au sort.
-        Les tirages ont lieu le <strong>mardi et vendredi</strong> à partir de 21h05.
-      </p>
-      <p style="margin-top:.75rem;">
-        Pour vérifier vos gains ou pour jouer, rendez-vous sur
-        <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">fdj.fr</a>.
-        Cette page est mise à jour automatiquement après chaque tirage.
-      </p>
-    </div>
 {(f"""    <div class="card" style="text-align:center;">
       <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot EuroMillions</h2>
       <p style="font-size:1.4rem;font-weight:700;color:#7c3aed;margin:.4rem 0;">
@@ -709,6 +695,20 @@ def generate_index_html(
         Numéros les plus sortis, étoiles fréquentes et retardataires sur {total_archives} tirages analysés.
       </p>
       <a class="reveal-btn" href="stats/">Voir les statistiques &#8594;</a>
+    </div>
+    <div class="card">
+      <h2>Comment fonctionne l'EuroMillions ?</h2>
+      <p>
+        L'<strong>EuroMillions</strong> est une loterie multi-pays organisée notamment par
+        la <a href="https://www.fdj.fr" rel="noopener" target="_blank">FDJ</a> en France.
+        Chaque tirage, 5 numéros (de 1 à 50) et 2 étoiles (de 1 à 12) sont tirés au sort.
+        Les tirages ont lieu le <strong>mardi et vendredi</strong> à partir de 21h05.
+      </p>
+      <p style="margin-top:.75rem;">
+        Pour vérifier vos gains ou pour jouer, rendez-vous sur
+        <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">fdj.fr</a>.
+        Cette page est mise à jour automatiquement après chaque tirage.
+      </p>
     </div>
   </article>
 </main>

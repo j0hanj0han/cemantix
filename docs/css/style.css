@@ -580,3 +580,84 @@ footer a { color: var(--color-primary); }
     min-width: unset;
   }
 }
+
+/* ── Simulateur / Vérificateur ─────────────────────────── */
+.sim-label { font-size:.85rem; font-weight:600; color:var(--color-muted);
+             text-transform:uppercase; letter-spacing:.05em; margin-bottom:.5rem; }
+.sim-grid { display:flex; flex-wrap:wrap; gap:.35rem; margin:.5rem 0 1rem; }
+
+.sim-ball {
+  width:2.4rem; height:2.4rem; border-radius:50%;
+  background:#f3f4f6; border:2px solid #d1d5db;
+  color:#374151; font-weight:700; font-size:.9rem;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:transform .1s, background .15s, border-color .15s, box-shadow .15s;
+  user-select:none; -webkit-tap-highlight-color:transparent;
+}
+.sim-ball:hover { transform:scale(1.08); box-shadow:0 2px 8px rgba(0,0,0,.12); }
+
+/* Loto ball sélectionnée : or */
+.sim-ball.selected {
+  background:#fbbf24; border-color:#f59e0b; color:#78350f;
+  animation:ball-pop .3s cubic-bezier(.34,1.56,.64,1);
+}
+/* EM ball sélectionnée : bleu */
+.sim-ball.selected.em-type { background:#3b82f6; border-color:#2563eb; color:#fff; }
+/* Étoile sélectionnée : violet */
+.sim-ball.selected.star-type { background:#7c3aed; border-color:#6d28d9; color:#fff; }
+
+.sim-ball.dimmed { opacity:.35; pointer-events:none; }
+
+@keyframes ball-pop {
+  0%  { transform:scale(1); }
+  60% { transform:scale(1.35); }
+  100%{ transform:scale(1.08); }
+}
+@keyframes slide-up {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.sim-counter { font-size:.85rem; color:var(--color-muted); margin-bottom:.75rem; }
+.sim-counter strong { color:var(--color-text); }
+
+.sim-btn {
+  display:inline-block; padding:.6rem 1.5rem;
+  background:var(--color-primary); color:#fff;
+  border:none; border-radius:var(--radius);
+  font-weight:600; font-size:.95rem; cursor:pointer;
+  transition:background .15s, transform .1s; margin-top:.5rem;
+}
+.sim-btn:hover  { background:var(--color-primary-dark); }
+.sim-btn:active { transform:scale(.97); }
+.sim-btn:disabled { background:#9ca3af; cursor:default; }
+
+.sim-result {
+  margin-top:1.25rem; padding:1rem 1.25rem;
+  border-radius:var(--radius); border:2px solid var(--color-border);
+  background:var(--color-surface); animation:slide-up .35s ease;
+}
+.sim-result.win  { border-color:#10b981; background:#f0fdf4; }
+
+.sim-result-rank { font-size:1.1rem; font-weight:700; margin-bottom:.25rem; }
+.sim-result-gain { font-size:1.4rem; font-weight:800; color:#10b981; }
+.sim-result-detail { font-size:.85rem; color:var(--color-muted); margin-top:.4rem; }
+
+/* Simulateur historique — résumé */
+.sim-summary {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:.75rem; margin:1.25rem 0;
+}
+.sim-stat { text-align:center; padding:.75rem; border-radius:var(--radius);
+            background:var(--color-bg); border:1px solid var(--color-border); }
+.sim-stat-value { font-size:1.5rem; font-weight:800; }
+.sim-stat-label { font-size:.78rem; color:var(--color-muted); margin-top:.2rem; }
+.sim-stat.bilan-pos .sim-stat-value { color:#10b981; }
+.sim-stat.bilan-neg .sim-stat-value { color:#ef4444; }
+
+.sim-rank-table { width:100%; border-collapse:collapse; font-size:.88rem; margin-top:1rem; }
+.sim-rank-table th { text-align:left; padding:.4rem .5rem;
+  border-bottom:2px solid var(--color-border);
+  font-size:.78rem; color:var(--color-muted); text-transform:uppercase; }
+.sim-rank-table td { padding:.4rem .5rem; border-bottom:1px solid var(--color-border); }
+.sim-rank-table tr:last-child td { border-bottom:none; }

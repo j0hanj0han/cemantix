@@ -119,6 +119,101 @@
     </div>
 
     <div class="card">
+      <h2>Vérifiez votre grille</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Sélectionnez vos 5 numéros + 2 étoiles pour savoir si vous avez gagné.
+      </p>
+      <script>
+      (function(){
+        const DRAW_BALLS = [15, 16, 19, 28, 37];
+        const DRAW_STARS = [6, 9];
+        const EM_GAINS = {1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4};
+        const RANK_LABELS = {
+          1:'1er rang — Jackpot',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
+          6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',
+          11:'11e rang',12:'12e rang',13:'13e rang'
+        };
+        const RANK_DESC = {
+          1:'5+2',2:'5+1',3:'5+0',4:'4+2',5:'4+1',6:'3+2',7:'4+0',
+          8:'2+2',9:'3+1',10:'3+0',11:'1+2',12:'2+1',13:'2+0'
+        };
+        function emRank(ub,us,db,ds){
+          const mb=ub.filter(n=>db.includes(n)).length,ms=us.filter(n=>ds.includes(n)).length;
+          if(mb===5&&ms===2)return 1;if(mb===5&&ms===1)return 2;
+          if(mb===5&&ms===0)return 3;if(mb===4&&ms===2)return 4;
+          if(mb===4&&ms===1)return 5;if(mb===3&&ms===2)return 6;
+          if(mb===4&&ms===0)return 7;if(mb===2&&ms===2)return 8;
+          if(mb===3&&ms===1)return 9;if(mb===3&&ms===0)return 10;
+          if(mb===1&&ms===2)return 11;if(mb===2&&ms===1)return 12;
+          if(mb===2&&ms===0)return 13;return 0;
+        }
+        let userBalls=[], userStars=[];
+        function render(){
+          const res=document.getElementById('em-checker-result');
+          if(!res)return;
+          if(userBalls.length<5||userStars.length<2){res.style.display='none';return;}
+          const rank=emRank(userBalls,userStars,DRAW_BALLS,DRAW_STARS);
+          res.style.display='block';
+          if(rank===0){
+            res.className='sim-result';
+            res.innerHTML='<div class="sim-result-rank">Pas de gain</div>'
+              +'<div class="sim-result-detail">Aucune combinaison gagnante.</div>';
+          }else{
+            const gain=EM_GAINS[rank];
+            res.className='sim-result win';
+            res.innerHTML='<div class="sim-result-rank">'+RANK_LABELS[rank]+' — '+RANK_DESC[rank]+'</div>'
+              +(gain?'<div class="sim-result-gain">≈ '+gain.toLocaleString('fr-FR')+'&nbsp;€</div>':'<div class="sim-result-gain">Jackpot !</div>');
+          }
+        }
+        function buildPicker(){
+          const bg=document.getElementById('em-checker-balls');
+          const sg=document.getElementById('em-checker-stars');
+          if(!bg||!sg)return;
+          for(let n=1;n<=50;n++){
+            const btn=document.createElement('button');
+            btn.className='sim-ball em-type';btn.type='button';btn.textContent=n;
+            btn.addEventListener('click',()=>{
+              const i=userBalls.indexOf(n);
+              if(i>=0){userBalls.splice(i,1);btn.classList.remove('selected');}
+              else if(userBalls.length<5){userBalls.push(n);btn.classList.add('selected');}
+              bg.querySelectorAll('.sim-ball').forEach(b=>{
+                b.classList.toggle('dimmed',userBalls.length>=5&&!userBalls.includes(parseInt(b.textContent)));
+              });
+              document.getElementById('em-cnt-balls').textContent=userBalls.length;
+              render();
+            });
+            bg.appendChild(btn);
+          }
+          for(let n=1;n<=12;n++){
+            const btn=document.createElement('button');
+            btn.className='sim-ball star-type';btn.type='button';btn.textContent=n;
+            btn.addEventListener('click',()=>{
+              const i=userStars.indexOf(n);
+              if(i>=0){userStars.splice(i,1);btn.classList.remove('selected');}
+              else if(userStars.length<2){userStars.push(n);btn.classList.add('selected');}
+              sg.querySelectorAll('.sim-ball').forEach(b=>{
+                b.classList.toggle('dimmed',userStars.length>=2&&!userStars.includes(parseInt(b.textContent)));
+              });
+              document.getElementById('em-cnt-stars').textContent=userStars.length;
+              render();
+            });
+            sg.appendChild(btn);
+          }
+        }
+        document.addEventListener('DOMContentLoaded',buildPicker);
+      })();
+      </script>
+      <p class="sim-label">Vos 5 numéros <span id="em-cnt-balls">0</span>/5</p>
+      <div class="sim-grid" id="em-checker-balls"></div>
+      <p class="sim-label">Vos 2 étoiles <span id="em-cnt-stars">0</span>/2</p>
+      <div class="sim-grid" id="em-checker-stars"></div>
+      <div id="em-checker-result" style="display:none;"></div>
+      <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
+        Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur EuroMillions depuis 2004 &#8594;</a>
+      </p>
+    </div>
+
+    <div class="card">
       <h2>Comment fonctionne l'EuroMillions ?</h2>
       <p>
         L'<strong>EuroMillions</strong> est une loterie multi-pays organisée notamment par

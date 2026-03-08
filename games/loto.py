@@ -705,6 +705,99 @@ def generate_index_html(
     </div>
 
     <div class="card">
+      <h2>Vérifiez votre grille</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Sélectionnez vos 5 numéros + votre numéro chance pour savoir si vous avez gagné.
+      </p>
+      <script>
+      (function(){{
+        const DRAW_BALLS = {balls};
+        const DRAW_LUCKY = {lucky};
+        const LOTO_GAINS = {{1:null,2:100000,3:1500,4:250,5:50,6:10,7:5,8:2,9:2}};
+        const RANK_LABELS = {{
+          1:'1er rang — Jackpot',2:'2e rang',3:'3e rang',4:'4e rang',
+          5:'5e rang',6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang'
+        }};
+        const RANK_DESC = {{
+          1:'5 numéros + chance',2:'5 numéros',3:'4 numéros + chance',4:'4 numéros',
+          5:'3 numéros + chance',6:'3 numéros',7:'2 numéros + chance',
+          8:'1 numéro + chance',9:'2 numéros'
+        }};
+        function lotoRank(ub,ul,db,dl){{
+          const mb=ub.filter(n=>db.includes(n)).length,ml=ul===dl;
+          if(mb===5&&ml)return 1;if(mb===5)return 2;
+          if(mb===4&&ml)return 3;if(mb===4)return 4;
+          if(mb===3&&ml)return 5;if(mb===3)return 6;
+          if(mb===2&&ml)return 7;if(mb===1&&ml)return 8;
+          if(mb===2)return 9;return 0;
+        }}
+        let userBalls=[], userLucky=null;
+        function render(){{
+          const rank=userBalls.length===5&&userLucky!==null?lotoRank(userBalls,userLucky,DRAW_BALLS,DRAW_LUCKY):0;
+          const res=document.getElementById('loto-checker-result');
+          if(!res)return;
+          if(userBalls.length<5||userLucky===null){{res.style.display='none';return;}}
+          res.style.display='block';
+          if(rank===0){{
+            res.className='sim-result';
+            res.innerHTML='<div class="sim-result-rank">Pas de gain</div>'
+              +'<div class="sim-result-detail">Aucune combinaison gagnante.</div>';
+          }}else{{
+            const gain=LOTO_GAINS[rank];
+            res.className='sim-result win';
+            res.innerHTML='<div class="sim-result-rank">'+RANK_LABELS[rank]+'</div>'
+              +(gain?'<div class="sim-result-gain">≈ '+gain.toLocaleString('fr-FR')+'&nbsp;€</div>':'<div class="sim-result-gain">Jackpot !</div>')
+              +'<div class="sim-result-detail">'+RANK_DESC[rank]+'</div>';
+          }}
+        }}
+        function buildBalls(){{
+          const bg=document.getElementById('loto-checker-balls');
+          const lg=document.getElementById('loto-checker-lucky');
+          if(!bg||!lg)return;
+          for(let n=1;n<=49;n++){{
+            const btn=document.createElement('button');
+            btn.className='sim-ball';btn.type='button';btn.textContent=n;
+            btn.addEventListener('click',()=>{{
+              const i=userBalls.indexOf(n);
+              if(i>=0){{userBalls.splice(i,1);btn.classList.remove('selected');}}
+              else if(userBalls.length<5){{userBalls.push(n);btn.classList.add('selected');}}
+              bg.querySelectorAll('.sim-ball').forEach(b=>{{
+                b.classList.toggle('dimmed',userBalls.length>=5&&!userBalls.includes(parseInt(b.textContent)));
+              }});
+              document.getElementById('loto-cnt-balls').textContent=userBalls.length;
+              render();
+            }});
+            bg.appendChild(btn);
+          }}
+          for(let n=1;n<=10;n++){{
+            const btn=document.createElement('button');
+            btn.className='sim-ball';btn.type='button';btn.textContent=n;
+            btn.style.background='#fef3c7';btn.style.borderColor='#fbbf24';
+            btn.addEventListener('click',()=>{{
+              if(userLucky===n){{userLucky=null;btn.classList.remove('selected');}}
+              else{{
+                lg.querySelectorAll('.sim-ball').forEach(b=>b.classList.remove('selected'));
+                userLucky=n;btn.classList.add('selected');
+              }}
+              render();
+            }});
+            lg.appendChild(btn);
+          }}
+        }}
+        document.addEventListener('DOMContentLoaded',buildBalls);
+      }})();
+      </script>
+      <p class="sim-label">Vos 5 numéros <span id="loto-cnt-balls">0</span>/5</p>
+      <div class="sim-grid" id="loto-checker-balls"></div>
+      <p class="sim-label">Votre numéro chance</p>
+      <div class="sim-grid" id="loto-checker-lucky"></div>
+      <div id="loto-checker-result" style="display:none;"></div>
+      <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
+        Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur Loto depuis 2019 &#8594;</a>
+      </p>
+    </div>
+
+    <div class="card">
       <h2>Rappel des règles du Loto</h2>
       <p>
         Le <strong>Loto</strong> est le jeu de tirage de la <a href="https://www.fdj.fr" rel="noopener" target="_blank">FDJ</a>.
@@ -1280,3 +1373,344 @@ def run(today: date) -> dict | None:
 
     print(f"[Loto] 🎉 Tirage sauvegardé et HTML généré ({draw_date_str}, n°{data['draw_num']})")
     return data
+
+
+# ── Simulateur historique ──────────────────────────────────────────────────────
+
+def generate_simulator_data() -> None:
+    """Génère docs/loto/simulateur/data.json — tous tirages [date, balls, lucky_ball]."""
+    archives = _load_archives(LOTO_ARCHIVE, required_keys=["date", "balls", "lucky_ball"])
+    if not archives:
+        print("[Loto] ⚠ Simulateur : aucune archive trouvée")
+        return
+    # Tri chronologique (oldest first) pour faciliter la lecture JS
+    archives_sorted = sorted(archives, key=lambda e: e["date"])
+    data = [[e["date"], e["balls"], e["lucky_ball"]] for e in archives_sorted]
+    out_dir = LOTO_DIR / "simulateur"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    atomic_write(out_dir / "data.json",
+                 json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    print(f"[Loto] Simulateur data.json : {len(data)} tirages")
+
+
+def generate_simulator_html() -> None:
+    """Génère docs/loto/simulateur/index.html — simulateur historique interactif."""
+    out_dir = LOTO_DIR / "simulateur"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulateur de gains Loto FDJ — Testez vos numéros depuis 2019</title>
+  <meta name="description" content="Entrez vos 5 numéros + chance et découvrez combien vous auriez gagné sur 2\u202f600+ tirages depuis 2019. Gratuit, instantané.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Simulateur de gains Loto FDJ — Testez vos numéros depuis 2019">
+  <meta property="og:description" content="Entrez vos 5 numéros + chance et découvrez combien vous auriez gagné sur 2\u202f600+ tirages Loto.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{LOTO_SITE_URL}/simulateur/">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur de gains Loto FDJ — Testez vos numéros depuis 2019">
+  <meta name="twitter:description" content="Entrez vos 5 numéros + chance et découvrez combien vous auriez gagné sur 2\u202f600+ tirages Loto.">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simulateur de gains Loto FDJ",
+    "description": "Simulez vos gains Loto sur l'ensemble des tirages depuis 2019. Entrez vos 5 numéros et votre numéro chance.",
+    "url": "{LOTO_SITE_URL}/simulateur/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "offers": {{"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Comment fonctionne le simulateur Loto ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sélectionnez vos 5 numéros (1–49) et votre numéro chance (1–10), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages Loto depuis 2019 et calcule vos gains cumulés."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Les résultats sont-ils officiels ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Les tirages sont issus des données officielles FDJ (OpenDataSoft). Les gains affichés sont approximatifs car le jackpot varie."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de tirages Loto sont analysés ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le simulateur couvre tous les tirages disponibles depuis 2019 (environ 2\u202f600 tirages). Il est mis à jour après chaque nouveau tirage."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Peut-on vraiment gagner en jouant toujours les mêmes numéros ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Non — chaque tirage est indépendant. La probabilité de gagner le jackpot est d'environ 1 sur 19 millions. Ce simulateur est un outil ludique pour illustrer l'espérance mathématique."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://solution-du-jour.fr/loto/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Simulateur", "item": "{LOTO_SITE_URL}/simulateur/"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Simulateur de gains Loto FDJ</h1>
+  <p class="subtitle">Testez vos numéros sur tous les tirages depuis 2019</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
+  <a href="../">Loto</a> &rsaquo;
+  <span>Simulateur</span>
+</nav>
+  <article>
+
+    <div class="card">
+      <h2>Comment ça marche ?</h2>
+      <p>
+        Choisissez <strong>5 numéros</strong> (1–49) et <strong>1 numéro chance</strong> (1–10),
+        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages Loto
+        depuis 2019 et calcule vos gains cumulés.
+      </p>
+      <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
+        Mise par tirage : <strong>2,20&nbsp;€</strong>. Les gains affichés sont approximatifs
+        (hors jackpot variable).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Vos numéros</h2>
+
+      <p class="sim-label">5 numéros (<span id="cnt-balls">0</span>/5)</p>
+      <div class="sim-grid" id="picker-balls"></div>
+
+      <p class="sim-label">Numéro chance (<span id="cnt-lucky">0</span>/1)</p>
+      <div class="sim-grid" id="picker-lucky"></div>
+
+      <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2019</button>
+    </div>
+
+    <div class="card" id="sim-results" style="display:none;">
+      <h2>Résultats de la simulation</h2>
+      <div class="sim-summary" id="sim-summary"></div>
+      <p id="sim-best" style="font-size:.9rem;color:#374151;margin-bottom:.5rem;"></p>
+      <table class="sim-rank-table">
+        <thead><tr><th>Rang</th><th>Combinaison</th><th>Fois</th><th>Gain approx.</th></tr></thead>
+        <tbody id="sim-rank-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Questions fréquentes</h2>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Comment fonctionne le simulateur Loto ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Sélectionnez vos 5 numéros (1–49) et votre numéro chance (1–10), puis cliquez sur Simuler.
+          L'outil vérifie vos numéros sur tous les tirages Loto depuis 2019 et calcule vos gains cumulés.
+        </p>
+      </details>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Les gains sont-ils exacts ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Les gains sont approximatifs. Le jackpot (rang 1) varie à chaque tirage.
+          Les autres rangs reflètent les montants moyens officiels FDJ.
+        </p>
+      </details>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Combien de tirages sont analysés ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Le simulateur couvre tous les tirages disponibles depuis 2019, mis à jour après chaque tirage.
+        </p>
+      </details>
+      <details>
+        <summary style="cursor:pointer;font-weight:600;">Peut-on vraiment gagner en jouant toujours les mêmes numéros ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Non — chaque tirage est indépendant. La probabilité de décrocher le jackpot est d'environ
+          1/19&nbsp;068&nbsp;840. Ce simulateur illustre l'espérance mathématique de façon ludique.
+        </p>
+      </details>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <p style="font-size:.9rem;">
+        <a href="../">← Résultats du dernier tirage</a> &nbsp;|&nbsp;
+        <a href="../stats/">Statistiques Loto</a> &nbsp;|&nbsp;
+        <a href="../archive/">Archives</a>
+      </p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <p>Site non officiel · <a href="{SITE_URL}/">Accueil</a> · <a href="../">Loto</a> · <a href="../archive/">Archives</a></p>
+  <p style="margin-top:.4rem;">Jouer sur <a href="https://www.fdj.fr/jeux-de-tirage/loto" rel="noopener" target="_blank">fdj.fr</a></p>
+</footer>
+
+<script>
+(function() {{
+  const LOTO_GAINS = {{1:null,2:100000,3:1500,4:250,5:50,6:10,7:5,8:2,9:2}};
+  const LOTO_MISE = 2.20;
+  const RANK_LABELS = {{
+    1:'1er rang (Jackpot)',2:'2e rang',3:'3e rang',4:'4e rang',
+    5:'5e rang',6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang'
+  }};
+  const RANK_DESC = {{
+    1:'5 numéros + chance',2:'5 numéros',3:'4 numéros + chance',4:'4 numéros',
+    5:'3 numéros + chance',6:'3 numéros',7:'2 numéros + chance',
+    8:'1 numéro + chance',9:'2 numéros'
+  }};
+
+  function lotoRank(ub, ul, db, dl) {{
+    const mb = ub.filter(n => db.includes(n)).length, ml = ul === dl;
+    if (mb===5&&ml) return 1; if (mb===5) return 2;
+    if (mb===4&&ml) return 3; if (mb===4) return 4;
+    if (mb===3&&ml) return 5; if (mb===3) return 6;
+    if (mb===2&&ml) return 7; if (mb===1&&ml) return 8;
+    if (mb===2)     return 9; return 0;
+  }}
+
+  let userBalls = [], userLucky = null;
+
+  function updateBtn() {{
+    document.getElementById('sim-btn').disabled = !(userBalls.length === 5 && userLucky !== null);
+  }}
+
+  // Build ball picker
+  const bg = document.getElementById('picker-balls');
+  for (let n = 1; n <= 49; n++) {{
+    const btn = document.createElement('button');
+    btn.className = 'sim-ball'; btn.type = 'button'; btn.textContent = n;
+    btn.addEventListener('click', () => {{
+      const i = userBalls.indexOf(n);
+      if (i >= 0) {{ userBalls.splice(i, 1); btn.classList.remove('selected'); }}
+      else if (userBalls.length < 5) {{ userBalls.push(n); btn.classList.add('selected'); }}
+      bg.querySelectorAll('.sim-ball').forEach(b => {{
+        b.classList.toggle('dimmed', userBalls.length >= 5 && !userBalls.includes(parseInt(b.textContent)));
+      }});
+      document.getElementById('cnt-balls').textContent = userBalls.length;
+      updateBtn();
+    }});
+    bg.appendChild(btn);
+  }}
+
+  // Build lucky picker
+  const lg = document.getElementById('picker-lucky');
+  for (let n = 1; n <= 10; n++) {{
+    const btn = document.createElement('button');
+    btn.className = 'sim-ball'; btn.type = 'button'; btn.textContent = n;
+    btn.style.background = '#fef3c7'; btn.style.borderColor = '#fbbf24';
+    btn.addEventListener('click', () => {{
+      if (userLucky === n) {{ userLucky = null; btn.classList.remove('selected'); }}
+      else {{
+        lg.querySelectorAll('.sim-ball').forEach(b => b.classList.remove('selected'));
+        userLucky = n; btn.classList.add('selected');
+      }}
+      document.getElementById('cnt-lucky').textContent = userLucky !== null ? 1 : 0;
+      updateBtn();
+    }});
+    lg.appendChild(btn);
+  }}
+
+  document.getElementById('sim-btn').addEventListener('click', () => {{
+    fetch('data.json')
+      .then(r => r.json())
+      .then(draws => {{
+        let totalGain = 0, rankCounts = {{}}, bestRank = 0, bestDate = null;
+        for (const [dateStr, balls, lucky] of draws) {{
+          const rank = lotoRank(userBalls, userLucky, balls, lucky);
+          if (rank > 0) {{
+            rankCounts[rank] = (rankCounts[rank] || 0) + 1;
+            const gain = LOTO_GAINS[rank] || 0;
+            totalGain += gain;
+            if (bestRank === 0 || rank < bestRank) {{ bestRank = rank; bestDate = dateStr; }}
+          }}
+        }}
+        const mise = draws.length * LOTO_MISE;
+        const bilan = totalGain - mise;
+        const bilanCls = bilan >= 0 ? 'bilan-pos' : 'bilan-neg';
+        const fmt = n => n.toLocaleString('fr-FR', {{maximumFractionDigits:2}});
+
+        document.getElementById('sim-summary').innerHTML =
+          `<div class="sim-stat"><div class="sim-stat-value">${{draws.length.toLocaleString('fr-FR')}}</div><div class="sim-stat-label">Tirages analysés</div></div>`+
+          `<div class="sim-stat"><div class="sim-stat-value">${{fmt(mise)}}\u00a0€</div><div class="sim-stat-label">Mise totale</div></div>`+
+          `<div class="sim-stat"><div class="sim-stat-value">${{fmt(totalGain)}}\u00a0€</div><div class="sim-stat-label">Gains totaux</div></div>`+
+          `<div class="sim-stat ${{bilanCls}}"><div class="sim-stat-value">${{bilan>=0?'+':''}}${{fmt(bilan)}}\u00a0€</div><div class="sim-stat-label">Bilan</div></div>`;
+
+        const bestEl = document.getElementById('sim-best');
+        if (bestRank > 0) {{
+          const [y,m,d] = bestDate.split('-');
+          bestEl.innerHTML = `<strong>Votre meilleur gain :</strong> ${{RANK_LABELS[bestRank]}} le ${{d}}/${{m}}/${{y}}`;
+        }} else {{
+          bestEl.textContent = 'Aucun gain sur cet historique.';
+        }}
+
+        const tbody = document.getElementById('sim-rank-body');
+        tbody.innerHTML = '';
+        for (let r = 1; r <= 9; r++) {{
+          const cnt = rankCounts[r] || 0;
+          if (cnt === 0) continue;
+          const gain = LOTO_GAINS[r];
+          const gainStr = gain ? (gain.toLocaleString('fr-FR') + '\u00a0€') : 'Jackpot';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${{RANK_LABELS[r]}}</td><td>${{RANK_DESC[r]}}</td><td>${{cnt}}</td><td>${{gainStr}}</td>`;
+          tbody.appendChild(tr);
+        }}
+        if (tbody.children.length === 0) {{
+          tbody.innerHTML = '<tr><td colspan="4" style="color:#6b7280;text-align:center;">Aucun rang gagné</td></tr>';
+        }}
+
+        document.getElementById('sim-results').style.display = 'block';
+        document.getElementById('sim-results').scrollIntoView({{behavior:'smooth',block:'start'}});
+      }})
+      .catch(() => alert('Erreur lors du chargement des données.'));
+  }});
+}})();
+</script>
+
+</body>
+</html>"""
+
+    atomic_write(out_dir / "index.html", html)
+    print("[Loto] Simulateur index.html généré")

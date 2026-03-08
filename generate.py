@@ -357,6 +357,12 @@ def generate_global_sitemap(today: date) -> None:
 
     if loto_dates:
         urls.append(f"""  <url>
+    <loc>{SITE_URL}/loto/simulateur/</loc>
+    <lastmod>{loto_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>""")
+        urls.append(f"""  <url>
     <loc>{SITE_URL}/loto/stats/</loc>
     <lastmod>{loto_dates[0].isoformat()}</lastmod>
     <changefreq>weekly</changefreq>
@@ -392,6 +398,12 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
 
     if em_dates:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/euromillions/simulateur/</loc>
+    <lastmod>{em_dates[0].isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>""")
         urls.append(f"""  <url>
     <loc>{SITE_URL}/euromillions/stats/</loc>
     <lastmod>{em_dates[0].isoformat()}</lastmod>
@@ -447,12 +459,20 @@ def main():
     # 3. Loto
     print("\n─── Loto ───────────────────────────────────────────────")
     from games.loto import run as run_loto
+    from games.loto import generate_simulator_data as loto_sim_data
+    from games.loto import generate_simulator_html as loto_sim_html
     loto_data = run_loto(today)
+    loto_sim_data()
+    loto_sim_html()
 
     # 4. EuroMillions
     print("\n─── EuroMillions ───────────────────────────────────────")
     from games.euromillions import run as run_em
+    from games.euromillions import generate_simulator_data as em_sim_data
+    from games.euromillions import generate_simulator_html as em_sim_html
     em_data = run_em(today)
+    em_sim_data()
+    em_sim_html()
 
     # 5. Hub page
     print("\n─── Hub ────────────────────────────────────────────────")
@@ -467,12 +487,14 @@ def main():
     generate_global_sitemap(today)
 
     print(f"\n🎉 Site complet généré pour le {date_fr(today)}")
-    print(f"   docs/index.html              ✓ (hub)")
-    print(f"   docs/cemantix/index.html     {'✓' if cemantix_data else '⚠ indisponible'}")
-    print(f"   docs/sutom/index.html        {'✓' if sutom_data else '⚠ indisponible'}")
-    print(f"   docs/loto/index.html         {'✓' if loto_data else '⚠ indisponible'}")
-    print(f"   docs/euromillions/index.html {'✓' if em_data else '⚠ indisponible'}")
-    print(f"   docs/sitemap.xml             ✓\n")
+    print(f"   docs/index.html                          ✓ (hub)")
+    print(f"   docs/cemantix/index.html                 {'✓' if cemantix_data else '⚠ indisponible'}")
+    print(f"   docs/sutom/index.html                    {'✓' if sutom_data else '⚠ indisponible'}")
+    print(f"   docs/loto/index.html                     {'✓' if loto_data else '⚠ indisponible'}")
+    print(f"   docs/loto/simulateur/                    ✓")
+    print(f"   docs/euromillions/index.html             {'✓' if em_data else '⚠ indisponible'}")
+    print(f"   docs/euromillions/simulateur/            ✓")
+    print(f"   docs/sitemap.xml                         ✓\n")
 
 
 if __name__ == "__main__":

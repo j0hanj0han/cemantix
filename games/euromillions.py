@@ -581,6 +581,101 @@ def generate_index_html(
     </div>
 
     <div class="card">
+      <h2>Vérifiez votre grille</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Sélectionnez vos 5 numéros + 2 étoiles pour savoir si vous avez gagné.
+      </p>
+      <script>
+      (function(){{
+        const DRAW_BALLS = {balls};
+        const DRAW_STARS = {stars};
+        const EM_GAINS = {{1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4}};
+        const RANK_LABELS = {{
+          1:'1er rang — Jackpot',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
+          6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',
+          11:'11e rang',12:'12e rang',13:'13e rang'
+        }};
+        const RANK_DESC = {{
+          1:'5+2',2:'5+1',3:'5+0',4:'4+2',5:'4+1',6:'3+2',7:'4+0',
+          8:'2+2',9:'3+1',10:'3+0',11:'1+2',12:'2+1',13:'2+0'
+        }};
+        function emRank(ub,us,db,ds){{
+          const mb=ub.filter(n=>db.includes(n)).length,ms=us.filter(n=>ds.includes(n)).length;
+          if(mb===5&&ms===2)return 1;if(mb===5&&ms===1)return 2;
+          if(mb===5&&ms===0)return 3;if(mb===4&&ms===2)return 4;
+          if(mb===4&&ms===1)return 5;if(mb===3&&ms===2)return 6;
+          if(mb===4&&ms===0)return 7;if(mb===2&&ms===2)return 8;
+          if(mb===3&&ms===1)return 9;if(mb===3&&ms===0)return 10;
+          if(mb===1&&ms===2)return 11;if(mb===2&&ms===1)return 12;
+          if(mb===2&&ms===0)return 13;return 0;
+        }}
+        let userBalls=[], userStars=[];
+        function render(){{
+          const res=document.getElementById('em-checker-result');
+          if(!res)return;
+          if(userBalls.length<5||userStars.length<2){{res.style.display='none';return;}}
+          const rank=emRank(userBalls,userStars,DRAW_BALLS,DRAW_STARS);
+          res.style.display='block';
+          if(rank===0){{
+            res.className='sim-result';
+            res.innerHTML='<div class="sim-result-rank">Pas de gain</div>'
+              +'<div class="sim-result-detail">Aucune combinaison gagnante.</div>';
+          }}else{{
+            const gain=EM_GAINS[rank];
+            res.className='sim-result win';
+            res.innerHTML='<div class="sim-result-rank">'+RANK_LABELS[rank]+' — '+RANK_DESC[rank]+'</div>'
+              +(gain?'<div class="sim-result-gain">≈ '+gain.toLocaleString('fr-FR')+'&nbsp;€</div>':'<div class="sim-result-gain">Jackpot !</div>');
+          }}
+        }}
+        function buildPicker(){{
+          const bg=document.getElementById('em-checker-balls');
+          const sg=document.getElementById('em-checker-stars');
+          if(!bg||!sg)return;
+          for(let n=1;n<=50;n++){{
+            const btn=document.createElement('button');
+            btn.className='sim-ball em-type';btn.type='button';btn.textContent=n;
+            btn.addEventListener('click',()=>{{
+              const i=userBalls.indexOf(n);
+              if(i>=0){{userBalls.splice(i,1);btn.classList.remove('selected');}}
+              else if(userBalls.length<5){{userBalls.push(n);btn.classList.add('selected');}}
+              bg.querySelectorAll('.sim-ball').forEach(b=>{{
+                b.classList.toggle('dimmed',userBalls.length>=5&&!userBalls.includes(parseInt(b.textContent)));
+              }});
+              document.getElementById('em-cnt-balls').textContent=userBalls.length;
+              render();
+            }});
+            bg.appendChild(btn);
+          }}
+          for(let n=1;n<=12;n++){{
+            const btn=document.createElement('button');
+            btn.className='sim-ball star-type';btn.type='button';btn.textContent=n;
+            btn.addEventListener('click',()=>{{
+              const i=userStars.indexOf(n);
+              if(i>=0){{userStars.splice(i,1);btn.classList.remove('selected');}}
+              else if(userStars.length<2){{userStars.push(n);btn.classList.add('selected');}}
+              sg.querySelectorAll('.sim-ball').forEach(b=>{{
+                b.classList.toggle('dimmed',userStars.length>=2&&!userStars.includes(parseInt(b.textContent)));
+              }});
+              document.getElementById('em-cnt-stars').textContent=userStars.length;
+              render();
+            }});
+            sg.appendChild(btn);
+          }}
+        }}
+        document.addEventListener('DOMContentLoaded',buildPicker);
+      }})();
+      </script>
+      <p class="sim-label">Vos 5 numéros <span id="em-cnt-balls">0</span>/5</p>
+      <div class="sim-grid" id="em-checker-balls"></div>
+      <p class="sim-label">Vos 2 étoiles <span id="em-cnt-stars">0</span>/2</p>
+      <div class="sim-grid" id="em-checker-stars"></div>
+      <div id="em-checker-result" style="display:none;"></div>
+      <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">
+        Testez vos numéros sur tout l'historique : <a href="simulateur/">Simulateur EuroMillions depuis 2004 &#8594;</a>
+      </p>
+    </div>
+
+    <div class="card">
       <h2>Comment fonctionne l'EuroMillions ?</h2>
       <p>
         L'<strong>EuroMillions</strong> est une loterie multi-pays organisée notamment par
@@ -1415,3 +1510,346 @@ def run(today: date) -> dict | None:
 
     print(f"[EuroMillions] 🎉 Tirage sauvegardé et HTML généré ({draw_date_str})")
     return data
+
+
+# ── Simulateur historique ──────────────────────────────────────────────────────
+
+def generate_simulator_data() -> None:
+    """Génère docs/euromillions/simulateur/data.json — tous tirages [date, balls, stars]."""
+    archives = _load_archives(EM_ARCHIVE, required_keys=["date", "balls", "stars"])
+    if not archives:
+        print("[EuroMillions] ⚠ Simulateur : aucune archive trouvée")
+        return
+    archives_sorted = sorted(archives, key=lambda e: e["date"])
+    data = [[e["date"], e["balls"], e["stars"]] for e in archives_sorted]
+    out_dir = EM_DIR / "simulateur"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    atomic_write(out_dir / "data.json",
+                 json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    print(f"[EuroMillions] Simulateur data.json : {len(data)} tirages")
+
+
+def generate_simulator_html() -> None:
+    """Génère docs/euromillions/simulateur/index.html — simulateur historique interactif."""
+    out_dir = EM_DIR / "simulateur"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulateur de gains EuroMillions — Testez vos numéros depuis 2004</title>
+  <meta name="description" content="Entrez vos 5 numéros + 2 étoiles et découvrez combien vous auriez gagné sur 1\u202f900+ tirages depuis 2004. Gratuit.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{EM_SITE_URL}/simulateur/">
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Simulateur de gains EuroMillions — Testez vos numéros depuis 2004">
+  <meta property="og:description" content="Entrez vos 5 numéros + 2 étoiles et découvrez combien vous auriez gagné sur 1\u202f900+ tirages EuroMillions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{EM_SITE_URL}/simulateur/">
+  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur de gains EuroMillions — Testez vos numéros depuis 2004">
+  <meta name="twitter:description" content="Entrez vos 5 numéros + 2 étoiles et découvrez combien vous auriez gagné sur 1\u202f900+ tirages EuroMillions.">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simulateur de gains EuroMillions",
+    "description": "Simulez vos gains EuroMillions sur l'ensemble des tirages depuis 2004. Entrez vos 5 numéros et 2 étoiles.",
+    "url": "{EM_SITE_URL}/simulateur/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "offers": {{"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "Comment fonctionne le simulateur EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages EuroMillions depuis 2004 et calcule vos gains cumulés."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Les gains affichés sont-ils exacts ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les tirages. Les autres rangs reflètent les montants indicatifs officiels."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de tirages EuroMillions sont analysés ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour après chaque tirage (mardi et vendredi)."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quelle est la probabilité de gagner le jackpot EuroMillions ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1 sur 139\u202f838\u202f160. Ce simulateur est un outil ludique illustrant l'espérance mathématique."
+        }}
+      }}
+    ]
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://solution-du-jour.fr/euromillions/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Simulateur", "item": "{EM_SITE_URL}/simulateur/"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Simulateur de gains EuroMillions</h1>
+  <p class="subtitle">Testez vos numéros sur tous les tirages depuis 2004</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
+  <a href="../">EuroMillions</a> &rsaquo;
+  <span>Simulateur</span>
+</nav>
+  <article>
+
+    <div class="card">
+      <h2>Comment ça marche ?</h2>
+      <p>
+        Choisissez <strong>5 numéros</strong> (1–50) et <strong>2 étoiles</strong> (1–12),
+        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages EuroMillions
+        depuis 2004 et calcule vos gains cumulés.
+      </p>
+      <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
+        Mise par tirage : <strong>2,50&nbsp;€</strong>. Les gains affichés sont approximatifs
+        (hors jackpot variable).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Vos numéros</h2>
+
+      <p class="sim-label">5 numéros (<span id="cnt-balls">0</span>/5)</p>
+      <div class="sim-grid" id="picker-balls"></div>
+
+      <p class="sim-label">2 étoiles &#9733; (<span id="cnt-stars">0</span>/2)</p>
+      <div class="sim-grid" id="picker-stars"></div>
+
+      <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2004</button>
+    </div>
+
+    <div class="card" id="sim-results" style="display:none;">
+      <h2>Résultats de la simulation</h2>
+      <div class="sim-summary" id="sim-summary"></div>
+      <p id="sim-best" style="font-size:.9rem;color:#374151;margin-bottom:.5rem;"></p>
+      <table class="sim-rank-table">
+        <thead><tr><th>Rang</th><th>Combinaison</th><th>Fois</th><th>Gain approx.</th></tr></thead>
+        <tbody id="sim-rank-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Questions fréquentes</h2>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Comment fonctionne le simulateur EuroMillions ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler.
+          L'outil vérifie votre grille sur tous les tirages depuis 2004 et calcule vos gains.
+        </p>
+      </details>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Les gains sont-ils exacts ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Les gains sont approximatifs. Le jackpot (1er rang) varie très fortement selon les tirages.
+          Les autres rangs reflètent les montants indicatifs officiels.
+        </p>
+      </details>
+      <details style="margin-bottom:.75rem;">
+        <summary style="cursor:pointer;font-weight:600;">Combien de tirages sont analysés ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          Le simulateur couvre tous les tirages depuis février 2004, mis à jour après chaque tirage
+          (mardi et vendredi).
+        </p>
+      </details>
+      <details>
+        <summary style="cursor:pointer;font-weight:600;">Quelle est la probabilité de gagner le jackpot ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;">
+          La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1/139\u202f838\u202f160.
+          Ce simulateur est un outil ludique illustrant l'espérance mathématique.
+        </p>
+      </details>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <p style="font-size:.9rem;">
+        <a href="../">← Résultats du dernier tirage</a> &nbsp;|&nbsp;
+        <a href="../stats/">Statistiques EuroMillions</a> &nbsp;|&nbsp;
+        <a href="../archive/">Archives</a>
+      </p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <p>Site non officiel · <a href="{SITE_URL}/">Accueil</a> · <a href="../">EuroMillions</a> · <a href="../archive/">Archives</a></p>
+  <p style="margin-top:.4rem;">Jouer sur <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">fdj.fr</a></p>
+</footer>
+
+<script>
+(function() {{
+  const EM_GAINS = {{1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4}};
+  const EM_MISE = 2.50;
+  const RANK_LABELS = {{
+    1:'1er rang (Jackpot)',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
+    6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',
+    11:'11e rang',12:'12e rang',13:'13e rang'
+  }};
+  const RANK_DESC = {{
+    1:'5+2',2:'5+1',3:'5+0',4:'4+2',5:'4+1',6:'3+2',7:'4+0',
+    8:'2+2',9:'3+1',10:'3+0',11:'1+2',12:'2+1',13:'2+0'
+  }};
+
+  function emRank(ub, us, db, ds) {{
+    const mb = ub.filter(n => db.includes(n)).length, ms = us.filter(n => ds.includes(n)).length;
+    if (mb===5&&ms===2) return 1;  if (mb===5&&ms===1) return 2;
+    if (mb===5&&ms===0) return 3;  if (mb===4&&ms===2) return 4;
+    if (mb===4&&ms===1) return 5;  if (mb===3&&ms===2) return 6;
+    if (mb===4&&ms===0) return 7;  if (mb===2&&ms===2) return 8;
+    if (mb===3&&ms===1) return 9;  if (mb===3&&ms===0) return 10;
+    if (mb===1&&ms===2) return 11; if (mb===2&&ms===1) return 12;
+    if (mb===2&&ms===0) return 13; return 0;
+  }}
+
+  let userBalls = [], userStars = [];
+
+  function updateBtn() {{
+    document.getElementById('sim-btn').disabled = !(userBalls.length === 5 && userStars.length === 2);
+  }}
+
+  // Build ball picker (1-50)
+  const bg = document.getElementById('picker-balls');
+  for (let n = 1; n <= 50; n++) {{
+    const btn = document.createElement('button');
+    btn.className = 'sim-ball em-type'; btn.type = 'button'; btn.textContent = n;
+    btn.addEventListener('click', () => {{
+      const i = userBalls.indexOf(n);
+      if (i >= 0) {{ userBalls.splice(i, 1); btn.classList.remove('selected'); }}
+      else if (userBalls.length < 5) {{ userBalls.push(n); btn.classList.add('selected'); }}
+      bg.querySelectorAll('.sim-ball').forEach(b => {{
+        b.classList.toggle('dimmed', userBalls.length >= 5 && !userBalls.includes(parseInt(b.textContent)));
+      }});
+      document.getElementById('cnt-balls').textContent = userBalls.length;
+      updateBtn();
+    }});
+    bg.appendChild(btn);
+  }}
+
+  // Build star picker (1-12)
+  const sg = document.getElementById('picker-stars');
+  for (let n = 1; n <= 12; n++) {{
+    const btn = document.createElement('button');
+    btn.className = 'sim-ball star-type'; btn.type = 'button'; btn.textContent = n;
+    btn.addEventListener('click', () => {{
+      const i = userStars.indexOf(n);
+      if (i >= 0) {{ userStars.splice(i, 1); btn.classList.remove('selected'); }}
+      else if (userStars.length < 2) {{ userStars.push(n); btn.classList.add('selected'); }}
+      sg.querySelectorAll('.sim-ball').forEach(b => {{
+        b.classList.toggle('dimmed', userStars.length >= 2 && !userStars.includes(parseInt(b.textContent)));
+      }});
+      document.getElementById('cnt-stars').textContent = userStars.length;
+      updateBtn();
+    }});
+    sg.appendChild(btn);
+  }}
+
+  document.getElementById('sim-btn').addEventListener('click', () => {{
+    fetch('data.json')
+      .then(r => r.json())
+      .then(draws => {{
+        let totalGain = 0, rankCounts = {{}}, bestRank = 0, bestDate = null;
+        for (const [dateStr, balls, stars] of draws) {{
+          const rank = emRank(userBalls, userStars, balls, stars);
+          if (rank > 0) {{
+            rankCounts[rank] = (rankCounts[rank] || 0) + 1;
+            const gain = EM_GAINS[rank] || 0;
+            totalGain += gain;
+            if (bestRank === 0 || rank < bestRank) {{ bestRank = rank; bestDate = dateStr; }}
+          }}
+        }}
+        const mise = draws.length * EM_MISE;
+        const bilan = totalGain - mise;
+        const bilanCls = bilan >= 0 ? 'bilan-pos' : 'bilan-neg';
+        const fmt = n => n.toLocaleString('fr-FR', {{maximumFractionDigits:2}});
+
+        document.getElementById('sim-summary').innerHTML =
+          `<div class="sim-stat"><div class="sim-stat-value">${{draws.length.toLocaleString('fr-FR')}}</div><div class="sim-stat-label">Tirages analysés</div></div>`+
+          `<div class="sim-stat"><div class="sim-stat-value">${{fmt(mise)}}\u00a0€</div><div class="sim-stat-label">Mise totale</div></div>`+
+          `<div class="sim-stat"><div class="sim-stat-value">${{fmt(totalGain)}}\u00a0€</div><div class="sim-stat-label">Gains totaux</div></div>`+
+          `<div class="sim-stat ${{bilanCls}}"><div class="sim-stat-value">${{bilan>=0?'+':''}}${{fmt(bilan)}}\u00a0€</div><div class="sim-stat-label">Bilan</div></div>`;
+
+        const bestEl = document.getElementById('sim-best');
+        if (bestRank > 0) {{
+          const [y,m,d] = bestDate.split('-');
+          bestEl.innerHTML = `<strong>Votre meilleur gain :</strong> ${{RANK_LABELS[bestRank]}} le ${{d}}/${{m}}/${{y}}`;
+        }} else {{
+          bestEl.textContent = 'Aucun gain sur cet historique.';
+        }}
+
+        const tbody = document.getElementById('sim-rank-body');
+        tbody.innerHTML = '';
+        for (let r = 1; r <= 13; r++) {{
+          const cnt = rankCounts[r] || 0;
+          if (cnt === 0) continue;
+          const gain = EM_GAINS[r];
+          const gainStr = gain ? (gain.toLocaleString('fr-FR') + '\u00a0€') : 'Jackpot';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${{RANK_LABELS[r]}}</td><td>${{RANK_DESC[r]}}</td><td>${{cnt}}</td><td>${{gainStr}}</td>`;
+          tbody.appendChild(tr);
+        }}
+        if (tbody.children.length === 0) {{
+          tbody.innerHTML = '<tr><td colspan="4" style="color:#6b7280;text-align:center;">Aucun rang gagné</td></tr>';
+        }}
+
+        document.getElementById('sim-results').style.display = 'block';
+        document.getElementById('sim-results').scrollIntoView({{behavior:'smooth',block:'start'}});
+      }})
+      .catch(() => alert('Erreur lors du chargement des données.'));
+  }});
+}})();
+</script>
+
+</body>
+</html>"""
+
+    atomic_write(out_dir / "index.html", html)
+    print("[EuroMillions] Simulateur index.html généré")

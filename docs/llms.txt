@@ -10,9 +10,15 @@
 - [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
 - [EuroMillions — Résultats du dernier tirage](https://solution-du-jour.fr/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
 
+## Simulateurs de gains
+
+- [Simulateur Loto FDJ](https://solution-du-jour.fr/loto/simulateur/): Testez vos 5 numéros + chance sur les 2 600+ tirages Loto depuis 2019. Calcul des gains cumulés et bilan.
+- [Simulateur EuroMillions](https://solution-du-jour.fr/euromillions/simulateur/): Testez vos 5 numéros + 2 étoiles sur les 1 900+ tirages EuroMillions depuis 2004. Calcul des gains cumulés et bilan.
+
 ## Statistiques
 
 - [Statistiques Loto 2025-2026](https://solution-du-jour.fr/loto/stats/): Numéros les plus fréquents, numéro chance, et retardataires sur les 100 derniers tirages Loto FDJ.
+- [Statistiques EuroMillions](https://solution-du-jour.fr/euromillions/stats/): Numéros les plus sortis, étoiles fréquentes et retardataires sur les tirages EuroMillions.
 
 ## Archives
 

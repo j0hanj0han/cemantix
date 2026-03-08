@@ -119,8 +119,10 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <p class="game-card-desc">Résultats du tirage n°{loto["draw_num"]} du {draw_date_display}.</p>
       <div class="game-card-solution">
         <span class="game-label">Numéros gagnants</span>
-        {_loto_balls(balls, lucky, small=True)}
-        <p style="font-size:.75rem;color:#6b7280;margin:.25rem 0 0;">{balls_str} + chance {lucky}</p>
+        <div class="solution-blur solution-blur-sm" id="sol-loto">
+          {_loto_balls(balls, lucky, small=True)}
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-loto')">Révéler</button>
       </div>
       <span class="game-link-arrow">Voir tous les résultats &#8594;</span>
     </a>"""
@@ -152,8 +154,10 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <p class="game-card-desc">Tirage du {em_date_display} — 5 boules + 2 étoiles.</p>
       <div class="game-card-solution">
         <span class="game-label">Numéros gagnants</span>
-        {_em_balls_html(em["balls"], em["stars"], small=True)}
-        <p style="font-size:.75rem;color:#6b7280;margin:.25rem 0 0;">{em_balls_str} &#9733; {em_stars_str}</p>
+        <div class="solution-blur solution-blur-sm" id="sol-em">
+          {_em_balls_html(em["balls"], em["stars"], small=True)}
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-em')">Révéler</button>
       </div>
       <span class="game-link-arrow">Voir tous les résultats &#8594;</span>
     </a>"""

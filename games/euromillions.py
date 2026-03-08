@@ -675,10 +675,12 @@ def generate_index_html(
         </p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
       </div>
-      <button class="reveal-btn" id="em-reveal-btn"
-        onclick="document.getElementById('em-balls-blur').classList.add('revealed');this.style.display='none';">
-        Voir les numéros gagnants
-      </button>
+      <p style="text-align:center;margin-top:.75rem;">
+        <button class="reveal-btn" id="em-reveal-btn"
+          onclick="document.getElementById('em-balls-blur').classList.add('revealed');this.parentElement.style.display='none';">
+          Voir les numéros gagnants
+        </button>
+      </p>
     </div>
 
 {(f"""    <div class="card" style="text-align:center;">

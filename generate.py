@@ -117,7 +117,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
         <span class="game-badge game-badge-loto">FDJ</span>
       </div>
       <p class="game-card-desc">Résultats du tirage n°{loto["draw_num"]} du {draw_date_display}.</p>
-      <div class="game-card-solution">
+      <div class="game-card-solution" style="flex-direction:column;align-items:flex-start;gap:.4rem;">
         <span class="game-label">Numéros gagnants</span>
         <div class="solution-blur solution-blur-sm" id="sol-loto">
           {_loto_balls(balls, lucky, small=True)}
@@ -152,7 +152,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
         <span class="game-badge game-badge-em">&#9733; Multi-pays</span>
       </div>
       <p class="game-card-desc">Tirage du {em_date_display} — 5 boules + 2 étoiles.</p>
-      <div class="game-card-solution">
+      <div class="game-card-solution" style="flex-direction:column;align-items:flex-start;gap:.4rem;">
         <span class="game-label">Numéros gagnants</span>
         <div class="solution-blur solution-blur-sm" id="sol-em">
           {_em_balls_html(em["balls"], em["stars"], small=True)}

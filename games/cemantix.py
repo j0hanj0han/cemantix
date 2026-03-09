@@ -114,9 +114,10 @@ def select_hints(nearby: list[dict]) -> dict:
     Niveau 2 (proche)      : percentile ~500-700
     Niveau 3 (très proche) : percentile ~800-950
     """
-    def pick(lo: int, hi: int, count: int = 3) -> list[str]:
+    def pick(lo: int, hi: int, count: int = 3) -> list[dict]:
         candidates = [
-            item["word"] for item in nearby
+            {"word": item["word"], "percentile": item["percentile"]}
+            for item in nearby
             if lo <= item["percentile"] <= hi
         ]
         if len(candidates) <= count:
@@ -216,9 +217,25 @@ def _word_hints_card_html(word: str, definition: str) -> str:
 
 
 def _hints_html(hints: dict) -> tuple:
-    """Retourne (hints_l1, hints_l2, hints_l3) comme chaînes HTML."""
+    """Retourne (hints_l1, hints_l2, hints_l3) comme chaînes HTML.
+    Gère les deux formats : liste de str (archives anciennes) et liste de dicts (nouveau).
+    """
     def words_html(words: list) -> str:
-        return "".join(f'<span class="hint-tag">{w}</span>' for w in words)
+        tags = []
+        for item in words:
+            if isinstance(item, dict):
+                w = item["word"]
+                p = item.get("percentile")
+                if p is not None:
+                    tags.append(
+                        f'<span class="hint-tag" data-p="{p}"'
+                        f" onclick=\"toggleRank(this)\">{w}</span>"
+                    )
+                else:
+                    tags.append(f'<span class="hint-tag">{w}</span>')
+            else:
+                tags.append(f'<span class="hint-tag">{item}</span>')
+        return "".join(tags)
     return (
         words_html(hints.get("level1", [])),
         words_html(hints.get("level2", [])),
@@ -481,6 +498,12 @@ def generate_archive_html(
     if (el) el.classList.add('visible');
     var btn = document.getElementById('wh-' + key + '-btn');
     if (btn) btn.style.display = 'none';
+  }}
+
+  function toggleRank(el) {{
+    var wasActive = el.classList.contains('active');
+    document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
+    if (!wasActive) el.classList.add('active');
   }}
 </script>
 
@@ -863,6 +886,12 @@ def generate_index_html(
     if (el) el.classList.add('visible');
     var btn = document.getElementById('wh-' + key + '-btn');
     if (btn) btn.style.display = 'none';
+  }}
+
+  function toggleRank(el) {{
+    var wasActive = el.classList.contains('active');
+    document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
+    if (!wasActive) el.classList.add('active');
   }}
 </script>
 

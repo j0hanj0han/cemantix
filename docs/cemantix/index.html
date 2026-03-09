@@ -168,7 +168,7 @@
         </button>
         <div class="hint-content" id="content-l1">
           <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
-          <div class="hint-words"><span class="hint-tag">jupitérien</span><span class="hint-tag">pilotis</span><span class="hint-tag">sesterce</span></div>
+          <div class="hint-words"><span class="hint-tag" data-p="200" onclick="toggleRank(this)">jupitérien</span><span class="hint-tag" data-p="267" onclick="toggleRank(this)">pilotis</span><span class="hint-tag" data-p="334" onclick="toggleRank(this)">sesterce</span></div>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
         </button>
         <div class="hint-content" id="content-l2">
           <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
-          <div class="hint-words"><span class="hint-tag">dragon</span><span class="hint-tag">helléniser</span><span class="hint-tag">enfeu</span></div>
+          <div class="hint-words"><span class="hint-tag" data-p="500" onclick="toggleRank(this)">dragon</span><span class="hint-tag" data-p="567" onclick="toggleRank(this)">helléniser</span><span class="hint-tag" data-p="634" onclick="toggleRank(this)">enfeu</span></div>
         </div>
       </div>
 
@@ -188,7 +188,7 @@
         </button>
         <div class="hint-content" id="content-l3">
           <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
-          <div class="hint-words"><span class="hint-tag">palatial</span><span class="hint-tag">krak</span><span class="hint-tag">capitolin</span></div>
+          <div class="hint-words"><span class="hint-tag" data-p="800" onclick="toggleRank(this)">palatial</span><span class="hint-tag" data-p="850" onclick="toggleRank(this)">krak</span><span class="hint-tag" data-p="900" onclick="toggleRank(this)">capitolin</span></div>
         </div>
       </div>
     </div>
@@ -274,6 +274,12 @@
     if (el) el.classList.add('visible');
     var btn = document.getElementById('wh-' + key + '-btn');
     if (btn) btn.style.display = 'none';
+  }
+
+  function toggleRank(el) {
+    var wasActive = el.classList.contains('active');
+    document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
+    if (!wasActive) el.classList.add('active');
   }
 </script>
 

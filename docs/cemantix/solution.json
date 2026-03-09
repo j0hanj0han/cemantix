@@ -4,19 +4,46 @@
   "word": "temple",
   "hints": {
     "level1": [
-      "jupitérien",
-      "pilotis",
-      "sesterce"
+      {
+        "word": "jupitérien",
+        "percentile": 200
+      },
+      {
+        "word": "pilotis",
+        "percentile": 267
+      },
+      {
+        "word": "sesterce",
+        "percentile": 334
+      }
     ],
     "level2": [
-      "dragon",
-      "helléniser",
-      "enfeu"
+      {
+        "word": "dragon",
+        "percentile": 500
+      },
+      {
+        "word": "helléniser",
+        "percentile": 567
+      },
+      {
+        "word": "enfeu",
+        "percentile": 634
+      }
     ],
     "level3": [
-      "palatial",
-      "krak",
-      "capitolin"
+      {
+        "word": "palatial",
+        "percentile": 800
+      },
+      {
+        "word": "krak",
+        "percentile": 850
+      },
+      {
+        "word": "capitolin",
+        "percentile": 900
+      }
     ]
   },
   "tried_count": 111,

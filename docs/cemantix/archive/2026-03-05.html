@@ -232,6 +232,12 @@
     var btn = document.getElementById('wh-' + key + '-btn');
     if (btn) btn.style.display = 'none';
   }
+
+  function toggleRank(el) {
+    var wasActive = el.classList.contains('active');
+    document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
+    if (!wasActive) el.classList.add('active');
+  }
 </script>
 
 </body>

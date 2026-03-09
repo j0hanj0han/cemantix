@@ -177,7 +177,33 @@ main {
   border-radius: 999px;
   font-size: .8rem;
   font-weight: 600;
+  position: relative;
 }
+
+/* Tooltip rang (percentile) au hover / click */
+.hint-tag[data-p] { cursor: pointer; }
+
+.hint-tag[data-p]::before {
+  content: '#' attr(data-p) ' / 1000';
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: .2rem .45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 10;
+}
+
+.hint-tag[data-p]:hover::before,
+.hint-tag[data-p].active::before { opacity: 1; }
 
 /* ── Archive navigation (prev/next) ── */
 

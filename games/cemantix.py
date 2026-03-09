@@ -236,8 +236,9 @@ def _hints_html(hints: dict) -> tuple:
                 w = item["word"]
                 defn = item.get("definition", "")
                 if defn:
+                    safe_defn = _html_escape(defn.replace('\n', ' ').replace('\r', ''))
                     attr = (
-                        f' data-def="{_html_escape(defn)}"'
+                        f' data-def="{safe_defn}"'
                         f' onclick="toggleDef(this)"'
                     )
                 else:
@@ -317,20 +318,23 @@ def generate_archive_html(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cémantix {date_display} — Solution #{puzzle_num} · Archive</title>
-  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Retrouvez la réponse et les indices progressifs de ce puzzle.">
+  <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
+  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{date_str}.html">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
-  <meta property="og:description" content="Réponse et indices du Cémantix du {date_display} (puzzle #{puzzle_num}).">
+  <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{date_str}.html">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
-  <meta name="twitter:description" content="Réponse et indices du Cémantix du {date_display} (puzzle #{puzzle_num}).">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
+  <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
 
   <script type="application/ld+json">
@@ -342,6 +346,7 @@ def generate_archive_html(
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}.html",
+    "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/archive/{date_str}.html"}},
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}
@@ -386,8 +391,8 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Cémantix — Archive</h1>
-  <p class="subtitle">Solution du {date_display} — #{puzzle_num}</p>
+  <h1>Cémantix #{puzzle_num} — Solution du {date_display}</h1>
+  <p class="subtitle">Archive · indices &amp; définition</p>
 </header>
 
 <main>
@@ -408,8 +413,10 @@ def generate_archive_html(
     <div class="card">
       <h2>Cémantix #{puzzle_num} — <time datetime="{date_str}">{date_display}</time></h2>
       <p>
-        Retrouvez la <strong>solution du Cémantix du {date_display}</strong> (puzzle #{puzzle_num})
-        et les <strong>indices progressifs</strong> pour ce puzzle.
+        Retrouvez la <strong>solution du Cémantix du {date_display}</strong> (puzzle #{puzzle_num}).
+        Consultez la <strong>première lettre</strong>, le <strong>nombre de lettres</strong>
+        et la <strong>définition</strong> du mot, ainsi que les <strong>indices progressifs</strong>
+        pour trouver le mot sans spoiler immédiat.
       </p>
     </div>
 {word_hints_card}
@@ -713,20 +720,23 @@ def generate_index_html(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cémantix {date_display} — Solution #{puzzle_num} · Indice &amp; Définition</title>
+  <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot secret.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
-  <meta property="og:description" content="Réponse et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret sans vous faire spoiler.">
+  <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret !">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix {date_display} — Solution #{puzzle_num}">
-  <meta name="twitter:description" content="Réponse et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret sans vous faire spoiler.">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices progressifs du Cémantix du {date_display}.">
+  <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
 
   <script type="application/ld+json">
@@ -738,6 +748,7 @@ def generate_index_html(
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
+    "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}

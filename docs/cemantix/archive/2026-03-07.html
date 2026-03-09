@@ -46,6 +46,22 @@
           "@type": "Answer",
           "text": "La réponse du Cémantix #1466 du samedi 7 mars 2026 est : installation."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la première lettre du Cémantix du samedi 7 mars 2026 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La première lettre du Cémantix #1466 du samedi 7 mars 2026 est : I."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de lettres contient le mot du Cémantix du samedi 7 mars 2026 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le mot du Cémantix #1466 du samedi 7 mars 2026 contient 12 lettres."
+        }
       }
     ]
   }
@@ -100,6 +116,26 @@
       </p>
     </div>
 
+    <div class="card">
+      <h2>Indices du mot</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        R&#233;v&#233;lez chaque indice s&#233;par&#233;ment — du moins au plus spoiler.
+      </p>
+      <div class="word-hints">
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128207;</span>
+          <span class="word-hint-label">Nombre de lettres</span>
+          <span class="word-hint-value" id="wh-length">12 lettres</span>
+          <button class="word-hint-btn" id="wh-length-btn" onclick="revealWordHint('length')">R&#233;v&#233;ler</button>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128288;</span>
+          <span class="word-hint-label">Premi&#232;re lettre</span>
+          <span class="word-hint-value" id="wh-letter">I</span>
+          <button class="word-hint-btn" id="wh-letter-btn" onclick="revealWordHint('letter')">R&#233;v&#233;ler</button>
+        </div>
+      </div>
+    </div>
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
@@ -188,6 +224,13 @@
   function revealSolution() {
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
+  }
+
+  function revealWordHint(key) {
+    var el = document.getElementById('wh-' + key);
+    if (el) el.classList.add('visible');
+    var btn = document.getElementById('wh-' + key + '-btn');
+    if (btn) btn.style.display = 'none';
   }
 </script>
 

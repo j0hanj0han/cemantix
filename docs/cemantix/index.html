@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cémantix lundi 9 mars 2026 — Solution #1468 · Réponse du Jour</title>
-  <meta name="description" content="Solution du Cémantix #1468 du lundi 9 mars 2026. Indices progressifs en 3 niveaux pour trouver la réponse au mot secret du jour sans spoiler immédiat.">
+  <title>Cémantix lundi 9 mars 2026 — Solution #1468 · Indice &amp; Définition</title>
+  <meta name="description" content="Solution du Cémantix #1468 du lundi 9 mars 2026. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot secret.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://solution-du-jour.fr/cemantix/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -62,6 +62,30 @@
           "@type": "Answer",
           "text": "Cette page propose 3 niveaux d'indices progressifs : des mots sémantiquement tièdes, chauds, puis brûlants. Déverrouillez chaque niveau selon votre besoin pour le Cémantix du lundi 9 mars 2026."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la première lettre du Cémantix du lundi 9 mars 2026 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La première lettre du Cémantix #1468 du lundi 9 mars 2026 est : T."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de lettres contient le mot du Cémantix du lundi 9 mars 2026 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le mot du Cémantix #1468 du lundi 9 mars 2026 contient 6 lettres."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la définition du mot du Cémantix du lundi 9 mars 2026 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un temple est à l'origine un lieu, un espace sacré placé sous la protection d'une ou de plusieurs divinités, et où un rite est pratiqué."
+        }
       }
     ]
   }
@@ -106,6 +130,32 @@
       </p>
     </div>
 
+    <div class="card">
+      <h2>Indices du mot</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        R&#233;v&#233;lez chaque indice s&#233;par&#233;ment — du moins au plus spoiler.
+      </p>
+      <div class="word-hints">
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128207;</span>
+          <span class="word-hint-label">Nombre de lettres</span>
+          <span class="word-hint-value" id="wh-length">6 lettres</span>
+          <button class="word-hint-btn" id="wh-length-btn" onclick="revealWordHint('length')">R&#233;v&#233;ler</button>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128288;</span>
+          <span class="word-hint-label">Premi&#232;re lettre</span>
+          <span class="word-hint-value" id="wh-letter">T</span>
+          <button class="word-hint-btn" id="wh-letter-btn" onclick="revealWordHint('letter')">R&#233;v&#233;ler</button>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128218;</span>
+          <span class="word-hint-label">D&#233;finition</span>
+          <span class="word-hint-value definition" id="wh-def">Un ___ est à l&#x27;origine un lieu, un espace sacré placé sous la protection d&#x27;une ou de plusieurs divinités, et où un rite est pratiqué.</span>
+          <button class="word-hint-btn" id="wh-def-btn" onclick="revealWordHint('def')">R&#233;v&#233;ler</button>
+        </div>
+      </div>
+    </div>
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
@@ -217,6 +267,13 @@
   function revealSolution() {
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
+  }
+
+  function revealWordHint(key) {
+    var el = document.getElementById('wh-' + key);
+    if (el) el.classList.add('visible');
+    var btn = document.getElementById('wh-' + key + '-btn');
+    if (btn) btn.style.display = 'none';
   }
 </script>
 

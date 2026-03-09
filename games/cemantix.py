@@ -10,7 +10,9 @@ Génère :
 """
 
 import json
+import re
 from datetime import date, datetime, timezone
+from html import escape as _html_escape
 from pathlib import Path
 
 from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
@@ -85,6 +87,23 @@ def get_nearby(word: str, puzzle_num: int) -> list[dict]:
     return []
 
 
+def fetch_definition(word: str) -> str:
+    """Récupère la première phrase de définition via l'API REST de Wikipédia (fr)."""
+    try:
+        resp = _session.get(
+            f"https://fr.wikipedia.org/api/rest_v1/page/summary/{word}",
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            extract = resp.json().get("extract", "").strip()
+            if extract:
+                idx = extract.find(". ")
+                return extract[:idx + 1] if idx != -1 else extract[:300]
+    except Exception as e:
+        print(f"   ⚠ Définition Wikipedia : {e}")
+    return ""
+
+
 # ── Sélection des indices ─────────────────────────────────────────────────────
 
 def select_hints(nearby: list[dict]) -> dict:
@@ -126,11 +145,15 @@ def generate_solution_json(
     word: str,
     hints: dict,
     tried_count: int,
+    definition: str = "",
 ) -> dict:
     data = {
         "date": today.isoformat(),
         "puzzle_num": puzzle_num,
         "word": word,
+        "first_letter": word[0].upper() if word else "",
+        "word_length": len(word),
+        "definition": definition,
         "hints": hints,
         "tried_count": tried_count,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -144,6 +167,52 @@ def generate_archive_json(today: date, data: dict) -> None:
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     atomic_write(CEMANTIX_ARCHIVE / f"{today.isoformat()}.json",
                  json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def _mask_word(word: str, text: str) -> str:
+    """Remplace le mot (insensible à la casse) par ___ dans le texte."""
+    return re.sub(re.escape(word), "___", text, flags=re.IGNORECASE)
+
+
+def _word_hints_card_html(word: str, definition: str) -> str:
+    """Card 'Indices du mot' : nb lettres → première lettre → définition (escalade de spoiler)."""
+    first_letter = word[0].upper() if word else "?"
+    n = len(word)
+    letters_label = f"{n} lettre{'s' if n > 1 else ''}"
+    def_row = ""
+    if definition:
+        masked = _html_escape(_mask_word(word, definition))
+        def_row = (
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128218;</span>'
+            '\n          <span class="word-hint-label">D&#233;finition</span>'
+            f'\n          <span class="word-hint-value definition" id="wh-def">{masked}</span>'
+            "\n          <button class=\"word-hint-btn\" id=\"wh-def-btn\" onclick=\"revealWordHint('def')\">R&#233;v&#233;ler</button>"
+            '\n        </div>'
+        )
+    return (
+        '\n    <div class="card">'
+        '\n      <h2>Indices du mot</h2>'
+        '\n      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">'
+        '\n        R&#233;v&#233;lez chaque indice s&#233;par&#233;ment — du moins au plus spoiler.'
+        '\n      </p>'
+        '\n      <div class="word-hints">'
+        '\n        <div class="word-hint-item">'
+        '\n          <span class="word-hint-icon">&#128207;</span>'
+        '\n          <span class="word-hint-label">Nombre de lettres</span>'
+        f'\n          <span class="word-hint-value" id="wh-length">{letters_label}</span>'
+        "\n          <button class=\"word-hint-btn\" id=\"wh-length-btn\" onclick=\"revealWordHint('length')\">R&#233;v&#233;ler</button>"
+        '\n        </div>'
+        '\n        <div class="word-hint-item">'
+        '\n          <span class="word-hint-icon">&#128288;</span>'
+        '\n          <span class="word-hint-label">Premi&#232;re lettre</span>'
+        f'\n          <span class="word-hint-value" id="wh-letter">{first_letter}</span>'
+        "\n          <button class=\"word-hint-btn\" id=\"wh-letter-btn\" onclick=\"revealWordHint('letter')\">R&#233;v&#233;ler</button>"
+        '\n        </div>'
+        f'{def_row}'
+        '\n      </div>'
+        '\n    </div>'
+    )
 
 
 def _hints_html(hints: dict) -> tuple:
@@ -164,12 +233,14 @@ def generate_archive_html(
     hints: dict,
     prev_date,  # date | None — plus ancienne
     next_date,  # date | None — plus récente (None → lien vers index.html)
+    definition: str = "",
 ) -> None:
     """Génère docs/cemantix/archive/YYYY-MM-DD.html."""
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
+    word_hints_card = _word_hints_card_html(word, definition)
 
     if prev_date is not None:
         nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}.html">&#8592; {date_fr(prev_date)}</a>'
@@ -180,6 +251,38 @@ def generate_archive_html(
         nav_next = f'<a class="nav-link" href="{next_date.isoformat()}.html">{date_fr(next_date)} &#8594;</a>'
     else:
         nav_next = '<a class="nav-link" href="../index.html">Solution du jour &#8594;</a>'
+
+    first_letter = word[0].upper() if word else "?"
+    word_length = len(word)
+    letters_plural = "s" if word_length > 1 else ""
+    faq_extra = f""",
+      {{
+        "@type": "Question",
+        "name": "Quelle est la premi\u00e8re lettre du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "La premi\u00e8re lettre du C\u00e9mantix #{puzzle_num} du {date_display} est : {first_letter}."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de lettres contient le mot du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le mot du C\u00e9mantix #{puzzle_num} du {date_display} contient {word_length} lettre{letters_plural}."
+        }}
+      }}"""
+    if definition:
+        safe_def = definition.replace('"', "'")
+        faq_extra += f""",
+      {{
+        "@type": "Question",
+        "name": "Quelle est la d\u00e9finition du mot du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "{safe_def}"
+        }}
+      }}"""
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -229,7 +332,7 @@ def generate_archive_html(
           "@type": "Answer",
           "text": "La réponse du Cémantix #{puzzle_num} du {date_display} est : {word}."
         }}
-      }}
+      }}{faq_extra}
     ]
   }}
   </script>
@@ -282,7 +385,7 @@ def generate_archive_html(
         et les <strong>indices progressifs</strong> pour ce puzzle.
       </p>
     </div>
-
+{word_hints_card}
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
@@ -371,6 +474,13 @@ def generate_archive_html(
   function revealSolution() {{
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
+  }}
+
+  function revealWordHint(key) {{
+    var el = document.getElementById('wh-' + key);
+    if (el) el.classList.add('visible');
+    var btn = document.getElementById('wh-' + key + '-btn');
+    if (btn) btn.style.display = 'none';
   }}
 </script>
 
@@ -479,12 +589,45 @@ def generate_index_html(
     puzzle_num: int,
     word: str,
     hints: dict,
+    definition: str = "",
     recent_archives: list | None = None,
 ) -> None:
     """Génère docs/cemantix/index.html."""
     date_str = today.isoformat()
     date_display = date_fr(today)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
+    word_hints_card = _word_hints_card_html(word, definition)
+    first_letter = word[0].upper() if word else "?"
+    word_length = len(word)
+    letters_plural = "s" if word_length > 1 else ""
+    faq_extra = f""",
+      {{
+        "@type": "Question",
+        "name": "Quelle est la premi\u00e8re lettre du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "La premi\u00e8re lettre du C\u00e9mantix #{puzzle_num} du {date_display} est : {first_letter}."
+        }}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Combien de lettres contient le mot du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "Le mot du C\u00e9mantix #{puzzle_num} du {date_display} contient {word_length} lettre{letters_plural}."
+        }}
+      }}"""
+    if definition:
+        safe_def = definition.replace('"', "'")
+        faq_extra += f""",
+      {{
+        "@type": "Question",
+        "name": "Quelle est la d\u00e9finition du mot du C\u00e9mantix du {date_display} ?",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "{safe_def}"
+        }}
+      }}"""
 
     recent_archives_card = ""
     if recent_archives:
@@ -515,8 +658,8 @@ def generate_index_html(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cémantix {date_display} — Solution #{puzzle_num} · Réponse du Jour</title>
-  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Indices progressifs en 3 niveaux pour trouver la réponse au mot secret du jour sans spoiler immédiat.">
+  <title>Cémantix {date_display} — Solution #{puzzle_num} · Indice &amp; Définition</title>
+  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot secret.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -573,7 +716,7 @@ def generate_index_html(
           "@type": "Answer",
           "text": "Cette page propose 3 niveaux d'indices progressifs : des mots sémantiquement tièdes, chauds, puis brûlants. Déverrouillez chaque niveau selon votre besoin pour le Cémantix du {date_display}."
         }}
-      }}
+      }}{faq_extra}
     ]
   }}
   </script>
@@ -616,7 +759,7 @@ def generate_index_html(
         La réponse au <em>mot du jour</em> et à la <em>réponse sémantix</em> est disponible ci-dessous.
       </p>
     </div>
-
+{word_hints_card}
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
@@ -714,6 +857,13 @@ def generate_index_html(
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
   }}
+
+  function revealWordHint(key) {{
+    var el = document.getElementById('wh-' + key);
+    if (el) el.classList.add('visible');
+    var btn = document.getElementById('wh-' + key + '-btn');
+    if (btn) btn.style.display = 'none';
+  }}
 </script>
 
 </body>
@@ -724,7 +874,7 @@ def generate_index_html(
 
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
-def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict) -> None:
+def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, definition: str = "") -> None:
     """
     Génère tous les fichiers HTML Cémantix à partir des JSON déjà en place.
     """
@@ -738,14 +888,15 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict) -> 
         prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
         next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
         entry_hints = entry.get("hints", {"level1": [], "level2": [], "level3": []})
-        generate_archive_html(d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date)
+        entry_definition = entry.get("definition", "")
+        generate_archive_html(d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date, entry_definition)
 
     print("[Cémantix] Génération de docs/cemantix/archive/index.html…")
     generate_archive_index(past_archives)
 
     recent_archives = [e for e in past_archives[:7] if (CEMANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Cémantix] Génération de docs/cemantix/index.html…")
-    generate_index_html(today, puzzle_num, word, hints, recent_archives)
+    generate_index_html(today, puzzle_num, word, hints, definition, recent_archives)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -766,9 +917,10 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
             word = existing["word"]
             puzzle_num = existing.get("puzzle_num", forced_puzzle or get_puzzle_number())
             hints = existing.get("hints", {"level1": [], "level2": [], "level3": []})
+            definition = existing.get("definition", "")
             print(f"[Cémantix] ℹ Solution déjà présente : {word!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, word, hints)
+            _generate_all_html(today, puzzle_num, word, hints, definition)
             return existing
 
     # Numéro du puzzle
@@ -801,12 +953,20 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
     print(f"[Cémantix]    Indices niveau 2 : {hints['level2']}")
     print(f"[Cémantix]    Indices niveau 3 : {hints['level3']}")
 
+    # Définition via Wiktionnaire
+    print("[Cémantix] Récupération de la définition…")
+    definition = fetch_definition(word)
+    if definition:
+        print(f"[Cémantix]    Définition : {definition[:80]}…")
+    else:
+        print("[Cémantix]    Aucune définition trouvée.")
+
     # Fichiers JSON
-    data = generate_solution_json(today, puzzle_num, word, hints, len(tried))
+    data = generate_solution_json(today, puzzle_num, word, hints, len(tried), definition)
     generate_archive_json(today, data)
 
     # HTML
-    _generate_all_html(today, puzzle_num, word, hints)
+    _generate_all_html(today, puzzle_num, word, hints, definition)
 
     print(f"[Cémantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {word!r})")
     return data

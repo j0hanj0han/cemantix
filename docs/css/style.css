@@ -661,3 +661,43 @@ footer a { color: var(--color-primary); }
   font-size:.78rem; color:var(--color-muted); text-transform:uppercase; }
 .sim-rank-table td { padding:.4rem .5rem; border-bottom:1px solid var(--color-border); }
 .sim-rank-table tr:last-child td { border-bottom:none; }
+
+/* ── Indices du mot (Cémantix) ─────────────────────────── */
+.word-hints { display:flex; flex-direction:column; gap:.5rem; }
+
+.word-hint-item {
+  display:flex; align-items:center; gap:.6rem;
+  padding:.55rem .75rem;
+  border-radius:calc(var(--radius) - .125rem);
+  background:var(--color-bg); border:1px solid var(--color-border);
+}
+
+.word-hint-icon { font-size:1rem; flex-shrink:0; width:1.4rem; text-align:center; }
+
+.word-hint-label {
+  font-size:.8rem; font-weight:600; color:var(--color-muted);
+  min-width:8.5rem; flex-shrink:0;
+}
+
+.word-hint-value {
+  font-weight:700; color:var(--color-text); flex:1;
+  filter:blur(5px); transition:filter .35s cubic-bezier(.4,0,.2,1);
+  cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
+}
+
+.word-hint-value.visible { filter:blur(0); cursor:default; user-select:auto; }
+.word-hint-value.definition { font-weight:400; font-size:.88rem; font-style:italic; }
+
+.word-hint-btn {
+  margin-left:auto; flex-shrink:0;
+  font-size:.73rem; color:var(--color-primary);
+  background:transparent; border:1px solid var(--color-primary);
+  border-radius:999px; padding:.15rem .55rem;
+  cursor:pointer; white-space:nowrap;
+  transition:background .15s, color .15s;
+}
+.word-hint-btn:hover { background:var(--color-primary); color:#fff; }
+
+@media (max-width:400px) {
+  .word-hint-label { min-width:6rem; font-size:.75rem; }
+}

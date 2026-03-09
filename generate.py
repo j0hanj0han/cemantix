@@ -309,6 +309,8 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
         for d in cemantix_dates:
             d_str = d.isoformat()
+            if not (CEMANTIX_ARCHIVE / f"{d_str}.html").exists():
+                continue
             urls.append(f"""  <url>
     <loc>{SITE_URL}/cemantix/archive/{d_str}.html</loc>
     <lastmod>{d_str}</lastmod>
@@ -338,6 +340,8 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
         for d in sutom_dates:
             d_str = d.isoformat()
+            if not (SUTOM_ARCHIVE / f"{d_str}.html").exists():
+                continue
             urls.append(f"""  <url>
     <loc>{SITE_URL}/sutom/archive/{d_str}.html</loc>
     <lastmod>{d_str}</lastmod>
@@ -380,6 +384,8 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
         for d in loto_dates:
             d_str = d.isoformat()
+            if not (LOTO_ARCHIVE / f"{d_str}.html").exists():
+                continue
             urls.append(f"""  <url>
     <loc>{SITE_URL}/loto/archive/{d_str}.html</loc>
     <lastmod>{d_str}</lastmod>
@@ -422,6 +428,8 @@ def generate_global_sitemap(today: date) -> None:
   </url>""")
         for d in em_dates:
             d_str = d.isoformat()
+            if not (EM_ARCHIVE / f"{d_str}.html").exists():
+                continue
             urls.append(f"""  <url>
     <loc>{SITE_URL}/euromillions/archive/{d_str}.html</loc>
     <lastmod>{d_str}</lastmod>

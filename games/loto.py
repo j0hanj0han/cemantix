@@ -1312,7 +1312,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     print("[Loto] Génération de docs/loto/archive/index.html…")
     generate_archive_index(past_archives)
 
-    recent_archives = past_archives[:7]
+    recent_archives = [e for e in past_archives[:7] if (LOTO_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Loto] Génération de docs/loto/index.html…")
     generate_index_html(
         draw_date, data["draw_num"], data["balls"], data["lucky_ball"],

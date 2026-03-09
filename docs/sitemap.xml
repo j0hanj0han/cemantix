@@ -14,21 +14,9 @@
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-03-09.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-03-08.html</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-03-07.html</loc>
@@ -86,21 +74,9 @@
   </url>
   <url>
     <loc>https://solution-du-jour.fr/sutom/archive/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-03-09.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-03-08.html</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/sutom/archive/2026-03-07.html</loc>
@@ -167,12 +143,6 @@
     <lastmod>2026-03-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/loto/archive/2026-03-07.html</loc>
-    <lastmod>2026-03-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/2026-03-04.html</loc>
@@ -15959,12 +15929,6 @@
     <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/archive/2026-03-06.html</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2026-03-03.html</loc>

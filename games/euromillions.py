@@ -1430,7 +1430,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     em_stats = compute_em_stats(all_archives)
     generate_em_stats_html(em_stats)
 
-    recent_archives = past_archives[:7]
+    recent_archives = [e for e in past_archives[:7] if (EM_ARCHIVE / f"{e['date']}.html").exists()]
     print("[EuroMillions] Génération de docs/euromillions/index.html…")
     generate_index_html(
         draw_date, data["balls"], data["stars"], recent_archives,

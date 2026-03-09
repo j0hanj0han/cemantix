@@ -623,7 +623,7 @@ def _generate_all_html(today: date, puzzle_num: int, word: str) -> None:
     print("[Sutom] Génération de docs/sutom/archive/index.html…")
     generate_archive_index(past_archives)
 
-    recent_archives = past_archives[:7]
+    recent_archives = [e for e in past_archives[:7] if (SUTOM_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Sutom] Génération de docs/sutom/index.html…")
     generate_index_html(today, puzzle_num, word, recent_archives)
 

@@ -6,43 +6,52 @@
     "level1": [
       {
         "word": "jupitérien",
-        "percentile": 200
+        "percentile": 200,
+        "definition": ""
       },
       {
         "word": "pilotis",
-        "percentile": 267
+        "percentile": 267,
+        "definition": "Les pilotis désignent l'ensemble de pieux traditionnellement en bois enfoncés dans le sol et destinés à soutenir une construction hors de l'eau ou au-dessus du sol."
       },
       {
         "word": "sesterce",
-        "percentile": 334
+        "percentile": 334,
+        "definition": "Le sesterce était une monnaie romaine en usage pendant les deux derniers siècles de la république romaine sous la forme d'une monnaie d'argent sous-multiple du denier."
       }
     ],
     "level2": [
       {
         "word": "dragon",
-        "percentile": 500
+        "percentile": 500,
+        "definition": "Le dragon est une créature légendaire représentée comme une sorte de gigantesque reptile, ailes déployées et pattes armées de griffes."
       },
       {
         "word": "helléniser",
-        "percentile": 567
+        "percentile": 567,
+        "definition": ""
       },
       {
         "word": "enfeu",
-        "percentile": 634
+        "percentile": 634,
+        "definition": "Un enfeu, désigne une niche funéraire pratiquée dans les murs pour abriter un tombeau."
       }
     ],
     "level3": [
       {
         "word": "palatial",
-        "percentile": 800
+        "percentile": 800,
+        "definition": "Un palais peut être :le lieu de résidence urbaine d'un personnage important, vivant un train de vie princier ou fastueux ;\nle siège d'une institution publique, dans lequel se déroule l’exercice du pouvoir ;"
       },
       {
         "word": "krak",
-        "percentile": 850
+        "percentile": 850,
+        "definition": "Le krak est une construction fortifiée édifiée par les croisés en Palestine et en Syrie."
       },
       {
         "word": "capitolin",
-        "percentile": 900
+        "percentile": 900,
+        "definition": ""
       }
     ]
   },

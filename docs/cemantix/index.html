@@ -168,7 +168,7 @@
         </button>
         <div class="hint-content" id="content-l1">
           <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
-          <div class="hint-words"><span class="hint-tag" data-p="200" onclick="toggleRank(this)">jupitérien</span><span class="hint-tag" data-p="267" onclick="toggleRank(this)">pilotis</span><span class="hint-tag" data-p="334" onclick="toggleRank(this)">sesterce</span></div>
+          <div class="hint-words"><span class="hint-tag">jupitérien</span><span class="hint-tag" data-def="Les pilotis désignent l&#x27;ensemble de pieux traditionnellement en bois enfoncés dans le sol et destinés à soutenir une construction hors de l&#x27;eau ou au-dessus du sol." onclick="toggleDef(this)">pilotis</span><span class="hint-tag" data-def="Le sesterce était une monnaie romaine en usage pendant les deux derniers siècles de la république romaine sous la forme d&#x27;une monnaie d&#x27;argent sous-multiple du denier." onclick="toggleDef(this)">sesterce</span></div>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
         </button>
         <div class="hint-content" id="content-l2">
           <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
-          <div class="hint-words"><span class="hint-tag" data-p="500" onclick="toggleRank(this)">dragon</span><span class="hint-tag" data-p="567" onclick="toggleRank(this)">helléniser</span><span class="hint-tag" data-p="634" onclick="toggleRank(this)">enfeu</span></div>
+          <div class="hint-words"><span class="hint-tag" data-def="Le dragon est une créature légendaire représentée comme une sorte de gigantesque reptile, ailes déployées et pattes armées de griffes." onclick="toggleDef(this)">dragon</span><span class="hint-tag">helléniser</span><span class="hint-tag" data-def="Un enfeu, désigne une niche funéraire pratiquée dans les murs pour abriter un tombeau." onclick="toggleDef(this)">enfeu</span></div>
         </div>
       </div>
 
@@ -188,7 +188,8 @@
         </button>
         <div class="hint-content" id="content-l3">
           <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
-          <div class="hint-words"><span class="hint-tag" data-p="800" onclick="toggleRank(this)">palatial</span><span class="hint-tag" data-p="850" onclick="toggleRank(this)">krak</span><span class="hint-tag" data-p="900" onclick="toggleRank(this)">capitolin</span></div>
+          <div class="hint-words"><span class="hint-tag" data-def="Un palais peut être :le lieu de résidence urbaine d&#x27;un personnage important, vivant un train de vie princier ou fastueux ;
+le siège d&#x27;une institution publique, dans lequel se déroule l’exercice du pouvoir ;" onclick="toggleDef(this)">palatial</span><span class="hint-tag" data-def="Le krak est une construction fortifiée édifiée par les croisés en Palestine et en Syrie." onclick="toggleDef(this)">krak</span><span class="hint-tag">capitolin</span></div>
         </div>
       </div>
     </div>
@@ -276,11 +277,33 @@
     if (btn) btn.style.display = 'none';
   }
 
-  function toggleRank(el) {
+  function toggleDef(el) {
     var wasActive = el.classList.contains('active');
     document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
-    if (!wasActive) el.classList.add('active');
+    var popup = document.getElementById('hd-popup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'hd-popup';
+      popup.className = 'hint-def-popup';
+      document.body.appendChild(popup);
+    }
+    if (wasActive) { popup.style.display = 'none'; return; }
+    var def = el.getAttribute('data-def');
+    if (!def) return;
+    el.classList.add('active');
+    popup.textContent = def;
+    popup.style.display = 'block';
+    var rect = el.getBoundingClientRect();
+    popup.style.left = Math.max(8, Math.min(rect.left + window.scrollX, window.innerWidth - 275)) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
   }
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('hint-tag')) {
+      var p = document.getElementById('hd-popup');
+      if (p) p.style.display = 'none';
+      document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
+    }
+  });
 </script>
 
 </body>

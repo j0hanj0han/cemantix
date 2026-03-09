@@ -180,30 +180,25 @@ main {
   position: relative;
 }
 
-/* Tooltip rang (percentile) au hover / click */
-.hint-tag[data-p] { cursor: pointer; }
+/* Définition des mots-indices au clic */
+.hint-tag[data-def] { cursor: pointer; }
+.hint-tag[data-def].active { background: var(--color-primary-dark); outline: 2px solid var(--color-primary); }
 
-.hint-tag[data-p]::before {
-  content: '#' attr(data-p) ' / 1000';
+.hint-def-popup {
   position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
+  max-width: 260px;
   background: #1f2937;
   color: #fff;
-  font-size: .68rem;
-  font-weight: 700;
-  padding: .2rem .45rem;
-  border-radius: 4px;
-  white-space: nowrap;
+  font-size: .82rem;
+  font-style: italic;
+  line-height: 1.45;
+  padding: .5rem .7rem;
+  border-radius: 6px;
+  z-index: 200;
+  box-shadow: 0 4px 16px rgba(0,0,0,.28);
+  display: none;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity .15s;
-  z-index: 10;
 }
-
-.hint-tag[data-p]:hover::before,
-.hint-tag[data-p].active::before { opacity: 1; }
 
 /* ── Archive navigation (prev/next) ── */
 

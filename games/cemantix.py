@@ -132,6 +132,15 @@ def select_hints(nearby: list[dict]) -> dict:
     }
 
 
+def enrich_hints_with_definitions(hints: dict) -> dict:
+    """Ajoute la définition Wikipedia à chaque mot-indice (si non déjà présente)."""
+    for level in ("level1", "level2", "level3"):
+        for item in hints.get(level, []):
+            if isinstance(item, dict) and "definition" not in item:
+                item["definition"] = fetch_definition(item["word"])
+    return hints
+
+
 # ── Chargement des archives ───────────────────────────────────────────────────
 
 def load_all_archives() -> list[dict]:
@@ -225,14 +234,15 @@ def _hints_html(hints: dict) -> tuple:
         for item in words:
             if isinstance(item, dict):
                 w = item["word"]
-                p = item.get("percentile")
-                if p is not None:
-                    tags.append(
-                        f'<span class="hint-tag" data-p="{p}"'
-                        f" onclick=\"toggleRank(this)\">{w}</span>"
+                defn = item.get("definition", "")
+                if defn:
+                    attr = (
+                        f' data-def="{_html_escape(defn)}"'
+                        f' onclick="toggleDef(this)"'
                     )
                 else:
-                    tags.append(f'<span class="hint-tag">{w}</span>')
+                    attr = ""
+                tags.append(f'<span class="hint-tag"{attr}>{w}</span>')
             else:
                 tags.append(f'<span class="hint-tag">{item}</span>')
         return "".join(tags)
@@ -500,11 +510,33 @@ def generate_archive_html(
     if (btn) btn.style.display = 'none';
   }}
 
-  function toggleRank(el) {{
+  function toggleDef(el) {{
     var wasActive = el.classList.contains('active');
     document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
-    if (!wasActive) el.classList.add('active');
+    var popup = document.getElementById('hd-popup');
+    if (!popup) {{
+      popup = document.createElement('div');
+      popup.id = 'hd-popup';
+      popup.className = 'hint-def-popup';
+      document.body.appendChild(popup);
+    }}
+    if (wasActive) {{ popup.style.display = 'none'; return; }}
+    var def = el.getAttribute('data-def');
+    if (!def) return;
+    el.classList.add('active');
+    popup.textContent = def;
+    popup.style.display = 'block';
+    var rect = el.getBoundingClientRect();
+    popup.style.left = Math.max(8, Math.min(rect.left + window.scrollX, window.innerWidth - 275)) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
   }}
+  document.addEventListener('click', function(e) {{
+    if (!e.target.classList.contains('hint-tag')) {{
+      var p = document.getElementById('hd-popup');
+      if (p) p.style.display = 'none';
+      document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
+    }}
+  }});
 </script>
 
 </body>
@@ -888,11 +920,33 @@ def generate_index_html(
     if (btn) btn.style.display = 'none';
   }}
 
-  function toggleRank(el) {{
+  function toggleDef(el) {{
     var wasActive = el.classList.contains('active');
     document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
-    if (!wasActive) el.classList.add('active');
+    var popup = document.getElementById('hd-popup');
+    if (!popup) {{
+      popup = document.createElement('div');
+      popup.id = 'hd-popup';
+      popup.className = 'hint-def-popup';
+      document.body.appendChild(popup);
+    }}
+    if (wasActive) {{ popup.style.display = 'none'; return; }}
+    var def = el.getAttribute('data-def');
+    if (!def) return;
+    el.classList.add('active');
+    popup.textContent = def;
+    popup.style.display = 'block';
+    var rect = el.getBoundingClientRect();
+    popup.style.left = Math.max(8, Math.min(rect.left + window.scrollX, window.innerWidth - 275)) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
   }}
+  document.addEventListener('click', function(e) {{
+    if (!e.target.classList.contains('hint-tag')) {{
+      var p = document.getElementById('hd-popup');
+      if (p) p.style.display = 'none';
+      document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
+    }}
+  }});
 </script>
 
 </body>
@@ -947,9 +1001,17 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
             puzzle_num = existing.get("puzzle_num", forced_puzzle or get_puzzle_number())
             hints = existing.get("hints", {"level1": [], "level2": [], "level3": []})
             definition = existing.get("definition", "")
+            # Enrichir les définitions des mots-indices si absentes
+            updated = enrich_hints_with_definitions(hints)
+            if updated is not hints or any(
+                isinstance(i, dict) and "definition" in i
+                for lvl in updated.values() for i in lvl
+            ):
+                existing["hints"] = updated
+                atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[Cémantix] ℹ Solution déjà présente : {word!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, word, hints, definition)
+            _generate_all_html(today, puzzle_num, word, updated, definition)
             return existing
 
     # Numéro du puzzle
@@ -978,9 +1040,13 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
     print(f"[Cémantix]    {len(nearby)} voisins récupérés")
 
     hints = select_hints(nearby)
-    print(f"[Cémantix]    Indices niveau 1 : {hints['level1']}")
-    print(f"[Cémantix]    Indices niveau 2 : {hints['level2']}")
-    print(f"[Cémantix]    Indices niveau 3 : {hints['level3']}")
+    print(f"[Cémantix]    Indices niveau 1 : {[i['word'] for i in hints['level1']]}")
+    print(f"[Cémantix]    Indices niveau 2 : {[i['word'] for i in hints['level2']]}")
+    print(f"[Cémantix]    Indices niveau 3 : {[i['word'] for i in hints['level3']]}")
+
+    # Définitions des mots-indices
+    print("[Cémantix] Récupération des définitions des mots-indices…")
+    hints = enrich_hints_with_definitions(hints)
 
     # Définition via Wiktionnaire
     print("[Cémantix] Récupération de la définition…")

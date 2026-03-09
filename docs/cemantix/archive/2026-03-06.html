@@ -233,11 +233,33 @@
     if (btn) btn.style.display = 'none';
   }
 
-  function toggleRank(el) {
+  function toggleDef(el) {
     var wasActive = el.classList.contains('active');
     document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
-    if (!wasActive) el.classList.add('active');
+    var popup = document.getElementById('hd-popup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'hd-popup';
+      popup.className = 'hint-def-popup';
+      document.body.appendChild(popup);
+    }
+    if (wasActive) { popup.style.display = 'none'; return; }
+    var def = el.getAttribute('data-def');
+    if (!def) return;
+    el.classList.add('active');
+    popup.textContent = def;
+    popup.style.display = 'block';
+    var rect = el.getBoundingClientRect();
+    popup.style.left = Math.max(8, Math.min(rect.left + window.scrollX, window.innerWidth - 275)) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
   }
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('hint-tag')) {
+      var p = document.getElementById('hd-popup');
+      if (p) p.style.display = 'none';
+      document.querySelectorAll('.hint-tag.active').forEach(function(t) { t.classList.remove('active'); });
+    }
+  });
 </script>
 
 </body>

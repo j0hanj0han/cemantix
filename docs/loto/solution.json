@@ -1,17 +1,13 @@
 {
-  "date": "2026-03-09",
-  "draw_num": "26029",
+  "date": "2008-10-06",
+  "draw_num": "2008081",
   "balls": [
-    5,
-    12,
-    16,
+    19,
     24,
-    35
+    27,
+    33,
+    41
   ],
-  "lucky_ball": 4,
-  "jackpot_amount": 2000000.0,
-  "jackpot_won": false,
-  "jackpot_winners": 0,
-  "next_jackpot": 3000000.0,
-  "generated_at": "2026-03-10T07:22:34.434603+00:00"
+  "lucky_ball": 9,
+  "generated_at": "2026-03-10T07:29:08.879020+00:00"
 }

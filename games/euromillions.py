@@ -460,6 +460,18 @@ def generate_index_html(
       </p>
     </div>"""
 
+    if next_jackpot:
+        nj_str = f"{next_jackpot:,.0f}".replace(",", "\u202f")
+        next_jackpot_card = f"""    <div class="card" style="text-align:center;">
+      <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot EuroMillions</h2>
+      <p style="font-size:1.4rem;font-weight:700;color:#7c3aed;margin:.4rem 0;">
+        {nj_str} \u20ac
+      </p>
+      <p style="font-size:.85rem;color:#6b7280;">Prochain tirage : mardi ou vendredi à 21h05</p>
+    </div>"""
+    else:
+        next_jackpot_card = ""
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -683,13 +695,7 @@ def generate_index_html(
       </p>
     </div>
 
-{(f"""    <div class="card" style="text-align:center;">
-      <h2 style="font-size:1rem;margin-bottom:.4rem;">Prochain jackpot EuroMillions</h2>
-      <p style="font-size:1.4rem;font-weight:700;color:#7c3aed;margin:.4rem 0;">
-        {f"{next_jackpot:,.0f}".replace(",", "\u202f")} \u20ac
-      </p>
-      <p style="font-size:.85rem;color:#6b7280;">Prochain tirage : mardi ou vendredi à 21h05</p>
-    </div>""") if next_jackpot else ""}
+{next_jackpot_card}
 {recent_archives_card}
     <div class="card" style="text-align:center;">
       <h2 style="font-size:1rem;margin-bottom:.4rem;">Statistiques EuroMillions depuis 2004</h2>

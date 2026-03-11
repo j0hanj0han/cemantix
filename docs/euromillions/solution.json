@@ -12,5 +12,8 @@
     12
   ],
   "next_jackpot": 17000000.0,
-  "generated_at": "2026-03-10T23:15:33.304544+00:00"
+  "generated_at": "2026-03-10T23:15:33.304544+00:00",
+  "jackpot_amount": 209527211,
+  "jackpot_winners": 1,
+  "jackpot_won": true
 }

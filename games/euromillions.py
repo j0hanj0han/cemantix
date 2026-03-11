@@ -1477,7 +1477,14 @@ def run(today: date) -> dict | None:
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
         if existing.get("date") == draw_date_str:
             updated = False
-            if "jackpot_amount" not in existing:
+            # Re-fetch si jackpot absent OU si non remporté et tirage récent (API lag la nuit du tirage)
+            from datetime import date as _date
+            draw_age_days = (_date.today() - _date.fromisoformat(draw_date_str)).days
+            need_jackpot_refresh = (
+                "jackpot_amount" not in existing
+                or (not existing.get("jackpot_won") and draw_age_days <= 3)
+            )
+            if need_jackpot_refresh:
                 print("[EuroMillions] Récupération données jackpot…")
                 jackpot_map = fetch_jackpot_data()
                 if draw_date_str in jackpot_map:

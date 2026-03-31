@@ -320,7 +320,7 @@ def generate_archive_html(
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
     "datePublished": "{date_str}T22:00:00+01:00",
     "dateModified": "{date_str}T22:00:00+01:00",
@@ -623,7 +623,7 @@ def generate_index_html(
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
     "datePublished": "{date_str}T22:00:00+01:00",
     "dateModified": "{date_str}T22:00:00+01:00",

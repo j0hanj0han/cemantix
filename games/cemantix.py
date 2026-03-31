@@ -340,7 +340,7 @@ def generate_archive_html(
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
     "datePublished": "{date_str}T08:00:00+01:00",
     "dateModified": "{date_str}T08:00:00+01:00",
@@ -742,7 +742,7 @@ def generate_index_html(
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
     "datePublished": "{date_str}T08:00:00+01:00",
     "dateModified": "{date_str}T08:00:00+01:00",

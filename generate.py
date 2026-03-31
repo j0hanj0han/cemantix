@@ -14,7 +14,7 @@ Produit :
 
 import argparse
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from core import SITE_URL, DOCS_DIR, date_fr, atomic_write
@@ -267,6 +267,81 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     atomic_write(DOCS_DIR / "index.html", html)
 
 
+# ── Google News Sitemap ───────────────────────────────────────────────────────
+
+def generate_news_sitemap(today: date, game_data: dict) -> None:
+    """Génère docs/news-sitemap.xml — Google News sitemap (fenêtre 48h).
+
+    Inclut les pages du jour (et d'hier si disponible) pour chaque jeu.
+    À soumettre dans GSC → Sitemaps pour accélérer l'indexation des pages fraîches.
+    """
+    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
+    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
+    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+
+    yesterday = today - timedelta(days=1)
+
+    games_cfg = [
+        ("cemantix",     CEMANTIX_SITE_URL,  CEMANTIX_ARCHIVE,  "Solution Cémantix du",      "T08:05:00+02:00"),
+        ("sutom",        SUTOM_SITE_URL,     SUTOM_ARCHIVE,     "Solution Sutom du",          "T08:05:00+02:00"),
+        ("loto",         LOTO_SITE_URL,      LOTO_ARCHIVE,      "Résultats Loto du",          "T22:00:00+02:00"),
+        ("euromillions", EM_SITE_URL,        EM_ARCHIVE,        "Résultats EuroMillions du",  "T21:30:00+02:00"),
+    ]
+
+    entries = []
+    for key, base_url, archive_dir, title_prefix, pub_time in games_cfg:
+        # Jour courant : depuis game_data (déjà résolu)
+        data = game_data.get(key)
+        if data:
+            try:
+                data_date = date.fromisoformat(data["date"])
+            except (KeyError, ValueError):
+                data_date = None
+            if data_date == today:
+                d_str = today.isoformat()
+                pub_dt = d_str + pub_time
+                label = date_fr(today)
+                entries.append((f"{base_url}/", pub_dt, f"{title_prefix} {label}"))
+                archive_html = archive_dir / f"{d_str}.html"
+                if archive_html.exists():
+                    entries.append((f"{base_url}/archive/{d_str}.html", pub_dt, f"{title_prefix} {label}"))
+
+        # Hier : depuis les fichiers JSON d'archive
+        y_str = yesterday.isoformat()
+        y_json = archive_dir / f"{y_str}.json"
+        y_html = archive_dir / f"{y_str}.html"
+        if y_json.exists() and y_html.exists():
+            pub_dt = y_str + pub_time
+            label = date_fr(yesterday)
+            entries.append((f"{base_url}/archive/{y_str}.html", pub_dt, f"{title_prefix} {label}"))
+
+    if not entries:
+        return
+
+    news_entries = []
+    for loc, pub_dt, title in entries:
+        news_entries.append(f"""  <url>
+    <loc>{loc}</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>{pub_dt}</news:publication_date>
+      <news:title>{title}</news:title>
+    </news:news>
+  </url>""")
+
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+    sitemap += '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n'
+    sitemap += "\n".join(news_entries)
+    sitemap += "\n</urlset>\n"
+
+    atomic_write(DOCS_DIR / "news-sitemap.xml", sitemap)
+
+
 # ── Sitemap global ────────────────────────────────────────────────────────────
 
 def generate_global_sitemap(today: date) -> None:
@@ -498,6 +573,14 @@ def main():
     print("Génération de docs/sitemap.xml (global)…")
     generate_global_sitemap(today)
 
+    # 7. Google News sitemap
+    print("Génération de docs/news-sitemap.xml (Google News)…")
+    game_data_all = {
+        "cemantix": cemantix_data, "sutom": sutom_data,
+        "loto": loto_data, "euromillions": em_data,
+    }
+    generate_news_sitemap(today, game_data_all)
+
     print(f"\n🎉 Site complet généré pour le {date_fr(today)}")
     print(f"   docs/index.html                          ✓ (hub)")
     print(f"   docs/cemantix/index.html                 {'✓' if cemantix_data else '⚠ indisponible'}")
@@ -506,7 +589,8 @@ def main():
     print(f"   docs/loto/simulateur/                    ✓")
     print(f"   docs/euromillions/index.html             {'✓' if em_data else '⚠ indisponible'}")
     print(f"   docs/euromillions/simulateur/            ✓")
-    print(f"   docs/sitemap.xml                         ✓\n")
+    print(f"   docs/sitemap.xml                         ✓")
+    print(f"   docs/news-sitemap.xml                    ✓\n")
 
 
 if __name__ == "__main__":

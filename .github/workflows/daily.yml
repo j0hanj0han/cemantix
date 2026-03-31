@@ -160,14 +160,16 @@ jobs:
               em._generate_all_html(draw_date_em, data)
               print("✅ HTML EuroMillions régénéré")
 
-          # Hub + sitemap global
+          # Hub + sitemaps
           import generate as g
-          g.generate_hub_html(today, {
+          game_data_all = {
               'cemantix': cemantix_data, 'sutom': sutom_data,
               'loto': loto_data, 'euromillions': em_data,
-          })
+          }
+          g.generate_hub_html(today, game_data_all)
           g.generate_global_sitemap(today)
-          print("✅ Hub + sitemap global régénérés")
+          g.generate_news_sitemap(today, game_data_all)
+          print("✅ Hub + sitemaps régénérés")
           EOF
 
       - name: Commit and push if HTML changed

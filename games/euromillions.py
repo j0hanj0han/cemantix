@@ -1651,8 +1651,8 @@ def generate_simulator_html() -> None:
 <body>
 
 <header class="site-header">
-  <h1>Simulateur de gains EuroMillions</h1>
-  <p class="subtitle">Testez vos numéros sur tous les tirages depuis 2004</p>
+  <h1>Simulateur EuroMillions — Calculez vos gains</h1>
+  <p class="subtitle">Simulez vos résultats sur 1 900+ tirages depuis 2004</p>
 </header>
 
 <main>

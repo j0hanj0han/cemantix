@@ -1508,8 +1508,8 @@ def generate_simulator_html() -> None:
 <body>
 
 <header class="site-header">
-  <h1>Simulateur de gains Loto FDJ</h1>
-  <p class="subtitle">Testez vos numéros sur tous les tirages depuis 2019</p>
+  <h1>Simulateur Loto FDJ — Calculez vos gains</h1>
+  <p class="subtitle">Simulez vos résultats sur 2 600+ tirages depuis 2019</p>
 </header>
 
 <main>

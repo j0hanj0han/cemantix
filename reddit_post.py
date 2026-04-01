@@ -99,20 +99,20 @@ def post_cemantix(reddit=None) -> bool:
 
     title = f"Cémantix #{puzzle_num} du {date_display} — Solution + indices"
 
-    score_line = f"\n**Score du bot :** >!{tried_count} essais!<\n" if tried_count else ""
+    score_line = f"\n**Mon score :** >!{tried_count} essais!<\n" if tried_count else ""
 
     body = f"""Bloqué·e sur le Cémantix d'aujourd'hui ? Voici les indices.
 
 **Indices :**
-- {letter_count} lettres
-- Commence par **{first_letter}**
+- >!{letter_count} lettres!<
+- >!Commence par {first_letter}!<
 
 **Solution :** >!{word.upper()}!<
 {score_line}
 ---
 Indices progressifs complets (3 niveaux) disponibles sur : https://solution-du-jour.fr/cemantix/
 
-*Posté automatiquement par [solution-du-jour.fr](https://solution-du-jour.fr)*"""
+*[solution-du-jour.fr](https://solution-du-jour.fr)*"""
 
     if reddit == "dry_run":
         print(f"[DRY RUN] r/{subreddit_name}\nTITLE: {title}\n\n{body}\n")

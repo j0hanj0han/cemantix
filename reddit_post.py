@@ -101,12 +101,18 @@ def post_cemantix(reddit=None) -> bool:
 
     score_line = f"\n**Mon score :** >!{tried_count} essais!<\n" if tried_count else ""
 
+    definition = data.get("definition", "")
+    # Retirer le mot de la définition (insensible à la casse)
+    import re
+    definition_clean = re.sub(re.escape(word), "___", definition, flags=re.IGNORECASE).strip()
+    definition_line = f"- Définition : >!{definition_clean}!<\n" if definition_clean else ""
+
     body = f"""Bloqué·e sur le Cémantix d'aujourd'hui ? Voici les indices.
 
 **Indices :**
-- >!{letter_count} lettres!<
-- >!Commence par {first_letter}!<
-
+- Nombre de lettres : >!{letter_count}!<
+- Première lettre : >!{first_letter}!<
+{definition_line}
 **Solution :** >!{word.upper()}!<
 {score_line}
 ---

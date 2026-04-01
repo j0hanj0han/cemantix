@@ -28,5 +28,8 @@ cd "$SCRIPT_DIR"
     echo "Pushé vers GitHub."
   fi
 
+  # Post Reddit (Cémantix uniquement — Sutom désactivé par défaut)
+  "$PYTHON" reddit_post.py || echo "⚠️  Reddit post ignoré (voir erreur ci-dessus)"
+
   echo "=== $(date '+%Y-%m-%d %H:%M:%S') — Terminé ==="
 } >> "$LOG_FILE" 2>&1

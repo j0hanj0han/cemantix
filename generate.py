@@ -215,6 +215,49 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   }}
   </script>
 
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Jeux du jour",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Cémantix — Solution du jour", "url": "{SITE_URL}/cemantix/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Sutom — Solution du jour", "url": "{SITE_URL}/sutom/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
+      {{"@type": "ListItem", "position": 4, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
+    ]
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{
+        "@type": "Question",
+        "name": "À quelle heure est publiée la solution Cémantix ?",
+        "acceptedAnswer": {{"@type": "Answer", "text": "La solution Cémantix est publiée automatiquement chaque matin vers 8h05, dès que le nouveau puzzle est disponible."}}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quand sont tirés les numéros du Loto FDJ ?",
+        "acceptedAnswer": {{"@type": "Answer", "text": "Le Loto FDJ tire ses numéros le lundi, mercredi et samedi soir vers 20h20. Les résultats sont publiés automatiquement sur ce site après chaque tirage."}}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Quand a lieu le tirage EuroMillions ?",
+        "acceptedAnswer": {{"@type": "Answer", "text": "L'EuroMillions tire ses numéros le mardi et vendredi soir vers 21h30. Les résultats sont disponibles sur ce site après chaque tirage."}}
+      }},
+      {{
+        "@type": "Question",
+        "name": "Comment simuler ses gains au Loto FDJ ?",
+        "acceptedAnswer": {{"@type": "Answer", "text": "Notre simulateur Loto gratuit vous permet d'entrer vos 5 numéros + numéro chance et de voir combien vous auriez gagné sur plus de 2 600 tirages depuis 2019."}}
+      }}
+    ]
+  }}
+  </script>
+
   <link rel="stylesheet" href="css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
@@ -239,6 +282,42 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 {loto_card}
 {em_card}
   </div>
+
+  <section style="margin-top:2rem;padding:1.25rem;background:#f9fafb;border-radius:.5rem;">
+    <h2 style="font-size:1.05rem;margin-bottom:.75rem;">À propos de ce site</h2>
+    <p style="font-size:.92rem;color:#374151;line-height:1.6;">
+      <strong>Solutions du Jour</strong> est un site non officiel qui publie chaque jour les solutions
+      et indices des jeux <strong>Cémantix</strong> et <strong>Sutom</strong>, ainsi que les
+      <strong>résultats Loto et EuroMillions</strong>.
+      Tout est généré automatiquement — aucune intervention humaine.
+      Les solutions Cémantix et Sutom sont publiées vers <strong>8h05</strong> chaque matin.
+      Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi).
+      Les résultats EuroMillions sont mis à jour après chaque tirage (mardi, vendredi).
+    </p>
+  </section>
+
+  <section style="margin-top:1.5rem;">
+    <h2 style="font-size:1.05rem;margin-bottom:1rem;">Questions fréquentes</h2>
+    <div style="display:flex;flex-direction:column;gap:.75rem;">
+      <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
+        <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">À quelle heure est publiée la solution Cémantix ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">Chaque matin vers <strong>8h05</strong>, dès que le nouveau puzzle Cémantix est disponible.</p>
+      </details>
+      <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
+        <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">Quand sont tirés les numéros du Loto FDJ ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">Le Loto FDJ tire ses numéros le <strong>lundi, mercredi et samedi</strong> soir vers 20h20.</p>
+      </details>
+      <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
+        <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">Quand a lieu le tirage EuroMillions ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">L'EuroMillions tire ses numéros le <strong>mardi et vendredi</strong> soir vers 21h30.</p>
+      </details>
+      <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
+        <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">Comment simuler ses gains au Loto FDJ ?</summary>
+        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">Utilisez notre <a href="loto/simulateur/">simulateur Loto gratuit</a> : entrez vos 5 numéros + numéro chance et découvrez vos résultats sur 2 600+ tirages depuis 2019.</p>
+      </details>
+    </div>
+  </section>
+
 </main>
 
 <footer>

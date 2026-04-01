@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 *.pyc
 run_daily.log
+.reddit_env
+credentials.json
+gsc_token.json
+gsc_report.md

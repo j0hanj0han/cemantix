@@ -832,6 +832,16 @@ def generate_index_html(
         Cette page est mise à jour automatiquement après chaque tirage.
       </p>
     </div>
+
+    <div class="card" style="margin-top:.5rem;">
+      <h2 style="font-size:1rem;margin-bottom:.75rem;">Autres jeux du jour</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+        <a href="simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur de gains</a>
+        <a href="../cemantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🧠 Cémantix</a>
+        <a href="../sutom/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🔤 Sutom</a>
+        <a href="../euromillions/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">⭐ EuroMillions</a>
+      </div>
+    </div>
   </article>
 </main>
 

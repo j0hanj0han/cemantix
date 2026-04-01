@@ -86,6 +86,7 @@ def post_cemantix(reddit=None) -> bool:
     puzzle_num = data["puzzle_num"]
     letter_count = len(word)
     first_letter = word[0].upper()
+    tried_count = data.get("tried_count")
 
     # Importer date_fr depuis core
     import sys
@@ -98,6 +99,8 @@ def post_cemantix(reddit=None) -> bool:
 
     title = f"Cémantix #{puzzle_num} du {date_display} — Solution + indices"
 
+    score_line = f"\n**Score du bot :** >!{tried_count} essais!<\n" if tried_count else ""
+
     body = f"""Bloqué·e sur le Cémantix d'aujourd'hui ? Voici les indices.
 
 **Indices :**
@@ -105,11 +108,15 @@ def post_cemantix(reddit=None) -> bool:
 - Commence par **{first_letter}**
 
 **Solution :** >!{word.upper()}!<
-
+{score_line}
 ---
 Indices progressifs complets (3 niveaux) disponibles sur : https://solution-du-jour.fr/cemantix/
 
 *Posté automatiquement par [solution-du-jour.fr](https://solution-du-jour.fr)*"""
+
+    if reddit == "dry_run":
+        print(f"[DRY RUN] r/{subreddit_name}\nTITLE: {title}\n\n{body}\n")
+        return True
 
     if reddit is None:
         reddit = _get_reddit()
@@ -161,6 +168,10 @@ Solution complète : https://solution-du-jour.fr/sutom/
 
 *Posté automatiquement par [solution-du-jour.fr](https://solution-du-jour.fr)*"""
 
+    if reddit == "dry_run":
+        print(f"[DRY RUN] r/{subreddit_name}\nTITLE: {title}\n\n{body}\n")
+        return True
+
     if reddit is None:
         reddit = _get_reddit()
 
@@ -180,12 +191,9 @@ def main():
 
     if args.dry_run:
         print("=== DRY RUN — aucun post envoyé ===\n")
-        # Charger et afficher ce qui serait posté
-        for name, path in [("Cémantix", "docs/cemantix/solution.json"), ("Sutom", "docs/sutom/solution.json")]:
-            f = Path(path)
-            if f.exists():
-                d = json.loads(f.read_text(encoding="utf-8"))
-                print(f"[{name}] mot={d.get('word')} puzzle={d.get('puzzle_num')} date={d.get('date')}")
+        post_cemantix(reddit="dry_run")
+        if args.sutom:
+            post_sutom(reddit="dry_run")
         return
 
     try:

@@ -107,18 +107,14 @@ def post_cemantix(reddit=None) -> bool:
     definition_clean = re.sub(re.escape(word), "___", definition, flags=re.IGNORECASE).strip()
     definition_line = f"- Définition : >!{definition_clean}!<\n" if definition_clean else ""
 
-    body = f"""Bloqué·e sur le Cémantix d'aujourd'hui ? Voici les indices.
+    body = f"""Bloqué·e sur le Cémantix d'aujourd'hui ? Indices et solution sur [solution-du-jour.fr/cemantix](https://solution-du-jour.fr/cemantix/)
 
 **Indices :**
 - Nombre de lettres : >!{letter_count}!<
 - Première lettre : >!{first_letter}!<
 {definition_line}
 **Solution :** >!{word.upper()}!<
-{score_line}
----
-Indices progressifs complets (3 niveaux) disponibles sur : https://solution-du-jour.fr/cemantix/
-
-*[solution-du-jour.fr](https://solution-du-jour.fr)*"""
+{score_line}"""
 
     if reddit == "dry_run":
         print(f"[DRY RUN] r/{subreddit_name}\nTITLE: {title}\n\n{body}\n")

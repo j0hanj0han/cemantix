@@ -15,6 +15,9 @@ cd "$SCRIPT_DIR"
 {
   echo "=== $(date '+%Y-%m-%d %H:%M:%S') — Démarrage ==="
 
+  # Récupère les éventuels commits distants avant de générer
+  git pull --rebase origin main
+
   # Résolution + génération du site
   "$PYTHON" generate.py
 

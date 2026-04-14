@@ -829,8 +829,8 @@ def generate_index_html(
           Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
         </p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
-      </div>
 {_codes_html(codes)}
+      </div>
       <p style="text-align:center;margin-top:.75rem;">
         <button class="reveal-btn" id="loto-reveal-btn"
           onclick="document.getElementById('loto-balls-blur').classList.add('revealed');this.parentElement.style.display='none';">

@@ -115,7 +115,7 @@ def get_loto_latest() -> dict | None:
 # ── Jackpot (reducmiz.com) ────────────────────────────────────────────────────
 
 def _parse_reducmiz_jackpot(text: str) -> dict[str, dict]:
-    """Parse le texte brut de reducmiz.com. Retourne {date_iso: jackpot_info}."""
+    """Parse le texte brut de reducmiz.com. Retourne {date_iso: jackpot_info + codes}."""
     result = {}
     blocks = re.split(r'date du tirage\s*\n', text)
     for block in blocks[1:]:
@@ -133,13 +133,19 @@ def _parse_reducmiz_jackpot(text: str) -> dict[str, dict]:
         winners = int(jackpot_m.group(1))
         amount_str = jackpot_m.group(2).strip()
         if winners == 0 or amount_str.startswith('-'):
-            result[date_iso] = {"jackpot_won": False, "jackpot_winners": 0, "jackpot_amount": None}
+            entry = {"jackpot_won": False, "jackpot_winners": 0, "jackpot_amount": None}
         else:
             amt = amount_str.replace('\xa0', '').replace(' €', '').replace(' ', '').replace(',', '.')
             try:
-                result[date_iso] = {"jackpot_won": True, "jackpot_winners": winners, "jackpot_amount": float(amt)}
+                entry = {"jackpot_won": True, "jackpot_winners": winners, "jackpot_amount": float(amt)}
             except ValueError:
-                result[date_iso] = {"jackpot_won": False, "jackpot_winners": 0, "jackpot_amount": None}
+                entry = {"jackpot_won": False, "jackpot_winners": 0, "jackpot_amount": None}
+        # Codes gagnants (20 000 €) : lettre + 8 chiffres, séparés par " ; "
+        codes_m = re.search(r"Codes?\s+à\s+20[,\u202f\s]000\s*€\s*\n([^\n]+)", block)
+        if codes_m:
+            raw = codes_m.group(1)
+            entry["codes"] = [c.strip() for c in raw.split(";") if c.strip()]
+        result[date_iso] = entry
     return result
 
 
@@ -237,6 +243,18 @@ def backfill_loto_jackpot() -> int:
 
 # ── Helpers HTML ──────────────────────────────────────────────────────────────
 
+def _codes_html(codes: list[str] | None) -> str:
+    """Retourne le bloc HTML des codes gagnants Loto (20 000 €), ou '' si absent."""
+    if not codes:
+        return ""
+    items = "".join(f'<span class="loto-code-item">{c}</span>' for c in codes)
+    return f"""      <div class="loto-codes-block">
+        <p class="loto-codes-label">Codes Gagnants (20&nbsp;000&nbsp;€)</p>
+        <div class="loto-codes-list">{items}</div>
+        <p class="loto-codes-info">Vérifiez si votre code ticket figure dans cette liste pour gagner 20&nbsp;000&nbsp;€.</p>
+      </div>"""
+
+
 def _balls_html(balls: list[int], lucky: int, small: bool = False) -> str:
     """Retourne le bloc HTML des boules + boule chance."""
     cls = "loto-ball loto-ball-sm" if small else "loto-ball"
@@ -278,6 +296,7 @@ def generate_archive_html(
     jackpot_won: bool | None = None,
     jackpot_winners: int = 0,
     jackpot_amount: float | None = None,
+    codes: list[str] | None = None,
 ) -> None:
     """Génère docs/loto/archive/YYYY-MM-DD.html."""
     LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
@@ -405,6 +424,7 @@ def generate_archive_html(
       {_balls_html(balls, lucky)}
       <p class="puzzle-meta">{balls_str} + chance <strong>{lucky}</strong></p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{_codes_html(codes)}
     </div>
 
     <div class="card">
@@ -548,6 +568,7 @@ def generate_index_html(
     jackpot_winners: int = 0,
     jackpot_amount: float | None = None,
     next_jackpot: float | None = None,
+    codes: list[str] | None = None,
 ) -> None:
     """Génère docs/loto/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -808,6 +829,7 @@ def generate_index_html(
           Boules : <strong>{balls_str}</strong> · Numéro chance : <strong>{lucky}</strong>
         </p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{_codes_html(codes)}
       </div>
       <p style="text-align:center;margin-top:.75rem;">
         <button class="reveal-btn" id="loto-reveal-btn"
@@ -1323,6 +1345,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_won=entry.get("jackpot_won"),
             jackpot_winners=entry.get("jackpot_winners", 0),
             jackpot_amount=entry.get("jackpot_amount"),
+            codes=entry.get("codes"),
         )
 
     print("[Loto] Génération de docs/loto/archive/index.html…")
@@ -1338,6 +1361,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         jackpot_winners=data.get("jackpot_winners", 0),
         jackpot_amount=data.get("jackpot_amount"),
         next_jackpot=data.get("next_jackpot"),
+        codes=data.get("codes"),
     )
 
     stats = compute_loto_stats(all_archives)
@@ -1372,6 +1396,15 @@ def run(today: date) -> dict | None:
     if solution_path.exists():
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
         if existing.get("date") == draw_date_str:
+            # Ajouter les codes gagnants s'ils sont absents du JSON
+            if "codes" not in existing:
+                reducmiz_info = get_loto_jackpot_latest(nb=5)
+                if reducmiz_info and draw_date_str in reducmiz_info:
+                    codes = reducmiz_info[draw_date_str].get("codes")
+                    if codes:
+                        existing["codes"] = codes
+                        atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
+                        print(f"[Loto] Codes ajoutés : {len(codes)} codes gagnants")
             print(f"[Loto] ℹ Tirage déjà présent ({draw_date_str}) — régénération HTML uniquement.")
             _generate_all_html(date.fromisoformat(draw_date_str), existing)
             return existing

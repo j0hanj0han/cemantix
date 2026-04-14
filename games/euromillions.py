@@ -93,10 +93,18 @@ def get_euromillions_latest() -> dict | None:
             balls = sorted(int(b.text.strip()) for b in node.find_all(class_="ball")[:5] if b.text.strip().isdigit())
             stars = sorted(int(s.text.strip()) for s in node.find_all(class_="lucky-star")[:2] if s.text.strip().isdigit())
             if len(balls) == 5 and len(stars) == 2:
+                # Code My Million : dans div.raffleCodeBox > span.raffle
+                code = ""
+                raffle_box = soup.find(class_="raffleCodeBox")
+                if raffle_box:
+                    raffle_span = raffle_box.find(class_="raffle")
+                    if raffle_span:
+                        code = raffle_span.get_text(strip=True)
                 return {
                     "date": draw_date.isoformat(),
                     "balls": balls,
                     "stars": stars,
+                    "code": code,
                 }
             break
         node = node.parent
@@ -106,6 +114,17 @@ def get_euromillions_latest() -> dict | None:
 
 
 # ── Helpers HTML ──────────────────────────────────────────────────────────────
+
+def _em_code_html(code: str) -> str:
+    """Retourne le bloc HTML du code My Million, ou '' si absent."""
+    if not code:
+        return ""
+    return f"""      <div class="em-code-block">
+        <p class="em-code-label">Code My Million</p>
+        <p class="em-code-value">{code}</p>
+        <p class="em-code-info">1&nbsp;million&nbsp;€ garanti si votre ticket porte ce code.</p>
+      </div>"""
+
 
 def _em_balls_html(balls: list[int], stars: list[int], small: bool = False) -> str:
     """Retourne le bloc HTML des boules + étoiles EuroMillions."""
@@ -147,6 +166,7 @@ def generate_archive_html(
     jackpot_amount=None,
     jackpot_winners=0,
     jackpot_won=False,
+    code: str = "",
 ) -> None:
     """Génère docs/euromillions/archive/YYYY-MM-DD.html."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
@@ -279,6 +299,7 @@ def generate_archive_html(
         Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
       </p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{_em_code_html(code)}
     </div>
 
     <div class="card">
@@ -428,6 +449,7 @@ def generate_index_html(
     jackpot_winners=0,
     jackpot_won=False,
     next_jackpot: float | None = None,
+    code: str = "",
 ) -> None:
     """Génère docs/euromillions/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
@@ -686,6 +708,7 @@ def generate_index_html(
           Boules : <strong>{balls_str}</strong> · Étoiles : <strong>{stars_str}</strong>
         </p>
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
+{_em_code_html(code)}
       </div>
       <p style="text-align:center;margin-top:.75rem;">
         <button class="reveal-btn" id="em-reveal-btn"
@@ -1437,6 +1460,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_amount=entry.get("jackpot_amount"),
             jackpot_winners=entry.get("jackpot_winners", 0),
             jackpot_won=entry.get("jackpot_won", False),
+            code=entry.get("code", ""),
         )
 
     print("[EuroMillions] Génération de docs/euromillions/archive/index.html…")
@@ -1455,6 +1479,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         jackpot_winners=data.get("jackpot_winners", 0),
         jackpot_won=data.get("jackpot_won", False),
         next_jackpot=data.get("next_jackpot"),
+        code=data.get("code", ""),
     )
 
 
@@ -1515,6 +1540,11 @@ def run(today: date) -> dict | None:
             if next_jk and existing.get("next_jackpot") != next_jk:
                 existing["next_jackpot"] = next_jk
                 updated = True
+            # Ajouter le code My Million s'il est absent et qu'on vient de le scraper
+            if "code" not in existing and draw.get("code"):
+                existing["code"] = draw["code"]
+                updated = True
+                print(f"[EuroMillions] Code My Million ajouté : {draw['code']}")
             if updated:
                 atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[EuroMillions] ℹ Tirage déjà présent ({draw_date_str}) — régénération HTML uniquement.")

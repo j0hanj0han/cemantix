@@ -247,11 +247,11 @@ def _codes_html(codes: list[str] | None) -> str:
     """Retourne le bloc HTML des codes gagnants Loto (20 000 €), ou '' si absent."""
     if not codes:
         return ""
-    items = "".join(f'<span class="loto-code-item">{c}</span>' for c in codes)
-    return f"""      <div class="loto-codes-block">
-        <p class="loto-codes-label">Codes Gagnants (20&nbsp;000&nbsp;€)</p>
-        <div class="loto-codes-list">{items}</div>
-        <p class="loto-codes-info">Vérifiez si votre code ticket figure dans cette liste pour gagner 20&nbsp;000&nbsp;€.</p>
+    items = "".join(f'<span class="draw-code-item">{c}</span>' for c in codes)
+    return f"""      <div class="draw-codes">
+        <p class="draw-codes-title">Codes Gagnants — 20&nbsp;000&nbsp;€</p>
+        <div class="draw-codes-grid">{items}</div>
+        <p class="draw-codes-note">Si votre ticket porte l'un de ces codes, vous gagnez 20&nbsp;000&nbsp;€.</p>
       </div>"""
 
 

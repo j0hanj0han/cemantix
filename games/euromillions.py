@@ -119,10 +119,10 @@ def _em_code_html(code: str) -> str:
     """Retourne le bloc HTML du code My Million, ou '' si absent."""
     if not code:
         return ""
-    return f"""      <div class="em-code-block">
-        <p class="em-code-label">Code My Million</p>
-        <p class="em-code-value">{code}</p>
-        <p class="em-code-info">1&nbsp;million&nbsp;€ garanti si votre ticket porte ce code.</p>
+    return f"""      <div class="draw-codes">
+        <p class="draw-codes-title">Code My Million</p>
+        <span class="draw-code-single">{code}</span>
+        <p class="draw-codes-note">1&nbsp;million&nbsp;€ garanti si votre ticket porte ce code.</p>
       </div>"""
 
 

@@ -190,6 +190,7 @@ def generate_archive_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Résultats EuroMillions {date_display} — Numéros gagnants · Archive</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros : {balls_str}. Étoiles : {stars_str}.">
@@ -362,6 +363,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Archives EuroMillions — Tous les tirages et numéros gagnants</title>
   <meta name="description" content="Retrouvez tous les résultats des tirages EuroMillions : numéros gagnants et étoiles pour chaque tirage du mardi et vendredi.">
@@ -499,8 +501,9 @@ def generate_index_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Résultats EuroMillions {date_display} — Numéros gagnants du dernier tirage</title>
+  <title>⭐ Résultats EuroMillions {date_display} — Numéros gagnants du dernier tirage</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros gagnants : {balls_str}. Étoiles : {stars_str}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/">
@@ -775,6 +778,7 @@ def generate_unavailable_html(today: date) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Résultats EuroMillions — Non disponibles</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../css/style.css">
@@ -1114,6 +1118,7 @@ def generate_em_stats_html(stats: dict) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
   <meta name="description" content="Numéros et étoiles les plus sortis à l'EuroMillions depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
@@ -1600,8 +1605,9 @@ def generate_simulator_html() -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Simulateur EuroMillions — Calculez vos gains sur 1 900 tirages</title>
+  <title>⭐ Simulateur EuroMillions — Calculez vos gains sur 1 900 tirages</title>
   <meta name="description" content="Simulez vos gains EuroMillions : entrez vos 5 numéros + 2 étoiles et obtenez vos résultats sur 1\u202f900+ tirages depuis 2004. Gratuit et instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/simulateur/">

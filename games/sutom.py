@@ -106,6 +106,7 @@ def generate_archive_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Sutom {date_display} — Solution #{puzzle_num} · Archive</title>
   <meta name="description" content="Solution du Sutom #{puzzle_num} du {date_display}. Mot en {letter_count} lettres commençant par {first_letter}.">
@@ -284,6 +285,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Archives Sutom — Toutes les solutions du jour</title>
   <meta name="description" content="Retrouvez toutes les solutions passées de Sutom : réponses de chaque puzzle depuis le début.">
@@ -396,8 +398,9 @@ def generate_index_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Sutom {date_display} — Solution #{puzzle_num} · Réponse du Jour</title>
+  <title>🔤 Sutom {date_display} — Solution #{puzzle_num} · Réponse du Jour</title>
   <meta name="description" content="Solution du Sutom #{puzzle_num} du {date_display}. Mot en {letter_count} lettres commençant par {first_letter}. Réponse du Wordle français du jour.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SUTOM_SITE_URL}/">
@@ -603,6 +606,7 @@ def generate_unavailable_html(today: date) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Sutom {date_display} — Solution non disponible</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../css/style.css">

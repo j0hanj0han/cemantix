@@ -178,8 +178,9 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Solutions du Jour — Cémantix, Sutom, Loto, EuroMillions · {date_display}</title>
+  <title>🎯 Solutions du Jour — Cémantix, Sutom, Loto, EuroMillions · {date_display}</title>
   <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Résultats Loto et EuroMillions. Mis à jour automatiquement chaque jour.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">

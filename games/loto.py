@@ -319,6 +319,7 @@ def generate_archive_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Résultats Loto {date_display} — Numéros gagnants · Archive</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
@@ -485,6 +486,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Archives Loto — Tous les tirages et numéros gagnants depuis 2008</title>
   <meta name="description" content="Retrouvez tous les résultats des tirages Loto depuis 2008 : numéros gagnants et numéros chance pour chaque tirage.">
@@ -624,8 +626,9 @@ def generate_index_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Résultats Loto {date_display} — Numéros gagnants tirage n°{draw_num}</title>
+  <title>🍀 Résultats Loto {date_display} — Numéros gagnants tirage n°{draw_num}</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (n°{draw_num}). Numéros gagnants : {balls_str} + numéro chance {lucky}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/">
@@ -888,6 +891,7 @@ def generate_unavailable_html(today: date) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Résultats Loto — Non disponibles</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../css/style.css">
@@ -1025,6 +1029,7 @@ def generate_stats_html(stats: dict) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Statistiques Loto FDJ depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
   <meta name="description" content="Numéros les plus sortis au Loto FDJ depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
@@ -1460,8 +1465,9 @@ def generate_simulator_html() -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Simulateur Loto FDJ — Calculez vos gains sur 2 600 tirages</title>
+  <title>🍀 Simulateur Loto FDJ — Calculez vos gains sur 2 600 tirages</title>
   <meta name="description" content="Simulez vos gains Loto FDJ : entrez vos 5 numéros + numéro chance et obtenez vos résultats sur 2\u202f600+ tirages depuis 2019. Gratuit et instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">

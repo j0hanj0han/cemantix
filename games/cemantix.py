@@ -317,6 +317,7 @@ def generate_archive_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
@@ -574,6 +575,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Archives Cémantix — Toutes les solutions du jour</title>
   <meta name="description" content="Retrouvez toutes les solutions passées de Cémantix : réponses et indices de chaque puzzle depuis le début.">
@@ -719,8 +721,9 @@ def generate_index_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>🧠 Cémantix #{puzzle_num} — Solution du {date_display}</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot secret.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">

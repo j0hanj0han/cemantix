@@ -8,19 +8,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-19T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du dimanche 19 avril 2026</news:title>
+      <news:publication_date>2026-04-20T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du lundi 20 avril 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-18.html</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-19.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-18T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 18 avril 2026</news:title>
+      <news:publication_date>2026-04-19T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du dimanche 19 avril 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -30,19 +30,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-19T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du dimanche 19 avril 2026</news:title>
+      <news:publication_date>2026-04-20T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du lundi 20 avril 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-18.html</loc>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-19.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-18T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du samedi 18 avril 2026</news:title>
+      <news:publication_date>2026-04-19T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du dimanche 19 avril 2026</news:title>
     </news:news>
   </url>
 </urlset>

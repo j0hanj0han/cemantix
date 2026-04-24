@@ -8,19 +8,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-24T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 24 avril 2026</news:title>
+      <news:publication_date>2026-04-25T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du samedi 25 avril 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-23.html</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-24.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-23T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du jeudi 23 avril 2026</news:title>
+      <news:publication_date>2026-04-24T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du vendredi 24 avril 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -30,19 +30,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-24T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du vendredi 24 avril 2026</news:title>
+      <news:publication_date>2026-04-25T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du samedi 25 avril 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-23.html</loc>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-24.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-23T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du jeudi 23 avril 2026</news:title>
+      <news:publication_date>2026-04-24T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du vendredi 24 avril 2026</news:title>
     </news:news>
   </url>
 </urlset>

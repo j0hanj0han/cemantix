@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-22",
+  "draw_num": "",
+  "balls": [
+    30,
+    37,
+    38,
+    40,
+    43
+  ],
+  "lucky_ball": 1,
+  "jackpot_amount": null,
+  "jackpot_won": false,
+  "jackpot_winners": 0,
+  "next_jackpot": null,
+  "codes": [
+    "B79892127",
+    "T31352435",
+    "W92739447"
+  ],
+  "generated_at": "2026-04-25T16:01:46.864731+00:00"
+}

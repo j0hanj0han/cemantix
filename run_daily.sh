@@ -21,6 +21,16 @@ cd "$SCRIPT_DIR"
   # Résolution + génération du site
   "$PYTHON" generate.py
 
+  # Si Cémantix n'est pas à jour, réessayer une fois après 5 minutes
+  TODAY_ISO=$(date '+%Y-%m-%d')
+  CEMANTIX_JSON="$SCRIPT_DIR/docs/cemantix/solution.json"
+  CEMANTIX_DATE=$("$PYTHON" -c "import json; print(json.load(open('$CEMANTIX_JSON')).get('date',''))" 2>/dev/null || echo "")
+  if [ "$CEMANTIX_DATE" != "$TODAY_ISO" ]; then
+    echo "⚠️  Cémantix non à jour ($CEMANTIX_DATE ≠ $TODAY_ISO) — nouvelle tentative dans 5 min…"
+    sleep 300
+    "$PYTHON" generate.py
+  fi
+
   # Commit et push si des fichiers docs/ ont changé
   git add docs/
   if git diff --staged --quiet; then

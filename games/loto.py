@@ -203,6 +203,53 @@ def get_loto_current_jackpot(draw_date_str: str | None = None) -> dict | None:
     }
 
 
+_FR_MONTHS = {
+    "janvier": 1, "février": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
+    "juillet": 7, "août": 8, "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12,
+}
+
+
+def get_loto_from_tirage_gagnant() -> dict | None:
+    """Fallback : récupère les numéros du dernier tirage Loto depuis tirage-gagnant.com.
+    Utilisé quand OpenDataSoft est en retard.
+    Retourne {date, balls, lucky_ball} ou None si indisponible.
+    """
+    try:
+        html = fetch_static_html("https://www.tirage-gagnant.com/loto/resultats-loto/")
+        if html is None:
+            return None
+        soup = BeautifulSoup(html, "html.parser")
+
+        # Date : <span class="date_full">Vendredi 24 Avril 2026</span>
+        date_el = soup.find(class_="date_full")
+        if not date_el:
+            return None
+        date_text = date_el.get_text(strip=True).lower()  # "vendredi 24 avril 2026"
+        parts = date_text.split()
+        if len(parts) < 4:
+            return None
+        day, month_str, year = int(parts[1]), parts[2], int(parts[3])
+        month = _FR_MONTHS.get(month_str)
+        if not month:
+            return None
+        draw_date = f"{year:04d}-{month:02d}-{day:02d}"
+
+        # Numéros : <div class="resultat"><p class="num">2</p>...<p class="chance">2</p></div>
+        resultat_div = soup.find("div", class_="resultat")
+        if not resultat_div:
+            return None
+        balls = [int(el.get_text()) for el in resultat_div.find_all("p", class_="num")]
+        chance_els = resultat_div.find_all("p", class_="chance")
+        if not balls or not chance_els or len(balls) != 5:
+            return None
+        lucky = int(chance_els[0].get_text())
+
+        return {"date": draw_date, "balls": sorted(balls), "lucky_ball": lucky}
+    except Exception as e:
+        print(f"   ⚠ tirage-gagnant.com (boules) : {e}")
+        return None
+
+
 def get_loto_jackpot_latest(nb: int = 50) -> dict[str, dict]:
     """Récupère les infos jackpot des N derniers tirages depuis reducmiz.com."""
     try:
@@ -1345,7 +1392,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
         next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
         generate_archive_html(
-            d, entry["draw_num"], entry["balls"], entry["lucky_ball"],
+            d, entry.get("draw_num", ""), entry["balls"], entry["lucky_ball"],
             prev_date, next_date,
             jackpot_won=entry.get("jackpot_won"),
             jackpot_winners=entry.get("jackpot_winners", 0),
@@ -1359,7 +1406,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     recent_archives = [e for e in past_archives[:7] if (LOTO_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Loto] Génération de docs/loto/index.html…")
     generate_index_html(
-        draw_date, data["draw_num"], data["balls"], data["lucky_ball"],
+        draw_date, data.get("draw_num", ""), data["balls"], data["lucky_ball"],
         recent_archives,
         total_archives=len(all_archives),
         jackpot_won=data.get("jackpot_won"),
@@ -1394,7 +1441,24 @@ def run(today: date) -> dict | None:
         return None
 
     draw_date_str = draw["date"]
-    print(f"[Loto] ✅ Dernier tirage : {draw_date_str} — {draw['balls']} + chance {draw['lucky_ball']}")
+    print(f"[Loto] ✅ Dernier tirage OpenDataSoft : {draw_date_str} — {draw['balls']} + chance {draw['lucky_ball']}")
+
+    # Fallback : si OpenDataSoft a plus de 3 jours de retard, essayer tirage-gagnant.com
+    from datetime import timedelta
+    try:
+        draw_date_obj = date.fromisoformat(draw_date_str)
+        if (today - draw_date_obj) > timedelta(days=3):
+            print(f"[Loto] ⚠ OpenDataSoft en retard ({draw_date_str}), tentative fallback tirage-gagnant.com…")
+            tg_draw = get_loto_from_tirage_gagnant()
+            if tg_draw and tg_draw["date"] > draw_date_str:
+                print(f"[Loto] ✅ Fallback tirage-gagnant.com : {tg_draw['date']} — {tg_draw['balls']} + chance {tg_draw['lucky_ball']}")
+                tg_draw.setdefault("draw_num", "")
+                draw = tg_draw
+                draw_date_str = draw["date"]
+            else:
+                print("[Loto] ⚠ Fallback indisponible ou pas plus récent, on garde OpenDataSoft.")
+    except Exception as e:
+        print(f"[Loto] ⚠ Erreur lors du fallback : {e}")
 
     # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
     solution_path = LOTO_DIR / "solution.json"

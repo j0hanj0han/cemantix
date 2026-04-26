@@ -3,8 +3,9 @@ name: Regenerate HTML from solution
 on:
   push:
     paths:
-      - 'docs/cemantix/solution.json'  # déclenché quand le Mac pousse la solution Cémantix
-      - 'docs/sutom/solution.json'     # déclenché quand le Mac pousse la solution Sutom
+      - 'docs/cemantix/solution.json'   # déclenché quand le Mac pousse la solution Cémantix
+      - 'docs/sutom/solution.json'      # déclenché quand le Mac pousse la solution Sutom
+      - 'docs/pedantix/solution.json'   # déclenché quand le Mac pousse la solution Pédantix
       - 'docs/loto/solution.json'          # déclenché quand le Mac pousse les résultats Loto
       - 'docs/euromillions/solution.json'  # déclenché quand le Mac pousse les résultats EuroMillions
   workflow_dispatch:                    # déclenchement manuel
@@ -74,6 +75,22 @@ jobs:
             echo "⚠ docs/loto/solution.json introuvable"
           fi
 
+          # Vérification Pédantix
+          if [ -f docs/pedantix/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/pedantix/solution.json')); print(d.get('date',''))")
+            if [ "$DOC_DATE" = "$TODAY" ]; then
+              echo "pedantix_ready=true" >> "$GITHUB_OUTPUT"
+              ANY_READY=true
+              echo "✅ pedantix/solution.json est à jour pour $TODAY"
+            else
+              echo "pedantix_ready=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ pedantix/solution.json date=$DOC_DATE, aujourd'hui=$TODAY"
+            fi
+          else
+            echo "pedantix_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/pedantix/solution.json introuvable"
+          fi
+
           # Vérification EuroMillions
           if [ -f docs/euromillions/solution.json ]; then
             echo "em_ready=true" >> "$GITHUB_OUTPUT"
@@ -134,6 +151,22 @@ jobs:
                   s._generate_all_html(today, data['puzzle_num'], data['word'])
                   print("✅ HTML Sutom régénéré")
 
+          # Pédantix
+          pedantix_data = None
+          pedantix_json = Path('docs/pedantix/solution.json')
+          if pedantix_json.exists():
+              data = json.loads(pedantix_json.read_text(encoding='utf-8'))
+              if data.get('date') == today_str:
+                  pedantix_data = data
+                  from games import pedantix as pd
+                  title_display = data.get('title_display') or data.get('word', '?')
+                  title_slug = data.get('title_slug', title_display)
+                  hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
+                  extract = data.get('extract', '')
+                  print(f"Régénération HTML Pédantix #{data['puzzle_num']} '{title_display}'")
+                  pd._generate_all_html(today, data['puzzle_num'], title_display, title_slug, hints, extract)
+                  print("✅ HTML Pédantix régénéré")
+
           # Loto
           loto_data = None
           loto_json = Path('docs/loto/solution.json')
@@ -164,6 +197,7 @@ jobs:
           import generate as g
           game_data_all = {
               'cemantix': cemantix_data, 'sutom': sutom_data,
+              'pedantix': pedantix_data,
               'loto': loto_data, 'euromillions': em_data,
           }
           g.generate_hub_html(today, game_data_all)
@@ -187,6 +221,7 @@ jobs:
             echo "### ✅ HTML régénéré" >> $GITHUB_STEP_SUMMARY
             echo "- Cémantix : ${{ steps.check.outputs.cemantix_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Sutom    : ${{ steps.check.outputs.sutom_ready }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Pédantix : ${{ steps.check.outputs.pedantix_ready }}" >> $GITHUB_STEP_SUMMARY
           else
             echo "### ℹ Pas d'action — aucune solution n'est à jour pour aujourd'hui" >> $GITHUB_STEP_SUMMARY
             echo "Le cron local tourne à 08h05 heure de Paris. Vérifier run_daily.log si problème." >> $GITHUB_STEP_SUMMARY

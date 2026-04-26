@@ -36,6 +36,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     sutom = game_data.get("sutom")
     loto = game_data.get("loto")
     em = game_data.get("euromillions")
+    pedantix = game_data.get("pedantix")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -173,6 +174,38 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <span class="game-link-arrow">Aller sur EuroMillions &#8594;</span>
     </a>"""
 
+    # ── Carte Pédantix ──
+    if pedantix:
+        title_p = pedantix.get("title_display") or pedantix.get("word", "?")
+        puzzle_p = pedantix["puzzle_num"]
+        pedantix_card = f"""
+    <a class="game-card" href="pedantix/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Pédantix</h2>
+        <span class="game-badge game-badge-semantix">Wikipedia</span>
+      </div>
+      <p class="game-card-desc">Devinez l'article Wikipedia secret par similarité sémantique.</p>
+      <div class="game-card-solution">
+        <span class="game-label">Solution #{puzzle_p}</span>
+        <div class="solution-blur solution-blur-sm" id="sol-pedantix">
+          <span class="solution-word solution-word-sm">{title_p}</span>
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-pedantix')">Révéler</button>
+      </div>
+      <span class="game-link-arrow">Voir la solution &amp; indices &#8594;</span>
+    </a>"""
+    else:
+        pedantix_card = """
+    <a class="game-card game-card-unavailable" href="pedantix/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Pédantix</h2>
+        <span class="game-badge game-badge-semantix">Wikipedia</span>
+      </div>
+      <p class="game-card-desc">Devinez l'article Wikipedia secret par similarité sémantique.</p>
+      <p class="game-unavailable">Solution en cours de génération…</p>
+      <span class="game-link-arrow">Aller sur Pédantix &#8594;</span>
+    </a>"""
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -224,8 +257,9 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     "itemListElement": [
       {{"@type": "ListItem", "position": 1, "name": "Cémantix — Solution du jour", "url": "{SITE_URL}/cemantix/"}},
       {{"@type": "ListItem", "position": 2, "name": "Sutom — Solution du jour", "url": "{SITE_URL}/sutom/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
-      {{"@type": "ListItem", "position": 4, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
+      {{"@type": "ListItem", "position": 3, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
+      {{"@type": "ListItem", "position": 4, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
+      {{"@type": "ListItem", "position": 5, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
     ]
   }}
   </script>
@@ -280,6 +314,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <div class="games-grid">
 {cemantix_card}
 {sutom_card}
+{pedantix_card}
 {loto_card}
 {em_card}
   </div>
@@ -326,6 +361,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <p style="margin-top:.4rem;">
     <a href="cemantix/">Cémantix</a> ·
     <a href="sutom/">Sutom</a> ·
+    <a href="pedantix/">Pédantix</a> ·
     <a href="loto/">Loto</a> ·
     <a href="euromillions/">EuroMillions</a>
   </p>
@@ -359,12 +395,14 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
 
     yesterday = today - timedelta(days=1)
 
     games_cfg = [
         ("cemantix",     CEMANTIX_SITE_URL,  CEMANTIX_ARCHIVE,  "Solution Cémantix du",      "T08:05:00+02:00"),
         ("sutom",        SUTOM_SITE_URL,     SUTOM_ARCHIVE,     "Solution Sutom du",          "T08:05:00+02:00"),
+        ("pedantix",     PEDANTIX_SITE_URL,  PEDANTIX_ARCHIVE,  "Solution Pédantix du",       "T08:05:00+02:00"),
         ("loto",         LOTO_SITE_URL,      LOTO_ARCHIVE,      "Résultats Loto du",          "T22:00:00+02:00"),
         ("euromillions", EM_SITE_URL,        EM_ARCHIVE,        "Résultats EuroMillions du",  "T21:30:00+02:00"),
     ]
@@ -430,6 +468,7 @@ def generate_global_sitemap(today: date) -> None:
     from games.sutom import SUTOM_ARCHIVE
     from games.loto import LOTO_ARCHIVE
     from games.euromillions import EM_ARCHIVE
+    from games.pedantix import PEDANTIX_ARCHIVE
 
     today_str = today.isoformat()
     urls = []
@@ -499,6 +538,37 @@ def generate_global_sitemap(today: date) -> None:
                 continue
             urls.append(f"""  <url>
     <loc>{SITE_URL}/sutom/archive/{d_str}.html</loc>
+    <lastmod>{d_str}</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+
+    # ── Pédantix ──
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/pedantix/</loc>
+    <lastmod>{today_str}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    pedantix_dates = sorted(
+        [date.fromisoformat(f.stem) for f in PEDANTIX_ARCHIVE.glob("????-??-??.json")]
+        if PEDANTIX_ARCHIVE.exists() else [],
+        reverse=True,
+    )
+    if pedantix_dates:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/pedantix/archive/</loc>
+    <lastmod>{pedantix_dates[0].isoformat()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+        for d in pedantix_dates:
+            d_str = d.isoformat()
+            if not (PEDANTIX_ARCHIVE / f"{d_str}.html").exists():
+                continue
+            urls.append(f"""  <url>
+    <loc>{SITE_URL}/pedantix/archive/{d_str}.html</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
@@ -641,23 +711,30 @@ def main():
     em_sim_data()
     em_sim_html()
 
-    # 5. Hub page
+    # 5. Pédantix
+    print("\n─── Pédantix ───────────────────────────────────────────")
+    from games.pedantix import run as run_pedantix
+    pedantix_data = run_pedantix(today)
+
+    # 6. Hub page
     print("\n─── Hub ────────────────────────────────────────────────")
     print("Génération de docs/index.html (hub)…")
     generate_hub_html(today, {
         "cemantix": cemantix_data, "sutom": sutom_data,
         "loto": loto_data, "euromillions": em_data,
+        "pedantix": pedantix_data,
     })
 
-    # 6. Sitemap global
+    # 7. Sitemap global
     print("Génération de docs/sitemap.xml (global)…")
     generate_global_sitemap(today)
 
-    # 7. Google News sitemap
+    # 8. Google News sitemap
     print("Génération de docs/news-sitemap.xml (Google News)…")
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data,
         "loto": loto_data, "euromillions": em_data,
+        "pedantix": pedantix_data,
     }
     generate_news_sitemap(today, game_data_all)
 
@@ -665,6 +742,7 @@ def main():
     print(f"   docs/index.html                          ✓ (hub)")
     print(f"   docs/cemantix/index.html                 {'✓' if cemantix_data else '⚠ indisponible'}")
     print(f"   docs/sutom/index.html                    {'✓' if sutom_data else '⚠ indisponible'}")
+    print(f"   docs/pedantix/index.html                 {'✓' if pedantix_data else '⚠ indisponible'}")
     print(f"   docs/loto/index.html                     {'✓' if loto_data else '⚠ indisponible'}")
     print(f"   docs/loto/simulateur/                    ✓")
     print(f"   docs/euromillions/index.html             {'✓' if em_data else '⚠ indisponible'}")

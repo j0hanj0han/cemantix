@@ -520,7 +520,7 @@ def generate_archive_index(entries: list[dict]) -> None:
         return (
             f'      <li class="arch-item">'
             f'<span class="arch-date">{date_fr(d)}</span>'
-            f'<span class="arch-num">n°{e["draw_num"]}</span>'
+            f'<span class="arch-num">n°{e.get("draw_num", "")}</span>'
             f'<a class="arch-link" href="{e["date"]}.html">{balls_str} + {e["lucky_ball"]}</a>'
             f'</li>'
         )
@@ -632,7 +632,7 @@ def generate_index_html(
             return (
                 f'      <li class="arch-item">'
                 f'<span class="arch-date">{date_fr(d)}</span>'
-                f'<span class="arch-num">n°{e["draw_num"]}</span>'
+                f'<span class="arch-num">n°{e.get("draw_num", "")}</span>'
                 f'<a class="arch-link" href="archive/{e["date"]}.html">{b_str} + {e["lucky_ball"]}</a>'
                 f'</li>'
             )

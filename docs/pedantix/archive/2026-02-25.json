@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-25",
+  "puzzle_num": 1383,
+  "word": "Gulf Stream",
+  "title_slug": "Gulf_Stream",
+  "title_display": "Gulf Stream",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Gulf_Stream",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : G · S"
+    ],
+    "level2": [
+      "courant marin de l'océan Atlantique",
+      "Courant marin",
+      "Géographie de l'océan Atlantique",
+      "Climat de l'océan Atlantique"
+    ],
+    "level3": [
+      "Le ___ est un courant océanique chaud, de surface, prenant sa source entre la Floride et les Bahamas, le long de la côte est des États-Unis et qui se disperse dans l'océan Atlantique quelque part au large de la Nouvelle-Écosse et de Terre-Neuve tout en se prolongeant par d'autres courants marins."
+    ]
+  },
+  "extract": "Le Gulf Stream est un courant océanique chaud, de surface, prenant sa source entre la Floride et les Bahamas, le long de la côte est des États-Unis et qui se disperse dans l'océan Atlantique quelque part au large de la Nouvelle-Écosse et de Terre-Neuve tout en se prolongeant par d'autres courants marins.",
+  "categories": [
+    "courant marin de l'océan Atlantique",
+    "Courant marin",
+    "Géographie de l'océan Atlantique",
+    "Climat de l'océan Atlantique"
+  ],
+  "generated_at": "2026-04-26T22:15:40.425260+00:00"
+}

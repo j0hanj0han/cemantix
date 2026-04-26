@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-06",
+  "puzzle_num": 1392,
+  "word": "Marc Aurèle",
+  "title_slug": "Marc_Aurèle",
+  "title_display": "Marc Aurèle",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Marc_Aurèle",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : M · A"
+    ],
+    "level2": [
+      "empereur romain de 161 à 180 et philosophe stoïcien",
+      "Philosophe romain",
+      "Philosophe du IIe siècle",
+      "Philosophe stoïcien"
+    ],
+    "level3": [
+      "___, né le 26 avril 121 à Rome et mort le 17 mars 180 à Sirmium ou à Vindobona, est un empereur et philosophe romain de la dynastie des Antonins, consul en 140, 145 et 161, régnant de 161 à 180."
+    ]
+  },
+  "extract": "Marc Aurèle, né le 26 avril 121 à Rome et mort le 17 mars 180 à Sirmium ou à Vindobona, est un empereur et philosophe romain de la dynastie des Antonins, consul en 140, 145 et 161, régnant de 161 à 180.",
+  "categories": [
+    "empereur romain de 161 à 180 et philosophe stoïcien",
+    "Philosophe romain",
+    "Philosophe du IIe siècle",
+    "Philosophe stoïcien"
+  ],
+  "generated_at": "2026-04-26T22:15:37.214162+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-07",
+  "puzzle_num": 1393,
+  "word": "Querelle des Investitures",
+  "title_slug": "Querelle_des_Investitures",
+  "title_display": "Querelle des Investitures",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Querelle_des_Investitures",
+  "hints": {
+    "level1": [
+      "3 mots · 23 lettres",
+      "Premières lettres : Q · D · I"
+    ],
+    "level2": [
+      "conflit qui opposa la papauté et le Saint-Empire romain germanique entre 1075 et 1122",
+      "Histoire du catholicisme en Allemagne",
+      "Histoire de l'Allemagne médiévale",
+      "Histoire politique de l'Allemagne"
+    ],
+    "level3": [
+      "La ___ est le conflit qui oppose la papauté et le Saint-Empire romain germanique entre 1075 et 1122."
+    ]
+  },
+  "extract": "La querelle des Investitures est le conflit qui oppose la papauté et le Saint-Empire romain germanique entre 1075 et 1122.",
+  "categories": [
+    "conflit qui opposa la papauté et le Saint-Empire romain germanique entre 1075 et 1122",
+    "Histoire du catholicisme en Allemagne",
+    "Histoire de l'Allemagne médiévale",
+    "Histoire politique de l'Allemagne"
+  ],
+  "generated_at": "2026-04-26T22:15:36.879085+00:00"
+}

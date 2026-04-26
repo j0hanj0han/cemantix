@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-13",
+  "puzzle_num": 1399,
+  "word": "Anglicanisme",
+  "title_slug": "Anglicanisme",
+  "title_display": "Anglicanisme",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Anglicanisme",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : A"
+    ],
+    "level2": [
+      "religion chrétienne protestante",
+      "Courant spirituel protestant",
+      "Histoire de la Réforme"
+    ],
+    "level3": [
+      "L'___ est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie."
+    ]
+  },
+  "extract": "L'anglicanisme est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie.",
+  "categories": [
+    "religion chrétienne protestante",
+    "Courant spirituel protestant",
+    "Histoire de la Réforme"
+  ],
+  "generated_at": "2026-04-26T22:15:34.977726+00:00"
+}

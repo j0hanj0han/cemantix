@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-04",
+  "puzzle_num": 1390,
+  "word": "Cathédrale Notre-Dame de Chartres",
+  "title_slug": "Cathédrale_Notre-Dame_de_Chartres",
+  "title_display": "Cathédrale Notre-Dame de Chartres",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cathédrale_Notre-Dame_de_Chartres",
+  "hints": {
+    "level1": [
+      "4 mots · 30 lettres",
+      "Premières lettres : C · N · D · C"
+    ],
+    "level2": [
+      "cathédrale située en Eure-et-Loir, en France",
+      "Cathédrale transformée au XIIe siècle",
+      "Cathédrale incendiée au XIIe siècle",
+      "Édifice religieux incendié en 1194"
+    ],
+    "level3": [
+      "La ___ est un édifice catholique situé au cœur de la ville de ___ dans le département français d'Eure-et-Loir, en région Centre-Val de Loire."
+    ]
+  },
+  "extract": "La cathédrale Notre-Dame de Chartres est un édifice catholique situé au cœur de la ville de Chartres dans le département français d'Eure-et-Loir, en région Centre-Val de Loire.",
+  "categories": [
+    "cathédrale située en Eure-et-Loir, en France",
+    "Cathédrale transformée au XIIe siècle",
+    "Cathédrale incendiée au XIIe siècle",
+    "Édifice religieux incendié en 1194"
+  ],
+  "generated_at": "2026-04-26T22:15:37.929727+00:00"
+}

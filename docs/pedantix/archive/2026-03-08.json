@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-08",
+  "puzzle_num": 1394,
+  "word": "Sacramento",
+  "title_slug": "Sacramento",
+  "title_display": "Sacramento",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Sacramento",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "capitale de l'État de Californie, aux États-Unis",
+      "Population de 2024 en infobox",
+      "Population de 2020 en infobox"
+    ],
+    "level3": [
+      "___ est la capitale de l'État de Californie aux États-Unis."
+    ]
+  },
+  "extract": "Sacramento est la capitale de l'État de Californie aux États-Unis.",
+  "categories": [
+    "capitale de l'État de Californie, aux États-Unis",
+    "Population de 2024 en infobox",
+    "Population de 2020 en infobox"
+  ],
+  "generated_at": "2026-04-26T22:15:36.551025+00:00"
+}

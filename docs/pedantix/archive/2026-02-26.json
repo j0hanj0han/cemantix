@@ -1,0 +1,29 @@
+{
+  "date": "2026-02-26",
+  "puzzle_num": 1384,
+  "word": "Locomotive à vapeur",
+  "title_slug": "Locomotive_à_vapeur",
+  "title_display": "Locomotive à vapeur",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Locomotive_à_vapeur",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : L · À · V"
+    ],
+    "level2": [
+      "type de locomotive propulsée à la vapeur, généralement de l'eau chauffée au charbon",
+      "Locomotive",
+      "Invention britannique"
+    ],
+    "level3": [
+      "Une ___ est un type de ___, c'est un engin moteur pour les chemins de fer, mis en mouvement par une machine à ___."
+    ]
+  },
+  "extract": "Une locomotive à vapeur est un type de locomotive, c'est un engin moteur pour les chemins de fer, mis en mouvement par une machine à vapeur.",
+  "categories": [
+    "type de locomotive propulsée à la vapeur, généralement de l'eau chauffée au charbon",
+    "Locomotive",
+    "Invention britannique"
+  ],
+  "generated_at": "2026-04-26T22:15:40.112232+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-27",
+  "puzzle_num": 1385,
+  "word": "Jane Austen",
+  "title_slug": "Jane_Austen",
+  "title_display": "Jane Austen",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Jane_Austen",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : J · A"
+    ],
+    "level2": [
+      "romancière et femme de lettres anglaise",
+      "Naissance en décembre 1775",
+      "Naissance dans le Hampshire",
+      "Pionnière en littérature"
+    ],
+    "level3": [
+      "___ [ˈd͡ʒeɪn ˈɒstɪn], née le 16 décembre 1775 à Steventon dans le Hampshire en Angleterre et morte le 18 juillet 1817 à Winchester dans le même comté, est une romancière et femme de lettres anglaise."
+    ]
+  },
+  "extract": "Jane Austen [ˈd͡ʒeɪn ˈɒstɪn], née le 16 décembre 1775 à Steventon dans le Hampshire en Angleterre et morte le 18 juillet 1817 à Winchester dans le même comté, est une romancière et femme de lettres anglaise.",
+  "categories": [
+    "romancière et femme de lettres anglaise",
+    "Naissance en décembre 1775",
+    "Naissance dans le Hampshire",
+    "Pionnière en littérature"
+  ],
+  "generated_at": "2026-04-26T22:15:39.771432+00:00"
+}

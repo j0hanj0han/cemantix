@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-10",
+  "puzzle_num": 1396,
+  "word": "Guerre d'Algérie",
+  "title_slug": "Guerre_d'Algérie",
+  "title_display": "Guerre d'Algérie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_d'Algérie",
+  "hints": {
+    "level1": [
+      "2 mots · 15 lettres",
+      "Premières lettres : G · D"
+    ],
+    "level2": [
+      "guerre d'indépendance de l'Algérie, de 1954 à 1962",
+      "Conflit militaire géolocalisable sans coordonnées paramétrées",
+      "Mémoire collective en France"
+    ],
+    "level3": [
+      "La ___, aussi connue sous les appellations événements ___, révolution algérienne, ___ d'indépendance algérienne et ___ de libération nationale, est un conflit armé qui se déroule de 1954 à 1962 en Algérie française, colonie française depuis 1830, divisée en départements en 1848."
+    ]
+  },
+  "extract": "La guerre d'Algérie, aussi connue sous les appellations événements d'Algérie, révolution algérienne, guerre d'indépendance algérienne et guerre de libération nationale, est un conflit armé qui se déroule de 1954 à 1962 en Algérie française, colonie française depuis 1830, divisée en départements en 1848.",
+  "categories": [
+    "guerre d'indépendance de l'Algérie, de 1954 à 1962",
+    "Conflit militaire géolocalisable sans coordonnées paramétrées",
+    "Mémoire collective en France"
+  ],
+  "generated_at": "2026-04-26T22:15:35.742901+00:00"
+}

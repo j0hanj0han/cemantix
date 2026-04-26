@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-01",
+  "puzzle_num": 1387,
+  "word": "Chant grégorien",
+  "title_slug": "Chant_grégorien",
+  "title_display": "Chant grégorien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chant_grégorien",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : C · G"
+    ],
+    "level2": [
+      "chant liturgique de l'Église catholique romaine en latin",
+      "Église latine",
+      "Éponyme d'un objet céleste",
+      "Nommé d'après Grégoire Ier"
+    ],
+    "level3": [
+      "Le ___ est le ___ liturgique officiel et ordinaire de l'Église catholique."
+    ]
+  },
+  "extract": "Le chant grégorien est le chant liturgique officiel et ordinaire de l'Église catholique.",
+  "categories": [
+    "chant liturgique de l'Église catholique romaine en latin",
+    "Église latine",
+    "Éponyme d'un objet céleste",
+    "Nommé d'après Grégoire Ier"
+  ],
+  "generated_at": "2026-04-26T22:15:39.151385+00:00"
+}

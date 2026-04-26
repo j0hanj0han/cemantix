@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-09",
+  "puzzle_num": 1395,
+  "word": "Art chinois",
+  "title_slug": "Art_chinois",
+  "title_display": "Art chinois",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Art_chinois",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : A · C"
+    ],
+    "level2": [
+      "Art en Chine",
+      "Culture chinoise",
+      "Sinologie",
+      "Histoire de l'art par pays"
+    ],
+    "level3": [
+      "L’___ recouvre l'ensemble des arts de culture ___e dans le monde ___ et la diaspora."
+    ]
+  },
+  "extract": "L’art chinois recouvre l'ensemble des arts de culture chinoise dans le monde chinois et la diaspora.",
+  "categories": [
+    "Art en Chine",
+    "Culture chinoise",
+    "Sinologie",
+    "Histoire de l'art par pays"
+  ],
+  "generated_at": "2026-04-26T22:15:36.249445+00:00"
+}

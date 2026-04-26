@@ -1,0 +1,27 @@
+{
+  "date": "2026-02-28",
+  "puzzle_num": 1386,
+  "word": "Effet tunnel",
+  "title_slug": "Effet_tunnel",
+  "title_display": "Effet tunnel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Effet_tunnel",
+  "hints": {
+    "level1": [
+      "2 mots · 11 lettres",
+      "Premières lettres : E · T"
+    ],
+    "level2": [
+      "propriété quantique, responsable de l'interaction faible",
+      "Effet physique quantique"
+    ],
+    "level3": [
+      "L'___ est la propriété qu'a un objet quantique de franchir une barrière de potentiel même si son énergie est inférieure à l'énergie minimale requise pour franchir cette barrière."
+    ]
+  },
+  "extract": "L'effet tunnel est la propriété qu'a un objet quantique de franchir une barrière de potentiel même si son énergie est inférieure à l'énergie minimale requise pour franchir cette barrière.",
+  "categories": [
+    "propriété quantique, responsable de l'interaction faible",
+    "Effet physique quantique"
+  ],
+  "generated_at": "2026-04-26T22:15:39.459788+00:00"
+}

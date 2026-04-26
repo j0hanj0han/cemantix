@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-03",
+  "puzzle_num": 1389,
+  "word": "Huguenot",
+  "title_slug": "Huguenot",
+  "title_display": "Huguenot",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Huguenot",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : H"
+    ],
+    "level2": [
+      "groupe ethnoreligieux des calvinistes français",
+      "Histoire du protestantisme",
+      "Religion sous l'Ancien Régime",
+      "Répression du protestantisme"
+    ],
+    "level3": [
+      "Les ___s sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques."
+    ]
+  },
+  "extract": "Les huguenots sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques.",
+  "categories": [
+    "groupe ethnoreligieux des calvinistes français",
+    "Histoire du protestantisme",
+    "Religion sous l'Ancien Régime",
+    "Répression du protestantisme"
+  ],
+  "generated_at": "2026-04-26T22:15:38.244820+00:00"
+}

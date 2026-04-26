@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-02",
+  "puzzle_num": 1388,
+  "word": "Royaume de Germanie",
+  "title_slug": "Royaume_de_Germanie",
+  "title_display": "Royaume de Germanie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_de_Germanie",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : R · D · G"
+    ],
+    "level2": [
+      "entité géopolitique d'Europe centrale entre 911 et 1806",
+      "Histoire de l'Allemagne",
+      "Ancien royaume en Europe",
+      "Territoire du Moyen Âge"
+    ],
+    "level3": [
+      "Le ___ est un ___ constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle."
+    ]
+  },
+  "extract": "Le royaume de Germanie est un royaume constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle.",
+  "categories": [
+    "entité géopolitique d'Europe centrale entre 911 et 1806",
+    "Histoire de l'Allemagne",
+    "Ancien royaume en Europe",
+    "Territoire du Moyen Âge"
+  ],
+  "generated_at": "2026-04-26T22:15:38.538933+00:00"
+}

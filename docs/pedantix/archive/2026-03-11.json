@@ -1,0 +1,27 @@
+{
+  "date": "2026-03-11",
+  "puzzle_num": 1397,
+  "word": "Mitose",
+  "title_slug": "Mitose",
+  "title_display": "Mitose",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mitose",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "division cellulaire des eucaryotes",
+      "Reproduction cellulaire"
+    ],
+    "level3": [
+      "La ___, du grec mitos qui signifie « filament », est la division cellulaire des eucaryotes par laquelle une cellule mère se transforme en deux cellules filles qui lui sont génétiquement identiques."
+    ]
+  },
+  "extract": "La mitose, du grec mitos qui signifie « filament », est la division cellulaire des eucaryotes par laquelle une cellule mère se transforme en deux cellules filles qui lui sont génétiquement identiques.",
+  "categories": [
+    "division cellulaire des eucaryotes",
+    "Reproduction cellulaire"
+  ],
+  "generated_at": "2026-04-26T22:15:35.518296+00:00"
+}

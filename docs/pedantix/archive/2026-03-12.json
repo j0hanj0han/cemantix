@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-12",
+  "puzzle_num": 1398,
+  "word": "Coyote",
+  "title_slug": "Coyote",
+  "title_display": "Coyote",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Coyote",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "espèce de canidé",
+      "Taxobox utilisant une classification non précisée",
+      "Taxobox début par provenance de l'image - A",
+      "Statut UICN Préoccupation mineure"
+    ],
+    "level3": [
+      "Le ___, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord."
+    ]
+  },
+  "extract": "Le Coyote, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord.",
+  "categories": [
+    "espèce de canidé",
+    "Taxobox utilisant une classification non précisée",
+    "Taxobox début par provenance de l'image - A",
+    "Statut UICN Préoccupation mineure"
+  ],
+  "generated_at": "2026-04-26T22:15:35.198985+00:00"
+}

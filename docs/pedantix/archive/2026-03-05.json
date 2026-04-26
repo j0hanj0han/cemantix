@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-05",
+  "puzzle_num": 1391,
+  "word": "Morphine",
+  "title_slug": "Morphine",
+  "title_display": "Morphine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Morphine",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "composé chimique",
+      "Chimiebox à maintenir",
+      "Infobox Chimie avec données 67/548/EEC redondantes à supprimer",
+      "4,5-Époxymorphinane"
+    ],
+    "level3": [
+      "La ___ est le principal alcaloïde de l'opium, le latex du pavot somnifère."
+    ]
+  },
+  "extract": "La morphine est le principal alcaloïde de l'opium, le latex du pavot somnifère.",
+  "categories": [
+    "composé chimique",
+    "Chimiebox à maintenir",
+    "Infobox Chimie avec données 67/548/EEC redondantes à supprimer",
+    "4,5-Époxymorphinane"
+  ],
+  "generated_at": "2026-04-26T22:15:37.569721+00:00"
+}

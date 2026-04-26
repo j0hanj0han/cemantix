@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-14",
+  "puzzle_num": 1400,
+  "word": "Cancer du sein",
+  "title_slug": "Cancer_du_sein",
+  "title_display": "Cancer du sein",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_du_sein",
+  "hints": {
+    "level1": [
+      "3 mots · 12 lettres",
+      "Premières lettres : C · D · S"
+    ],
+    "level2": [
+      "tumeur maligne de la glande mammaire",
+      "Orthographe à vérifier",
+      "Typographie à vérifier",
+      "Maladie liée au chromosome 13 humain"
+    ],
+    "level3": [
+      "Le ___ est un ___ de la glande mammaire, dont la fonction est de sécréter le lait."
+    ]
+  },
+  "extract": "Le cancer du sein est un cancer de la glande mammaire, dont la fonction est de sécréter le lait.",
+  "categories": [
+    "tumeur maligne de la glande mammaire",
+    "Orthographe à vérifier",
+    "Typographie à vérifier",
+    "Maladie liée au chromosome 13 humain"
+  ],
+  "generated_at": "2026-04-26T22:15:34.657570+00:00"
+}

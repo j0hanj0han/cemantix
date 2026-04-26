@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-21",
+  "puzzle_num": 1408,
+  "word": "Électrocardiographie",
+  "title_slug": "Électrocardiographie",
+  "title_display": "Électrocardiographie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Électrocardiographie",
+  "hints": {
+    "level1": [
+      "1 mot · 20 lettres",
+      "Première lettre : É"
+    ],
+    "level2": [
+      "représentation graphique de l'activité électrique du cœur",
+      "Examen médical",
+      "Électrophysiologie"
+    ],
+    "level3": [
+      "L'___ (ECG) est une représentation graphique de l'activité électrique du cœur."
+    ]
+  },
+  "extract": "L'électrocardiographie (ECG) est une représentation graphique de l'activité électrique du cœur.",
+  "categories": [
+    "représentation graphique de l'activité électrique du cœur",
+    "Examen médical",
+    "Électrophysiologie"
+  ],
+  "generated_at": "2026-04-26T19:49:41.569544+00:00"
+}

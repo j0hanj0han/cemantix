@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-17",
+  "puzzle_num": 1404,
+  "word": "Benzène",
+  "title_slug": "Benzène",
+  "title_display": "Benzène",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Benzène",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : B"
+    ],
+    "level2": [
+      "hydrocarbure aromatique monocyclique",
+      "Cancérogène chimique",
+      "Chimiebox à maintenir",
+      "Hydrocarbure aromatique"
+    ],
+    "level3": [
+      "Le ___ est un composé organique de formule brute C6H6, également noté Ph-H, φ-H, ou encore ϕ-H."
+    ]
+  },
+  "extract": "Le benzène est un composé organique de formule brute C6H6, également noté Ph-H, φ-H, ou encore ϕ-H.",
+  "categories": [
+    "hydrocarbure aromatique monocyclique",
+    "Cancérogène chimique",
+    "Chimiebox à maintenir",
+    "Hydrocarbure aromatique"
+  ],
+  "generated_at": "2026-04-26T19:49:42.878454+00:00"
+}

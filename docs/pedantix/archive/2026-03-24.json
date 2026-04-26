@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-24",
+  "puzzle_num": 1411,
+  "word": "Panthéon (Rome)",
+  "title_slug": "Panthéon_(Rome)",
+  "title_display": "Panthéon (Rome)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Panthéon_(Rome)",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : P · ("
+    ],
+    "level2": [
+      "édifice religieux antique à Rome, Italie",
+      "Temple antique à Rome",
+      "Monument romain à Rome",
+      "Champ de Mars (Rome)"
+    ],
+    "level3": [
+      "Le ___ de Rome est un édifice religieux antique situé sur la piazza della Rotonda ___, bâti sur l'ordre d'Agrippa en 27 av."
+    ]
+  },
+  "extract": "Le Panthéon de Rome est un édifice religieux antique situé sur la piazza della Rotonda (Rome), bâti sur l'ordre d'Agrippa en 27 av.",
+  "categories": [
+    "édifice religieux antique à Rome, Italie",
+    "Temple antique à Rome",
+    "Monument romain à Rome",
+    "Champ de Mars (Rome)"
+  ],
+  "generated_at": "2026-04-26T19:49:40.587769+00:00"
+}

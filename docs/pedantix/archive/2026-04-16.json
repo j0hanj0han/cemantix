@@ -1,0 +1,29 @@
+{
+  "date": "2026-04-16",
+  "puzzle_num": 1434,
+  "word": "Melbourne",
+  "title_slug": "Melbourne",
+  "title_display": "Melbourne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Melbourne",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "capitale de Victoria, Australie",
+      "Population de 2025 en infobox",
+      "Division administrative fondée en 1835"
+    ],
+    "level3": [
+      "___ est la capitale de l'État du Victoria, en Australie."
+    ]
+  },
+  "extract": "Melbourne est la capitale de l'État du Victoria, en Australie.",
+  "categories": [
+    "capitale de Victoria, Australie",
+    "Population de 2025 en infobox",
+    "Division administrative fondée en 1835"
+  ],
+  "generated_at": "2026-04-26T19:49:15.160490+00:00"
+}

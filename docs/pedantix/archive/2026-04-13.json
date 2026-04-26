@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-13",
+  "puzzle_num": 1431,
+  "word": "Corée",
+  "title_slug": "Corée",
+  "title_display": "Corée",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Corée",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "région d'Asie de l'Est"
+    ],
+    "level3": [
+      "La ___ est une région d'Asie de l'Est divisée en 1945 en deux zones d'occupation, puis en 1948 en deux États souverains et antagonistes, la ___ du Sud et la ___ du Nord, qui revendiquent la représentation de l'ensemble de la ___."
+    ]
+  },
+  "extract": "La Corée est une région d'Asie de l'Est divisée en 1945 en deux zones d'occupation, puis en 1948 en deux États souverains et antagonistes, la Corée du Sud et la Corée du Nord, qui revendiquent la représentation de l'ensemble de la Corée.",
+  "categories": [
+    "région d'Asie de l'Est"
+  ],
+  "generated_at": "2026-04-26T19:49:16.090438+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-09",
+  "puzzle_num": 1427,
+  "word": "Premier peuplement de l'Amérique",
+  "title_slug": "Premier_peuplement_de_l'Amérique",
+  "title_display": "Premier peuplement de l'Amérique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Premier_peuplement_de_l'Amérique",
+  "hints": {
+    "level1": [
+      "4 mots · 29 lettres",
+      "Premières lettres : P · P · D · L"
+    ],
+    "level2": [
+      "premières populations humaines en Amérique",
+      "Préhistoire de l'Amérique",
+      "Migration humaine",
+      "Controverse en histoire"
+    ],
+    "level3": [
+      "Le ___ fait l'objet de débats au sein de la communauté scientifique, principalement entre archéologues et paléogénéticiens."
+    ]
+  },
+  "extract": "Le premier peuplement de l'Amérique fait l'objet de débats au sein de la communauté scientifique, principalement entre archéologues et paléogénéticiens.",
+  "categories": [
+    "premières populations humaines en Amérique",
+    "Préhistoire de l'Amérique",
+    "Migration humaine",
+    "Controverse en histoire"
+  ],
+  "generated_at": "2026-04-26T19:49:17.404293+00:00"
+}

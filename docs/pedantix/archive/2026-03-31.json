@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-31",
+  "puzzle_num": 1418,
+  "word": "Chlorure de calcium",
+  "title_slug": "Chlorure_de_calcium",
+  "title_display": "Chlorure de calcium",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chlorure_de_calcium",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : C · D · C"
+    ],
+    "level2": [
+      "composé chimique",
+      "Composé du calcium",
+      "Chimiebox à maintenir",
+      "Chlorure"
+    ],
+    "level3": [
+      "Le ___ est le sel de ___ de l'acide chlorhydrique."
+    ]
+  },
+  "extract": "Le chlorure de calcium est le sel de calcium de l'acide chlorhydrique.",
+  "categories": [
+    "composé chimique",
+    "Composé du calcium",
+    "Chimiebox à maintenir",
+    "Chlorure"
+  ],
+  "generated_at": "2026-04-26T19:49:38.263865+00:00"
+}

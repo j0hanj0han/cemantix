@@ -1,0 +1,27 @@
+{
+  "date": "2026-04-02",
+  "puzzle_num": 1420,
+  "word": "Soudage",
+  "title_slug": "Soudage",
+  "title_display": "Soudage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Soudage",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "procédé d'assemblage par fusion de matériaux",
+      "Électrotechnique"
+    ],
+    "level3": [
+      "Le ___ est un procédé d'assemblage permanent qui assure la continuité de la matière à assembler ; la soudure est le résultat obtenu."
+    ]
+  },
+  "extract": "Le soudage est un procédé d'assemblage permanent qui assure la continuité de la matière à assembler ; la soudure est le résultat obtenu.",
+  "categories": [
+    "procédé d'assemblage par fusion de matériaux",
+    "Électrotechnique"
+  ],
+  "generated_at": "2026-04-26T19:49:37.644030+00:00"
+}

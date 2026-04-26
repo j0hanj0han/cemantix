@@ -1,0 +1,29 @@
+{
+  "date": "2026-04-05",
+  "puzzle_num": 1423,
+  "word": "Confédération germanique",
+  "title_slug": "Confédération_germanique",
+  "title_display": "Confédération germanique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Confédération_germanique",
+  "hints": {
+    "level1": [
+      "2 mots · 23 lettres",
+      "Premières lettres : C · G"
+    ],
+    "level2": [
+      "confédération d'États sur le territoire de l'ancien Saint-Empire romain germanique, 1815 à 1866",
+      "Congrès de Vienne",
+      "Confédération"
+    ],
+    "level3": [
+      "La ___ est une ___ européenne ayant existé de 1815 à 1866."
+    ]
+  },
+  "extract": "La Confédération germanique est une confédération européenne ayant existé de 1815 à 1866.",
+  "categories": [
+    "confédération d'États sur le territoire de l'ancien Saint-Empire romain germanique, 1815 à 1866",
+    "Congrès de Vienne",
+    "Confédération"
+  ],
+  "generated_at": "2026-04-26T19:49:19.082208+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-18",
+  "puzzle_num": 1405,
+  "word": "Empire du Brésil",
+  "title_slug": "Empire_du_Brésil",
+  "title_display": "Empire du Brésil",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Empire_du_Brésil",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : E · D · B"
+    ],
+    "level2": [
+      "ancien pays",
+      "Histoire du Brésil",
+      "Ancien empire en Amérique"
+    ],
+    "level3": [
+      "L’___ ou, abusivement, l’___ ___ien est une entité politique qui occupe, au XIXe siècle, sensiblement les territoires qui constituent le ___ actuel."
+    ]
+  },
+  "extract": "L’empire du Brésil ou, abusivement, l’Empire brésilien est une entité politique qui occupe, au XIXe siècle, sensiblement les territoires qui constituent le Brésil actuel.",
+  "categories": [
+    "ancien pays",
+    "Histoire du Brésil",
+    "Ancien empire en Amérique"
+  ],
+  "generated_at": "2026-04-26T19:49:42.574297+00:00"
+}

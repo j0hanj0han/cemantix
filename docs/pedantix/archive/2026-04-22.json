@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-22",
+  "puzzle_num": 1440,
+  "word": "Météorite",
+  "title_slug": "Météorite",
+  "title_display": "Météorite",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Météorite",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "corps solide naturel d'origine extraterrestre"
+    ],
+    "level3": [
+      "Une ___ est un objet solide d'origine extraterrestre qui n'a pas perdu toute sa masse en traversant l'atmosphère de la Terre, et qui en a atteint la surface solide sans être entièrement volatilisé lors de l'impact."
+    ]
+  },
+  "extract": "Une météorite est un objet solide d'origine extraterrestre qui n'a pas perdu toute sa masse en traversant l'atmosphère de la Terre, et qui en a atteint la surface solide sans être entièrement volatilisé lors de l'impact.",
+  "categories": [
+    "corps solide naturel d'origine extraterrestre"
+  ],
+  "generated_at": "2026-04-26T19:49:13.207914+00:00"
+}

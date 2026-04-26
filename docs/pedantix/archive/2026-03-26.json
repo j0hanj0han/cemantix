@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-26",
+  "puzzle_num": 1413,
+  "word": "Calendrier grégorien",
+  "title_slug": "Calendrier_grégorien",
+  "title_display": "Calendrier grégorien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Calendrier_grégorien",
+  "hints": {
+    "level1": [
+      "2 mots · 19 lettres",
+      "Premières lettres : C · G"
+    ],
+    "level2": [
+      "système arithmétique de calendrier solaire ; calendrier civil",
+      "Calendrier solaire",
+      "Recherche généalogique en France",
+      "Calendrier"
+    ],
+    "level3": [
+      "Le ___ est un ___ solaire conçu à la fin du XVIe siècle pour prendre en compte la dérive séculaire du ___ julien alors en usage."
+    ]
+  },
+  "extract": "Le calendrier grégorien est un calendrier solaire conçu à la fin du XVIe siècle pour prendre en compte la dérive séculaire du calendrier julien alors en usage.",
+  "categories": [
+    "système arithmétique de calendrier solaire ; calendrier civil",
+    "Calendrier solaire",
+    "Recherche généalogique en France",
+    "Calendrier"
+  ],
+  "generated_at": "2026-04-26T19:49:39.927094+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-10",
+  "puzzle_num": 1428,
+  "word": "Navire de guerre",
+  "title_slug": "Navire_de_guerre",
+  "title_display": "Navire de guerre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Navire_de_guerre",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : N · D · G"
+    ],
+    "level2": [
+      "navire équipé pour la guerre",
+      "Bateau de guerre",
+      "Force navale",
+      "Type de bateaux"
+    ],
+    "level3": [
+      "Un ___ ou ___ militaire est un ___ faisant partie des forces armées."
+    ]
+  },
+  "extract": "Un navire de guerre ou navire militaire est un navire faisant partie des forces armées.",
+  "categories": [
+    "navire équipé pour la guerre",
+    "Bateau de guerre",
+    "Force navale",
+    "Type de bateaux"
+  ],
+  "generated_at": "2026-04-26T19:49:17.069495+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-01",
+  "puzzle_num": 1419,
+  "word": "Légende urbaine",
+  "title_slug": "Légende_urbaine",
+  "title_display": "Légende urbaine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Légende_urbaine",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : L · U"
+    ],
+    "level2": [
+      "histoire inventée"
+    ],
+    "level3": [
+      "Une ___ est un récit bref, présenté généralement comme une anecdote véridique mais qui est sans fondement."
+    ]
+  },
+  "extract": "Une légende urbaine est un récit bref, présenté généralement comme une anecdote véridique mais qui est sans fondement.",
+  "categories": [
+    "histoire inventée"
+  ],
+  "generated_at": "2026-04-26T19:49:37.954971+00:00"
+}

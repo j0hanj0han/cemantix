@@ -11,8 +11,7 @@ Génère :
 
 import json
 import re
-import time
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from html import escape as _html_escape
 from pathlib import Path
 
@@ -40,167 +39,6 @@ _HEADERS_JSON = {
 _REF_DATE = date(2026, 4, 26)
 _REF_PUZZLE = 1444
 
-# ── Seeds : titres d'articles Wikipedia courants ──────────────────────────────
-# Le solveur les essaie un par un jusqu'à trouver (réponse de l'API : champ "d")
-
-SEEDS = [
-    # Pays
-    "France", "Allemagne", "Espagne", "Italie", "Royaume-Uni", "Russie", "Chine",
-    "États-Unis", "Japon", "Brésil", "Canada", "Australie", "Inde", "Argentine",
-    "Mexique", "Suisse", "Belgique", "Pays-Bas", "Portugal", "Suède", "Norvège",
-    "Danemark", "Finlande", "Pologne", "Autriche", "Hongrie", "Grèce", "Turquie",
-    "Israël", "Égypte", "Maroc", "Algérie", "Tunisie", "Afrique du Sud", "Nigeria",
-    "Iran", "Irak", "Arabie saoudite", "Pakistan", "Bangladesh", "Vietnam",
-    "Thaïlande", "Indonésie", "Philippines", "Malaisie", "Singapour", "Corée du Sud",
-    "Corée du Nord", "Cuba", "Venezuela", "Colombie", "Pérou", "Chili", "Bolivie",
-    "Ukraine", "Roumanie", "Bulgarie", "Serbie", "Croatie", "Slovénie", "Slovaquie",
-    "République tchèque", "Moldavie", "Biélorussie", "Géorgie", "Arménie",
-    "Kazakhstan", "Ouzbékistan", "Afghanistan", "Syrie", "Liban", "Jordanie",
-    "Qatar", "Émirats arabes unis", "Koweït", "Yémen", "Éthiopie", "Soudan",
-    "Libye", "Tanzanie", "Mozambique", "Madagascar", "Zimbabwe", "Zambie", "Angola",
-    "Ouganda", "Rwanda", "Mali", "Niger", "Burkina Faso", "Mauritanie", "Guinée",
-    "Togo", "Bénin", "Gabon", "Congo", "République démocratique du Congo",
-    "Mongolie", "Myanmar", "Laos", "Cambodge", "Népal", "Sri Lanka",
-    "Nouvelle-Zélande", "Haïti", "Jamaïque", "Honduras", "Guatemala",
-    "El Salvador", "Nicaragua", "Costa Rica", "Panama", "Équateur", "Paraguay",
-    "Uruguay", "Guyana", "Albanie", "Macédoine du Nord", "Monténégro",
-    "Bosnie-Herzégovine", "Kosovo", "Lituanie", "Lettonie", "Estonie",
-    "Islande", "Luxembourg", "Malte", "Chypre", "Andorre", "Monaco",
-    "Liechtenstein", "Saint-Marin", "Vatican", "Cameroun", "Sénégal",
-    "Côte d'Ivoire", "Kenya", "Ghana",
-    # Villes françaises
-    "Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes", "Strasbourg",
-    "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims", "Le Havre", "Grenoble",
-    "Dijon", "Angers", "Nîmes", "Tours", "Metz", "Nancy", "Amiens", "Limoges",
-    "Besançon", "Mulhouse", "Perpignan", "Caen", "Brest", "Toulon", "Rouen",
-    "Aix-en-Provence", "Clermont-Ferrand", "Orléans", "Saint-Étienne", "Avignon",
-    # Villes mondiales
-    "Londres", "Berlin", "Madrid", "Rome", "Moscou", "Pékin", "Tokyo", "New York",
-    "Los Angeles", "Chicago", "Toronto", "Sydney", "Melbourne", "Mumbai", "Delhi",
-    "Shanghai", "Hong Kong", "Séoul", "Bangkok", "Jakarta",
-    "Buenos Aires", "São Paulo", "Rio de Janeiro", "Mexico", "Lima", "Bogotá",
-    "Lagos", "Le Caire", "Johannesburg", "Nairobi", "Casablanca", "Tunis", "Alger",
-    "Istanbul", "Ankara", "Téhéran", "Bagdad", "Riyad", "Dubaï",
-    "Amsterdam", "Bruxelles", "Zurich", "Vienne", "Stockholm", "Oslo",
-    "Copenhague", "Helsinki", "Dublin", "Lisbonne", "Athènes", "Budapest",
-    "Prague", "Varsovie", "Bucarest", "Kyiv", "Brasilia", "Santiago",
-    # Personnages historiques français
-    "Napoléon Ier", "Charles de Gaulle", "Louis XIV", "Charlemagne",
-    "Jeanne d'Arc", "Louis XVI", "Marie-Antoinette", "Robespierre",
-    "François Ier", "Henri IV", "Richelieu", "Louis IX", "Philippe II Auguste",
-    "Louis XIII", "Louis XV", "Napoléon III", "Louis XVIII",
-    "Voltaire", "Victor Hugo", "Molière", "Racine", "Corneille", "Descartes",
-    "Pascal", "Rousseau", "Montesquieu", "Diderot",
-    "Gustave Flaubert", "Émile Zola", "Honoré de Balzac", "Stendhal",
-    "Alexandre Dumas", "Marcel Proust", "Albert Camus", "Jean-Paul Sartre",
-    "Simone de Beauvoir", "Antoine de Saint-Exupéry", "Jules Verne",
-    "Alphonse Daudet", "Guy de Maupassant", "Charles Baudelaire",
-    "Arthur Rimbaud", "Paul Verlaine", "Louis Pasteur", "Marie Curie",
-    "Pierre Curie", "Antoine Lavoisier", "Claude Monet", "Paul Cézanne",
-    "Auguste Renoir", "Edgar Degas", "Henri Matisse", "Paul Gauguin",
-    "Auguste Rodin", "Édith Piaf", "Georges Brassens", "Jacques Brel",
-    "Serge Gainsbourg", "Johnny Hallyday", "Charles Aznavour",
-    "François Truffaut", "Jean-Luc Godard", "Louis de Funès", "Jean Gabin",
-    "Brigitte Bardot", "Catherine Deneuve", "Alain Delon",
-    # Personnages historiques mondiaux
-    "Cléopâtre", "Jules César", "Alexandre le Grand", "Hannibal",
-    "Genghis Khan", "Christophe Colomb", "Vasco de Gama", "Marco Polo",
-    "Charles Quint", "Pierre le Grand", "Catherine II de Russie",
-    "George Washington", "Abraham Lincoln", "Thomas Jefferson",
-    "Benjamin Franklin", "Otto von Bismarck", "Winston Churchill",
-    "Adolf Hitler", "Staline", "Lénine", "Mao Zedong", "Che Guevara",
-    "Fidel Castro", "Gandhi", "Nelson Mandela", "Martin Luther King",
-    "Nikola Tesla", "Thomas Edison", "Albert Einstein", "Charles Darwin",
-    "Isaac Newton", "Galilée", "Copernic", "Nicolas Copernic",
-    "Socrate", "Platon", "Aristote", "Pythagore", "Archimède",
-    "Hippocrate", "Homère", "Cicéron", "Virgile",
-    "Léonard de Vinci", "Michel-Ange", "Raphaël", "Titien",
-    "Rembrandt", "Vermeer", "Goya", "Velázquez", "Rubens",
-    "Bach", "Mozart", "Beethoven", "Schubert", "Chopin", "Liszt",
-    "Brahms", "Wagner", "Verdi", "Puccini", "Tchaïkovski", "Debussy",
-    "Ravel", "Stravinsky", "Haydn",
-    "Shakespeare", "Cervantes", "Goethe", "Dante", "Dostoïevski", "Tolstoï",
-    "Tchékhov", "Kafka", "Freud", "Marx", "Nietzsche", "Hegel", "Kant",
-    "Pablo Picasso", "Salvador Dalí", "Kandinsky", "Andy Warhol",
-    "René Magritte", "Joan Miró", "Marc Chagall", "Frida Kahlo",
-    "Charles Dickens", "Jane Austen", "Mark Twain", "Ernest Hemingway",
-    "Edgar Allan Poe", "Herman Melville", "Oscar Wilde", "George Orwell",
-    "Aldous Huxley", "James Joyce", "Virginia Woolf", "Simone Veil",
-    # Géographie physique
-    "Sahara", "Amazonie", "Himalaya", "Andes", "Alpes", "Pyrénées",
-    "Carpates", "Caucase", "Oural", "Sibérie", "Arctique", "Antarctique",
-    "Nil", "Amazone", "Mississippi", "Yangtsé", "Gange", "Volga",
-    "Rhin", "Danube", "Rhône", "Loire", "Seine", "Congo (fleuve)",
-    "Lac Victoria", "Lac Baïkal", "Lac Supérieur",
-    "Mer Méditerranée", "Mer Noire", "Mer Caspienne", "Mer Rouge",
-    "Océan Pacifique", "Océan Atlantique", "Océan Indien",
-    "Mont Blanc", "Everest", "Kilimandjaro", "Fuji",
-    "Désert de Gobi", "Grand Canyon",
-    # Sciences et technologie
-    "Relativité restreinte", "Relativité générale", "Mécanique quantique",
-    "Trou noir", "Big Bang", "Évolution", "ADN", "Photosynthèse",
-    "Tectonique des plaques", "Volcan", "Internet", "Intelligence artificielle",
-    "Énergie nucléaire", "Antibiotique", "Vaccin", "Virus", "Bactérie",
-    "Coronavirus", "SIDA", "Grippe espagnole", "Peste noire",
-    "Révolution industrielle", "Renaissance",
-    # Événements historiques
-    "Révolution française", "Première Guerre mondiale", "Seconde Guerre mondiale",
-    "Guerre froide", "Guerre de Cent Ans", "Guerre de Trente Ans",
-    "Guerre de Sécession", "Révolution américaine", "Révolution russe",
-    "Débarquement de Normandie", "Commune de Paris", "Croisades",
-    "Inquisition", "Shoah", "Génocide arménien",
-    "Chute du mur de Berlin", "Chute de Constantinople",
-    "Découverte de l'Amérique", "Conquête spatiale", "Apollo 11",
-    # Œuvres littéraires et artistiques
-    "Les Misérables", "Notre-Dame de Paris", "Le Comte de Monte-Cristo",
-    "Les Trois Mousquetaires", "Madame Bovary", "Germinal",
-    "Candide", "L'Étranger", "La Peste", "Le Petit Prince",
-    "Don Quichotte", "Hamlet", "Macbeth", "Roméo et Juliette",
-    "Crime et Châtiment", "Guerre et Paix", "Anna Karénine",
-    "L'Odyssée", "L'Iliade", "Divine Comédie",
-    "La Bible", "Le Coran",
-    "Mona Lisa", "La Nuit étoilée", "Les Tournesols",
-    "La Liberté guidant le peuple", "Le Radeau de la Méduse",
-    "La Vénus de Milo", "Le Penseur",
-    "Tour Eiffel", "Musée du Louvre", "Château de Versailles",
-    "Sagrada Família", "Colisée", "Parthénon", "Panthéon",
-    "Grande Muraille de Chine", "Taj Mahal", "Pyramides de Gizeh",
-    "Machu Picchu", "Stonehenge", "Angkor Vat",
-    # Animaux et nature
-    "Lion", "Tigre", "Éléphant", "Girafe", "Rhinocéros", "Hippopotame",
-    "Crocodile", "Chimpanzé", "Gorille", "Baleine bleue", "Dauphin", "Requin",
-    "Aigle", "Faucon", "Pingouin", "Manchot", "Flamant rose",
-    "Chêne", "Séquoia", "Baobab", "Rose", "Tournesol",
-    "Blé", "Maïs", "Riz", "Café", "Cacao", "Thé",
-    # Sport
-    "Football", "Tennis", "Rugby", "Cyclisme", "Natation", "Athlétisme",
-    "Jeux olympiques", "Coupe du monde de football", "Tour de France",
-    "Roland-Garros", "Wimbledon", "Champions League", "Formule 1",
-    "Zinédine Zidane", "Pelé", "Lionel Messi", "Cristiano Ronaldo",
-    "Roger Federer", "Rafael Nadal", "Novak Djokovic", "Serena Williams",
-    "Michael Jordan", "Muhammad Ali", "Usain Bolt", "Michael Phelps",
-    "Bernard Hinault", "Jacques Anquetil", "Tour de France cycliste",
-    # Institutions et organisations
-    "Organisation des Nations unies", "UNESCO", "OTAN",
-    "Union européenne", "Croix-Rouge", "FMI", "Banque mondiale",
-    "Académie française", "Sorbonne", "Polytechnique",
-    # Religion et mythologie
-    "Christianisme", "Islam", "Judaïsme", "Bouddhisme", "Hindouisme",
-    "Mythologie grecque", "Mythologie romaine", "Mythologie nordique",
-    "Zeus", "Jupiter", "Odin", "Thor", "Hercule", "Achille", "Ulysse",
-    "Jésus de Nazareth", "Mahomet", "Bouddha", "Moïse",
-    # Musique et cinéma (œuvres)
-    "Star Wars", "Le Seigneur des anneaux", "Harry Potter",
-    "James Bond", "Batman", "Superman", "Spider-Man",
-    "Les Beatles", "Rolling Stones", "Elvis Presley", "Michael Jackson",
-    "Madonna", "David Bowie", "Queen", "Pink Floyd", "Led Zeppelin",
-    # Divers notables
-    "Lune", "Soleil", "Mars (planète)", "Saturne", "Jupiter (planète)",
-    "Dinosaure", "Mammouth", "Néandertal", "Homo sapiens",
-    "Démocratie", "Communisme", "Fascisme", "Capitalisme", "Socialisme",
-    "Philosophie", "Mathématiques", "Physique", "Chimie", "Biologie",
-    "Histoire", "Géographie", "Linguistique", "Psychologie",
-]
 
 
 # ── API Pédantix ──────────────────────────────────────────────────────────────
@@ -320,27 +158,41 @@ def fetch_wikipedia_data(slug: str) -> tuple[str, list[str]]:
     return extract, categories
 
 
+def fetch_history() -> list[tuple[int, str, str]]:
+    """
+    Récupère l'historique Pédantix via /history.
+    Retourne une liste de (puzzle_num, slug, display_name) pour les puzzles résolus seulement.
+    Le puzzle actif retourne ['', ''] et est filtré.
+    """
+    try:
+        resp = _session.get(f"{BASE_URL}/history", timeout=10)
+        if resp.status_code == 200:
+            raw = resp.json()
+            result = []
+            for entry in raw:
+                if isinstance(entry, list) and len(entry) >= 3:
+                    num = entry[0]
+                    info = entry[2]
+                    if isinstance(info, list) and len(info) >= 2 and info[0]:
+                        result.append((num, info[0], info[1]))
+            return result
+    except Exception as e:
+        print(f"   ⚠ /history : {e}")
+    return []
+
+
 def solve(puzzle_num: int) -> tuple[str | None, str | None]:
     """
-    Trouve le titre de l'article Pédantix en testant les seeds.
+    Trouve le titre de l'article Pédantix via l'endpoint /history.
     Retourne (slug, display_name) ou (None, None) si échec.
     """
-    print(f"[Pédantix] Résolution puzzle #{puzzle_num} — {len(SEEDS)} candidats")
-    for i, candidate in enumerate(SEEDS):
-        result = _score_candidate(candidate, puzzle_num)
-        if result is None:
-            continue
-        d = result.get("d")
-        if d:
-            if isinstance(d, list) and len(d) >= 2:
-                slug, name = d[0], d[1]
-            else:
-                slug = name = str(d)
-            print(f"[Pédantix] ✅ Trouvé : {name!r} (candidat #{i+1} : {candidate!r})")
+    print(f"[Pédantix] Résolution puzzle #{puzzle_num} via /history…")
+    history = fetch_history()
+    for num, slug, name in history:
+        if num == puzzle_num:
+            print(f"[Pédantix] ✅ Trouvé dans /history : {name!r}")
             return slug, name
-        if (i + 1) % 50 == 0:
-            print(f"[Pédantix]    {i+1}/{len(SEEDS)} essayés…")
-    print(f"[Pédantix] ❌ Titre non trouvé après {len(SEEDS)} tentatives.")
+    print(f"[Pédantix] ❌ Puzzle #{puzzle_num} introuvable dans /history ({len(history)} entrées).")
     return None, None
 
 
@@ -1150,7 +1002,6 @@ def _archive_yesterday(today: date, puzzle_num: int, yesterday_slug: str, yester
     Archive la solution d'hier si elle n'est pas déjà en base.
     Appelle les endpoints Wikipedia pour obtenir l'extrait et les catégories.
     """
-    from datetime import timedelta
     yesterday = today - timedelta(days=1)
     yesterday_str = yesterday.isoformat()
     archive_json_path = PEDANTIX_ARCHIVE / f"{yesterday_str}.json"
@@ -1192,7 +1043,49 @@ def run(today: date) -> dict | None:
     if yesterday_name:
         print(f"[Pédantix] Réponse d'hier : {yesterday_name!r}")
 
-    # Archiver la réponse d'hier si disponible
+    # Récupérer l'historique complet pour backfill + solve
+    print("[Pédantix] Récupération de l'historique /history…")
+    history = fetch_history()
+    print(f"[Pédantix] {len(history)} entrées dans /history")
+
+    # Backfill des archives passées depuis /history (max 20 par run pour ne pas surcharger Wikipedia)
+    history_map = {num: (slug, name) for num, slug, name in history if slug}
+    backfilled = 0
+    BACKFILL_LIMIT = 20
+    for num, slug, name in sorted(history, key=lambda x: x[0], reverse=True):
+        if backfilled >= BACKFILL_LIMIT:
+            break
+        if num >= puzzle_num or not slug or not name:
+            continue  # puzzle du jour / futur ou réponse non révélée
+        days_ago = puzzle_num - num
+        past_date = today - timedelta(days=days_ago)
+        archive_path = PEDANTIX_ARCHIVE / f"{past_date.isoformat()}.json"
+        if not archive_path.exists():
+            print(f"[Pédantix] Backfill #{num} ({past_date.isoformat()}) : {name!r}…")
+            hints = build_hints(name, slug)
+            past_data = {
+                "date": past_date.isoformat(),
+                "puzzle_num": num,
+                "word": name,
+                "title_slug": slug,
+                "title_display": name,
+                "wikipedia_url": f"https://fr.wikipedia.org/wiki/{slug}",
+                "hints": {
+                    "level1": hints["level1"],
+                    "level2": hints["level2"],
+                    "level3": hints["level3"],
+                },
+                "extract": hints.get("extract", ""),
+                "categories": hints.get("categories", []),
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+            }
+            PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
+            atomic_write(archive_path, json.dumps(past_data, ensure_ascii=False, indent=2))
+            backfilled += 1
+    if backfilled:
+        print(f"[Pédantix] ✅ {backfilled} archives backfillées depuis /history")
+
+    # Archiver la réponse d'hier si disponible (via scraping HTML — priorité sur /history)
     if yesterday_slug and yesterday_name:
         _archive_yesterday(today, puzzle_num, yesterday_slug, yesterday_name)
 
@@ -1211,21 +1104,26 @@ def run(today: date) -> dict | None:
             return existing
 
     print(f"[Pédantix] Résolution du puzzle #{puzzle_num}…")
-    title_slug, title_display = solve(puzzle_num)
+    if puzzle_num in history_map:
+        title_slug, title_display = history_map[puzzle_num]
+        print(f"[Pédantix] ✅ Trouvé dans /history : {title_display!r}")
+    else:
+        title_slug, title_display = None, None
+        print(f"[Pédantix] ❌ Puzzle #{puzzle_num} absent de /history.")
 
     if not title_display:
-        print("[Pédantix] ❌ Le solveur n'a pas trouvé la solution.")
-        # Régénérer quand même le HTML existant avec les archives mises à jour
-        if solution_path.exists():
-            existing = json.loads(solution_path.read_text(encoding="utf-8"))
-            _generate_all_html(
-                today,
-                puzzle_num,
-                existing.get("word", ""),
-                existing.get("title_slug", ""),
-                existing.get("hints", {}),
-                existing.get("extract", ""),
-            )
+        # /history ne révèle pas encore le puzzle actif — utiliser la dernière archive connue
+        print("[Pédantix] ⏳ Solution du jour non disponible dans /history (puzzle actif).")
+        all_archives = load_all_archives()
+        if all_archives:
+            latest = all_archives[0]  # archives triées DESC
+            title_display = latest.get("title_display") or latest.get("word", "")
+            title_slug = latest.get("title_slug", title_display)
+            hints = latest.get("hints", {"level1": [], "level2": [], "level3": []})
+            extract = latest.get("extract", "")
+            latest_puzzle_num = latest.get("puzzle_num", puzzle_num - 1)
+            print(f"[Pédantix] ℹ Affichage de la dernière solution connue : #{latest_puzzle_num} {title_display!r}")
+            _generate_all_html(today, latest_puzzle_num, title_display, title_slug, hints, extract)
         return None
 
     print(f"[Pédantix] ✅ Solution : {title_display!r}")

@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-25",
+  "puzzle_num": 1412,
+  "word": "Guerre d'indépendance grecque",
+  "title_slug": "Guerre_d'indépendance_grecque",
+  "title_display": "Guerre d'indépendance grecque",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_d'indépendance_grecque",
+  "hints": {
+    "level1": [
+      "3 mots · 27 lettres",
+      "Premières lettres : G · D · G"
+    ],
+    "level2": [
+      "révolution en Grèce, de 1821 à 1829",
+      "Conflit militaire géolocalisable sans coordonnées paramétrées",
+      "Guerre impliquant l'Empire ottoman",
+      "Révolte dans l'Empire ottoman"
+    ],
+    "level3": [
+      "La ___ d’indépendance ___ (1821-1829), ou révolution ___, est le conflit à l'issue duquel les Grecs, après quatre siècles d'occupation depuis la prise de Constantinople et la chute de l'Empire romain d'Orient en 1453, et finalement soutenus par les grandes puissances, réussirent à imposer leur indépendance à l'Empire ottoman."
+    ]
+  },
+  "extract": "La guerre d’indépendance grecque (1821-1829), ou révolution grecque, est le conflit à l'issue duquel les Grecs, après quatre siècles d'occupation depuis la prise de Constantinople et la chute de l'Empire romain d'Orient en 1453, et finalement soutenus par les grandes puissances, réussirent à imposer leur indépendance à l'Empire ottoman.",
+  "categories": [
+    "révolution en Grèce, de 1821 à 1829",
+    "Conflit militaire géolocalisable sans coordonnées paramétrées",
+    "Guerre impliquant l'Empire ottoman",
+    "Révolte dans l'Empire ottoman"
+  ],
+  "generated_at": "2026-04-26T19:49:40.218599+00:00"
+}

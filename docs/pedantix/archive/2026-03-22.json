@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-22",
+  "puzzle_num": 1409,
+  "word": "Cologne",
+  "title_slug": "Cologne",
+  "title_display": "Cologne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cologne",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "ville d'Allemagne",
+      "Population de 2025 en infobox",
+      "Ville en Rhénanie-du-Nord-Westphalie",
+      "Hanse"
+    ],
+    "level3": [
+      "___ est une ville de l'Ouest de l'Allemagne, en Rhénanie-du-Nord-Westphalie."
+    ]
+  },
+  "extract": "Cologne est une ville de l'Ouest de l'Allemagne, en Rhénanie-du-Nord-Westphalie.",
+  "categories": [
+    "ville d'Allemagne",
+    "Population de 2025 en infobox",
+    "Ville en Rhénanie-du-Nord-Westphalie",
+    "Hanse"
+  ],
+  "generated_at": "2026-04-26T19:49:41.283353+00:00"
+}

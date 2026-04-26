@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-06",
+  "puzzle_num": 1424,
+  "word": "Saint-Pétersbourg",
+  "title_slug": "Saint-Pétersbourg",
+  "title_display": "Saint-Pétersbourg",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Saint-Pétersbourg",
+  "hints": {
+    "level1": [
+      "1 mot · 17 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "ville de Russie",
+      "Population de 2024 en infobox",
+      "Ville historique de Russie",
+      "Centre historique de Saint-Pétersbourg et ensembles monumentaux annexes"
+    ],
+    "level3": [
+      "___ est la deuxième ville de Russie par sa population, avec 5 281 579 habitants en 2021, après la capitale Moscou."
+    ]
+  },
+  "extract": "Saint-Pétersbourg est la deuxième ville de Russie par sa population, avec 5 281 579 habitants en 2021, après la capitale Moscou.",
+  "categories": [
+    "ville de Russie",
+    "Population de 2024 en infobox",
+    "Ville historique de Russie",
+    "Centre historique de Saint-Pétersbourg et ensembles monumentaux annexes"
+  ],
+  "generated_at": "2026-04-26T19:49:18.759754+00:00"
+}

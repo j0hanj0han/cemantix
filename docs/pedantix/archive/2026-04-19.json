@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-19",
+  "puzzle_num": 1437,
+  "word": "Surf",
+  "title_slug": "Surf",
+  "title_display": "Surf",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Surf",
+  "hints": {
+    "level1": [
+      "1 mot · 4 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "sport de glisse sur les vagues déferlantes",
+      "Sport de glisse",
+      "Sport nautique",
+      "Type de bateau de sport"
+    ],
+    "level3": [
+      "Le ___ est une pratique physique individuelle de glisse sur les vagues déferlantes, au bord de l'océan."
+    ]
+  },
+  "extract": "Le surf est une pratique physique individuelle de glisse sur les vagues déferlantes, au bord de l'océan.",
+  "categories": [
+    "sport de glisse sur les vagues déferlantes",
+    "Sport de glisse",
+    "Sport nautique",
+    "Type de bateau de sport"
+  ],
+  "generated_at": "2026-04-26T19:49:14.258714+00:00"
+}

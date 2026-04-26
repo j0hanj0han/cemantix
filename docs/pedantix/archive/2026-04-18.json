@@ -1,0 +1,29 @@
+{
+  "date": "2026-04-18",
+  "puzzle_num": 1436,
+  "word": "Francium",
+  "title_slug": "Francium",
+  "title_display": "Francium",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Francium",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : F"
+    ],
+    "level2": [
+      "élément chimique de numéro atomique 87 et de symbole Fr",
+      "Élément chimique",
+      "Métal alcalin"
+    ],
+    "level3": [
+      "Le ___, connu pendant un temps sous les noms d'éka-césium et actinium K, est l'élément chimique de numéro atomique 87, de symbole Fr."
+    ]
+  },
+  "extract": "Le francium, connu pendant un temps sous les noms d'éka-césium et actinium K, est l'élément chimique de numéro atomique 87, de symbole Fr.",
+  "categories": [
+    "élément chimique de numéro atomique 87 et de symbole Fr",
+    "Élément chimique",
+    "Métal alcalin"
+  ],
+  "generated_at": "2026-04-26T19:49:14.551168+00:00"
+}

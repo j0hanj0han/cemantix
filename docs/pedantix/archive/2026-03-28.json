@@ -1,0 +1,27 @@
+{
+  "date": "2026-03-28",
+  "puzzle_num": 1415,
+  "word": "Dynastie Qing",
+  "title_slug": "Dynastie_Qing",
+  "title_display": "Dynastie Qing",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dynastie_Qing",
+  "hints": {
+    "level1": [
+      "2 mots · 12 lettres",
+      "Premières lettres : D · Q"
+    ],
+    "level2": [
+      "dynastie d'origine mandchoue et dernière dynastie impériale de Chine, du XVIIe au XXe siècle",
+      "Famille royale"
+    ],
+    "level3": [
+      "La ___ — également retranscrite en ___ Ch'ing, Ching ou Tsing — est la ___ impériale qui a régné sur la Chine durant près de trois siècles, de 1644 à 1912."
+    ]
+  },
+  "extract": "La dynastie Qing — également retranscrite en dynastie Ch'ing, Ching ou Tsing — est la dynastie impériale qui a régné sur la Chine durant près de trois siècles, de 1644 à 1912.",
+  "categories": [
+    "dynastie d'origine mandchoue et dernière dynastie impériale de Chine, du XVIIe au XXe siècle",
+    "Famille royale"
+  ],
+  "generated_at": "2026-04-26T19:49:39.297662+00:00"
+}

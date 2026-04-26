@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-16",
+  "puzzle_num": 1403,
+  "word": "Datation au carbone 14",
+  "title_slug": "Datation_au_carbone_14",
+  "title_display": "Datation au carbone 14",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Datation_au_carbone_14",
+  "hints": {
+    "level1": [
+      "4 mots · 19 lettres",
+      "Premières lettres : D · A · C · 1"
+    ],
+    "level2": [
+      "méthode de datation",
+      "Méthode liée à l'archéologie",
+      "Datation radiométrique",
+      "Carbone"
+    ],
+    "level3": [
+      "La ___, dite également ___ au radio___ ou ___ par comptage du ___ 14 résiduel, est une méthode de ___ radiométrique fondée sur la mesure de l'activité radiologique du ___ 14 contenu dans la matière organique dont on souhaite connaître l'âge absolu, c'est-à-dire le temps écoulé depuis la mort de l'organisme qui le constitue."
+    ]
+  },
+  "extract": "La datation au carbone 14, dite également datation au radiocarbone ou datation par comptage du carbone 14 résiduel, est une méthode de datation radiométrique fondée sur la mesure de l'activité radiologique du carbone 14 contenu dans la matière organique dont on souhaite connaître l'âge absolu, c'est-à-dire le temps écoulé depuis la mort de l'organisme qui le constitue.",
+  "categories": [
+    "méthode de datation",
+    "Méthode liée à l'archéologie",
+    "Datation radiométrique",
+    "Carbone"
+  ],
+  "generated_at": "2026-04-26T19:49:43.238968+00:00"
+}

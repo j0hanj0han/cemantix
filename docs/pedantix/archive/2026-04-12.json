@@ -1,0 +1,29 @@
+{
+  "date": "2026-04-12",
+  "puzzle_num": 1430,
+  "word": "Néolithique",
+  "title_slug": "Néolithique",
+  "title_display": "Néolithique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Néolithique",
+  "hints": {
+    "level1": [
+      "1 mot · 11 lettres",
+      "Première lettre : N"
+    ],
+    "level2": [
+      "période préhistorique d'adoption de l'agriculture",
+      "Préhistoire",
+      "Chrononyme"
+    ],
+    "level3": [
+      "Le ___ est une période de la Préhistoire, qui débute durant le réchauffement climatique de l'Holocène."
+    ]
+  },
+  "extract": "Le Néolithique est une période de la Préhistoire, qui débute durant le réchauffement climatique de l'Holocène.",
+  "categories": [
+    "période préhistorique d'adoption de l'agriculture",
+    "Préhistoire",
+    "Chrononyme"
+  ],
+  "generated_at": "2026-04-26T19:49:16.445149+00:00"
+}

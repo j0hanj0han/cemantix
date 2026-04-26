@@ -1,0 +1,27 @@
+{
+  "date": "2026-04-20",
+  "puzzle_num": 1438,
+  "word": "Nanotechnologie",
+  "title_slug": "Nanotechnologie",
+  "title_display": "Nanotechnologie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nanotechnologie",
+  "hints": {
+    "level1": [
+      "1 mot · 15 lettres",
+      "Première lettre : N"
+    ],
+    "level2": [
+      "étude et procédés de fabrication de dispositifs à l'échelle du nanomètre",
+      "Transhumanisme"
+    ],
+    "level3": [
+      "Les nanosciences et ___s, ou NST, peuvent être définies comme l’ensemble des études et des procédés de fabrication et de manipulation de structures, de dispositifs et de systèmes matériels à l’échelle du nanomètre (nm), qui est l'unité la plus proche de la distance entre deux atomes."
+    ]
+  },
+  "extract": "Les nanosciences et nanotechnologies, ou NST, peuvent être définies comme l’ensemble des études et des procédés de fabrication et de manipulation de structures, de dispositifs et de systèmes matériels à l’échelle du nanomètre (nm), qui est l'unité la plus proche de la distance entre deux atomes.",
+  "categories": [
+    "étude et procédés de fabrication de dispositifs à l'échelle du nanomètre",
+    "Transhumanisme"
+  ],
+  "generated_at": "2026-04-26T19:49:13.858958+00:00"
+}

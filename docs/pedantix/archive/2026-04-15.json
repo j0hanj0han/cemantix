@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-15",
+  "puzzle_num": 1433,
+  "word": "Aide médicale urgente",
+  "title_slug": "Aide_médicale_urgente",
+  "title_display": "Aide médicale urgente",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Aide_médicale_urgente",
+  "hints": {
+    "level1": [
+      "3 mots · 19 lettres",
+      "Premières lettres : A · M · U"
+    ],
+    "level2": [
+      "service d'aide médicale urgente aux personnes victimes d'un accident ou d'une affection brutale et inattendue",
+      "Transport sanitaire",
+      "Organisation des premiers secours",
+      "Médecine d'urgence"
+    ],
+    "level3": [
+      "L'___, désignée aussi par l'acronyme AMU, est le dispositif mis en place par un État pour apporter une ___ ___ aux personnes victimes d'un accident ou d'une affection brutale et inattendue."
+    ]
+  },
+  "extract": "L'aide médicale urgente, désignée aussi par l'acronyme AMU, est le dispositif mis en place par un État pour apporter une aide médicale aux personnes victimes d'un accident ou d'une affection brutale et inattendue.",
+  "categories": [
+    "service d'aide médicale urgente aux personnes victimes d'un accident ou d'une affection brutale et inattendue",
+    "Transport sanitaire",
+    "Organisation des premiers secours",
+    "Médecine d'urgence"
+  ],
+  "generated_at": "2026-04-26T19:49:15.481246+00:00"
+}

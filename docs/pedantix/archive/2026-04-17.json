@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-17",
+  "puzzle_num": 1435,
+  "word": "YouTube",
+  "title_slug": "YouTube",
+  "title_display": "YouTube",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/YouTube",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : Y"
+    ],
+    "level2": [
+      "site web d'hébergement de vidéos",
+      "Partage de vidéos sur Internet",
+      "Sous-titrage",
+      "Acquisition de Google"
+    ],
+    "level3": [
+      "___ est un site web de type plateforme de vidéos en ligne et média social, sur lequel les utilisateurs peuvent regarder, envoyer, commenter, évaluer et partager des vidéos visionnables en streaming."
+    ]
+  },
+  "extract": "YouTube est un site web de type plateforme de vidéos en ligne et média social, sur lequel les utilisateurs peuvent regarder, envoyer, commenter, évaluer et partager des vidéos visionnables en streaming.",
+  "categories": [
+    "site web d'hébergement de vidéos",
+    "Partage de vidéos sur Internet",
+    "Sous-titrage",
+    "Acquisition de Google"
+  ],
+  "generated_at": "2026-04-26T19:49:14.844894+00:00"
+}

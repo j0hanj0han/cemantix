@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-07",
+  "puzzle_num": 1425,
+  "word": "Rabat",
+  "title_slug": "Rabat",
+  "title_display": "Rabat",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Rabat",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : R"
+    ],
+    "level2": [
+      "capitale du Maroc",
+      "Population de 2024 en infobox",
+      "Population de 2014 en infobox",
+      "Patrimoine mondial au Maroc"
+    ],
+    "level3": [
+      "___ est la capitale du royaume du Maroc."
+    ]
+  },
+  "extract": "Rabat est la capitale du royaume du Maroc.",
+  "categories": [
+    "capitale du Maroc",
+    "Population de 2024 en infobox",
+    "Population de 2014 en infobox",
+    "Patrimoine mondial au Maroc"
+  ],
+  "generated_at": "2026-04-26T19:49:18.235422+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-21",
+  "puzzle_num": 1439,
+  "word": "Courrier électronique",
+  "title_slug": "Courrier_électronique",
+  "title_display": "Courrier électronique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Courrier_électronique",
+  "hints": {
+    "level1": [
+      "2 mots · 20 lettres",
+      "Premières lettres : C · É"
+    ],
+    "level2": [
+      "service de transmission de messages envoyés électroniquement via un réseau informatique"
+    ],
+    "level3": [
+      "Un ___, également nommé message ___, courriel ou e-mail, raccourci en mail, est un message écrit, envoyé ___ment via un réseau informatique par le protocole SMTP."
+    ]
+  },
+  "extract": "Un courrier électronique, également nommé message électronique, courriel ou e-mail, raccourci en mail, est un message écrit, envoyé électroniquement via un réseau informatique par le protocole SMTP.",
+  "categories": [
+    "service de transmission de messages envoyés électroniquement via un réseau informatique"
+  ],
+  "generated_at": "2026-04-26T19:49:13.537058+00:00"
+}

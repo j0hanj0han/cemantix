@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-03",
+  "puzzle_num": 1421,
+  "word": "Varicelle",
+  "title_slug": "Varicelle",
+  "title_display": "Varicelle",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Varicelle",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : V"
+    ],
+    "level2": [
+      "virus purulent venant du VZV",
+      "Maladie virale",
+      "Infection en dermatologie",
+      "Maladie en pédiatrie"
+    ],
+    "level3": [
+      "La ___, dite aussi communément picote au Québec, est une maladie éruptive, ordinairement très bénigne dans sa forme classique de maladie infantile."
+    ]
+  },
+  "extract": "La varicelle, dite aussi communément picote au Québec, est une maladie éruptive, ordinairement très bénigne dans sa forme classique de maladie infantile.",
+  "categories": [
+    "virus purulent venant du VZV",
+    "Maladie virale",
+    "Infection en dermatologie",
+    "Maladie en pédiatrie"
+  ],
+  "generated_at": "2026-04-26T19:49:37.325809+00:00"
+}

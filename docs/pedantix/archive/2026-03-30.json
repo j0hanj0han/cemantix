@@ -1,0 +1,27 @@
+{
+  "date": "2026-03-30",
+  "puzzle_num": 1417,
+  "word": "Crise du troisième siècle",
+  "title_slug": "Crise_du_troisième_siècle",
+  "title_display": "Crise du troisième siècle",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Crise_du_troisième_siècle",
+  "hints": {
+    "level1": [
+      "4 mots · 22 lettres",
+      "Premières lettres : C · D · T · S"
+    ],
+    "level2": [
+      "série de crises qui secouent l’Empire romain au IIIe s., entre 235 et 284",
+      "Période historique romaine"
+    ],
+    "level3": [
+      "La ___ du IIIe ___ de l’Empire romain couvre la période de 235 à 284 et se caractérise par une série de ___s qui ébranle les fondements mêmes de l'empire."
+    ]
+  },
+  "extract": "La crise du IIIe siècle de l’Empire romain couvre la période de 235 à 284 et se caractérise par une série de crises qui ébranle les fondements mêmes de l'empire.",
+  "categories": [
+    "série de crises qui secouent l’Empire romain au IIIe s., entre 235 et 284",
+    "Période historique romaine"
+  ],
+  "generated_at": "2026-04-26T19:49:38.666014+00:00"
+}

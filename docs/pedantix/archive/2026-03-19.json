@@ -1,0 +1,25 @@
+{
+  "date": "2026-03-19",
+  "puzzle_num": 1406,
+  "word": "Snooker",
+  "title_slug": "Snooker",
+  "title_display": "Snooker",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Snooker",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "variante du billard"
+    ],
+    "level3": [
+      "Le ___ est une des variantes du billard."
+    ]
+  },
+  "extract": "Le snooker est une des variantes du billard.",
+  "categories": [
+    "variante du billard"
+  ],
+  "generated_at": "2026-04-26T19:49:42.248442+00:00"
+}

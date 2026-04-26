@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-23",
+  "puzzle_num": 1410,
+  "word": "Sherlock Holmes",
+  "title_slug": "Sherlock_Holmes",
+  "title_display": "Sherlock Holmes",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Sherlock_Holmes",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : S · H"
+    ],
+    "level2": [
+      "personnage de, créé par Arthur Conan Doyle",
+      "Personnage de roman policier",
+      "Personnage de fiction anglais",
+      "Personnage de fiction créé en 1887"
+    ],
+    "level3": [
+      "___ est un personnage de fiction britannique créé par Sir Arthur Conan Doyle dans le roman policier Une étude en rouge en 1887."
+    ]
+  },
+  "extract": "Sherlock Holmes est un personnage de fiction britannique créé par Sir Arthur Conan Doyle dans le roman policier Une étude en rouge en 1887.",
+  "categories": [
+    "personnage de, créé par Arthur Conan Doyle",
+    "Personnage de roman policier",
+    "Personnage de fiction anglais",
+    "Personnage de fiction créé en 1887"
+  ],
+  "generated_at": "2026-04-26T19:49:40.930159+00:00"
+}

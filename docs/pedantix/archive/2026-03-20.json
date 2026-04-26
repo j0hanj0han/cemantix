@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-20",
+  "puzzle_num": 1407,
+  "word": "Orgue",
+  "title_slug": "Orgue",
+  "title_display": "Orgue",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Orgue",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : O"
+    ],
+    "level2": [
+      "instrument de musique à vent",
+      "Instrument de musique classique",
+      "Instrument de musique baroque",
+      "Musique religieuse"
+    ],
+    "level3": [
+      "L'___ est un instrument à vent multiforme dont la caractéristique est de produire les sons à l’aide d’ensembles de tuyaux sonores accordés suivant une gamme définie et alimentés par une soufflerie, chaque tuyau émettant un son de hauteur et de timbre uniques."
+    ]
+  },
+  "extract": "L'orgue est un instrument à vent multiforme dont la caractéristique est de produire les sons à l’aide d’ensembles de tuyaux sonores accordés suivant une gamme définie et alimentés par une soufflerie, chaque tuyau émettant un son de hauteur et de timbre uniques.",
+  "categories": [
+    "instrument de musique à vent",
+    "Instrument de musique classique",
+    "Instrument de musique baroque",
+    "Musique religieuse"
+  ],
+  "generated_at": "2026-04-26T19:49:41.918715+00:00"
+}

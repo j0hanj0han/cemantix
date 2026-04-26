@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-11",
+  "puzzle_num": 1429,
+  "word": "Ours brun",
+  "title_slug": "Ours_brun",
+  "title_display": "Ours brun",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ours_brun",
+  "hints": {
+    "level1": [
+      "2 mots · 8 lettres",
+      "Premières lettres : O · B"
+    ],
+    "level2": [
+      "espèce de mammifères",
+      "Taxobox utilisant la classification Mammal Diversity Database",
+      "Taxobox début par provenance de l'image - A",
+      "CITES annexe I"
+    ],
+    "level3": [
+      "L'___ est une espèce de mammifères de l'ordre des Carnivores et de la famille des Ursidés."
+    ]
+  },
+  "extract": "L'Ours brun est une espèce de mammifères de l'ordre des Carnivores et de la famille des Ursidés.",
+  "categories": [
+    "espèce de mammifères",
+    "Taxobox utilisant la classification Mammal Diversity Database",
+    "Taxobox début par provenance de l'image - A",
+    "CITES annexe I"
+  ],
+  "generated_at": "2026-04-26T19:49:16.769190+00:00"
+}

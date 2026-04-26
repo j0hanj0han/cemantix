@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-14",
+  "puzzle_num": 1432,
+  "word": "Laurent de Médicis",
+  "title_slug": "Laurent_de_Médicis",
+  "title_display": "Laurent de Médicis",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Laurent_de_Médicis",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : L · D · M"
+    ],
+    "level2": [
+      "homme politique, homme de lettres et humaniste italien (1449-1492)",
+      "Personnalité liée à Léonard de Vinci",
+      "Maison de Médicis",
+      "République de Florence"
+    ],
+    "level3": [
+      "___, surnommé ___ le Magnifique, né le 1er janvier 1449 à Florence et mort dans cette même ville le 8 avril 1492, est un homme d'État italien et le chef du gouvernement de la République florentine durant la Renaissance italienne."
+    ]
+  },
+  "extract": "Laurent de Médicis, surnommé Laurent le Magnifique, né le 1er janvier 1449 à Florence et mort dans cette même ville le 8 avril 1492, est un homme d'État italien et le chef du gouvernement de la République florentine durant la Renaissance italienne.",
+  "categories": [
+    "homme politique, homme de lettres et humaniste italien (1449-1492)",
+    "Personnalité liée à Léonard de Vinci",
+    "Maison de Médicis",
+    "République de Florence"
+  ],
+  "generated_at": "2026-04-26T19:49:15.792124+00:00"
+}

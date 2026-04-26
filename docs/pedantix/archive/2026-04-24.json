@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-24",
+  "puzzle_num": 1442,
+  "word": "Amphétamine",
+  "title_slug": "Amphétamine",
+  "title_display": "Amphétamine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Amphétamine",
+  "hints": {
+    "level1": [
+      "1 mot · 11 lettres",
+      "Première lettre : A"
+    ],
+    "level2": [
+      "psychostimulant",
+      "Chimiebox à maintenir",
+      "Infobox Chimie avec données 67/548/EEC redondantes à supprimer",
+      "Anorexigène"
+    ],
+    "level3": [
+      "L’___ (DCI) est une substance sympathicomimétique aux effets anorexigènes et psychoanaleptiques."
+    ]
+  },
+  "extract": "L’amphétamine (DCI) est une substance sympathicomimétique aux effets anorexigènes et psychoanaleptiques.",
+  "categories": [
+    "psychostimulant",
+    "Chimiebox à maintenir",
+    "Infobox Chimie avec données 67/548/EEC redondantes à supprimer",
+    "Anorexigène"
+  ],
+  "generated_at": "2026-04-26T19:49:12.739027+00:00"
+}

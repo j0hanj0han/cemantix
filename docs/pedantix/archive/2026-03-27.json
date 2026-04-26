@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-27",
+  "puzzle_num": 1414,
+  "word": "Ebla",
+  "title_slug": "Ebla",
+  "title_display": "Ebla",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ebla",
+  "hints": {
+    "level1": [
+      "1 mot · 4 lettres",
+      "Première lettre : E"
+    ],
+    "level2": [
+      "ancienne ville de la Syrie",
+      "Site archéologique en Syrie",
+      "Ville du Proche-Orient ancien",
+      "Tell"
+    ],
+    "level3": [
+      "___ ou Tall Mardikh est une ancienne ville de la Syrie des IIIe et IIe millénaires av."
+    ]
+  },
+  "extract": "Ebla ou Tall Mardikh est une ancienne ville de la Syrie des IIIe et IIe millénaires av.",
+  "categories": [
+    "ancienne ville de la Syrie",
+    "Site archéologique en Syrie",
+    "Ville du Proche-Orient ancien",
+    "Tell"
+  ],
+  "generated_at": "2026-04-26T19:49:39.600380+00:00"
+}

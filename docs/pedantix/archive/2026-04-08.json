@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-08",
+  "puzzle_num": 1426,
+  "word": "Punk rock",
+  "title_slug": "Punk_rock",
+  "title_display": "Punk rock",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Punk_rock",
+  "hints": {
+    "level1": [
+      "2 mots · 8 lettres",
+      "Premières lettres : P · R"
+    ],
+    "level2": [
+      "genre musical dérivé du rock apparu dans les années 1970",
+      "Genre de rock",
+      "Musique à New York",
+      "Musique à Londres"
+    ],
+    "level3": [
+      "Le ___ est un genre musical dérivé du ___, ayant émergé au milieu des années 1970 et associé au mouvement ___ de cette même époque."
+    ]
+  },
+  "extract": "Le punk rock est un genre musical dérivé du rock, ayant émergé au milieu des années 1970 et associé au mouvement punk de cette même époque.",
+  "categories": [
+    "genre musical dérivé du rock apparu dans les années 1970",
+    "Genre de rock",
+    "Musique à New York",
+    "Musique à Londres"
+  ],
+  "generated_at": "2026-04-26T19:49:17.943846+00:00"
+}

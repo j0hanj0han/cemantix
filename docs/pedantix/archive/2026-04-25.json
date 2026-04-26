@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-25",
+  "puzzle_num": 1443,
+  "word": "Suisse",
+  "title_slug": "Suisse",
+  "title_display": "Suisse",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Suisse",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "pays d'Europe centrale"
+    ],
+    "level3": [
+      "La ___, en forme longue la Confédération ___, est un État fédéral d'Europe centrale et de l'Ouest, formé de 26 cantons, avec Berne pour capitale de facto."
+    ]
+  },
+  "extract": "La Suisse, en forme longue la Confédération suisse, est un État fédéral d'Europe centrale et de l'Ouest, formé de 26 cantons, avec Berne pour capitale de facto.",
+  "categories": [
+    "pays d'Europe centrale"
+  ],
+  "generated_at": "2026-04-26T19:29:32.857562+00:00"
+}

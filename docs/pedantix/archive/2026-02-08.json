@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-08",
+  "puzzle_num": 1366,
+  "word": "Livre de la Genèse",
+  "title_slug": "Livre_de_la_Genèse",
+  "title_display": "Livre de la Genèse",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Livre_de_la_Genèse",
+  "hints": {
+    "level1": [
+      "4 mots · 15 lettres",
+      "Premières lettres : L · D · L · G"
+    ],
+    "level2": [
+      "premier livre de la Bible, composé de 50 chapitres",
+      "Créationnisme",
+      "Mythe de création",
+      "Livre de la Torah"
+    ],
+    "level3": [
+      "Le ___ est le premier ___ de la Bible."
+    ]
+  },
+  "extract": "Le Livre de la Genèse est le premier livre de la Bible.",
+  "categories": [
+    "premier livre de la Bible, composé de 50 chapitres",
+    "Créationnisme",
+    "Mythe de création",
+    "Livre de la Torah"
+  ],
+  "generated_at": "2026-04-27T22:15:43.084214+00:00"
+}

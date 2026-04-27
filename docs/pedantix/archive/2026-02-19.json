@@ -1,0 +1,27 @@
+{
+  "date": "2026-02-19",
+  "puzzle_num": 1377,
+  "word": "Hélicoptère",
+  "title_slug": "Hélicoptère",
+  "title_display": "Hélicoptère",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hélicoptère",
+  "hints": {
+    "level1": [
+      "1 mot · 11 lettres",
+      "Première lettre : H"
+    ],
+    "level2": [
+      "aéronef à voilures tournantes",
+      "Invention française"
+    ],
+    "level3": [
+      "Un ___ est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs."
+    ]
+  },
+  "extract": "Un hélicoptère est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs.",
+  "categories": [
+    "aéronef à voilures tournantes",
+    "Invention française"
+  ],
+  "generated_at": "2026-04-27T22:15:40.264630+00:00"
+}

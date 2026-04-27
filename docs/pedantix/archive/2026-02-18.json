@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-18",
+  "puzzle_num": 1376,
+  "word": "Guerre de Trente Ans",
+  "title_slug": "Guerre_de_Trente_Ans",
+  "title_display": "Guerre de Trente Ans",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Trente_Ans",
+  "hints": {
+    "level1": [
+      "4 mots · 17 lettres",
+      "Premières lettres : G · D · T · A"
+    ],
+    "level2": [
+      "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
+      "Conflit militaire géolocalisable sans coordonnées paramétrées",
+      "Guerre du XVIIe siècle",
+      "Christianisme au XVIIe siècle"
+    ],
+    "level3": [
+      "La ___ est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648."
+    ]
+  },
+  "extract": "La guerre de Trente Ans est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648.",
+  "categories": [
+    "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
+    "Conflit militaire géolocalisable sans coordonnées paramétrées",
+    "Guerre du XVIIe siècle",
+    "Christianisme au XVIIe siècle"
+  ],
+  "generated_at": "2026-04-27T22:15:40.567398+00:00"
+}

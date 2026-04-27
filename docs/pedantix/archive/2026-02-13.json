@@ -1,0 +1,29 @@
+{
+  "date": "2026-02-13",
+  "puzzle_num": 1371,
+  "word": "Information",
+  "title_slug": "Information",
+  "title_display": "Information",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Information",
+  "hints": {
+    "level1": [
+      "1 mot · 11 lettres",
+      "Première lettre : I"
+    ],
+    "level2": [
+      "message à communiquer et symboles utilisés pour l'écrire",
+      "Économie de l'information",
+      "Concept épistémologique"
+    ],
+    "level3": [
+      "L'___ est un concept de la discipline des sciences de l'___ et de la communication (SIC)."
+    ]
+  },
+  "extract": "L'information est un concept de la discipline des sciences de l'information et de la communication (SIC).",
+  "categories": [
+    "message à communiquer et symboles utilisés pour l'écrire",
+    "Économie de l'information",
+    "Concept épistémologique"
+  ],
+  "generated_at": "2026-04-27T22:15:41.922488+00:00"
+}

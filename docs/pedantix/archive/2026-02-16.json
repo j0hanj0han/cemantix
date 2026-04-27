@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-16",
+  "puzzle_num": 1374,
+  "word": "Organisation des Nations unies pour l'éducation, la science et la culture",
+  "title_slug": "Organisation_des_Nations_unies_pour_l'éducation,_la_science_et_la_culture",
+  "title_display": "Organisation des Nations unies pour l'éducation, la science et la culture",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Organisation_des_Nations_unies_pour_l'éducation,_la_science_et_la_culture",
+  "hints": {
+    "level1": [
+      "11 mots · 63 lettres",
+      "Premières lettres : O · D · N · U · P · L · L · S · E · L · C"
+    ],
+    "level2": [
+      "agence spécialisée des Nations unies pour l'éducation, les sciences et la culture",
+      "Association ou organisme ayant son siège dans le 7e arrondissement de Paris",
+      "Organisme fondé en 1945",
+      "Éponyme d'un objet céleste"
+    ],
+    "level3": [
+      "L'___ est une institution spécialisée internationale de l'___ des ___ ___ (ONU), créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale."
+    ]
+  },
+  "extract": "L'Organisation des Nations unies pour l'éducation, la science et la culture est une institution spécialisée internationale de l'Organisation des Nations unies (ONU), créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale.",
+  "categories": [
+    "agence spécialisée des Nations unies pour l'éducation, les sciences et la culture",
+    "Association ou organisme ayant son siège dans le 7e arrondissement de Paris",
+    "Organisme fondé en 1945",
+    "Éponyme d'un objet céleste"
+  ],
+  "generated_at": "2026-04-27T22:15:41.046548+00:00"
+}

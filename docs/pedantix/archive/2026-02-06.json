@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-06",
+  "puzzle_num": 1364,
+  "word": "Expansion bantoue",
+  "title_slug": "Expansion_bantoue",
+  "title_display": "Expansion bantoue",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Expansion_bantoue",
+  "hints": {
+    "level1": [
+      "2 mots · 16 lettres",
+      "Premières lettres : E · B"
+    ],
+    "level2": [
+      "série de migrations humaines",
+      "Préhistoire de l'Afrique",
+      "Histoire de l'Afrique",
+      "Migration humaine"
+    ],
+    "level3": [
+      "L'___ est une longue série d'___s géographiques, s'étendant sur plusieurs millénaires, des locuteurs du proto-bantou à l'intérieur du continent africain."
+    ]
+  },
+  "extract": "L'expansion bantoue est une longue série d'expansions géographiques, s'étendant sur plusieurs millénaires, des locuteurs du proto-bantou à l'intérieur du continent africain.",
+  "categories": [
+    "série de migrations humaines",
+    "Préhistoire de l'Afrique",
+    "Histoire de l'Afrique",
+    "Migration humaine"
+  ],
+  "generated_at": "2026-04-27T22:15:43.622363+00:00"
+}

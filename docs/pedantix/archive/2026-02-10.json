@@ -1,0 +1,25 @@
+{
+  "date": "2026-02-10",
+  "puzzle_num": 1368,
+  "word": "Histoire de la Turquie",
+  "title_slug": "Histoire_de_la_Turquie",
+  "title_display": "Histoire de la Turquie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_de_la_Turquie",
+  "hints": {
+    "level1": [
+      "4 mots · 19 lettres",
+      "Premières lettres : H · D · L · T"
+    ],
+    "level2": [
+      "étude et narration du passé de la Turquie"
+    ],
+    "level3": [
+      "On parle d'___ pour désigner celle de la république de ___ issue de la Guerre d'indépendance menée jusqu'en 1922 par Mustafa Kemal Atatürk contre l'occupation de l'Empire ottoman par les Alliés de la Première Guerre mondiale."
+    ]
+  },
+  "extract": "On parle d'histoire de la Turquie pour désigner celle de la république de Turquie issue de la Guerre d'indépendance menée jusqu'en 1922 par Mustafa Kemal Atatürk contre l'occupation de l'Empire ottoman par les Alliés de la Première Guerre mondiale.",
+  "categories": [
+    "étude et narration du passé de la Turquie"
+  ],
+  "generated_at": "2026-04-27T22:15:42.585062+00:00"
+}

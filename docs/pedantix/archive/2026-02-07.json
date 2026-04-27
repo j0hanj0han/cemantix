@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-07",
+  "puzzle_num": 1365,
+  "word": "Latitude",
+  "title_slug": "Latitude",
+  "title_display": "Latitude",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Latitude",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : L"
+    ],
+    "level2": [
+      "coordonnée géographique parallèle à l'équateur",
+      "Cartographie",
+      "Vocabulaire maritime",
+      "Vocabulaire général de la navigation"
+    ],
+    "level3": [
+      "La ___ est une coordonnée géographique représentée par une valeur angulaire, expression de la position d'un point sur Terre, au nord ou au sud de l'équateur qui est le plan de référence."
+    ]
+  },
+  "extract": "La latitude est une coordonnée géographique représentée par une valeur angulaire, expression de la position d'un point sur Terre, au nord ou au sud de l'équateur qui est le plan de référence.",
+  "categories": [
+    "coordonnée géographique parallèle à l'équateur",
+    "Cartographie",
+    "Vocabulaire maritime",
+    "Vocabulaire général de la navigation"
+  ],
+  "generated_at": "2026-04-27T22:15:43.351123+00:00"
+}

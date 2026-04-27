@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-24",
+  "puzzle_num": 1382,
+  "word": "Burj Khalifa",
+  "title_slug": "Burj_Khalifa",
+  "title_display": "Burj Khalifa",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Burj_Khalifa",
+  "hints": {
+    "level1": [
+      "2 mots · 11 lettres",
+      "Premières lettres : B · K"
+    ],
+    "level2": [
+      "gratte-ciel situé à Dubaï, aux Émirats arabes unis",
+      "Gratte-ciel à Dubaï",
+      "Gratte-ciel achevé mesurant 500 mètres ou plus",
+      "Gratte-ciel construit en 2010"
+    ],
+    "level3": [
+      "La ___ est un gratte-ciel situé à Dubaï aux Émirats arabes unis, devenu en mai 2008 la plus haute structure humaine jamais construite."
+    ]
+  },
+  "extract": "La Burj Khalifa est un gratte-ciel situé à Dubaï aux Émirats arabes unis, devenu en mai 2008 la plus haute structure humaine jamais construite.",
+  "categories": [
+    "gratte-ciel situé à Dubaï, aux Émirats arabes unis",
+    "Gratte-ciel à Dubaï",
+    "Gratte-ciel achevé mesurant 500 mètres ou plus",
+    "Gratte-ciel construit en 2010"
+  ],
+  "generated_at": "2026-04-27T22:15:38.985255+00:00"
+}

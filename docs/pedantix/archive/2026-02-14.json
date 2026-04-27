@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-14",
+  "puzzle_num": 1372,
+  "word": "Homme de Néandertal",
+  "title_slug": "Homme_de_Néandertal",
+  "title_display": "Homme de Néandertal",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Homme_de_Néandertal",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : H · D · N"
+    ],
+    "level2": [
+      "espèce disparue du genre Homo dont ne subsistent que des fossiles",
+      "Taxobox utilisant la classification MSW",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
+    ],
+    "level3": [
+      "L'___, ou ___ien, est une espèce éteinte du genre Homo, qui a vécu en Europe, au Moyen-Orient et en Asie centrale, jusqu'à environ 40 000 ans avant le présent."
+    ]
+  },
+  "extract": "L'Homme de Néandertal, ou Néandertalien, est une espèce éteinte du genre Homo, qui a vécu en Europe, au Moyen-Orient et en Asie centrale, jusqu'à environ 40 000 ans avant le présent.",
+  "categories": [
+    "espèce disparue du genre Homo dont ne subsistent que des fossiles",
+    "Taxobox utilisant la classification MSW",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
+  ],
+  "generated_at": "2026-04-27T22:15:41.655022+00:00"
+}

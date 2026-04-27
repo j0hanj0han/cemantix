@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-15",
+  "puzzle_num": 1373,
+  "word": "Chamaeleonidae",
+  "title_slug": "Chamaeleonidae",
+  "title_display": "Chamaeleonidae",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chamaeleonidae",
+  "hints": {
+    "level1": [
+      "1 mot · 14 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "famille de sauriens",
+      "Taxobox utilisant la classification Reptile Database",
+      "Taxobox début par provenance de l'image - A",
+      "Famille de sauriens (nom scientifique)"
+    ],
+    "level3": [
+      "Les Caméléonidés (___) sont une famille de sauriens surtout arboricoles, définie par Constantin Rafinesque en 1815."
+    ]
+  },
+  "extract": "Les Caméléonidés (Chamaeleonidae) sont une famille de sauriens surtout arboricoles, définie par Constantin Rafinesque en 1815.",
+  "categories": [
+    "famille de sauriens",
+    "Taxobox utilisant la classification Reptile Database",
+    "Taxobox début par provenance de l'image - A",
+    "Famille de sauriens (nom scientifique)"
+  ],
+  "generated_at": "2026-04-27T22:15:41.349019+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-12",
+  "puzzle_num": 1370,
+  "word": "Paul von Hindenburg",
+  "title_slug": "Paul_von_Hindenburg",
+  "title_display": "Paul von Hindenburg",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Paul_von_Hindenburg",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : P · V · H"
+    ],
+    "level2": [
+      "militaire et homme d'État allemand",
+      "Militaire de l'Empire allemand",
+      "Chef d'État de l'Allemagne",
+      "Général de la Deutsches Heer"
+    ],
+    "level3": [
+      "___ Ludwig Hans Anton von Beneckendorff und von ___, né le 2 octobre 1847 à Posen et mort le 2 août 1934 au manoir de Neudeck, est un Generalfeldmarschall et homme d'État allemand."
+    ]
+  },
+  "extract": "Paul Ludwig Hans Anton von Beneckendorff und von Hindenburg, né le 2 octobre 1847 à Posen et mort le 2 août 1934 au manoir de Neudeck, est un Generalfeldmarschall et homme d'État allemand.",
+  "categories": [
+    "militaire et homme d'État allemand",
+    "Militaire de l'Empire allemand",
+    "Chef d'État de l'Allemagne",
+    "Général de la Deutsches Heer"
+  ],
+  "generated_at": "2026-04-27T22:15:42.141021+00:00"
+}

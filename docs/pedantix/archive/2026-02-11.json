@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-11",
+  "puzzle_num": 1369,
+  "word": "Barrage Hoover",
+  "title_slug": "Barrage_Hoover",
+  "title_display": "Barrage Hoover",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Barrage_Hoover",
+  "hints": {
+    "level1": [
+      "2 mots · 13 lettres",
+      "Premières lettres : B · H"
+    ],
+    "level2": [
+      "barrage sur le fleuve Colorado aux États-Unis",
+      "Barrage hydroélectrique en Arizona",
+      "Barrage poids-voûte",
+      "Barrage du bassin du Colorado"
+    ],
+    "level3": [
+      "Le ___ est un ___ poids-voûte sur le fleuve Colorado aux États-Unis, près de Boulder City, à la frontière entre l'Arizona et le Nevada."
+    ]
+  },
+  "extract": "Le barrage Hoover est un barrage poids-voûte sur le fleuve Colorado aux États-Unis, près de Boulder City, à la frontière entre l'Arizona et le Nevada.",
+  "categories": [
+    "barrage sur le fleuve Colorado aux États-Unis",
+    "Barrage hydroélectrique en Arizona",
+    "Barrage poids-voûte",
+    "Barrage du bassin du Colorado"
+  ],
+  "generated_at": "2026-04-27T22:15:42.314409+00:00"
+}

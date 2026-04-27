@@ -1,0 +1,31 @@
+{
+  "date": "2026-02-23",
+  "puzzle_num": 1381,
+  "word": "Fernando Pessoa",
+  "title_slug": "Fernando_Pessoa",
+  "title_display": "Fernando Pessoa",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fernando_Pessoa",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : F · P"
+    ],
+    "level2": [
+      "écrivain et poète portugais",
+      "Infobox avec une légende automatique à partir de la date de l'image",
+      "Naissance à Lisbonne",
+      "Écrivain portugais du XXe siècle"
+    ],
+    "level3": [
+      "___ António Nogueira ___ est un écrivain, critique, polémiste et poète portugais trilingue."
+    ]
+  },
+  "extract": "Fernando António Nogueira Pessoa est un écrivain, critique, polémiste et poète portugais trilingue.",
+  "categories": [
+    "écrivain et poète portugais",
+    "Infobox avec une légende automatique à partir de la date de l'image",
+    "Naissance à Lisbonne",
+    "Écrivain portugais du XXe siècle"
+  ],
+  "generated_at": "2026-04-27T22:15:39.262906+00:00"
+}

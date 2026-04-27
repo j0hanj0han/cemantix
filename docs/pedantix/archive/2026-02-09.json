@@ -1,0 +1,29 @@
+{
+  "date": "2026-02-09",
+  "puzzle_num": 1367,
+  "word": "Cancer de la prostate",
+  "title_slug": "Cancer_de_la_prostate",
+  "title_display": "Cancer de la prostate",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_de_la_prostate",
+  "hints": {
+    "level1": [
+      "4 mots · 18 lettres",
+      "Premières lettres : C · D · L · P"
+    ],
+    "level2": [
+      "type de cancer",
+      "Maladie tumorale de l'appareil reproducteur masculin",
+      "Condition masculine"
+    ],
+    "level3": [
+      "Le ___ est un ___ fréquent touchant la ___, une glande de l'appareil reproducteur de l'homme."
+    ]
+  },
+  "extract": "Le cancer de la prostate est un cancer fréquent touchant la prostate, une glande de l'appareil reproducteur de l'homme.",
+  "categories": [
+    "type de cancer",
+    "Maladie tumorale de l'appareil reproducteur masculin",
+    "Condition masculine"
+  ],
+  "generated_at": "2026-04-27T22:15:42.784416+00:00"
+}

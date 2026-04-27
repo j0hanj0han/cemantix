@@ -1,0 +1,29 @@
+{
+  "date": "2026-02-20",
+  "puzzle_num": 1378,
+  "word": "Mirage",
+  "title_slug": "Mirage",
+  "title_display": "Mirage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mirage",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "phénomène optique naturel",
+      "Photométéore",
+      "Illusion d'optique"
+    ],
+    "level3": [
+      "Le ___ est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes."
+    ]
+  },
+  "extract": "Le mirage est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes.",
+  "categories": [
+    "phénomène optique naturel",
+    "Photométéore",
+    "Illusion d'optique"
+  ],
+  "generated_at": "2026-04-27T22:15:40.087493+00:00"
+}

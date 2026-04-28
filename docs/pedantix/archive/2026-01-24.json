@@ -1,0 +1,25 @@
+{
+  "date": "2026-01-24",
+  "puzzle_num": 1351,
+  "word": "Corse",
+  "title_slug": "Corse",
+  "title_display": "Corse",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Corse",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "île méditerranéenne et collectivité territoriale unique française"
+    ],
+    "level3": [
+      "La ___ est une île située en mer Méditerranée, à l'ouest de la péninsule italienne, au nord de la Sardaigne et au sud-est de la France métropolitaine."
+    ]
+  },
+  "extract": "La Corse est une île située en mer Méditerranée, à l'ouest de la péninsule italienne, au nord de la Sardaigne et au sud-est de la France métropolitaine.",
+  "categories": [
+    "île méditerranéenne et collectivité territoriale unique française"
+  ],
+  "generated_at": "2026-04-28T22:16:27.472996+00:00"
+}

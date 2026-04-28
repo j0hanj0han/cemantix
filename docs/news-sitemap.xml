@@ -8,23 +8,34 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-28T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du mardi 28 avril 2026</news:title>
+      <news:publication_date>2026-04-29T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du mercredi 29 avril 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-27.html</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04-28.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du lundi 27 avril 2026</news:title>
+      <news:publication_date>2026-04-28T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du mardi 28 avril 2026</news:title>
     </news:news>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/sutom/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-29T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du mercredi 29 avril 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-28.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -35,25 +46,14 @@
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-04-27.html</loc>
+    <loc>https://solution-du-jour.fr/pedantix/archive/2026-04-28.html</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-04-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du lundi 27 avril 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/archive/2026-04-27.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-04-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Pédantix du lundi 27 avril 2026</news:title>
+      <news:publication_date>2026-04-28T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Pédantix du mardi 28 avril 2026</news:title>
     </news:news>
   </url>
 </urlset>

@@ -1,0 +1,25 @@
+{
+  "date": "2026-01-19",
+  "puzzle_num": 1346,
+  "word": "Guerre de Cent Ans",
+  "title_slug": "Guerre_de_Cent_Ans",
+  "title_display": "Guerre de Cent Ans",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Cent_Ans",
+  "hints": {
+    "level1": [
+      "4 mots · 15 lettres",
+      "Premières lettres : G · D · C · A"
+    ],
+    "level2": [
+      "série de conflits opposant la France et l'Angleterre de 1337 à 1453"
+    ],
+    "level3": [
+      "La ___ est une série de conflits armés entrecoupés de trêves opposant le royaume d'Angleterre de la dynastie Plantagenêts et le royaume de France de la dynastie des Valois de 1337 à 1453."
+    ]
+  },
+  "extract": "La guerre de Cent Ans est une série de conflits armés entrecoupés de trêves opposant le royaume d'Angleterre de la dynastie Plantagenêts et le royaume de France de la dynastie des Valois de 1337 à 1453.",
+  "categories": [
+    "série de conflits opposant la France et l'Angleterre de 1337 à 1453"
+  ],
+  "generated_at": "2026-04-28T22:16:28.528756+00:00"
+}

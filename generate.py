@@ -423,7 +423,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
                 entries.append((f"{base_url}/", pub_dt, f"{title_prefix} {label}"))
                 archive_html = archive_dir / f"{d_str}.html"
                 if archive_html.exists():
-                    entries.append((f"{base_url}/archive/{d_str}.html", pub_dt, f"{title_prefix} {label}"))
+                    entries.append((f"{base_url}/archive/{d_str}", pub_dt, f"{title_prefix} {label}"))
 
         # Hier : depuis les fichiers JSON d'archive
         y_str = yesterday.isoformat()
@@ -432,7 +432,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
         if y_json.exists() and y_html.exists():
             pub_dt = y_str + pub_time
             label = date_fr(yesterday)
-            entries.append((f"{base_url}/archive/{y_str}.html", pub_dt, f"{title_prefix} {label}"))
+            entries.append((f"{base_url}/archive/{y_str}", pub_dt, f"{title_prefix} {label}"))
 
     if not entries:
         return
@@ -506,7 +506,7 @@ def generate_global_sitemap(today: date) -> None:
             if not (CEMANTIX_ARCHIVE / f"{d_str}.html").exists():
                 continue
             urls.append(f"""  <url>
-    <loc>{SITE_URL}/cemantix/archive/{d_str}.html</loc>
+    <loc>{SITE_URL}/cemantix/archive/{d_str}</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
@@ -537,7 +537,7 @@ def generate_global_sitemap(today: date) -> None:
             if not (SUTOM_ARCHIVE / f"{d_str}.html").exists():
                 continue
             urls.append(f"""  <url>
-    <loc>{SITE_URL}/sutom/archive/{d_str}.html</loc>
+    <loc>{SITE_URL}/sutom/archive/{d_str}</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
@@ -568,7 +568,7 @@ def generate_global_sitemap(today: date) -> None:
             if not (PEDANTIX_ARCHIVE / f"{d_str}.html").exists():
                 continue
             urls.append(f"""  <url>
-    <loc>{SITE_URL}/pedantix/archive/{d_str}.html</loc>
+    <loc>{SITE_URL}/pedantix/archive/{d_str}</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
@@ -612,7 +612,7 @@ def generate_global_sitemap(today: date) -> None:
             if not (LOTO_ARCHIVE / f"{d_str}.html").exists():
                 continue
             urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/archive/{d_str}.html</loc>
+    <loc>{SITE_URL}/loto/archive/{d_str}</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
@@ -656,7 +656,7 @@ def generate_global_sitemap(today: date) -> None:
             if not (EM_ARCHIVE / f"{d_str}.html").exists():
                 continue
             urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/archive/{d_str}.html</loc>
+    <loc>{SITE_URL}/euromillions/archive/{d_str}</loc>
     <lastmod>{d_str}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.7</priority>

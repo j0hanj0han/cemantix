@@ -19,6 +19,8 @@ Setup (une fois) :
 
 import argparse
 import json
+import time
+import xml.etree.ElementTree as ET
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -128,6 +130,88 @@ def get_low_ctr_pages(pages: list[dict], min_impressions: int = 10, max_ctr: flo
         p for p in pages
         if p["impressions"] >= min_impressions and p["ctr"] < max_ctr
     ]
+
+
+# ── Indexation ────────────────────────────────────────────────────────────────
+
+def get_sitemaps_coverage(service) -> list[dict]:
+    """Couverture par sitemap soumis : pages soumises, indexées, erreurs, warnings."""
+    response = service.sitemaps().list(siteUrl=SITE_URL).execute()
+    result = []
+    for s in response.get("sitemap", []):
+        submitted = indexed = 0
+        for content in s.get("contents", []):
+            submitted += int(content.get("submitted", 0))
+            indexed += int(content.get("indexed", 0))
+        result.append({
+            "path": s.get("path", ""),
+            "lastDownloaded": s.get("lastDownloaded", "")[:10],
+            "errors": int(s.get("errors", 0)),
+            "warnings": int(s.get("warnings", 0)),
+            "submitted": submitted,
+            "indexed": indexed,
+        })
+    return result
+
+
+def _get_sitemap_urls() -> list[str]:
+    """Lit toutes les URLs depuis docs/sitemap.xml (fichier local)."""
+    sitemap_path = Path(__file__).parent / "docs" / "sitemap.xml"
+    if not sitemap_path.exists():
+        return []
+    root = ET.parse(sitemap_path).getroot()
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    return [loc.text.strip() for loc in root.findall(".//sm:loc", ns)]
+
+
+def inspect_url(service, url: str) -> dict:
+    """Inspecte une URL via l'API URL Inspection. 1 req/s, 2000 req/jour max."""
+    try:
+        result = service.urlInspection().index().inspect(body={
+            "inspectionUrl": url,
+            "siteUrl": SITE_URL,
+        }).execute()
+        isr = result.get("inspectionResult", {}).get("indexStatusResult", {})
+        return {
+            "url": url,
+            "verdict": isr.get("verdict", "UNKNOWN"),
+            "coverageState": isr.get("coverageState", ""),
+            "robotsTxtState": isr.get("robotsTxtState", ""),
+            "indexingState": isr.get("indexingState", ""),
+            "lastCrawlTime": (isr.get("lastCrawlTime") or "")[:10],
+        }
+    except Exception as e:
+        return {
+            "url": url,
+            "verdict": "ERROR",
+            "coverageState": str(e)[:80],
+            "robotsTxtState": "",
+            "indexingState": "",
+            "lastCrawlTime": "",
+        }
+
+
+def get_indexation_issues(service, known_pages: list[dict], max_urls: int = 50) -> list[dict]:
+    """
+    Croise le sitemap local avec les pages GSC pour trouver les URLs non vues,
+    puis les inspecte via l'API URL Inspection (rate-limited à 1 req/s).
+    """
+    sitemap_urls = _get_sitemap_urls()
+    seen_pages = {p["page"] for p in known_pages}
+    # Priorité : URLs dans le sitemap mais jamais vues dans Search Analytics
+    unindexed_candidates = [u for u in sitemap_urls if u not in seen_pages]
+    to_inspect = unindexed_candidates[:max_urls]
+
+    print(f"  {len(sitemap_urls)} URLs dans le sitemap · {len(seen_pages)} pages vues dans GSC")
+    print(f"  {len(unindexed_candidates)} URLs candidates (0 impressions) → inspection de {len(to_inspect)}")
+
+    results = []
+    for i, url in enumerate(to_inspect, 1):
+        print(f"  [{i}/{len(to_inspect)}] {url}", end="\r")
+        results.append(inspect_url(service, url))
+        time.sleep(1.1)  # API limit : 1 req/s
+    print()
+    return results
 
 
 # ── Rapport Markdown ──────────────────────────────────────────────────────────
@@ -255,19 +339,99 @@ def generate_report(service, days: int = 30, output: str = "gsc_report.md") -> N
     print(f"   {total_clicks} clics · {total_impressions} impressions · {len(quick_wins)} quick wins · {len(low_ctr)} pages à améliorer")
 
 
+# ── Rapport indexation ────────────────────────────────────────────────────────
+
+def generate_indexation_report(service, output: str = "gsc_indexation.md", max_urls: int = 50) -> None:
+    """Rapport dédié aux erreurs d'indexation : couverture sitemaps + inspection URL."""
+    today = date.today()
+
+    print("Récupération de la couverture des sitemaps…")
+    sitemaps = get_sitemaps_coverage(service)
+
+    print("Récupération des pages connues de GSC (90 jours)…")
+    known_pages = get_top_pages(service, days=90)
+
+    print(f"Inspection des URLs non indexées (max {max_urls})…")
+    issues = get_indexation_issues(service, known_pages, max_urls=max_urls)
+
+    # Classement des issues par verdict
+    verdict_order = {"FAIL": 0, "NEUTRAL": 1, "UNKNOWN": 2, "ERROR": 3, "PASS": 4}
+    issues_sorted = sorted(issues, key=lambda x: verdict_order.get(x["verdict"], 5))
+
+    fail_count = sum(1 for i in issues_sorted if i["verdict"] == "FAIL")
+    neutral_count = sum(1 for i in issues_sorted if i["verdict"] == "NEUTRAL")
+    pass_count = sum(1 for i in issues_sorted if i["verdict"] == "PASS")
+
+    lines = [
+        f"# Rapport Indexation GSC — {today.isoformat()}",
+        f"_Site : solution-du-jour.fr_",
+        "",
+        "---",
+        "",
+        "## Couverture des sitemaps soumis",
+        "",
+        _table(
+            ["Sitemap", "Dernière lecture", "Soumises", "Indexées", "Erreurs", "Warnings"],
+            sitemaps,
+            ["path", "lastDownloaded", "submitted", "indexed", "errors", "warnings"],
+            max_rows=20,
+        ),
+        "",
+        "---",
+        "",
+        f"## Inspection des URLs sans impressions (90j)",
+        "",
+        f"**{fail_count} erreurs · {neutral_count} neutres · {pass_count} indexées** sur {len(issues_sorted)} URLs inspectées",
+        "",
+    ]
+
+    if issues_sorted:
+        lines.append(_table(
+            ["URL", "Verdict", "État couverture", "Dernier crawl", "Indexing state"],
+            issues_sorted,
+            ["url", "verdict", "coverageState", "lastCrawlTime", "indexingState"],
+            max_rows=100,
+        ))
+    else:
+        lines.append("_Toutes les URLs du sitemap ont des impressions GSC — aucune inspection nécessaire._")
+
+    lines += [
+        "",
+        "---",
+        "",
+        "### Légende verdicts",
+        "- **PASS** : indexée et visible dans Google",
+        "- **NEUTRAL** : crawlée mais non indexée (doublon, noindex, etc.)",
+        "- **FAIL** : erreur d'indexation (page introuvable, bloquée, etc.)",
+        "",
+        f"_Généré par gsc_agent.py le {today.isoformat()} — {len(issues_sorted)} URLs inspectées_",
+    ]
+
+    report = "\n".join(lines) + "\n"
+    Path(output).write_text(report, encoding="utf-8")
+    print(f"\n✅ Rapport indexation sauvegardé : {output}")
+    print(f"   {fail_count} erreurs · {neutral_count} neutres · {pass_count} OK sur {len(issues_sorted)} URLs")
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Agent d'analyse Google Search Console")
     parser.add_argument("--days", type=int, default=30, help="Fenêtre d'analyse en jours (défaut: 30)")
     parser.add_argument("--output", default="gsc_report.md", help="Fichier de sortie Markdown")
+    parser.add_argument("--indexation", action="store_true", help="Mode indexation : couverture sitemaps + inspection URLs")
+    parser.add_argument("--max-urls", type=int, default=50, help="Nb max d'URLs à inspecter en mode --indexation (défaut: 50)")
     args = parser.parse_args()
 
     print("Authentification Google Search Console…")
     service = _authenticate()
     print("✅ Authentifié\n")
 
-    generate_report(service, days=args.days, output=args.output)
+    if args.indexation:
+        out = args.output if args.output != "gsc_report.md" else "gsc_indexation.md"
+        generate_indexation_report(service, output=out, max_urls=args.max_urls)
+    else:
+        generate_report(service, days=args.days, output=args.output)
 
 
 if __name__ == "__main__":

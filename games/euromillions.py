@@ -195,13 +195,13 @@ def generate_archive_html(
   <title>Résultats EuroMillions {date_display} — Numéros gagnants · Archive</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros : {balls_str}. Étoiles : {stars_str}.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{EM_SITE_URL}/archive/{date_str}.html">
+  <link rel="canonical" href="{EM_SITE_URL}/archive/{date_str}">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}.html">
+  <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
@@ -218,7 +218,7 @@ def generate_archive_html(
     "datePublished": "{date_str}T21:30:00+01:00",
     "dateModified": "{date_str}T21:30:00+01:00",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
-    "url": "{EM_SITE_URL}/archive/{date_str}.html",
+    "url": "{EM_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}

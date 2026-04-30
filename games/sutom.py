@@ -111,13 +111,13 @@ def generate_archive_html(
   <title>Sutom {date_display} — Solution #{puzzle_num} · Archive</title>
   <meta name="description" content="Solution du Sutom #{puzzle_num} du {date_display}. Mot en {letter_count} lettres commençant par {first_letter}.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{SUTOM_SITE_URL}/archive/{date_str}.html">
+  <link rel="canonical" href="{SUTOM_SITE_URL}/archive/{date_str}">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Sutom {date_display} — Solution #{puzzle_num}">
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="{SUTOM_SITE_URL}/archive/{date_str}.html">
+  <meta property="og:url" content="{SUTOM_SITE_URL}/archive/{date_str}">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sutom {date_display} — Solution #{puzzle_num}">
@@ -132,7 +132,7 @@ def generate_archive_html(
     "datePublished": "{date_str}T08:00:00+01:00",
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution du Sutom #{puzzle_num} pour le {date_display} : {word}.",
-    "url": "{SUTOM_SITE_URL}/archive/{date_str}.html",
+    "url": "{SUTOM_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}

@@ -385,13 +385,13 @@ def generate_archive_html(
   <title>Pédantix #{puzzle_num} — Solution du {date_display}</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}.html">
+  <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
   <meta property="og:description" content="Indices et réponse du Pédantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{date_str}.html">
+  <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{date_str}">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
@@ -406,8 +406,8 @@ def generate_archive_html(
     "datePublished": "{date_str}T08:00:00+01:00",
     "dateModified": "{date_str}T08:00:00+01:00",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
-    "url": "{PEDANTIX_SITE_URL}/archive/{date_str}.html",
-    "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/archive/{date_str}.html"}},
+    "url": "{PEDANTIX_SITE_URL}/archive/{date_str}",
+    "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/archive/{date_str}"}},
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}

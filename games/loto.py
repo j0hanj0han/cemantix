@@ -371,13 +371,13 @@ def generate_archive_html(
   <title>Résultats Loto {date_display} — Numéros gagnants · Archive</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}.html">
+  <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
   <meta property="og:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="{LOTO_SITE_URL}/archive/{date_str}.html">
+  <meta property="og:url" content="{LOTO_SITE_URL}/archive/{date_str}">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
@@ -392,7 +392,7 @@ def generate_archive_html(
     "datePublished": "{date_str}T22:00:00+01:00",
     "dateModified": "{date_str}T22:00:00+01:00",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
-    "url": "{LOTO_SITE_URL}/archive/{date_str}.html",
+    "url": "{LOTO_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
     "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
   }}

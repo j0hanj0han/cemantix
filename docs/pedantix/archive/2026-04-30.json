@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-30",
+  "puzzle_num": 1447,
+  "word": "Nouvel Empire",
+  "title_slug": "Nouvel_Empire",
+  "title_display": "Nouvel Empire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nouvel_Empire",
+  "hints": {
+    "level1": [
+      "2 mots · 12 lettres",
+      "Premières lettres : N · E"
+    ],
+    "level2": [
+      "période de 1550 à 1070 avant J.-C. en Égypte ancienne"
+    ],
+    "level3": [
+      "Le ___ est la période la plus prospère de toute l'histoire égyptienne après l'âge d'or connu dans l'Ancien ___."
+    ]
+  },
+  "extract": "Le Nouvel Empire est la période la plus prospère de toute l'histoire égyptienne après l'âge d'or connu dans l'Ancien Empire.",
+  "categories": [
+    "période de 1550 à 1070 avant J.-C. en Égypte ancienne"
+  ],
+  "generated_at": "2026-04-30T22:19:17.131247+00:00"
+}

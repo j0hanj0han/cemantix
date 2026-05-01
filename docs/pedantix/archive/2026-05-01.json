@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-01",
+  "puzzle_num": 1448,
+  "word": "Ammoniac",
+  "title_slug": "Ammoniac",
+  "title_display": "Ammoniac",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ammoniac",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : A"
+    ],
+    "level2": [
+      "composé chimique",
+      "Produit chimique corrosif",
+      "Chimiebox à maintenir",
+      "Composé de l'azote"
+    ],
+    "level3": [
+      "L'___ est un composé chimique de formule NH3."
+    ]
+  },
+  "extract": "L'ammoniac est un composé chimique de formule NH3.",
+  "categories": [
+    "composé chimique",
+    "Produit chimique corrosif",
+    "Chimiebox à maintenir",
+    "Composé de l'azote"
+  ],
+  "generated_at": "2026-05-01T22:16:01.922691+00:00"
+}

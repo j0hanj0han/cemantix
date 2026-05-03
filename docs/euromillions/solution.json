@@ -13,5 +13,8 @@
   ],
   "code": "UL 104 2892",
   "next_jackpot": 49000000.0,
-  "generated_at": "2026-05-01T22:16:00.222247+00:00"
+  "generated_at": "2026-05-01T22:16:00.222247+00:00",
+  "jackpot_amount": 39355091,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

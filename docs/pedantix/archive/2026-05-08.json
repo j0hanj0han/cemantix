@@ -1,0 +1,29 @@
+{
+  "date": "2026-05-08",
+  "puzzle_num": 1455,
+  "word": "Famille de langues",
+  "title_slug": "Famille_de_langues",
+  "title_display": "Famille de langues",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Famille_de_langues",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : F · D · L"
+    ],
+    "level2": [
+      "groupe de langues dérivées d'un ancêtre commun",
+      "Comparaison des langues",
+      "Linguistique historique"
+    ],
+    "level3": [
+      "Une ___ est un ensemble de ___ apparentées qui ont évolué par transmission de génération en génération de locuteurs à partir d'une langue ancestrale commune."
+    ]
+  },
+  "extract": "Une famille de langues est un ensemble de langues apparentées qui ont évolué par transmission de génération en génération de locuteurs à partir d'une langue ancestrale commune.",
+  "categories": [
+    "groupe de langues dérivées d'un ancêtre commun",
+    "Comparaison des langues",
+    "Linguistique historique"
+  ],
+  "generated_at": "2026-05-08T22:17:05.714230+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-09",
+  "puzzle_num": 1456,
+  "word": "Nombre irrationnel",
+  "title_slug": "Nombre_irrationnel",
+  "title_display": "Nombre irrationnel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nombre_irrationnel",
+  "hints": {
+    "level1": [
+      "2 mots · 17 lettres",
+      "Premières lettres : N · I"
+    ],
+    "level2": [
+      "nombre réel qui n'est pas rationnel"
+    ],
+    "level3": [
+      "Un ___ est un ___ réel qui n'est pas rationnel, c'est-à-dire qu'il ne peut pas s'écrire sous la forme d'une fraction a/b, où a et b sont deux entiers relatifs."
+    ]
+  },
+  "extract": "Un nombre irrationnel est un nombre réel qui n'est pas rationnel, c'est-à-dire qu'il ne peut pas s'écrire sous la forme d'une fraction a/b, où a et b sont deux entiers relatifs.",
+  "categories": [
+    "nombre réel qui n'est pas rationnel"
+  ],
+  "generated_at": "2026-05-09T22:20:58.012513+00:00"
+}

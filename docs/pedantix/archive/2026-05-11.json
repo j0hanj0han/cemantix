@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-11",
+  "puzzle_num": 1458,
+  "word": "Groupe fondamental",
+  "title_slug": "Groupe_fondamental",
+  "title_display": "Groupe fondamental",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Groupe_fondamental",
+  "hints": {
+    "level1": [
+      "2 mots · 17 lettres",
+      "Premières lettres : G · F"
+    ],
+    "level2": [
+      "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
+    ],
+    "level3": [
+      "En mathématiques, et plus spécifiquement en topologie algébrique, le ___, ou ___ de Poincaré, est un invariant topologique."
+    ]
+  },
+  "extract": "En mathématiques, et plus spécifiquement en topologie algébrique, le groupe fondamental, ou groupe de Poincaré, est un invariant topologique.",
+  "categories": [
+    "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
+  ],
+  "generated_at": "2026-05-11T22:20:17.736019+00:00"
+}

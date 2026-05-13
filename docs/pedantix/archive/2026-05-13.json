@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-13",
+  "puzzle_num": 1460,
+  "word": "Symphonie",
+  "title_slug": "Symphonie",
+  "title_display": "Symphonie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Symphonie",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "composition musicale classique",
+      "Typographie à vérifier",
+      "Genre musical classique",
+      "Vocabulaire de la musique classique"
+    ],
+    "level3": [
+      "Une ___ est une œuvre musicale instrumentale savante, de proportions généralement vastes, comprenant plusieurs mouvements joints ou disjoints et faisant appel aux ressources de l'orchestre symphonique."
+    ]
+  },
+  "extract": "Une symphonie est une œuvre musicale instrumentale savante, de proportions généralement vastes, comprenant plusieurs mouvements joints ou disjoints et faisant appel aux ressources de l'orchestre symphonique.",
+  "categories": [
+    "composition musicale classique",
+    "Typographie à vérifier",
+    "Genre musical classique",
+    "Vocabulaire de la musique classique"
+  ],
+  "generated_at": "2026-05-13T22:16:09.105107+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-15",
+  "puzzle_num": 1462,
+  "word": "Dromadaire",
+  "title_slug": "Dromadaire",
+  "title_display": "Dromadaire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dromadaire",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : D"
+    ],
+    "level2": [
+      "espèce de mammifères"
+    ],
+    "level3": [
+      "Le ___, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés."
+    ]
+  },
+  "extract": "Le dromadaire, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés.",
+  "categories": [
+    "espèce de mammifères"
+  ],
+  "generated_at": "2026-05-15T22:15:39.101691+00:00"
+}

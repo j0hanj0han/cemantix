@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-18",
+  "puzzle_num": 1465,
+  "word": "Diego Vélasquez",
+  "title_slug": "Diego_Vélasquez",
+  "title_display": "Diego Vélasquez",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diego_Vélasquez",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : D · V"
+    ],
+    "level2": [
+      "peintre espagnol (1599-1660)"
+    ],
+    "level3": [
+      "___ Rodríguez de Silva y Velázquez, dit ___ Velázquez, ou ___ en français, né puis baptisé à Séville le 6 juin 1599 et mort à Madrid le 6 août 1660, est un peintre baroque espagnol."
+    ]
+  },
+  "extract": "Diego Rodríguez de Silva y Velázquez, dit Diego Velázquez, ou Diego Vélasquez en français, né puis baptisé à Séville le 6 juin 1599 et mort à Madrid le 6 août 1660, est un peintre baroque espagnol.",
+  "categories": [
+    "peintre espagnol (1599-1660)"
+  ],
+  "generated_at": "2026-05-18T22:15:44.525077+00:00"
+}

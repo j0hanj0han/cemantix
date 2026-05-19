@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-19",
+  "puzzle_num": 1466,
+  "word": "Histoire de l'Israël antique",
+  "title_slug": "Histoire_de_l'Israël_antique",
+  "title_display": "Histoire de l'Israël antique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_de_l'Israël_antique",
+  "hints": {
+    "level1": [
+      "4 mots · 25 lettres",
+      "Premières lettres : H · D · L · A"
+    ],
+    "level2": [
+      "Typographie à vérifier",
+      "Orthographe à vérifier",
+      "Archéologie de la Bible",
+      "Index égyptologique"
+    ],
+    "level3": [
+      "L'___ concerne les populations israélites qui ont établi des royaumes à l'âge du fer dans le Proche-Orient ancien."
+    ]
+  },
+  "extract": "L'histoire de l'Israël antique concerne les populations israélites qui ont établi des royaumes à l'âge du fer dans le Proche-Orient ancien.",
+  "categories": [
+    "Typographie à vérifier",
+    "Orthographe à vérifier",
+    "Archéologie de la Bible",
+    "Index égyptologique"
+  ],
+  "generated_at": "2026-05-19T22:21:04.749695+00:00"
+}

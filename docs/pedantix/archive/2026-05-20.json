@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-20",
+  "puzzle_num": 1467,
+  "word": "Potentiel hydrogène",
+  "title_slug": "Potentiel_hydrogène",
+  "title_display": "Potentiel hydrogène",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Potentiel_hydrogène",
+  "hints": {
+    "level1": [
+      "2 mots · 18 lettres",
+      "Premières lettres : P · H"
+    ],
+    "level2": [
+      "mesure de l'activité chimique des ions hydrogène en solution"
+    ],
+    "level3": [
+      "Le ___, noté pH, est une mesure de l'activité chimique des protons ou ions ___ en solution."
+    ]
+  },
+  "extract": "Le potentiel hydrogène, noté pH, est une mesure de l'activité chimique des protons ou ions hydrogène en solution.",
+  "categories": [
+    "mesure de l'activité chimique des ions hydrogène en solution"
+  ],
+  "generated_at": "2026-05-20T22:15:33.183381+00:00"
+}

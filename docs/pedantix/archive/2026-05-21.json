@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-21",
+  "puzzle_num": 1468,
+  "word": "Astate",
+  "title_slug": "Astate",
+  "title_display": "Astate",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Astate",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : A"
+    ],
+    "level2": [
+      "élément chimique de numéro atomique 85 et de symbole At"
+    ],
+    "level3": [
+      "L'___ est un radioélément, de symbole At et de numéro atomique 85."
+    ]
+  },
+  "extract": "L'astate est un radioélément, de symbole At et de numéro atomique 85.",
+  "categories": [
+    "élément chimique de numéro atomique 85 et de symbole At"
+  ],
+  "generated_at": "2026-05-21T22:15:37.099929+00:00"
+}

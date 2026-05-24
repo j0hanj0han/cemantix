@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-24",
+  "puzzle_num": 1471,
+  "word": "Ballon dirigeable",
+  "title_slug": "Ballon_dirigeable",
+  "title_display": "Ballon dirigeable",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ballon_dirigeable",
+  "hints": {
+    "level1": [
+      "2 mots · 16 lettres",
+      "Premières lettres : B · D"
+    ],
+    "level2": [
+      "aéronef léger avec un système de propulsion"
+    ],
+    "level3": [
+      "Un ___ ou simplement ___ est un aéronef utilisant un gaz porteur destiné à assurer l'essentiel de sa sustentation, et des systèmes de propulsion lui conférant une certaine manœuvrabilité tridimensionnelle."
+    ]
+  },
+  "extract": "Un ballon dirigeable ou simplement dirigeable est un aéronef utilisant un gaz porteur destiné à assurer l'essentiel de sa sustentation, et des systèmes de propulsion lui conférant une certaine manœuvrabilité tridimensionnelle.",
+  "categories": [
+    "aéronef léger avec un système de propulsion"
+  ],
+  "generated_at": "2026-05-24T22:16:51.939040+00:00"
+}

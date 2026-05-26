@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-26",
+  "puzzle_num": 1473,
+  "word": "Téhéran",
+  "title_slug": "Téhéran",
+  "title_display": "Téhéran",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Téhéran",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : T"
+    ],
+    "level2": [
+      "capitale de l'Iran"
+    ],
+    "level3": [
+      "___ est la capitale et la plus grande ville de l'Iran."
+    ]
+  },
+  "extract": "Téhéran est la capitale et la plus grande ville de l'Iran.",
+  "categories": [
+    "capitale de l'Iran"
+  ],
+  "generated_at": "2026-05-26T22:21:12.661330+00:00"
+}

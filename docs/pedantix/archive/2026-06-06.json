@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-06",
+  "puzzle_num": 1484,
+  "word": "Musée du Louvre",
+  "title_slug": "Musée_du_Louvre",
+  "title_display": "Musée du Louvre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Musée_du_Louvre",
+  "hints": {
+    "level1": [
+      "3 mots · 13 lettres",
+      "Premières lettres : M · D · L"
+    ],
+    "level2": [
+      "musée d'art et d'archéologie à Paris, France"
+    ],
+    "level3": [
+      "Le ___ est un ___ parisien situé au sein du palais du ___ dans le 1er arrondissement."
+    ]
+  },
+  "extract": "Le musée du Louvre est un musée parisien situé au sein du palais du Louvre dans le 1er arrondissement.",
+  "categories": [
+    "musée d'art et d'archéologie à Paris, France"
+  ],
+  "generated_at": "2026-06-06T22:15:46.701714+00:00"
+}

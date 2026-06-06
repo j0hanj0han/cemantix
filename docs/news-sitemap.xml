@@ -8,23 +8,34 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-06-06T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 6 juin 2026</news:title>
+      <news:publication_date>2026-06-07T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du dimanche 7 juin 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-06-05</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-06-06</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-06-05T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 5 juin 2026</news:title>
+      <news:publication_date>2026-06-06T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du samedi 6 juin 2026</news:title>
     </news:news>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/sutom/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-07T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du dimanche 7 juin 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-06-06</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -35,25 +46,14 @@
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-06-05</loc>
+    <loc>https://solution-du-jour.fr/pedantix/archive/2026-06-06</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-06-05T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du vendredi 5 juin 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/archive/2026-06-05</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-05T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Pédantix du vendredi 5 juin 2026</news:title>
+      <news:publication_date>2026-06-06T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Pédantix du samedi 6 juin 2026</news:title>
     </news:news>
   </url>
 </urlset>

@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-07",
+  "puzzle_num": 1485,
+  "word": "Prix Nobel",
+  "title_slug": "Prix_Nobel",
+  "title_display": "Prix Nobel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prix_Nobel",
+  "hints": {
+    "level1": [
+      "2 mots · 9 lettres",
+      "Premières lettres : P · N"
+    ],
+    "level2": [
+      "ensemble de récompenses décernées annuellement",
+      "Distinction fondée en 1901",
+      "Distinction en Suède",
+      "Alfred Nobel"
+    ],
+    "level3": [
+      "Le ___ est une récompense de portée internationale."
+    ]
+  },
+  "extract": "Le prix Nobel est une récompense de portée internationale.",
+  "categories": [
+    "ensemble de récompenses décernées annuellement",
+    "Distinction fondée en 1901",
+    "Distinction en Suède",
+    "Alfred Nobel"
+  ],
+  "generated_at": "2026-06-07T22:16:00.533898+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-08",
+  "puzzle_num": 1486,
+  "word": "Yttrium",
+  "title_slug": "Yttrium",
+  "title_display": "Yttrium",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Yttrium",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : Y"
+    ],
+    "level2": [
+      "élément chimique de numéro atomique 39 et de symbole Y"
+    ],
+    "level3": [
+      "L'___ est l'élément chimique de numéro atomique 39, de symbole Y."
+    ]
+  },
+  "extract": "L'yttrium est l'élément chimique de numéro atomique 39, de symbole Y.",
+  "categories": [
+    "élément chimique de numéro atomique 39 et de symbole Y"
+  ],
+  "generated_at": "2026-06-08T22:16:11.463398+00:00"
+}

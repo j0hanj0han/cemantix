@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-10",
+  "puzzle_num": 1488,
+  "word": "Marseille",
+  "title_slug": "Marseille",
+  "title_display": "Marseille",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Marseille",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "ville et commune française (chef-lieu du département des Bouches-du-Rhône et de la région Provence-Alpes-Côte d'Azur) et 2e plus grande ville de France"
+    ],
+    "level3": [
+      "___ est une commune française située dans le département des Bouches-du-Rhône, dont elle est la préfecture."
+    ]
+  },
+  "extract": "Marseille est une commune française située dans le département des Bouches-du-Rhône, dont elle est la préfecture.",
+  "categories": [
+    "ville et commune française (chef-lieu du département des Bouches-du-Rhône et de la région Provence-Alpes-Côte d'Azur) et 2e plus grande ville de France"
+  ],
+  "generated_at": "2026-06-10T22:18:59.413112+00:00"
+}

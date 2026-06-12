@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-12",
+  "puzzle_num": 1490,
+  "word": "Économie de la république populaire de Chine",
+  "title_slug": "Économie_de_la_république_populaire_de_Chine",
+  "title_display": "Économie de la république populaire de Chine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Économie_de_la_république_populaire_de_Chine",
+  "hints": {
+    "level1": [
+      "7 mots · 38 lettres",
+      "Premières lettres : É · D · L · R · P · D · C"
+    ],
+    "level2": [
+      "modèle économique chinois"
+    ],
+    "level3": [
+      "La ___ est le deuxième pays du monde par son produit intérieur brut (PIB) nominal, derrière les États-Unis."
+    ]
+  },
+  "extract": "La Chine est le deuxième pays du monde par son produit intérieur brut (PIB) nominal, derrière les États-Unis.",
+  "categories": [
+    "modèle économique chinois"
+  ],
+  "generated_at": "2026-06-12T22:15:54.511473+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-13",
+  "puzzle_num": 1491,
+  "word": "Nice",
+  "title_slug": "Nice",
+  "title_display": "Nice",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nice",
+  "hints": {
+    "level1": [
+      "1 mot · 4 lettres",
+      "Première lettre : N"
+    ],
+    "level2": [
+      "ville et commune française, chef-lieu du département des Alpes-Maritimes"
+    ],
+    "level3": [
+      "___ [nis], Nissa ou Niça ['ni.sa] en occitan nissart, est une commune du Sud-Est de la France, préfecture du département des Alpes-Maritimes et deuxième ville de la région Provence-Alpes-Côte d'Azur derrière Marseille."
+    ]
+  },
+  "extract": "Nice [nis], Nissa ou Niça ['ni.sa] en occitan nissart, est une commune du Sud-Est de la France, préfecture du département des Alpes-Maritimes et deuxième ville de la région Provence-Alpes-Côte d'Azur derrière Marseille.",
+  "categories": [
+    "ville et commune française, chef-lieu du département des Alpes-Maritimes"
+  ],
+  "generated_at": "2026-06-13T22:26:55.831627+00:00"
+}

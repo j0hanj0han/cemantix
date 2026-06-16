@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-16",
+  "puzzle_num": 1494,
+  "word": "Millet (graminée)",
+  "title_slug": "Millet_(graminée)",
+  "title_display": "Millet (graminée)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Millet_(graminée)",
+  "hints": {
+    "level1": [
+      "2 mots · 16 lettres",
+      "Premières lettres : M · ("
+    ],
+    "level2": [
+      "céréale",
+      "Millet",
+      "Flore (nom vernaculaire)",
+      "Nom de graminée ambigu"
+    ],
+    "level3": [
+      "___ est un terme générique qui désigne en français plusieurs espèces de plantes de la famille des poacées (graminées)."
+    ]
+  },
+  "extract": "Millet est un terme générique qui désigne en français plusieurs espèces de plantes de la famille des poacées (graminées).",
+  "categories": [
+    "céréale",
+    "Millet",
+    "Flore (nom vernaculaire)",
+    "Nom de graminée ambigu"
+  ],
+  "generated_at": "2026-06-16T22:24:05.400110+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-06-18",
+  "puzzle_num": 1496,
+  "word": "Colonisation espagnole de l'Amérique",
+  "title_slug": "Colonisation_espagnole_de_l'Amérique",
+  "title_display": "Colonisation espagnole de l'Amérique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Colonisation_espagnole_de_l'Amérique",
+  "hints": {
+    "level1": [
+      "4 mots · 33 lettres",
+      "Premières lettres : C · E · D · L"
+    ],
+    "level2": [
+      "expansion vers le continent américain de la couronne de Castille",
+      "Colonisation espagnole des Amériques",
+      "Colonisation continentale par pays"
+    ],
+    "level3": [
+      "La ___, commencée avec les voyages de Christophe Colomb vers la fin du XVe siècle, a permis à la monarchie catholique ___ de maîtriser une grande partie du continent."
+    ]
+  },
+  "extract": "La colonisation espagnole de l'Amérique, commencée avec les voyages de Christophe Colomb vers la fin du XVe siècle, a permis à la monarchie catholique espagnole de maîtriser une grande partie du continent.",
+  "categories": [
+    "expansion vers le continent américain de la couronne de Castille",
+    "Colonisation espagnole des Amériques",
+    "Colonisation continentale par pays"
+  ],
+  "generated_at": "2026-06-18T22:16:11.951879+00:00"
+}

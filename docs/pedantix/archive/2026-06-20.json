@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-20",
+  "puzzle_num": 1498,
+  "word": "Elbrouz",
+  "title_slug": "Elbrouz",
+  "title_display": "Elbrouz",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Elbrouz",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : E"
+    ],
+    "level2": [
+      "montagne de Russie",
+      "Volcan endormi",
+      "Volcan de subduction",
+      "Volcan sous-glaciaire"
+    ],
+    "level3": [
+      "L'___ ou Elbrous, en russe Эльбрус, Elbrous ou El'brous, en karatchaï-balkar Минги тау, Miñi taw, /miŋŋi taw/, situé sur la bordure septentrionale du Caucase, en Russie, est le point culminant de cette chaîne de montagnes, du pays, ainsi que de l'Europe avec 5 643 mètres d'altitude."
+    ]
+  },
+  "extract": "L'Elbrouz ou Elbrous, en russe Эльбрус, Elbrous ou El'brous, en karatchaï-balkar Минги тау, Miñi taw, /miŋŋi taw/, situé sur la bordure septentrionale du Caucase, en Russie, est le point culminant de cette chaîne de montagnes, du pays, ainsi que de l'Europe avec 5 643 mètres d'altitude.",
+  "categories": [
+    "montagne de Russie",
+    "Volcan endormi",
+    "Volcan de subduction",
+    "Volcan sous-glaciaire"
+  ],
+  "generated_at": "2026-06-20T22:18:16.188846+00:00"
+}

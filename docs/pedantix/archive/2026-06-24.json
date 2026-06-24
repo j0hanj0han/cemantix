@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-24",
+  "puzzle_num": 1502,
+  "word": "Jacques VI et Ier",
+  "title_slug": "Jacques_VI_et_Ier",
+  "title_display": "Jacques VI et Ier",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Jacques_VI_et_Ier",
+  "hints": {
+    "level1": [
+      "4 mots · 14 lettres",
+      "Premières lettres : J · V · E · I"
+    ],
+    "level2": [
+      "roi d'Écosse de 1566 à 1625, roi d'Angleterre et d'Irlande de 1603 à 1625"
+    ],
+    "level3": [
+      "___ Stuart, né le 19 juin 1566 au château d'Édimbourg et mort le 27 mars 1625 à Theobalds House, est roi d'Écosse sous le nom de ___ VI à partir du 24 juillet 1567, ainsi que roi d'Angleterre et d'Irlande sous le nom de ___ Ier à partir du 24 mars 1603."
+    ]
+  },
+  "extract": "Jacques Stuart, né le 19 juin 1566 au château d'Édimbourg et mort le 27 mars 1625 à Theobalds House, est roi d'Écosse sous le nom de Jacques VI à partir du 24 juillet 1567, ainsi que roi d'Angleterre et d'Irlande sous le nom de Jacques Ier à partir du 24 mars 1603.",
+  "categories": [
+    "roi d'Écosse de 1566 à 1625, roi d'Angleterre et d'Irlande de 1603 à 1625"
+  ],
+  "generated_at": "2026-06-24T22:15:40.012717+00:00"
+}

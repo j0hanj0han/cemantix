@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-25",
+  "puzzle_num": 1503,
+  "word": "The Walt Disney Company",
+  "title_slug": "The_Walt_Disney_Company",
+  "title_display": "The Walt Disney Company",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/The_Walt_Disney_Company",
+  "hints": {
+    "level1": [
+      "4 mots · 20 lettres",
+      "Premières lettres : T · W · D · C"
+    ],
+    "level2": [
+      "entreprise américaine de média et de divertissements"
+    ],
+    "level3": [
+      "___ est une entreprise américaine créée en 1923 par ___ ___ sous le nom ___ Brothers Studio."
+    ]
+  },
+  "extract": "The Walt Disney Company est une entreprise américaine créée en 1923 par Walt Disney sous le nom Disney Brothers Studio.",
+  "categories": [
+    "entreprise américaine de média et de divertissements"
+  ],
+  "generated_at": "2026-06-25T22:15:58.748510+00:00"
+}

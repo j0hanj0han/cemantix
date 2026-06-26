@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-26",
+  "puzzle_num": 1504,
+  "word": "Cartographie",
+  "title_slug": "Cartographie",
+  "title_display": "Cartographie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cartographie",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "Discipline de la réalisation de cartes géographiques"
+    ],
+    "level3": [
+      "La ___ est la réalisation et l'étude des cartes géographiques et géologiques."
+    ]
+  },
+  "extract": "La cartographie est la réalisation et l'étude des cartes géographiques et géologiques.",
+  "categories": [
+    "Discipline de la réalisation de cartes géographiques"
+  ],
+  "generated_at": "2026-06-26T22:21:33.854559+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-27",
+  "puzzle_num": 1505,
+  "word": "Rio de Janeiro",
+  "title_slug": "Rio_de_Janeiro",
+  "title_display": "Rio de Janeiro",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Rio_de_Janeiro",
+  "hints": {
+    "level1": [
+      "3 mots · 12 lettres",
+      "Premières lettres : R · D · J"
+    ],
+    "level2": [
+      "ville de l'État de Rio de Janeiro, Brésil"
+    ],
+    "level3": [
+      "___, souvent désignée simplement sous le nom de Rio, est par sa population la deuxième ville du Brésil après São Paulo."
+    ]
+  },
+  "extract": "Rio de Janeiro, souvent désignée simplement sous le nom de Rio, est par sa population la deuxième ville du Brésil après São Paulo.",
+  "categories": [
+    "ville de l'État de Rio de Janeiro, Brésil"
+  ],
+  "generated_at": "2026-06-27T22:16:10.076152+00:00"
+}

@@ -2,29 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-28T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du dimanche 28 juin 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-06-27</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 27 juin 2026</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://solution-du-jour.fr/sutom/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-29T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du lundi 29 juin 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-06-28</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -35,25 +24,14 @@
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-06-27</loc>
+    <loc>https://solution-du-jour.fr/pedantix/archive/2026-06-28</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-06-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du samedi 27 juin 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/archive/2026-06-27</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-27T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Pédantix du samedi 27 juin 2026</news:title>
+      <news:publication_date>2026-06-28T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Pédantix du dimanche 28 juin 2026</news:title>
     </news:news>
   </url>
 </urlset>

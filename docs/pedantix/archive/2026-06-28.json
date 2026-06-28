@@ -1,0 +1,29 @@
+{
+  "date": "2026-06-28",
+  "puzzle_num": 1506,
+  "word": "Ceinture de Kuiper",
+  "title_slug": "Ceinture_de_Kuiper",
+  "title_display": "Ceinture de Kuiper",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ceinture_de_Kuiper",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : C · D · K"
+    ],
+    "level2": [
+      "zone du Système solaire s'étendant au-delà de l'orbite de Neptune",
+      "Disque de débris du Système solaire",
+      "Objet de la ceinture de Kuiper"
+    ],
+    "level3": [
+      "La ___ est une zone du Système solaire s'étendant au-delà de l'orbite de Neptune, entre 30 et 55 unités astronomiques."
+    ]
+  },
+  "extract": "La ceinture de Kuiper est une zone du Système solaire s'étendant au-delà de l'orbite de Neptune, entre 30 et 55 unités astronomiques.",
+  "categories": [
+    "zone du Système solaire s'étendant au-delà de l'orbite de Neptune",
+    "Disque de débris du Système solaire",
+    "Objet de la ceinture de Kuiper"
+  ],
+  "generated_at": "2026-06-28T22:29:12.330182+00:00"
+}

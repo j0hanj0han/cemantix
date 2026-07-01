@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-01",
+  "puzzle_num": 1509,
+  "word": "Diélectrique",
+  "title_slug": "Diélectrique",
+  "title_display": "Diélectrique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diélectrique",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : D"
+    ],
+    "level2": [
+      "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
+    ],
+    "level3": [
+      "Un milieu est ___ s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique."
+    ]
+  },
+  "extract": "Un milieu est diélectrique s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique.",
+  "categories": [
+    "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
+  ],
+  "generated_at": "2026-07-01T22:15:40.943478+00:00"
+}

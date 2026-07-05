@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-05",
+  "puzzle_num": 1513,
+  "word": "Kosovo",
+  "title_slug": "Kosovo",
+  "title_display": "Kosovo",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Kosovo",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : K"
+    ],
+    "level2": [
+      "pays issu de l'ancienne Yougoslavie dont la reconnaissance est limitée",
+      "Territoire contesté ou occupé en Europe",
+      "Organisation des nations et des peuples non représentés"
+    ],
+    "level3": [
+      "Le ___ ou Kossovo, en forme longue la république du ___, est un État au statut contesté situé en Europe du Sud, plus particulièrement dans les Balkans, en ex-Yougoslavie."
+    ]
+  },
+  "extract": "Le Kosovo ou Kossovo, en forme longue la république du Kosovo, est un État au statut contesté situé en Europe du Sud, plus particulièrement dans les Balkans, en ex-Yougoslavie.",
+  "categories": [
+    "pays issu de l'ancienne Yougoslavie dont la reconnaissance est limitée",
+    "Territoire contesté ou occupé en Europe",
+    "Organisation des nations et des peuples non représentés"
+  ],
+  "generated_at": "2026-07-05T22:28:16.831591+00:00"
+}

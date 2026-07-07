@@ -176,14 +176,14 @@ def generate_archive_html(
     stars_str = " · ".join(str(s) for s in stars)
 
     if prev_date is not None:
-        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}.html">&#8592; {date_fr(prev_date)}</a>'
+        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
     else:
         nav_prev = '<span class="nav-disabled">&#8592; Plus ancien</span>'
 
     if next_date is not None:
-        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}.html">{date_fr(next_date)} &#8594;</a>'
+        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}">{date_fr(next_date)} &#8594;</a>'
     else:
-        nav_next = '<a class="nav-link" href="../index.html">Dernier tirage &#8594;</a>'
+        nav_next = '<a class="nav-link" href="../">Dernier tirage &#8594;</a>'
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -253,8 +253,8 @@ def generate_archive_html(
     ]
   }}
   </script>
-  {f'<link rel="prev" href="{prev_date.isoformat()}.html">' if prev_date else ''}
-  {f'<link rel="next" href="{next_date.isoformat()}.html">' if next_date else ''}
+  {f'<link rel="prev" href="{prev_date.isoformat()}">' if prev_date else ''}
+  {f'<link rel="next" href="{next_date.isoformat()}">' if next_date else ''}
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -270,13 +270,13 @@ def generate_archive_html(
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
-  <a href="../index.html">EuroMillions</a> &rsaquo;
-  <a href="index.html">Archives</a> &rsaquo;
+  <a href="../">EuroMillions</a> &rsaquo;
+  <a href="./">Archives</a> &rsaquo;
   <span>Tirage du {date_display}</span>
 </nav>
   <nav class="nav-archive" aria-label="Navigation entre les tirages">
     {nav_prev}
-    <a class="nav-center" href="index.html">Tous les tirages</a>
+    <a class="nav-center" href="./">Tous les tirages</a>
     {nav_next}
   </nav>
 
@@ -318,15 +318,15 @@ def generate_archive_html(
 
   <nav class="nav-archive" aria-label="Navigation entre les tirages">
     {nav_prev}
-    <a class="nav-center" href="index.html">Tous les tirages</a>
+    <a class="nav-center" href="./">Tous les tirages</a>
     {nav_next}
   </nav>
 </main>
 
 <footer>
   <p>
-    <a href="../index.html">Dernier tirage</a> ·
-    <a href="index.html">Tous les tirages</a> ·
+    <a href="../">Dernier tirage</a> ·
+    <a href="./">Tous les tirages</a> ·
     <a href="../stats/">Statistiques</a> ·
     <a href="https://www.euro-millions.com/fr" rel="noopener" target="_blank">euro-millions.com</a>
   </p>
@@ -351,7 +351,7 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'      <li class="arch-item">'
             f'<span class="arch-date">{date_fr(d)}</span>'
             f'<span class="arch-num">&#9733; {stars_str}</span>'
-            f'<a class="arch-link" href="{e["date"]}.html">{balls_str}</a>'
+            f'<a class="arch-link" href="{e["date"]}">{balls_str}</a>'
             f'</li>'
         )
 
@@ -408,7 +408,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="{SITE_URL}/">Accueil</a> &rsaquo;
-  <a href="../index.html">EuroMillions</a> &rsaquo;
+  <a href="../">EuroMillions</a> &rsaquo;
   <span>Archives</span>
 </nav>
   <div class="card">
@@ -422,13 +422,13 @@ def generate_archive_index(entries: list[dict]) -> None:
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">
-    <a class="reveal-btn" href="../index.html">Dernier tirage &#8594;</a>
+    <a class="reveal-btn" href="../">Dernier tirage &#8594;</a>
   </div>
 </main>
 
 <footer>
   <p>
-    <a href="../index.html">Dernier tirage</a> ·
+    <a href="../">Dernier tirage</a> ·
     <a href="../stats/">Statistiques</a> ·
     <a href="https://www.euro-millions.com/fr" rel="noopener" target="_blank">euro-millions.com</a>
   </p>
@@ -469,7 +469,7 @@ def generate_index_html(
                 f'      <li class="arch-item">'
                 f'<span class="arch-date">{date_fr(d)}</span>'
                 f'<span class="arch-num">&#9733; {s_str}</span>'
-                f'<a class="arch-link" href="archive/{e["date"]}.html">{b_str}</a>'
+                f'<a class="arch-link" href="archive/{e["date"]}">{b_str}</a>'
                 f'</li>'
             )
         items = "\n".join(arch_item(e) for e in recent_archives[:7])
@@ -1235,7 +1235,7 @@ def generate_em_stats_html(stats: dict) -> None:
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="{SITE_URL}/">Accueil</a> &rsaquo;
-  <a href="../index.html">EuroMillions</a> &rsaquo;
+  <a href="../">EuroMillions</a> &rsaquo;
   <span>Statistiques</span>
 </nav>
 
@@ -1426,14 +1426,14 @@ def generate_em_stats_html(stats: dict) -> None:
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">
-    <a class="reveal-btn" href="../index.html">Dernier tirage EuroMillions &#8594;</a>
+    <a class="reveal-btn" href="../">Dernier tirage EuroMillions &#8594;</a>
   </div>
 </main>
 
 <footer>
   <p>
     <a href="{SITE_URL}/">Accueil</a> ·
-    <a href="../index.html">Dernier tirage</a> ·
+    <a href="../">Dernier tirage</a> ·
     <a href="../archive/">Archives</a> ·
     <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million" rel="noopener" target="_blank">Jouer à l'EuroMillions</a>
   </p>

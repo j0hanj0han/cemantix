@@ -271,14 +271,14 @@ def generate_archive_html(
     word_hints_card = _word_hints_card_html(word, definition)
 
     if prev_date is not None:
-        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}.html">&#8592; {date_fr(prev_date)}</a>'
+        nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
     else:
         nav_prev = '<span class="nav-disabled">&#8592; Plus ancien</span>'
 
     if next_date is not None:
-        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}.html">{date_fr(next_date)} &#8594;</a>'
+        nav_next = f'<a class="nav-link" href="{next_date.isoformat()}">{date_fr(next_date)} &#8594;</a>'
     else:
-        nav_next = '<a class="nav-link" href="../index.html">Solution du jour &#8594;</a>'
+        nav_next = '<a class="nav-link" href="../">Solution du jour &#8594;</a>'
 
     first_letter = word[0].upper() if word else "?"
     word_length = len(word)
@@ -382,8 +382,8 @@ def generate_archive_html(
     ]
   }}
   </script>
-  {f'<link rel="prev" href="{prev_date.isoformat()}.html">' if prev_date else ''}
-  {f'<link rel="next" href="{next_date.isoformat()}.html">' if next_date else ''}
+  {f'<link rel="prev" href="{prev_date.isoformat()}">' if prev_date else ''}
+  {f'<link rel="next" href="{next_date.isoformat()}">' if next_date else ''}
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -399,13 +399,13 @@ def generate_archive_html(
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
-  <a href="../index.html">Cémantix</a> &rsaquo;
-  <a href="index.html">Archives</a> &rsaquo;
+  <a href="../">Cémantix</a> &rsaquo;
+  <a href="./">Archives</a> &rsaquo;
   <span>Solution du {date_display}</span>
 </nav>
   <nav class="nav-archive" aria-label="Navigation entre les archives">
     {nav_prev}
-    <a class="nav-center" href="index.html">Toutes les archives</a>
+    <a class="nav-center" href="./">Toutes les archives</a>
     {nav_next}
   </nav>
 
@@ -475,15 +475,15 @@ def generate_archive_html(
 
   <nav class="nav-archive" aria-label="Navigation entre les archives">
     {nav_prev}
-    <a class="nav-center" href="index.html">Toutes les archives</a>
+    <a class="nav-center" href="./">Toutes les archives</a>
     {nav_next}
   </nav>
 </main>
 
 <footer>
   <p>
-    <a href="../index.html">Solution du jour</a> ·
-    <a href="index.html">Archives</a> ·
+    <a href="../">Solution du jour</a> ·
+    <a href="./">Archives</a> ·
     <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a>
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
@@ -563,7 +563,7 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'      <li class="arch-item">'
             f'<span class="arch-date">{date_fr(d)}</span>'
             f'<span class="arch-num">#{e["puzzle_num"]}</span>'
-            f'<a class="arch-link" href="{e["date"]}.html">{e["word"].upper()}</a>'
+            f'<a class="arch-link" href="{e["date"]}">{e["word"].upper()}</a>'
             f'</li>'
         )
 
@@ -616,7 +616,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 <main>
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="{SITE_URL}/">Accueil</a> &rsaquo;
-  <a href="../index.html">Cémantix</a> &rsaquo;
+  <a href="../">Cémantix</a> &rsaquo;
   <span>Archives</span>
 </nav>
   <div class="card">
@@ -630,13 +630,13 @@ def generate_archive_index(entries: list[dict]) -> None:
   </div>
 
   <div style="text-align:center;margin-top:.5rem;">
-    <a class="reveal-btn" href="../index.html">Solution du jour &#8594;</a>
+    <a class="reveal-btn" href="../">Solution du jour &#8594;</a>
   </div>
 </main>
 
 <footer>
   <p>
-    <a href="../index.html">Solution du jour</a> ·
+    <a href="../">Solution du jour</a> ·
     <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a>
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
@@ -701,7 +701,7 @@ def generate_index_html(
                 f'      <li class="arch-item">'
                 f'<span class="arch-date">{date_fr(d)}</span>'
                 f'<span class="arch-num">#{e["puzzle_num"]}</span>'
-                f'<a class="arch-link" href="archive/{e["date"]}.html">{e["word"].upper()}</a>'
+                f'<a class="arch-link" href="archive/{e["date"]}">{e["word"].upper()}</a>'
                 f'</li>'
             )
         items = "\n".join(arch_item(e) for e in recent_archives[:7])

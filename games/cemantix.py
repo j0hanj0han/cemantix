@@ -617,7 +617,173 @@ def generate_archive_html(
     atomic_write(CEMANTIX_ARCHIVE / f"{date_str}.html", html)
 
 
-def generate_archive_index(entries: list[dict]) -> None:
+_MOIS_FR = ["", "janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def _month_fr(ym: str) -> str:
+    """'2026-06' → 'juin 2026'."""
+    y, m = int(ym[:4]), int(ym[5:7])
+    return f"{_MOIS_FR[m]} {y}"
+
+
+def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
+    """Génère docs/cemantix/archive/YYYY-MM.html — récap de toutes les solutions du mois."""
+    CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    month_label = _month_fr(ym)
+    count = len(entries)
+
+    def row_html(e: dict) -> str:
+        d = date.fromisoformat(e["date"])
+        defn = e.get("definition", "").strip()
+        defn_html = _html_escape(defn) if defn else "&mdash;"
+        return (
+            '        <tr>'
+            f'<td class="arch-date">{date_fr(d)}</td>'
+            f'<td class="arch-num">#{e["puzzle_num"]}</td>'
+            f'<td><a class="arch-link" href="{e["date"]}">{_html_escape(e["word"].upper())}</a></td>'
+            f'<td class="arch-def">{defn_html}</td>'
+            '</tr>'
+        )
+
+    rows_html = "\n".join(row_html(e) for e in entries)
+    words_preview = ", ".join(e["word"] for e in entries[:6])
+
+    nav_prev = (
+        f'<a class="nav-link" href="{prev_ym}">&#8592; {_month_fr(prev_ym)}</a>'
+        if prev_ym else '<span class="nav-disabled">&#8592; Mois précédent</span>'
+    )
+    nav_next = (
+        f'<a class="nav-link" href="{next_ym}">{_month_fr(next_ym)} &#8594;</a>'
+        if next_ym else '<a class="nav-link" href="./">Toutes les archives &#8594;</a>'
+    )
+    link_prev = f'<link rel="prev" href="{prev_ym}">' if prev_ym else ''
+    link_next = f'<link rel="next" href="{next_ym}">' if next_ym else ''
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>Cémantix — Toutes les solutions de {month_label}</title>
+  <meta name="description" content="Liste complète des solutions du Cémantix de {month_label} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{ym}">
+  {link_prev}
+  {link_next}
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Cémantix — Solutions de {month_label}">
+  <meta property="og:description" content="Toutes les réponses du Cémantix de {month_label} ({count} mots du jour) avec définitions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{ym}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Cémantix — Solutions de {month_label}",
+    "description": "Liste complète des solutions du Cémantix de {month_label} ({count} mots du jour) avec leur définition.",
+    "url": "{CEMANTIX_SITE_URL}/archive/{ym}",
+    "isPartOf": {{"@type": "WebSite", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "{CEMANTIX_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "{CEMANTIX_SITE_URL}/archive/"}},
+      {{"@type": "ListItem", "position": 4, "name": "{month_label}"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Cémantix — Solutions de {month_label}</h1>
+  <p class="subtitle">{count} mot{"s" if count > 1 else ""} du jour</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../">Cémantix</a> &rsaquo;
+  <a href="./">Archives</a> &rsaquo;
+  <span>{month_label}</span>
+</nav>
+  <nav class="nav-archive" aria-label="Navigation entre les mois">
+    {nav_prev}
+    <a class="nav-center" href="./">Tous les mois</a>
+    {nav_next}
+  </nav>
+
+  <article>
+    <div class="card">
+      <h2>Toutes les solutions Cémantix de {month_label}</h2>
+      <p>
+        Retrouvez la <strong>liste complète des solutions du Cémantix de {month_label}</strong> :
+        {count} mots du jour ({words_preview}…), chacun avec sa <strong>date</strong>, son
+        <strong>numéro de puzzle</strong> et sa <strong>définition</strong>. Cliquez sur un mot
+        pour ouvrir la page détaillée du jour avec ses indices progressifs.
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="month-table" style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Date</th>
+              <th style="text-align:left;">Puzzle</th>
+              <th style="text-align:left;">Mot</th>
+              <th style="text-align:left;">Définition</th>
+            </tr>
+          </thead>
+          <tbody>
+{rows_html}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+
+  <nav class="nav-archive" aria-label="Navigation entre les mois">
+    {nav_prev}
+    <a class="nav-center" href="./">Tous les mois</a>
+    {nav_next}
+  </nav>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../">Solution du jour &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="../">Solution du jour</a> ·
+    <a href="./">Archives</a> ·
+    <a href="https://cemantix.certitudes.org" rel="noopener" target="_blank">Jouer à Cémantix</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Solutions générées automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(CEMANTIX_ARCHIVE / f"{ym}.html", html)
+
+
+def generate_archive_index(entries: list[dict], months: dict[str, list] | None = None) -> None:
     """Génère docs/cemantix/archive/index.html — liste de toutes les solutions."""
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
 
@@ -633,6 +799,26 @@ def generate_archive_index(entries: list[dict]) -> None:
 
     items_html = "\n".join(item_html(e) for e in entries)
     count = len(entries)
+
+    # Section « Par mois » : liens vers les récaps mensuels
+    months_card = ""
+    if months:
+        month_links = "\n".join(
+            f'        <li><a class="arch-link" href="{ym}">{_month_fr(ym)}</a> '
+            f'<span class="arch-num">{len(months[ym])} mot{"s" if len(months[ym]) > 1 else ""}</span></li>'
+            for ym in months
+        )
+        months_card = f"""
+  <div class="card">
+    <h2>Par mois</h2>
+    <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+      Parcourez toutes les solutions Cémantix regroupées par mois.
+    </p>
+    <ul class="arch-list month-list">
+{month_links}
+    </ul>
+  </div>
+"""
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -683,6 +869,7 @@ def generate_archive_index(entries: list[dict]) -> None:
   <a href="../">Cémantix</a> &rsaquo;
   <span>Archives</span>
 </nav>
+{months_card}
   <div class="card">
     <h2>Toutes les solutions Cémantix ({count})</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
@@ -1061,8 +1248,19 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, def
         entry_definition = entry.get("definition", "")
         generate_archive_html(d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date, entry_definition)
 
+    # Pages récapitulatives mensuelles (past_archives est trié DESC)
+    months: dict[str, list] = {}
+    for e in past_archives:
+        months.setdefault(e["date"][:7], []).append(e)
+    month_keys = list(months.keys())
+    print(f"[Cémantix] Génération des pages mensuelles ({len(month_keys)} mois)…")
+    for i, ym in enumerate(month_keys):
+        next_ym = month_keys[i - 1] if i > 0 else None                    # mois plus récent
+        prev_ym = month_keys[i + 1] if i + 1 < len(month_keys) else None  # mois plus ancien
+        generate_month_html(ym, months[ym], prev_ym, next_ym)
+
     print("[Cémantix] Génération de docs/cemantix/archive/index.html…")
-    generate_archive_index(past_archives)
+    generate_archive_index(past_archives, months)
 
     recent_archives = [e for e in past_archives[:7] if (CEMANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Cémantix] Génération de docs/cemantix/index.html…")

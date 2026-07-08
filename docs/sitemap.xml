@@ -19,6 +19,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-07</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-06</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-05</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-04</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-03</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-02</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-07-05</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>never</changefreq>

@@ -501,6 +501,20 @@ def generate_global_sitemap(today: date) -> None:
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>""")
+        seen_months: set[str] = set()
+        for d in cemantix_dates:  # DESC → 1re occurrence d'un mois = sa date la plus récente
+            ym = d.strftime("%Y-%m")
+            if ym in seen_months:
+                continue
+            seen_months.add(ym)
+            if not (CEMANTIX_ARCHIVE / f"{ym}.html").exists():
+                continue
+            urls.append(f"""  <url>
+    <loc>{SITE_URL}/cemantix/archive/{ym}</loc>
+    <lastmod>{d.isoformat()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>""")
         for d in cemantix_dates:
             d_str = d.isoformat()
             if not (CEMANTIX_ARCHIVE / f"{d_str}.html").exists():

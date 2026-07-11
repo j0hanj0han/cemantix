@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-11",
+  "puzzle_num": 1519,
+  "word": "Hélium",
+  "title_slug": "Hélium",
+  "title_display": "Hélium",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hélium",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : H"
+    ],
+    "level2": [
+      "élément chimique de numéro atomique 2 et de symbole He ; gaz rare ; gaz noble"
+    ],
+    "level3": [
+      "L’___ est l'élément chimique de numéro atomique 2, de symbole He."
+    ]
+  },
+  "extract": "L’hélium est l'élément chimique de numéro atomique 2, de symbole He.",
+  "categories": [
+    "élément chimique de numéro atomique 2 et de symbole He ; gaz rare ; gaz noble"
+  ],
+  "generated_at": "2026-07-11T22:21:28.911705+00:00"
+}

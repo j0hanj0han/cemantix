@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-12",
+  "puzzle_num": 1520,
+  "word": "Loire",
+  "title_slug": "Loire",
+  "title_display": "Loire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Loire",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : L"
+    ],
+    "level2": [
+      "fleuve en France",
+      "Accessibilité : Graphique timeline sans alternative",
+      "Loire (fleuve)",
+      "Système hydrologique de la Loire"
+    ],
+    "level3": [
+      "La ___ est, avec une longueur de 1 006 kilomètres, le plus long fleuve s’écoulant entièrement en France."
+    ]
+  },
+  "extract": "La Loire est, avec une longueur de 1 006 kilomètres, le plus long fleuve s’écoulant entièrement en France.",
+  "categories": [
+    "fleuve en France",
+    "Accessibilité : Graphique timeline sans alternative",
+    "Loire (fleuve)",
+    "Système hydrologique de la Loire"
+  ],
+  "generated_at": "2026-07-12T22:16:07.172125+00:00"
+}

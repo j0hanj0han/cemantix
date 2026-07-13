@@ -13,5 +13,8 @@
   ],
   "code": "UP 040 3568",
   "next_jackpot": 38000000.0,
-  "generated_at": "2026-07-10T22:18:32.733616+00:00"
+  "generated_at": "2026-07-10T22:18:32.733616+00:00",
+  "jackpot_amount": 28471142.1,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

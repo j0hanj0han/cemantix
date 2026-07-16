@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-16",
+  "puzzle_num": 1524,
+  "word": "Cocotier",
+  "title_slug": "Cocotier",
+  "title_display": "Cocotier",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cocotier",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "espèce de palmiers",
+      "Taxobox utilisant la classification APG III",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
+    ],
+    "level3": [
+      "Le ___ est une espèce de palmiers de la famille des Arecaceae, décrite par Carl von Linné."
+    ]
+  },
+  "extract": "Le Cocotier est une espèce de palmiers de la famille des Arecaceae, décrite par Carl von Linné.",
+  "categories": [
+    "espèce de palmiers",
+    "Taxobox utilisant la classification APG III",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
+  ],
+  "generated_at": "2026-07-16T22:19:10.084154+00:00"
+}

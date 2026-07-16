@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-15",
+  "puzzle_num": 1523,
+  "word": "Hérésie",
+  "title_slug": "Hérésie",
+  "title_display": "Hérésie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hérésie",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : H"
+    ],
+    "level2": [
+      "doctrine ou opinion considérée comme erronée par rapport à une croyance religieuse établie",
+      "Vocabulaire religieux",
+      "Inquisition"
+    ],
+    "level3": [
+      "Une ___ est une doctrine contraire aux croyances d'une religion établie."
+    ]
+  },
+  "extract": "Une hérésie est une doctrine contraire aux croyances d'une religion établie.",
+  "categories": [
+    "doctrine ou opinion considérée comme erronée par rapport à une croyance religieuse établie",
+    "Vocabulaire religieux",
+    "Inquisition"
+  ],
+  "generated_at": "2026-07-16T22:19:10.431002+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-19",
+  "puzzle_num": 1527,
+  "word": "World Wide Web",
+  "title_slug": "World_Wide_Web",
+  "title_display": "World Wide Web",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/World_Wide_Web",
+  "hints": {
+    "level1": [
+      "3 mots · 12 lettres",
+      "Premières lettres : W · W · W"
+    ],
+    "level2": [
+      "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
+    ],
+    "level3": [
+      "Le ___, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet."
+    ]
+  },
+  "extract": "Le World Wide Web, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet.",
+  "categories": [
+    "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
+  ],
+  "generated_at": "2026-07-19T22:15:45.799498+00:00"
+}

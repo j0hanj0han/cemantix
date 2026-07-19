@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-18",
+  "puzzle_num": 1526,
+  "word": "Ouest américain",
+  "title_slug": "Ouest_américain",
+  "title_display": "Ouest américain",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ouest_américain",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : O · A"
+    ],
+    "level2": [
+      "région occidentale des États-Unis"
+    ],
+    "level3": [
+      "L’___, en anglais : Western United States, aussi appelé Far-West ou Far West, est une région située dans l'___ des États-Unis."
+    ]
+  },
+  "extract": "L’Ouest américain, en anglais : Western United States, aussi appelé Far-West ou Far West, est une région située dans l'ouest des États-Unis.",
+  "categories": [
+    "région occidentale des États-Unis"
+  ],
+  "generated_at": "2026-07-19T22:15:45.954292+00:00"
+}

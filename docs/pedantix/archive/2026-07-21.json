@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-21",
+  "puzzle_num": 1529,
+  "word": "Moment d'une force",
+  "title_slug": "Moment_d'une_force",
+  "title_display": "Moment d'une force",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Moment_d'une_force",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : M · D · F"
+    ],
+    "level2": [
+      "grandeur physique vectorielle qui caractérise l'aptitude d'une force à faire tourner un système mécanique",
+      "Vecteur",
+      "Grandeur physique extensive",
+      "Mécanique classique"
+    ],
+    "level3": [
+      "Le ___ par rapport à un point donné est une grandeur physique vectorielle traduisant l'aptitude de cette ___ à faire tourner un système mécanique autour de ce point, souvent appelé pivot."
+    ]
+  },
+  "extract": "Le moment d'une force par rapport à un point donné est une grandeur physique vectorielle traduisant l'aptitude de cette force à faire tourner un système mécanique autour de ce point, souvent appelé pivot.",
+  "categories": [
+    "grandeur physique vectorielle qui caractérise l'aptitude d'une force à faire tourner un système mécanique",
+    "Vecteur",
+    "Grandeur physique extensive",
+    "Mécanique classique"
+  ],
+  "generated_at": "2026-07-21T22:17:00.302004+00:00"
+}

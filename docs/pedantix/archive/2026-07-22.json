@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-22",
+  "puzzle_num": 1530,
+  "word": "Basilique Saint-Pierre",
+  "title_slug": "Basilique_Saint-Pierre",
+  "title_display": "Basilique Saint-Pierre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Basilique_Saint-Pierre",
+  "hints": {
+    "level1": [
+      "2 mots · 21 lettres",
+      "Premières lettres : B · S"
+    ],
+    "level2": [
+      "basilique catholique de la Cité du Vatican"
+    ],
+    "level3": [
+      "La ___ ou la ___ papale ___ au Vatican, parfois appelée ___ de Rome, est l'édifice religieux le plus important du catholicisme."
+    ]
+  },
+  "extract": "La basilique Saint-Pierre ou la basilique papale Saint-Pierre au Vatican, parfois appelée Saint-Pierre de Rome, est l'édifice religieux le plus important du catholicisme.",
+  "categories": [
+    "basilique catholique de la Cité du Vatican"
+  ],
+  "generated_at": "2026-07-22T22:15:58.897108+00:00"
+}

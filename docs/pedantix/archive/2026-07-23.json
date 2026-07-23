@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-23",
+  "puzzle_num": 1531,
+  "word": "Royaume de France",
+  "title_slug": "Royaume_de_France",
+  "title_display": "Royaume de France",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_de_France",
+  "hints": {
+    "level1": [
+      "3 mots · 15 lettres",
+      "Premières lettres : R · D · F"
+    ],
+    "level2": [
+      "entité géopolitique monarchique ayant gouverné la France de 987 à 1792, puis de 1814 à 1848 (à l'exception des Cent-Jours en 1815)",
+      "Wikipédia:Triple révocation"
+    ],
+    "level3": [
+      "Le ___ est le nom donné à différentes périodes politiques de la ___, de ses débuts au Moyen Âge jusqu'à l'époque moderne, puis brièvement durant la période contemporaine."
+    ]
+  },
+  "extract": "Le royaume de France est le nom donné à différentes périodes politiques de la France, de ses débuts au Moyen Âge jusqu'à l'époque moderne, puis brièvement durant la période contemporaine.",
+  "categories": [
+    "entité géopolitique monarchique ayant gouverné la France de 987 à 1792, puis de 1814 à 1848 (à l'exception des Cent-Jours en 1815)",
+    "Wikipédia:Triple révocation"
+  ],
+  "generated_at": "2026-07-23T22:17:03.336876+00:00"
+}

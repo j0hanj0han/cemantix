@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-24",
+  "puzzle_num": 1532,
+  "word": "Turbine à vapeur",
+  "title_slug": "Turbine_à_vapeur",
+  "title_display": "Turbine à vapeur",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Turbine_à_vapeur",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : T · À · V"
+    ],
+    "level2": [
+      "turbine qui est entraînée par la vapeur d'eau",
+      "Typographie à vérifier"
+    ],
+    "level3": [
+      "Une ___ est une machine qui extrait l'énergie thermique de la ___ sous pression et l'utilise pour produire un travail mécanique de rotation de l'arbre de sortie."
+    ]
+  },
+  "extract": "Une turbine à vapeur est une machine qui extrait l'énergie thermique de la vapeur sous pression et l'utilise pour produire un travail mécanique de rotation de l'arbre de sortie.",
+  "categories": [
+    "turbine qui est entraînée par la vapeur d'eau",
+    "Typographie à vérifier"
+  ],
+  "generated_at": "2026-07-24T22:19:04.813199+00:00"
+}

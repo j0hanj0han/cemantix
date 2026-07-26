@@ -13,5 +13,8 @@
   ],
   "code": "SD 826 3887",
   "next_jackpot": 78000000.0,
-  "generated_at": "2026-07-24T22:19:03.269062+00:00"
+  "generated_at": "2026-07-24T22:19:03.269062+00:00",
+  "jackpot_amount": 69648920.8,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

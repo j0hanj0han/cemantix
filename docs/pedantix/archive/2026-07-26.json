@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-26",
+  "puzzle_num": 1534,
+  "word": "William Murray",
+  "title_slug": "William_Murray",
+  "title_display": "William Murray",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/William_Murray",
+  "hints": {
+    "level1": [
+      "2 mots · 13 lettres",
+      "Premières lettres : W · M"
+    ],
+    "level2": [
+      "juge, royaume de Grande-Bretagne",
+      "Étudiant de l'université d'Oxford",
+      "Juriste britannique du XVIIIe siècle",
+      "Député du Parlement de Grande-Bretagne"
+    ],
+    "level3": [
+      "___, né le 2 mars 1705 et mort le 20 mars 1793, également appelé baron Mansfield, est un barrister, homme politique et juge britannique connu pour sa réforme de la loi anglaise."
+    ]
+  },
+  "extract": "William Murray, né le 2 mars 1705 et mort le 20 mars 1793, également appelé baron Mansfield, est un barrister, homme politique et juge britannique connu pour sa réforme de la loi anglaise.",
+  "categories": [
+    "juge, royaume de Grande-Bretagne",
+    "Étudiant de l'université d'Oxford",
+    "Juriste britannique du XVIIIe siècle",
+    "Député du Parlement de Grande-Bretagne"
+  ],
+  "generated_at": "2026-07-26T22:16:08.653434+00:00"
+}

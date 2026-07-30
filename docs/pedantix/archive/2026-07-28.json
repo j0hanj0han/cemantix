@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-28",
+  "puzzle_num": 1536,
+  "word": "Baie d'Hudson",
+  "title_slug": "Baie_d'Hudson",
+  "title_display": "Baie d'Hudson",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Baie_d'Hudson",
+  "hints": {
+    "level1": [
+      "2 mots · 12 lettres",
+      "Premières lettres : B · D"
+    ],
+    "level2": [
+      "baie canadienne"
+    ],
+    "level3": [
+      "La ___ est à la fois une ___ et une mer de l'océan Arctique."
+    ]
+  },
+  "extract": "La baie d'Hudson est à la fois une baie et une mer de l'océan Arctique.",
+  "categories": [
+    "baie canadienne"
+  ],
+  "generated_at": "2026-07-30T07:20:34.544328+00:00"
+}

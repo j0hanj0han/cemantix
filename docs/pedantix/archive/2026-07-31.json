@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-31",
+  "puzzle_num": 1539,
+  "word": "Momie",
+  "title_slug": "Momie",
+  "title_display": "Momie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Momie",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "cadavre qui a été préservé de la destruction"
+    ],
+    "level3": [
+      "Une ___ est un cadavre qui a été préservé de la destruction et de la putréfaction par des effets naturels ou par des techniques humaines."
+    ]
+  },
+  "extract": "Une momie est un cadavre qui a été préservé de la destruction et de la putréfaction par des effets naturels ou par des techniques humaines.",
+  "categories": [
+    "cadavre qui a été préservé de la destruction"
+  ],
+  "generated_at": "2026-07-31T22:20:49.128285+00:00"
+}

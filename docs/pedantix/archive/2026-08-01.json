@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-01",
+  "puzzle_num": 1540,
+  "word": "La Nuit (Wiesel)",
+  "title_slug": "La_Nuit_(Wiesel)",
+  "title_display": "La Nuit (Wiesel)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/La_Nuit_(Wiesel)",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : L · N · ("
+    ],
+    "level2": [
+      "récit d'Élie Wiesel"
+    ],
+    "level3": [
+      "La ___ est un récit d'Elie Wiesel fondé sur son expérience lorsque, jeune juif orthodoxe, il est déporté avec sa famille dans le camp d'extermination nazi d'Auschwitz, puis dans le camp de concentration de Buchenwald, dont il est libéré le 11 avril 1945, à l'âge de 16 ans."
+    ]
+  },
+  "extract": "La Nuit est un récit d'Elie Wiesel fondé sur son expérience lorsque, jeune juif orthodoxe, il est déporté avec sa famille dans le camp d'extermination nazi d'Auschwitz, puis dans le camp de concentration de Buchenwald, dont il est libéré le 11 avril 1945, à l'âge de 16 ans.",
+  "categories": [
+    "récit d'Élie Wiesel"
+  ],
+  "generated_at": "2026-08-01T22:21:26.798519+00:00"
+}

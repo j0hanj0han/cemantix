@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-02",
+  "puzzle_num": 1541,
+  "word": "Art africain traditionnel",
+  "title_slug": "Art_africain_traditionnel",
+  "title_display": "Art africain traditionnel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Art_africain_traditionnel",
+  "hints": {
+    "level1": [
+      "3 mots · 23 lettres",
+      "Premières lettres : A · A · T"
+    ],
+    "level2": [
+      "étude de l'art africain",
+      "Typographie à vérifier",
+      "Art en Afrique",
+      "Culture en Afrique"
+    ],
+    "level3": [
+      "L'___, ou plus exactement l'art de l'Afrique antérieurement à l'art moderne et contemporain de l'Afrique, se manifeste sous une multitude d'arts, souvent associés."
+    ]
+  },
+  "extract": "L'art africain traditionnel, ou plus exactement l'art de l'Afrique antérieurement à l'art moderne et contemporain de l'Afrique, se manifeste sous une multitude d'arts, souvent associés.",
+  "categories": [
+    "étude de l'art africain",
+    "Typographie à vérifier",
+    "Art en Afrique",
+    "Culture en Afrique"
+  ],
+  "generated_at": "2026-08-02T22:16:06.855023+00:00"
+}

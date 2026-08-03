@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-03",
+  "puzzle_num": 1542,
+  "word": "Dakar",
+  "title_slug": "Dakar",
+  "title_display": "Dakar",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dakar",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : D"
+    ],
+    "level2": [
+      "capitale du Sénégal"
+    ],
+    "level3": [
+      "La ville de ___ est la capitale de la république du Sénégal et de la région de ___."
+    ]
+  },
+  "extract": "La ville de Dakar est la capitale de la république du Sénégal et de la région de Dakar.",
+  "categories": [
+    "capitale du Sénégal"
+  ],
+  "generated_at": "2026-08-03T22:16:22.886598+00:00"
+}

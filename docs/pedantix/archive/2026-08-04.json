@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-04",
+  "puzzle_num": 1543,
+  "word": "Méthanol",
+  "title_slug": "Méthanol",
+  "title_display": "Méthanol",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Méthanol",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "alcool",
+      "Chimiebox à maintenir",
+      "Rédaction à améliorer",
+      "Alcool primaire"
+    ],
+    "level3": [
+      "Le ___ (ou alcool méthylique, carbinol, alcool de bois, naphte de bois ou esprit de bois) est un composé organique de formule : CH3OH (souvent abrégé en MeOH)."
+    ]
+  },
+  "extract": "Le méthanol (ou alcool méthylique, carbinol, alcool de bois, naphte de bois ou esprit de bois) est un composé organique de formule : CH3OH (souvent abrégé en MeOH).",
+  "categories": [
+    "alcool",
+    "Chimiebox à maintenir",
+    "Rédaction à améliorer",
+    "Alcool primaire"
+  ],
+  "generated_at": "2026-08-05T06:56:11.133951+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-06",
+  "puzzle_num": 1545,
+  "word": "Maya Angelou",
+  "title_slug": "Maya_Angelou",
+  "title_display": "Maya Angelou",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Maya_Angelou",
+  "hints": {
+    "level1": [
+      "2 mots · 11 lettres",
+      "Premières lettres : M · A"
+    ],
+    "level2": [
+      "mémorialiste, essayiste, poète et universitaire afro-américaine",
+      "Écrivaine américaine du XXe siècle",
+      "Écrivaine américaine du XXIe siècle",
+      "Poétesse américaine du XXe siècle"
+    ],
+    "level3": [
+      "___, de son vrai nom Marguerite Annie Johnson, née le 4 avril 1928 à Saint-Louis (Missouri) aux États-Unis, et morte le 28 mai 2014 à Winston-Salem, est une romancière, poète, dramaturge essayiste, actrice, scénariste, productrice, documentariste, professeure d'université et militante afro-américaine."
+    ]
+  },
+  "extract": "Maya Angelou, de son vrai nom Marguerite Annie Johnson, née le 4 avril 1928 à Saint-Louis (Missouri) aux États-Unis, et morte le 28 mai 2014 à Winston-Salem, est une romancière, poète, dramaturge essayiste, actrice, scénariste, productrice, documentariste, professeure d'université et militante afro-américaine.",
+  "categories": [
+    "mémorialiste, essayiste, poète et universitaire afro-américaine",
+    "Écrivaine américaine du XXe siècle",
+    "Écrivaine américaine du XXIe siècle",
+    "Poétesse américaine du XXe siècle"
+  ],
+  "generated_at": "2026-08-06T22:16:03.268210+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-08",
+  "puzzle_num": 1547,
+  "word": "Déportation des peuples en URSS",
+  "title_slug": "Déportation_des_peuples_en_URSS",
+  "title_display": "Déportation des peuples en URSS",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Déportation_des_peuples_en_URSS",
+  "hints": {
+    "level1": [
+      "5 mots · 27 lettres",
+      "Premières lettres : D · D · P · E · U"
+    ],
+    "level2": [
+      "transfert et déportation des populations en Union Soviétique",
+      "Typographie à vérifier",
+      "Déportation des peuples en Union soviétique",
+      "Politique en Union soviétique"
+    ],
+    "level3": [
+      "La ___ est une des formes de répression politique en ___."
+    ]
+  },
+  "extract": "La déportation des peuples en URSS est une des formes de répression politique en URSS.",
+  "categories": [
+    "transfert et déportation des populations en Union Soviétique",
+    "Typographie à vérifier",
+    "Déportation des peuples en Union soviétique",
+    "Politique en Union soviétique"
+  ],
+  "generated_at": "2026-08-08T22:16:08.827905+00:00"
+}

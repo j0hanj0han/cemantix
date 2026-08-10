@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-10",
+  "puzzle_num": 1549,
+  "word": "Bore",
+  "title_slug": "Bore",
+  "title_display": "Bore",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bore",
+  "hints": {
+    "level1": [
+      "1 mot · 4 lettres",
+      "Première lettre : B"
+    ],
+    "level2": [
+      "élément chimique de numéro atomique 5 et de symbole B"
+    ],
+    "level3": [
+      "Le ___ est l'élément chimique de numéro atomique 5, de symbole « B »."
+    ]
+  },
+  "extract": "Le bore est l'élément chimique de numéro atomique 5, de symbole « B ».",
+  "categories": [
+    "élément chimique de numéro atomique 5 et de symbole B"
+  ],
+  "generated_at": "2026-08-10T22:15:39.704371+00:00"
+}

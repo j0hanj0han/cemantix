@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-11",
+  "puzzle_num": 1550,
+  "word": "Burkina Faso",
+  "title_slug": "Burkina_Faso",
+  "title_display": "Burkina Faso",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Burkina_Faso",
+  "hints": {
+    "level1": [
+      "2 mots · 11 lettres",
+      "Premières lettres : B · F"
+    ],
+    "level2": [
+      "pays d'Afrique de l'Ouest indépendant depuis 1960"
+    ],
+    "level3": [
+      "Le ___, « patrie des (Hommes) intègres » ou « patrie de l'intégrité » ou ___, anciennement république de Haute-Volta, est un pays d'Afrique de l'Ouest."
+    ]
+  },
+  "extract": "Le Burkina Faso, « patrie des (Hommes) intègres » ou « patrie de l'intégrité » ou Burkina, anciennement république de Haute-Volta, est un pays d'Afrique de l'Ouest.",
+  "categories": [
+    "pays d'Afrique de l'Ouest indépendant depuis 1960"
+  ],
+  "generated_at": "2026-08-11T22:15:35.608094+00:00"
+}

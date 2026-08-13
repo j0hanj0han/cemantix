@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-13",
+  "puzzle_num": 1552,
+  "word": "Pharaon",
+  "title_slug": "Pharaon",
+  "title_display": "Pharaon",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pharaon",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : P"
+    ],
+    "level2": [
+      "souverain de l'Égypte antique"
+    ],
+    "level3": [
+      "Le ___ est le roi ou la reine de l'Égypte antique."
+    ]
+  },
+  "extract": "Le pharaon est le roi ou la reine de l'Égypte antique.",
+  "categories": [
+    "souverain de l'Égypte antique"
+  ],
+  "generated_at": "2026-08-13T22:16:55.862799+00:00"
+}

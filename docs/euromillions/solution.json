@@ -13,5 +13,8 @@
   ],
   "code": "JI 121 9581",
   "next_jackpot": 49000000.0,
-  "generated_at": "2026-08-18T22:15:38.870068+00:00"
+  "generated_at": "2026-08-18T22:15:38.870068+00:00",
+  "jackpot_amount": 37281624.5,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

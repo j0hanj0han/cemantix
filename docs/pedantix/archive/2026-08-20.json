@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-20",
+  "puzzle_num": 1559,
+  "word": "Ellipse (mathématiques)",
+  "title_slug": "Ellipse_(mathématiques)",
+  "title_display": "Ellipse (mathématiques)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ellipse_(mathématiques)",
+  "hints": {
+    "level1": [
+      "2 mots · 22 lettres",
+      "Premières lettres : E · ("
+    ],
+    "level2": [
+      "courbe plane fermée",
+      "Courbe algébrique",
+      "Conique"
+    ],
+    "level3": [
+      "En géométrie, une ___ est une courbe plane fermée obtenue par l’intersection d’un cône de révolution avec un plan, à condition que celui-ci coupe l'axe de rotation du cône ou du cylindre : c'est une conique d'excentricité strictement comprise entre 0 et 1."
+    ]
+  },
+  "extract": "En géométrie, une ellipse est une courbe plane fermée obtenue par l’intersection d’un cône de révolution avec un plan, à condition que celui-ci coupe l'axe de rotation du cône ou du cylindre : c'est une conique d'excentricité strictement comprise entre 0 et 1.",
+  "categories": [
+    "courbe plane fermée",
+    "Courbe algébrique",
+    "Conique"
+  ],
+  "generated_at": "2026-08-21T07:24:02.850745+00:00"
+}

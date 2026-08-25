@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-25",
+  "puzzle_num": 1564,
+  "word": "Géorgie (pays)",
+  "title_slug": "Géorgie_(pays)",
+  "title_display": "Géorgie (pays)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Géorgie_(pays)",
+  "hints": {
+    "level1": [
+      "2 mots · 13 lettres",
+      "Premières lettres : G · ("
+    ],
+    "level2": [
+      "pays du Caucase",
+      "Géorgie",
+      "Éponyme d'une épithète spécifique",
+      "État postsoviétique"
+    ],
+    "level3": [
+      "La ___ est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest."
+    ]
+  },
+  "extract": "La Géorgie est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest.",
+  "categories": [
+    "pays du Caucase",
+    "Géorgie",
+    "Éponyme d'une épithète spécifique",
+    "État postsoviétique"
+  ],
+  "generated_at": "2026-08-25T22:19:17.701435+00:00"
+}

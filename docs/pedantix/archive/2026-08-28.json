@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-28",
+  "puzzle_num": 1567,
+  "word": "Franklin Delano Roosevelt",
+  "title_slug": "Franklin_Delano_Roosevelt",
+  "title_display": "Franklin Delano Roosevelt",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Franklin_Delano_Roosevelt",
+  "hints": {
+    "level1": [
+      "3 mots · 23 lettres",
+      "Premières lettres : F · D · R"
+    ],
+    "level2": [
+      "homme d'État américain",
+      "Naissance en janvier 1882",
+      "Naissance dans le comté de Dutchess",
+      "Décès en avril 1945"
+    ],
+    "level3": [
+      "___, généralement appelé ___ D."
+    ]
+  },
+  "extract": "Franklin Delano Roosevelt, généralement appelé Franklin D.",
+  "categories": [
+    "homme d'État américain",
+    "Naissance en janvier 1882",
+    "Naissance dans le comté de Dutchess",
+    "Décès en avril 1945"
+  ],
+  "generated_at": "2026-08-28T22:27:29.721672+00:00"
+}

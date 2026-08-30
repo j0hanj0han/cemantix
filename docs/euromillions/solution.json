@@ -13,5 +13,8 @@
   ],
   "code": "TM 296 5205",
   "next_jackpot": 78000000.0,
-  "generated_at": "2026-08-28T22:27:27.813103+00:00"
+  "generated_at": "2026-08-28T22:27:27.813103+00:00",
+  "jackpot_amount": 69603021.9,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

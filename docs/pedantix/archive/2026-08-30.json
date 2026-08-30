@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-30",
+  "puzzle_num": 1569,
+  "word": "Stonehenge",
+  "title_slug": "Stonehenge",
+  "title_display": "Stonehenge",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Stonehenge",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "monument préhistorique dans le Wiltshire, Angleterre",
+      "Cromlech",
+      "Site mégalithique en Angleterre",
+      "Patrimoine mondial en Angleterre"
+    ],
+    "level3": [
+      "___ est un monument mégalithique composé d'un ensemble de structures circulaires concentriques, construit en cinq grandes étapes, entre 3000 et 1100 av."
+    ]
+  },
+  "extract": "Stonehenge est un monument mégalithique composé d'un ensemble de structures circulaires concentriques, construit en cinq grandes étapes, entre 3000 et 1100 av.",
+  "categories": [
+    "monument préhistorique dans le Wiltshire, Angleterre",
+    "Cromlech",
+    "Site mégalithique en Angleterre",
+    "Patrimoine mondial en Angleterre"
+  ],
+  "generated_at": "2026-08-30T22:15:49.978354+00:00"
+}

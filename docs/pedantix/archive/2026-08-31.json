@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-31",
+  "puzzle_num": 1570,
+  "word": "Cetacea",
+  "title_slug": "Cetacea",
+  "title_display": "Cetacea",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cetacea",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "ordre de mammifères marins",
+      "Orthographe à vérifier",
+      "Taxobox utilisant la classification World Register of Marine Species",
+      "Taxobox début par provenance de l'image - A"
+    ],
+    "level3": [
+      "Les Cétacés sont un infra-ordre de mammifères aquatiques."
+    ]
+  },
+  "extract": "Les Cétacés sont un infra-ordre de mammifères aquatiques.",
+  "categories": [
+    "ordre de mammifères marins",
+    "Orthographe à vérifier",
+    "Taxobox utilisant la classification World Register of Marine Species",
+    "Taxobox début par provenance de l'image - A"
+  ],
+  "generated_at": "2026-08-31T22:16:07.612393+00:00"
+}

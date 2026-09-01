@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-01",
+  "puzzle_num": 1571,
+  "word": "Rayonnement ionisant",
+  "title_slug": "Rayonnement_ionisant",
+  "title_display": "Rayonnement ionisant",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Rayonnement_ionisant",
+  "hints": {
+    "level1": [
+      "2 mots · 19 lettres",
+      "Premières lettres : R · I"
+    ],
+    "level2": [
+      "radiation capable d'arracher des électrons à des atomes"
+    ],
+    "level3": [
+      "Un ___ est un ___ électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière."
+    ]
+  },
+  "extract": "Un rayonnement ionisant est un rayonnement électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière.",
+  "categories": [
+    "radiation capable d'arracher des électrons à des atomes"
+  ],
+  "generated_at": "2026-09-01T22:22:53.465578+00:00"
+}

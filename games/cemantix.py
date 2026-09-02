@@ -627,10 +627,17 @@ def _month_fr(ym: str) -> str:
     return f"{_MOIS_FR[m]} {y}"
 
 
+def _de_month_fr(ym: str) -> str:
+    """'2026-08' -> "d’août 2026" ; '2026-06' -> 'de juin 2026'."""
+    label = _month_fr(ym)
+    return f"d’{label}" if label[0] in "ao" else f"de {label}"
+
+
 def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
     """Génère docs/cemantix/archive/YYYY-MM.html — récap de toutes les solutions du mois."""
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     month_label = _month_fr(ym)
+    month_de = _de_month_fr(ym)
     count = len(entries)
 
     def row_html(e: dict) -> str:
@@ -667,16 +674,16 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Cémantix — Toutes les solutions de {month_label}</title>
-  <meta name="description" content="Liste complète des solutions du Cémantix de {month_label} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
+  <title>Cémantix — Toutes les solutions {month_de}</title>
+  <meta name="description" content="Liste complète des solutions du Cémantix {month_de} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{ym}">
   {link_prev}
   {link_next}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix — Solutions de {month_label}">
-  <meta property="og:description" content="Toutes les réponses du Cémantix de {month_label} ({count} mots du jour) avec définitions.">
+  <meta property="og:title" content="Cémantix — Solutions {month_de}">
+  <meta property="og:description" content="Toutes les réponses du Cémantix {month_de} ({count} mots du jour) avec définitions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{ym}">
   <meta property="og:locale" content="fr_FR">
@@ -686,8 +693,8 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
   {{
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Cémantix — Solutions de {month_label}",
-    "description": "Liste complète des solutions du Cémantix de {month_label} ({count} mots du jour) avec leur définition.",
+    "name": "Cémantix — Solutions {month_de}",
+    "description": "Liste complète des solutions du Cémantix {month_de} ({count} mots du jour) avec leur définition.",
     "url": "{CEMANTIX_SITE_URL}/archive/{ym}",
     "isPartOf": {{"@type": "WebSite", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
   }}
@@ -713,7 +720,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 <body>
 
 <header class="site-header">
-  <h1>Cémantix — Solutions de {month_label}</h1>
+  <h1>Cémantix — Solutions {month_de}</h1>
   <p class="subtitle">{count} mot{"s" if count > 1 else ""} du jour</p>
 </header>
 
@@ -732,9 +739,9 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 
   <article>
     <div class="card">
-      <h2>Toutes les solutions Cémantix de {month_label}</h2>
+      <h2>Toutes les solutions Cémantix {month_de}</h2>
       <p>
-        Retrouvez la <strong>liste complète des solutions du Cémantix de {month_label}</strong> :
+        Retrouvez la <strong>liste complète des solutions du Cémantix {month_de}</strong> :
         {count} mots du jour ({words_preview}…), chacun avec sa <strong>date</strong>, son
         <strong>numéro de puzzle</strong> et sa <strong>définition</strong>. Cliquez sur un mot
         pour ouvrir la page détaillée du jour avec ses indices progressifs.

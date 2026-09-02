@@ -135,9 +135,10 @@ jobs:
               if data.get('date') == today_str:
                   cemantix_data = data
                   hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
+                  definition = data.get('definition', '')
                   from games import cemantix as c
                   print(f"Régénération HTML Cémantix #{data['puzzle_num']} '{data['word']}'")
-                  c._generate_all_html(today, data['puzzle_num'], data['word'], hints)
+                  c._generate_all_html(today, data['puzzle_num'], data['word'], hints, definition)
                   print("✅ HTML Cémantix régénéré")
 
           # Sutom

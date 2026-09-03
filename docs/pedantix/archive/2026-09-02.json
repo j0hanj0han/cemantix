@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-02",
+  "puzzle_num": 1572,
+  "word": "Tortue marine",
+  "title_slug": "Tortue_marine",
+  "title_display": "Tortue marine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tortue_marine",
+  "hints": {
+    "level1": [
+      "2 mots · 12 lettres",
+      "Premières lettres : T · M"
+    ],
+    "level2": [
+      "superfamille de tortues",
+      "Taxobox utilisant la classification World Register of Marine Species",
+      "Taxobox début par provenance de l'image - A"
+    ],
+    "level3": [
+      "Les ___s ___s sont les ___s de la super-famille des Chelonioidea."
+    ]
+  },
+  "extract": "Les tortues marines sont les tortues de la super-famille des Chelonioidea.",
+  "categories": [
+    "superfamille de tortues",
+    "Taxobox utilisant la classification World Register of Marine Species",
+    "Taxobox début par provenance de l'image - A"
+  ],
+  "generated_at": "2026-09-02T22:24:17.459154+00:00"
+}

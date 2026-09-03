@@ -400,19 +400,19 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🔤 Sutom {date_display} — Solution #{puzzle_num} · Réponse du Jour</title>
-  <meta name="description" content="Solution du Sutom #{puzzle_num} du {date_display}. Mot en {letter_count} lettres commençant par {first_letter}. Réponse du Wordle français du jour.">
+  <title>🔤 Sutom solution du jour #{puzzle_num} — réponse &amp; indice</title>
+  <meta name="description" content="Bloqué sur le Sutom #{puzzle_num} du {date_display} ? Voici la réponse du Wordle français du jour : mot en {letter_count} lettres commençant par {first_letter}. Mis à jour chaque matin.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SUTOM_SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Sutom {date_display} — Solution #{puzzle_num}">
+  <meta property="og:title" content="Sutom solution du jour #{puzzle_num} — réponse &amp; indice">
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{SUTOM_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sutom {date_display} — Solution #{puzzle_num}">
+  <meta name="twitter:title" content="Sutom solution du jour #{puzzle_num} — réponse &amp; indice">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
 

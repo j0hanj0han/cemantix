@@ -1531,22 +1531,22 @@ def generate_simulator_html() -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🍀 Simulateur Loto FDJ — Calculez vos gains sur 2 600 tirages</title>
-  <meta name="description" content="Simulez vos gains Loto FDJ : entrez vos 5 numéros + numéro chance et obtenez vos résultats sur 2\u202f600+ tirages depuis 2019. Gratuit et instantané.">
+  <title>🍀 Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages</title>
+  <meta name="description" content="Auriez-vous gagné au Loto FDJ ? Entrez vos 5 numéros + numéro chance, simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Simulateur Loto FDJ — Calculez vos gains sur 2 600 tirages">
-  <meta property="og:description" content="Simulez vos gains Loto FDJ : entrez vos 5 numéros + numéro chance et obtenez vos résultats sur 2\u202f600+ tirages depuis 2019.">
+  <meta property="og:title" content="Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages">
+  <meta property="og:description" content="Auriez-vous gagné au Loto FDJ ? Simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/simulateur/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Simulateur Loto FDJ — Calculez vos gains sur 2 600 tirages">
-  <meta name="twitter:description" content="Simulez vos gains Loto FDJ : entrez vos 5 numéros + numéro chance et obtenez vos résultats sur 2\u202f600+ tirages depuis 2019.">
+  <meta name="twitter:title" content="Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages">
+  <meta name="twitter:description" content="Auriez-vous gagné au Loto FDJ ? Simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription.">
 
   <script type="application/ld+json">
   {{

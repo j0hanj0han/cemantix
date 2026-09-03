@@ -1607,22 +1607,22 @@ def generate_simulator_html() -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>⭐ Simulateur EuroMillions — Calculez vos gains sur 1 900 tirages</title>
-  <meta name="description" content="Simulez vos gains EuroMillions : entrez vos 5 numéros + 2 étoiles et obtenez vos résultats sur 1\u202f900+ tirages depuis 2004. Gratuit et instantané.">
+  <title>⭐ Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages</title>
+  <meta name="description" content="Auriez-vous gagné à l'EuroMillions ? Entrez vos numéros et étoiles, simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Simulateur EuroMillions — Calculez vos gains sur 1 900 tirages">
-  <meta property="og:description" content="Simulez vos gains EuroMillions : entrez vos 5 numéros + 2 étoiles et obtenez vos résultats sur 1\u202f900+ tirages depuis 2004.">
+  <meta property="og:title" content="Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages">
+  <meta property="og:description" content="Auriez-vous gagné à l'EuroMillions ? Simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{EM_SITE_URL}/simulateur/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Simulateur EuroMillions — Calculez vos gains sur 1 900 tirages">
-  <meta name="twitter:description" content="Simulez vos gains EuroMillions : entrez vos 5 numéros + 2 étoiles et obtenez vos résultats sur 1\u202f900+ tirages depuis 2004.">
+  <meta name="twitter:title" content="Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages">
+  <meta name="twitter:description" content="Auriez-vous gagné à l'EuroMillions ? Simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription.">
 
   <script type="application/ld+json">
   {{

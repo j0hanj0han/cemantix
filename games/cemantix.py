@@ -981,22 +981,22 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🧠 Cémantix #{puzzle_num} — Solution du {date_display}</title>
-  <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot secret.">
+  <title>🧠 Cémantix solution du jour #{puzzle_num} — indice &amp; définition</title>
+  <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
-  <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices progressifs du Cémantix du {date_display}. Trouvez le mot secret !">
+  <meta property="og:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque matin.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
-  <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices progressifs du Cémantix du {date_display}.">
+  <meta name="twitter:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
 

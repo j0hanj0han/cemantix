@@ -213,20 +213,20 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🎯 Solutions du Jour — Cémantix, Sutom, Loto, EuroMillions · {date_display}</title>
-  <meta name="description" content="Solutions du jour de Cémantix et Sutom pour le {date_display}. Résultats Loto et EuroMillions. Mis à jour automatiquement chaque jour.">
+  <title>🎯 Solutions du jour : Cémantix, Sutom, Loto, EuroMillions</title>
+  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Solutions du Jour — {date_display}">
-  <meta property="og:description" content="Solutions Cémantix, Sutom et résultats Loto, EuroMillions du {date_display}.">
+  <meta property="og:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
+  <meta property="og:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque matin : Cémantix, Sutom, résultats Loto, EuroMillions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Solutions du Jour — {date_display}">
-  <meta name="twitter:description" content="Solutions Cémantix, Sutom et résultats Loto, EuroMillions du {date_display}.">
+  <meta name="twitter:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
+  <meta name="twitter:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque matin : Cémantix, Sutom, résultats Loto, EuroMillions.">
 
   <script type="application/ld+json">
   {{

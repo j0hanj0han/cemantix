@@ -105,14 +105,20 @@
 
   <div class="games-grid">
 
-    <a class="game-card game-card-unavailable" href="cemantix/">
+    <a class="game-card" href="cemantix/">
       <div class="game-card-header">
         <h2 class="game-card-title">Cémantix</h2>
         <span class="game-badge game-badge-semantix">Sémantique</span>
       </div>
       <p class="game-card-desc">Devinez le mot secret grâce à la proximité sémantique.</p>
-      <p class="game-unavailable">Solution en cours de génération…</p>
-      <span class="game-link-arrow">Aller sur Cémantix &#8594;</span>
+      <div class="game-card-solution">
+        <span class="game-label">Solution #1646</span>
+        <div class="solution-blur solution-blur-sm" id="sol-cemantix">
+          <span class="solution-word solution-word-sm">plaider</span>
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-cemantix')">Révéler</button>
+      </div>
+      <span class="game-link-arrow">Voir la solution &amp; indices &#8594;</span>
     </a>
 
     <a class="game-card" href="sutom/">

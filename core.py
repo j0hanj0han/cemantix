@@ -5,6 +5,7 @@ core.py — Utilitaires partagés pour tous les jeux.
 import json
 import urllib.request
 from datetime import date, datetime
+from html import escape as _html_escape
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -38,6 +39,19 @@ _session = cloudscraper.create_scraper()
 def date_fr(d: date) -> str:
     """Retourne une date en français : 'samedi 28 février 2026'."""
     return f"{DAYS_FR[d.weekday()]} {d.day} {MONTHS_FR[d.month]} {d.year}"
+
+
+def date_fr_short(d: date) -> str:
+    """Retourne une date en français sans le jour de semaine : '1er septembre 2026', '3 septembre 2026'."""
+    day = "1er" if d.day == 1 else str(d.day)
+    return f"{day} {MONTHS_FR[d.month]} {d.year}"
+
+
+def updated_block(dt_iso: str) -> str:
+    """Bloc 'Mis à jour le ... à HHhMM' sous un H1 de page index (jamais sur une archive)."""
+    dt = datetime.fromisoformat(dt_iso)
+    label = f"{date_fr(dt.date())} à {dt.hour:02d}h{dt.minute:02d}"
+    return f'  <p class="updated-block"><time datetime="{dt_iso}">Mis à jour le {label}</time></p>'
 
 
 def iso_paris(d: date, hh: int, mm: int) -> str:
@@ -80,6 +94,103 @@ def ping_indexnow(urls: list[str]) -> bool:
     except Exception as e:
         print(f"   ⚠ ping_indexnow : {e}")
         return False
+
+
+def faq_jsonld(items: list[tuple[str, str]]) -> str:
+    """Bloc <script type="application/ld+json"> FAQPage à partir de paires (question, réponse)."""
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in items
+        ],
+    }
+    return (
+        '  <script type="application/ld+json">\n'
+        f'  {json.dumps(payload, ensure_ascii=False)}\n'
+        '  </script>'
+    )
+
+
+def faq_html(items: list[tuple[str, str]], *, open_first: bool = False) -> str:
+    """FAQ visible en <details> — open_first=True ouvre la 1re question par défaut (archives)."""
+    if not items:
+        return ""
+    rows = []
+    for i, (q, a) in enumerate(items):
+        open_attr = " open" if (open_first and i == 0) else ""
+        rows.append(
+            f'      <details{open_attr}>\n'
+            f'        <summary>{_html_escape(q)}</summary>\n'
+            f'        <p>{_html_escape(a)}</p>\n'
+            f'      </details>'
+        )
+    rows_html = "\n".join(rows)
+    return (
+        '\n    <div class="card faq-card">'
+        '\n      <h2>Questions fréquentes</h2>'
+        f'\n{rows_html}'
+        '\n    </div>'
+    )
+
+
+def hint_levels_html(levels: list[tuple[str, str, str]], mode: str) -> str:
+    """Rend les niveaux d'indices progressifs.
+    levels : liste de (titre, description, mots_html), un triplet par niveau.
+    mode "details" : <details> natifs indépendants (page du jour, cliquables sans spoiler global).
+    mode "plain"   : texte visible directement, sans interaction (archives passées).
+    """
+    parts = []
+    for title, desc, words in levels:
+        words_html = words or "<em>Aucun indice disponible</em>"
+        if mode == "details":
+            parts.append(
+                '\n      <div class="hint-level hint-level-native">'
+                '\n        <details>'
+                f'\n          <summary class="hint-btn">{title}</summary>'
+                '\n          <div class="hint-content-native">'
+                f'\n            <p>{desc}</p>'
+                f'\n            <div class="hint-words">{words_html}</div>'
+                '\n          </div>'
+                '\n        </details>'
+                '\n      </div>'
+            )
+        else:
+            parts.append(
+                '\n      <div class="hint-level">'
+                f'\n        <h3 style="font-size:.95rem;margin-bottom:.4rem;">{title}</h3>'
+                '\n        <div class="hint-plain">'
+                f'\n          <p>{desc}</p>'
+                f'\n          <div class="hint-words">{words_html}</div>'
+                '\n        </div>'
+                '\n      </div>'
+            )
+    return "".join(parts)
+
+
+def solution_box_html(word: str, reveal: bool) -> str:
+    """Bloc solution : en clair (archives) ou flouté avec bouton JS de révélation (page du jour)."""
+    if reveal:
+        return (
+            '\n      <div style="text-align:center;margin:.5rem 0 1rem;">'
+            f'\n        <span class="solution-word">{word}</span>'
+            '\n      </div>'
+        )
+    return (
+        '\n      <div style="text-align:center;margin:.5rem 0 1rem;">'
+        '\n        <div class="solution-blur" id="solution-wrap">'
+        f'\n          <span class="solution-word">{word}</span>'
+        '\n        </div>'
+        '\n        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">'
+        '\n          Cliquer pour révéler la réponse'
+        '\n        </button>'
+        '\n      </div>'
+    )
 
 
 def atomic_write(path: Path, content: str) -> None:

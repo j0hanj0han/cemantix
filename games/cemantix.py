@@ -17,8 +17,9 @@ from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    hint_levels_html, solution_box_html, faq_jsonld, faq_html,
 )
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
@@ -216,6 +217,14 @@ def load_all_archives() -> list[dict]:
 
 # ── Génération des fichiers ───────────────────────────────────────────────────
 
+def _compute_nearby_top(nearby: list[dict], count: int = 20) -> list[dict]:
+    """Les `count` voisins les plus proches (percentile le plus élevé) triés DESC."""
+    return [
+        {"word": item["word"], "percentile": item["percentile"], "similarity": item["similarity"]}
+        for item in sorted(nearby, key=lambda x: x["percentile"], reverse=True)[:count]
+    ]
+
+
 def generate_solution_json(
     today: date,
     puzzle_num: int,
@@ -223,6 +232,7 @@ def generate_solution_json(
     hints: dict,
     tried_count: int,
     definition: str = "",
+    nearby: list[dict] | None = None,
 ) -> dict:
     data = {
         "date": today.isoformat(),
@@ -235,6 +245,8 @@ def generate_solution_json(
         "tried_count": tried_count,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
+    if nearby:
+        data["nearby_top"] = _compute_nearby_top(nearby)
     CEMANTIX_DIR.mkdir(parents=True, exist_ok=True)
     atomic_write(CEMANTIX_DIR / "solution.json", json.dumps(data, ensure_ascii=False, indent=2))
     return data
@@ -251,11 +263,43 @@ def _mask_word(word: str, text: str) -> str:
     return re.sub(re.escape(word), "___", text, flags=re.IGNORECASE)
 
 
-def _word_hints_card_html(word: str, definition: str) -> str:
-    """Card 'Indices du mot' : nb lettres → première lettre → définition (escalade de spoiler)."""
+def _word_hints_card_html(word: str, definition: str, reveal: bool = False) -> str:
+    """Card 'Indices du mot' / 'Le mot en détail' : nb lettres, première lettre, définition.
+    reveal=False (page du jour) : chaque valeur masquée derrière un bouton JS (anti-spoiler).
+    reveal=True (archive passée) : tout affiché directement, sans JS."""
     first_letter = word[0].upper() if word else "?"
     n = len(word)
     letters_label = f"{n} lettre{'s' if n > 1 else ''}"
+
+    if reveal:
+        def_row = ""
+        if definition:
+            def_row = (
+                '\n        <div class="word-hint-item">'
+                '\n          <span class="word-hint-icon">&#128218;</span>'
+                '\n          <span class="word-hint-label">D&#233;finition</span>'
+                f'\n          <span class="word-hint-value visible definition">{_html_escape(definition)}</span>'
+                '\n        </div>'
+            )
+        return (
+            '\n    <div class="card">'
+            '\n      <h2>Le mot en d&#233;tail</h2>'
+            '\n      <div class="word-hints">'
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128207;</span>'
+            '\n          <span class="word-hint-label">Nombre de lettres</span>'
+            f'\n          <span class="word-hint-value visible">{letters_label}</span>'
+            '\n        </div>'
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128288;</span>'
+            '\n          <span class="word-hint-label">Premi&#232;re lettre</span>'
+            f'\n          <span class="word-hint-value visible">{first_letter}</span>'
+            '\n        </div>'
+            f'{def_row}'
+            '\n      </div>'
+            '\n    </div>'
+        )
+
     def_row = ""
     if definition:
         masked = _html_escape(_mask_word(word, definition))
@@ -321,6 +365,89 @@ def _hints_html(hints: dict) -> tuple:
     )
 
 
+def _faq_items(word: str, puzzle_num: int, date_display: str, definition: str, *, is_index: bool) -> list[tuple[str, str]]:
+    first_letter = word[0].upper() if word else "?"
+    word_length = len(word)
+    plural = "s" if word_length > 1 else ""
+    items = [(
+        f"Quelle est la solution du Cémantix du {date_display} ?",
+        f"La réponse du Cémantix #{puzzle_num} du {date_display} est : {word}.",
+    )]
+    if is_index:
+        items.append((
+            "Qu'est-ce que Cémantix ?",
+            "Cémantix est un jeu de mots quotidien basé sur la similarité sémantique. Chaque jour, "
+            "un mot secret est à deviner en soumettant des propositions et en recevant un score de "
+            "proximité sémantique sous forme de température.",
+        ))
+        items.append((
+            "Comment avoir des indices pour Cémantix ?",
+            f"Cette page propose 3 niveaux d'indices progressifs : des mots sémantiquement tièdes, "
+            f"chauds, puis brûlants. Déverrouillez chaque niveau selon votre besoin pour le Cémantix "
+            f"du {date_display}.",
+        ))
+    items.append((
+        f"Quelle est la première lettre du Cémantix du {date_display} ?",
+        f"La première lettre du Cémantix #{puzzle_num} du {date_display} est : {first_letter}.",
+    ))
+    items.append((
+        f"Combien de lettres contient le mot du Cémantix du {date_display} ?",
+        f"Le mot du Cémantix #{puzzle_num} du {date_display} contient {word_length} lettre{plural}.",
+    ))
+    if definition:
+        items.append((
+            f"Quelle est la définition du mot du Cémantix du {date_display} ?",
+            definition,
+        ))
+    return items
+
+
+def _nearby_table_html(nearby_top: list | None, hints: dict) -> str:
+    """Tableau des mots les plus proches sémantiquement de la solution (contenu unique par archive).
+    Utilise `nearby_top` si présent (post-PR3), sinon un repli sur les mots-indices déjà stockés
+    (percentile seul, pas de similarité — archives générées avant ce champ)."""
+    if nearby_top:
+        rows = "\n            ".join(
+            f'<tr><td class="nearby-rank">#{1000 - item["percentile"]}</td>'
+            f'<td>{_html_escape(item["word"])}</td>'
+            f'<td class="nearby-temp">{item["similarity"] * 100:.1f}°C</td></tr>'
+            for item in nearby_top
+        )
+        intro = f"Les {len(nearby_top)} mots les plus proches sémantiquement de la solution, du plus chaud au moins chaud."
+        heading = "Les mots les plus proches"
+    else:
+        fallback_items = [
+            item for level in ("level3", "level2", "level1")
+            for item in (hints or {}).get(level, [])
+            if isinstance(item, dict) and "word" in item and "percentile" in item
+        ]
+        if not fallback_items:
+            return ""
+        rows = "\n            ".join(
+            f'<tr><td class="nearby-rank">#{1000 - item["percentile"]}</td>'
+            f'<td>{_html_escape(item["word"])}</td>'
+            f'<td class="nearby-temp">—</td></tr>'
+            for item in fallback_items
+        )
+        intro = "Les mots-indices utilisés ce jour-là, du plus proche au moins proche de la solution."
+        heading = "Mots-indices proches de la solution"
+    return f"""
+    <div class="card">
+      <h2>{heading}</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        {intro}
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="nearby-table">
+          <thead><tr><th>Rang</th><th>Mot</th><th style="text-align:right;">Température</th></tr></thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </table>
+      </div>
+    </div>"""
+
+
 def generate_archive_html(
     d: date,
     puzzle_num: int,
@@ -329,13 +456,42 @@ def generate_archive_html(
     prev_date,  # date | None — plus ancienne
     next_date,  # date | None — plus récente (None → lien vers index.html)
     definition: str = "",
+    nearby_top: list | None = None,
 ) -> None:
-    """Génère docs/cemantix/archive/YYYY-MM-DD.html."""
+    """Génère docs/cemantix/archive/YYYY-MM-DD.html — solution, indices et mots proches en clair."""
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
-    word_hints_card = _word_hints_card_html(word, definition)
+    word_hints_card = _word_hints_card_html(word, definition, reveal=True)
+    hint_levels = hint_levels_html(
+        [
+            ("Niveau 1 — Indices vagues", "Ces mots étaient sémantiquement proches de la solution (zone tiède) :", hints_l1),
+            ("Niveau 2 — Indices proches", "Ces mots étaient très proches de la solution (zone chaude) :", hints_l2),
+            ("Niveau 3 — Indices très proches", "Ces mots étaient extrêmement proches de la solution (zone brûlante) :", hints_l3),
+        ],
+        mode="plain",
+    )
+    solution_box = solution_box_html(word, reveal=True)
+    faq_items = _faq_items(word, puzzle_num, date_display, definition, is_index=False)
+    faq_visible = faq_html(faq_items, open_first=True)
+    nearby_table = _nearby_table_html(nearby_top, hints)
+
+    ym = d.strftime("%Y-%m")
+    has_month_page = (CEMANTIX_ARCHIVE / f"{ym}.html").exists()
+    month_label = _month_fr(ym)
+    month_de = _de_month_fr(ym)
+    month_breadcrumb_item = (
+        f',\n      {{"@type": "ListItem", "position": 4, "name": "{month_label.capitalize()}", '
+        f'"item": "{CEMANTIX_SITE_URL}/archive/{ym}"}}'
+        if has_month_page else ""
+    )
+    date_breadcrumb_position = 5 if has_month_page else 4
+    month_link_html = (
+        f'\n      <p style="margin-top:.75rem;font-size:.9rem;">'
+        f'<a href="{ym}">Toutes les solutions {month_de} &#8594;</a></p>'
+        if has_month_page else ""
+    )
 
     if prev_date is not None:
         nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
@@ -347,38 +503,6 @@ def generate_archive_html(
     else:
         nav_next = '<a class="nav-link" href="../">Solution du jour &#8594;</a>'
 
-    first_letter = word[0].upper() if word else "?"
-    word_length = len(word)
-    letters_plural = "s" if word_length > 1 else ""
-    faq_extra = f""",
-      {{
-        "@type": "Question",
-        "name": "Quelle est la premi\u00e8re lettre du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La premi\u00e8re lettre du C\u00e9mantix #{puzzle_num} du {date_display} est : {first_letter}."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Combien de lettres contient le mot du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le mot du C\u00e9mantix #{puzzle_num} du {date_display} contient {word_length} lettre{letters_plural}."
-        }}
-      }}"""
-    if definition:
-        safe_def = definition.replace('"', "'")
-        faq_extra += f""",
-      {{
-        "@type": "Question",
-        "name": "Quelle est la d\u00e9finition du mot du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "{safe_def}"
-        }}
-      }}"""
-
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -386,14 +510,14 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{date_str}">
@@ -401,7 +525,7 @@ def generate_archive_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
@@ -421,22 +545,7 @@ def generate_archive_html(
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Quelle est la solution du Cémantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La réponse du Cémantix #{puzzle_num} du {date_display} est : {word}."
-        }}
-      }}{faq_extra}
-    ]
-  }}
-  </script>
+{faq_jsonld(faq_items)}
 
   <script type="application/ld+json">
   {{
@@ -445,8 +554,8 @@ def generate_archive_html(
     "itemListElement": [
       {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
       {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://solution-du-jour.fr/cemantix/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/cemantix/archive/"}},
-      {{"@type": "ListItem", "position": 4, "name": "Solution du {date_display}"}}
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/cemantix/archive/"}}{month_breadcrumb_item},
+      {{"@type": "ListItem", "position": {date_breadcrumb_position}, "name": "Solution du {date_display}"}}
     ]
   }}
   </script>
@@ -460,7 +569,7 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Cémantix #{puzzle_num} — Solution du {date_display}</h1>
+  <h1>Solution Cémantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Archive · indices &amp; définition</p>
 </header>
 
@@ -492,53 +601,19 @@ def generate_archive_html(
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
+        Les indices qui accompagnaient ce puzzle, en clair.
       </p>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          &#127777; Niveau 1 — Indices vagues (cliquer pour révéler)
-        </button>
-        <div class="hint-content" id="content-l1">
-          <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
-          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          &#128293; Niveau 2 — Indices proches (déverrouillé après niveau 1)
-        </button>
-        <div class="hint-content" id="content-l2">
-          <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
-          <div class="hint-words">{hints_l2 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          &#128561; Niveau 3 — Indices très proches (déverrouillé après niveau 2)
-        </button>
-        <div class="hint-content" id="content-l3">
-          <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
-          <div class="hint-words">{hints_l3 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
+{hint_levels}
     </div>
 
     <div class="card">
       <h2>La solution du {date_display}</h2>
-      <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">{word}</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
-      </div>
+{solution_box}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
     </div>
-
+{nearby_table}
+{faq_visible}
+{month_link_html}
   </article>
 
   <nav class="nav-archive" aria-label="Navigation entre les archives">
@@ -558,34 +633,6 @@ def generate_archive_html(
 </footer>
 
 <script>
-  var revealed = [false, false, false];
-
-  function revealHint(level) {{
-    if (level > 1 && !revealed[level - 2]) return;
-    var btn = document.getElementById('btn-l' + level);
-    var content = document.getElementById('content-l' + level);
-    content.classList.add('visible');
-    btn.disabled = true;
-    revealed[level - 1] = true;
-    var next = level + 1;
-    if (next <= 3) {{
-      var nextBtn = document.getElementById('btn-l' + next);
-      if (nextBtn) nextBtn.disabled = false;
-    }}
-  }}
-
-  function revealSolution() {{
-    document.getElementById('solution-wrap').classList.add('revealed');
-    document.getElementById('reveal-btn').style.display = 'none';
-  }}
-
-  function revealWordHint(key) {{
-    var el = document.getElementById('wh-' + key);
-    if (el) el.classList.add('visible');
-    var btn = document.getElementById('wh-' + key + '-btn');
-    if (btn) btn.style.display = 'none';
-  }}
-
   function toggleDef(el) {{
     var wasActive = el.classList.contains('active');
     document.querySelectorAll('.hint-tag.active').forEach(function(t) {{ t.classList.remove('active'); }});
@@ -919,43 +966,25 @@ def generate_index_html(
     hints: dict,
     definition: str = "",
     recent_archives: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/cemantix/index.html."""
     date_str = today.isoformat()
     date_display = date_fr(today)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition)
-    first_letter = word[0].upper() if word else "?"
-    word_length = len(word)
-    letters_plural = "s" if word_length > 1 else ""
-    faq_extra = f""",
-      {{
-        "@type": "Question",
-        "name": "Quelle est la premi\u00e8re lettre du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La premi\u00e8re lettre du C\u00e9mantix #{puzzle_num} du {date_display} est : {first_letter}."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Combien de lettres contient le mot du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le mot du C\u00e9mantix #{puzzle_num} du {date_display} contient {word_length} lettre{letters_plural}."
-        }}
-      }}"""
-    if definition:
-        safe_def = definition.replace('"', "'")
-        faq_extra += f""",
-      {{
-        "@type": "Question",
-        "name": "Quelle est la d\u00e9finition du mot du C\u00e9mantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "{safe_def}"
-        }}
-      }}"""
+    hint_levels = hint_levels_html(
+        [
+            ("&#127777; Niveau 1 \u2014 Indices vagues", "Ces mots sont <strong>s\u00e9mantiquement proches</strong> de la solution (zone ti\u00e8de) :", hints_l1),
+            ("&#128293; Niveau 2 \u2014 Indices proches", "Ces mots sont <strong>tr\u00e8s proches</strong> de la solution (zone chaude) :", hints_l2),
+            ("&#128561; Niveau 3 \u2014 Indices tr\u00e8s proches", "Ces mots sont <strong>extr\u00eamement proches</strong> de la solution (zone br\u00fblante) :", hints_l3),
+        ],
+        mode="details",
+    )
+    solution_box = solution_box_html(word, reveal=False)
+    faq_items = _faq_items(word, puzzle_num, date_display, definition, is_index=True)
+    faq_visible = faq_html(faq_items, open_first=False)
 
     recent_archives_card = ""
     if recent_archives:
@@ -987,14 +1016,14 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🧠 Cémantix solution du jour #{puzzle_num} — indice &amp; définition</title>
+  <title>Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta property="og:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque matin.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
@@ -1002,7 +1031,7 @@ def generate_index_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
@@ -1013,7 +1042,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
     "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{modified_iso}",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},
@@ -1022,38 +1051,7 @@ def generate_index_html(
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Quelle est la solution du Cémantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La réponse du Cémantix #{puzzle_num} du {date_display} est : {word}."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Qu'est-ce que Cémantix ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Cémantix est un jeu de mots quotidien basé sur la similarité sémantique. Chaque jour, un mot secret est à deviner en soumettant des propositions et en recevant un score de proximité sous forme de température."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Comment avoir des indices pour Cémantix ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Cette page propose 3 niveaux d'indices progressifs : des mots sémantiquement tièdes, chauds, puis brûlants. Déverrouillez chaque niveau selon votre besoin pour le Cémantix du {date_display}."
-        }}
-      }}{faq_extra}
-    ]
-  }}
-  </script>
+{faq_jsonld(faq_items)}
 
   <script type="application/ld+json">
   {{
@@ -1073,8 +1071,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Cémantix — Solution du jour</h1>
-  <p class="subtitle">Réponse &amp; indices progressifs — #{puzzle_num}</p>
+  <h1>Solution Cémantix #{puzzle_num} du {date_display}</h1>
+  <p class="subtitle">Réponse &amp; indices progressifs</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -1099,50 +1098,15 @@ def generate_index_html(
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
         Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
       </p>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          &#127777; Niveau 1 — Indices vagues (cliquer pour révéler)
-        </button>
-        <div class="hint-content" id="content-l1">
-          <p>Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :</p>
-          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          &#128293; Niveau 2 — Indices proches (déverrouillé après niveau 1)
-        </button>
-        <div class="hint-content" id="content-l2">
-          <p>Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :</p>
-          <div class="hint-words">{hints_l2 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          &#128561; Niveau 3 — Indices très proches (déverrouillé après niveau 2)
-        </button>
-        <div class="hint-content" id="content-l3">
-          <p>Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :</p>
-          <div class="hint-words">{hints_l3 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
+{hint_levels}
     </div>
 
     <div class="card">
       <h2>La solution du {date_display}</h2>
-      <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">{word}</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
-      </div>
+{solution_box}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · Généré automatiquement le {date_display}</p>
     </div>
+{faq_visible}
 
     <div class="card">
       <h2>Comment jouer à Cémantix ?</h2>
@@ -1166,6 +1130,7 @@ def generate_index_html(
       <h2 style="font-size:1rem;margin-bottom:.75rem;">Autres jeux du jour</h2>
       <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
         <a href="../sutom/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🔤 Sutom</a>
+        <a href="../pedantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📖 Pédantix</a>
         <a href="../loto/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎱 Loto FDJ</a>
         <a href="../euromillions/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">⭐ EuroMillions</a>
       </div>
@@ -1180,22 +1145,6 @@ def generate_index_html(
 </footer>
 
 <script>
-  var revealed = [false, false, false];
-
-  function revealHint(level) {{
-    if (level > 1 && !revealed[level - 2]) return;
-    var btn = document.getElementById('btn-l' + level);
-    var content = document.getElementById('content-l' + level);
-    content.classList.add('visible');
-    btn.disabled = true;
-    revealed[level - 1] = true;
-    var next = level + 1;
-    if (next <= 3) {{
-      var nextBtn = document.getElementById('btn-l' + next);
-      if (nextBtn) nextBtn.disabled = false;
-    }}
-  }}
-
   function revealSolution() {{
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
@@ -1245,7 +1194,10 @@ def generate_index_html(
 
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
-def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, definition: str = "") -> None:
+def _generate_all_html(
+    today: date, puzzle_num: int, word: str, hints: dict, definition: str = "",
+    generated_at: str | None = None,
+) -> None:
     """
     Génère tous les fichiers HTML Cémantix à partir des JSON déjà en place.
     """
@@ -1260,7 +1212,10 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, def
         next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
         entry_hints = entry.get("hints", {"level1": [], "level2": [], "level3": []})
         entry_definition = entry.get("definition", "")
-        generate_archive_html(d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date, entry_definition)
+        generate_archive_html(
+            d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date,
+            entry_definition, entry.get("nearby_top"),
+        )
 
     # Pages récapitulatives mensuelles (past_archives est trié DESC)
     months: dict[str, list] = {}
@@ -1278,7 +1233,7 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, def
 
     recent_archives = [e for e in past_archives[:7] if (CEMANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Cémantix] Génération de docs/cemantix/index.html…")
-    generate_index_html(today, puzzle_num, word, hints, definition, recent_archives)
+    generate_index_html(today, puzzle_num, word, hints, definition, recent_archives, generated_at)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -1310,7 +1265,7 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
                 atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[Cémantix] ℹ Solution déjà présente : {word!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, word, updated, definition)
+            _generate_all_html(today, puzzle_num, word, updated, definition, existing.get("generated_at"))
             return existing
 
     # Numéro du puzzle
@@ -1356,11 +1311,11 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
         print("[Cémantix]    Aucune définition trouvée.")
 
     # Fichiers JSON
-    data = generate_solution_json(today, puzzle_num, word, hints, len(tried), definition)
+    data = generate_solution_json(today, puzzle_num, word, hints, len(tried), definition, nearby)
     generate_archive_json(today, data)
 
     # HTML
-    _generate_all_html(today, puzzle_num, word, hints, definition)
+    _generate_all_html(today, puzzle_num, word, hints, definition, data.get("generated_at"))
 
     print(f"[Cémantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {word!r})")
     return data

@@ -16,8 +16,9 @@ from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    hint_levels_html, solution_box_html, faq_jsonld, faq_html,
 )
 
 # ── Configuration Pédantix ────────────────────────────────────────────────────
@@ -303,11 +304,31 @@ def _hints_html(hints: dict) -> tuple[str, str, str]:
     )
 
 
-def _title_hints_card_html(title_display: str, puzzle_num: int, date_display: str) -> str:
+def _title_hints_card_html(title_display: str, puzzle_num: int, date_display: str, reveal: bool = False) -> str:
     words = title_display.split()
     n_words = len(words)
     n_chars = len(title_display.replace(" ", ""))
     first_letters = " · ".join(w[0].upper() for w in words if w)
+    count_label = f'{n_words}\u202fmot{"s" if n_words > 1 else ""} · {n_chars}\u202flettre{"s" if n_chars > 1 else ""}'
+
+    if reveal:
+        return (
+            '\n    <div class="card">'
+            '\n      <h2>Le titre en d&#233;tail</h2>'
+            '\n      <div class="word-hints">'
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128207;</span>'
+            '\n          <span class="word-hint-label">Nombre de mots &amp; lettres</span>'
+            f'\n          <span class="word-hint-value visible">{count_label}</span>'
+            '\n        </div>'
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128288;</span>'
+            '\n          <span class="word-hint-label">Premi&#232;re lettre de chaque mot</span>'
+            f'\n          <span class="word-hint-value visible">{first_letters}</span>'
+            '\n        </div>'
+            '\n      </div>'
+            '\n    </div>'
+        )
     return (
         '\n    <div class="card">'
         '\n      <h2>Indices du titre</h2>'
@@ -319,9 +340,7 @@ def _title_hints_card_html(title_display: str, puzzle_num: int, date_display: st
         '\n        <div class="word-hint-item">'
         '\n          <span class="word-hint-icon">&#128207;</span>'
         '\n          <span class="word-hint-label">Nombre de mots &amp; lettres</span>'
-        f'\n          <span class="word-hint-value" id="wh-count">'
-        f'{n_words}\u202fmot{"s" if n_words > 1 else ""} · {n_chars}\u202flettre{"s" if n_chars > 1 else ""}'
-        '\n          </span>'
+        f'\n          <span class="word-hint-value" id="wh-count">{count_label}</span>'
         "\n          <button class=\"word-hint-btn\" id=\"wh-count-btn\" onclick=\"revealWordHint('count')\">R&#233;v&#233;ler</button>"
         '\n        </div>'
         '\n        <div class="word-hint-item">'
@@ -335,7 +354,35 @@ def _title_hints_card_html(title_display: str, puzzle_num: int, date_display: st
     )
 
 
-# ── Pages HTML ────────────────────────────────────────────────────────────────
+def _faq_items(title_display: str, puzzle_num: int, date_display: str, *, is_index: bool) -> list[tuple[str, str]]:
+    n_words = len(title_display.split())
+    n_chars = len(title_display.replace(" ", ""))
+    items = [(
+        f"Quelle est la solution du Pédantix du {date_display} ?",
+        f"La réponse du Pédantix #{puzzle_num} du {date_display} est : {title_display}.",
+    )]
+    if is_index:
+        items.append((
+            "Qu'est-ce que Pédantix ?",
+            "Pédantix est un jeu quotidien basé sur les articles Wikipedia. Il faut deviner un "
+            "article secret en proposant des mots qui révèlent les mots de l'article selon leur "
+            "similarité sémantique.",
+        ))
+        items.append((
+            "Comment avoir des indices pour Pédantix ?",
+            "Cette page propose 3 niveaux d'indices : métadonnées du titre, catégories Wikipedia, "
+            "et un extrait masqué de l'article.",
+        ))
+        items.append((
+            f"Combien de mots a le titre du Pédantix du {date_display} ?",
+            f"Le titre du Pédantix #{puzzle_num} du {date_display} contient {n_words} mot(s) et {n_chars} lettre(s).",
+        ))
+    else:
+        items.append((
+            f"Combien de mots contient le titre du Pédantix du {date_display} ?",
+            f"Le titre du Pédantix #{puzzle_num} du {date_display} contient {n_words} mot(s).",
+        ))
+    return items
 
 def generate_archive_html(
     d: date,
@@ -352,8 +399,20 @@ def generate_archive_html(
     date_str = d.isoformat()
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
-    title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
+    hints_l1, hints_l2, hints_l3 = _hints_html(hints)
+    title_card = _title_hints_card_html(title_display, puzzle_num, date_display, reveal=True)
     wiki_url = f"https://fr.wikipedia.org/wiki/{title_slug}"
+    hint_levels = hint_levels_html(
+        [
+            ("Niveau 1 — Métadonnées du titre", "Informations générales sur le titre de l'article :", hints_l1),
+            ("Niveau 2 — Catégories Wikipedia", "L'article appartenait aux catégories :", hints_l2),
+            ("Niveau 3 — Extrait Wikipedia", "Premier extrait de l'article (titre masqué) :", hints_l3),
+        ],
+        mode="plain",
+    )
+    solution_box = solution_box_html(title_display, reveal=True)
+    faq_items = _faq_items(title_display, puzzle_num, date_display, is_index=False)
+    faq_visible = faq_html(faq_items, open_first=True)
 
     nav_prev = (
         f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
@@ -368,16 +427,6 @@ def generate_archive_html(
     if categories:
         cats_html = " · ".join(_html_escape(c) for c in categories[:3])
 
-    faq_extra = f""",
-      {{
-        "@type": "Question",
-        "name": "Combien de mots contient le titre du P\u00e9dantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le titre du P\u00e9dantix #{puzzle_num} du {date_display} contient {len(title_display.split())} mot(s)."
-        }}
-      }}"""
-
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -385,14 +434,14 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Pédantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Pédantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Pédantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta property="og:description" content="Indices et réponse du Pédantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{date_str}">
@@ -417,22 +466,7 @@ def generate_archive_html(
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Quelle est la solution du P\u00e9dantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La r\u00e9ponse du P\u00e9dantix #{puzzle_num} du {date_display} est : {title_display}."
-        }}
-      }}{faq_extra}
-    ]
-  }}
-  </script>
+{faq_jsonld(faq_items)}
 
   <script type="application/ld+json">
   {{
@@ -456,7 +490,7 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Pédantix #{puzzle_num} — Solution du {date_display}</h1>
+  <h1>Solution Pédantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Archive · indices &amp; article Wikipedia</p>
 </header>
 
@@ -487,56 +521,21 @@ def generate_archive_html(
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
+        Les indices qui accompagnaient ce puzzle, en clair.
       </p>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          &#127777; Niveau 1 — Métadonnées du titre (cliquer pour révéler)
-        </button>
-        <div class="hint-content" id="content-l1">
-          <p>Informations générales sur le titre de l'article :</p>
-          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          &#128293; Niveau 2 — Catégories Wikipedia (déverrouillé après niveau 1)
-        </button>
-        <div class="hint-content" id="content-l2">
-          <p>L'article appartient aux catégories :</p>
-          <div class="hint-words">{hints_l2 or "<em>Aucune catégorie disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          &#128561; Niveau 3 — Extrait Wikipedia masqué (déverrouillé après niveau 2)
-        </button>
-        <div class="hint-content" id="content-l3">
-          <p>Premier extrait de l'article (titre masqué) :</p>
-          <div class="hint-words">{hints_l3 or "<em>Extrait non disponible</em>"}</div>
-        </div>
-      </div>
+{hint_levels}
     </div>
 
     <div class="card">
       <h2>La solution du {date_display}</h2>
-      <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">{title_display}</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
-      </div>
+{solution_box}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
       <p style="text-align:center;margin-top:.5rem;">
         <a href="{wiki_url}" rel="noopener" target="_blank"
            style="font-size:.9rem;color:#6b7280;">Voir l'article Wikipedia &#8594;</a>
       </p>
     </div>
+{faq_visible}
 
   </article>
 
@@ -555,36 +554,6 @@ def generate_archive_html(
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
 </footer>
-
-<script>
-  var revealed = [false, false, false];
-
-  function revealHint(level) {{
-    if (level > 1 && !revealed[level - 2]) return;
-    var btn = document.getElementById('btn-l' + level);
-    var content = document.getElementById('content-l' + level);
-    content.classList.add('visible');
-    btn.disabled = true;
-    revealed[level - 1] = true;
-    var next = level + 1;
-    if (next <= 3) {{
-      var nextBtn = document.getElementById('btn-l' + next);
-      if (nextBtn) nextBtn.disabled = false;
-    }}
-  }}
-
-  function revealSolution() {{
-    document.getElementById('solution-wrap').classList.add('revealed');
-    document.getElementById('reveal-btn').style.display = 'none';
-  }}
-
-  function revealWordHint(key) {{
-    var el = document.getElementById('wh-' + key);
-    if (el) el.classList.add('visible');
-    var btn = document.getElementById('wh-' + key + '-btn');
-    if (btn) btn.style.display = 'none';
-  }}
-</script>
 
 </body>
 </html>"""
@@ -687,24 +656,25 @@ def generate_index_html(
     hints: dict,
     extract: str = "",
     recent_archives: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     date_str = today.isoformat()
     date_display = date_fr(today)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
     wiki_url = f"https://fr.wikipedia.org/wiki/{title_slug}"
-    n_words = len(title_display.split())
-    n_chars = len(title_display.replace(" ", ""))
-
-    faq_extra = f""",
-      {{
-        "@type": "Question",
-        "name": "Combien de mots a le titre du P\u00e9dantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le titre du P\u00e9dantix #{puzzle_num} du {date_display} contient {n_words} mot(s) et {n_chars} lettre(s)."
-        }}
-      }}"""
+    hint_levels = hint_levels_html(
+        [
+            ("&#127777; Niveau 1 — Métadonnées du titre", "Informations générales sur le titre de l'article :", hints_l1),
+            ("&#128293; Niveau 2 — Catégories Wikipedia", "L'article appartient aux catégories :", hints_l2),
+            ("&#128561; Niveau 3 — Extrait Wikipedia masqué", "Premier extrait de l'article (titre masqué) :", hints_l3),
+        ],
+        mode="details",
+    )
+    solution_box = solution_box_html(title_display, reveal=False)
+    faq_items = _faq_items(title_display, puzzle_num, date_display, is_index=True)
+    faq_visible = faq_html(faq_items, open_first=False)
 
     recent_archives_card = ""
     if recent_archives:
@@ -737,14 +707,14 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>&#129504; Pédantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Pédantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia secret, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Pédantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta property="og:description" content="Article Wikipedia secret et indices progressifs du Pédantix du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/">
@@ -760,7 +730,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
     "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{modified_iso}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/"}},
@@ -769,38 +739,7 @@ def generate_index_html(
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Quelle est la solution du P\u00e9dantix du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La r\u00e9ponse du P\u00e9dantix #{puzzle_num} du {date_display} est : {title_display}."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Qu'est-ce que P\u00e9dantix ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "P\u00e9dantix est un jeu quotidien bas\u00e9 sur les articles Wikipedia. Il faut deviner un article secret en proposant des mots qui r\u00e9v\u00e8lent les mots de l'article selon leur similarit\u00e9 s\u00e9mantique."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Comment avoir des indices pour P\u00e9dantix ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Cette page propose 3 niveaux d'indices : m\u00e9tadonn\u00e9es du titre, cat\u00e9gories Wikipedia, et un extrait masqu\u00e9 de l'article."
-        }}
-      }}{faq_extra}
-    ]
-  }}
-  </script>
+{faq_jsonld(faq_items)}
 
   <script type="application/ld+json">
   {{
@@ -820,8 +759,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Pédantix — Solution du jour</h1>
-  <p class="subtitle">Article Wikipedia secret &amp; indices — #{puzzle_num}</p>
+  <h1>Solution Pédantix #{puzzle_num} du {date_display}</h1>
+  <p class="subtitle">Article Wikipedia secret &amp; indices</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -845,54 +785,19 @@ def generate_index_html(
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
         Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
       </p>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          &#127777; Niveau 1 — Métadonnées du titre (cliquer pour révéler)
-        </button>
-        <div class="hint-content" id="content-l1">
-          <p>Informations sur le titre de l'article Wikipedia :</p>
-          <div class="hint-words">{hints_l1 or "<em>Aucun indice disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          &#128293; Niveau 2 — Catégories Wikipedia (déverrouillé après niveau 1)
-        </button>
-        <div class="hint-content" id="content-l2">
-          <p>L'article secret appartient aux catégories :</p>
-          <div class="hint-words">{hints_l2 or "<em>Aucune catégorie disponible</em>"}</div>
-        </div>
-      </div>
-
-      <div class="hint-level">
-        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          &#128561; Niveau 3 — Extrait masqué (déverrouillé après niveau 2)
-        </button>
-        <div class="hint-content" id="content-l3">
-          <p>Début de l'article Wikipedia (titre masqué) :</p>
-          <div class="hint-words">{hints_l3 or "<em>Extrait non disponible</em>"}</div>
-        </div>
-      </div>
+{hint_levels}
     </div>
 
     <div class="card">
       <h2>La solution du {date_display}</h2>
-      <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">{title_display}</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
-      </div>
+{solution_box}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · Généré automatiquement le {date_display}</p>
       <p style="text-align:center;margin-top:.5rem;" id="wiki-link" style="display:none;">
         <a href="{wiki_url}" rel="noopener" target="_blank"
            style="font-size:.9rem;color:#6b7280;">Voir l'article Wikipedia &#8594;</a>
       </p>
     </div>
+{faq_visible}
 
     <div class="card">
       <h2>Comment jouer à Pédantix ?</h2>
@@ -928,22 +833,6 @@ def generate_index_html(
 </footer>
 
 <script>
-  var revealed = [false, false, false];
-
-  function revealHint(level) {{
-    if (level > 1 && !revealed[level - 2]) return;
-    var btn = document.getElementById('btn-l' + level);
-    var content = document.getElementById('content-l' + level);
-    content.classList.add('visible');
-    btn.disabled = true;
-    revealed[level - 1] = true;
-    var next = level + 1;
-    if (next <= 3) {{
-      var nextBtn = document.getElementById('btn-l' + next);
-      if (nextBtn) nextBtn.disabled = false;
-    }}
-  }}
-
   function revealSolution() {{
     document.getElementById('solution-wrap').classList.add('revealed');
     document.getElementById('reveal-btn').style.display = 'none';
@@ -973,6 +862,7 @@ def _generate_all_html(
     title_slug: str,
     hints: dict,
     extract: str = "",
+    generated_at: str | None = None,
 ) -> None:
     all_archives = load_all_archives()
     today_str = today.isoformat()
@@ -998,7 +888,7 @@ def _generate_all_html(
 
     recent_archives = [e for e in past_archives[:7] if (PEDANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Pédantix] Génération de docs/pedantix/index.html…")
-    generate_index_html(today, puzzle_num, title_display, title_slug, hints, extract, recent_archives)
+    generate_index_html(today, puzzle_num, title_display, title_slug, hints, extract, recent_archives, generated_at)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -1106,7 +996,7 @@ def run(today: date) -> dict | None:
             extract = existing.get("extract", "")
             print(f"[Pédantix] ℹ Solution déjà présente : {title_display!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract)
+            _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, existing.get("generated_at"))
             return existing
 
     print(f"[Pédantix] Résolution du puzzle #{puzzle_num}…")
@@ -1129,7 +1019,7 @@ def run(today: date) -> dict | None:
             extract = latest.get("extract", "")
             latest_puzzle_num = latest.get("puzzle_num", puzzle_num - 1)
             print(f"[Pédantix] ℹ Affichage de la dernière solution connue : #{latest_puzzle_num} {title_display!r}")
-            _generate_all_html(today, latest_puzzle_num, title_display, title_slug, hints, extract)
+            _generate_all_html(date.fromisoformat(latest["date"]), latest_puzzle_num, title_display, title_slug, hints, extract, latest.get("generated_at"))
         return None
 
     print(f"[Pédantix] ✅ Solution : {title_display!r}")
@@ -1143,7 +1033,7 @@ def run(today: date) -> dict | None:
 
     data = generate_solution_json(today, puzzle_num, title_slug, title_display, hints)
     generate_archive_json(today, data)
-    _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract)
+    _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, data.get("generated_at"))
 
     print(f"[Pédantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {title_display!r})")
     return data

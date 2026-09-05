@@ -22,10 +22,10 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -369,7 +369,7 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Résultats Loto {date_display} — Numéros gagnants · Archive</title>
+  <title>Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}">
@@ -439,8 +439,8 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Loto — Archive</h1>
-  <p class="subtitle">Résultats du {date_display} — tirage n°{draw_num}</p>
+  <h1>Résultats du Loto du {date_display}</h1>
+  <p class="subtitle">Archive · tirage n°{draw_num}</p>
 </header>
 
 <main>
@@ -621,11 +621,13 @@ def generate_index_html(
     jackpot_amount: float | None = None,
     next_jackpot: float | None = None,
     codes: list[str] | None = None,
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/loto/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(draw_date, 22, 0)
 
     recent_archives_card = ""
     if recent_archives:
@@ -678,20 +680,20 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🍀 Résultats Loto {date_display} — Numéros gagnants tirage n°{draw_num}</title>
+  <title>Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (n°{draw_num}). Numéros gagnants : {balls_str} + numéro chance {lucky}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
+  <meta property="og:title" content="Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}">
   <meta property="og:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{LOTO_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
+  <meta name="twitter:title" content="Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}">
   <meta name="twitter:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="article:published_time" content="{iso_paris(draw_date, 22, 0)}">
 
@@ -701,7 +703,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
     "datePublished": "{iso_paris(draw_date, 22, 0)}",
-    "dateModified": "{iso_paris(draw_date, 22, 0)}",
+    "dateModified": "{modified_iso}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -760,8 +762,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Résultats Loto</h1>
+  <h1>Résultats du Loto du {date_display}</h1>
   <p class="subtitle">Numéros gagnants — tirage n°{draw_num}</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -915,6 +918,7 @@ def generate_index_html(
         <a href="simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur de gains</a>
         <a href="../cemantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🧠 Cémantix</a>
         <a href="../sutom/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🔤 Sutom</a>
+        <a href="../pedantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📖 Pédantix</a>
         <a href="../euromillions/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">⭐ EuroMillions</a>
       </div>
     </div>
@@ -1418,6 +1422,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         jackpot_amount=data.get("jackpot_amount"),
         next_jackpot=data.get("next_jackpot"),
         codes=data.get("codes"),
+        generated_at=data.get("generated_at"),
     )
 
     stats = compute_loto_stats(all_archives)
@@ -1536,7 +1541,7 @@ def generate_simulator_html() -> None:
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>🍀 Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages</title>
-  <meta name="description" content="Auriez-vous gagné au Loto FDJ ? Entrez vos 5 numéros + numéro chance, simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
+  <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -1638,11 +1643,11 @@ def generate_simulator_html() -> None:
   <article>
 
     <div class="card">
-      <h2>Comment ça marche ?</h2>
+      <h2>Simulation de tirage Loto — comment ça marche ?</h2>
       <p>
         Choisissez <strong>5 numéros</strong> (1–49) et <strong>1 numéro chance</strong> (1–10),
-        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages Loto
-        depuis 2019 et calcule vos gains cumulés.
+        ou cliquez sur « Grille aléatoire », puis lancez la simulation. L'outil vérifie votre grille
+        sur l'ensemble des tirages Loto depuis 2019 et calcule vos gains cumulés.
       </p>
       <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
         Mise par tirage : <strong>2,20&nbsp;€</strong>. Les gains affichés sont approximatifs
@@ -1660,6 +1665,7 @@ def generate_simulator_html() -> None:
       <div class="sim-grid" id="picker-lucky"></div>
 
       <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2019</button>
+      <button class="sim-btn" id="sim-random-btn" type="button" style="background:#f3f4f6;color:#374151;margin-left:.5rem;">🎲 Grille aléatoire</button>
     </div>
 
     <div class="card" id="sim-results" style="display:none;">
@@ -1783,6 +1789,16 @@ def generate_simulator_html() -> None:
     }});
     lg.appendChild(btn);
   }}
+
+  document.getElementById('sim-random-btn').addEventListener('click', () => {{
+    bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    lg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    const balls = Array.from(bg.querySelectorAll('.sim-ball'));
+    const shuffled = balls.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffled.slice(0, 5).forEach(([, b]) => b.click());
+    const luckyBtns = Array.from(lg.querySelectorAll('.sim-ball'));
+    luckyBtns[Math.floor(Math.random() * luckyBtns.length)].click();
+  }});
 
   document.getElementById('sim-btn').addEventListener('click', () => {{
     fetch('data.json')

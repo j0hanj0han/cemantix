@@ -16,7 +16,7 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, solution_box_html,
 )
 
 # ── Configuration Sutom ───────────────────────────────────────────────────────
@@ -225,14 +225,7 @@ def generate_archive_html(
 
     <div class="card">
       <h2>La solution du {date_display}</h2>
-      <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">{word}</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
-      </div>
+{solution_box_html(word, reveal=True)}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
     </div>
 
@@ -253,13 +246,6 @@ def generate_archive_html(
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
 </footer>
-
-<script>
-  function revealSolution() {{
-    document.getElementById('solution-wrap').classList.add('revealed');
-    document.getElementById('reveal-btn').style.display = 'none';
-  }}
-</script>
 
 </body>
 </html>"""

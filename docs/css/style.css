@@ -163,6 +163,59 @@ main {
 
 .hint-content.visible { display: block; }
 
+/* ── Indices en <details> natifs (index) ── */
+
+.hint-level-native summary.hint-btn {
+  display: block;
+  list-style: none;
+}
+.hint-level-native summary.hint-btn::-webkit-details-marker { display: none; }
+.hint-level-native .hint-content-native {
+  margin-top: .5rem;
+  padding: .75rem 1rem;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: calc(var(--radius) - .125rem);
+  font-size: .9rem;
+}
+
+/* ── Indices/solution en clair (archives passées) ── */
+
+.hint-plain {
+  margin-top: .5rem;
+  padding: .75rem 1rem;
+  background: #f9fafb;
+  border-radius: calc(var(--radius) - .125rem);
+  font-size: .9rem;
+}
+
+/* ── FAQ visible (<details>) ── */
+
+.faq-card details {
+  background: #f9fafb;
+  border-radius: calc(var(--radius) - .125rem);
+  padding: .85rem 1rem;
+  margin-bottom: .6rem;
+}
+.faq-card details:last-child { margin-bottom: 0; }
+.faq-card summary {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: .92rem;
+}
+.faq-card p {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: #374151;
+}
+
+/* ── Mots les plus proches (Cémantix, archives) ── */
+
+.nearby-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.nearby-table th, .nearby-table td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--color-border); }
+.nearby-table td.nearby-rank { color: var(--color-muted); width: 3.5rem; }
+.nearby-table td.nearby-temp { text-align: right; font-variant-numeric: tabular-nums; }
+
 .hint-words {
   display: flex;
   flex-wrap: wrap;

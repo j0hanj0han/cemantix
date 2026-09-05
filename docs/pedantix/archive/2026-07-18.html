@@ -38,28 +38,7 @@
   </script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Quelle est la solution du Pédantix du samedi 18 juillet 2026 ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La réponse du Pédantix #1526 du samedi 18 juillet 2026 est : Ouest américain."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Combien de mots contient le titre du Pédantix du samedi 18 juillet 2026 ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le titre du Pédantix #1526 du samedi 18 juillet 2026 contient 2 mot(s)."
-        }
-      }
-    ]
-  }
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la solution du Pédantix du samedi 18 juillet 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "La réponse du Pédantix #1526 du samedi 18 juillet 2026 est : Ouest américain."}}, {"@type": "Question", "name": "Combien de mots contient le titre du Pédantix du samedi 18 juillet 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le titre du Pédantix #1526 du samedi 18 juillet 2026 contient 2 mot(s)."}}]}
   </script>
 
   <script type="application/ld+json">
@@ -113,58 +92,43 @@
     </div>
 
     <div class="card">
-      <h2>Indices du titre</h2>
-      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        Article Wikipedia du Pédantix #1526 du samedi 18 juillet 2026.
-        Révélez chaque indice selon votre besoin.
-      </p>
+      <h2>Le titre en d&#233;tail</h2>
       <div class="word-hints">
         <div class="word-hint-item">
           <span class="word-hint-icon">&#128207;</span>
           <span class="word-hint-label">Nombre de mots &amp; lettres</span>
-          <span class="word-hint-value" id="wh-count">2 mots · 14 lettres
-          </span>
-          <button class="word-hint-btn" id="wh-count-btn" onclick="revealWordHint('count')">R&#233;v&#233;ler</button>
+          <span class="word-hint-value visible">2 mots · 14 lettres</span>
         </div>
         <div class="word-hint-item">
           <span class="word-hint-icon">&#128288;</span>
           <span class="word-hint-label">Premi&#232;re lettre de chaque mot</span>
-          <span class="word-hint-value" id="wh-letters">O · A</span>
-          <button class="word-hint-btn" id="wh-letters-btn" onclick="revealWordHint('letters')">R&#233;v&#233;ler</button>
+          <span class="word-hint-value visible">O · A</span>
         </div>
       </div>
     </div>
     <div class="card">
       <h2>Indices progressifs</h2>
       <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
-        Déverrouillez les indices niveau par niveau. Chaque niveau est plus précis que le précédent.
+        Les indices qui accompagnaient ce puzzle, en clair.
       </p>
 
       <div class="hint-level">
-        <button class="hint-btn" id="btn-l1" onclick="revealHint(1)">
-          &#127777; Niveau 1 — Métadonnées du titre (cliquer pour révéler)
-        </button>
-        <div class="hint-content" id="content-l1">
+        <h3 style="font-size:.95rem;margin-bottom:.4rem;">Niveau 1 — Métadonnées du titre</h3>
+        <div class="hint-plain">
           <p>Informations générales sur le titre de l'article :</p>
           <div class="hint-words"><span class="hint-tag">2 mots · 14 lettres</span><span class="hint-tag">Premières lettres : O · A</span></div>
         </div>
       </div>
-
       <div class="hint-level">
-        <button class="hint-btn" id="btn-l2" onclick="revealHint(2)" disabled>
-          &#128293; Niveau 2 — Catégories Wikipedia (déverrouillé après niveau 1)
-        </button>
-        <div class="hint-content" id="content-l2">
-          <p>L'article appartient aux catégories :</p>
+        <h3 style="font-size:.95rem;margin-bottom:.4rem;">Niveau 2 — Catégories Wikipedia</h3>
+        <div class="hint-plain">
+          <p>L'article appartenait aux catégories :</p>
           <div class="hint-words"><span class="hint-tag">région occidentale des États-Unis</span></div>
         </div>
       </div>
-
       <div class="hint-level">
-        <button class="hint-btn" id="btn-l3" onclick="revealHint(3)" disabled>
-          &#128561; Niveau 3 — Extrait Wikipedia masqué (déverrouillé après niveau 2)
-        </button>
-        <div class="hint-content" id="content-l3">
+        <h3 style="font-size:.95rem;margin-bottom:.4rem;">Niveau 3 — Extrait Wikipedia</h3>
+        <div class="hint-plain">
           <p>Premier extrait de l'article (titre masqué) :</p>
           <div class="hint-words"><span class="hint-tag">L’___, en anglais : Western United States, aussi appelé Far-West ou Far West, est une région située dans l&#x27;___ des États-Unis.</span></div>
         </div>
@@ -173,19 +137,27 @@
 
     <div class="card">
       <h2>La solution du samedi 18 juillet 2026</h2>
+
       <div style="text-align:center;margin:.5rem 0 1rem;">
-        <div class="solution-blur" id="solution-wrap">
-          <span class="solution-word">Ouest américain</span>
-        </div>
-        <button class="reveal-btn" id="reveal-btn" onclick="revealSolution()">
-          Cliquer pour révéler la réponse
-        </button>
+        <span class="solution-word">Ouest américain</span>
       </div>
       <p class="puzzle-meta">Puzzle #1526 · samedi 18 juillet 2026</p>
       <p style="text-align:center;margin-top:.5rem;">
         <a href="https://fr.wikipedia.org/wiki/Ouest_américain" rel="noopener" target="_blank"
            style="font-size:.9rem;color:#6b7280;">Voir l'article Wikipedia &#8594;</a>
       </p>
+    </div>
+
+    <div class="card faq-card">
+      <h2>Questions fréquentes</h2>
+      <details open>
+        <summary>Quelle est la solution du Pédantix du samedi 18 juillet 2026 ?</summary>
+        <p>La réponse du Pédantix #1526 du samedi 18 juillet 2026 est : Ouest américain.</p>
+      </details>
+      <details>
+        <summary>Combien de mots contient le titre du Pédantix du samedi 18 juillet 2026 ?</summary>
+        <p>Le titre du Pédantix #1526 du samedi 18 juillet 2026 contient 2 mot(s).</p>
+      </details>
     </div>
 
   </article>
@@ -205,36 +177,6 @@
   </p>
   <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
 </footer>
-
-<script>
-  var revealed = [false, false, false];
-
-  function revealHint(level) {
-    if (level > 1 && !revealed[level - 2]) return;
-    var btn = document.getElementById('btn-l' + level);
-    var content = document.getElementById('content-l' + level);
-    content.classList.add('visible');
-    btn.disabled = true;
-    revealed[level - 1] = true;
-    var next = level + 1;
-    if (next <= 3) {
-      var nextBtn = document.getElementById('btn-l' + next);
-      if (nextBtn) nextBtn.disabled = false;
-    }
-  }
-
-  function revealSolution() {
-    document.getElementById('solution-wrap').classList.add('revealed');
-    document.getElementById('reveal-btn').style.display = 'none';
-  }
-
-  function revealWordHint(key) {
-    var el = document.getElementById('wh-' + key);
-    if (el) el.classList.add('visible');
-    var btn = document.getElementById('wh-' + key + '-btn');
-    if (btn) btn.style.display = 'none';
-  }
-</script>
 
 </body>
 </html>

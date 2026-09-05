@@ -16,10 +16,20 @@ import argparse
 import json
 from datetime import date, timedelta
 from pathlib import Path
+from xml.sax.saxutils import escape as _xml_escape
 
-from core import SITE_URL, DOCS_DIR, date_fr, atomic_write
+from core import SITE_URL, DOCS_DIR, date_fr, atomic_write, iso_paris, FEED_LINK_TAG, ping_indexnow
 
 MODEL_PATH_DEFAULT = "frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
+
+# Heure de publication par jeu (heure locale Paris) : (heure, minute)
+GAMES_CFG = {
+    "cemantix":     {"pub_time": (8, 5),   "title_prefix": "Solution Cémantix du"},
+    "sutom":        {"pub_time": (8, 5),   "title_prefix": "Solution Sutom du"},
+    "pedantix":     {"pub_time": (8, 5),   "title_prefix": "Solution Pédantix du"},
+    "loto":         {"pub_time": (22, 0),  "title_prefix": "Résultats Loto du"},
+    "euromillions": {"pub_time": (21, 30), "title_prefix": "Résultats EuroMillions du"},
+}
 
 
 # ── Hub page ──────────────────────────────────────────────────────────────────
@@ -217,6 +227,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
@@ -399,16 +410,20 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
 
     yesterday = today - timedelta(days=1)
 
-    games_cfg = [
-        ("cemantix",     CEMANTIX_SITE_URL,  CEMANTIX_ARCHIVE,  "Solution Cémantix du",      "T08:05:00+02:00"),
-        ("sutom",        SUTOM_SITE_URL,     SUTOM_ARCHIVE,     "Solution Sutom du",          "T08:05:00+02:00"),
-        ("pedantix",     PEDANTIX_SITE_URL,  PEDANTIX_ARCHIVE,  "Solution Pédantix du",       "T08:05:00+02:00"),
-        ("loto",         LOTO_SITE_URL,      LOTO_ARCHIVE,      "Résultats Loto du",          "T22:00:00+02:00"),
-        ("euromillions", EM_SITE_URL,        EM_ARCHIVE,        "Résultats EuroMillions du",  "T21:30:00+02:00"),
-    ]
+    games_dirs = {
+        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
+        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
+        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
+        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
+    }
 
     entries = []
-    for key, base_url, archive_dir, title_prefix, pub_time in games_cfg:
+    for key, (base_url, archive_dir) in games_dirs.items():
+        cfg = GAMES_CFG[key]
+        hh, mm = cfg["pub_time"]
+        title_prefix = cfg["title_prefix"]
+
         # Jour courant : depuis game_data (déjà résolu)
         data = game_data.get(key)
         if data:
@@ -418,7 +433,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
                 data_date = None
             if data_date == today:
                 d_str = today.isoformat()
-                pub_dt = d_str + pub_time
+                pub_dt = iso_paris(today, hh, mm)
                 label = date_fr(today)
                 entries.append((f"{base_url}/", pub_dt, f"{title_prefix} {label}"))
                 archive_html = archive_dir / f"{d_str}.html"
@@ -430,7 +445,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
         y_json = archive_dir / f"{y_str}.json"
         y_html = archive_dir / f"{y_str}.html"
         if y_json.exists() and y_html.exists():
-            pub_dt = y_str + pub_time
+            pub_dt = iso_paris(yesterday, hh, mm)
             label = date_fr(yesterday)
             entries.append((f"{base_url}/archive/{y_str}", pub_dt, f"{title_prefix} {label}"))
 
@@ -460,228 +475,362 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
     atomic_write(DOCS_DIR / "news-sitemap.xml", sitemap)
 
 
-# ── Sitemap global ────────────────────────────────────────────────────────────
+# ── Sitemap global (sitemapindex) ─────────────────────────────────────────────
 
-def generate_global_sitemap(today: date) -> None:
-    """Génère docs/sitemap.xml — toutes les URLs de tous les jeux."""
-    from games.cemantix import CEMANTIX_ARCHIVE
-    from games.sutom import SUTOM_ARCHIVE
-    from games.loto import LOTO_ARCHIVE
-    from games.euromillions import EM_ARCHIVE
-    from games.pedantix import PEDANTIX_ARCHIVE
+def _url_entry(loc: str, lastmod: str) -> str:
+    return f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>"
 
-    today_str = today.isoformat()
-    urls = []
 
-    # Hub
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>""")
-
-    # ── Cémantix ──
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/cemantix/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
-    cemantix_dates = sorted(
-        [date.fromisoformat(f.stem) for f in CEMANTIX_ARCHIVE.glob("????-??-??.json")]
-        if CEMANTIX_ARCHIVE.exists() else [],
-        reverse=True,
-    )
-    if cemantix_dates:
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/cemantix/archive/</loc>
-    <lastmod>{cemantix_dates[0].isoformat()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        seen_months: set[str] = set()
-        for d in cemantix_dates:  # DESC → 1re occurrence d'un mois = sa date la plus récente
-            ym = d.strftime("%Y-%m")
-            if ym in seen_months:
-                continue
-            seen_months.add(ym)
-            if not (CEMANTIX_ARCHIVE / f"{ym}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/cemantix/archive/{ym}</loc>
-    <lastmod>{d.isoformat()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>""")
-        for d in cemantix_dates:
-            d_str = d.isoformat()
-            if not (CEMANTIX_ARCHIVE / f"{d_str}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/cemantix/archive/{d_str}</loc>
-    <lastmod>{d_str}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>""")
-
-    # ── Sutom ──
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/sutom/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
-    sutom_dates = sorted(
-        [date.fromisoformat(f.stem) for f in SUTOM_ARCHIVE.glob("????-??-??.json")]
-        if SUTOM_ARCHIVE.exists() else [],
-        reverse=True,
-    )
-    if sutom_dates:
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/sutom/archive/</loc>
-    <lastmod>{sutom_dates[0].isoformat()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        for d in sutom_dates:
-            d_str = d.isoformat()
-            if not (SUTOM_ARCHIVE / f"{d_str}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/sutom/archive/{d_str}</loc>
-    <lastmod>{d_str}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>""")
-
-    # ── Pédantix ──
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/pedantix/</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
-    pedantix_dates = sorted(
-        [date.fromisoformat(f.stem) for f in PEDANTIX_ARCHIVE.glob("????-??-??.json")]
-        if PEDANTIX_ARCHIVE.exists() else [],
-        reverse=True,
-    )
-    if pedantix_dates:
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/pedantix/archive/</loc>
-    <lastmod>{pedantix_dates[0].isoformat()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        for d in pedantix_dates:
-            d_str = d.isoformat()
-            if not (PEDANTIX_ARCHIVE / f"{d_str}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/pedantix/archive/{d_str}</loc>
-    <lastmod>{d_str}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>""")
-
-    # ── Loto ──
-    loto_dates = sorted(
-        [date.fromisoformat(f.stem) for f in LOTO_ARCHIVE.glob("????-??-??.json")]
-        if LOTO_ARCHIVE.exists() else [],
-        reverse=True,
-    )
-    loto_lastmod = loto_dates[0].isoformat() if loto_dates else today_str
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/</loc>
-    <lastmod>{loto_lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
-    if loto_dates:
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/simulateur/</loc>
-    <lastmod>{loto_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>""")
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/stats/</loc>
-    <lastmod>{loto_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/archive/</loc>
-    <lastmod>{loto_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        for d in loto_dates:
-            d_str = d.isoformat()
-            if not (LOTO_ARCHIVE / f"{d_str}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/loto/archive/{d_str}</loc>
-    <lastmod>{d_str}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>""")
-
-    # ── EuroMillions ──
-    em_dates = sorted(
-        [date.fromisoformat(f.stem) for f in EM_ARCHIVE.glob("????-??-??.json")]
-        if EM_ARCHIVE.exists() else [],
-        reverse=True,
-    )
-    em_lastmod = em_dates[0].isoformat() if em_dates else today_str
-    urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/</loc>
-    <lastmod>{em_lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""")
-
-    if em_dates:
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/simulateur/</loc>
-    <lastmod>{em_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>""")
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/stats/</loc>
-    <lastmod>{em_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/archive/</loc>
-    <lastmod>{em_dates[0].isoformat()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>""")
-        for d in em_dates:
-            d_str = d.isoformat()
-            if not (EM_ARCHIVE / f"{d_str}.html").exists():
-                continue
-            urls.append(f"""  <url>
-    <loc>{SITE_URL}/euromillions/archive/{d_str}</loc>
-    <lastmod>{d_str}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>""")
-
+def _write_urlset(path: Path, urls: list[str]) -> None:
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "\n".join(urls)
     sitemap += "\n</urlset>\n"
+    atomic_write(path, sitemap)
 
+
+def _archive_dates(archive_dir: Path) -> list[date]:
+    return sorted(
+        [date.fromisoformat(f.stem) for f in archive_dir.glob("????-??-??.json")]
+        if archive_dir.exists() else [],
+        reverse=True,
+    )
+
+
+def _game_sitemap(
+    slug: str, site_url: str, archive_dir: Path, index_lastmod: str,
+    *, month_pages: bool = False, year_pages: bool = False,
+) -> list[str]:
+    """Construit les URLs d'un jeu : index, archive index, mois/années éventuels, dates."""
+    urls = [_url_entry(f"{site_url}/", index_lastmod)]
+    dates = _archive_dates(archive_dir)
+    if not dates:
+        return urls
+    urls.append(_url_entry(f"{site_url}/archive/", dates[0].isoformat()))
+
+    if month_pages:
+        seen_months: set[str] = set()
+        for d in dates:  # DESC → 1re occurrence d'un mois = sa date la plus récente
+            ym = d.strftime("%Y-%m")
+            if ym in seen_months:
+                continue
+            seen_months.add(ym)
+            if not (archive_dir / f"{ym}.html").exists():
+                continue
+            urls.append(_url_entry(f"{site_url}/archive/{ym}", d.isoformat()))
+
+    if year_pages:
+        seen_years: set[str] = set()
+        for d in dates:
+            y = str(d.year)
+            if y in seen_years:
+                continue
+            seen_years.add(y)
+            if not (archive_dir / f"{y}.html").exists():
+                continue
+            urls.append(_url_entry(f"{site_url}/archive/{y}", d.isoformat()))
+
+    for d in dates:
+        d_str = d.isoformat()
+        if not (archive_dir / f"{d_str}.html").exists():
+            continue
+        urls.append(_url_entry(f"{site_url}/archive/{d_str}", d_str))
+
+    return urls
+
+
+def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date]) -> list[str]:
+    """URLs hors jeux : hub, simulateurs, stats (evergreen à venir en PR5)."""
+    urls = [_url_entry(f"{SITE_URL}/", today_str)]
+    if loto_dates:
+        loto_lastmod = loto_dates[0].isoformat()
+        urls.append(_url_entry(f"{SITE_URL}/loto/simulateur/", loto_lastmod))
+        urls.append(_url_entry(f"{SITE_URL}/loto/stats/", loto_lastmod))
+    if em_dates:
+        em_lastmod = em_dates[0].isoformat()
+        urls.append(_url_entry(f"{SITE_URL}/euromillions/simulateur/", em_lastmod))
+        urls.append(_url_entry(f"{SITE_URL}/euromillions/stats/", em_lastmod))
+    return urls
+
+
+_SUB_SITEMAPS = [
+    "sitemap-cemantix.xml", "sitemap-sutom.xml", "sitemap-pedantix.xml",
+    "sitemap-loto.xml", "sitemap-euromillions.xml", "sitemap-pages.xml",
+]
+
+
+def _write_sitemap_index(today_str: str) -> None:
+    entries = []
+    for name in _SUB_SITEMAPS:
+        if not (DOCS_DIR / name).exists():
+            continue
+        entries.append(
+            f"  <sitemap>\n    <loc>{SITE_URL}/{name}</loc>\n    <lastmod>{today_str}</lastmod>\n  </sitemap>"
+        )
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap += "\n".join(entries)
+    sitemap += "\n</sitemapindex>\n"
     atomic_write(DOCS_DIR / "sitemap.xml", sitemap)
+
+
+def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
+    """Génère docs/sitemap.xml (sitemapindex) + un sous-sitemap par jeu + sitemap-pages.xml."""
+    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
+    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
+    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
+
+    today_str = today.isoformat()
+    game_data = game_data or {}
+
+    def _index_lastmod(key: str, archive_dir: Path) -> str:
+        data = game_data.get(key)
+        if data:
+            try:
+                return date.fromisoformat(data["date"]).isoformat()
+            except (KeyError, ValueError):
+                pass
+        dates = _archive_dates(archive_dir)
+        return dates[0].isoformat() if dates else today_str
+
+    _write_urlset(DOCS_DIR / "sitemap-cemantix.xml", _game_sitemap(
+        "cemantix", CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE,
+        _index_lastmod("cemantix", CEMANTIX_ARCHIVE), month_pages=True,
+    ))
+    _write_urlset(DOCS_DIR / "sitemap-sutom.xml", _game_sitemap(
+        "sutom", SUTOM_SITE_URL, SUTOM_ARCHIVE, _index_lastmod("sutom", SUTOM_ARCHIVE),
+    ))
+    _write_urlset(DOCS_DIR / "sitemap-pedantix.xml", _game_sitemap(
+        "pedantix", PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE, _index_lastmod("pedantix", PEDANTIX_ARCHIVE),
+    ))
+
+    loto_dates = _archive_dates(LOTO_ARCHIVE)
+    _write_urlset(DOCS_DIR / "sitemap-loto.xml", _game_sitemap(
+        "loto", LOTO_SITE_URL, LOTO_ARCHIVE, _index_lastmod("loto", LOTO_ARCHIVE),
+    ))
+
+    em_dates = _archive_dates(EM_ARCHIVE)
+    _write_urlset(DOCS_DIR / "sitemap-euromillions.xml", _game_sitemap(
+        "euromillions", EM_SITE_URL, EM_ARCHIVE, _index_lastmod("euromillions", EM_ARCHIVE),
+    ))
+
+    _write_urlset(DOCS_DIR / "sitemap-pages.xml", _pages_sitemap(today_str, loto_dates, em_dates))
+
+    _write_sitemap_index(today_str)
+
+
+# ── Flux Atom ─────────────────────────────────────────────────────────────────
+
+def _feed_content(key: str, data: dict) -> str:
+    """Résumé HTML (avec solution) pour le flux Atom — pas indexé comme une page web."""
+    if key in ("cemantix", "sutom"):
+        return f"Mot : <strong>{_xml_escape(data.get('word', '').upper())}</strong>"
+    if key == "pedantix":
+        title = data.get("title_display") or data.get("word", "")
+        return f"Article : <strong>{_xml_escape(title)}</strong>"
+    if key == "loto":
+        balls = " · ".join(str(b) for b in data.get("balls", []))
+        return f"Numéros : <strong>{_xml_escape(balls)}</strong> + chance {_xml_escape(str(data.get('lucky_ball', '')))}"
+    if key == "euromillions":
+        balls = " · ".join(str(b) for b in data.get("balls", []))
+        stars = " · ".join(str(s) for s in data.get("stars", []))
+        return f"Numéros : <strong>{_xml_escape(balls)}</strong> — Étoiles : {_xml_escape(stars)}"
+    return ""
+
+
+def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
+    """Génère docs/feed.xml — flux Atom des `days` derniers jours, tous jeux confondus."""
+    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
+    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
+    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
+
+    games_dirs = {
+        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
+        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
+        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
+        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
+    }
+
+    raw_entries = []
+    for key, (base_url, archive_dir) in games_dirs.items():
+        if not archive_dir.exists():
+            continue
+        for f in archive_dir.glob("????-??-??.json"):
+            try:
+                d = date.fromisoformat(f.stem)
+            except ValueError:
+                continue
+            if d > today or (today - d).days > days:
+                continue
+            raw_entries.append((d, key, base_url, archive_dir, f))
+
+    raw_entries.sort(key=lambda t: t[0], reverse=True)
+
+    feed_entries = []
+    for d, key, base_url, archive_dir, json_path in raw_entries:
+        cfg = GAMES_CFG[key]
+        hh, mm = cfg["pub_time"]
+        d_str = d.isoformat()
+        html_path = archive_dir / f"{d_str}.html"
+        link = f"{base_url}/archive/{d_str}" if html_path.exists() else f"{base_url}/"
+        entry_id = f"{base_url}/archive/{d_str}"
+        label = date_fr(d)
+        title = f"{cfg['title_prefix']} {label}"
+        updated = iso_paris(d, hh, mm)
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+        except Exception:
+            data = {}
+        content = _feed_content(key, data)
+        feed_entries.append(f"""  <entry>
+    <id>{_xml_escape(entry_id)}</id>
+    <link href="{_xml_escape(link)}"/>
+    <title>{_xml_escape(title)}</title>
+    <updated>{updated}</updated>
+    <summary>Solution et détails pour le {_xml_escape(label)}.</summary>
+    <content type="html">{_xml_escape(content)}</content>
+  </entry>""")
+
+    if not feed_entries:
+        return
+
+    feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Solutions du Jour</title>
+  <link href="{SITE_URL}/feed.xml" rel="self"/>
+  <link href="{SITE_URL}/"/>
+  <id>{SITE_URL}/</id>
+  <updated>{iso_paris(today, 8, 5)}</updated>
+{chr(10).join(feed_entries)}
+</feed>
+"""
+    atomic_write(DOCS_DIR / "feed.xml", feed)
+
+
+# ── Régénération quotidienne (daily.yml + seed_archives.py) ──────────────────
+
+def regenerate_all(today: date | None = None) -> dict:
+    """Relit les 5 solution.json et régénère tout le HTML + hub + sitemaps + flux Atom.
+
+    Reprend la logique du script inline historique de .github/workflows/daily.yml —
+    seul point d'entrée à faire évoluer désormais si les signatures des jeux changent.
+    """
+    if today is None:
+        today = date.today()
+    today_str = today.isoformat()
+
+    cemantix_data = sutom_data = pedantix_data = loto_data = em_data = None
+
+    cemantix_json = DOCS_DIR / "cemantix" / "solution.json"
+    if cemantix_json.exists():
+        data = json.loads(cemantix_json.read_text(encoding="utf-8"))
+        if data.get("date") == today_str:
+            cemantix_data = data
+            hints = data.get("hints", {"level1": [], "level2": [], "level3": []})
+            definition = data.get("definition", "")
+            from games import cemantix as c
+            print(f"Régénération HTML Cémantix #{data['puzzle_num']} '{data['word']}'")
+            c._generate_all_html(today, data["puzzle_num"], data["word"], hints, definition)
+            print("✅ HTML Cémantix régénéré")
+
+    sutom_json = DOCS_DIR / "sutom" / "solution.json"
+    if sutom_json.exists():
+        data = json.loads(sutom_json.read_text(encoding="utf-8"))
+        if data.get("date") == today_str:
+            sutom_data = data
+            from games import sutom as s
+            print(f"Régénération HTML Sutom #{data['puzzle_num']} '{data['word']}'")
+            s._generate_all_html(today, data["puzzle_num"], data["word"])
+            print("✅ HTML Sutom régénéré")
+
+    pedantix_json = DOCS_DIR / "pedantix" / "solution.json"
+    if pedantix_json.exists():
+        data = json.loads(pedantix_json.read_text(encoding="utf-8"))
+        if data.get("date") == today_str:
+            pedantix_data = data
+            from games import pedantix as pd
+            title_display = data.get("title_display") or data.get("word", "?")
+            title_slug = data.get("title_slug", title_display)
+            hints = data.get("hints", {"level1": [], "level2": [], "level3": []})
+            extract = data.get("extract", "")
+            print(f"Régénération HTML Pédantix #{data['puzzle_num']} '{title_display}'")
+            pd._generate_all_html(today, data["puzzle_num"], title_display, title_slug, hints, extract)
+            print("✅ HTML Pédantix régénéré")
+
+    loto_json = DOCS_DIR / "loto" / "solution.json"
+    if loto_json.exists():
+        data = json.loads(loto_json.read_text(encoding="utf-8"))
+        loto_data = data
+        from games import loto as lt
+        draw_date = date.fromisoformat(data["date"])
+        print(f"Régénération HTML Loto n°{data['draw_num']} {data['date']}")
+        lt._generate_all_html(draw_date, data)
+        print("✅ HTML Loto régénéré")
+
+    em_json = DOCS_DIR / "euromillions" / "solution.json"
+    if em_json.exists():
+        data = json.loads(em_json.read_text(encoding="utf-8"))
+        em_data = data
+        from games import euromillions as em
+        draw_date_em = date.fromisoformat(data["date"])
+        print(f"Régénération HTML EuroMillions {data['date']}")
+        em._generate_all_html(draw_date_em, data)
+        print("✅ HTML EuroMillions régénéré")
+
+    game_data_all = {
+        "cemantix": cemantix_data, "sutom": sutom_data,
+        "pedantix": pedantix_data,
+        "loto": loto_data, "euromillions": em_data,
+    }
+    generate_hub_html(today, game_data_all)
+    generate_global_sitemap(today, game_data_all)
+    generate_news_sitemap(today, game_data_all)
+    generate_atom_feed(today, game_data_all)
+    print("✅ Hub + sitemaps + flux Atom régénérés")
+    return game_data_all
+
+
+def daily_urls(today: date, game_data: dict) -> list[str]:
+    """URLs à notifier à IndexNow chaque jour (hub, index par jeu, archive d'hier, mois courant)."""
+    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
+    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
+    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
+
+    yesterday = today - timedelta(days=1)
+    games_dirs = {
+        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
+        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
+        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
+        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
+    }
+
+    urls = [f"{SITE_URL}/"]
+    for _key, (base_url, archive_dir) in games_dirs.items():
+        urls.append(f"{base_url}/")
+        urls.append(f"{base_url}/archive/")
+        y_str = yesterday.isoformat()
+        if (archive_dir / f"{y_str}.html").exists():
+            urls.append(f"{base_url}/archive/{y_str}")
+        ym = today.strftime("%Y-%m")
+        if (archive_dir / f"{ym}.html").exists():
+            urls.append(f"{base_url}/archive/{ym}")
+    return urls
+
+
+def ping_daily_indexnow(today: date | None = None, game_data: dict | None = None) -> bool:
+    """Notifie IndexNow des URLs fraîches du jour. Best-effort, appelé après le push (daily.yml)."""
+    if today is None:
+        today = date.today()
+    urls = daily_urls(today, game_data or {})
+    return ping_indexnow(urls)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -730,27 +879,28 @@ def main():
     from games.pedantix import run as run_pedantix
     pedantix_data = run_pedantix(today)
 
-    # 6. Hub page
-    print("\n─── Hub ────────────────────────────────────────────────")
-    print("Génération de docs/index.html (hub)…")
-    generate_hub_html(today, {
-        "cemantix": cemantix_data, "sutom": sutom_data,
-        "loto": loto_data, "euromillions": em_data,
-        "pedantix": pedantix_data,
-    })
-
-    # 7. Sitemap global
-    print("Génération de docs/sitemap.xml (global)…")
-    generate_global_sitemap(today)
-
-    # 8. Google News sitemap
-    print("Génération de docs/news-sitemap.xml (Google News)…")
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data,
         "loto": loto_data, "euromillions": em_data,
         "pedantix": pedantix_data,
     }
+
+    # 6. Hub page
+    print("\n─── Hub ────────────────────────────────────────────────")
+    print("Génération de docs/index.html (hub)…")
+    generate_hub_html(today, game_data_all)
+
+    # 7. Sitemap global (sitemapindex + sous-sitemaps)
+    print("Génération de docs/sitemap.xml (sitemapindex)…")
+    generate_global_sitemap(today, game_data_all)
+
+    # 8. Google News sitemap
+    print("Génération de docs/news-sitemap.xml (Google News)…")
     generate_news_sitemap(today, game_data_all)
+
+    # 9. Flux Atom
+    print("Génération de docs/feed.xml (Atom)…")
+    generate_atom_feed(today, game_data_all)
 
     print(f"\n🎉 Site complet généré pour le {date_fr(today)}")
     print(f"   docs/index.html                          ✓ (hub)")

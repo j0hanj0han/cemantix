@@ -111,101 +111,11 @@ jobs:
 
       - name: Install minimal dependencies (only if a solution is ready)
         if: steps.check.outputs.any_ready == 'true'
-        run: pip install requests cloudscraper beautifulsoup4
+        run: pip install requests cloudscraper beautifulsoup4 tzdata
 
       - name: Regenerate HTML from existing solution.json files
         if: steps.check.outputs.any_ready == 'true'
-        run: |
-          python3 - <<'EOF'
-          import json, sys
-          from pathlib import Path
-          from datetime import date
-
-          sys.path.insert(0, '.')
-          today = date.today()
-          today_str = today.isoformat()
-
-          cemantix_data = None
-          sutom_data = None
-
-          # Cémantix
-          cemantix_json = Path('docs/cemantix/solution.json')
-          if cemantix_json.exists():
-              data = json.loads(cemantix_json.read_text(encoding='utf-8'))
-              if data.get('date') == today_str:
-                  cemantix_data = data
-                  hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
-                  definition = data.get('definition', '')
-                  from games import cemantix as c
-                  print(f"Régénération HTML Cémantix #{data['puzzle_num']} '{data['word']}'")
-                  c._generate_all_html(today, data['puzzle_num'], data['word'], hints, definition)
-                  print("✅ HTML Cémantix régénéré")
-
-          # Sutom
-          sutom_json = Path('docs/sutom/solution.json')
-          if sutom_json.exists():
-              data = json.loads(sutom_json.read_text(encoding='utf-8'))
-              if data.get('date') == today_str:
-                  sutom_data = data
-                  from games import sutom as s
-                  print(f"Régénération HTML Sutom #{data['puzzle_num']} '{data['word']}'")
-                  s._generate_all_html(today, data['puzzle_num'], data['word'])
-                  print("✅ HTML Sutom régénéré")
-
-          # Pédantix
-          pedantix_data = None
-          pedantix_json = Path('docs/pedantix/solution.json')
-          if pedantix_json.exists():
-              data = json.loads(pedantix_json.read_text(encoding='utf-8'))
-              if data.get('date') == today_str:
-                  pedantix_data = data
-                  from games import pedantix as pd
-                  title_display = data.get('title_display') or data.get('word', '?')
-                  title_slug = data.get('title_slug', title_display)
-                  hints = data.get('hints', {'level1': [], 'level2': [], 'level3': []})
-                  extract = data.get('extract', '')
-                  print(f"Régénération HTML Pédantix #{data['puzzle_num']} '{title_display}'")
-                  pd._generate_all_html(today, data['puzzle_num'], title_display, title_slug, hints, extract)
-                  print("✅ HTML Pédantix régénéré")
-
-          # Loto
-          loto_data = None
-          loto_json = Path('docs/loto/solution.json')
-          if loto_json.exists():
-              data = json.loads(loto_json.read_text(encoding='utf-8'))
-              loto_data = data
-              from games import loto as lt
-              from datetime import date as _date
-              draw_date = _date.fromisoformat(data['date'])
-              print(f"Régénération HTML Loto n°{data['draw_num']} {data['date']}")
-              lt._generate_all_html(draw_date, data)
-              print("✅ HTML Loto régénéré")
-
-          # EuroMillions
-          em_data = None
-          em_json = Path('docs/euromillions/solution.json')
-          if em_json.exists():
-              data = json.loads(em_json.read_text(encoding='utf-8'))
-              em_data = data
-              from games import euromillions as em
-              from datetime import date as _date2
-              draw_date_em = _date2.fromisoformat(data['date'])
-              print(f"Régénération HTML EuroMillions {data['date']}")
-              em._generate_all_html(draw_date_em, data)
-              print("✅ HTML EuroMillions régénéré")
-
-          # Hub + sitemaps
-          import generate as g
-          game_data_all = {
-              'cemantix': cemantix_data, 'sutom': sutom_data,
-              'pedantix': pedantix_data,
-              'loto': loto_data, 'euromillions': em_data,
-          }
-          g.generate_hub_html(today, game_data_all)
-          g.generate_global_sitemap(today)
-          g.generate_news_sitemap(today, game_data_all)
-          print("✅ Hub + sitemaps régénérés")
-          EOF
+        run: python3 -c "import generate as g; g.regenerate_all()"
 
       - name: Commit and push if HTML changed
         if: steps.check.outputs.any_ready == 'true'
@@ -215,6 +125,12 @@ jobs:
           git add docs/
           git diff --staged --quiet || git commit -m "chore: HTML $(date +'%Y-%m-%d') [skip ci]"
           git push
+
+      - name: Notify IndexNow (Bing, Yandex...) after deploy
+        if: steps.check.outputs.any_ready == 'true'
+        run: |
+          sleep 60
+          python3 -c "import generate as g; g.ping_daily_indexnow()"
 
       - name: Summary
         run: |

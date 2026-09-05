@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://solution-du-jour.fr/</loc>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/loto/simulateur/</loc>
+    <lastmod>2026-09-02</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/loto/stats/</loc>
+    <lastmod>2026-09-02</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/euromillions/simulateur/</loc>
+    <lastmod>2026-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/euromillions/stats/</loc>
+    <lastmod>2026-09-01</lastmod>
+  </url>
+</urlset>

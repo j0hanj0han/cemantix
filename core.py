@@ -2,9 +2,11 @@
 core.py — Utilitaires partagés pour tous les jeux.
 """
 
+import json
 import urllib.request
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import cloudscraper
 
@@ -12,6 +14,11 @@ import cloudscraper
 
 SITE_URL = "https://solution-du-jour.fr"
 DOCS_DIR = Path("docs")
+
+PARIS_TZ = ZoneInfo("Europe/Paris")
+
+# Clé IndexNow — non secrète, doit juste correspondre à docs/<INDEXNOW_KEY>.txt
+INDEXNOW_KEY = "a13f0c2b6e4d4f9a8c1b7e2d5a90c3f1"
 
 MONTHS_FR = [
     "", "janvier", "février", "mars", "avril", "mai", "juin",
@@ -31,6 +38,48 @@ _session = cloudscraper.create_scraper()
 def date_fr(d: date) -> str:
     """Retourne une date en français : 'samedi 28 février 2026'."""
     return f"{DAYS_FR[d.weekday()]} {d.day} {MONTHS_FR[d.month]} {d.year}"
+
+
+def iso_paris(d: date, hh: int, mm: int) -> str:
+    """ISO 8601 avec offset Paris correct (+01:00 CET / +02:00 CEST selon la saison)."""
+    return datetime(d.year, d.month, d.day, hh, mm, tzinfo=PARIS_TZ).isoformat()
+
+
+def utc_iso_to_paris(s: str) -> str:
+    """Convertit un ISO 8601 (UTC, avec 'Z' ou offset) vers l'heure de Paris."""
+    dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=ZoneInfo("UTC"))
+    return dt.astimezone(PARIS_TZ).isoformat()
+
+
+FEED_LINK_TAG = f'  <link rel="alternate" type="application/atom+xml" title="Solutions du Jour" href="{SITE_URL}/feed.xml">'
+
+
+def ping_indexnow(urls: list[str]) -> bool:
+    """Notifie IndexNow (Bing, Yandex, Seznam...) qu'une liste d'URLs a changé.
+    Best-effort : ne lève jamais d'exception, retourne False en cas d'échec."""
+    if not urls:
+        return False
+    payload = json.dumps({
+        "host": SITE_URL.split("//", 1)[1],
+        "key": INDEXNOW_KEY,
+        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+        "urlList": urls,
+    }).encode("utf-8")
+    try:
+        req = urllib.request.Request(
+            "https://api.indexnow.org/indexnow",
+            data=payload,
+            headers={"Content-Type": "application/json; charset=utf-8"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            print(f"   IndexNow : {resp.status}")
+            return 200 <= resp.status < 300
+    except Exception as e:
+        print(f"   ⚠ ping_indexnow : {e}")
+        return False
 
 
 def atomic_write(path: Path, content: str) -> None:

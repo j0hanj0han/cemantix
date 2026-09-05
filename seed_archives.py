@@ -191,55 +191,10 @@ def seed_euromillions(max_rows: int = 200) -> int:
 # ── Régénération HTML ─────────────────────────────────────────────────────────
 
 def regenerate_html() -> None:
-    """Relit les JSON d'archive et régénère tout le HTML Loto + EuroMillions."""
-    today = date.today()
-
-    # Loto
-    loto_solution = DOCS_DIR / "loto" / "solution.json"
-    if loto_solution.exists():
-        data = json.loads(loto_solution.read_text(encoding="utf-8"))
-        from games.loto import _generate_all_html as loto_html
-        loto_html(date.fromisoformat(data["date"]), data)
-        print("✅ HTML Loto régénéré")
-
-    # EuroMillions
-    em_solution = DOCS_DIR / "euromillions" / "solution.json"
-    if em_solution.exists():
-        data = json.loads(em_solution.read_text(encoding="utf-8"))
-        from games.euromillions import _generate_all_html as em_html
-        em_html(date.fromisoformat(data["date"]), data)
-        print("✅ HTML EuroMillions régénéré")
-
-    # Hub + sitemap
-    from generate import generate_hub_html, generate_global_sitemap
-    cemantix_data = None
-    sutom_data = None
-    loto_data = None
-    em_data = None
-
-    for path, key in [
-        (DOCS_DIR / "cemantix" / "solution.json", "cemantix"),
-        (DOCS_DIR / "sutom" / "solution.json", "sutom"),
-        (DOCS_DIR / "loto" / "solution.json", "loto"),
-        (DOCS_DIR / "euromillions" / "solution.json", "euromillions"),
-    ]:
-        if path.exists():
-            d = json.loads(path.read_text(encoding="utf-8"))
-            if key == "cemantix":
-                cemantix_data = d
-            elif key == "sutom":
-                sutom_data = d
-            elif key == "loto":
-                loto_data = d
-            elif key == "euromillions":
-                em_data = d
-
-    generate_hub_html(today, {
-        "cemantix": cemantix_data, "sutom": sutom_data,
-        "loto": loto_data, "euromillions": em_data,
-    })
-    generate_global_sitemap(today)
-    print("✅ Hub + sitemap régénérés")
+    """Relit les JSON d'archive et régénère tout le HTML (délègue à generate.regenerate_all)."""
+    import generate
+    generate.regenerate_all()
+    print("✅ Hub + sitemaps + flux Atom régénérés")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────

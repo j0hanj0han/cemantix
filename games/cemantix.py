@@ -16,7 +16,10 @@ from datetime import date, datetime, timezone
 from html import escape as _html_escape
 from pathlib import Path
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
+from core import (
+    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG,
+)
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
 
@@ -387,6 +390,7 @@ def generate_archive_html(
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{date_str}">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
@@ -400,15 +404,15 @@ def generate_archive_html(
   <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
   <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
-    "datePublished": "{date_str}T08:00:00+01:00",
-    "dateModified": "{date_str}T08:00:00+01:00",
+    "datePublished": "{iso_paris(d, 8, 0)}",
+    "dateModified": "{iso_paris(d, 8, 0)}",
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/archive/{date_str}"}},
@@ -678,6 +682,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
   <meta name="description" content="Liste complète des solutions du Cémantix {month_de} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{ym}">
+{FEED_LINK_TAG}
   {link_prev}
   {link_next}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -838,6 +843,7 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
   <meta name="description" content="Retrouvez toutes les solutions passées de Cémantix : réponses et indices de chaque puzzle depuis le début.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Archives Cémantix — Toutes les solutions">
@@ -985,6 +991,7 @@ def generate_index_html(
   <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
@@ -998,15 +1005,15 @@ def generate_index_html(
   <meta name="twitter:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
   <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
-    "datePublished": "{date_str}T08:00:00+01:00",
-    "dateModified": "{date_str}T08:00:00+01:00",
+    "datePublished": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{iso_paris(today, 8, 0)}",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},

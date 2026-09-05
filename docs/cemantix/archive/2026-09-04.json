@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-04",
+  "puzzle_num": 1647,
+  "word": "clôture",
+  "first_letter": "C",
+  "word_length": 7,
+  "definition": "Enceinte qui peut être constituée de murs, de haies, de barrières, etc.",
+  "hints": {
+    "level1": [
+      {
+        "word": "dégrèvement",
+        "percentile": 200,
+        "definition": "Action de dégrever quelque chose ou quelqu’un."
+      },
+      {
+        "word": "remployer",
+        "percentile": 267,
+        "definition": "Faire le remploi de."
+      },
+      {
+        "word": "chéneau",
+        "percentile": 334,
+        "definition": "Conduit de pierre, de plomb, de zinc, ou de plastique, qui recueille les eaux du toit et les porte vers la gouttière ou directement vers le tuyau de descente."
+      }
+    ],
+    "level2": [
+      {
+        "word": "désignation",
+        "percentile": 500,
+        "definition": "Action de désigner."
+      },
+      {
+        "word": "lotisseur",
+        "percentile": 567,
+        "definition": "Celui qui divisait les marchandises par lots."
+      },
+      {
+        "word": "cocktail",
+        "percentile": 634,
+        "definition": "Boisson composée notamment de plusieurs boissons dont certaines sont alcoolisées."
+      }
+    ],
+    "level3": [
+      {
+        "word": "ci-après",
+        "percentile": 800,
+        "definition": "Ci-dessous, plus loin dans un document."
+      },
+      {
+        "word": "admission",
+        "percentile": 850,
+        "definition": "Le fait d’être admis."
+      },
+      {
+        "word": "participation",
+        "percentile": 900,
+        "definition": "Action de participer à quelque chose."
+      }
+    ]
+  },
+  "tried_count": 233,
+  "generated_at": "2026-09-03T22:21:56.725657+00:00"
+}

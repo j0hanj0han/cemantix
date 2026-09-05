@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-04",
+  "puzzle_num": 1574,
+  "word": "Sécurité des systèmes d'information",
+  "title_slug": "Sécurité_des_systèmes_d'information",
+  "title_display": "Sécurité des systèmes d'information",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Sécurité_des_systèmes_d'information",
+  "hints": {
+    "level1": [
+      "4 mots · 32 lettres",
+      "Premières lettres : S · D · S · D"
+    ],
+    "level2": [
+      "récapitulatif des techniques en rapport avec la sécurité des systèmes d'information",
+      "Sécurité informatique",
+      "Cybercriminalité"
+    ],
+    "level3": [
+      "La ___ des ___ d’information (SSI) est l’ensemble des moyens techniques, organisationnels, juridiques et humains nécessaires à la mise en place de moyens visant à empêcher l'utilisation non autorisée, le mauvais usage, la modification ou le détournement du système ___."
+    ]
+  },
+  "extract": "La sécurité des systèmes d’information (SSI) est l’ensemble des moyens techniques, organisationnels, juridiques et humains nécessaires à la mise en place de moyens visant à empêcher l'utilisation non autorisée, le mauvais usage, la modification ou le détournement du système d'information.",
+  "categories": [
+    "récapitulatif des techniques en rapport avec la sécurité des systèmes d'information",
+    "Sécurité informatique",
+    "Cybercriminalité"
+  ],
+  "generated_at": "2026-09-04T22:16:57.444309+00:00"
+}

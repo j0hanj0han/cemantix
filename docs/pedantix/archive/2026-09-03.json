@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-03",
+  "puzzle_num": 1573,
+  "word": "Dualité onde-corpuscule",
+  "title_slug": "Dualité_onde-corpuscule",
+  "title_display": "Dualité onde-corpuscule",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dualité_onde-corpuscule",
+  "hints": {
+    "level1": [
+      "2 mots · 22 lettres",
+      "Premières lettres : D · O"
+    ],
+    "level2": [
+      "principe de la mécanique quantique",
+      "Fondamentaux de la mécanique quantique",
+      "Optique quantique"
+    ],
+    "level3": [
+      "En physique, la ___, aussi appelée ___ onde-particule, est un principe selon lequel tous les objets physiques peuvent présenter parfois des propriétés d'ondes et parfois des propriétés de corpuscules et de particules."
+    ]
+  },
+  "extract": "En physique, la dualité onde-corpuscule, aussi appelée dualité onde-particule, est un principe selon lequel tous les objets physiques peuvent présenter parfois des propriétés d'ondes et parfois des propriétés de corpuscules et de particules.",
+  "categories": [
+    "principe de la mécanique quantique",
+    "Fondamentaux de la mécanique quantique",
+    "Optique quantique"
+  ],
+  "generated_at": "2026-09-03T22:22:01.992016+00:00"
+}

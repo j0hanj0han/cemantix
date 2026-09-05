@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solution-du-jour.fr/euromillions/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2026</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2025</loc>
@@ -99,6 +99,10 @@
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2004</loc>
     <lastmod>2004-12-31</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/euromillions/archive/2026-09-01</loc>
+    <lastmod>2026-09-01</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/euromillions/archive/2026-08-28</loc>

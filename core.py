@@ -40,6 +40,19 @@ def date_fr(d: date) -> str:
     return f"{DAYS_FR[d.weekday()]} {d.day} {MONTHS_FR[d.month]} {d.year}"
 
 
+def date_fr_short(d: date) -> str:
+    """Retourne une date en français sans le jour de semaine : '1er septembre 2026', '3 septembre 2026'."""
+    day = "1er" if d.day == 1 else str(d.day)
+    return f"{day} {MONTHS_FR[d.month]} {d.year}"
+
+
+def updated_block(dt_iso: str) -> str:
+    """Bloc 'Mis à jour le ... à HHhMM' sous un H1 de page index (jamais sur une archive)."""
+    dt = datetime.fromisoformat(dt_iso)
+    label = f"{date_fr(dt.date())} à {dt.hour:02d}h{dt.minute:02d}"
+    return f'  <p class="updated-block"><time datetime="{dt_iso}">Mis à jour le {label}</time></p>'
+
+
 def iso_paris(d: date, hh: int, mm: int) -> str:
     """ISO 8601 avec offset Paris correct (+01:00 CET / +02:00 CEST selon la saison)."""
     return datetime(d.year, d.month, d.day, hh, mm, tzinfo=PARIS_TZ).isoformat()

@@ -27,10 +27,10 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -193,7 +193,7 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Résultats EuroMillions {date_display} — Numéros gagnants · Archive</title>
+  <title>Résultats EuroMillions du {date_fr_short(draw_date)} : numéros</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros : {balls_str}. Étoiles : {stars_str}.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/archive/{date_str}">
@@ -265,8 +265,8 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>EuroMillions — Archive</h1>
-  <p class="subtitle">Résultats du {date_display}</p>
+  <h1>Résultats EuroMillions du {date_display}</h1>
+  <p class="subtitle">Archive</p>
 </header>
 
 <main>
@@ -455,12 +455,14 @@ def generate_index_html(
     jackpot_won=False,
     next_jackpot: float | None = None,
     code: str = "",
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/euromillions/index.html — dernier tirage."""
     date_str = draw_date.isoformat()
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
     stars_str = " · ".join(str(s) for s in stars)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(draw_date, 21, 30)
 
     recent_archives_card = ""
     if recent_archives:
@@ -506,14 +508,14 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>⭐ Résultats EuroMillions {date_display} — Numéros gagnants du dernier tirage</title>
+  <title>Résultats EuroMillions du {date_fr_short(draw_date)} : numéros</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros gagnants : {balls_str}. Étoiles : {stars_str}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="EuroMillions {date_display} — Numéros gagnants">
+  <meta property="og:title" content="Résultats EuroMillions du {date_fr_short(draw_date)} : numéros">
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/">
@@ -521,7 +523,7 @@ def generate_index_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
+  <meta name="twitter:title" content="Résultats EuroMillions du {date_fr_short(draw_date)} : numéros">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="article:published_time" content="{iso_paris(draw_date, 21, 30)}">
 
@@ -531,7 +533,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Résultats EuroMillions {date_display}",
     "datePublished": "{iso_paris(draw_date, 21, 30)}",
-    "dateModified": "{iso_paris(draw_date, 21, 30)}",
+    "dateModified": "{modified_iso}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -590,8 +592,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Résultats EuroMillions</h1>
+  <h1>Résultats EuroMillions du {date_display}</h1>
   <p class="subtitle">Numéros gagnants du dernier tirage</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -755,6 +758,7 @@ def generate_index_html(
         <a href="simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur de gains</a>
         <a href="../cemantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🧠 Cémantix</a>
         <a href="../sutom/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🔤 Sutom</a>
+        <a href="../pedantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📖 Pédantix</a>
         <a href="../loto/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎱 Loto FDJ</a>
       </div>
     </div>
@@ -1489,6 +1493,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
         jackpot_won=data.get("jackpot_won", False),
         next_jackpot=data.get("next_jackpot"),
         code=data.get("code", ""),
+        generated_at=data.get("generated_at"),
     )
 
 
@@ -1612,7 +1617,7 @@ def generate_simulator_html() -> None:
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>⭐ Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages</title>
-  <meta name="description" content="Auriez-vous gagné à l'EuroMillions ? Entrez vos numéros et étoiles, simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
+  <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -1714,11 +1719,11 @@ def generate_simulator_html() -> None:
   <article>
 
     <div class="card">
-      <h2>Comment ça marche ?</h2>
+      <h2>Simulation de tirage EuroMillions — comment ça marche ?</h2>
       <p>
         Choisissez <strong>5 numéros</strong> (1–50) et <strong>2 étoiles</strong> (1–12),
-        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages EuroMillions
-        depuis 2004 et calcule vos gains cumulés.
+        ou cliquez sur « Grille aléatoire », puis lancez la simulation. L'outil vérifie votre grille
+        sur l'ensemble des tirages EuroMillions depuis 2004 et calcule vos gains cumulés.
       </p>
       <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
         Mise par tirage : <strong>2,50&nbsp;€</strong>. Les gains affichés sont approximatifs
@@ -1736,6 +1741,7 @@ def generate_simulator_html() -> None:
       <div class="sim-grid" id="picker-stars"></div>
 
       <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2004</button>
+      <button class="sim-btn" id="sim-random-btn" type="button" style="background:#f3f4f6;color:#374151;margin-left:.5rem;">🎲 Grille aléatoire</button>
     </div>
 
     <div class="card" id="sim-results" style="display:none;">
@@ -1862,6 +1868,17 @@ def generate_simulator_html() -> None:
     }});
     sg.appendChild(btn);
   }}
+
+  document.getElementById('sim-random-btn').addEventListener('click', () => {{
+    bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    sg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    const balls = Array.from(bg.querySelectorAll('.sim-ball'));
+    const shuffledBalls = balls.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffledBalls.slice(0, 5).forEach(([, b]) => b.click());
+    const stars = Array.from(sg.querySelectorAll('.sim-ball'));
+    const shuffledStars = stars.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffledStars.slice(0, 2).forEach(([, b]) => b.click());
+  }});
 
   document.getElementById('sim-btn').addEventListener('click', () => {{
     fetch('data.json')

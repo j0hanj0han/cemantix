@@ -16,8 +16,8 @@ from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
 )
 
 # ── Configuration Pédantix ────────────────────────────────────────────────────
@@ -385,14 +385,14 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Pédantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Pédantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Pédantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta property="og:description" content="Indices et réponse du Pédantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{date_str}">
@@ -456,7 +456,7 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Pédantix #{puzzle_num} — Solution du {date_display}</h1>
+  <h1>Solution Pédantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Archive · indices &amp; article Wikipedia</p>
 </header>
 
@@ -687,9 +687,11 @@ def generate_index_html(
     hints: dict,
     extract: str = "",
     recent_archives: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     date_str = today.isoformat()
     date_display = date_fr(today)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
     wiki_url = f"https://fr.wikipedia.org/wiki/{title_slug}"
@@ -737,14 +739,14 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>&#129504; Pédantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Pédantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia secret, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Pédantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta property="og:description" content="Article Wikipedia secret et indices progressifs du Pédantix du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/">
@@ -760,7 +762,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
     "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{modified_iso}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/"}},
@@ -820,8 +822,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Pédantix — Solution du jour</h1>
-  <p class="subtitle">Article Wikipedia secret &amp; indices — #{puzzle_num}</p>
+  <h1>Solution Pédantix #{puzzle_num} du {date_display}</h1>
+  <p class="subtitle">Article Wikipedia secret &amp; indices</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -973,6 +976,7 @@ def _generate_all_html(
     title_slug: str,
     hints: dict,
     extract: str = "",
+    generated_at: str | None = None,
 ) -> None:
     all_archives = load_all_archives()
     today_str = today.isoformat()
@@ -998,7 +1002,7 @@ def _generate_all_html(
 
     recent_archives = [e for e in past_archives[:7] if (PEDANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Pédantix] Génération de docs/pedantix/index.html…")
-    generate_index_html(today, puzzle_num, title_display, title_slug, hints, extract, recent_archives)
+    generate_index_html(today, puzzle_num, title_display, title_slug, hints, extract, recent_archives, generated_at)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -1106,7 +1110,7 @@ def run(today: date) -> dict | None:
             extract = existing.get("extract", "")
             print(f"[Pédantix] ℹ Solution déjà présente : {title_display!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract)
+            _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, existing.get("generated_at"))
             return existing
 
     print(f"[Pédantix] Résolution du puzzle #{puzzle_num}…")
@@ -1129,7 +1133,7 @@ def run(today: date) -> dict | None:
             extract = latest.get("extract", "")
             latest_puzzle_num = latest.get("puzzle_num", puzzle_num - 1)
             print(f"[Pédantix] ℹ Affichage de la dernière solution connue : #{latest_puzzle_num} {title_display!r}")
-            _generate_all_html(today, latest_puzzle_num, title_display, title_slug, hints, extract)
+            _generate_all_html(date.fromisoformat(latest["date"]), latest_puzzle_num, title_display, title_slug, hints, extract, latest.get("generated_at"))
         return None
 
     print(f"[Pédantix] ✅ Solution : {title_display!r}")
@@ -1143,7 +1147,7 @@ def run(today: date) -> dict | None:
 
     data = generate_solution_json(today, puzzle_num, title_slug, title_display, hints)
     generate_archive_json(today, data)
-    _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract)
+    _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, data.get("generated_at"))
 
     print(f"[Pédantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {title_display!r})")
     return data

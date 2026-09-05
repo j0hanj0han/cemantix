@@ -17,8 +17,8 @@ from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG,
+    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
 )
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
@@ -337,6 +337,22 @@ def generate_archive_html(
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition)
 
+    ym = d.strftime("%Y-%m")
+    has_month_page = (CEMANTIX_ARCHIVE / f"{ym}.html").exists()
+    month_label = _month_fr(ym)
+    month_de = _de_month_fr(ym)
+    month_breadcrumb_item = (
+        f',\n      {{"@type": "ListItem", "position": 4, "name": "{month_label.capitalize()}", '
+        f'"item": "{CEMANTIX_SITE_URL}/archive/{ym}"}}'
+        if has_month_page else ""
+    )
+    date_breadcrumb_position = 5 if has_month_page else 4
+    month_link_html = (
+        f'\n      <p style="margin-top:.75rem;font-size:.9rem;">'
+        f'<a href="{ym}">Toutes les solutions {month_de} &#8594;</a></p>'
+        if has_month_page else ""
+    )
+
     if prev_date is not None:
         nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
     else:
@@ -386,14 +402,14 @@ def generate_archive_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Cémantix #{puzzle_num} — Solution du {date_display}</title>
+  <title>Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta property="og:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{date_str}">
@@ -401,7 +417,7 @@ def generate_archive_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix #{puzzle_num} — Solution du {date_display}">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
@@ -445,8 +461,8 @@ def generate_archive_html(
     "itemListElement": [
       {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
       {{"@type": "ListItem", "position": 2, "name": "Cémantix", "item": "https://solution-du-jour.fr/cemantix/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/cemantix/archive/"}},
-      {{"@type": "ListItem", "position": 4, "name": "Solution du {date_display}"}}
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/cemantix/archive/"}}{month_breadcrumb_item},
+      {{"@type": "ListItem", "position": {date_breadcrumb_position}, "name": "Solution du {date_display}"}}
     ]
   }}
   </script>
@@ -460,7 +476,7 @@ def generate_archive_html(
 <body>
 
 <header class="site-header">
-  <h1>Cémantix #{puzzle_num} — Solution du {date_display}</h1>
+  <h1>Solution Cémantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Archive · indices &amp; définition</p>
 </header>
 
@@ -538,7 +554,7 @@ def generate_archive_html(
       </div>
       <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
     </div>
-
+{month_link_html}
   </article>
 
   <nav class="nav-archive" aria-label="Navigation entre les archives">
@@ -919,10 +935,12 @@ def generate_index_html(
     hints: dict,
     definition: str = "",
     recent_archives: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/cemantix/index.html."""
     date_str = today.isoformat()
     date_display = date_fr(today)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition)
     first_letter = word[0].upper() if word else "?"
@@ -987,14 +1005,14 @@ def generate_index_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🧠 Cémantix solution du jour #{puzzle_num} — indice &amp; définition</title>
+  <title>Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque matin à 8h.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta property="og:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque matin.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
@@ -1002,7 +1020,7 @@ def generate_index_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cémantix solution du jour #{puzzle_num} — indice &amp; définition">
+  <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
   <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
@@ -1013,7 +1031,7 @@ def generate_index_html(
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
     "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{modified_iso}",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},
@@ -1073,8 +1091,9 @@ def generate_index_html(
 <body>
 
 <header class="site-header">
-  <h1>Cémantix — Solution du jour</h1>
-  <p class="subtitle">Réponse &amp; indices progressifs — #{puzzle_num}</p>
+  <h1>Solution Cémantix #{puzzle_num} du {date_display}</h1>
+  <p class="subtitle">Réponse &amp; indices progressifs</p>
+{updated_block(modified_iso)}
 </header>
 
 <main>
@@ -1166,6 +1185,7 @@ def generate_index_html(
       <h2 style="font-size:1rem;margin-bottom:.75rem;">Autres jeux du jour</h2>
       <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
         <a href="../sutom/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🔤 Sutom</a>
+        <a href="../pedantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📖 Pédantix</a>
         <a href="../loto/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎱 Loto FDJ</a>
         <a href="../euromillions/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">⭐ EuroMillions</a>
       </div>
@@ -1245,7 +1265,10 @@ def generate_index_html(
 
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
-def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, definition: str = "") -> None:
+def _generate_all_html(
+    today: date, puzzle_num: int, word: str, hints: dict, definition: str = "",
+    generated_at: str | None = None,
+) -> None:
     """
     Génère tous les fichiers HTML Cémantix à partir des JSON déjà en place.
     """
@@ -1278,7 +1301,7 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, hints: dict, def
 
     recent_archives = [e for e in past_archives[:7] if (CEMANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Cémantix] Génération de docs/cemantix/index.html…")
-    generate_index_html(today, puzzle_num, word, hints, definition, recent_archives)
+    generate_index_html(today, puzzle_num, word, hints, definition, recent_archives, generated_at)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -1310,7 +1333,7 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
                 atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[Cémantix] ℹ Solution déjà présente : {word!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, word, updated, definition)
+            _generate_all_html(today, puzzle_num, word, updated, definition, existing.get("generated_at"))
             return existing
 
     # Numéro du puzzle
@@ -1360,7 +1383,7 @@ def run(today: date, model_path: str, forced_puzzle: int | None = None) -> dict 
     generate_archive_json(today, data)
 
     # HTML
-    _generate_all_html(today, puzzle_num, word, hints, definition)
+    _generate_all_html(today, puzzle_num, word, hints, definition, data.get("generated_at"))
 
     print(f"[Cémantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {word!r})")
     return data

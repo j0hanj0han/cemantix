@@ -6,7 +6,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>🍀 Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages</title>
-  <meta name="description" content="Auriez-vous gagné au Loto FDJ ? Entrez vos 5 numéros + numéro chance, simulez vos gains sur les 2 600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
+  <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 2 600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://solution-du-jour.fr/loto/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -108,11 +108,11 @@
   <article>
 
     <div class="card">
-      <h2>Comment ça marche ?</h2>
+      <h2>Simulation de tirage Loto — comment ça marche ?</h2>
       <p>
         Choisissez <strong>5 numéros</strong> (1–49) et <strong>1 numéro chance</strong> (1–10),
-        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages Loto
-        depuis 2019 et calcule vos gains cumulés.
+        ou cliquez sur « Grille aléatoire », puis lancez la simulation. L'outil vérifie votre grille
+        sur l'ensemble des tirages Loto depuis 2019 et calcule vos gains cumulés.
       </p>
       <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
         Mise par tirage : <strong>2,20&nbsp;€</strong>. Les gains affichés sont approximatifs
@@ -130,6 +130,7 @@
       <div class="sim-grid" id="picker-lucky"></div>
 
       <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2019</button>
+      <button class="sim-btn" id="sim-random-btn" type="button" style="background:#f3f4f6;color:#374151;margin-left:.5rem;">🎲 Grille aléatoire</button>
     </div>
 
     <div class="card" id="sim-results" style="display:none;">
@@ -253,6 +254,16 @@
     });
     lg.appendChild(btn);
   }
+
+  document.getElementById('sim-random-btn').addEventListener('click', () => {
+    bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    lg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    const balls = Array.from(bg.querySelectorAll('.sim-ball'));
+    const shuffled = balls.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffled.slice(0, 5).forEach(([, b]) => b.click());
+    const luckyBtns = Array.from(lg.querySelectorAll('.sim-ball'));
+    luckyBtns[Math.floor(Math.random() * luckyBtns.length)].click();
+  });
 
   document.getElementById('sim-btn').addEventListener('click', () => {
     fetch('data.json')

@@ -6,7 +6,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>⭐ Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages</title>
-  <meta name="description" content="Auriez-vous gagné à l'EuroMillions ? Entrez vos numéros et étoiles, simulez vos gains sur les 1 900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
+  <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 1 900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://solution-du-jour.fr/euromillions/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -108,11 +108,11 @@
   <article>
 
     <div class="card">
-      <h2>Comment ça marche ?</h2>
+      <h2>Simulation de tirage EuroMillions — comment ça marche ?</h2>
       <p>
         Choisissez <strong>5 numéros</strong> (1–50) et <strong>2 étoiles</strong> (1–12),
-        puis lancez la simulation. L'outil vérifie votre grille sur l'ensemble des tirages EuroMillions
-        depuis 2004 et calcule vos gains cumulés.
+        ou cliquez sur « Grille aléatoire », puis lancez la simulation. L'outil vérifie votre grille
+        sur l'ensemble des tirages EuroMillions depuis 2004 et calcule vos gains cumulés.
       </p>
       <p style="margin-top:.5rem;font-size:.9rem;color:#6b7280;">
         Mise par tirage : <strong>2,50&nbsp;€</strong>. Les gains affichés sont approximatifs
@@ -130,6 +130,7 @@
       <div class="sim-grid" id="picker-stars"></div>
 
       <button class="sim-btn" id="sim-btn" disabled>Simuler depuis 2004</button>
+      <button class="sim-btn" id="sim-random-btn" type="button" style="background:#f3f4f6;color:#374151;margin-left:.5rem;">🎲 Grille aléatoire</button>
     </div>
 
     <div class="card" id="sim-results" style="display:none;">
@@ -256,6 +257,17 @@
     });
     sg.appendChild(btn);
   }
+
+  document.getElementById('sim-random-btn').addEventListener('click', () => {
+    bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    sg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
+    const balls = Array.from(bg.querySelectorAll('.sim-ball'));
+    const shuffledBalls = balls.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffledBalls.slice(0, 5).forEach(([, b]) => b.click());
+    const stars = Array.from(sg.querySelectorAll('.sim-ball'));
+    const shuffledStars = stars.map(b => [Math.random(), b]).sort((a, b) => a[0] - b[0]);
+    shuffledStars.slice(0, 2).forEach(([, b]) => b.click());
+  });
 
   document.getElementById('sim-btn').addEventListener('click', () => {
     fetch('data.json')

@@ -330,6 +330,16 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 {em_card}
   </div>
 
+  <section style="margin-top:1.5rem;">
+    <h2 style="font-size:1.05rem;margin-bottom:.75rem;">Outils</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+      <a href="loto/simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur Loto</a>
+      <a href="loto/stats/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques Loto</a>
+      <a href="euromillions/simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur EuroMillions</a>
+      <a href="euromillions/stats/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques EuroMillions</a>
+    </div>
+  </section>
+
   <section style="margin-top:2rem;padding:1.25rem;background:#f9fafb;border-radius:.5rem;">
     <h2 style="font-size:1.05rem;margin-bottom:.75rem;">À propos de ce site</h2>
     <p style="font-size:.92rem;color:#374151;line-height:1.6;">
@@ -735,7 +745,7 @@ def regenerate_all(today: date | None = None) -> dict:
             definition = data.get("definition", "")
             from games import cemantix as c
             print(f"Régénération HTML Cémantix #{data['puzzle_num']} '{data['word']}'")
-            c._generate_all_html(today, data["puzzle_num"], data["word"], hints, definition)
+            c._generate_all_html(today, data["puzzle_num"], data["word"], hints, definition, data.get("generated_at"))
             print("✅ HTML Cémantix régénéré")
 
     sutom_json = DOCS_DIR / "sutom" / "solution.json"
@@ -745,7 +755,7 @@ def regenerate_all(today: date | None = None) -> dict:
             sutom_data = data
             from games import sutom as s
             print(f"Régénération HTML Sutom #{data['puzzle_num']} '{data['word']}'")
-            s._generate_all_html(today, data["puzzle_num"], data["word"])
+            s._generate_all_html(today, data["puzzle_num"], data["word"], data.get("generated_at"))
             print("✅ HTML Sutom régénéré")
 
     pedantix_json = DOCS_DIR / "pedantix" / "solution.json"
@@ -759,7 +769,7 @@ def regenerate_all(today: date | None = None) -> dict:
             hints = data.get("hints", {"level1": [], "level2": [], "level3": []})
             extract = data.get("extract", "")
             print(f"Régénération HTML Pédantix #{data['puzzle_num']} '{title_display}'")
-            pd._generate_all_html(today, data["puzzle_num"], title_display, title_slug, hints, extract)
+            pd._generate_all_html(today, data["puzzle_num"], title_display, title_slug, hints, extract, data.get("generated_at"))
             print("✅ HTML Pédantix régénéré")
 
     loto_json = DOCS_DIR / "loto" / "solution.json"

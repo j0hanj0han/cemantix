@@ -25,6 +25,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -372,6 +373,7 @@ def generate_archive_html(
   <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
@@ -382,15 +384,15 @@ def generate_archive_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
-  <meta property="article:published_time" content="{date_str}T22:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(draw_date, 22, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
-    "datePublished": "{date_str}T22:00:00+01:00",
-    "dateModified": "{date_str}T22:00:00+01:00",
+    "datePublished": "{iso_paris(draw_date, 22, 0)}",
+    "dateModified": "{iso_paris(draw_date, 22, 0)}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -539,6 +541,7 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta name="description" content="Retrouvez tous les résultats des tirages Loto depuis 2008 : numéros gagnants et numéros chance pour chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Archives Loto — Tous les numéros gagnants depuis 2008">
@@ -679,6 +682,7 @@ def generate_index_html(
   <meta name="description" content="Résultats du tirage Loto du {date_display} (n°{draw_num}). Numéros gagnants : {balls_str} + numéro chance {lucky}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Loto {date_display} — Numéros gagnants">
@@ -689,15 +693,15 @@ def generate_index_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
-  <meta property="article:published_time" content="{date_str}T22:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(draw_date, 22, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
-    "datePublished": "{date_str}T22:00:00+01:00",
-    "dateModified": "{date_str}T22:00:00+01:00",
+    "datePublished": "{iso_paris(draw_date, 22, 0)}",
+    "dateModified": "{iso_paris(draw_date, 22, 0)}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},

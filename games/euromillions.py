@@ -30,6 +30,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -196,6 +197,7 @@ def generate_archive_html(
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros : {balls_str}. Étoiles : {stars_str}.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/archive/{date_str}">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="EuroMillions {date_display} — Numéros gagnants">
@@ -208,15 +210,15 @@ def generate_archive_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
-  <meta property="article:published_time" content="{date_str}T21:30:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(draw_date, 21, 30)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats EuroMillions {date_display}",
-    "datePublished": "{date_str}T21:30:00+01:00",
-    "dateModified": "{date_str}T21:30:00+01:00",
+    "datePublished": "{iso_paris(draw_date, 21, 30)}",
+    "dateModified": "{iso_paris(draw_date, 21, 30)}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -369,6 +371,7 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta name="description" content="Retrouvez tous les résultats des tirages EuroMillions : numéros gagnants et étoiles pour chaque tirage du mardi et vendredi.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/archive/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Archives EuroMillions — Tous les numéros gagnants">
@@ -507,6 +510,7 @@ def generate_index_html(
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros gagnants : {balls_str}. Étoiles : {stars_str}. Mis à jour automatiquement après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="EuroMillions {date_display} — Numéros gagnants">
@@ -519,15 +523,15 @@ def generate_index_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
-  <meta property="article:published_time" content="{date_str}T21:30:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(draw_date, 21, 30)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats EuroMillions {date_display}",
-    "datePublished": "{date_str}T21:30:00+01:00",
-    "dateModified": "{date_str}T21:30:00+01:00",
+    "datePublished": "{iso_paris(draw_date, 21, 30)}",
+    "dateModified": "{iso_paris(draw_date, 21, 30)}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -1136,7 +1140,7 @@ def generate_em_stats_html(stats: dict) -> None:
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis">
   <meta name="twitter:description" content="Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}. Mis à jour automatiquement.">
-  <meta property="article:modified_time" content="{stats['date_to']}T22:00:00+01:00">
+  <meta property="article:modified_time" content="{iso_paris(date.fromisoformat(stats['date_to']), 22, 0)}">
 
   <script type="application/ld+json">
   {{

@@ -155,13 +155,28 @@ def get_sitemaps_coverage(service) -> list[dict]:
 
 
 def _get_sitemap_urls() -> list[str]:
-    """Lit toutes les URLs depuis docs/sitemap.xml (fichier local)."""
-    sitemap_path = Path(__file__).parent / "docs" / "sitemap.xml"
+    """Lit toutes les URLs de pages depuis docs/sitemap.xml (fichier local).
+
+    Depuis PR1, sitemap.xml est un <sitemapindex> : on suit chaque sous-sitemap
+    listé (sitemap-cemantix.xml, etc.) et on agrège leurs URLs.
+    """
+    docs_dir = Path(__file__).parent / "docs"
+    sitemap_path = docs_dir / "sitemap.xml"
     if not sitemap_path.exists():
         return []
-    root = ET.parse(sitemap_path).getroot()
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    return [loc.text.strip() for loc in root.findall(".//sm:loc", ns)]
+    root = ET.parse(sitemap_path).getroot()
+    tag = root.tag.split("}")[-1]
+    if tag != "sitemapindex":
+        return [loc.text.strip() for loc in root.findall(".//sm:loc", ns)]
+    urls = []
+    for loc in root.findall(".//sm:loc", ns):
+        sub_path = docs_dir / Path(loc.text.strip()).name
+        if not sub_path.exists():
+            continue
+        sub_root = ET.parse(sub_path).getroot()
+        urls.extend(l.text.strip() for l in sub_root.findall(".//sm:loc", ns))
+    return urls
 
 
 def inspect_url(service, url: str) -> dict:

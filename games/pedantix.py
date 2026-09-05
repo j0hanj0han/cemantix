@@ -15,7 +15,10 @@ from datetime import date, datetime, timedelta, timezone
 from html import escape as _html_escape
 from pathlib import Path
 
-from core import SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives
+from core import (
+    SITE_URL, DOCS_DIR, _session, date_fr, atomic_write, load_all_archives as _load_archives,
+    iso_paris, FEED_LINK_TAG,
+)
 
 # ── Configuration Pédantix ────────────────────────────────────────────────────
 
@@ -386,6 +389,7 @@ def generate_archive_html(
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
@@ -396,15 +400,15 @@ def generate_archive_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
-    "datePublished": "{date_str}T08:00:00+01:00",
-    "dateModified": "{date_str}T08:00:00+01:00",
+    "datePublished": "{iso_paris(d, 8, 0)}",
+    "dateModified": "{iso_paris(d, 8, 0)}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/archive/{date_str}"}},
@@ -615,6 +619,7 @@ def generate_archive_index(entries: list[dict]) -> None:
   <meta name="description" content="Retrouvez toutes les solutions passées de Pédantix : articles Wikipedia et indices de chaque puzzle.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <script type="application/ld+json">
@@ -736,6 +741,7 @@ def generate_index_html(
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia secret, indices progressifs et réponse complète.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/">
+{FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Pédantix #{puzzle_num} — Solution du {date_display}">
@@ -746,15 +752,15 @@ def generate_index_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta property="article:published_time" content="{date_str}T08:00:00+01:00">
+  <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
-    "datePublished": "{date_str}T08:00:00+01:00",
-    "dateModified": "{date_str}T08:00:00+01:00",
+    "datePublished": "{iso_paris(today, 8, 0)}",
+    "dateModified": "{iso_paris(today, 8, 0)}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/"}},

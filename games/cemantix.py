@@ -19,7 +19,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
-    fetch_definition,
+    fetch_definition, render_page,
 )
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
@@ -1025,6 +1025,9 @@ def generate_index_html(
       <h2>La solution du {date_display}</h2>
 {solution_box}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · Généré automatiquement le {date_display}</p>
+      <p style="font-size:.85rem;margin-top:.5rem;">
+        Juste des indices, pas encore prêt pour la solution ? <a href="indice/">Voir seulement les indices &#8594;</a>
+      </p>
     </div>
 {faq_visible}
 
@@ -1112,6 +1115,149 @@ def generate_index_html(
     atomic_write(CEMANTIX_DIR / "index.html", html)
 
 
+def generate_indice_html(
+    today: date,
+    puzzle_num: int,
+    word: str,
+    hints: dict,
+    definition: str = "",
+    generated_at: str | None = None,
+) -> None:
+    """Génère docs/cemantix/indice/index.html — indices visibles, sans la solution.
+    Cible la requête « indice cemantix » (fort volume, CTR très faible sur la page
+    principale car elle affiche solution + indices masqués derrière la même page)."""
+    date_str = today.isoformat()
+    date_display = date_fr(today)
+    date_short = date_fr_short(today)
+    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+    hints_l1, hints_l2, hints_l3 = _hints_html(hints)
+    hint_levels = hint_levels_html(
+        [
+            ("&#127777; Niveau 1 — Indices vagues", "Ces mots sont <strong>sémantiquement proches</strong> de la solution (zone tiède) :", hints_l1),
+            ("&#128293; Niveau 2 — Indices proches", "Ces mots sont <strong>très proches</strong> de la solution (zone chaude) :", hints_l2),
+            ("&#128561; Niveau 3 — Indices très proches", "Ces mots sont <strong>extrêmement proches</strong> de la solution (zone brûlante) :", hints_l3),
+        ],
+        mode="details",
+    )
+    # Contrairement à l'index principal : les 3 niveaux sont ouverts par défaut.
+    hint_levels = hint_levels.replace("<details>", "<details open>")
+
+    first_letter = word[0].upper() if word else "?"
+    word_length = len(word)
+    letters_label = f"{word_length} lettre{'s' if word_length > 1 else ''}"
+
+    title = f"Indices Cémantix #{puzzle_num} du {date_short} (sans solution)"
+    description = (
+        f"Indices progressifs pour le Cémantix #{puzzle_num} du {date_display}, sans la solution : "
+        f"1ère lettre, longueur du mot, définition masquée et 3 niveaux d'indices sémantiques."
+    )
+    canonical = f"{CEMANTIX_SITE_URL}/indice/"
+
+    def_row = ""
+    if definition:
+        masked = _html_escape(_mask_word(word, definition))
+        def_row = (
+            '\n        <div class="word-hint-item">'
+            '\n          <span class="word-hint-icon">&#128218;</span>'
+            '\n          <span class="word-hint-label">Définition</span>'
+            f'\n          <span class="word-hint-value definition" id="wh-def">{masked}</span>'
+            "\n          <button class=\"word-hint-btn\" id=\"wh-def-btn\" onclick=\"revealWordHint('def')\">Révéler</button>"
+            '\n        </div>'
+        )
+
+    faq_items = [
+        (
+            "Comment avoir des indices pour le Cémantix du jour sans voir la solution ?",
+            f"Cette page affiche directement les 3 niveaux d'indices progressifs du Cémantix #{puzzle_num} "
+            f"du {date_display} (mots sémantiquement proches, 1ère lettre, longueur du mot), sans révéler la réponse.",
+        ),
+        (
+            "Où trouver la solution complète du Cémantix du jour ?",
+            f"La solution complète et les indices du Cémantix #{puzzle_num} du {date_display} sont "
+            f"disponibles sur la page principale : solution-du-jour.fr/cemantix/.",
+        ),
+    ]
+
+    body_html = f"""    <div class="card">
+      <h2>Indices Cémantix #{puzzle_num} — <time datetime="{date_str}">{date_display}</time></h2>
+      <p>
+        Vous voulez des <strong>indices pour le Cémantix du {date_display}</strong> (puzzle #{puzzle_num})
+        sans voir tout de suite la solution ? Cette page affiche directement les 3 niveaux d'indices
+        progressifs ainsi que la première lettre et la longueur du mot.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Le mot en détail</h2>
+      <div class="word-hints">
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128207;</span>
+          <span class="word-hint-label">Nombre de lettres</span>
+          <span class="word-hint-value visible">{letters_label}</span>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-icon">&#128288;</span>
+          <span class="word-hint-label">Première lettre</span>
+          <span class="word-hint-value visible">{first_letter}</span>
+        </div>{def_row}
+      </div>
+    </div>
+    <div class="card">
+      <h2>Indices progressifs</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Les 3 niveaux sont déjà ouverts ci-dessous — aucune solution n'est révélée sur cette page.
+      </p>
+{hint_levels}
+    </div>
+{faq_html(faq_items, open_first=False)}
+    <div class="card" style="margin-top:.5rem;text-align:center;">
+      <a href="../" style="font-weight:600;">Voir la solution complète du Cémantix #{puzzle_num} &#8594;</a>
+    </div>"""
+
+    scripts = ""
+    if definition:
+        scripts = (
+            "<script>\n"
+            "  function revealWordHint(key) {\n"
+            "    var el = document.getElementById('wh-' + key);\n"
+            "    if (el) el.classList.add('visible');\n"
+            "    var btn = document.getElementById('wh-' + key + '-btn');\n"
+            "    if (btn) btn.style.display = 'none';\n"
+            "  }\n"
+            "</script>"
+        )
+
+    news_article = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": f"Indices Cémantix #{puzzle_num} du {date_display} (sans la solution)",
+        "datePublished": iso_paris(today, 8, 0),
+        "dateModified": modified_iso,
+        "description": description,
+        "url": canonical,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+        "author": {"@type": "Organization", "name": "Solutions du Jour"},
+        "publisher": {"@type": "Organization", "name": "Solutions du Jour", "url": f"{SITE_URL}/"},
+    }
+
+    html = render_page(
+        title=title,
+        description=description,
+        canonical=canonical,
+        h1=f"Indices Cémantix #{puzzle_num} du {date_display} (sans la solution)",
+        subtitle="Indices progressifs — pas de spoiler",
+        body_html=body_html,
+        breadcrumb=[("Accueil", f"{SITE_URL}/"), ("Cémantix", f"{CEMANTIX_SITE_URL}/"), ("Indices", canonical)],
+        css_rel="../../css/style.css",
+        og_type="article",
+        jsonld=[news_article],
+        footer_links='<a href="../">Cémantix</a> · <a href="../../">Accueil</a>',
+        scripts=scripts,
+    )
+    indice_dir = CEMANTIX_DIR / "indice"
+    indice_dir.mkdir(parents=True, exist_ok=True)
+    atomic_write(indice_dir / "index.html", html)
+
+
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
 def _generate_all_html(
@@ -1154,6 +1300,9 @@ def _generate_all_html(
     recent_archives = [e for e in past_archives[:7] if (CEMANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Cémantix] Génération de docs/cemantix/index.html…")
     generate_index_html(today, puzzle_num, word, hints, definition, recent_archives, generated_at)
+
+    print("[Cémantix] Génération de docs/cemantix/indice/index.html…")
+    generate_indice_html(today, puzzle_num, word, hints, definition, generated_at)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────

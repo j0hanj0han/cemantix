@@ -6,6 +6,7 @@
 
 - [Accueil](https://solution-du-jour.fr/): Hub multi-jeux avec les solutions et résultats du jour.
 - [Cémantix — Solution du jour](https://solution-du-jour.fr/cemantix/): Solution et indices progressifs du Cémantix quotidien (jeu sémantique francophone).
+- [Indices Cémantix (sans la solution)](https://solution-du-jour.fr/cemantix/indice/): Indices progressifs du jour sans révéler la solution.
 - [Sutom — Solution du jour](https://solution-du-jour.fr/sutom/): Solution du Wordle français (Sutom) quotidien.
 - [Pédantix — Solution du jour](https://solution-du-jour.fr/pedantix/): Solution et indices de l'article Wikipedia secret du Pédantix quotidien.
 - [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
@@ -20,6 +21,15 @@
 
 - [Statistiques Loto 2025-2026](https://solution-du-jour.fr/loto/stats/): Numéros les plus fréquents, numéro chance, et retardataires sur les 100 derniers tirages Loto FDJ.
 - [Statistiques EuroMillions](https://solution-du-jour.fr/euromillions/stats/): Numéros les plus sortis, étoiles fréquentes et retardataires sur les tirages EuroMillions.
+
+## Guides & astuces
+
+- [Comment jouer à Cémantix](https://solution-du-jour.fr/cemantix/comment-jouer/): Règles du jeu et fonctionnement du score de proximité sémantique.
+- [Astuces Cémantix](https://solution-du-jour.fr/cemantix/astuces/): Meilleurs mots de départ et stratégie de température.
+- [Statistiques Cémantix](https://solution-du-jour.fr/cemantix/statistiques/): Longueur moyenne des mots, initiales fréquentes, mots les plus longs/courts, calculé sur toutes les archives.
+- [Comment jouer à Sutom](https://solution-du-jour.fr/sutom/comment-jouer/): Règles du Wordle français et code couleur des lettres.
+- [Meilleurs mots Sutom](https://solution-du-jour.fr/sutom/meilleurs-mots/): Mots de départ recommandés pour bien démarrer.
+- [À propos](https://solution-du-jour.fr/a-propos/): Présentation du site.
 
 ## Archives
 

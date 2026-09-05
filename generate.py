@@ -340,6 +340,17 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     </div>
   </section>
 
+  <section style="margin-top:1.5rem;">
+    <h2 style="font-size:1.05rem;margin-bottom:1rem;">Guides &amp; astuces</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+      <a href="cemantix/comment-jouer/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📘 Comment jouer à Cémantix</a>
+      <a href="cemantix/astuces/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">💡 Astuces Cémantix</a>
+      <a href="cemantix/statistiques/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques Cémantix</a>
+      <a href="sutom/comment-jouer/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📘 Comment jouer à Sutom</a>
+      <a href="sutom/meilleurs-mots/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">💡 Meilleurs mots Sutom</a>
+    </div>
+  </section>
+
   <section style="margin-top:2rem;padding:1.25rem;background:#f9fafb;border-radius:.5rem;">
     <h2 style="font-size:1.05rem;margin-bottom:.75rem;">À propos de ce site</h2>
     <p style="font-size:.92rem;color:#374151;line-height:1.6;">
@@ -384,7 +395,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     <a href="sutom/">Sutom</a> ·
     <a href="pedantix/">Pédantix</a> ·
     <a href="loto/">Loto</a> ·
-    <a href="euromillions/">EuroMillions</a>
+    <a href="euromillions/">EuroMillions</a> ·
+    <a href="a-propos/">À propos</a>
   </p>
 </footer>
 
@@ -449,6 +461,8 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
                 archive_html = archive_dir / f"{d_str}.html"
                 if archive_html.exists():
                     entries.append((f"{base_url}/archive/{d_str}", pub_dt, f"{title_prefix} {label}"))
+                if key == "cemantix" and (DOCS_DIR / "cemantix" / "indice" / "index.html").exists():
+                    entries.append((f"{base_url}/indice/", pub_dt, f"Indices Cémantix du {label}"))
 
         # Hier : depuis les fichiers JSON d'archive
         y_str = yesterday.isoformat()
@@ -550,7 +564,7 @@ def _game_sitemap(
 
 
 def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date]) -> list[str]:
-    """URLs hors jeux : hub, simulateurs, stats (evergreen à venir en PR5)."""
+    """URLs hors jeux : hub, simulateurs, stats, pages evergreen, à-propos."""
     urls = [_url_entry(f"{SITE_URL}/", today_str)]
     if loto_dates:
         loto_lastmod = loto_dates[0].isoformat()
@@ -560,6 +574,13 @@ def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date])
         em_lastmod = em_dates[0].isoformat()
         urls.append(_url_entry(f"{SITE_URL}/euromillions/simulateur/", em_lastmod))
         urls.append(_url_entry(f"{SITE_URL}/euromillions/stats/", em_lastmod))
+
+    from games.evergreen import PAGES as EVERGREEN_PAGES
+    for page in EVERGREEN_PAGES:
+        if (DOCS_DIR / page.path / "index.html").exists():
+            urls.append(_url_entry(f"{SITE_URL}/{page.path}/", today_str))
+    if (DOCS_DIR / "a-propos" / "index.html").exists():
+        urls.append(_url_entry(f"{SITE_URL}/a-propos/", today_str))
     return urls
 
 
@@ -605,10 +626,13 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
         dates = _archive_dates(archive_dir)
         return dates[0].isoformat() if dates else today_str
 
-    _write_urlset(DOCS_DIR / "sitemap-cemantix.xml", _game_sitemap(
+    cemantix_urls = _game_sitemap(
         "cemantix", CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE,
         _index_lastmod("cemantix", CEMANTIX_ARCHIVE), month_pages=True,
-    ))
+    )
+    if (DOCS_DIR / "cemantix" / "indice" / "index.html").exists():
+        cemantix_urls.insert(1, _url_entry(f"{CEMANTIX_SITE_URL}/indice/", _index_lastmod("cemantix", CEMANTIX_ARCHIVE)))
+    _write_urlset(DOCS_DIR / "sitemap-cemantix.xml", cemantix_urls)
     _write_urlset(DOCS_DIR / "sitemap-sutom.xml", _game_sitemap(
         "sutom", SUTOM_SITE_URL, SUTOM_ARCHIVE, _index_lastmod("sutom", SUTOM_ARCHIVE),
     ))
@@ -800,11 +824,14 @@ def regenerate_all(today: date | None = None) -> dict:
         "pedantix": pedantix_data,
         "loto": loto_data, "euromillions": em_data,
     }
+    from games.evergreen import generate_evergreen, generate_about_page
+    generate_evergreen(today)
+    generate_about_page()
     generate_hub_html(today, game_data_all)
     generate_global_sitemap(today, game_data_all)
     generate_news_sitemap(today, game_data_all)
     generate_atom_feed(today, game_data_all)
-    print("✅ Hub + sitemaps + flux Atom régénérés")
+    print("✅ Hub + evergreen + à-propos + sitemaps + flux Atom régénérés")
     return game_data_all
 
 
@@ -826,7 +853,7 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
     }
 
     urls = [f"{SITE_URL}/"]
-    for _key, (base_url, archive_dir) in games_dirs.items():
+    for key, (base_url, archive_dir) in games_dirs.items():
         urls.append(f"{base_url}/")
         urls.append(f"{base_url}/archive/")
         y_str = yesterday.isoformat()
@@ -835,6 +862,8 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
         ym = today.strftime("%Y-%m")
         if (archive_dir / f"{ym}.html").exists():
             urls.append(f"{base_url}/archive/{ym}")
+        if key == "cemantix" and (DOCS_DIR / "cemantix" / "indice" / "index.html").exists():
+            urls.append(f"{base_url}/indice/")
     return urls
 
 
@@ -898,7 +927,14 @@ def main():
         "pedantix": pedantix_data,
     }
 
-    # 6. Hub page
+    # 6. Pages evergreen + à-propos
+    print("\n─── Evergreen ──────────────────────────────────────────")
+    from games.evergreen import generate_evergreen, generate_about_page
+    generate_evergreen(today)
+    generate_about_page()
+    print("Génération des pages evergreen + à-propos…")
+
+    # 6bis. Hub page
     print("\n─── Hub ────────────────────────────────────────────────")
     print("Génération de docs/index.html (hub)…")
     generate_hub_html(today, game_data_all)

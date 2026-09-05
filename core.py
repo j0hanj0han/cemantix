@@ -196,6 +196,120 @@ def solution_box_html(word: str, reveal: bool) -> str:
     )
 
 
+def breadcrumb_html(items: list[tuple[str, str]]) -> str:
+    """Fil d'Ariane visible — items : liste de (nom, url), le dernier sans lien."""
+    parts = []
+    for i, (name, url) in enumerate(items):
+        if i == len(items) - 1:
+            parts.append(f'<span>{_html_escape(name)}</span>')
+        else:
+            parts.append(f'<a href="{url}">{_html_escape(name)}</a> &rsaquo;')
+    return (
+        '<nav class="breadcrumb" aria-label="Fil d\'Ariane">\n  '
+        + '\n  '.join(parts)
+        + '\n</nav>'
+    )
+
+
+def breadcrumb_jsonld(items: list[tuple[str, str]]) -> dict:
+    """JSON-LD BreadcrumbList — items : liste de (nom, url)."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+            for i, (name, url) in enumerate(items)
+        ],
+    }
+
+
+def render_page(
+    *,
+    title: str,
+    description: str,
+    canonical: str,
+    h1: str,
+    body_html: str,
+    breadcrumb: list[tuple[str, str]] | None = None,
+    css_rel: str = "../css/style.css",
+    subtitle: str | None = None,
+    og_type: str = "website",
+    jsonld: list[dict] | None = None,
+    extra_head: str = "",
+    footer_links: str = "",
+    scripts: str = "",
+) -> str:
+    """Rendu HTML complet standard (head + header + main + footer) pour une page
+    qui n'a pas de template dédié (indice, evergreen, à-propos). Ne retrofit pas
+    les templates existants des 5 jeux — utilisé uniquement pour les nouvelles pages."""
+    jsonld_blocks: list[dict] = []
+    if breadcrumb:
+        jsonld_blocks.append(breadcrumb_jsonld(breadcrumb))
+    if jsonld:
+        jsonld_blocks.extend(jsonld)
+    jsonld_html = "\n\n".join(
+        '  <script type="application/ld+json">\n  '
+        f'{json.dumps(block, ensure_ascii=False)}\n'
+        '  </script>'
+        for block in jsonld_blocks
+    )
+    breadcrumb_nav = f"{breadcrumb_html(breadcrumb)}\n" if breadcrumb else ""
+    subtitle_html = f'\n  <p class="subtitle">{subtitle}</p>' if subtitle else ""
+    footer_html = f'\n  <p style="margin-top:.4rem;">{footer_links}</p>' if footer_links else ""
+    scripts_html = f"\n{scripts}" if scripts else ""
+
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>{title}</title>
+  <meta name="description" content="{description}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{canonical}">
+{FEED_LINK_TAG}
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:type" content="{og_type}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{description}">
+  <meta name="twitter:image" content="{SITE_URL}/og-image.png">
+{extra_head}
+{jsonld_html}
+
+  <link rel="stylesheet" href="{css_rel}">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>{h1}</h1>{subtitle_html}
+</header>
+
+<main>
+{breadcrumb_nav}  <article>
+{body_html}
+  </article>
+</main>
+
+<footer>
+  <p>Site non officiel — Généré automatiquement · <a href="{SITE_URL}/">Accueil</a></p>{footer_html}
+</footer>{scripts_html}
+
+</body>
+</html>"""
+
+
 def atomic_write(path: Path, content: str) -> None:
     """Écriture atomique : écrit dans .tmp puis renomme."""
     tmp = path.with_suffix(path.suffix + ".tmp")

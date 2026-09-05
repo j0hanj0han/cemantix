@@ -412,10 +412,64 @@ _WIKI_UA = "SolutionDuJour/1.0 (https://solution-du-jour.fr; contact@solution-du
 
 
 def _strip_accents(s: str) -> str:
-    """Retire les diacritiques (ex. 'ÉLÉPHANT' -> 'ELEPHANT')."""
+    """Retire les diacritiques (ex. 'ÉLÉPHANT' -> 'ELEPHANT').
+    Déplie aussi les ligatures œ/æ (non décomposées par NFD, ex. 'FŒTUS' -> 'FOETUS')."""
+    s = (
+        s.replace("œ", "oe").replace("Œ", "OE")
+         .replace("æ", "ae").replace("Æ", "AE")
+    )
     return "".join(
         c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
     )
+
+
+def _extract_fr_definition(wt: str) -> str:
+    """Extrait la première définition de la section française d'un wikitext Wiktionnaire.
+    Retourne '' si la page n'a pas de section FR avec une vraie définition (ex. une page
+    « variante typographique » qui ne fait que pointer vers une autre orthographe)."""
+    m = re.search(r"==\s*\{\{langue\|fr\}\}\s*==", wt) or re.search(r"==\s*Français\s*==", wt)
+    if not m:
+        return ""
+    rest = wt[m.end():]
+    nxt = re.search(r"\n==\s*\{\{langue\|", rest)
+    wt = rest[:nxt.start()] if nxt else rest
+    # Première section de nature grammaticale, puis 1re ligne de définition « # … »
+    pm = re.search(
+        r"\{\{S\|(?:nom|adjectif|verbe|adverbe|nom commun|adjectif numéral|"
+        r"préposition|pronom|interjection|conjonction)[^}]*\|fr[^}]*\}\}(.*?)"
+        r"(?=\n=+\s*\{\{S\||\Z)",
+        wt, re.S,
+    )
+    if not pm:
+        return ""
+    for line in pm.group(1).splitlines():
+        if re.match(r"#\s*[^*:]", line):          # ligne de définition (pas exemple #* ni #:)
+            d = _clean_wikitext(line[1:])
+            if d:
+                return d if d.endswith(".") else d + "."
+    return ""
+
+
+def _page_wikitext(title: str) -> str | None:
+    """Récupère le wikitext brut d'une page Wiktionnaire, ou None si indisponible."""
+    resp = None
+    for attempt in range(3):
+        resp = _session.get(
+            "https://fr.wiktionary.org/w/api.php",
+            params={"action": "parse", "format": "json", "prop": "wikitext",
+                    "page": title, "redirects": 1},
+            headers={"User-Agent": _WIKI_UA},
+            timeout=10,
+        )
+        if resp.status_code != 429:
+            break
+        time.sleep(2 * (attempt + 1))
+    if resp is None or resp.status_code != 200:
+        return None
+    data = resp.json()
+    if "parse" not in data:
+        return None
+    return data["parse"]["wikitext"]["*"]
 
 
 def _clean_wikitext(wt: str) -> str:
@@ -446,7 +500,14 @@ def wiktionary_resolve_title(word: str) -> str | None:
     if resp is not None and resp.status_code == 200:
         pages = resp.json().get("query", {}).get("pages", {})
         if any(pid != "-1" for pid in pages):
-            return candidate
+            # La page existe mais peut être une entrée d'une AUTRE langue portant
+            # le même mot sans accent (ex. l'anglais "recent", qui renvoie vers
+            # "récent" en français), ou une simple "variante typographique" sans
+            # vraie définition (ex. "choeurs" -> pointeur vers "chœurs") — ne
+            # l'accepter que si on peut en extraire une définition FR réelle.
+            wt = _page_wikitext(candidate)
+            if wt and _extract_fr_definition(wt):
+                return candidate
 
     # Recherche avec accent-folding
     target = _strip_accents(candidate)
@@ -466,52 +527,21 @@ def wiktionary_resolve_title(word: str) -> str | None:
         return None
     for hit in resp.json().get("query", {}).get("search", []):
         title = hit.get("title", "")
+        if title.lower() == candidate:
+            continue  # déjà écarté ci-dessus (pas de section FR)
         if _strip_accents(title.lower()) == target:
-            return title
+            wt = _page_wikitext(title)
+            if wt and _extract_fr_definition(wt):
+                return title
     return None
 
 
 def _wiktionary_definition(word: str) -> str:
     """Première définition française via le Wiktionnaire (action=parse wikitext)."""
-    resp = None
-    for attempt in range(3):
-        resp = _session.get(
-            "https://fr.wiktionary.org/w/api.php",
-            params={"action": "parse", "format": "json", "prop": "wikitext",
-                    "page": word, "redirects": 1},
-            headers={"User-Agent": _WIKI_UA},
-            timeout=10,
-        )
-        if resp.status_code != 429:
-            break
-        time.sleep(2 * (attempt + 1))          # backoff sur rate-limit Wikimedia
-    if resp.status_code != 200:
+    wt = _page_wikitext(word)
+    if not wt:
         return ""
-    data = resp.json()
-    if "parse" not in data:
-        return ""
-    wt = data["parse"]["wikitext"]["*"]
-    # Isoler la section « Français » (avant la langue suivante éventuelle)
-    m = re.search(r"==\s*\{\{langue\|fr\}\}\s*==", wt) or re.search(r"==\s*Français\s*==", wt)
-    if m:
-        rest = wt[m.end():]
-        nxt = re.search(r"\n==\s*\{\{langue\|", rest)
-        wt = rest[:nxt.start()] if nxt else rest
-    # Première section de nature grammaticale, puis 1re ligne de définition « # … »
-    pm = re.search(
-        r"\{\{S\|(?:nom|adjectif|verbe|adverbe|nom commun|adjectif numéral|"
-        r"préposition|pronom|interjection|conjonction)[^}]*\|fr[^}]*\}\}(.*?)"
-        r"(?=\n=+\s*\{\{S\||\Z)",
-        wt, re.S,
-    )
-    if not pm:
-        return ""
-    for line in pm.group(1).splitlines():
-        if re.match(r"#\s*[^*:]", line):          # ligne de définition (pas exemple #* ni #:)
-            d = _clean_wikitext(line[1:])
-            if d:
-                return d if d.endswith(".") else d + "."
-    return ""
+    return _extract_fr_definition(wt)
 
 
 def fetch_definition(word: str, resolve_accents: bool = False) -> str:

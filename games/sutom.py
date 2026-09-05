@@ -11,13 +11,24 @@ Génère :
 
 import base64
 import json
+import re
+import time
 from datetime import date, datetime, timezone
+from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, solution_box_html,
+    fetch_definition, faq_html, faq_jsonld,
 )
+
+VOWELS = set("AEIOUYÉÈÊËÀÂÎÏÔÛÙ")
+
+
+def _mask_word(word: str, text: str) -> str:
+    """Remplace le mot (insensible à la casse) par ___ dans le texte."""
+    return re.sub(re.escape(word), "___", text, flags=re.IGNORECASE)
 
 # ── Configuration Sutom ───────────────────────────────────────────────────────
 
@@ -56,13 +67,31 @@ def get_sutom_solution(today: date) -> tuple[str | None, int | None]:
 
 # ── Génération des fichiers ───────────────────────────────────────────────────
 
-def generate_solution_json(today: date, puzzle_num: int, word: str) -> dict:
+def sutom_letter_facts(word: str) -> dict:
+    """Faits sur le mot : longueur, voyelles/consonnes, lettres doublées, lettres uniques."""
+    letters = [c for c in word.upper() if c.isalpha()]
+    n = len(letters)
+    vowels = sum(1 for c in letters if c in VOWELS)
+    consonants = n - vowels
+    doubled = sorted({letters[i] for i in range(n - 1) if letters[i] == letters[i + 1]})
+    unique_count = len(set(letters))
+    return {
+        "length": n,
+        "vowels": vowels,
+        "consonants": consonants,
+        "doubled_letters": doubled,
+        "unique_letters": unique_count,
+    }
+
+
+def generate_solution_json(today: date, puzzle_num: int, word: str, definition: str = "") -> dict:
     data = {
         "date": today.isoformat(),
         "puzzle_num": puzzle_num,
         "word": word,
         "letter_count": len(word),
         "first_letter": word[0] if word else "",
+        "definition": definition,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
     SUTOM_DIR.mkdir(parents=True, exist_ok=True)
@@ -86,6 +115,7 @@ def generate_archive_html(
     word: str,
     prev_date,
     next_date,
+    definition: str = "",
 ) -> None:
     """Génère docs/sutom/archive/YYYY-MM-DD.html."""
     SUTOM_ARCHIVE.mkdir(parents=True, exist_ok=True)
@@ -93,6 +123,49 @@ def generate_archive_html(
     date_display = date_fr(d)
     letter_count = len(word)
     first_letter = word[0] if word else "?"
+    facts = sutom_letter_facts(word)
+
+    facts_card = f"""
+    <div class="card">
+      <h2>Le mot en détail</h2>
+      <div class="word-hints">
+        <div class="word-hint-item">
+          <span class="word-hint-label">Nombre de lettres</span>
+          <span class="word-hint-value visible">{facts['length']}</span>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-label">Voyelles / consonnes</span>
+          <span class="word-hint-value visible">{facts['vowels']} voyelle{'s' if facts['vowels'] > 1 else ''} · {facts['consonants']} consonne{'s' if facts['consonants'] > 1 else ''}</span>
+        </div>
+        <div class="word-hint-item">
+          <span class="word-hint-label">Lettres uniques</span>
+          <span class="word-hint-value visible">{facts['unique_letters']}</span>
+        </div>{"".join(f'''
+        <div class="word-hint-item">
+          <span class="word-hint-label">Lettre doublée</span>
+          <span class="word-hint-value visible">{l}{l}</span>
+        </div>''' for l in facts['doubled_letters'])}
+      </div>
+    </div>"""
+
+    definition_card = ""
+    if definition:
+        definition_card = f"""
+    <div class="card">
+      <h2>Définition</h2>
+      <p>{_html_escape(definition)}</p>
+    </div>"""
+
+    faq_items = [
+        (f"Quelle est la solution du Sutom #{puzzle_num} du {date_display} ?",
+         f"La réponse du Sutom #{puzzle_num} du {date_display} est : {word}."),
+        (f"Combien de lettres fait le mot Sutom du {date_display} ?",
+         f"Le mot du {date_display} (puzzle #{puzzle_num}) contient {letter_count} lettres et commence par {first_letter}."),
+    ]
+    if definition:
+        faq_items.append((f"Que signifie le mot {word} ?", definition))
+    faq_jsonld_block = faq_jsonld(faq_items)
+    faq_html_block = faq_html(faq_items, open_first=True)
 
     if prev_date is not None:
         nav_prev = f'<a class="nav-link" href="{prev_date.isoformat()}">&#8592; {date_fr(prev_date)}</a>'
@@ -142,22 +215,7 @@ def generate_archive_html(
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Quelle est la solution du Sutom du {date_display} ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La réponse du Sutom #{puzzle_num} du {date_display} est : {word}."
-        }}
-      }}
-    ]
-  }}
-  </script>
+{faq_jsonld_block}
 
   <script type="application/ld+json">
   {{
@@ -228,6 +286,9 @@ def generate_archive_html(
 {solution_box_html(word, reveal=True)}
       <p class="puzzle-meta">Puzzle #{puzzle_num} · {date_display}</p>
     </div>
+{facts_card}
+{definition_card}
+{faq_html_block}
 
   </article>
 
@@ -355,6 +416,7 @@ def generate_index_html(
     word: str,
     recent_archives: list | None = None,
     generated_at: str | None = None,
+    definition: str = "",
 ) -> None:
     """Génère docs/sutom/index.html."""
     date_str = today.isoformat()
@@ -362,6 +424,16 @@ def generate_index_html(
     letter_count = len(word)
     first_letter = word[0] if word else "?"
     modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+
+    definition_card = ""
+    if definition:
+        masked = _html_escape(_mask_word(word, definition))
+        definition_card = f"""
+    <div class="card">
+      <h2>Indice : définition du mot</h2>
+      <p style="filter:blur(4px);user-select:none;" onclick="this.style.filter='none'">{masked}</p>
+      <p class="puzzle-meta">Cliquez pour révéler l'indice</p>
+    </div>"""
 
     recent_archives_card = ""
     if recent_archives:
@@ -510,7 +582,7 @@ def generate_index_html(
         <p class="puzzle-meta">{letter_count} lettres · commence par {first_letter}</p>
       </div>
     </div>
-
+{definition_card}
     <div class="card">
       <h2>La solution du {date_display}</h2>
       <div style="text-align:center;margin:.5rem 0 1rem;">
@@ -637,7 +709,9 @@ def generate_unavailable_html(today: date) -> None:
 
 # ── Orchestration HTML ────────────────────────────────────────────────────────
 
-def _generate_all_html(today: date, puzzle_num: int, word: str, generated_at: str | None = None) -> None:
+def _generate_all_html(
+    today: date, puzzle_num: int, word: str, definition: str = "", generated_at: str | None = None,
+) -> None:
     """Génère tous les fichiers HTML Sutom à partir des JSON déjà en place."""
     all_archives = load_all_archives()
     today_str = today.isoformat()
@@ -648,14 +722,17 @@ def _generate_all_html(today: date, puzzle_num: int, word: str, generated_at: st
         d = date.fromisoformat(entry["date"])
         prev_date = date.fromisoformat(past_archives[i + 1]["date"]) if i + 1 < len(past_archives) else None
         next_date = date.fromisoformat(past_archives[i - 1]["date"]) if i > 0 else None
-        generate_archive_html(d, entry["puzzle_num"], entry["word"], prev_date, next_date)
+        generate_archive_html(
+            d, entry["puzzle_num"], entry["word"], prev_date, next_date,
+            entry.get("definition", ""),
+        )
 
     print("[Sutom] Génération de docs/sutom/archive/index.html…")
     generate_archive_index(past_archives)
 
     recent_archives = [e for e in past_archives[:7] if (SUTOM_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Sutom] Génération de docs/sutom/index.html…")
-    generate_index_html(today, puzzle_num, word, recent_archives, generated_at)
+    generate_index_html(today, puzzle_num, word, recent_archives, generated_at, definition)
 
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
@@ -675,9 +752,16 @@ def run(today: date) -> dict | None:
         if existing.get("date") == today.isoformat() and existing.get("word"):
             word = existing["word"]
             puzzle_num = existing["puzzle_num"]
+            definition = existing.get("definition", "")
+            if not definition:
+                print("[Sutom] Récupération de la définition manquante…")
+                definition = fetch_definition(word, resolve_accents=True)
+                if definition:
+                    existing["definition"] = definition
+                    atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             print(f"[Sutom] ℹ Solution déjà présente : {word!r} — régénération HTML uniquement.")
             generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, word, existing.get("generated_at"))
+            _generate_all_html(today, puzzle_num, word, definition, existing.get("generated_at"))
             return existing
 
     # Récupérer la solution
@@ -691,12 +775,51 @@ def run(today: date) -> dict | None:
 
     print(f"[Sutom] ✅ Solution : {word!r} (puzzle #{puzzle_num}, {len(word)} lettres)")
 
+    # Définition via Wiktionnaire (mot Sutom = majuscules sans accents)
+    print("[Sutom] Récupération de la définition…")
+    definition = fetch_definition(word, resolve_accents=True)
+    if definition:
+        print(f"[Sutom]    Définition : {definition[:80]}…")
+    else:
+        print("[Sutom]    Aucune définition trouvée.")
+
     # Fichiers JSON
-    data = generate_solution_json(today, puzzle_num, word)
+    data = generate_solution_json(today, puzzle_num, word, definition)
     generate_archive_json(today, data)
 
     # HTML
-    _generate_all_html(today, puzzle_num, word, data.get("generated_at"))
+    _generate_all_html(today, puzzle_num, word, definition, data.get("generated_at"))
 
     print(f"[Sutom] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {word!r})")
     return data
+
+
+# ── Backfill définitions (one-shot local, hors run quotidien) ─────────────────
+
+def backfill_definitions(limit: int = 200, delay: float = 1.0) -> dict:
+    """Parcourt les archives Sutom sans définition et tente de la récupérer via Wiktionnaire.
+    One-shot local — ne PAS appeler depuis le run quotidien ni regenerate_all (requêtes réseau
+    lentes, politesse nécessaire vis-à-vis de l'API Wikimedia)."""
+    entries = load_all_archives()
+    missing = [e for e in entries if not e.get("definition")][:limit]
+    total = len(missing)
+    success = 0
+    failed = 0
+    for i, entry in enumerate(missing):
+        word = entry["word"]
+        print(f"[Sutom backfill] ({i + 1}/{total}) {word}…")
+        definition = fetch_definition(word, resolve_accents=True)
+        if definition:
+            entry["definition"] = definition
+            path = SUTOM_ARCHIVE / f"{entry['date']}.json"
+            atomic_write(path, json.dumps(entry, ensure_ascii=False, indent=2))
+            success += 1
+            print(f"[Sutom backfill]    ✅ {definition[:80]}")
+        else:
+            failed += 1
+            print("[Sutom backfill]    ⚠ Aucune définition trouvée")
+        if i + 1 < total:
+            time.sleep(delay)
+    result = {"total": total, "success": success, "failed": failed}
+    print(f"[Sutom backfill] Terminé : {result}")
+    return result

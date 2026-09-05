@@ -755,7 +755,10 @@ def regenerate_all(today: date | None = None) -> dict:
             sutom_data = data
             from games import sutom as s
             print(f"Régénération HTML Sutom #{data['puzzle_num']} '{data['word']}'")
-            s._generate_all_html(today, data["puzzle_num"], data["word"], data.get("generated_at"))
+            s._generate_all_html(
+                today, data["puzzle_num"], data["word"],
+                data.get("definition", ""), data.get("generated_at"),
+            )
             print("✅ HTML Sutom régénéré")
 
     pedantix_json = DOCS_DIR / "pedantix" / "solution.json"

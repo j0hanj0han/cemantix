@@ -634,20 +634,20 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
         cemantix_urls.insert(1, _url_entry(f"{CEMANTIX_SITE_URL}/indice/", _index_lastmod("cemantix", CEMANTIX_ARCHIVE)))
     _write_urlset(DOCS_DIR / "sitemap-cemantix.xml", cemantix_urls)
     _write_urlset(DOCS_DIR / "sitemap-sutom.xml", _game_sitemap(
-        "sutom", SUTOM_SITE_URL, SUTOM_ARCHIVE, _index_lastmod("sutom", SUTOM_ARCHIVE),
+        "sutom", SUTOM_SITE_URL, SUTOM_ARCHIVE, _index_lastmod("sutom", SUTOM_ARCHIVE), month_pages=True,
     ))
     _write_urlset(DOCS_DIR / "sitemap-pedantix.xml", _game_sitemap(
-        "pedantix", PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE, _index_lastmod("pedantix", PEDANTIX_ARCHIVE),
+        "pedantix", PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE, _index_lastmod("pedantix", PEDANTIX_ARCHIVE), month_pages=True,
     ))
 
     loto_dates = _archive_dates(LOTO_ARCHIVE)
     _write_urlset(DOCS_DIR / "sitemap-loto.xml", _game_sitemap(
-        "loto", LOTO_SITE_URL, LOTO_ARCHIVE, _index_lastmod("loto", LOTO_ARCHIVE),
+        "loto", LOTO_SITE_URL, LOTO_ARCHIVE, _index_lastmod("loto", LOTO_ARCHIVE), year_pages=True,
     ))
 
     em_dates = _archive_dates(EM_ARCHIVE)
     _write_urlset(DOCS_DIR / "sitemap-euromillions.xml", _game_sitemap(
-        "euromillions", EM_SITE_URL, EM_ARCHIVE, _index_lastmod("euromillions", EM_ARCHIVE),
+        "euromillions", EM_SITE_URL, EM_ARCHIVE, _index_lastmod("euromillions", EM_ARCHIVE), year_pages=True,
     ))
 
     _write_urlset(DOCS_DIR / "sitemap-pages.xml", _pages_sitemap(today_str, loto_dates, em_dates))

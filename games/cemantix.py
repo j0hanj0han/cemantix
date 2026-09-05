@@ -19,7 +19,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
-    fetch_definition, render_page,
+    fetch_definition, render_page, month_fr, de_month_fr, group_by_month,
 )
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
@@ -588,20 +588,9 @@ def generate_archive_html(
     atomic_write(CEMANTIX_ARCHIVE / f"{date_str}.html", html)
 
 
-_MOIS_FR = ["", "janvier", "février", "mars", "avril", "mai", "juin",
-            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
-
-
-def _month_fr(ym: str) -> str:
-    """'2026-06' → 'juin 2026'."""
-    y, m = int(ym[:4]), int(ym[5:7])
-    return f"{_MOIS_FR[m]} {y}"
-
-
-def _de_month_fr(ym: str) -> str:
-    """'2026-08' -> "d’août 2026" ; '2026-06' -> 'de juin 2026'."""
-    label = _month_fr(ym)
-    return f"d’{label}" if label[0] in "ao" else f"de {label}"
+# Dédoublonné dans core.py (utilisé aussi par Sutom/Pédantix pour leurs pages mensuelles).
+_month_fr = month_fr
+_de_month_fr = de_month_fr
 
 
 def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:

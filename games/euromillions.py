@@ -30,7 +30,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, group_by_year,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -251,7 +251,8 @@ def generate_archive_html(
       {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
       {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://solution-du-jour.fr/euromillions/"}},
       {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/euromillions/archive/"}},
-      {{"@type": "ListItem", "position": 4, "name": "Tirage du {date_display}"}}
+      {{"@type": "ListItem", "position": 4, "name": "{date_str[:4]}", "item": "{EM_SITE_URL}/archive/{date_str[:4]}"}},
+      {{"@type": "ListItem", "position": 5, "name": "Tirage du {date_display}"}}
     ]
   }}
   </script>
@@ -274,6 +275,7 @@ def generate_archive_html(
   <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../">EuroMillions</a> &rsaquo;
   <a href="./">Archives</a> &rsaquo;
+  <a href="./{date_str[:4]}">{date_str[:4]}</a> &rsaquo;
   <span>Tirage du {date_display}</span>
 </nav>
   <nav class="nav-archive" aria-label="Navigation entre les tirages">
@@ -341,8 +343,163 @@ def generate_archive_html(
     atomic_write(EM_ARCHIVE / f"{date_str}.html", html)
 
 
-def generate_archive_index(entries: list[dict]) -> None:
-    """Génère docs/euromillions/archive/index.html."""
+def _em_year_row(e: dict) -> str:
+    d = date.fromisoformat(e["date"])
+    balls_str = " · ".join(str(b) for b in e["balls"])
+    stars_str = " · ".join(str(s) for s in e["stars"])
+    return (
+        '        <tr>'
+        f'<td class="arch-date">{date_fr(d)}</td>'
+        f'<td class="arch-num">&#9733; {stars_str}</td>'
+        f'<td><a class="arch-link" href="{e["date"]}">{balls_str}</a></td>'
+        '</tr>'
+    )
+
+
+def generate_year_html(year: str, entries: list[dict], prev_year, next_year) -> None:
+    """Génère docs/euromillions/archive/YYYY.html — récap de tous les tirages de l'année."""
+    EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    count = len(entries)
+    stats = compute_em_stats(entries)
+    top_balls_str = " · ".join(f"{b} ({c}×)" for b, c in stats["top_balls"][:5])
+
+    rows_html = "\n".join(_em_year_row(e) for e in entries)
+
+    nav_prev = (
+        f'<a class="nav-link" href="{prev_year}">&#8592; {prev_year}</a>'
+        if prev_year else '<span class="nav-disabled">&#8592; Année précédente</span>'
+    )
+    nav_next = (
+        f'<a class="nav-link" href="{next_year}">{next_year} &#8594;</a>'
+        if next_year else '<a class="nav-link" href="./">Toutes les archives &#8594;</a>'
+    )
+    link_prev = f'<link rel="prev" href="{prev_year}">' if prev_year else ''
+    link_next = f'<link rel="next" href="{next_year}">' if next_year else ''
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>EuroMillions {year} — Tous les tirages et numéros gagnants</title>
+  <meta name="description" content="Liste complète des {count} tirages EuroMillions de {year} : numéros gagnants, étoiles et statistiques de l'année.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{EM_SITE_URL}/archive/{year}">
+{FEED_LINK_TAG}
+  {link_prev}
+  {link_next}
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="EuroMillions {year} — Tous les tirages">
+  <meta property="og:description" content="Les {count} tirages EuroMillions de {year} avec numéros gagnants et statistiques.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{EM_SITE_URL}/archive/{year}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "EuroMillions {year} — Tous les tirages",
+    "description": "Liste complète des {count} tirages EuroMillions de {year} avec numéros gagnants.",
+    "url": "{EM_SITE_URL}/archive/{year}",
+    "isPartOf": {{"@type": "WebSite", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "{EM_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "{EM_SITE_URL}/archive/"}},
+      {{"@type": "ListItem", "position": 4, "name": "{year}"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>EuroMillions {year} — Tous les tirages</h1>
+  <p class="subtitle">{count} tirage{"s" if count > 1 else ""}</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../">EuroMillions</a> &rsaquo;
+  <a href="./">Archives</a> &rsaquo;
+  <span>{year}</span>
+</nav>
+  <nav class="nav-archive" aria-label="Navigation entre les années">
+    {nav_prev}
+    <a class="nav-center" href="./">Toutes les années</a>
+    {nav_next}
+  </nav>
+
+  <article>
+    <div class="card">
+      <h2>Tous les tirages EuroMillions de {year}</h2>
+      <p>
+        Retrouvez les <strong>{count} tirages EuroMillions de {year}</strong> avec leurs numéros gagnants
+        et étoiles. Boules les plus fréquentes de l'année : <strong>{top_balls_str}</strong>.
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="month-table" style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Date</th>
+              <th style="text-align:left;">Étoiles</th>
+              <th style="text-align:left;">Numéros</th>
+            </tr>
+          </thead>
+          <tbody>
+{rows_html}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+
+  <nav class="nav-archive" aria-label="Navigation entre les années">
+    {nav_prev}
+    <a class="nav-center" href="./">Toutes les années</a>
+    {nav_next}
+  </nav>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../">Dernier tirage &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="../">Dernier tirage</a> ·
+    <a href="./">Archives</a> ·
+    <a href="../stats/">Statistiques</a> ·
+    <a href="https://www.euro-millions.com/fr" rel="noopener" target="_blank">euro-millions.com</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Résultats récupérés automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(EM_ARCHIVE / f"{year}.html", html)
+
+
+def generate_archive_index(entries: list[dict], years: dict[str, list] | None = None, recent_limit: int = 50) -> None:
+    """Génère docs/euromillions/archive/index.html — les `recent_limit` tirages les plus récents + une card "Par année"."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
 
     def item_html(e: dict) -> str:
@@ -357,8 +514,24 @@ def generate_archive_index(entries: list[dict]) -> None:
             f'</li>'
         )
 
-    items_html = "\n".join(item_html(e) for e in entries)
+    recent = entries[:recent_limit]
+    items_html = "\n".join(item_html(e) for e in recent)
     count = len(entries)
+
+    years_card = ""
+    if years:
+        year_links = "\n".join(
+            f'        <li><a class="arch-link" href="{y}">{y}</a> '
+            f'<span class="arch-num">{len(years[y])} tirage{"s" if len(years[y]) > 1 else ""}</span></li>'
+            for y in years
+        )
+        years_card = f"""
+  <div class="card">
+    <h2>Par année</h2>
+    <ul class="arch-list">
+{year_links}
+    </ul>
+  </div>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -415,14 +588,16 @@ def generate_archive_index(entries: list[dict]) -> None:
   <span>Archives</span>
 </nav>
   <div class="card">
-    <h2>Tous les tirages EuroMillions ({count})</h2>
+    <h2>Les {len(recent)} derniers tirages EuroMillions (sur {count} au total)</h2>
     <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
       Cliquez sur un tirage pour voir les détails. Format : boules | &#9733; étoiles.
+      Pour les tirages plus anciens, consultez les archives par année ci-dessous.
     </p>
     <ul class="arch-list">
 {items_html}
     </ul>
   </div>
+{years_card}
 
   <div style="text-align:center;margin-top:.5rem;">
     <a class="reveal-btn" href="../">Dernier tirage &#8594;</a>
@@ -1476,8 +1651,16 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             code=entry.get("code", ""),
         )
 
+    years = group_by_year(past_archives)
+    year_keys = list(years.keys())
+    print(f"[EuroMillions] Génération des pages annuelles ({len(year_keys)} années)…")
+    for i, y in enumerate(year_keys):
+        next_y = year_keys[i - 1] if i > 0 else None
+        prev_y = year_keys[i + 1] if i + 1 < len(year_keys) else None
+        generate_year_html(y, years[y], prev_y, next_y)
+
     print("[EuroMillions] Génération de docs/euromillions/archive/index.html…")
-    generate_archive_index(past_archives)
+    generate_archive_index(past_archives, years, recent_limit=50)
 
     print("[EuroMillions] Calcul des statistiques…")
     em_stats = compute_em_stats(all_archives)

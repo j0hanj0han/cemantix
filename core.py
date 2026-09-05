@@ -50,6 +50,36 @@ def date_fr_short(d: date) -> str:
     return f"{day} {MONTHS_FR[d.month]} {d.year}"
 
 
+def month_fr(ym: str) -> str:
+    """'2026-06' → 'juin 2026'."""
+    y, m = int(ym[:4]), int(ym[5:7])
+    return f"{MONTHS_FR[m]} {y}"
+
+
+def de_month_fr(ym: str) -> str:
+    """'2026-08' -> "d'août 2026" ; '2026-06' -> 'de juin 2026'."""
+    label = month_fr(ym)
+    return f"d’{label}" if label[0] in "ao" else f"de {label}"
+
+
+def group_by_month(entries: list[dict]) -> dict[str, list[dict]]:
+    """Regroupe des entrées d'archive (triées DESC par 'date') par clé 'YYYY-MM'."""
+    months: dict[str, list[dict]] = {}
+    for e in entries:
+        ym = e["date"][:7]
+        months.setdefault(ym, []).append(e)
+    return months
+
+
+def group_by_year(entries: list[dict]) -> dict[str, list[dict]]:
+    """Regroupe des entrées d'archive (triées DESC par 'date') par clé 'YYYY'."""
+    years: dict[str, list[dict]] = {}
+    for e in entries:
+        y = e["date"][:4]
+        years.setdefault(y, []).append(e)
+    return years
+
+
 def updated_block(dt_iso: str) -> str:
     """Bloc 'Mis à jour le ... à HHhMM' sous un H1 de page index (jamais sur une archive)."""
     dt = datetime.fromisoformat(dt_iso)

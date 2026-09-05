@@ -19,6 +19,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
+    month_fr, de_month_fr, group_by_month,
 )
 
 # ── Configuration Pédantix ────────────────────────────────────────────────────
@@ -476,7 +477,8 @@ def generate_archive_html(
       {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
       {{"@type": "ListItem", "position": 2, "name": "P\u00e9dantix", "item": "https://solution-du-jour.fr/pedantix/"}},
       {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "https://solution-du-jour.fr/pedantix/archive/"}},
-      {{"@type": "ListItem", "position": 4, "name": "Solution du {date_display}"}}
+      {{"@type": "ListItem", "position": 4, "name": "{month_fr(date_str[:7])}", "item": "{PEDANTIX_SITE_URL}/archive/{date_str[:7]}"}},
+      {{"@type": "ListItem", "position": 5, "name": "Solution du {date_display}"}}
     ]
   }}
   </script>
@@ -499,6 +501,7 @@ def generate_archive_html(
   <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
   <a href="../">Pédantix</a> &rsaquo;
   <a href="./">Archives</a> &rsaquo;
+  <a href="./{date_str[:7]}">{month_fr(date_str[:7])}</a> &rsaquo;
   <span>Solution du {date_display}</span>
 </nav>
   <nav class="nav-archive" aria-label="Navigation entre les archives">
@@ -560,7 +563,161 @@ def generate_archive_html(
     atomic_write(PEDANTIX_ARCHIVE / f"{date_str}.html", html)
 
 
-def generate_archive_index(entries: list[dict]) -> None:
+def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
+    """Génère docs/pedantix/archive/YYYY-MM.html — récap de tous les articles du mois."""
+    PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    month_label = month_fr(ym)
+    month_de = de_month_fr(ym)
+    count = len(entries)
+
+    def row_html(e: dict) -> str:
+        d = date.fromisoformat(e["date"])
+        title = e.get("title_display") or e.get("word", "?")
+        return (
+            '        <tr>'
+            f'<td class="arch-date">{date_fr(d)}</td>'
+            f'<td class="arch-num">#{e["puzzle_num"]}</td>'
+            f'<td><a class="arch-link" href="{e["date"]}">{_html_escape(title)}</a></td>'
+            '</tr>'
+        )
+
+    rows_html = "\n".join(row_html(e) for e in entries)
+    titles_preview = ", ".join((e.get("title_display") or e.get("word", "?")) for e in entries[:6])
+
+    nav_prev = (
+        f'<a class="nav-link" href="{prev_ym}">&#8592; {month_fr(prev_ym)}</a>'
+        if prev_ym else '<span class="nav-disabled">&#8592; Mois précédent</span>'
+    )
+    nav_next = (
+        f'<a class="nav-link" href="{next_ym}">{month_fr(next_ym)} &#8594;</a>'
+        if next_ym else '<a class="nav-link" href="./">Toutes les archives &#8594;</a>'
+    )
+    link_prev = f'<link rel="prev" href="{prev_ym}">' if prev_ym else ''
+    link_next = f'<link rel="next" href="{next_ym}">' if next_ym else ''
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>Pédantix — Tous les articles {month_de}</title>
+  <meta name="description" content="Liste complète des articles Wikipedia du Pédantix {month_de} : les {count} articles du jour avec leur date et leur numéro de puzzle.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{ym}">
+{FEED_LINK_TAG}
+  {link_prev}
+  {link_next}
+  <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
+
+  <meta property="og:title" content="Pédantix — Articles {month_de}">
+  <meta property="og:description" content="Tous les articles Wikipedia du Pédantix {month_de} ({count} articles).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{ym}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Solutions du Jour">
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Pédantix — Articles {month_de}",
+    "description": "Liste complète des articles Wikipedia du Pédantix {month_de} ({count} articles).",
+    "url": "{PEDANTIX_SITE_URL}/archive/{ym}",
+    "isPartOf": {{"@type": "WebSite", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+  }}
+  </script>
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "{SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Pédantix", "item": "{PEDANTIX_SITE_URL}/"}},
+      {{"@type": "ListItem", "position": 3, "name": "Archives", "item": "{PEDANTIX_SITE_URL}/archive/"}},
+      {{"@type": "ListItem", "position": 4, "name": "{month_label}"}}
+    ]
+  }}
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Pédantix — Articles {month_de}</h1>
+  <p class="subtitle">{count} article{"s" if count > 1 else ""} du jour</p>
+</header>
+
+<main>
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="{SITE_URL}/">Accueil</a> &rsaquo;
+  <a href="../">Pédantix</a> &rsaquo;
+  <a href="./">Archives</a> &rsaquo;
+  <span>{month_label}</span>
+</nav>
+  <nav class="nav-archive" aria-label="Navigation entre les mois">
+    {nav_prev}
+    <a class="nav-center" href="./">Tous les mois</a>
+    {nav_next}
+  </nav>
+
+  <article>
+    <div class="card">
+      <h2>Tous les articles Pédantix {month_de}</h2>
+      <p>
+        Retrouvez la <strong>liste complète des articles Wikipedia du Pédantix {month_de}</strong> :
+        {count} articles du jour ({titles_preview}…), chacun avec sa <strong>date</strong> et son
+        <strong>numéro de puzzle</strong>. Cliquez sur un titre pour ouvrir la page détaillée du jour.
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="month-table" style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Date</th>
+              <th style="text-align:left;">Puzzle</th>
+              <th style="text-align:left;">Article</th>
+            </tr>
+          </thead>
+          <tbody>
+{rows_html}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+
+  <nav class="nav-archive" aria-label="Navigation entre les mois">
+    {nav_prev}
+    <a class="nav-center" href="./">Tous les mois</a>
+    {nav_next}
+  </nav>
+
+  <div style="text-align:center;margin-top:.5rem;">
+    <a class="reveal-btn" href="../">Solution du jour &#8594;</a>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="../">Solution du jour</a> ·
+    <a href="./">Archives</a> ·
+    <a href="https://pedantix.certitudes.org" rel="noopener" target="_blank">Jouer à Pédantix</a>
+  </p>
+  <p style="margin-top:.4rem;">Site non officiel — Solution générée automatiquement</p>
+</footer>
+
+</body>
+</html>"""
+
+    atomic_write(PEDANTIX_ARCHIVE / f"{ym}.html", html)
+
+
+def generate_archive_index(entries: list[dict], months: dict[str, list] | None = None) -> None:
     PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
 
     def item_html(e: dict) -> str:
@@ -576,6 +733,21 @@ def generate_archive_index(entries: list[dict]) -> None:
 
     items_html = "\n".join(item_html(e) for e in entries)
     count = len(entries)
+
+    months_card = ""
+    if months:
+        month_links = "\n".join(
+            f'        <li><a class="arch-link" href="{ym}">{month_fr(ym)}</a> '
+            f'<span class="arch-num">{len(months[ym])} article{"s" if len(months[ym]) > 1 else ""}</span></li>'
+            for ym in months
+        )
+        months_card = f"""
+  <div class="card">
+    <h2>Par mois</h2>
+    <ul class="arch-list">
+{month_links}
+    </ul>
+  </div>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -629,6 +801,7 @@ def generate_archive_index(entries: list[dict]) -> None:
 {items_html}
     </ul>
   </div>
+{months_card}
 
   <div style="text-align:center;margin-top:.5rem;">
     <a class="reveal-btn" href="../">Solution du jour &#8594;</a>
@@ -883,8 +1056,16 @@ def _generate_all_html(
             prev_date, next_date, e_extract, e_cats,
         )
 
+    months = group_by_month(past_archives)
+    month_keys = list(months.keys())
+    print(f"[Pédantix] Génération des pages mensuelles ({len(month_keys)} mois)…")
+    for i, ym in enumerate(month_keys):
+        next_ym = month_keys[i - 1] if i > 0 else None
+        prev_ym = month_keys[i + 1] if i + 1 < len(month_keys) else None
+        generate_month_html(ym, months[ym], prev_ym, next_ym)
+
     print("[Pédantix] Génération de docs/pedantix/archive/index.html…")
-    generate_archive_index(past_archives)
+    generate_archive_index(past_archives, months)
 
     recent_archives = [e for e in past_archives[:7] if (PEDANTIX_ARCHIVE / f"{e['date']}.html").exists()]
     print("[Pédantix] Génération de docs/pedantix/index.html…")

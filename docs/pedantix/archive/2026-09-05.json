@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-05",
+  "puzzle_num": 1575,
+  "word": "Vampire",
+  "title_slug": "Vampire",
+  "title_display": "Vampire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Vampire",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : V"
+    ],
+    "level2": [
+      "type de revenant qui fait partie des grandes créatures légendaires",
+      "Vampires",
+      "Vampirisme"
+    ],
+    "level3": [
+      "Le ___ est un type de revenant qui fait partie des grandes créatures légendaires issues des mythologies où se combinent de diverses manières l'inquiétude de l'au-delà et le mystère du sang."
+    ]
+  },
+  "extract": "Le vampire est un type de revenant qui fait partie des grandes créatures légendaires issues des mythologies où se combinent de diverses manières l'inquiétude de l'au-delà et le mystère du sang.",
+  "categories": [
+    "type de revenant qui fait partie des grandes créatures légendaires",
+    "Vampires",
+    "Vampirisme"
+  ],
+  "generated_at": "2026-09-05T22:18:04.015781+00:00"
+}

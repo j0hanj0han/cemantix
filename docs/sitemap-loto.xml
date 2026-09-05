@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solution-du-jour.fr/loto/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/2026</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/2025</loc>
@@ -83,6 +83,10 @@
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/2008</loc>
     <lastmod>2008-12-31</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/loto/archive/2026-09-02</loc>
+    <lastmod>2026-09-02</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/loto/archive/2026-08-31</loc>

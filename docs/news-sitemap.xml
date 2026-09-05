@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-05T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 5 septembre 2026</news:title>
+      <news:publication_date>2026-09-06T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du dimanche 6 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-05T08:05:00+02:00</news:publication_date>
-      <news:title>Indices Cémantix du samedi 5 septembre 2026</news:title>
+      <news:publication_date>2026-09-06T08:05:00+02:00</news:publication_date>
+      <news:title>Indices Cémantix du dimanche 6 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-04</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-05</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-04T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 4 septembre 2026</news:title>
+      <news:publication_date>2026-09-05T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du samedi 5 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,30 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-09-06T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du dimanche 6 septembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-05</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-09-05T08:05:00+02:00</news:publication_date>
       <news:title>Solution Sutom du samedi 5 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-04</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-04T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du vendredi 4 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/archive/2026-09-04</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-04T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Pédantix du vendredi 4 septembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

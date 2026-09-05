@@ -4,10 +4,26 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-09-05T08:05:00+02:00</updated>
+  <updated>2026-09-06T08:05:00+02:00</updated>
+  <entry>
+    <id>https://solution-du-jour.fr/cemantix/archive/2026-09-06</id>
+    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <title>Solution Cémantix du dimanche 6 septembre 2026</title>
+    <updated>2026-09-06T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le dimanche 6 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;CERTIFICAT&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/sutom/archive/2026-09-06</id>
+    <link href="https://solution-du-jour.fr/sutom/"/>
+    <title>Solution Sutom du dimanche 6 septembre 2026</title>
+    <updated>2026-09-06T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le dimanche 6 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;GOUVERNE&lt;/strong&gt;</content>
+  </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-05</id>
-    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <link href="https://solution-du-jour.fr/cemantix/archive/2026-09-05"/>
     <title>Solution Cémantix du samedi 5 septembre 2026</title>
     <updated>2026-09-05T08:05:00+02:00</updated>
     <summary>Solution et détails pour le samedi 5 septembre 2026.</summary>
@@ -15,11 +31,27 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/sutom/archive/2026-09-05</id>
-    <link href="https://solution-du-jour.fr/sutom/"/>
+    <link href="https://solution-du-jour.fr/sutom/archive/2026-09-05"/>
     <title>Solution Sutom du samedi 5 septembre 2026</title>
     <updated>2026-09-05T08:05:00+02:00</updated>
     <summary>Solution et détails pour le samedi 5 septembre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;DISPUTE&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-05</id>
+    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <title>Solution Pédantix du samedi 5 septembre 2026</title>
+    <updated>2026-09-05T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le samedi 5 septembre 2026.</summary>
+    <content type="html">Article : &lt;strong&gt;Vampire&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/loto/archive/2026-09-05</id>
+    <link href="https://solution-du-jour.fr/loto/"/>
+    <title>Résultats Loto du samedi 5 septembre 2026</title>
+    <updated>2026-09-05T22:00:00+02:00</updated>
+    <summary>Solution et détails pour le samedi 5 septembre 2026.</summary>
+    <content type="html">Numéros : &lt;strong&gt;1 · 32 · 39 · 45 · 48&lt;/strong&gt; + chance 3</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-04</id>
@@ -103,7 +135,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/loto/archive/2026-09-02</id>
-    <link href="https://solution-du-jour.fr/loto/"/>
+    <link href="https://solution-du-jour.fr/loto/archive/2026-09-02"/>
     <title>Résultats Loto du mercredi 2 septembre 2026</title>
     <updated>2026-09-02T22:00:00+02:00</updated>
     <summary>Solution et détails pour le mercredi 2 septembre 2026.</summary>
@@ -860,29 +892,5 @@
     <updated>2026-08-07T21:30:00+02:00</updated>
     <summary>Solution et détails pour le vendredi 7 août 2026.</summary>
     <content type="html">Numéros : &lt;strong&gt;26 · 29 · 35 · 38 · 47&lt;/strong&gt; — Étoiles : 1 · 2</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/cemantix/archive/2026-08-06</id>
-    <link href="https://solution-du-jour.fr/cemantix/archive/2026-08-06"/>
-    <title>Solution Cémantix du jeudi 6 août 2026</title>
-    <updated>2026-08-06T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le jeudi 6 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;MONUMENT&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/sutom/archive/2026-08-06</id>
-    <link href="https://solution-du-jour.fr/sutom/archive/2026-08-06"/>
-    <title>Solution Sutom du jeudi 6 août 2026</title>
-    <updated>2026-08-06T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le jeudi 6 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;BOISSON&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-08-06</id>
-    <link href="https://solution-du-jour.fr/pedantix/archive/2026-08-06"/>
-    <title>Solution Pédantix du jeudi 6 août 2026</title>
-    <updated>2026-08-06T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le jeudi 6 août 2026.</summary>
-    <content type="html">Article : &lt;strong&gt;Maya Angelou&lt;/strong&gt;</content>
   </entry>
 </feed>

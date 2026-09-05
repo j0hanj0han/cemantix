@@ -3,6 +3,9 @@ core.py — Utilitaires partagés pour tous les jeux.
 """
 
 import json
+import re
+import time
+import unicodedata
 import urllib.request
 from datetime import date, datetime
 from html import escape as _html_escape
@@ -256,3 +259,147 @@ def load_all_archives(archive_dir: Path, required_keys: list[str] | None = None)
                 pass
     entries.sort(key=lambda x: x["date"], reverse=True)
     return entries
+
+
+# ── Wiktionnaire / Wikipédia (définitions) ────────────────────────────────────
+
+# User-Agent conforme à la policy Wikimedia (identifie l'app + contact)
+_WIKI_UA = "SolutionDuJour/1.0 (https://solution-du-jour.fr; contact@solution-du-jour.fr)"
+
+
+def _strip_accents(s: str) -> str:
+    """Retire les diacritiques (ex. 'ÉLÉPHANT' -> 'ELEPHANT')."""
+    return "".join(
+        c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
+    )
+
+
+def _clean_wikitext(wt: str) -> str:
+    """Nettoie le wikitext : retire templates, liens, gras, HTML."""
+    wt = re.sub(r"\{\{[^{}]*\}\}", "", wt)                       # {{templates}}
+    wt = re.sub(r"\[\[(?:[^\]|]*\|)?([^\]]*)\]\]", r"\1", wt)    # [[liens|texte]]
+    wt = re.sub(r"'''?", "", wt)                                  # '''gras'''/''italique''
+    wt = re.sub(r"<[^>]+>", "", wt)                               # balises HTML
+    return re.sub(r"\s+", " ", wt).strip()
+
+
+def wiktionary_resolve_title(word: str) -> str | None:
+    """Résout le titre exact d'une page Wiktionnaire pour un mot MAJUSCULE SANS ACCENTS
+    (ex. mots Sutom). Essaie d'abord `word.lower()` tel quel, puis une recherche avec
+    accent-folding (ex. 'ELEPHANT' -> 'éléphant'). Retourne le titre trouvé ou None."""
+    candidate = word.lower()
+    resp = None
+    for attempt in range(3):
+        resp = _session.get(
+            "https://fr.wiktionary.org/w/api.php",
+            params={"action": "query", "format": "json", "titles": candidate},
+            headers={"User-Agent": _WIKI_UA},
+            timeout=10,
+        )
+        if resp.status_code != 429:
+            break
+        time.sleep(2 * (attempt + 1))
+    if resp is not None and resp.status_code == 200:
+        pages = resp.json().get("query", {}).get("pages", {})
+        if any(pid != "-1" for pid in pages):
+            return candidate
+
+    # Recherche avec accent-folding
+    target = _strip_accents(candidate)
+    resp = None
+    for attempt in range(3):
+        resp = _session.get(
+            "https://fr.wiktionary.org/w/api.php",
+            params={"action": "query", "list": "search", "format": "json",
+                    "srsearch": candidate, "srlimit": 10},
+            headers={"User-Agent": _WIKI_UA},
+            timeout=10,
+        )
+        if resp.status_code != 429:
+            break
+        time.sleep(2 * (attempt + 1))
+    if resp is None or resp.status_code != 200:
+        return None
+    for hit in resp.json().get("query", {}).get("search", []):
+        title = hit.get("title", "")
+        if _strip_accents(title.lower()) == target:
+            return title
+    return None
+
+
+def _wiktionary_definition(word: str) -> str:
+    """Première définition française via le Wiktionnaire (action=parse wikitext)."""
+    resp = None
+    for attempt in range(3):
+        resp = _session.get(
+            "https://fr.wiktionary.org/w/api.php",
+            params={"action": "parse", "format": "json", "prop": "wikitext",
+                    "page": word, "redirects": 1},
+            headers={"User-Agent": _WIKI_UA},
+            timeout=10,
+        )
+        if resp.status_code != 429:
+            break
+        time.sleep(2 * (attempt + 1))          # backoff sur rate-limit Wikimedia
+    if resp.status_code != 200:
+        return ""
+    data = resp.json()
+    if "parse" not in data:
+        return ""
+    wt = data["parse"]["wikitext"]["*"]
+    # Isoler la section « Français » (avant la langue suivante éventuelle)
+    m = re.search(r"==\s*\{\{langue\|fr\}\}\s*==", wt) or re.search(r"==\s*Français\s*==", wt)
+    if m:
+        rest = wt[m.end():]
+        nxt = re.search(r"\n==\s*\{\{langue\|", rest)
+        wt = rest[:nxt.start()] if nxt else rest
+    # Première section de nature grammaticale, puis 1re ligne de définition « # … »
+    pm = re.search(
+        r"\{\{S\|(?:nom|adjectif|verbe|adverbe|nom commun|adjectif numéral|"
+        r"préposition|pronom|interjection|conjonction)[^}]*\|fr[^}]*\}\}(.*?)"
+        r"(?=\n=+\s*\{\{S\||\Z)",
+        wt, re.S,
+    )
+    if not pm:
+        return ""
+    for line in pm.group(1).splitlines():
+        if re.match(r"#\s*[^*:]", line):          # ligne de définition (pas exemple #* ni #:)
+            d = _clean_wikitext(line[1:])
+            if d:
+                return d if d.endswith(".") else d + "."
+    return ""
+
+
+def fetch_definition(word: str, resolve_accents: bool = False) -> str:
+    """Définition FR : Wiktionnaire d'abord (dictionnaire), Wikipédia en secours (noms propres).
+    resolve_accents=True : le mot est MAJUSCULE SANS ACCENTS (ex. mots Sutom) — résout d'abord
+    le titre exact de la page Wiktionnaire avant de la parser."""
+    lookup = word
+    if resolve_accents:
+        resolved = wiktionary_resolve_title(word)
+        if not resolved:
+            return ""
+        lookup = resolved
+    try:
+        d = _wiktionary_definition(lookup)
+        if d:
+            return d[:300]
+    except Exception as e:
+        print(f"   ⚠ Définition Wiktionnaire : {e}")
+    if resolve_accents:
+        # Pas de secours Wikipédia pertinent pour un mot commun Sutom sans page Wiktionnaire trouvée.
+        return ""
+    try:
+        resp = _session.get(
+            f"https://fr.wikipedia.org/api/rest_v1/page/summary/{word}",
+            headers={"User-Agent": _WIKI_UA},
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            extract = resp.json().get("extract", "").strip()
+            if extract:
+                idx = extract.find(". ")
+                return extract[:idx + 1] if idx != -1 else extract[:300]
+    except Exception as e:
+        print(f"   ⚠ Définition Wikipedia : {e}")
+    return ""

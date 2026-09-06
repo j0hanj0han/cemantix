@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solution-du-jour.fr/cemantix/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/indice/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-09</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-08</loc>
@@ -43,6 +43,10 @@
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-02</loc>
     <lastmod>2026-02-28</lastmod>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-05</loc>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-04</loc>

@@ -201,7 +201,9 @@ def _classify_page(url: str) -> tuple[str, str] | None:
 
 def get_game_aggregates(pages: list[dict]) -> dict:
     """Agrège clics/impressions/position (pondérée par impressions) par jeu et par type
-    de page, à partir d'une liste de pages issue de _query_all(..., ["page"])."""
+    de page, à partir d'une liste de pages déjà transformée par get_top_pages() (dicts
+    avec clés "page"/"clicks"/"impressions"/"position") — PAS les rows brutes de
+    _query_all(..., ["page"]), qui utilisent "keys": [url] et n'ont pas de champ "page"."""
     agg: dict[str, dict[str, dict]] = {}
     for p in pages:
         classified = _classify_page(p["page"])

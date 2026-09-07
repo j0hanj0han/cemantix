@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-07",
+  "puzzle_num": 1577,
+  "word": "Saint-Louis (Missouri)",
+  "title_slug": "Saint-Louis_(Missouri)",
+  "title_display": "Saint-Louis (Missouri)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Saint-Louis_(Missouri)",
+  "hints": {
+    "level1": [
+      "2 mots · 21 lettres",
+      "Premières lettres : S · ("
+    ],
+    "level2": [
+      "municipalité du Missouri, aux États-Unis",
+      "Population de 2020 en infobox",
+      "Toponyme évoquant une personnalité"
+    ],
+    "level3": [
+      "___ est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi."
+    ]
+  },
+  "extract": "Saint-Louis est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi.",
+  "categories": [
+    "municipalité du Missouri, aux États-Unis",
+    "Population de 2020 en infobox",
+    "Toponyme évoquant une personnalité"
+  ],
+  "generated_at": "2026-09-07T22:16:27.861370+00:00"
+}

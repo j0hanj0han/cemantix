@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-08",
+  "puzzle_num": 1578,
+  "word": "Longévité",
+  "title_slug": "Longévité",
+  "title_display": "Longévité",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Longévité",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : L"
+    ],
+    "level2": [
+      "durée de vie supérieure à la normale, notamment pour les humains",
+      "Liste en rapport avec les animaux",
+      "Centenaire",
+      "Gériatrie"
+    ],
+    "level3": [
+      "La ___ potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique."
+    ]
+  },
+  "extract": "La longévité potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique.",
+  "categories": [
+    "durée de vie supérieure à la normale, notamment pour les humains",
+    "Liste en rapport avec les animaux",
+    "Centenaire",
+    "Gériatrie"
+  ],
+  "generated_at": "2026-09-08T22:18:48.398529+00:00"
+}

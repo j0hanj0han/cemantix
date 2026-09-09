@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-09",
+  "puzzle_num": 1579,
+  "word": "Prévention et dépistage du cancer du col utérin",
+  "title_slug": "Prévention_et_dépistage_du_cancer_du_col_utérin",
+  "title_display": "Prévention et dépistage du cancer du col utérin",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prévention_et_dépistage_du_cancer_du_col_utérin",
+  "hints": {
+    "level1": [
+      "8 mots · 40 lettres",
+      "Premières lettres : P · E · D · D · C · D · C · U"
+    ],
+    "level2": [
+      "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
+      "Anatomopathologie",
+      "Dépistage et diagnostic en gynécologie-obstétrique",
+      "Diagnostic du cancer"
+    ],
+    "level3": [
+      "La ___ et le ___ du ___ du col ___ sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce ___, principalement causé par une infection persistante par des papillomavirus humains oncogènes."
+    ]
+  },
+  "extract": "La prévention et le dépistage du cancer du col utérin sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce cancer, principalement causé par une infection persistante par des papillomavirus humains oncogènes.",
+  "categories": [
+    "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
+    "Anatomopathologie",
+    "Dépistage et diagnostic en gynécologie-obstétrique",
+    "Diagnostic du cancer"
+  ],
+  "generated_at": "2026-09-09T22:20:54.906485+00:00"
+}

@@ -2,40 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-10T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du jeudi 10 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/indice/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-10T08:05:00+02:00</news:publication_date>
-      <news:title>Indices Cémantix du jeudi 10 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-09</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-09T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du mercredi 9 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://solution-du-jour.fr/sutom/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-11T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du vendredi 11 septembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-10</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -43,17 +21,6 @@
       </news:publication>
       <news:publication_date>2026-09-10T08:05:00+02:00</news:publication_date>
       <news:title>Solution Sutom du jeudi 10 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-09</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-09T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du mercredi 9 septembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

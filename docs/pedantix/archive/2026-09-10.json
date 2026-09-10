@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-10",
+  "puzzle_num": 1580,
+  "word": "Téléphérique",
+  "title_slug": "Téléphérique",
+  "title_display": "Téléphérique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Téléphérique",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : T"
+    ],
+    "level2": [
+      "moyen de transport par câble aérien"
+    ],
+    "level3": [
+      "Un ___ ou téléférique est un moyen de transport par câble aérien."
+    ]
+  },
+  "extract": "Un téléphérique ou téléférique est un moyen de transport par câble aérien.",
+  "categories": [
+    "moyen de transport par câble aérien"
+  ],
+  "generated_at": "2026-09-10T22:24:12.486760+00:00"
+}

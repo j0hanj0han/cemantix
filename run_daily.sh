@@ -39,6 +39,10 @@ cd "$SCRIPT_DIR"
     git commit -m "chore: solution $(date +'%Y-%m-%d') [skip ci]"
     git push
     echo "Pushé vers GitHub."
+
+    # IndexNow : le commit "[skip ci]" empêche daily.yml (et donc son ping) de se déclencher,
+    # donc on notifie IndexNow directement ici après le push.
+    "$PYTHON" -c "import generate as g; g.ping_daily_indexnow()" || echo "⚠️  ping IndexNow ignoré (voir erreur ci-dessus)"
   fi
 
   # Post Reddit (Cémantix uniquement — Sutom désactivé par défaut)

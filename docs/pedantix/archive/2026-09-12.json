@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-12",
+  "puzzle_num": 1583,
+  "word": "Documentaire",
+  "title_slug": "Documentaire",
+  "title_display": "Documentaire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Documentaire",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : D"
+    ],
+    "level2": [
+      "film à caractère didactique, descriptif et/ou informatif",
+      "Genre cinématographique",
+      "Film documentaire",
+      "Média d'information générale"
+    ],
+    "level3": [
+      "Le film ___ ou le ___ est un genre cinématographique, audiovisuel, télévisuel et radiophonique qui se différencie de la fiction."
+    ]
+  },
+  "extract": "Le film documentaire ou le documentaire est un genre cinématographique, audiovisuel, télévisuel et radiophonique qui se différencie de la fiction.",
+  "categories": [
+    "film à caractère didactique, descriptif et/ou informatif",
+    "Genre cinématographique",
+    "Film documentaire",
+    "Média d'information générale"
+  ],
+  "generated_at": "2026-09-13T17:18:56.517381+00:00"
+}

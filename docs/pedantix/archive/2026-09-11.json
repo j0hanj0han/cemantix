@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-11",
+  "puzzle_num": 1582,
+  "word": "Ramadan",
+  "title_slug": "Ramadan",
+  "title_display": "Ramadan",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ramadan",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : R"
+    ],
+    "level2": [
+      "mois sacré de jeûne pour les musulmans lors du neuvième mois du calendrier islamique",
+      "Section non neutre",
+      "Vocabulaire de l'islam",
+      "Mois du calendrier musulman"
+    ],
+    "level3": [
+      "___, parfois orthographié ramadhan , est le neuvième mois du calendrier hégirien."
+    ]
+  },
+  "extract": "Ramadan, parfois orthographié ramadhan , est le neuvième mois du calendrier hégirien.",
+  "categories": [
+    "mois sacré de jeûne pour les musulmans lors du neuvième mois du calendrier islamique",
+    "Section non neutre",
+    "Vocabulaire de l'islam",
+    "Mois du calendrier musulman"
+  ],
+  "generated_at": "2026-09-13T17:18:56.817272+00:00"
+}

@@ -9,3 +9,4 @@ run_daily.log
 credentials.json
 gsc_token.json
 gsc_report.md
+gsc_indexation.md

@@ -26,6 +26,7 @@ from core import (
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, group_by_year,
+    faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -1714,6 +1715,40 @@ def generate_simulator_html() -> None:
     out_dir = LOTO_DIR / "simulateur"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    faq_items = [
+        ("Comment fonctionne le simulateur Loto ?",
+         "Sélectionnez vos 5 numéros (1–49) et votre numéro chance (1–10), puis cliquez sur "
+         "Simuler. L'outil vérifie vos numéros sur tous les tirages Loto depuis 2019 et calcule "
+         "vos gains cumulés."),
+        ("Comment simuler un tirage Loto gratuitement ?",
+         "Cliquez sur le bouton « Grille aléatoire » : l'outil génère instantanément 5 numéros "
+         "et 1 numéro chance au hasard, sans inscription ni téléchargement. Vous pouvez ensuite "
+         "lancer la simulation pour voir combien cette grille aurait rapporté sur les 2 600+ "
+         "tirages Loto depuis 2019, ou cliquer à nouveau pour générer une nouvelle combinaison."),
+        ("Les résultats sont-ils officiels ?",
+         "Les tirages sont issus des données officielles FDJ (OpenDataSoft). Les gains affichés "
+         "sont approximatifs car le jackpot varie."),
+        ("Combien de tirages Loto sont analysés ?",
+         "Le simulateur couvre tous les tirages disponibles depuis 2019 (environ 2 600 "
+         "tirages). Il est mis à jour après chaque nouveau tirage."),
+        ("Peut-on vraiment gagner en jouant toujours les mêmes numéros ?",
+         "Non — chaque tirage est indépendant. La probabilité de gagner le jackpot est d'environ "
+         "1 sur 19 millions. Ce simulateur est un outil ludique pour illustrer l'espérance "
+         "mathématique."),
+    ]
+    faq_visible = faq_html(faq_items, open_first=False)
+
+    breadcrumb_items = [
+        ("Accueil", "https://solution-du-jour.fr/"),
+        ("Loto", "https://solution-du-jour.fr/loto/"),
+        ("Simulateur", f"{LOTO_SITE_URL}/simulateur/"),
+    ]
+    breadcrumb_jsonld_block = (
+        '  <script type="application/ld+json">\n  '
+        f'{json.dumps(breadcrumb_jsonld(breadcrumb_items), ensure_ascii=False)}\n'
+        '  </script>'
+    )
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1721,13 +1756,13 @@ def generate_simulator_html() -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🍀 Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages</title>
+  <title>Simulateur Loto FDJ — simulation de tirage &amp; gains</title>
   <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages">
+  <meta property="og:title" content="Simulateur Loto FDJ — simulation de tirage &amp; gains">
   <meta property="og:description" content="Auriez-vous gagné au Loto FDJ ? Simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/simulateur/">
@@ -1735,7 +1770,7 @@ def generate_simulator_html() -> None:
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Simulateur Loto FDJ gratuit — vos gains sur 2 600 tirages">
+  <meta name="twitter:title" content="Simulateur Loto FDJ — simulation de tirage &amp; gains">
   <meta name="twitter:description" content="Auriez-vous gagné au Loto FDJ ? Simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription.">
 
   <script type="application/ld+json">
@@ -1751,58 +1786,9 @@ def generate_simulator_html() -> None:
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Comment fonctionne le simulateur Loto ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Sélectionnez vos 5 numéros (1–49) et votre numéro chance (1–10), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages Loto depuis 2019 et calcule vos gains cumulés."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Les résultats sont-ils officiels ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Les tirages sont issus des données officielles FDJ (OpenDataSoft). Les gains affichés sont approximatifs car le jackpot varie."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Combien de tirages Loto sont analysés ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le simulateur couvre tous les tirages disponibles depuis 2019 (environ 2\u202f600 tirages). Il est mis à jour après chaque nouveau tirage."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Peut-on vraiment gagner en jouant toujours les mêmes numéros ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Non — chaque tirage est indépendant. La probabilité de gagner le jackpot est d'environ 1 sur 19 millions. Ce simulateur est un outil ludique pour illustrer l'espérance mathématique."
-        }}
-      }}
-    ]
-  }}
-  </script>
+  {faq_jsonld(faq_items)}
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Loto", "item": "https://solution-du-jour.fr/loto/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Simulateur", "item": "{LOTO_SITE_URL}/simulateur/"}}
-    ]
-  }}
-  </script>
+  {breadcrumb_jsonld_block}
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -1811,16 +1797,12 @@ def generate_simulator_html() -> None:
 <body>
 
 <header class="site-header">
-  <h1>Simulateur Loto FDJ — Calculez vos gains</h1>
-  <p class="subtitle">Simulez vos résultats sur 2 600+ tirages depuis 2019</p>
+  <h1>Simulateur Loto FDJ — Simulez un tirage et vos gains</h1>
+  <p class="subtitle">Simulez un tirage aléatoire ou vérifiez vos gains sur 2 600+ tirages depuis 2019</p>
 </header>
 
 <main>
-<nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
-  <a href="../">Loto</a> &rsaquo;
-  <span>Simulateur</span>
-</nav>
+{breadcrumb_html(breadcrumb_items)}
   <article>
 
     <div class="card">
@@ -1859,36 +1841,7 @@ def generate_simulator_html() -> None:
       </table>
     </div>
 
-    <div class="card">
-      <h2>Questions fréquentes</h2>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Comment fonctionne le simulateur Loto ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Sélectionnez vos 5 numéros (1–49) et votre numéro chance (1–10), puis cliquez sur Simuler.
-          L'outil vérifie vos numéros sur tous les tirages Loto depuis 2019 et calcule vos gains cumulés.
-        </p>
-      </details>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Les gains sont-ils exacts ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Les gains sont approximatifs. Le jackpot (rang 1) varie à chaque tirage.
-          Les autres rangs reflètent les montants moyens officiels FDJ.
-        </p>
-      </details>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Combien de tirages sont analysés ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Le simulateur couvre tous les tirages disponibles depuis 2019, mis à jour après chaque tirage.
-        </p>
-      </details>
-      <details>
-        <summary style="cursor:pointer;font-weight:600;">Peut-on vraiment gagner en jouant toujours les mêmes numéros ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Non — chaque tirage est indépendant. La probabilité de décrocher le jackpot est d'environ
-          1/19&nbsp;068&nbsp;840. Ce simulateur illustre l'espérance mathématique de façon ludique.
-        </p>
-      </details>
-    </div>
+{faq_visible}
 
     <div class="card" style="text-align:center;">
       <p style="font-size:.9rem;">

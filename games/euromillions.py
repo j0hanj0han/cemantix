@@ -31,6 +31,7 @@ from core import (
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
     iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, group_by_year,
+    faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
 
 # ── Configuration ─────────────────────────────────────────────────────────────
@@ -1792,6 +1793,41 @@ def generate_simulator_html() -> None:
     out_dir = EM_DIR / "simulateur"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    faq_items = [
+        ("Comment fonctionne le simulateur EuroMillions ?",
+         "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. "
+         "L'outil vérifie vos numéros sur tous les tirages EuroMillions depuis 2004 et calcule "
+         "vos gains cumulés."),
+        ("Comment simuler un tirage EuroMillions gratuitement ?",
+         "Cliquez sur le bouton « Grille aléatoire » : l'outil génère instantanément 5 numéros "
+         "et 2 étoiles au hasard, sans inscription ni téléchargement. Vous pouvez ensuite lancer "
+         "la simulation pour voir combien cette grille aurait rapporté sur les 1 900+ "
+         "tirages EuroMillions depuis 2004, ou cliquer à nouveau pour générer une nouvelle "
+         "combinaison."),
+        ("Les gains affichés sont-ils exacts ?",
+         "Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les "
+         "tirages. Les autres rangs reflètent les montants indicatifs officiels."),
+        ("Combien de tirages EuroMillions sont analysés ?",
+         "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour "
+         "après chaque tirage (mardi et vendredi)."),
+        ("Quelle est la probabilité de gagner le jackpot EuroMillions ?",
+         "La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1 sur "
+         "139 838 160. Ce simulateur est un outil ludique illustrant l'espérance "
+         "mathématique."),
+    ]
+    faq_visible = faq_html(faq_items, open_first=False)
+
+    breadcrumb_items = [
+        ("Accueil", "https://solution-du-jour.fr/"),
+        ("EuroMillions", "https://solution-du-jour.fr/euromillions/"),
+        ("Simulateur", f"{EM_SITE_URL}/simulateur/"),
+    ]
+    breadcrumb_jsonld_block = (
+        '  <script type="application/ld+json">\n  '
+        f'{json.dumps(breadcrumb_jsonld(breadcrumb_items), ensure_ascii=False)}\n'
+        '  </script>'
+    )
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1799,13 +1835,13 @@ def generate_simulator_html() -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>⭐ Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages</title>
+  <title>Simulateur EuroMillions — simulation de tirage &amp; gains</title>
   <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{EM_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages">
+  <meta property="og:title" content="Simulateur EuroMillions — simulation de tirage &amp; gains">
   <meta property="og:description" content="Auriez-vous gagné à l'EuroMillions ? Simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{EM_SITE_URL}/simulateur/">
@@ -1813,7 +1849,7 @@ def generate_simulator_html() -> None:
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Simulateur EuroMillions gratuit — vos gains sur 1 900 tirages">
+  <meta name="twitter:title" content="Simulateur EuroMillions — simulation de tirage &amp; gains">
   <meta name="twitter:description" content="Auriez-vous gagné à l'EuroMillions ? Simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription.">
 
   <script type="application/ld+json">
@@ -1829,58 +1865,9 @@ def generate_simulator_html() -> None:
   }}
   </script>
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {{
-        "@type": "Question",
-        "name": "Comment fonctionne le simulateur EuroMillions ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages EuroMillions depuis 2004 et calcule vos gains cumulés."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Les gains affichés sont-ils exacts ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les tirages. Les autres rangs reflètent les montants indicatifs officiels."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Combien de tirages EuroMillions sont analysés ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour après chaque tirage (mardi et vendredi)."
-        }}
-      }},
-      {{
-        "@type": "Question",
-        "name": "Quelle est la probabilité de gagner le jackpot EuroMillions ?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1 sur 139\u202f838\u202f160. Ce simulateur est un outil ludique illustrant l'espérance mathématique."
-        }}
-      }}
-    ]
-  }}
-  </script>
+  {faq_jsonld(faq_items)}
 
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solution-du-jour.fr/"}},
-      {{"@type": "ListItem", "position": 2, "name": "EuroMillions", "item": "https://solution-du-jour.fr/euromillions/"}},
-      {{"@type": "ListItem", "position": 3, "name": "Simulateur", "item": "{EM_SITE_URL}/simulateur/"}}
-    ]
-  }}
-  </script>
+  {breadcrumb_jsonld_block}
 
   <link rel="stylesheet" href="../../css/style.css">
   <script data-goatcounter="https://j0hanj0han.goatcounter.com/count"
@@ -1889,16 +1876,12 @@ def generate_simulator_html() -> None:
 <body>
 
 <header class="site-header">
-  <h1>Simulateur EuroMillions — Calculez vos gains</h1>
-  <p class="subtitle">Simulez vos résultats sur 1 900+ tirages depuis 2004</p>
+  <h1>Simulateur EuroMillions — Simulez un tirage et vos gains</h1>
+  <p class="subtitle">Simulez un tirage aléatoire ou vérifiez vos gains sur 1 900+ tirages depuis 2004</p>
 </header>
 
 <main>
-<nav class="breadcrumb" aria-label="Fil d'Ariane">
-  <a href="https://solution-du-jour.fr/">Accueil</a> &rsaquo;
-  <a href="../">EuroMillions</a> &rsaquo;
-  <span>Simulateur</span>
-</nav>
+{breadcrumb_html(breadcrumb_items)}
   <article>
 
     <div class="card">
@@ -1937,37 +1920,7 @@ def generate_simulator_html() -> None:
       </table>
     </div>
 
-    <div class="card">
-      <h2>Questions fréquentes</h2>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Comment fonctionne le simulateur EuroMillions ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler.
-          L'outil vérifie votre grille sur tous les tirages depuis 2004 et calcule vos gains.
-        </p>
-      </details>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Les gains sont-ils exacts ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Les gains sont approximatifs. Le jackpot (1er rang) varie très fortement selon les tirages.
-          Les autres rangs reflètent les montants indicatifs officiels.
-        </p>
-      </details>
-      <details style="margin-bottom:.75rem;">
-        <summary style="cursor:pointer;font-weight:600;">Combien de tirages sont analysés ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          Le simulateur couvre tous les tirages depuis février 2004, mis à jour après chaque tirage
-          (mardi et vendredi).
-        </p>
-      </details>
-      <details>
-        <summary style="cursor:pointer;font-weight:600;">Quelle est la probabilité de gagner le jackpot ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;">
-          La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1/139\u202f838\u202f160.
-          Ce simulateur est un outil ludique illustrant l'espérance mathématique.
-        </p>
-      </details>
-    </div>
+{faq_visible}
 
     <div class="card" style="text-align:center;">
       <p style="font-size:.9rem;">

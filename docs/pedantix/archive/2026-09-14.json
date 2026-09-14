@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-14",
+  "puzzle_num": 1584,
+  "word": "Mary Shelley",
+  "title_slug": "Mary_Shelley",
+  "title_display": "Mary Shelley",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mary_Shelley",
+  "hints": {
+    "level1": [
+      "2 mots · 11 lettres",
+      "Premières lettres : M · S"
+    ],
+    "level2": [
+      "romancière et autrice dramatique britannique",
+      "Naissance en août 1797",
+      "Naissance à Camden (borough londonien)",
+      "Écrivain britannique du XIXe siècle"
+    ],
+    "level3": [
+      "___, née ___ Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage."
+    ]
+  },
+  "extract": "Mary Shelley, née Mary Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage.",
+  "categories": [
+    "romancière et autrice dramatique britannique",
+    "Naissance en août 1797",
+    "Naissance à Camden (borough londonien)",
+    "Écrivain britannique du XIXe siècle"
+  ],
+  "generated_at": "2026-09-14T22:16:22.216895+00:00"
+}

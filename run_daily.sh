@@ -12,6 +12,23 @@ PYTHON="$SCRIPT_DIR/venv/bin/python"
 
 cd "$SCRIPT_DIR"
 
+# Timeouts SSH : sans ça, une connexion qui décroche bloque git pull/push indéfiniment
+# et launchd saute les runs suivants tant que celui-ci n'est pas terminé (incident du 12/09).
+export GIT_SSH_COMMAND="ssh -o ConnectTimeout=30 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
+
+# Watchdog : durée max du run (45 min), au-delà on tue le script et ses sous-processus.
+MAX_RUNTIME=2700
+MAIN_PID=$$
+(
+  sleep "$MAX_RUNTIME"
+  trap '' TERM  # ne pas être tué par le pkill ci-dessous (on est enfant de MAIN_PID)
+  echo "=== $(date '+%Y-%m-%d %H:%M:%S') — ⛔ Timeout après ${MAX_RUNTIME}s, arrêt forcé ===" >> "$LOG_FILE"
+  pkill -TERM -P "$MAIN_PID" || true
+  kill -TERM "$MAIN_PID" || true
+) >/dev/null 2>&1 &
+WATCHDOG_PID=$!
+trap 'pkill -P "$WATCHDOG_PID" 2>/dev/null; kill "$WATCHDOG_PID" 2>/dev/null; true' EXIT
+
 {
   echo "=== $(date '+%Y-%m-%d %H:%M:%S') — Démarrage ==="
 

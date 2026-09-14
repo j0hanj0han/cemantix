@@ -609,7 +609,7 @@ def generate_report(service, days: int = 30, output: str = "gsc_report.md") -> N
     report = "\n".join(lines) + "\n"
     Path(output).write_text(report, encoding="utf-8")
     print(f"\n✅ Rapport sauvegardé : {output}")
-    print(f"   {total_clicks} clics · {total_impressions} impressions · {len(quick_wins)} quick wins · {len(low_ctr)} pages à améliorer")
+    print(f"   {totals['clicks']} clics · {totals['impressions']} impressions · {len(quick_wins)} quick wins · {len(low_ctr)} pages à améliorer")
 
 
 # ── Rapport indexation ────────────────────────────────────────────────────────

@@ -4,10 +4,26 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-09-13T08:05:00+02:00</updated>
+  <updated>2026-09-14T08:05:00+02:00</updated>
+  <entry>
+    <id>https://solution-du-jour.fr/cemantix/archive/2026-09-14</id>
+    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <title>Solution Cémantix du lundi 14 septembre 2026</title>
+    <updated>2026-09-14T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le lundi 14 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;ROCHER&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/sutom/archive/2026-09-14</id>
+    <link href="https://solution-du-jour.fr/sutom/"/>
+    <title>Solution Sutom du lundi 14 septembre 2026</title>
+    <updated>2026-09-14T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le lundi 14 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;PYGMEE&lt;/strong&gt;</content>
+  </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-13</id>
-    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <link href="https://solution-du-jour.fr/cemantix/archive/2026-09-13"/>
     <title>Solution Cémantix du dimanche 13 septembre 2026</title>
     <updated>2026-09-13T08:05:00+02:00</updated>
     <summary>Solution et détails pour le dimanche 13 septembre 2026.</summary>
@@ -15,15 +31,23 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/sutom/archive/2026-09-13</id>
-    <link href="https://solution-du-jour.fr/sutom/"/>
+    <link href="https://solution-du-jour.fr/sutom/archive/2026-09-13"/>
     <title>Solution Sutom du dimanche 13 septembre 2026</title>
     <updated>2026-09-13T08:05:00+02:00</updated>
     <summary>Solution et détails pour le dimanche 13 septembre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;OFFICIER&lt;/strong&gt;</content>
   </entry>
   <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-12</id>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-13</id>
     <link href="https://solution-du-jour.fr/pedantix/"/>
+    <title>Solution Pédantix du dimanche 13 septembre 2026</title>
+    <updated>2026-09-13T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le dimanche 13 septembre 2026.</summary>
+    <content type="html">Article : &lt;strong&gt;Documentaire&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-12</id>
+    <link href="https://solution-du-jour.fr/pedantix/archive/2026-09-12"/>
     <title>Solution Pédantix du samedi 12 septembre 2026</title>
     <updated>2026-09-12T08:05:00+02:00</updated>
     <summary>Solution et détails pour le samedi 12 septembre 2026.</summary>
@@ -836,37 +860,5 @@
     <updated>2026-08-15T22:00:00+02:00</updated>
     <summary>Solution et détails pour le samedi 15 août 2026.</summary>
     <content type="html">Numéros : &lt;strong&gt;28 · 31 · 34 · 38 · 48&lt;/strong&gt; + chance 3</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/cemantix/archive/2026-08-14</id>
-    <link href="https://solution-du-jour.fr/cemantix/archive/2026-08-14"/>
-    <title>Solution Cémantix du vendredi 14 août 2026</title>
-    <updated>2026-08-14T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le vendredi 14 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;SCÉNARIO&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/sutom/archive/2026-08-14</id>
-    <link href="https://solution-du-jour.fr/sutom/archive/2026-08-14"/>
-    <title>Solution Sutom du vendredi 14 août 2026</title>
-    <updated>2026-08-14T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le vendredi 14 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;AIMABLE&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-08-14</id>
-    <link href="https://solution-du-jour.fr/pedantix/archive/2026-08-14"/>
-    <title>Solution Pédantix du vendredi 14 août 2026</title>
-    <updated>2026-08-14T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le vendredi 14 août 2026.</summary>
-    <content type="html">Article : &lt;strong&gt;Peinture murale&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/euromillions/archive/2026-08-14</id>
-    <link href="https://solution-du-jour.fr/euromillions/archive/2026-08-14"/>
-    <title>Résultats EuroMillions du vendredi 14 août 2026</title>
-    <updated>2026-08-14T21:30:00+02:00</updated>
-    <summary>Solution et détails pour le vendredi 14 août 2026.</summary>
-    <content type="html">Numéros : &lt;strong&gt;5 · 29 · 39 · 48 · 49&lt;/strong&gt; — Étoiles : 4 · 8</content>
   </entry>
 </feed>

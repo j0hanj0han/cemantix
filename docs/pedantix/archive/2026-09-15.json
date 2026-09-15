@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-15",
+  "puzzle_num": 1585,
+  "word": "Cloche",
+  "title_slug": "Cloche",
+  "title_display": "Cloche",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cloche",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "objet destiné à l'émission d'un son",
+      "Clocher",
+      "Idiophone",
+      "Instrument de musique sacré"
+    ],
+    "level3": [
+      "Une ___ est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son."
+    ]
+  },
+  "extract": "Une cloche est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son.",
+  "categories": [
+    "objet destiné à l'émission d'un son",
+    "Clocher",
+    "Idiophone",
+    "Instrument de musique sacré"
+  ],
+  "generated_at": "2026-09-15T22:16:20.153945+00:00"
+}

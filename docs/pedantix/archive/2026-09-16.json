@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-16",
+  "puzzle_num": 1586,
+  "word": "Psychopathie",
+  "title_slug": "Psychopathie",
+  "title_display": "Psychopathie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Psychopathie",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : P"
+    ],
+    "level2": [
+      "trouble psychologique",
+      "Criminalité",
+      "Criminologie"
+    ],
+    "level3": [
+      "La ___ est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains »."
+    ]
+  },
+  "extract": "La psychopathie est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains ».",
+  "categories": [
+    "trouble psychologique",
+    "Criminalité",
+    "Criminologie"
+  ],
+  "generated_at": "2026-09-16T22:16:34.406070+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-17",
+  "puzzle_num": 1587,
+  "word": "Peinture de paysage",
+  "title_slug": "Peinture_de_paysage",
+  "title_display": "Peinture de paysage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Peinture_de_paysage",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : P · D · P"
+    ],
+    "level2": [
+      "genre artistique",
+      "Paysage dans la peinture",
+      "Peinture par thème"
+    ],
+    "level3": [
+      "La ___ est un genre pictural figuratif qui représente le ___."
+    ]
+  },
+  "extract": "La peinture de paysage est un genre pictural figuratif qui représente le paysage.",
+  "categories": [
+    "genre artistique",
+    "Paysage dans la peinture",
+    "Peinture par thème"
+  ],
+  "generated_at": "2026-09-17T22:17:26.930492+00:00"
+}

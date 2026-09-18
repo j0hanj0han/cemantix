@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-18",
+  "puzzle_num": 1588,
+  "word": "John Wesley",
+  "title_slug": "John_Wesley",
+  "title_display": "John Wesley",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/John_Wesley",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : J · W"
+    ],
+    "level2": [
+      "prêtre anglican et fondateur du méthodisme",
+      "Typographie à vérifier",
+      "Antiesclavagiste britannique",
+      "Militant britannique du XVIIIe siècle"
+    ],
+    "level3": [
+      "___, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme."
+    ]
+  },
+  "extract": "John Wesley, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme.",
+  "categories": [
+    "prêtre anglican et fondateur du méthodisme",
+    "Typographie à vérifier",
+    "Antiesclavagiste britannique",
+    "Militant britannique du XVIIIe siècle"
+  ],
+  "generated_at": "2026-09-18T22:20:57.444300+00:00"
+}

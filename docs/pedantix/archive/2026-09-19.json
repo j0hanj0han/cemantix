@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-19",
+  "puzzle_num": 1589,
+  "word": "Superstition",
+  "title_slug": "Superstition",
+  "title_display": "Superstition",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Superstition",
+  "hints": {
+    "level1": [
+      "1 mot · 12 lettres",
+      "Première lettre : S"
+    ],
+    "level2": [
+      "croyance de nature irrationnelle",
+      "Anthropologie des religions",
+      "Psychose",
+      "Sociologie de l'imaginaire"
+    ],
+    "level3": [
+      "La ___ est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles."
+    ]
+  },
+  "extract": "La superstition est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles.",
+  "categories": [
+    "croyance de nature irrationnelle",
+    "Anthropologie des religions",
+    "Psychose",
+    "Sociologie de l'imaginaire"
+  ],
+  "generated_at": "2026-09-19T22:17:12.254437+00:00"
+}

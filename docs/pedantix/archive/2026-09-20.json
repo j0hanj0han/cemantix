@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-20",
+  "puzzle_num": 1590,
+  "word": "Origine du langage",
+  "title_slug": "Origine_du_langage",
+  "title_display": "Origine du langage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Origine_du_langage",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : O · D · L"
+    ],
+    "level2": [
+      "Langage",
+      "Linguistique historique",
+      "Anthropologie linguistique",
+      "Cerveau"
+    ],
+    "level3": [
+      "L'___ humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive."
+    ]
+  },
+  "extract": "L'origine du langage humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive.",
+  "categories": [
+    "Langage",
+    "Linguistique historique",
+    "Anthropologie linguistique",
+    "Cerveau"
+  ],
+  "generated_at": "2026-09-20T22:15:48.844879+00:00"
+}

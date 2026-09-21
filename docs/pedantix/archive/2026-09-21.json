@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-21",
+  "puzzle_num": 1591,
+  "word": "Immunologie",
+  "title_slug": "Immunologie",
+  "title_display": "Immunologie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Immunologie",
+  "hints": {
+    "level1": [
+      "1 mot · 11 lettres",
+      "Première lettre : I"
+    ],
+    "level2": [
+      "branche de la biologie qui s'occupe de l'étude du système immunitaire",
+      "Discipline fondamentale en médecine"
+    ],
+    "level3": [
+      "L'___ est la branche de la biologie qui s'occupe de l'étude du système immunitaire, protecteur de l'organisme contre les bactéries et autres agents infectieux."
+    ]
+  },
+  "extract": "L'immunologie est la branche de la biologie qui s'occupe de l'étude du système immunitaire, protecteur de l'organisme contre les bactéries et autres agents infectieux.",
+  "categories": [
+    "branche de la biologie qui s'occupe de l'étude du système immunitaire",
+    "Discipline fondamentale en médecine"
+  ],
+  "generated_at": "2026-09-21T22:18:00.842796+00:00"
+}

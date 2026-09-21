@@ -4,10 +4,26 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-09-21T08:05:00+02:00</updated>
+  <updated>2026-09-22T08:05:00+02:00</updated>
+  <entry>
+    <id>https://solution-du-jour.fr/cemantix/archive/2026-09-22</id>
+    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <title>Solution Cémantix du mardi 22 septembre 2026</title>
+    <updated>2026-09-22T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le mardi 22 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;MANIPULATION&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/sutom/archive/2026-09-22</id>
+    <link href="https://solution-du-jour.fr/sutom/"/>
+    <title>Solution Sutom du mardi 22 septembre 2026</title>
+    <updated>2026-09-22T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le mardi 22 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;OBSTACLE&lt;/strong&gt;</content>
+  </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-21</id>
-    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <link href="https://solution-du-jour.fr/cemantix/archive/2026-09-21"/>
     <title>Solution Cémantix du lundi 21 septembre 2026</title>
     <updated>2026-09-21T08:05:00+02:00</updated>
     <summary>Solution et détails pour le lundi 21 septembre 2026.</summary>
@@ -15,11 +31,19 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/sutom/archive/2026-09-21</id>
-    <link href="https://solution-du-jour.fr/sutom/"/>
+    <link href="https://solution-du-jour.fr/sutom/archive/2026-09-21"/>
     <title>Solution Sutom du lundi 21 septembre 2026</title>
     <updated>2026-09-21T08:05:00+02:00</updated>
     <summary>Solution et détails pour le lundi 21 septembre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;BLOUSON&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-21</id>
+    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <title>Solution Pédantix du lundi 21 septembre 2026</title>
+    <updated>2026-09-21T08:05:00+02:00</updated>
+    <summary>Solution et détails pour le lundi 21 septembre 2026.</summary>
+    <content type="html">Article : &lt;strong&gt;Immunologie&lt;/strong&gt;</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-20</id>
@@ -39,7 +63,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/pedantix/archive/2026-09-20</id>
-    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <link href="https://solution-du-jour.fr/pedantix/archive/2026-09-20"/>
     <title>Solution Pédantix du dimanche 20 septembre 2026</title>
     <updated>2026-09-20T08:05:00+02:00</updated>
     <summary>Solution et détails pour le dimanche 20 septembre 2026.</summary>
@@ -844,37 +868,5 @@
     <updated>2026-08-23T08:05:00+02:00</updated>
     <summary>Solution et détails pour le dimanche 23 août 2026.</summary>
     <content type="html">Article : &lt;strong&gt;Poséidon&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/cemantix/archive/2026-08-22</id>
-    <link href="https://solution-du-jour.fr/cemantix/archive/2026-08-22"/>
-    <title>Solution Cémantix du samedi 22 août 2026</title>
-    <updated>2026-08-22T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le samedi 22 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;SALON&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/sutom/archive/2026-08-22</id>
-    <link href="https://solution-du-jour.fr/sutom/archive/2026-08-22"/>
-    <title>Solution Sutom du samedi 22 août 2026</title>
-    <updated>2026-08-22T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le samedi 22 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;CORBEILLE&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-08-22</id>
-    <link href="https://solution-du-jour.fr/pedantix/archive/2026-08-22"/>
-    <title>Solution Pédantix du samedi 22 août 2026</title>
-    <updated>2026-08-22T08:05:00+02:00</updated>
-    <summary>Solution et détails pour le samedi 22 août 2026.</summary>
-    <content type="html">Article : &lt;strong&gt;Dyslexie&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/loto/archive/2026-08-22</id>
-    <link href="https://solution-du-jour.fr/loto/archive/2026-08-22"/>
-    <title>Résultats Loto du samedi 22 août 2026</title>
-    <updated>2026-08-22T22:00:00+02:00</updated>
-    <summary>Solution et détails pour le samedi 22 août 2026.</summary>
-    <content type="html">Numéros : &lt;strong&gt;14 · 17 · 23 · 38 · 44&lt;/strong&gt; + chance 5</content>
   </entry>
 </feed>

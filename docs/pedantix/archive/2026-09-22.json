@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-22",
+  "puzzle_num": 1592,
+  "word": "Ziggurat",
+  "title_slug": "Ziggurat",
+  "title_display": "Ziggurat",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ziggurat",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : Z"
+    ],
+    "level2": [
+      "édifice religieux mésopotamien à degrés",
+      "Architecture religieuse",
+      "Religion mésopotamienne",
+      "Pyramide"
+    ],
+    "level3": [
+      "Une ___ ou ziggourat est un édifice religieux mésopotamien à degrés, présent aussi en Élam, constitué d'un empilement de plusieurs terrasses hautes supportant probablement un temple construit à son sommet."
+    ]
+  },
+  "extract": "Une ziggurat ou ziggourat est un édifice religieux mésopotamien à degrés, présent aussi en Élam, constitué d'un empilement de plusieurs terrasses hautes supportant probablement un temple construit à son sommet.",
+  "categories": [
+    "édifice religieux mésopotamien à degrés",
+    "Architecture religieuse",
+    "Religion mésopotamienne",
+    "Pyramide"
+  ],
+  "generated_at": "2026-09-22T22:21:53.855897+00:00"
+}

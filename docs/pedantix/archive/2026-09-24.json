@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-24",
+  "puzzle_num": 1594,
+  "word": "Danemark",
+  "title_slug": "Danemark",
+  "title_display": "Danemark",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Danemark",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : D"
+    ],
+    "level2": [
+      "État souverain et monarchie constitutionnelle transcontinentale",
+      "Éponyme d'une épithète spécifique"
+    ],
+    "level3": [
+      "Le ___, en forme longue le royaume de ___, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie."
+    ]
+  },
+  "extract": "Le Danemark, en forme longue le royaume de Danemark, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie.",
+  "categories": [
+    "État souverain et monarchie constitutionnelle transcontinentale",
+    "Éponyme d'une épithète spécifique"
+  ],
+  "generated_at": "2026-09-24T22:20:18.460569+00:00"
+}

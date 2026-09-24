@@ -13,5 +13,8 @@
   ],
   "code": "BE 101 8833",
   "next_jackpot": 130000000.0,
-  "generated_at": "2026-09-22T22:21:52.412826+00:00"
+  "generated_at": "2026-09-22T22:21:52.412826+00:00",
+  "jackpot_amount": 37642516.9,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

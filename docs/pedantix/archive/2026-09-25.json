@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-25",
+  "puzzle_num": 1595,
+  "word": "Grec ancien",
+  "title_slug": "Grec_ancien",
+  "title_display": "Grec ancien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Grec_ancien",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : G · A"
+    ],
+    "level2": [
+      "langue grecque antique",
+      "Langue SOV",
+      "Langue SVO",
+      "Langue flexionnelle"
+    ],
+    "level3": [
+      "Le ___ est l’étape historique de la langue ___que qui s'étend du IXe siècle av."
+    ]
+  },
+  "extract": "Le grec ancien est l’étape historique de la langue grecque qui s'étend du IXe siècle av.",
+  "categories": [
+    "langue grecque antique",
+    "Langue SOV",
+    "Langue SVO",
+    "Langue flexionnelle"
+  ],
+  "generated_at": "2026-09-25T22:18:59.771678+00:00"
+}

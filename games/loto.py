@@ -211,6 +211,22 @@ _FR_MONTHS = {
 }
 
 
+def _next_draw_num(draw_date: str) -> str:
+    """Déduit le n° de tirage (format AANNN, ex. "26114") depuis la dernière archive
+    antérieure à draw_date. Retourne "" si la dernière archive n'a pas de n°."""
+    previous = sorted(p for p in LOTO_ARCHIVE.glob("*.json") if p.stem < draw_date)
+    if not previous:
+        return ""
+    prev = json.loads(previous[-1].read_text(encoding="utf-8"))
+    prev_num = str(prev.get("draw_num", ""))
+    if len(prev_num) != 5 or not prev_num.isdigit():
+        return ""
+    yy = draw_date[2:4]
+    if prev_num[:2] != yy:
+        return f"{yy}001"
+    return f"{yy}{int(prev_num[2:]) + 1:03d}"
+
+
 def get_loto_from_tirage_gagnant() -> dict | None:
     """Fallback : récupère les numéros du dernier tirage Loto depuis tirage-gagnant.com.
     Utilisé quand OpenDataSoft est en retard.
@@ -903,7 +919,7 @@ def generate_index_html(
         "name": "Quand a lieu le prochain tirage Loto ?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Le Loto tire le lundi, le mercredi et le samedi soir (vers 20h20). Cette page est mise à jour automatiquement après chaque tirage."
+          "text": "Le Loto tire le lundi, le mercredi et le samedi soir (vers 20h20). Cette page est mise à jour automatiquement dans l'heure qui suit chaque tirage."
         }}
       }},
       {{
@@ -1624,7 +1640,17 @@ def run(today: date) -> dict | None:
     LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
 
     print("[Loto] Récupération du dernier tirage…")
+    # OpenDataSoft (miroir) a ~1 jour de retard ; tirage-gagnant.com publie le soir même.
+    # On interroge les deux et on garde le tirage le plus récent (ODS à date égale, pour draw_num).
     draw = get_loto_latest()
+    if draw:
+        print(f"[Loto] Dernier tirage OpenDataSoft : {draw['date']} — {draw['balls']} + chance {draw['lucky_ball']}")
+    tg_draw = get_loto_from_tirage_gagnant()
+    if tg_draw:
+        print(f"[Loto] Dernier tirage tirage-gagnant.com : {tg_draw['date']} — {tg_draw['balls']} + chance {tg_draw['lucky_ball']}")
+        if not draw or tg_draw["date"] > draw["date"]:
+            tg_draw["draw_num"] = _next_draw_num(tg_draw["date"])
+            draw = tg_draw
 
     if not draw:
         print("[Loto] ⚠ Tirage non disponible — génération page indisponible.")
@@ -1632,24 +1658,7 @@ def run(today: date) -> dict | None:
         return None
 
     draw_date_str = draw["date"]
-    print(f"[Loto] ✅ Dernier tirage OpenDataSoft : {draw_date_str} — {draw['balls']} + chance {draw['lucky_ball']}")
-
-    # Fallback : si OpenDataSoft a plus de 3 jours de retard, essayer tirage-gagnant.com
-    from datetime import timedelta
-    try:
-        draw_date_obj = date.fromisoformat(draw_date_str)
-        if (today - draw_date_obj) > timedelta(days=3):
-            print(f"[Loto] ⚠ OpenDataSoft en retard ({draw_date_str}), tentative fallback tirage-gagnant.com…")
-            tg_draw = get_loto_from_tirage_gagnant()
-            if tg_draw and tg_draw["date"] > draw_date_str:
-                print(f"[Loto] ✅ Fallback tirage-gagnant.com : {tg_draw['date']} — {tg_draw['balls']} + chance {tg_draw['lucky_ball']}")
-                tg_draw.setdefault("draw_num", "")
-                draw = tg_draw
-                draw_date_str = draw["date"]
-            else:
-                print("[Loto] ⚠ Fallback indisponible ou pas plus récent, on garde OpenDataSoft.")
-    except Exception as e:
-        print(f"[Loto] ⚠ Erreur lors du fallback : {e}")
+    print(f"[Loto] ✅ Tirage retenu : {draw_date_str} (n°{draw['draw_num'] or '?'})")
 
     # Si ce tirage est déjà sauvegardé → régénérer HTML seulement
     solution_path = LOTO_DIR / "solution.json"

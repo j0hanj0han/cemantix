@@ -735,7 +735,7 @@ def generate_index_html(
         "name": "Quand a lieu le prochain tirage EuroMillions ?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "L'EuroMillions tire le mardi et le vendredi soir (vers 21h05). Cette page est mise à jour automatiquement après chaque tirage."
+          "text": "L'EuroMillions tire le mardi et le vendredi soir (vers 21h05). Cette page est mise à jour automatiquement dans l'heure qui suit chaque tirage."
         }}
       }},
       {{

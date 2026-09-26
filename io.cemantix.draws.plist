@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>io.cemantix.draws</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/johan/code/cemantix/run_draws.sh</string>
+  </array>
+
+  <!-- Soirs de tirage : Loto lun/mer/sam 20h40, EuroMillions mar/ven 21h20 (Weekday : 1=lundi) -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>20</integer><key>Minute</key><integer>40</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>20</integer><key>Minute</key><integer>40</integer></dict>
+    <dict><key>Weekday</key><integer>6</integer><key>Hour</key><integer>20</integer><key>Minute</key><integer>40</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>20</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>20</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/Users/johan/code/cemantix/run_daily.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/johan/code/cemantix/run_daily.log</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

@@ -288,12 +288,12 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       {{
         "@type": "Question",
         "name": "Quand sont tirés les numéros du Loto FDJ ?",
-        "acceptedAnswer": {{"@type": "Answer", "text": "Le Loto FDJ tire ses numéros le lundi, mercredi et samedi soir vers 20h20. Les résultats sont publiés automatiquement sur ce site après chaque tirage."}}
+        "acceptedAnswer": {{"@type": "Answer", "text": "Le Loto FDJ tire ses numéros le lundi, mercredi et samedi soir vers 20h20. Les résultats sont publiés automatiquement sur ce site dans l'heure qui suit chaque tirage."}}
       }},
       {{
         "@type": "Question",
         "name": "Quand a lieu le tirage EuroMillions ?",
-        "acceptedAnswer": {{"@type": "Answer", "text": "L'EuroMillions tire ses numéros le mardi et vendredi soir vers 21h30. Les résultats sont disponibles sur ce site après chaque tirage."}}
+        "acceptedAnswer": {{"@type": "Answer", "text": "L'EuroMillions tire ses numéros le mardi et vendredi soir vers 21h30. Les résultats sont disponibles sur ce site dans l'heure qui suit chaque tirage."}}
       }},
       {{
         "@type": "Question",

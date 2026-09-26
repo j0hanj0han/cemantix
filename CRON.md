@@ -30,6 +30,34 @@ run_daily.sh
 Tout dépend de ce run unique par jour. S'il ne tourne pas, **rien** ne se met à jour
 (pas seulement le jeu dont le tirage a eu lieu la veille au soir).
 
+### Run du soir : Loto / EuroMillions (`io.cemantix.draws`)
+
+Pour publier les tirages le soir même (et pas à 00h15), un 2ᵉ job launchd lance
+`run_draws.sh` les soirs de tirage :
+
+| Jeu | Tirage | Lancement du job |
+|---|---|---|
+| Loto | lun/mer/sam ~20h20 | 20h40 |
+| EuroMillions | mar/ven ~21h05 | 21h20 |
+
+`run_draws.sh` relance `generate.py` toutes les 5 min (les autres jeux sont idempotents)
+jusqu'à ce que `docs/<jeu>/solution.json` porte la date du jour, puis commit/push/IndexNow.
+Si le tirage n'est toujours pas là à 23h30, il abandonne sans rien commiter : le run de
+00h15 prend le relais. **Pas de post Reddit** dans ce script (`reddit_post.py` ne
+déduplique pas). Il partage `run_daily.log`.
+
+Installation :
+
+```bash
+cp io.cemantix.draws.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.cemantix.draws.plist
+launchctl print gui/$(id -u)/io.cemantix.draws
+```
+
+Source Loto : `games/loto.py::run()` interroge OpenDataSoft (≈1 jour de retard) **et**
+tirage-gagnant.com (à jour le soir même) et garde le tirage le plus récent ; le n° de
+tirage est alors déduit de la dernière archive (`_next_draw_num`).
+
 ---
 
 ## Fichiers impliqués

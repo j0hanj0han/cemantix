@@ -56,4 +56,15 @@
       <news:title>Solution Sutom du vendredi 25 septembre 2026</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://solution-du-jour.fr/loto/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-26T22:00:00+02:00</news:publication_date>
+      <news:title>Résultats Loto du samedi 26 septembre 2026</news:title>
+    </news:news>
+  </url>
 </urlset>

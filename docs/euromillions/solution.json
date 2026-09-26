@@ -13,5 +13,8 @@
   ],
   "code": "AQ 685 4226",
   "next_jackpot": 17000000.0,
-  "generated_at": "2026-09-25T22:18:58.423121+00:00"
+  "generated_at": "2026-09-25T22:18:58.423121+00:00",
+  "jackpot_amount": 130000000,
+  "jackpot_winners": 1,
+  "jackpot_won": true
 }

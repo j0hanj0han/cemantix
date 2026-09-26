@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-26T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 26 septembre 2026</news:title>
+      <news:publication_date>2026-09-27T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du dimanche 27 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-26T08:05:00+02:00</news:publication_date>
-      <news:title>Indices Cémantix du samedi 26 septembre 2026</news:title>
+      <news:publication_date>2026-09-27T08:05:00+02:00</news:publication_date>
+      <news:title>Indices Cémantix du dimanche 27 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-25</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-26</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-25T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 25 septembre 2026</news:title>
+      <news:publication_date>2026-09-26T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Cémantix du samedi 26 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,30 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-09-27T08:05:00+02:00</news:publication_date>
+      <news:title>Solution Sutom du dimanche 27 septembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-26</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-09-26T08:05:00+02:00</news:publication_date>
       <news:title>Solution Sutom du samedi 26 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-25</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-25T08:05:00+02:00</news:publication_date>
-      <news:title>Solution Sutom du vendredi 25 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/loto/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-26T22:00:00+02:00</news:publication_date>
-      <news:title>Résultats Loto du samedi 26 septembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

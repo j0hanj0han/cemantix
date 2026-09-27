@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-27",
+  "puzzle_num": 1597,
+  "word": "Chasseur-cueilleur",
+  "title_slug": "Chasseur-cueilleur",
+  "title_display": "Chasseur-cueilleur",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chasseur-cueilleur",
+  "hints": {
+    "level1": [
+      "1 mot · 18 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "humain vivant dans une société où l'alimentation provient en majorité de la chasse et de la cueillette des plantes",
+      "Peuple chasseur-cueilleur",
+      "Préhistoire"
+    ],
+    "level3": [
+      "Le ___ est un être humain dont le mode de vie est fondé sur la chasse, la pêche et la cueillette."
+    ]
+  },
+  "extract": "Le chasseur-cueilleur est un être humain dont le mode de vie est fondé sur la chasse, la pêche et la cueillette.",
+  "categories": [
+    "humain vivant dans une société où l'alimentation provient en majorité de la chasse et de la cueillette des plantes",
+    "Peuple chasseur-cueilleur",
+    "Préhistoire"
+  ],
+  "generated_at": "2026-09-27T22:21:30.078864+00:00"
+}

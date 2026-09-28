@@ -17,7 +17,7 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    published_iso, FEED_LINK_TAG, updated_block,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
     month_fr, de_month_fr, group_by_month,
 )
@@ -395,9 +395,11 @@ def generate_archive_html(
     next_date,
     extract: str = "",
     categories: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
+    pub_iso = published_iso(d, generated_at, 0, 15)
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
@@ -450,15 +452,15 @@ def generate_archive_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(d, 8, 0)}",
-    "dateModified": "{iso_paris(d, 8, 0)}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/archive/{date_str}"}},
@@ -833,7 +835,7 @@ def generate_index_html(
 ) -> None:
     date_str = today.isoformat()
     date_display = date_fr(today)
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+    pub_iso = published_iso(today, generated_at, 0, 15)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
     wiki_url = f"https://fr.wikipedia.org/wiki/{title_slug}"
@@ -895,15 +897,15 @@ def generate_index_html(
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta name="twitter:card" content="summary">
-  <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution P\u00e9dantix #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{modified_iso}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/"}},
@@ -934,7 +936,7 @@ def generate_index_html(
 <header class="site-header">
   <h1>Solution Pédantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Article Wikipedia secret &amp; indices</p>
-{updated_block(modified_iso)}
+{updated_block(pub_iso)}
 </header>
 
 <main>
@@ -982,7 +984,7 @@ def generate_index_html(
         Le but est de retrouver le titre de l'article.
       </p>
       <p style="margin-top:.75rem;">
-        Cette page est mise à jour automatiquement chaque matin avec la <strong>solution du jour</strong>
+        Cette page est mise à jour automatiquement chaque nuit vers 0h20 avec la <strong>solution du jour</strong>
         et des <strong>indices pédantix</strong> pour vous aider sans trop vous spoiler.
       </p>
     </div>
@@ -1054,6 +1056,7 @@ def _generate_all_html(
         generate_archive_html(
             d, entry["puzzle_num"], e_title, e_slug, e_hints,
             prev_date, next_date, e_extract, e_cats,
+            generated_at=entry.get("generated_at"),
         )
 
     months = group_by_month(past_archives)

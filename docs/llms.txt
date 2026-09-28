@@ -1,6 +1,6 @@
 # Solutions du Jour
 
-> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Pédantix) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque matin.
+> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Pédantix) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque nuit et après chaque tirage.
 
 ## Pages principales
 
@@ -41,7 +41,7 @@
 
 ## Fréquence de mise à jour
 
-- Cémantix, Sutom et Pédantix : chaque matin vers 8h05 (heure de Paris)
+- Cémantix, Sutom et Pédantix : chaque nuit vers 0h20 (heure de Paris)
 - Loto : après chaque tirage du soir (lundi, mercredi, samedi ~20h20)
 - EuroMillions : après chaque tirage du soir (mardi, vendredi ~21h05)
 

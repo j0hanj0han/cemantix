@@ -14,19 +14,20 @@ Produit :
 
 import argparse
 import json
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from xml.sax.saxutils import escape as _xml_escape
 
-from core import SITE_URL, DOCS_DIR, date_fr, atomic_write, iso_paris, FEED_LINK_TAG, ping_indexnow
+from core import SITE_URL, DOCS_DIR, date_fr, atomic_write, published_iso, FEED_LINK_TAG, ping_indexnow
 
 MODEL_PATH_DEFAULT = "frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
 
-# Heure de publication par jeu (heure locale Paris) : (heure, minute)
+# Heure de publication de repli par jeu (heure locale Paris) : (heure, minute).
+# L'heure réelle vient de generated_at ; ceci ne sert qu'aux archives qui n'en ont pas.
 GAMES_CFG = {
-    "cemantix":     {"pub_time": (8, 5),   "title_prefix": "Solution Cémantix du"},
-    "sutom":        {"pub_time": (8, 5),   "title_prefix": "Solution Sutom du"},
-    "pedantix":     {"pub_time": (8, 5),   "title_prefix": "Solution Pédantix du"},
+    "cemantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Cémantix du"},
+    "sutom":        {"pub_time": (0, 15),  "title_prefix": "Solution Sutom du"},
+    "pedantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Pédantix du"},
     "loto":         {"pub_time": (22, 0),  "title_prefix": "Résultats Loto du"},
     "euromillions": {"pub_time": (21, 30), "title_prefix": "Résultats EuroMillions du"},
 }
@@ -224,20 +225,20 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>🎯 Solutions du jour : Cémantix, Sutom, Loto, EuroMillions</title>
-  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque matin à 8h.">
+  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
-  <meta property="og:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque matin : Cémantix, Sutom, résultats Loto, EuroMillions.">
+  <meta property="og:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque nuit : Cémantix, Sutom, résultats Loto, EuroMillions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
-  <meta name="twitter:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque matin : Cémantix, Sutom, résultats Loto, EuroMillions.">
+  <meta name="twitter:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque nuit : Cémantix, Sutom, résultats Loto, EuroMillions.">
 
   <script type="application/ld+json">
   {{
@@ -283,7 +284,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       {{
         "@type": "Question",
         "name": "À quelle heure est publiée la solution Cémantix ?",
-        "acceptedAnswer": {{"@type": "Answer", "text": "La solution Cémantix est publiée automatiquement chaque matin vers 8h05, dès que le nouveau puzzle est disponible."}}
+        "acceptedAnswer": {{"@type": "Answer", "text": "La solution Cémantix est publiée automatiquement chaque nuit vers 0h20 (heure de Paris), peu après la sortie du nouveau puzzle à minuit."}}
       }},
       {{
         "@type": "Question",
@@ -358,7 +359,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       et indices des jeux <strong>Cémantix</strong> et <strong>Sutom</strong>, ainsi que les
       <strong>résultats Loto et EuroMillions</strong>.
       Tout est généré automatiquement — aucune intervention humaine.
-      Les solutions Cémantix et Sutom sont publiées vers <strong>8h05</strong> chaque matin.
+      Les solutions Cémantix et Sutom sont publiées chaque nuit vers <strong>0h20</strong>.
       Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi).
       Les résultats EuroMillions sont mis à jour après chaque tirage (mardi, vendredi).
     </p>
@@ -369,7 +370,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     <div style="display:flex;flex-direction:column;gap:.75rem;">
       <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
         <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">À quelle heure est publiée la solution Cémantix ?</summary>
-        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">Chaque matin vers <strong>8h05</strong>, dès que le nouveau puzzle Cémantix est disponible.</p>
+        <p style="margin-top:.5rem;font-size:.9rem;color:#374151;">Chaque nuit vers <strong>0h20</strong>, peu après la sortie du nouveau puzzle Cémantix à minuit.</p>
       </details>
       <details style="background:#f9fafb;border-radius:.5rem;padding:.85rem 1rem;">
         <summary style="font-weight:600;cursor:pointer;font-size:.92rem;">Quand sont tirés les numéros du Loto FDJ ?</summary>
@@ -455,7 +456,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
                 data_date = None
             if data_date == today:
                 d_str = today.isoformat()
-                pub_dt = iso_paris(today, hh, mm)
+                pub_dt = published_iso(today, data.get("generated_at"), hh, mm)
                 label = date_fr(today)
                 entries.append((f"{base_url}/", pub_dt, f"{title_prefix} {label}"))
                 archive_html = archive_dir / f"{d_str}.html"
@@ -469,7 +470,11 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
         y_json = archive_dir / f"{y_str}.json"
         y_html = archive_dir / f"{y_str}.html"
         if y_json.exists() and y_html.exists():
-            pub_dt = iso_paris(yesterday, hh, mm)
+            try:
+                y_generated_at = json.loads(y_json.read_text(encoding="utf-8")).get("generated_at")
+            except Exception:
+                y_generated_at = None
+            pub_dt = published_iso(yesterday, y_generated_at, hh, mm)
             label = date_fr(yesterday)
             entries.append((f"{base_url}/archive/{y_str}", pub_dt, f"{title_prefix} {label}"))
 
@@ -706,6 +711,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
     raw_entries.sort(key=lambda t: t[0], reverse=True)
 
     feed_entries = []
+    updated_all = []
     for d, key, base_url, archive_dir, json_path in raw_entries:
         cfg = GAMES_CFG[key]
         hh, mm = cfg["pub_time"]
@@ -715,11 +721,12 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
         entry_id = f"{base_url}/archive/{d_str}"
         label = date_fr(d)
         title = f"{cfg['title_prefix']} {label}"
-        updated = iso_paris(d, hh, mm)
         try:
             data = json.loads(json_path.read_text(encoding="utf-8"))
         except Exception:
             data = {}
+        updated = published_iso(d, data.get("generated_at"), hh, mm)
+        updated_all.append(updated)
         content = _feed_content(key, data)
         feed_entries.append(f"""  <entry>
     <id>{_xml_escape(entry_id)}</id>
@@ -739,7 +746,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
   <link href="{SITE_URL}/feed.xml" rel="self"/>
   <link href="{SITE_URL}/"/>
   <id>{SITE_URL}/</id>
-  <updated>{iso_paris(today, 8, 5)}</updated>
+  <updated>{max(updated_all, key=datetime.fromisoformat)}</updated>
 {chr(10).join(feed_entries)}
 </feed>
 """

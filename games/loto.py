@@ -25,7 +25,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, group_by_year,
+    published_iso, FEED_LINK_TAG, updated_block, group_by_year,
     faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
 
@@ -362,10 +362,12 @@ def generate_archive_html(
     jackpot_winners: int = 0,
     jackpot_amount: float | None = None,
     codes: list[str] | None = None,
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/loto/archive/YYYY-MM-DD.html."""
     LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = draw_date.isoformat()
+    pub_iso = published_iso(draw_date, generated_at, 22, 0)
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
 
@@ -401,15 +403,15 @@ def generate_archive_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
-  <meta property="article:published_time" content="{iso_paris(draw_date, 22, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
-    "datePublished": "{iso_paris(draw_date, 22, 0)}",
-    "dateModified": "{iso_paris(draw_date, 22, 0)}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -817,7 +819,7 @@ def generate_index_html(
     date_str = draw_date.isoformat()
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(draw_date, 22, 0)
+    pub_iso = published_iso(draw_date, generated_at, 22, 0)
 
     recent_archives_card = ""
     if recent_archives:
@@ -885,15 +887,15 @@ def generate_index_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}">
   <meta name="twitter:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
-  <meta property="article:published_time" content="{iso_paris(draw_date, 22, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats Loto {date_display} — Tirage n°{draw_num}",
-    "datePublished": "{iso_paris(draw_date, 22, 0)}",
-    "dateModified": "{modified_iso}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -954,7 +956,7 @@ def generate_index_html(
 <header class="site-header">
   <h1>Résultats du Loto du {date_display}</h1>
   <p class="subtitle">Numéros gagnants — tirage n°{draw_num}</p>
-{updated_block(modified_iso)}
+{updated_block(pub_iso)}
 </header>
 
 <main>
@@ -1596,6 +1598,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_winners=entry.get("jackpot_winners", 0),
             jackpot_amount=entry.get("jackpot_amount"),
             codes=entry.get("codes"),
+            generated_at=entry.get("generated_at"),
         )
 
     years = group_by_year(past_archives)

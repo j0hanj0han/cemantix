@@ -97,7 +97,13 @@ def utc_iso_to_paris(s: str) -> str:
     dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=ZoneInfo("UTC"))
-    return dt.astimezone(PARIS_TZ).isoformat()
+    return dt.astimezone(PARIS_TZ).replace(microsecond=0).isoformat()
+
+
+def published_iso(d: date, generated_at: str | None, hh: int, mm: int) -> str:
+    """Heure réelle de publication (generated_at, écrit une seule fois à la 1re génération),
+    à défaut d à hh:mm (vieilles archives importées sans generated_at)."""
+    return utc_iso_to_paris(generated_at) if generated_at else iso_paris(d, hh, mm)
 
 
 FEED_LINK_TAG = f'  <link rel="alternate" type="application/atom+xml" title="Solutions du Jour" href="{SITE_URL}/feed.xml">'

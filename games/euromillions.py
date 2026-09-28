@@ -30,7 +30,7 @@ from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
     fetch_static_html, jackpot_html,
     load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, group_by_year,
+    published_iso, FEED_LINK_TAG, updated_block, group_by_year,
     faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
 
@@ -169,10 +169,12 @@ def generate_archive_html(
     jackpot_winners=0,
     jackpot_won=False,
     code: str = "",
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/euromillions/archive/YYYY-MM-DD.html."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = draw_date.isoformat()
+    pub_iso = published_iso(draw_date, generated_at, 21, 30)
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
     stars_str = " · ".join(str(s) for s in stars)
@@ -211,15 +213,15 @@ def generate_archive_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
-  <meta property="article:published_time" content="{iso_paris(draw_date, 21, 30)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats EuroMillions {date_display}",
-    "datePublished": "{iso_paris(draw_date, 21, 30)}",
-    "dateModified": "{iso_paris(draw_date, 21, 30)}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -638,7 +640,7 @@ def generate_index_html(
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
     stars_str = " · ".join(str(s) for s in stars)
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(draw_date, 21, 30)
+    pub_iso = published_iso(draw_date, generated_at, 21, 30)
 
     recent_archives_card = ""
     if recent_archives:
@@ -701,15 +703,15 @@ def generate_index_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Résultats EuroMillions du {date_fr_short(draw_date)} : numéros">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
-  <meta property="article:published_time" content="{iso_paris(draw_date, 21, 30)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Résultats EuroMillions {date_display}",
-    "datePublished": "{iso_paris(draw_date, 21, 30)}",
-    "dateModified": "{modified_iso}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -770,7 +772,7 @@ def generate_index_html(
 <header class="site-header">
   <h1>Résultats EuroMillions du {date_display}</h1>
   <p class="subtitle">Numéros gagnants du dernier tirage</p>
-{updated_block(modified_iso)}
+{updated_block(pub_iso)}
 </header>
 
 <main>
@@ -1226,6 +1228,7 @@ def compute_em_stats(archives: list[dict]) -> dict:
         "total_draws": len(archives),
         "date_from": archives[-1]["date"] if archives else "",
         "date_to": archives[0]["date"] if archives else "",
+        "generated_at": archives[0].get("generated_at") if archives else None,
         "top_balls": sorted_balls[:10],
         "bottom_balls": sorted_balls[-5:],
         "top_stars": sorted_stars[:6],
@@ -1320,7 +1323,7 @@ def generate_em_stats_html(stats: dict) -> None:
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis">
   <meta name="twitter:description" content="Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}. Mis à jour automatiquement.">
-  <meta property="article:modified_time" content="{iso_paris(date.fromisoformat(stats['date_to']), 22, 0)}">
+  <meta property="article:modified_time" content="{published_iso(date.fromisoformat(stats['date_to']), stats.get('generated_at'), 22, 0)}">
 
   <script type="application/ld+json">
   {{
@@ -1650,6 +1653,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_winners=entry.get("jackpot_winners", 0),
             jackpot_won=entry.get("jackpot_won", False),
             code=entry.get("code", ""),
+            generated_at=entry.get("generated_at"),
         )
 
     years = group_by_year(past_archives)

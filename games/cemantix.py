@@ -17,7 +17,7 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris,
+    published_iso, FEED_LINK_TAG, updated_block,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
     fetch_definition, render_page, month_fr, de_month_fr, group_by_month,
 )
@@ -377,10 +377,12 @@ def generate_archive_html(
     next_date,  # date | None — plus récente (None → lien vers index.html)
     definition: str = "",
     nearby_top: list | None = None,
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/cemantix/archive/YYYY-MM-DD.html — solution, indices et mots proches en clair."""
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
+    pub_iso = published_iso(d, generated_at, 0, 15)
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition, reveal=True)
@@ -448,15 +450,15 @@ def generate_archive_html(
   <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(d, 8, 0)}",
-    "dateModified": "{iso_paris(d, 8, 0)}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/archive/{date_str}"}},
@@ -880,7 +882,7 @@ def generate_index_html(
     """Génère docs/cemantix/index.html."""
     date_str = today.isoformat()
     date_display = date_fr(today)
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+    pub_iso = published_iso(today, generated_at, 0, 15)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition)
     hint_levels = hint_levels_html(
@@ -926,14 +928,14 @@ def generate_index_html(
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
-  <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque matin à 8h.">
+  <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque nuit vers 0h20.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
   <meta property="og:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
-  <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque matin.">
+  <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque nuit vers 0h20.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
@@ -943,15 +945,15 @@ def generate_index_html(
   <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
   <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Cémantix #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{modified_iso}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},
@@ -982,7 +984,7 @@ def generate_index_html(
 <header class="site-header">
   <h1>Solution Cémantix #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Réponse &amp; indices progressifs</p>
-{updated_block(modified_iso)}
+{updated_block(pub_iso)}
 </header>
 
 <main>
@@ -1030,7 +1032,7 @@ def generate_index_html(
         Plus le mot est proche, plus la température est élevée.
       </p>
       <p style="margin-top:.75rem;">
-        Cette page est mise à jour automatiquement chaque matin avec la <strong>solution du jour</strong>
+        Cette page est mise à jour automatiquement chaque nuit vers 0h20 avec la <strong>solution du jour</strong>
         et des <strong>indices cémantix</strong> pour vous aider si vous êtes bloqué.
         Revenez chaque jour pour la nouvelle <em>réponse cémantix</em> !
         Vous cherchez la <em>réponse sémantix</em> ou le <em>mot du jour cémantix</em> ?
@@ -1118,7 +1120,7 @@ def generate_indice_html(
     date_str = today.isoformat()
     date_display = date_fr(today)
     date_short = date_fr_short(today)
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+    pub_iso = published_iso(today, generated_at, 0, 15)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     hint_levels = hint_levels_html(
         [
@@ -1219,8 +1221,8 @@ def generate_indice_html(
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": f"Indices Cémantix #{puzzle_num} du {date_display} (sans la solution)",
-        "datePublished": iso_paris(today, 8, 0),
-        "dateModified": modified_iso,
+        "datePublished": pub_iso,
+        "dateModified": pub_iso,
         "description": description,
         "url": canonical,
         "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
@@ -1270,6 +1272,7 @@ def _generate_all_html(
         generate_archive_html(
             d, entry["puzzle_num"], entry["word"], entry_hints, prev_date, next_date,
             entry_definition, entry.get("nearby_top"),
+            generated_at=entry.get("generated_at"),
         )
 
     # Pages récapitulatives mensuelles (past_archives est trié DESC)

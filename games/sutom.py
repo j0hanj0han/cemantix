@@ -19,7 +19,7 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    iso_paris, FEED_LINK_TAG, updated_block, utc_iso_to_paris, solution_box_html,
+    published_iso, FEED_LINK_TAG, updated_block, solution_box_html,
     fetch_definition, faq_html, faq_jsonld, month_fr, de_month_fr, group_by_month,
 )
 
@@ -116,10 +116,12 @@ def generate_archive_html(
     prev_date,
     next_date,
     definition: str = "",
+    generated_at: str | None = None,
 ) -> None:
     """Génère docs/sutom/archive/YYYY-MM-DD.html."""
     SUTOM_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
+    pub_iso = published_iso(d, generated_at, 0, 15)
     date_display = date_fr(d)
     letter_count = len(word)
     first_letter = word[0] if word else "?"
@@ -199,15 +201,15 @@ def generate_archive_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sutom #{puzzle_num} du {date_fr_short(d)} : solution en {letter_count} lettres">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
-  <meta property="article:published_time" content="{iso_paris(d, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Sutom #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(d, 8, 0)}",
-    "dateModified": "{iso_paris(d, 8, 0)}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution du Sutom #{puzzle_num} pour le {date_display} : {word}.",
     "url": "{SUTOM_SITE_URL}/archive/{date_str}",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -598,7 +600,7 @@ def generate_index_html(
     date_display = date_fr(today)
     letter_count = len(word)
     first_letter = word[0] if word else "?"
-    modified_iso = utc_iso_to_paris(generated_at) if generated_at else iso_paris(today, 8, 0)
+    pub_iso = published_iso(today, generated_at, 0, 15)
 
     definition_card = ""
     if definition:
@@ -641,7 +643,7 @@ def generate_index_html(
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>Sutom #{puzzle_num} du {date_fr_short(today)} : solution en {letter_count} lettres</title>
-  <meta name="description" content="Bloqué sur le Sutom #{puzzle_num} du {date_display} ? Voici la réponse du Wordle français du jour : mot en {letter_count} lettres commençant par {first_letter}. Mis à jour chaque matin.">
+  <meta name="description" content="Bloqué sur le Sutom #{puzzle_num} du {date_display} ? Voici la réponse du Wordle français du jour : mot en {letter_count} lettres commençant par {first_letter}. Mis à jour chaque nuit vers 0h20.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SUTOM_SITE_URL}/">
 {FEED_LINK_TAG}
@@ -655,15 +657,15 @@ def generate_index_html(
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sutom #{puzzle_num} du {date_fr_short(today)} : solution en {letter_count} lettres">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
-  <meta property="article:published_time" content="{iso_paris(today, 8, 0)}">
+  <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Solution Sutom #{puzzle_num} du {date_display}",
-    "datePublished": "{iso_paris(today, 8, 0)}",
-    "dateModified": "{modified_iso}",
+    "datePublished": "{pub_iso}",
+    "dateModified": "{pub_iso}",
     "description": "Solution et réponse du jeu Sutom #{puzzle_num} pour le {date_display}.",
     "url": "{SUTOM_SITE_URL}/",
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
@@ -724,7 +726,7 @@ def generate_index_html(
 <header class="site-header">
   <h1>Solution Sutom #{puzzle_num} du {date_display}</h1>
   <p class="subtitle">Réponse du Wordle français</p>
-{updated_block(modified_iso)}
+{updated_block(pub_iso)}
 </header>
 
 <main>
@@ -781,7 +783,7 @@ def generate_index_html(
         rouge = bonne lettre bien placée, jaune = bonne lettre mal placée.
       </p>
       <p style="margin-top:.75rem;">
-        Cette page est mise à jour automatiquement chaque matin avec la <strong>solution Sutom du jour</strong>.
+        Cette page est mise à jour automatiquement chaque nuit vers 0h20 avec la <strong>solution Sutom du jour</strong>.
         Revenez chaque jour pour la nouvelle <em>réponse Sutom</em> !
       </p>
     </div>
@@ -900,6 +902,7 @@ def _generate_all_html(
         generate_archive_html(
             d, entry["puzzle_num"], entry["word"], prev_date, next_date,
             entry.get("definition", ""),
+            generated_at=entry.get("generated_at"),
         )
 
     months = group_by_month(past_archives)

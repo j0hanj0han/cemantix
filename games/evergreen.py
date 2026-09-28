@@ -294,8 +294,8 @@ _ABOUT_BODY = """    <div class="card">
         publications officielles de chaque jeu ou de la Française des Jeux.
       </p>
       <p style="margin-top:.75rem;">
-        Les solutions Cémantix, Sutom et Pédantix sont publiées vers <strong>8h05</strong> chaque
-        matin. Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi) et
+        Les solutions Cémantix, Sutom et Pédantix sont publiées chaque nuit vers <strong>0h20</strong>
+        (heure de Paris). Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi) et
         les résultats EuroMillions après chaque tirage (mardi, vendredi).
       </p>
     </div>

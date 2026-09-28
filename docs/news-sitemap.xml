@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-28T00:21:23+02:00</news:publication_date>
-      <news:title>Solution Cémantix du lundi 28 septembre 2026</news:title>
+      <news:publication_date>2026-09-29T00:15:33+02:00</news:publication_date>
+      <news:title>Solution Cémantix du mardi 29 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-28T00:21:23+02:00</news:publication_date>
-      <news:title>Indices Cémantix du lundi 28 septembre 2026</news:title>
+      <news:publication_date>2026-09-29T00:15:33+02:00</news:publication_date>
+      <news:title>Indices Cémantix du mardi 29 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-27</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-09-28</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-27T00:16:05+02:00</news:publication_date>
-      <news:title>Solution Cémantix du dimanche 27 septembre 2026</news:title>
+      <news:publication_date>2026-09-28T00:21:23+02:00</news:publication_date>
+      <news:title>Solution Cémantix du lundi 28 septembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,30 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-09-29T00:15:35+02:00</news:publication_date>
+      <news:title>Solution Sutom du mardi 29 septembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-28</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-09-28T00:21:24+02:00</news:publication_date>
       <news:title>Solution Sutom du lundi 28 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-09-27</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-27T00:16:06+02:00</news:publication_date>
-      <news:title>Solution Sutom du dimanche 27 septembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/loto/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-28T20:40:10+02:00</news:publication_date>
-      <news:title>Résultats Loto du lundi 28 septembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

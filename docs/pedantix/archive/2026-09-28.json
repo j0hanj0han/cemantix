@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-28",
+  "puzzle_num": 1598,
+  "word": "Bateau",
+  "title_slug": "Bateau",
+  "title_display": "Bateau",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bateau",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : B"
+    ],
+    "level2": [
+      "moyen de transport flottant",
+      "Vocabulaire maritime"
+    ],
+    "level3": [
+      "Un ___ est un moyen de transport capable de flotter sur l'eau et de s'y déplacer, dirigé par ses occupants."
+    ]
+  },
+  "extract": "Un bateau est un moyen de transport capable de flotter sur l'eau et de s'y déplacer, dirigé par ses occupants.",
+  "categories": [
+    "moyen de transport flottant",
+    "Vocabulaire maritime"
+  ],
+  "generated_at": "2026-09-28T22:15:40.647508+00:00"
+}

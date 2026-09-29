@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-29",
+  "puzzle_num": 1599,
+  "word": "Juifs",
+  "title_slug": "Juifs",
+  "title_display": "Juifs",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Juifs",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : J"
+    ],
+    "level2": [
+      "peuple lié au judaïsme",
+      "Groupe ethnique en Israël",
+      "Peuple de la Rome antique"
+    ],
+    "level3": [
+      "Les ___ sont les membres d’un peuple identifié à sa propre religion, le judaïsme, et, au sens large du terme, à une appartenance ethnique même non religieuse."
+    ]
+  },
+  "extract": "Les Juifs sont les membres d’un peuple identifié à sa propre religion, le judaïsme, et, au sens large du terme, à une appartenance ethnique même non religieuse.",
+  "categories": [
+    "peuple lié au judaïsme",
+    "Groupe ethnique en Israël",
+    "Peuple de la Rome antique"
+  ],
+  "generated_at": "2026-09-29T22:20:57.101648+00:00"
+}

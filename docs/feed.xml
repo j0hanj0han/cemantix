@@ -4,10 +4,26 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-09-29T21:30:30+02:00</updated>
+  <updated>2026-09-30T00:20:57+02:00</updated>
+  <entry>
+    <id>https://solution-du-jour.fr/cemantix/archive/2026-09-30</id>
+    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <title>Solution Cémantix du mercredi 30 septembre 2026</title>
+    <updated>2026-09-30T00:20:49+02:00</updated>
+    <summary>Solution et détails pour le mercredi 30 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;INCOMPATIBLE&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/sutom/archive/2026-09-30</id>
+    <link href="https://solution-du-jour.fr/sutom/"/>
+    <title>Solution Sutom du mercredi 30 septembre 2026</title>
+    <updated>2026-09-30T00:20:51+02:00</updated>
+    <summary>Solution et détails pour le mercredi 30 septembre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;CASERNE&lt;/strong&gt;</content>
+  </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-29</id>
-    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <link href="https://solution-du-jour.fr/cemantix/archive/2026-09-29"/>
     <title>Solution Cémantix du mardi 29 septembre 2026</title>
     <updated>2026-09-29T00:15:33+02:00</updated>
     <summary>Solution et détails pour le mardi 29 septembre 2026.</summary>
@@ -15,11 +31,19 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/sutom/archive/2026-09-29</id>
-    <link href="https://solution-du-jour.fr/sutom/"/>
+    <link href="https://solution-du-jour.fr/sutom/archive/2026-09-29"/>
     <title>Solution Sutom du mardi 29 septembre 2026</title>
     <updated>2026-09-29T00:15:35+02:00</updated>
     <summary>Solution et détails pour le mardi 29 septembre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;ENVELOPPE&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-29</id>
+    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <title>Solution Pédantix du mardi 29 septembre 2026</title>
+    <updated>2026-09-30T00:20:57+02:00</updated>
+    <summary>Solution et détails pour le mardi 29 septembre 2026.</summary>
+    <content type="html">Article : &lt;strong&gt;Juifs&lt;/strong&gt;</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/euromillions/archive/2026-09-29</id>
@@ -47,7 +71,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/pedantix/archive/2026-09-28</id>
-    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <link href="https://solution-du-jour.fr/pedantix/archive/2026-09-28"/>
     <title>Solution Pédantix du lundi 28 septembre 2026</title>
     <updated>2026-09-29T00:15:40+02:00</updated>
     <summary>Solution et détails pour le lundi 28 septembre 2026.</summary>
@@ -868,29 +892,5 @@
     <updated>2026-09-02T00:22:49+02:00</updated>
     <summary>Solution et détails pour le lundi 31 août 2026.</summary>
     <content type="html">Numéros : &lt;strong&gt;26 · 32 · 36 · 39 · 44&lt;/strong&gt; + chance 2</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/cemantix/archive/2026-08-30</id>
-    <link href="https://solution-du-jour.fr/cemantix/archive/2026-08-30"/>
-    <title>Solution Cémantix du dimanche 30 août 2026</title>
-    <updated>2026-08-30T00:15:53+02:00</updated>
-    <summary>Solution et détails pour le dimanche 30 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;PONCTUEL&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/sutom/archive/2026-08-30</id>
-    <link href="https://solution-du-jour.fr/sutom/archive/2026-08-30"/>
-    <title>Solution Sutom du dimanche 30 août 2026</title>
-    <updated>2026-08-30T00:15:53+02:00</updated>
-    <summary>Solution et détails pour le dimanche 30 août 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;SAFRAN&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-08-30</id>
-    <link href="https://solution-du-jour.fr/pedantix/archive/2026-08-30"/>
-    <title>Solution Pédantix du dimanche 30 août 2026</title>
-    <updated>2026-08-31T00:15:49+02:00</updated>
-    <summary>Solution et détails pour le dimanche 30 août 2026.</summary>
-    <content type="html">Article : &lt;strong&gt;Stonehenge&lt;/strong&gt;</content>
   </entry>
 </feed>

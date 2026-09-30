@@ -1,6 +1,6 @@
 # Solutions du Jour
 
-> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Pédantix) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque nuit et après chaque tirage.
+> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Tusmo, Pédantix) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque nuit et après chaque tirage.
 
 ## Pages principales
 
@@ -8,6 +8,7 @@
 - [Cémantix — Solution du jour](https://solution-du-jour.fr/cemantix/): Solution et indices progressifs du Cémantix quotidien (jeu sémantique francophone).
 - [Indices Cémantix (sans la solution)](https://solution-du-jour.fr/cemantix/indice/): Indices progressifs du jour sans révéler la solution.
 - [Sutom — Solution du jour](https://solution-du-jour.fr/sutom/): Solution du Wordle français (Sutom) quotidien.
+- [Tusmo — Solution du jour](https://solution-du-jour.fr/tusmo/): Réponse et indices progressifs du Tusmo quotidien (Wordle français de tusmo.xyz).
 - [Pédantix — Solution du jour](https://solution-du-jour.fr/pedantix/): Solution et indices de l'article Wikipedia secret du Pédantix quotidien.
 - [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
 - [EuroMillions — Résultats du dernier tirage](https://solution-du-jour.fr/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
@@ -35,13 +36,14 @@
 
 - [Archives Cémantix](https://solution-du-jour.fr/cemantix/archive/): Toutes les solutions passées du Cémantix, avec des pages récapitulatives mensuelles (ex. /cemantix/archive/2026-09).
 - [Archives Sutom](https://solution-du-jour.fr/sutom/archive/): Toutes les solutions passées du Sutom.
+- [Archives Tusmo](https://solution-du-jour.fr/tusmo/archive/): Toutes les réponses passées du Tusmo, jour par jour et par mois (ex. /tusmo/archive/2026-09).
 - [Archives Pédantix](https://solution-du-jour.fr/pedantix/archive/): Toutes les solutions passées du Pédantix.
 - [Archives Loto](https://solution-du-jour.fr/loto/archive/): Tous les tirages Loto depuis 2024.
 - [Archives EuroMillions](https://solution-du-jour.fr/euromillions/archive/): Tous les tirages EuroMillions depuis 2021.
 
 ## Fréquence de mise à jour
 
-- Cémantix, Sutom et Pédantix : chaque nuit vers 0h20 (heure de Paris)
+- Cémantix, Sutom, Tusmo et Pédantix : chaque nuit vers 0h20 (heure de Paris)
 - Loto : après chaque tirage du soir (lundi, mercredi, samedi ~20h20)
 - EuroMillions : après chaque tirage du soir (mardi, vendredi ~21h05)
 

@@ -222,7 +222,7 @@ venv/bin/python -c "import generate as g; g.ping_daily_indexnow()"
 Vérifier ensuite que chaque `docs/<jeu>/solution.json` porte la date attendue :
 
 ```bash
-for g in cemantix sutom loto euromillions; do
+for g in cemantix sutom tusmo loto euromillions; do
   echo -n "$g: "; python3 -c "import json;print(json.load(open('docs/$g/solution.json')).get('date'))"
 done
 ```

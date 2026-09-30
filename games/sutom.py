@@ -812,6 +812,7 @@ def generate_index_html(
     <div class="card" style="margin-top:.5rem;">
       <h2 style="font-size:1rem;margin-bottom:.75rem;">Autres jeux du jour</h2>
       <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+        <a href="../tusmo/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🟩 Tusmo</a>
         <a href="../cemantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🧠 Cémantix</a>
         <a href="../pedantix/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📖 Pédantix</a>
         <a href="../loto/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎱 Loto FDJ</a>

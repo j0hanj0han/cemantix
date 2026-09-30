@@ -5,6 +5,7 @@ on:
     paths:
       - 'docs/cemantix/solution.json'   # déclenché quand le Mac pousse la solution Cémantix
       - 'docs/sutom/solution.json'      # déclenché quand le Mac pousse la solution Sutom
+      - 'docs/tusmo/solution.json'      # déclenché quand le Mac pousse la solution Tusmo
       - 'docs/pedantix/solution.json'   # déclenché quand le Mac pousse la solution Pédantix
       - 'docs/loto/solution.json'          # déclenché quand le Mac pousse les résultats Loto
       - 'docs/euromillions/solution.json'  # déclenché quand le Mac pousse les résultats EuroMillions
@@ -63,6 +64,22 @@ jobs:
           else
             echo "sutom_ready=false" >> "$GITHUB_OUTPUT"
             echo "⚠ docs/sutom/solution.json introuvable"
+          fi
+
+          # Vérification Tusmo
+          if [ -f docs/tusmo/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/tusmo/solution.json')); print(d.get('date',''))")
+            if [ "$DOC_DATE" = "$TODAY" ]; then
+              echo "tusmo_ready=true" >> "$GITHUB_OUTPUT"
+              ANY_READY=true
+              echo "✅ tusmo/solution.json est à jour pour $TODAY"
+            else
+              echo "tusmo_ready=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ tusmo/solution.json date=$DOC_DATE, aujourd'hui=$TODAY"
+            fi
+          else
+            echo "tusmo_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/tusmo/solution.json introuvable"
           fi
 
           # Vérification Loto (toujours "prêt" si solution.json existe)
@@ -138,6 +155,7 @@ jobs:
             echo "### ✅ HTML régénéré" >> $GITHUB_STEP_SUMMARY
             echo "- Cémantix : ${{ steps.check.outputs.cemantix_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Sutom    : ${{ steps.check.outputs.sutom_ready }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Tusmo    : ${{ steps.check.outputs.tusmo_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Pédantix : ${{ steps.check.outputs.pedantix_ready }}" >> $GITHUB_STEP_SUMMARY
           else
             echo "### ℹ Pas d'action — aucune solution n'est à jour pour aujourd'hui" >> $GITHUB_STEP_SUMMARY

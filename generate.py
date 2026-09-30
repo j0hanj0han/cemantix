@@ -27,6 +27,7 @@ MODEL_PATH_DEFAULT = "frWac_non_lem_no_postag_no_phrase_200_cbow_cut100.bin"
 GAMES_CFG = {
     "cemantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Cémantix du"},
     "sutom":        {"pub_time": (0, 15),  "title_prefix": "Solution Sutom du"},
+    "tusmo":        {"pub_time": (0, 15),  "title_prefix": "Solution Tusmo du"},
     "pedantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Pédantix du"},
     "loto":         {"pub_time": (22, 0),  "title_prefix": "Résultats Loto du"},
     "euromillions": {"pub_time": (21, 30), "title_prefix": "Résultats EuroMillions du"},
@@ -48,6 +49,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     loto = game_data.get("loto")
     em = game_data.get("euromillions")
     pedantix = game_data.get("pedantix")
+    tusmo = game_data.get("tusmo")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -113,6 +115,37 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <p class="game-card-desc">Devinez le mot du jour en 6 tentatives.</p>
       <p class="game-unavailable">Solution en cours de génération…</p>
       <span class="game-link-arrow">Aller sur Sutom &#8594;</span>
+    </a>"""
+
+    # ── Carte Tusmo ──
+    if tusmo:
+        word_t = tusmo["word"]
+        tusmo_card = f"""
+    <a class="game-card" href="tusmo/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Tusmo</h2>
+        <span class="game-badge game-badge-sutom">Wordle FR</span>
+      </div>
+      <p class="game-card-desc">Devinez le mot en {tusmo.get("letter_count", len(word_t))} lettres (commence par {tusmo.get("first_letter", word_t[0])}).</p>
+      <div class="game-card-solution">
+        <span class="game-label">Solution #{tusmo["puzzle_num"]}</span>
+        <div class="solution-blur solution-blur-sm" id="sol-tusmo">
+          <span class="solution-word solution-word-sm">{word_t}</span>
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-tusmo')">Révéler</button>
+      </div>
+      <span class="game-link-arrow">Voir la solution &amp; indices &#8594;</span>
+    </a>"""
+    else:
+        tusmo_card = """
+    <a class="game-card game-card-unavailable" href="tusmo/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Tusmo</h2>
+        <span class="game-badge game-badge-sutom">Wordle FR</span>
+      </div>
+      <p class="game-card-desc">Devinez le mot du jour en 6 essais.</p>
+      <p class="game-unavailable">Solution en cours de génération…</p>
+      <span class="game-link-arrow">Aller sur Tusmo &#8594;</span>
     </a>"""
 
     # ── Carte Loto ──
@@ -224,8 +257,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>🎯 Solutions du jour : Cémantix, Sutom, Loto, EuroMillions</title>
-  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
+  <title>🎯 Solutions du jour : Cémantix, Sutom, Tusmo, Loto, EuroMillions</title>
+  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{SITE_URL}/">
 {FEED_LINK_TAG}
@@ -269,9 +302,10 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     "itemListElement": [
       {{"@type": "ListItem", "position": 1, "name": "Cémantix — Solution du jour", "url": "{SITE_URL}/cemantix/"}},
       {{"@type": "ListItem", "position": 2, "name": "Sutom — Solution du jour", "url": "{SITE_URL}/sutom/"}},
-      {{"@type": "ListItem", "position": 3, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
-      {{"@type": "ListItem", "position": 4, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
-      {{"@type": "ListItem", "position": 5, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
+      {{"@type": "ListItem", "position": 3, "name": "Tusmo — Solution du jour", "url": "{SITE_URL}/tusmo/"}},
+      {{"@type": "ListItem", "position": 4, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
+      {{"@type": "ListItem", "position": 5, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
+      {{"@type": "ListItem", "position": 6, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
     ]
   }}
   </script>
@@ -318,7 +352,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 
 <main class="hub-main">
   <p class="hub-intro">
-    Retrouvez chaque jour les <strong>solutions Cémantix et Sutom</strong> ainsi que les
+    Retrouvez chaque jour les <strong>solutions Cémantix, Sutom et Tusmo</strong> ainsi que les
     <strong>résultats Loto et EuroMillions</strong>.
     Mis à jour automatiquement après chaque tirage et chaque nouveau puzzle.
   </p>
@@ -326,6 +360,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <div class="games-grid">
 {cemantix_card}
 {sutom_card}
+{tusmo_card}
 {pedantix_card}
 {loto_card}
 {em_card}
@@ -394,6 +429,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <p style="margin-top:.4rem;">
     <a href="cemantix/">Cémantix</a> ·
     <a href="sutom/">Sutom</a> ·
+    <a href="tusmo/">Tusmo</a> ·
     <a href="pedantix/">Pédantix</a> ·
     <a href="loto/">Loto</a> ·
     <a href="euromillions/">EuroMillions</a> ·
@@ -427,6 +463,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
     """
     from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
     from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
@@ -436,6 +473,7 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
     games_dirs = {
         "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
         "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
         "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
         "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
         "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
@@ -590,7 +628,7 @@ def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date])
 
 
 _SUB_SITEMAPS = [
-    "sitemap-cemantix.xml", "sitemap-sutom.xml", "sitemap-pedantix.xml",
+    "sitemap-cemantix.xml", "sitemap-sutom.xml", "sitemap-tusmo.xml", "sitemap-pedantix.xml",
     "sitemap-loto.xml", "sitemap-euromillions.xml", "sitemap-pages.xml",
 ]
 
@@ -614,6 +652,7 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
     """Génère docs/sitemap.xml (sitemapindex) + un sous-sitemap par jeu + sitemap-pages.xml."""
     from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
     from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
@@ -641,6 +680,9 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
     _write_urlset(DOCS_DIR / "sitemap-sutom.xml", _game_sitemap(
         "sutom", SUTOM_SITE_URL, SUTOM_ARCHIVE, _index_lastmod("sutom", SUTOM_ARCHIVE), month_pages=True,
     ))
+    _write_urlset(DOCS_DIR / "sitemap-tusmo.xml", _game_sitemap(
+        "tusmo", TUSMO_SITE_URL, TUSMO_ARCHIVE, _index_lastmod("tusmo", TUSMO_ARCHIVE), month_pages=True,
+    ))
     _write_urlset(DOCS_DIR / "sitemap-pedantix.xml", _game_sitemap(
         "pedantix", PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE, _index_lastmod("pedantix", PEDANTIX_ARCHIVE), month_pages=True,
     ))
@@ -664,7 +706,7 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
 
 def _feed_content(key: str, data: dict) -> str:
     """Résumé HTML (avec solution) pour le flux Atom — pas indexé comme une page web."""
-    if key in ("cemantix", "sutom"):
+    if key in ("cemantix", "sutom", "tusmo"):
         return f"Mot : <strong>{_xml_escape(data.get('word', '').upper())}</strong>"
     if key == "pedantix":
         title = data.get("title_display") or data.get("word", "")
@@ -683,6 +725,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
     """Génère docs/feed.xml — flux Atom des `days` derniers jours, tous jeux confondus."""
     from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
     from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
@@ -690,6 +733,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
     games_dirs = {
         "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
         "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
         "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
         "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
         "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
@@ -756,7 +800,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
 # ── Régénération quotidienne (daily.yml + seed_archives.py) ──────────────────
 
 def regenerate_all(today: date | None = None) -> dict:
-    """Relit les 5 solution.json et régénère tout le HTML + hub + sitemaps + flux Atom.
+    """Relit les 6 solution.json et régénère tout le HTML + hub + sitemaps + flux Atom.
 
     Reprend la logique du script inline historique de .github/workflows/daily.yml —
     seul point d'entrée à faire évoluer désormais si les signatures des jeux changent.
@@ -765,7 +809,7 @@ def regenerate_all(today: date | None = None) -> dict:
         today = date.today()
     today_str = today.isoformat()
 
-    cemantix_data = sutom_data = pedantix_data = loto_data = em_data = None
+    cemantix_data = sutom_data = tusmo_data = pedantix_data = loto_data = em_data = None
 
     cemantix_json = DOCS_DIR / "cemantix" / "solution.json"
     if cemantix_json.exists():
@@ -791,6 +835,19 @@ def regenerate_all(today: date | None = None) -> dict:
                 data.get("definition", ""), data.get("generated_at"),
             )
             print("✅ HTML Sutom régénéré")
+
+    tusmo_json = DOCS_DIR / "tusmo" / "solution.json"
+    if tusmo_json.exists():
+        data = json.loads(tusmo_json.read_text(encoding="utf-8"))
+        if data.get("date") == today_str:
+            tusmo_data = data
+            from games import tusmo as tm
+            print(f"Régénération HTML Tusmo #{data['puzzle_num']} '{data['word']}'")
+            tm._generate_all_html(
+                today, data["puzzle_num"], data["word"],
+                data.get("definition", ""), data.get("generated_at"),
+            )
+            print("✅ HTML Tusmo régénéré")
 
     pedantix_json = DOCS_DIR / "pedantix" / "solution.json"
     if pedantix_json.exists():
@@ -828,7 +885,7 @@ def regenerate_all(today: date | None = None) -> dict:
 
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data,
-        "pedantix": pedantix_data,
+        "tusmo": tusmo_data, "pedantix": pedantix_data,
         "loto": loto_data, "euromillions": em_data,
     }
     from games.evergreen import generate_evergreen, generate_about_page
@@ -846,6 +903,7 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
     """URLs à notifier à IndexNow chaque jour (hub, index par jeu, archive d'hier, mois courant)."""
     from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
     from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
@@ -854,6 +912,7 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
     games_dirs = {
         "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
         "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
         "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
         "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
         "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
@@ -905,6 +964,11 @@ def main():
     from games.sutom import run as run_sutom
     sutom_data = run_sutom(today)
 
+    # 2bis. Tusmo
+    print("\n─── Tusmo ──────────────────────────────────────────────")
+    from games.tusmo import run as run_tusmo
+    tusmo_data = run_tusmo(today)
+
     # 3. Loto
     print("\n─── Loto ───────────────────────────────────────────────")
     from games.loto import run as run_loto
@@ -929,7 +993,7 @@ def main():
     pedantix_data = run_pedantix(today)
 
     game_data_all = {
-        "cemantix": cemantix_data, "sutom": sutom_data,
+        "cemantix": cemantix_data, "sutom": sutom_data, "tusmo": tusmo_data,
         "loto": loto_data, "euromillions": em_data,
         "pedantix": pedantix_data,
     }
@@ -962,6 +1026,7 @@ def main():
     print(f"   docs/index.html                          ✓ (hub)")
     print(f"   docs/cemantix/index.html                 {'✓' if cemantix_data else '⚠ indisponible'}")
     print(f"   docs/sutom/index.html                    {'✓' if sutom_data else '⚠ indisponible'}")
+    print(f"   docs/tusmo/index.html                    {'✓' if tusmo_data else '⚠ indisponible'}")
     print(f"   docs/pedantix/index.html                 {'✓' if pedantix_data else '⚠ indisponible'}")
     print(f"   docs/loto/index.html                     {'✓' if loto_data else '⚠ indisponible'}")
     print(f"   docs/loto/simulateur/                    ✓")

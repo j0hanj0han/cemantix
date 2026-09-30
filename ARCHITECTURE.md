@@ -24,6 +24,7 @@
        │  │  │ Cémantix   → cemantix.io (POST /score, /nearby)│    │
        │  │  │              + word2vec local                   │    │
        │  │  │ Sutom      → sutom.nocle.fr (GET mot chiffré)  │    │
+       │  │  │ Tusmo      → tusmo.xyz API (partie invitée)    │    │
        │  │  │ Loto       → OpenDataSoft API (dernier tirage) │    │
        │  │  │              + tirage-gagnant.com (jackpot)    │    │
        │  │  │              + reducmiz.com (nb gagnants)      │    │
@@ -62,6 +63,7 @@
 |--------------|----------------------|----------|------------------------|
 | Cémantix     | tous les jours       | minuit   | cemantix.io            |
 | Sutom        | tous les jours       | minuit   | sutom.nocle.fr         |
+| Tusmo        | tous les jours       | minuit   | tusmo.xyz (API)        |
 | Loto         | lun / mer / sam      | ~20h20   | OpenDataSoft           |
 | EuroMillions | mar / ven            | ~21h05   | euro-millions.com      |
 
@@ -70,6 +72,9 @@
 ## Fonctions backfill (one-shot, jamais appelées automatiquement)
 
 ```bash
+# Importer les ~60 derniers jours Tusmo encore jouables en mode archive sur tusmo.xyz
+python -c "from games.tusmo import backfill_archives; backfill_archives()"
+
 # Télécharger tout l'historique Loto depuis 2019
 python -c "from games.loto import backfill_archives; backfill_archives()"
 
@@ -84,6 +89,15 @@ python -c "from games.euromillions import enrich_archives_with_jackpot; enrich_a
 ```
 
 ## Sources de données par jeu
+
+### Tusmo
+| Donnée              | Source                  | Méthode         |
+|---------------------|-------------------------|-----------------|
+| N°, longueur, 1re lettre | `GET /api/daily/fr/meta` | session invitée partagée |
+| Mot du jour         | `POST /api/game` (daily) + 6 essais valides → `answer` | `giveup` refusé en daily |
+| Jours passés (≤ 60 j) | `POST /api/game` (archive) + `giveup` | rattrapage J-1 + backfill |
+
+> Une seule session invitée par processus : l'API renvoie 429 si on crée trop d'invités.
 
 ### Loto
 | Donnée              | Source                  | Méthode         |

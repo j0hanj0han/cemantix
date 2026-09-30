@@ -167,7 +167,7 @@ def get_weekly_trend(service, weeks: int = 8) -> list[dict]:
     return results
 
 
-GAME_SLUGS = ("cemantix", "sutom", "pedantix", "loto", "euromillions")
+GAME_SLUGS = ("cemantix", "sutom", "tusmo", "pedantix", "loto", "euromillions")
 EVERGREEN_SEGMENTS = ("comment-jouer", "astuces", "meilleurs-mots", "statistiques", "indice")
 
 

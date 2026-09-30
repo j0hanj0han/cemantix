@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-30",
+  "puzzle_num": 1600,
+  "word": "Art contemporain",
+  "title_slug": "Art_contemporain",
+  "title_display": "Art contemporain",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Art_contemporain",
+  "hints": {
+    "level1": [
+      "2 mots · 15 lettres",
+      "Premières lettres : A · C"
+    ],
+    "level2": [
+      "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
+      "Avant-garde artistique"
+    ],
+    "level3": [
+      "L'___ regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques ___es."
+    ]
+  },
+  "extract": "L'art contemporain regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques contemporaines.",
+  "categories": [
+    "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
+    "Avant-garde artistique"
+  ],
+  "generated_at": "2026-09-30T22:16:14.454629+00:00"
+}

@@ -930,6 +930,10 @@ def generate_index_html(
         <strong>solution Tusmo du jour</strong>. Vous jouez aussi à Sutom ?
         La <a href="../sutom/">solution Sutom du jour</a> est disponible ici.
       </p>
+      <p style="margin-top:.75rem;font-size:.9rem;">
+        Guides : <a href="comment-jouer/">règles de Tusmo</a> ·
+        <a href="meilleurs-mots/">meilleurs mots de départ et lettres fréquentes</a>
+      </p>
     </div>
 {faq_html(visible_faq)}
 {_other_games_card()}

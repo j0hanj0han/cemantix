@@ -30,6 +30,8 @@
 - [Statistiques Cémantix](https://solution-du-jour.fr/cemantix/statistiques/): Longueur moyenne des mots, initiales fréquentes, mots les plus longs/courts, calculé sur toutes les archives.
 - [Comment jouer à Sutom](https://solution-du-jour.fr/sutom/comment-jouer/): Règles du Wordle français et code couleur des lettres.
 - [Meilleurs mots Sutom](https://solution-du-jour.fr/sutom/meilleurs-mots/): Mots de départ recommandés pour bien démarrer.
+- [Comment jouer à Tusmo](https://solution-du-jour.fr/tusmo/comment-jouer/): Règles de Tusmo et différences avec Sutom.
+- [Meilleurs mots Tusmo](https://solution-du-jour.fr/tusmo/meilleurs-mots/): Lettres les plus fréquentes et mots de départ conseillés, calculés sur les solutions archivées.
 - [À propos](https://solution-du-jour.fr/a-propos/): Présentation du site.
 
 ## Archives

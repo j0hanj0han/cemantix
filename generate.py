@@ -384,6 +384,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <a href="cemantix/statistiques/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques Cémantix</a>
       <a href="sutom/comment-jouer/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📘 Comment jouer à Sutom</a>
       <a href="sutom/meilleurs-mots/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">💡 Meilleurs mots Sutom</a>
+      <a href="tusmo/comment-jouer/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📘 Comment jouer à Tusmo</a>
+      <a href="tusmo/meilleurs-mots/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">💡 Meilleurs mots Tusmo</a>
     </div>
   </section>
 

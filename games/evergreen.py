@@ -12,6 +12,8 @@ Génère :
   docs/cemantix/statistiques/index.html
   docs/sutom/comment-jouer/index.html
   docs/sutom/meilleurs-mots/index.html
+  docs/tusmo/comment-jouer/index.html
+  docs/tusmo/meilleurs-mots/index.html
   docs/a-propos/index.html
 """
 
@@ -200,6 +202,133 @@ def _sutom_meilleurs_mots_body() -> str:
     </div>"""
 
 
+def _tusmo_comment_jouer_body() -> str:
+    return """    <div class="card">
+      <h2>Les règles de Tusmo</h2>
+      <p>
+        <strong>Tusmo</strong> est un Wordle en français disponible sur
+        <a href="https://www.tusmo.xyz" rel="noopener" target="_blank">tusmo.xyz</a>.
+        Chaque jour à minuit, un nouveau mot secret est à deviner en <strong>6 essais maximum</strong>.
+      </p>
+      <ol style="padding-left:1.2rem;line-height:1.8;">
+        <li>La première lettre du mot et son nombre de lettres sont révélés dès le départ.</li>
+        <li>Proposez un mot français complet ayant le bon nombre de lettres ; un mot inconnu du
+            dictionnaire est refusé sans vous coûter d'essai.</li>
+        <li>Chaque lettre est colorée : <strong>bien placée</strong>, <strong>présente mais mal
+            placée</strong>, ou <strong>absente</strong> du mot.</li>
+        <li>Servez-vous de ces indices pour affiner vos propositions suivantes.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2>Tusmo ou Sutom : quelle différence ?</h2>
+      <p>
+        Les deux jeux reposent sur le même principe (première lettre donnée, 6 essais), mais
+        <strong>n'ont pas le même mot du jour</strong>. Sutom (sutom.nocle.fr) est le Wordle
+        français d'origine ; Tusmo ajoute des modes supplémentaires : parties à la suite,
+        multijoueur, défis entre amis et archives jouables des jours précédents.
+      </p>
+      <p style="margin-top:.75rem;font-size:.9rem;">
+        Bloqué aujourd'hui ? Retrouvez la <a href="../">solution du Tusmo du jour</a>,
+        les <a href="../archive/">réponses des jours précédents</a> ou la
+        <a href="../../sutom/">solution du Sutom du jour</a>.
+      </p>
+    </div>"""
+
+
+def _tusmo_meilleurs_mots_body() -> str:
+    """Conseils calculés sur les solutions Tusmo archivées : fréquence des lettres,
+    longueurs, et mots de départ couvrant le plus de lettres fréquentes."""
+    from games.sutom import SUTOM_ARCHIVE, VOWELS
+    from games.tusmo import TUSMO_ARCHIVE
+    words = [e["word"].upper() for e in load_all_archives(TUSMO_ARCHIVE) if e.get("word")]
+    if not words:
+        return '    <div class="card"><p>Statistiques indisponibles pour le moment.</p></div>'
+
+    # Fréquence hors 1re lettre (déjà donnée par le jeu)
+    freq = Counter(c for w in words for c in w[1:])
+    total = sum(freq.values())
+    top_letters = [l for l, _ in freq.most_common(10)]
+    lengths = Counter(len(w) for w in words)
+
+    # Mots de départ : mots validés (solutions Sutom/Tusmo) sans lettre répétée,
+    # score = somme des fréquences des lettres distinctes après la 1re
+    pool = {e["word"].upper() for e in load_all_archives(SUTOM_ARCHIVE) + load_all_archives(TUSMO_ARCHIVE)
+            if e.get("word", "").isalpha()}
+
+    def score(w: str) -> int:
+        return sum(freq[c] for c in set(w[1:]))
+
+    best_by_len = {}
+    for n in sorted(lengths):
+        candidates = sorted((w for w in pool if len(w) == n and len(set(w)) == n), key=lambda w: (-score(w), w))
+        if candidates:
+            best_by_len[n] = candidates[:5]
+
+    letters_rows = "\n            ".join(
+        f"<tr><td>{l}</td><td>{freq[l] * 100 / total:.1f}&#8201;%</td>"
+        f"<td>{'voyelle' if l in VOWELS else 'consonne'}</td></tr>"
+        for l in top_letters
+    )
+    length_rows = "\n            ".join(
+        f"<tr><td>{n} lettres</td><td>{lengths[n]}</td><td>{lengths[n] * 100 / len(words):.0f}&#8201;%</td></tr>"
+        for n in sorted(lengths)
+    )
+    start_rows = "\n            ".join(
+        f"<tr><td>{n} lettres</td><td>{', '.join(_html_escape(w) for w in ws)}</td></tr>"
+        for n, ws in best_by_len.items()
+    )
+    return f"""    <div class="card">
+      <h2>Les lettres les plus fréquentes dans les mots Tusmo</h2>
+      <p>
+        Calculé sur <strong>{len(words)} solutions Tusmo</strong> archivées (hors première lettre,
+        déjà donnée par le jeu). Un bon premier mot teste un maximum de ces lettres :
+        <strong>{", ".join(top_letters[:6])}</strong>.
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="nearby-table">
+          <thead><tr><th>Lettre</th><th>Fréquence</th><th>Type</th></tr></thead>
+          <tbody>
+            {letters_rows}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Meilleurs mots de départ selon la longueur</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">
+        Mots sans lettre répétée qui couvrent le plus de lettres fréquentes. Adaptez selon la
+        première lettre imposée du jour.
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="nearby-table">
+          <thead><tr><th>Longueur</th><th>Mots conseillés</th></tr></thead>
+          <tbody>
+            {start_rows}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Longueur des mots Tusmo</h2>
+      <div style="overflow-x:auto;">
+        <table class="nearby-table">
+          <thead><tr><th>Longueur</th><th>Nombre de mots</th><th>Part</th></tr></thead>
+          <tbody>
+            {length_rows}
+          </tbody>
+        </table>
+      </div>
+      <ul style="padding-left:1.2rem;line-height:1.8;margin-top:.75rem;">
+        <li>Beaucoup de solutions sont des <strong>formes accordées</strong> (pluriels en -S,
+            féminins en -EE, -ES) : pensez-y quand le mot finit par une voyelle.</li>
+        <li>Ne rejouez pas une lettre déjà marquée absente : chaque essai doit tester du nouveau.</li>
+      </ul>
+      <p style="margin-top:.75rem;font-size:.9rem;">
+        Bloqué aujourd'hui ? Retrouvez la <a href="../">solution du Tusmo du jour</a>.
+      </p>
+    </div>"""
+
+
 PAGES: list[EvergreenPage] = [
     EvergreenPage(
         path="cemantix/comment-jouer",
@@ -251,6 +380,27 @@ PAGES: list[EvergreenPage] = [
         breadcrumb=[("Accueil", f"{SITE_URL}/"), ("Sutom", f"{SITE_URL}/sutom/"), ("Meilleurs mots", f"{SITE_URL}/sutom/meilleurs-mots/")],
         body_fn=_sutom_meilleurs_mots_body,
     ),
+    EvergreenPage(
+        path="tusmo/comment-jouer",
+        title="Comment jouer à Tusmo ? Règles et différences avec Sutom",
+        description="Les règles de Tusmo, le Wordle français de tusmo.xyz : 6 essais, première lettre donnée, code couleur, et ce qui le distingue de Sutom.",
+        h1="Comment jouer à Tusmo ?",
+        breadcrumb=[("Accueil", f"{SITE_URL}/"), ("Tusmo", f"{SITE_URL}/tusmo/"), ("Comment jouer", f"{SITE_URL}/tusmo/comment-jouer/")],
+        body_fn=_tusmo_comment_jouer_body,
+        faq=[
+            ("Combien d'essais a-t-on à Tusmo ?", "Tusmo laisse 6 essais pour deviner le mot du jour, dont la première lettre et la longueur sont révélées dès le départ."),
+            ("À quelle heure change le mot Tusmo ?", "Le mot Tusmo change chaque jour à minuit (heure de Paris)."),
+            ("Tusmo et Sutom ont-ils le même mot ?", "Non : Tusmo et Sutom sont deux jeux distincts avec chacun leur propre mot du jour."),
+        ],
+    ),
+    EvergreenPage(
+        path="tusmo/meilleurs-mots",
+        title="Tusmo : meilleurs mots de départ et lettres fréquentes",
+        description="Les lettres les plus fréquentes dans les solutions Tusmo et les meilleurs mots de départ par longueur, calculés sur toutes les réponses archivées.",
+        h1="Meilleurs mots de départ pour Tusmo",
+        breadcrumb=[("Accueil", f"{SITE_URL}/"), ("Tusmo", f"{SITE_URL}/tusmo/"), ("Meilleurs mots", f"{SITE_URL}/tusmo/meilleurs-mots/")],
+        body_fn=_tusmo_meilleurs_mots_body,
+    ),
 ]
 
 
@@ -288,13 +438,13 @@ _ABOUT_BODY = """    <div class="card">
       <h2>Qui sommes-nous ?</h2>
       <p>
         <strong>Solutions du Jour</strong> est un site non officiel qui publie chaque jour les
-        solutions et indices des jeux <strong>Cémantix</strong>, <strong>Sutom</strong> et
-        <strong>Pédantix</strong>, ainsi que les <strong>résultats Loto et EuroMillions</strong>.
+        solutions et indices des jeux <strong>Cémantix</strong>, <strong>Sutom</strong>,
+        <strong>Tusmo</strong> et <strong>Pédantix</strong>, ainsi que les <strong>résultats Loto et EuroMillions</strong>.
         Tout le contenu est généré automatiquement, sans intervention humaine, à partir des
         publications officielles de chaque jeu ou de la Française des Jeux.
       </p>
       <p style="margin-top:.75rem;">
-        Les solutions Cémantix, Sutom et Pédantix sont publiées chaque nuit vers <strong>0h20</strong>
+        Les solutions Cémantix, Sutom, Tusmo et Pédantix sont publiées chaque nuit vers <strong>0h20</strong>
         (heure de Paris). Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi) et
         les résultats EuroMillions après chaque tirage (mardi, vendredi).
       </p>
@@ -302,7 +452,7 @@ _ABOUT_BODY = """    <div class="card">
     <div class="card">
       <h2>Ce site n'est affilié à aucun des jeux présentés</h2>
       <p>
-        Cémantix, Sutom, Pédantix, le Loto et l'EuroMillions sont des marques et jeux qui
+        Cémantix, Sutom, Tusmo, Pédantix, le Loto et l'EuroMillions sont des marques et jeux qui
         appartiennent à leurs éditeurs respectifs. Solutions du Jour se contente de documenter
         publiquement leurs résultats quotidiens à des fins d'information.
       </p>
@@ -321,7 +471,7 @@ def generate_about_page() -> None:
     }
     html = render_page(
         title="À propos de Solutions du Jour",
-        description="Présentation du site Solutions du Jour : solutions Cémantix, Sutom, Pédantix et résultats Loto/EuroMillions générés automatiquement chaque jour.",
+        description="Présentation du site Solutions du Jour : solutions Cémantix, Sutom, Tusmo, Pédantix et résultats Loto/EuroMillions générés automatiquement chaque jour.",
         canonical=canonical,
         h1="À propos de Solutions du Jour",
         body_html=_ABOUT_BODY,

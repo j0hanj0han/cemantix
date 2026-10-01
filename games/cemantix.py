@@ -17,10 +17,11 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
     fetch_definition, render_page, month_fr, de_month_fr, group_by_month,
 )
+import og_images
 
 # ── Configuration Cémantix ────────────────────────────────────────────────────
 
@@ -383,6 +384,7 @@ def generate_archive_html(
     CEMANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     pub_iso = published_iso(d, generated_at, 0, 15)
+    og_img = og_image_url("cemantix", d)
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition, reveal=True)
@@ -434,7 +436,7 @@ def generate_archive_html(
 
   <title>Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Cémantix #{puzzle_num} du {date_display}. Première lettre, nombre de lettres, définition et indices progressifs pour trouver le mot.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -443,13 +445,15 @@ def generate_archive_html(
   <meta property="og:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(d)} : solution et indices">
   <meta name="twitter:description" content="Première lettre, nombre de lettres, définition et indices du Cémantix #{puzzle_num} du {date_display}.">
-  <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta name="twitter:image" content="{og_img}">
   <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
@@ -462,8 +466,9 @@ def generate_archive_html(
     "description": "Solution et indices du Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/archive/{date_str}"}},
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -638,7 +643,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 
   <title>Cémantix — Toutes les solutions {month_de}</title>
   <meta name="description" content="Liste complète des solutions du Cémantix {month_de} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/{ym}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -799,7 +804,7 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
 
   <title>Archives Cémantix — Toutes les solutions du jour</title>
   <meta name="description" content="Retrouvez toutes les solutions passées de Cémantix : réponses et indices de chaque puzzle depuis le début.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -883,6 +888,7 @@ def generate_index_html(
     date_str = today.isoformat()
     date_display = date_fr(today)
     pub_iso = published_iso(today, generated_at, 0, 15)
+    og_img = og_image_url("cemantix", today)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     word_hints_card = _word_hints_card_html(word, definition)
     hint_levels = hint_levels_html(
@@ -929,7 +935,7 @@ def generate_index_html(
 
   <title>Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs (1ère lettre, longueur, définition) puis la solution complète. Mis à jour chaque nuit vers 0h20.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -938,13 +944,15 @@ def generate_index_html(
   <meta property="og:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète, mis à jour chaque nuit vers 0h20.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cémantix #{puzzle_num} du {date_fr_short(today)} : solution et indices">
   <meta name="twitter:description" content="Bloqué sur le Cémantix #{puzzle_num} du {date_display} ? Indices progressifs puis la solution complète.">
-  <meta name="twitter:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta name="twitter:image" content="{og_img}">
   <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
@@ -957,8 +965,9 @@ def generate_index_html(
     "description": "Solution et indices progressifs du jeu Cémantix #{puzzle_num} pour le {date_display}.",
     "url": "{CEMANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{CEMANTIX_SITE_URL}/"}},
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1122,6 +1131,7 @@ def generate_indice_html(
     date_display = date_fr(today)
     date_short = date_fr_short(today)
     pub_iso = published_iso(today, generated_at, 0, 15)
+    og_img = og_image_url("cemantix", today)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     hint_levels = hint_levels_html(
         [
@@ -1226,9 +1236,13 @@ def generate_indice_html(
         "dateModified": pub_iso,
         "description": description,
         "url": canonical,
+        "image": [og_img],
         "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
         "author": {"@type": "Organization", "name": "Solutions du Jour"},
-        "publisher": {"@type": "Organization", "name": "Solutions du Jour", "url": f"{SITE_URL}/"},
+        "publisher": {
+            "@type": "Organization", "name": "Solutions du Jour", "url": f"{SITE_URL}/",
+            "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.png", "width": 512, "height": 512},
+        },
     }
 
     html = render_page(
@@ -1242,6 +1256,7 @@ def generate_indice_html(
         css_rel="../../css/style.css",
         og_type="article",
         jsonld=[news_article],
+        og_image=og_img,
         footer_links='<a href="../">Cémantix</a> · <a href="../../">Accueil</a>',
         scripts=scripts,
     )
@@ -1259,6 +1274,7 @@ def _generate_all_html(
     """
     Génère tous les fichiers HTML Cémantix à partir des JSON déjà en place.
     """
+    og_images.word_game("cemantix", today, puzzle_num)
     all_archives = load_all_archives()
     today_str = today.isoformat()
     past_archives = [e for e in all_archives if e["date"] != today_str]

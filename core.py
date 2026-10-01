@@ -108,6 +108,16 @@ def published_iso(d: date, generated_at: str | None, hh: int, mm: int) -> str:
 
 FEED_LINK_TAG = f'  <link rel="alternate" type="application/atom+xml" title="Solutions du Jour" href="{SITE_URL}/feed.xml">'
 
+OG_IMAGE_DEFAULT = f"{SITE_URL}/og-image.png"
+
+
+def og_image_url(game: str, d: date) -> str:
+    """Image sociale datée (générée par og_images.py) si elle existe, sinon l'image
+    générique — même dimensions (1200×630), donc les balises og:image:* restent valides."""
+    if (DOCS_DIR / game / "img" / f"{d.isoformat()}.png").exists():
+        return f"{SITE_URL}/{game}/img/{d.isoformat()}.png"
+    return OG_IMAGE_DEFAULT
+
 
 def ping_indexnow(urls: list[str]) -> bool:
     """Notifie IndexNow (Bing, Yandex, Seznam...) qu'une liste d'URLs a changé.
@@ -274,6 +284,7 @@ def render_page(
     extra_head: str = "",
     footer_links: str = "",
     scripts: str = "",
+    og_image: str = OG_IMAGE_DEFAULT,
 ) -> str:
     """Rendu HTML complet standard (head + header + main + footer) pour une page
     qui n'a pas de template dédié (indice, evergreen, à-propos). Ne retrofit pas
@@ -303,7 +314,7 @@ def render_page(
 
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{canonical}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -312,13 +323,15 @@ def render_page(
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="{og_type}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta property="og:image" content="{og_image}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:image" content="{og_image}">
 {extra_head}
 {jsonld_html}
 

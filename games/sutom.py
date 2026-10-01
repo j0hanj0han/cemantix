@@ -19,9 +19,10 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block, solution_box_html,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block, solution_box_html,
     fetch_definition, faq_html, faq_jsonld, month_fr, de_month_fr, group_by_month,
 )
+import og_images
 
 VOWELS = set("AEIOUYÉÈÊËÀÂÎÏÔÛÙ")
 
@@ -122,6 +123,7 @@ def generate_archive_html(
     SUTOM_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     pub_iso = published_iso(d, generated_at, 0, 15)
+    og_img = og_image_url("sutom", d)
     date_display = date_fr(d)
     letter_count = len(word)
     first_letter = word[0] if word else "?"
@@ -188,7 +190,7 @@ def generate_archive_html(
 
   <title>Sutom #{puzzle_num} du {date_fr_short(d)} : solution en {letter_count} lettres</title>
   <meta name="description" content="Solution du Sutom #{puzzle_num} du {date_display}. Mot en {letter_count} lettres commençant par {first_letter}.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SUTOM_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -197,8 +199,10 @@ def generate_archive_html(
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{SUTOM_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sutom #{puzzle_num} du {date_fr_short(d)} : solution en {letter_count} lettres">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -212,8 +216,9 @@ def generate_archive_html(
     "dateModified": "{pub_iso}",
     "description": "Solution du Sutom #{puzzle_num} pour le {date_display} : {word}.",
     "url": "{SUTOM_SITE_URL}/archive/{date_str}",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -361,7 +366,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 
   <title>Sutom — Toutes les solutions {month_de}</title>
   <meta name="description" content="Liste complète des solutions du Sutom {month_de} : les {count} mots du jour avec leur date, leur numéro de puzzle et leur définition.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SUTOM_SITE_URL}/archive/{ym}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -516,7 +521,7 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
 
   <title>Archives Sutom — Toutes les solutions du jour</title>
   <meta name="description" content="Retrouvez toutes les solutions passées de Sutom : réponses de chaque puzzle depuis le début.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SUTOM_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -601,6 +606,7 @@ def generate_index_html(
     letter_count = len(word)
     first_letter = word[0] if word else "?"
     pub_iso = published_iso(today, generated_at, 0, 15)
+    og_img = og_image_url("sutom", today)
 
     definition_card = ""
     if definition:
@@ -644,7 +650,7 @@ def generate_index_html(
 
   <title>Sutom #{puzzle_num} du {date_fr_short(today)} : solution en {letter_count} lettres</title>
   <meta name="description" content="Bloqué sur le Sutom #{puzzle_num} du {date_display} ? Voici la réponse du Wordle français du jour : mot en {letter_count} lettres commençant par {first_letter}. Mis à jour chaque nuit vers 0h20.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SUTOM_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -653,8 +659,10 @@ def generate_index_html(
   <meta property="og:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{SUTOM_SITE_URL}/">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sutom #{puzzle_num} du {date_fr_short(today)} : solution en {letter_count} lettres">
   <meta name="twitter:description" content="Réponse du Sutom du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -668,8 +676,9 @@ def generate_index_html(
     "dateModified": "{pub_iso}",
     "description": "Solution et réponse du jeu Sutom #{puzzle_num} pour le {date_display}.",
     "url": "{SUTOM_SITE_URL}/",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -891,6 +900,7 @@ def _generate_all_html(
     today: date, puzzle_num: int, word: str, definition: str = "", generated_at: str | None = None,
 ) -> None:
     """Génère tous les fichiers HTML Sutom à partir des JSON déjà en place."""
+    og_images.word_game("sutom", today, puzzle_num, word=word)
     all_archives = load_all_archives()
     today_str = today.isoformat()
     past_archives = [e for e in all_archives if e["date"] != today_str]

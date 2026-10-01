@@ -467,7 +467,7 @@ def generate_about_page() -> None:
         "@type": "Organization",
         "name": "Solutions du Jour",
         "url": f"{SITE_URL}/",
-        "logo": f"{SITE_URL}/og-image.png",
+        "logo": f"{SITE_URL}/logo.png",
     }
     html = render_page(
         title="À propos de Solutions du Jour",

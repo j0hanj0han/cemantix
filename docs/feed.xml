@@ -4,10 +4,26 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-10-01T11:41:01+02:00</updated>
+  <updated>2026-10-02T00:17:51+02:00</updated>
+  <entry>
+    <id>https://solution-du-jour.fr/cemantix/archive/2026-10-02</id>
+    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <title>Solution Cémantix du vendredi 2 octobre 2026</title>
+    <updated>2026-10-02T00:17:46+02:00</updated>
+    <summary>Solution et détails pour le vendredi 2 octobre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;MICRO&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/sutom/archive/2026-10-02</id>
+    <link href="https://solution-du-jour.fr/sutom/"/>
+    <title>Solution Sutom du vendredi 2 octobre 2026</title>
+    <updated>2026-10-02T00:17:47+02:00</updated>
+    <summary>Solution et détails pour le vendredi 2 octobre 2026.</summary>
+    <content type="html">Mot : &lt;strong&gt;BADAUD&lt;/strong&gt;</content>
+  </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-10-01</id>
-    <link href="https://solution-du-jour.fr/cemantix/"/>
+    <link href="https://solution-du-jour.fr/cemantix/archive/2026-10-01"/>
     <title>Solution Cémantix du jeudi 1 octobre 2026</title>
     <updated>2026-10-01T00:16:08+02:00</updated>
     <summary>Solution et détails pour le jeudi 1 octobre 2026.</summary>
@@ -15,7 +31,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/sutom/archive/2026-10-01</id>
-    <link href="https://solution-du-jour.fr/sutom/"/>
+    <link href="https://solution-du-jour.fr/sutom/archive/2026-10-01"/>
     <title>Solution Sutom du jeudi 1 octobre 2026</title>
     <updated>2026-10-01T00:16:09+02:00</updated>
     <summary>Solution et détails pour le jeudi 1 octobre 2026.</summary>
@@ -28,6 +44,14 @@
     <updated>2026-10-01T11:41:01+02:00</updated>
     <summary>Solution et détails pour le jeudi 1 octobre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;VAUTOUR&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/pedantix/archive/2026-10-01</id>
+    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <title>Solution Pédantix du jeudi 1 octobre 2026</title>
+    <updated>2026-10-02T00:17:51+02:00</updated>
+    <summary>Solution et détails pour le jeudi 1 octobre 2026.</summary>
+    <content type="html">Article : &lt;strong&gt;Instrument de mesure&lt;/strong&gt;</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-09-30</id>
@@ -55,7 +79,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/pedantix/archive/2026-09-30</id>
-    <link href="https://solution-du-jour.fr/pedantix/"/>
+    <link href="https://solution-du-jour.fr/pedantix/archive/2026-09-30"/>
     <title>Solution Pédantix du mercredi 30 septembre 2026</title>
     <updated>2026-10-01T00:16:14+02:00</updated>
     <summary>Solution et détails pour le mercredi 30 septembre 2026.</summary>
@@ -1100,45 +1124,5 @@
     <updated>2026-09-03T17:07:17+02:00</updated>
     <summary>Solution et détails pour le mercredi 2 septembre 2026.</summary>
     <content type="html">Numéros : &lt;strong&gt;1 · 10 · 15 · 32 · 49&lt;/strong&gt; + chance 5</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/cemantix/archive/2026-09-01</id>
-    <link href="https://solution-du-jour.fr/cemantix/archive/2026-09-01"/>
-    <title>Solution Cémantix du mardi 1 septembre 2026</title>
-    <updated>2026-09-01T00:16:03+02:00</updated>
-    <summary>Solution et détails pour le mardi 1 septembre 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;BASSIN&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/sutom/archive/2026-09-01</id>
-    <link href="https://solution-du-jour.fr/sutom/archive/2026-09-01"/>
-    <title>Solution Sutom du mardi 1 septembre 2026</title>
-    <updated>2026-09-01T00:16:03+02:00</updated>
-    <summary>Solution et détails pour le mardi 1 septembre 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;MAGIQUE&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/tusmo/archive/2026-09-01</id>
-    <link href="https://solution-du-jour.fr/tusmo/archive/2026-09-01"/>
-    <title>Solution Tusmo du mardi 1 septembre 2026</title>
-    <updated>2026-09-01T00:15:00+02:00</updated>
-    <summary>Solution et détails pour le mardi 1 septembre 2026.</summary>
-    <content type="html">Mot : &lt;strong&gt;DEHANCHEE&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/pedantix/archive/2026-09-01</id>
-    <link href="https://solution-du-jour.fr/pedantix/archive/2026-09-01"/>
-    <title>Solution Pédantix du mardi 1 septembre 2026</title>
-    <updated>2026-09-02T00:22:53+02:00</updated>
-    <summary>Solution et détails pour le mardi 1 septembre 2026.</summary>
-    <content type="html">Article : &lt;strong&gt;Rayonnement ionisant&lt;/strong&gt;</content>
-  </entry>
-  <entry>
-    <id>https://solution-du-jour.fr/euromillions/archive/2026-09-01</id>
-    <link href="https://solution-du-jour.fr/euromillions/archive/2026-09-01"/>
-    <title>Résultats EuroMillions du mardi 1 septembre 2026</title>
-    <updated>2026-09-02T00:22:52+02:00</updated>
-    <summary>Solution et détails pour le mardi 1 septembre 2026.</summary>
-    <content type="html">Numéros : &lt;strong&gt;2 · 10 · 23 · 37 · 47&lt;/strong&gt; — Étoiles : 3 · 5</content>
   </entry>
 </feed>

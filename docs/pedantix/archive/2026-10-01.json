@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-01",
+  "puzzle_num": 1601,
+  "word": "Instrument de mesure",
+  "title_slug": "Instrument_de_mesure",
+  "title_display": "Instrument de mesure",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Instrument_de_mesure",
+  "hints": {
+    "level1": [
+      "3 mots · 18 lettres",
+      "Premières lettres : I · D · M"
+    ],
+    "level2": [
+      "dispositif permettant de réaliser la mesure d'une quantité physique",
+      "Invention",
+      "Innovation"
+    ],
+    "level3": [
+      "Un ___ est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur."
+    ]
+  },
+  "extract": "Un instrument de mesure est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur.",
+  "categories": [
+    "dispositif permettant de réaliser la mesure d'une quantité physique",
+    "Invention",
+    "Innovation"
+  ],
+  "generated_at": "2026-10-01T22:17:51.777387+00:00"
+}

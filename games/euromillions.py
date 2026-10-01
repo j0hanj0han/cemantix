@@ -28,7 +28,7 @@ from bs4 import BeautifulSoup
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
-    fetch_static_html, jackpot_html,
+    fetch_static_html, jackpot_html, draw_history_facts, draw_facts_html,
     load_all_archives as _load_archives,
     published_iso, og_image_url, FEED_LINK_TAG, updated_block, group_by_year,
     faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
@@ -171,8 +171,9 @@ def generate_archive_html(
     jackpot_won=False,
     code: str = "",
     generated_at: str | None = None,
+    facts: dict | None = None,
 ) -> None:
-    """Génère docs/euromillions/archive/YYYY-MM-DD.html."""
+    """Génère docs/euromillions/archive/YYYY-MM-DD.html (facts : voir core.draw_history_facts)."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = draw_date.isoformat()
     pub_iso = published_iso(draw_date, generated_at, 21, 30)
@@ -314,6 +315,8 @@ def generate_archive_html(
 {jackpot_html(jackpot_won, jackpot_winners, jackpot_amount)}
 {_em_code_html(code)}
     </div>
+
+{draw_facts_html(facts, max_ball=50, extra_label="Étoiles", extra_cls="loto-ball loto-ball-sm em-star", extra_prefix="&#9733;")}
 
     <div class="card">
       <h2>À propos de ce tirage</h2>
@@ -1656,6 +1659,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
     all_archives = load_all_archives()
     draw_str = draw_date.isoformat()
     past_archives = [e for e in all_archives if e["date"] != draw_str]
+    facts = draw_history_facts(all_archives, "stars")
 
     print(f"[EuroMillions] Génération des pages HTML d'archive ({len(past_archives)} pages)…")
     for i, entry in enumerate(past_archives):
@@ -1669,6 +1673,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_won=entry.get("jackpot_won", False),
             code=entry.get("code", ""),
             generated_at=entry.get("generated_at"),
+            facts=facts.get(entry["date"]),
         )
 
     years = group_by_year(past_archives)

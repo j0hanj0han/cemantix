@@ -12,14 +12,23 @@
     <string>/Users/johan/code/cemantix/run_daily.sh</string>
   </array>
 
-  <!-- Lancement chaque jour à 00h15 (heure locale) -->
+  <!-- Lancement chaque jour à 00h15 (heure locale), puis 02h30 pour rattraper Tusmo
+       dont le puzzle ne change qu'à minuit UTC (02h00 Paris) — incident du 01/10 -->
   <key>StartCalendarInterval</key>
-  <dict>
-    <key>Hour</key>
-    <integer>0</integer>
-    <key>Minute</key>
-    <integer>15</integer>
-  </dict>
+  <array>
+    <dict>
+      <key>Hour</key>
+      <integer>0</integer>
+      <key>Minute</key>
+      <integer>15</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>2</integer>
+      <key>Minute</key>
+      <integer>30</integer>
+    </dict>
+  </array>
 
   <!-- Si le Mac était éteint à l'heure prévue, lancer au prochain démarrage -->
   <key>RunAtLoad</key>

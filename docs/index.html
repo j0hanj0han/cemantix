@@ -139,14 +139,20 @@
       <span class="game-link-arrow">Voir la solution &#8594;</span>
     </a>
 
-    <a class="game-card game-card-unavailable" href="tusmo/">
+    <a class="game-card" href="tusmo/">
       <div class="game-card-header">
         <h2 class="game-card-title">Tusmo</h2>
         <span class="game-badge game-badge-sutom">Wordle FR</span>
       </div>
-      <p class="game-card-desc">Devinez le mot du jour en 6 essais.</p>
-      <p class="game-unavailable">Solution en cours de génération…</p>
-      <span class="game-link-arrow">Aller sur Tusmo &#8594;</span>
+      <p class="game-card-desc">Devinez le mot en 7 lettres (commence par A).</p>
+      <div class="game-card-solution">
+        <span class="game-label">Solution #66</span>
+        <div class="solution-blur solution-blur-sm" id="sol-tusmo">
+          <span class="solution-word solution-word-sm">AGENCER</span>
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-tusmo')">Révéler</button>
+      </div>
+      <span class="game-link-arrow">Voir la solution &amp; indices &#8594;</span>
     </a>
 
     <a class="game-card game-card-unavailable" href="pedantix/">

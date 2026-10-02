@@ -86,7 +86,15 @@ python -c "from games.euromillions import backfill_euromillions; backfill_euromi
 
 # Enrichir les archives EuroMillions avec données jackpot (pedro-mealha)
 python -c "from games.euromillions import enrich_archives_with_jackpot; enrich_archives_with_jackpot()"
+
+# Générer les images sociales manquantes (og_images.py, Pillow requis) depuis une date
+python -c "from datetime import date; import og_images; print(og_images.backfill(date(2026, 9, 1)))"
 ```
+
+**Images sociales (`og_images.py`)** : chaque `_generate_all_html` crée `docs/<jeu>/img/YYYY-MM-DD.png`
+(1200×630, sans spoiler) utilisée par `og:image`, `twitter:image` et le champ `image` du NewsArticle
+via `core.og_image_url()`. Sans Pillow (GitHub Actions) ou pour les vieilles archives, repli sur
+`/og-image.png` ; une image existante n'est jamais réécrite (régénération idempotente).
 
 ## Sources de données par jeu
 
@@ -120,11 +128,13 @@ python -c "from games.euromillions import enrich_archives_with_jackpot; enrich_a
 ```
 docs/
 ├── index.html                        ← hub (tous les jeux)
+├── logo.png                          ← publisher.logo du JSON-LD
 ├── sitemap.xml
 ├── css/style.css
 ├── cemantix/
 │   ├── index.html                    ← solution du jour
 │   ├── solution.json
+│   ├── img/YYYY-MM-DD.png            ← image sociale datée (og_images.py)
 │   └── archive/
 │       ├── index.html
 │       ├── YYYY-MM-DD.json

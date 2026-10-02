@@ -216,6 +216,13 @@ main {
 .nearby-table td.nearby-rank { color: var(--color-muted); width: 3.5rem; }
 .nearby-table td.nearby-temp { text-align: right; font-variant-numeric: tabular-nums; }
 
+/* ── Ce tirage en chiffres (archives Loto/EuroMillions) ── */
+
+.facts-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.facts-table th, .facts-table td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--color-border); }
+.facts-table tbody th { font-size: .8rem; color: var(--color-muted); font-weight: 600; padding-top: .6rem; }
+.facts-table td { font-variant-numeric: tabular-nums; }
+
 .hint-words {
   display: flex;
   flex-wrap: wrap;

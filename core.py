@@ -108,6 +108,16 @@ def published_iso(d: date, generated_at: str | None, hh: int, mm: int) -> str:
 
 FEED_LINK_TAG = f'  <link rel="alternate" type="application/atom+xml" title="Solutions du Jour" href="{SITE_URL}/feed.xml">'
 
+OG_IMAGE_DEFAULT = f"{SITE_URL}/og-image.png"
+
+
+def og_image_url(game: str, d: date) -> str:
+    """Image sociale datée (générée par og_images.py) si elle existe, sinon l'image
+    générique — même dimensions (1200×630), donc les balises og:image:* restent valides."""
+    if (DOCS_DIR / game / "img" / f"{d.isoformat()}.png").exists():
+        return f"{SITE_URL}/{game}/img/{d.isoformat()}.png"
+    return OG_IMAGE_DEFAULT
+
 
 def ping_indexnow(urls: list[str]) -> bool:
     """Notifie IndexNow (Bing, Yandex, Seznam...) qu'une liste d'URLs a changé.
@@ -274,6 +284,7 @@ def render_page(
     extra_head: str = "",
     footer_links: str = "",
     scripts: str = "",
+    og_image: str = OG_IMAGE_DEFAULT,
 ) -> str:
     """Rendu HTML complet standard (head + header + main + footer) pour une page
     qui n'a pas de template dédié (indice, evergreen, à-propos). Ne retrofit pas
@@ -303,7 +314,7 @@ def render_page(
 
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{canonical}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -312,13 +323,15 @@ def render_page(
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="{og_type}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{SITE_URL}/og-image.png">
+  <meta property="og:image" content="{og_image}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{SITE_URL}/og-image.png">
+  <meta name="twitter:image" content="{og_image}">
 {extra_head}
 {jsonld_html}
 
@@ -387,6 +400,117 @@ def jackpot_html(jackpot_won: bool | None, jackpot_winners: int, jackpot_amount:
             f'Jackpot\u202f: <strong>{amount_str}</strong> \u00b7 {status}</p>'
         )
     return f'      <p class="puzzle-meta" style="margin-top:.5rem;">{status}</p>'
+
+
+def draw_history_facts(entries: list[dict], extra_key: str) -> dict[str, dict]:
+    """Statistiques de chaque tirage calculées sur les tirages *antérieurs* uniquement —
+    une page d'archive ne change donc jamais quand un nouveau tirage arrive.
+    `entries` est trié DESC (comme load_all_archives) ; extra_key = "lucky_ball" (Loto,
+    int) ou "stars" (EuroMillions, liste). Un seul passage chronologique → {date: facts}."""
+    chrono = entries[::-1]
+    counts: dict[str, dict[int, int]] = {"balls": {}, "extras": {}}
+    last: dict[str, dict[int, tuple[int, str]]] = {"balls": {}, "extras": {}}
+    combos: dict[frozenset, str] = {}
+    facts: dict[str, dict] = {}
+    for i, e in enumerate(chrono):
+        extras = e[extra_key] if isinstance(e[extra_key], list) else [e[extra_key]]
+        groups = {"balls": sorted(e["balls"]), "extras": extras}
+
+        def info(kind: str, n: int) -> dict:
+            seen = last[kind].get(n)
+            return {"n": n, "count": counts[kind].get(n, 0),
+                    "gap": i - seen[0] - 1 if seen else None, "last": seen[1] if seen else None}
+
+        balls = groups["balls"]
+        prev = chrono[i - 1] if i else None
+        facts[e["date"]] = {
+            "rank": i + 1,
+            "first_date": chrono[0]["date"],
+            "balls": [info("balls", n) for n in balls],
+            "extras": [info("extras", n) for n in extras],
+            "sum": sum(balls),
+            "even": sum(1 for n in balls if n % 2 == 0),
+            "consecutive": [(a, b) for a, b in zip(balls, balls[1:]) if b == a + 1],
+            "combo_seen": combos.get(frozenset(balls)),
+            "prev_date": prev["date"] if prev else None,
+            "common_prev": sorted(set(balls) & set(prev["balls"])) if prev else [],
+        }
+        for kind, nums in groups.items():
+            for n in nums:
+                counts[kind][n] = counts[kind].get(n, 0) + 1
+                last[kind][n] = (i, e["date"])
+        combos.setdefault(frozenset(balls), e["date"])
+    return facts
+
+
+def draw_facts_html(f: dict | None, *, max_ball: int, extra_label: str, extra_cls: str,
+                    extra_prefix: str = "") -> str:
+    """Carte « Ce tirage en chiffres » des archives Loto/EuroMillions. Les liens pointent
+    vers les autres pages d'archive du même dossier (URLs sans .html)."""
+    if not f or f["rank"] < 2:
+        return ""
+    link = lambda d: f'<a href="{d}">{date_fr_short(date.fromisoformat(d))}</a>'
+    plural = lambda n, one, many=None: f"{n} {(many or one + 's') if n > 1 else one}"
+
+    def row(x: dict, cls: str, prefix: str = "") -> str:
+        last_cell = link(x["last"]) if x["last"] else "jamais"
+        gap_cell = str(x["gap"]) if x["gap"] is not None else "—"
+        return (f'<tr><td><span class="{cls}">{prefix}{x["n"]}</span></td>'
+                f'<td>{x["count"]}</td><td>{last_cell}</td><td>{gap_cell}</td></tr>')
+
+    rows = "\n".join(row(x, "loto-ball loto-ball-sm") for x in f["balls"])
+    rows += f'\n<tr><th colspan="4">{extra_label}</th></tr>\n'
+    rows += "\n".join(row(x, extra_cls, extra_prefix) for x in f["extras"])
+
+    n_balls = len(f["balls"])
+    half = max_ball // 2
+    low = sum(1 for x in f["balls"] if x["n"] <= half)
+    mean = f"{n_balls * (max_ball + 1) / 2:g}".replace(".", ",")
+    consecutive = ", ".join(f"{a}-{b}" for a, b in f["consecutive"]) or "aucun"
+    common = ", ".join(map(str, f["common_prev"])) or "aucun numéro"
+    previous = f["rank"] - 1
+    combo = (f"déjà sortie le {link(f['combo_seen'])}" if f["combo_seen"]
+             else f"jamais sortie lors des {previous} tirages précédents")
+
+    known = [x for x in f["balls"] if x["gap"] is not None]
+    highlight = ""
+    if known:
+        late = max(known, key=lambda x: x["gap"])
+        freq = max(f["balls"], key=lambda x: x["count"])
+        if late is freq:
+            sentence = (f'Le <strong>{late["n"]}</strong> était à la fois le numéro le plus attendu de ce tirage '
+                        f'({plural(late["gap"], "tirage")} d\'absence) et le plus souvent sorti jusque-là '
+                        f'({plural(freq["count"], "sortie")}).')
+        else:
+            sentence = (f'Le numéro le plus attendu de ce tirage était le <strong>{late["n"]}</strong>, '
+                        f'absent depuis {plural(late["gap"], "tirage")} ; le plus souvent sorti jusque-là, '
+                        f'le <strong>{freq["n"]}</strong> ({plural(freq["count"], "sortie")}).')
+        highlight = f'\n      <p style="margin-top:.75rem;">{sentence}</p>'
+
+    return f"""    <div class="card">
+      <h2>Ce tirage en chiffres</h2>
+      <p style="font-size:.9rem;color:#6b7280;margin-bottom:.75rem;">
+        Situation de chaque numéro <em>avant</em> ce tirage, calculée sur les {previous} tirages
+        archivés depuis le {date_fr_short(date.fromisoformat(f["first_date"]))}.
+        L'écart est le nombre de tirages consécutifs sans sortie.
+      </p>
+      <div class="table-scroll">
+      <table class="facts-table">
+        <thead><tr><th>Numéro</th><th>Sorties</th><th>Dernière sortie</th><th>Écart</th></tr></thead>
+        <tbody>
+{rows}
+        </tbody>
+      </table>
+      </div>
+      <ul style="margin-top:.75rem;padding-left:1.2rem;">
+        <li>Somme des {n_balls} numéros : <strong>{f["sum"]}</strong> (moyenne théorique : {mean})</li>
+        <li>{plural(f["even"], "numéro pair", "numéros pairs")} et {plural(n_balls - f["even"], "impair")} ·
+            {plural(low, "numéro bas", "numéros bas")} (1-{half}) et {plural(n_balls - low, "haut")} ({half + 1}-{max_ball})</li>
+        <li>Numéros consécutifs : {consecutive}</li>
+        <li>En commun avec le tirage précédent ({link(f["prev_date"])}) : {common}</li>
+        <li>Combinaison des {n_balls} numéros : {combo}</li>
+      </ul>{highlight}
+    </div>"""
 
 
 def load_all_archives(archive_dir: Path, required_keys: list[str] | None = None) -> list[dict]:

@@ -26,9 +26,10 @@ import requests
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block, solution_box_html, hint_levels_html,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block, solution_box_html, hint_levels_html,
     fetch_definition, faq_html, faq_jsonld, month_fr, de_month_fr, group_by_month, _strip_accents,
 )
+import og_images
 from games.sutom import sutom_letter_facts, SUTOM_ARCHIVE
 
 # ── Configuration Tusmo ───────────────────────────────────────────────────────
@@ -340,6 +341,7 @@ def generate_archive_html(
     TUSMO_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     pub_iso = published_iso(d, generated_at, 0, 15)
+    og_img = og_image_url("tusmo", d)
     date_display = date_fr(d)
     date_short = date_fr_short(d)
     letter_count = len(word)
@@ -379,7 +381,7 @@ def generate_archive_html(
 
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{TUSMO_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -388,8 +390,10 @@ def generate_archive_html(
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{TUSMO_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
   <meta property="article:published_time" content="{pub_iso}">
@@ -403,8 +407,9 @@ def generate_archive_html(
     "dateModified": "{pub_iso}",
     "description": "Solution du Tusmo #{puzzle_num} pour le {date_display} : {word}.",
     "url": "{TUSMO_SITE_URL}/archive/{date_str}",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/", "logo": {{"@type": "ImageObject", "url": "{SITE_URL}/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -534,7 +539,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 
   <title>Tusmo — Toutes les solutions {month_de}</title>
   <meta name="description" content="Liste complète des réponses du Tusmo {month_de} : les {count} mots du jour avec leur date, leur numéro et leur définition.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{TUSMO_SITE_URL}/archive/{ym}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -689,7 +694,7 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
 
   <title>Archives Tusmo — Toutes les réponses des jours précédents</title>
   <meta name="description" content="Toutes les réponses passées du Tusmo, jour par jour : le mot d'hier, d'avant-hier et de chaque jour depuis le début, avec définitions.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{TUSMO_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -775,6 +780,7 @@ def generate_index_html(
     letter_count = len(word)
     first_letter = word[0]
     pub_iso = published_iso(today, generated_at, 0, 15)
+    og_img = og_image_url("tusmo", today)
     title = f"Tusmo #{puzzle_num} du {date_short} : solution en {letter_count} lettres"
     description = (f"Bloqué sur le Tusmo du {date_display} ? Réponse du mot du jour en {letter_count} lettres "
                    f"commençant par {first_letter}, avec indices progressifs. Mis à jour chaque nuit vers 0h20.")
@@ -839,7 +845,7 @@ def generate_index_html(
 
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{TUSMO_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -848,8 +854,10 @@ def generate_index_html(
   <meta property="og:description" content="Réponse du Tusmo du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{TUSMO_SITE_URL}/">
-  <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="Réponse du Tusmo du {date_display} : mot en {letter_count} lettres commençant par {first_letter}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -863,8 +871,9 @@ def generate_index_html(
     "dateModified": "{pub_iso}",
     "description": "Solution et réponse du jeu Tusmo #{puzzle_num} pour le {date_display}.",
     "url": "{TUSMO_SITE_URL}/",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/", "logo": {{"@type": "ImageObject", "url": "{SITE_URL}/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1008,6 +1017,7 @@ def _generate_all_html(
     today: date, puzzle_num: int, word: str, definition: str = "", generated_at: str | None = None,
 ) -> None:
     """Génère tous les fichiers HTML Tusmo à partir des JSON déjà en place."""
+    og_images.word_game("tusmo", today, puzzle_num, word=word)
     all_archives = load_all_archives()
     today_str = today.isoformat()
     past_archives = [e for e in all_archives if e["date"] != today_str]

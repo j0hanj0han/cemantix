@@ -17,10 +17,11 @@ from pathlib import Path
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
     month_fr, de_month_fr, group_by_month,
 )
+import og_images
 
 # ── Configuration Pédantix ────────────────────────────────────────────────────
 
@@ -400,6 +401,7 @@ def generate_archive_html(
     PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
     pub_iso = published_iso(d, generated_at, 0, 15)
+    og_img = og_image_url("pedantix", d)
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
@@ -439,7 +441,7 @@ def generate_archive_html(
 
   <title>Pédantix #{puzzle_num} du {date_fr_short(d)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia, indices progressifs et réponse complète.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -448,10 +450,12 @@ def generate_archive_html(
   <meta property="og:description" content="Indices et réponse du Pédantix #{puzzle_num} du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
@@ -464,8 +468,9 @@ def generate_archive_html(
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/archive/{date_str}",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/archive/{date_str}"}},
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -606,7 +611,7 @@ def generate_month_html(ym: str, entries: list[dict], prev_ym, next_ym) -> None:
 
   <title>Pédantix — Tous les articles {month_de}</title>
   <meta name="description" content="Liste complète des articles Wikipedia du Pédantix {month_de} : les {count} articles du jour avec leur date et leur numéro de puzzle.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/{ym}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -760,7 +765,7 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
 
   <title>Archives Pédantix — Toutes les solutions du jour</title>
   <meta name="description" content="Retrouvez toutes les solutions passées de Pédantix : articles Wikipedia et indices de chaque puzzle.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -836,6 +841,7 @@ def generate_index_html(
     date_str = today.isoformat()
     date_display = date_fr(today)
     pub_iso = published_iso(today, generated_at, 0, 15)
+    og_img = og_image_url("pedantix", today)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
     wiki_url = f"https://fr.wikipedia.org/wiki/{title_slug}"
@@ -884,7 +890,7 @@ def generate_index_html(
 
   <title>Pédantix #{puzzle_num} du {date_fr_short(today)} : solution et indices</title>
   <meta name="description" content="Solution du Pédantix #{puzzle_num} du {date_display}. Article Wikipedia secret, indices progressifs et réponse complète.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{PEDANTIX_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -893,10 +899,12 @@ def generate_index_html(
   <meta property="og:description" content="Article Wikipedia secret et indices progressifs du Pédantix du {date_display}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{PEDANTIX_SITE_URL}/">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="article:published_time" content="{pub_iso}">
 
   <script type="application/ld+json">
@@ -909,8 +917,9 @@ def generate_index_html(
     "description": "Solution et indices du P\u00e9dantix #{puzzle_num} pour le {date_display}.",
     "url": "{PEDANTIX_SITE_URL}/",
     "mainEntityOfPage": {{"@type": "WebPage", "@id": "{PEDANTIX_SITE_URL}/"}},
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1040,6 +1049,7 @@ def _generate_all_html(
     extract: str = "",
     generated_at: str | None = None,
 ) -> None:
+    og_images.word_game("pedantix", today, puzzle_num)
     all_archives = load_all_archives()
     today_str = today.isoformat()
     past_archives = [e for e in all_archives if e["date"] != today_str]

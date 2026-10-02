@@ -23,11 +23,12 @@ from bs4 import BeautifulSoup
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
-    fetch_static_html, jackpot_html,
+    fetch_static_html, jackpot_html, draw_history_facts, draw_facts_html,
     load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block, group_by_year,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block, group_by_year,
     faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
+import og_images
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -363,11 +364,13 @@ def generate_archive_html(
     jackpot_amount: float | None = None,
     codes: list[str] | None = None,
     generated_at: str | None = None,
+    facts: dict | None = None,
 ) -> None:
-    """Génère docs/loto/archive/YYYY-MM-DD.html."""
+    """Génère docs/loto/archive/YYYY-MM-DD.html (facts : voir core.draw_history_facts)."""
     LOTO_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = draw_date.isoformat()
     pub_iso = published_iso(draw_date, generated_at, 22, 0)
+    og_img = og_image_url("loto", draw_date)
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
 
@@ -390,7 +393,7 @@ def generate_archive_html(
 
   <title>Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (tirage n°{draw_num}). Numéros gagnants : {balls_str} + chance {lucky}.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -399,8 +402,10 @@ def generate_archive_html(
   <meta property="og:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{LOTO_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Loto {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats du Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -414,8 +419,9 @@ def generate_archive_html(
     "dateModified": "{pub_iso}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/archive/{date_str}",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -498,6 +504,8 @@ def generate_archive_html(
 {_codes_html(codes)}
     </div>
 
+{draw_facts_html(facts, max_ball=49, extra_label="Numéro chance", extra_cls="loto-ball loto-ball-sm loto-ball-chance")}
+
     <div class="card">
       <h2>À propos de ce tirage</h2>
       <p>
@@ -574,7 +582,7 @@ def generate_year_html(year: str, entries: list[dict], prev_year, next_year) -> 
 
   <title>Loto {year} — Tous les tirages et numéros gagnants</title>
   <meta name="description" content="Liste complète des {count} tirages Loto de {year} : numéros gagnants, numéro chance et statistiques de l'année.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/{year}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -729,7 +737,7 @@ def generate_archive_index(entries: list[dict], years: dict[str, list] | None = 
 
   <title>Archives Loto — Tous les tirages et numéros gagnants depuis 2008</title>
   <meta name="description" content="Retrouvez tous les résultats des tirages Loto depuis 2008 : numéros gagnants et numéros chance pour chaque tirage.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -820,6 +828,7 @@ def generate_index_html(
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
     pub_iso = published_iso(draw_date, generated_at, 22, 0)
+    og_img = og_image_url("loto", draw_date)
 
     recent_archives_card = ""
     if recent_archives:
@@ -874,7 +883,7 @@ def generate_index_html(
 
   <title>Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}</title>
   <meta name="description" content="Résultats du tirage Loto du {date_display} (n°{draw_num}). Numéros gagnants : {balls_str} + numéro chance {lucky}. Mis à jour automatiquement après chaque tirage.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -883,8 +892,10 @@ def generate_index_html(
   <meta property="og:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{LOTO_SITE_URL}/">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Résultats Loto du {date_fr_short(draw_date)} : tirage n°{draw_num}">
   <meta name="twitter:description" content="Résultats Loto du {date_display} : {balls_str} + chance {lucky}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -898,8 +909,9 @@ def generate_index_html(
     "dateModified": "{pub_iso}",
     "description": "Numéros gagnants du tirage Loto du {date_display} : {balls_str} + numéro chance {lucky}.",
     "url": "{LOTO_SITE_URL}/",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1281,7 +1293,7 @@ def generate_stats_html(stats: dict) -> None:
 
   <title>Statistiques Loto FDJ depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
   <meta name="description" content="Numéros les plus sortis au Loto FDJ depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/stats/">
 
   <meta property="og:title" content="Statistiques Loto FDJ depuis {year_from} — Numéros les plus sortis">
@@ -1289,7 +1301,9 @@ def generate_stats_html(stats: dict) -> None:
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/stats/">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
   {{
@@ -1301,7 +1315,7 @@ def generate_stats_html(stats: dict) -> None:
     "url": "{LOTO_SITE_URL}/stats/",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "creator": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/", "logo": {{"@type": "ImageObject", "url": "{SITE_URL}/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1583,9 +1597,11 @@ def generate_stats_html(stats: dict) -> None:
 
 def _generate_all_html(draw_date: date, data: dict) -> None:
     """Génère tous les fichiers HTML Loto à partir des JSON déjà en place."""
+    og_images.draw_result("loto", draw_date, data["balls"], [data["lucky_ball"]])
     all_archives = load_all_archives()
     draw_str = draw_date.isoformat()
     past_archives = [e for e in all_archives if e["date"] != draw_str]
+    facts = draw_history_facts(all_archives, "lucky_ball")
 
     print(f"[Loto] Génération des pages HTML d'archive ({len(past_archives)} pages)…")
     for i, entry in enumerate(past_archives):
@@ -1600,6 +1616,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_amount=entry.get("jackpot_amount"),
             codes=entry.get("codes"),
             generated_at=entry.get("generated_at"),
+            facts=facts.get(entry["date"]),
         )
 
     years = group_by_year(past_archives)
@@ -1771,7 +1788,7 @@ def generate_simulator_html() -> None:
 
   <title>Simulateur Loto FDJ — simulation de tirage &amp; gains</title>
   <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription, résultat instantané.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{LOTO_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
@@ -1780,9 +1797,11 @@ def generate_simulator_html() -> None:
   <meta property="og:type" content="website">
   <meta property="og:url" content="{LOTO_SITE_URL}/simulateur/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Simulateur Loto FDJ — simulation de tirage &amp; gains">
   <meta name="twitter:description" content="Auriez-vous gagné au Loto FDJ ? Simulez vos gains sur les 2\u202f600+ tirages depuis 2019. Gratuit, sans inscription.">
 

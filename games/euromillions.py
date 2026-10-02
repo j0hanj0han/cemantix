@@ -28,11 +28,12 @@ from bs4 import BeautifulSoup
 
 from core import (
     SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write,
-    fetch_static_html, jackpot_html,
+    fetch_static_html, jackpot_html, draw_history_facts, draw_facts_html,
     load_all_archives as _load_archives,
-    published_iso, FEED_LINK_TAG, updated_block, group_by_year,
+    published_iso, og_image_url, FEED_LINK_TAG, updated_block, group_by_year,
     faq_jsonld, faq_html, breadcrumb_html, breadcrumb_jsonld,
 )
+import og_images
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -170,11 +171,13 @@ def generate_archive_html(
     jackpot_won=False,
     code: str = "",
     generated_at: str | None = None,
+    facts: dict | None = None,
 ) -> None:
-    """Génère docs/euromillions/archive/YYYY-MM-DD.html."""
+    """Génère docs/euromillions/archive/YYYY-MM-DD.html (facts : voir core.draw_history_facts)."""
     EM_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = draw_date.isoformat()
     pub_iso = published_iso(draw_date, generated_at, 21, 30)
+    og_img = og_image_url("euromillions", draw_date)
     date_display = date_fr(draw_date)
     balls_str = " · ".join(str(b) for b in balls)
     stars_str = " · ".join(str(s) for s in stars)
@@ -198,7 +201,7 @@ def generate_archive_html(
 
   <title>Résultats EuroMillions du {date_fr_short(draw_date)} : numéros</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros : {balls_str}. Étoiles : {stars_str}.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/archive/{date_str}">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -207,10 +210,12 @@ def generate_archive_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/archive/{date_str}">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EuroMillions {date_display} — Numéros gagnants">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -224,8 +229,9 @@ def generate_archive_html(
     "dateModified": "{pub_iso}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/archive/{date_str}",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -310,6 +316,8 @@ def generate_archive_html(
 {_em_code_html(code)}
     </div>
 
+{draw_facts_html(facts, max_ball=50, extra_label="Étoiles", extra_cls="loto-ball loto-ball-sm em-star", extra_prefix="&#9733;")}
+
     <div class="card">
       <h2>À propos de ce tirage</h2>
       <p>
@@ -388,7 +396,7 @@ def generate_year_html(year: str, entries: list[dict], prev_year, next_year) -> 
 
   <title>EuroMillions {year} — Tous les tirages et numéros gagnants</title>
   <meta name="description" content="Liste complète des {count} tirages EuroMillions de {year} : numéros gagnants, étoiles et statistiques de l'année.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/archive/{year}">
 {FEED_LINK_TAG}
   {link_prev}
@@ -545,7 +553,7 @@ def generate_archive_index(entries: list[dict], years: dict[str, list] | None = 
 
   <title>Archives EuroMillions — Tous les tirages et numéros gagnants</title>
   <meta name="description" content="Retrouvez tous les résultats des tirages EuroMillions : numéros gagnants et étoiles pour chaque tirage du mardi et vendredi.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -557,7 +565,9 @@ def generate_archive_index(entries: list[dict], years: dict[str, list] | None = 
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Archives EuroMillions — Tous les numéros gagnants">
   <meta name="twitter:description" content="Tous les résultats des tirages EuroMillions avec numéros et étoiles depuis 2004.">
 
@@ -641,6 +651,7 @@ def generate_index_html(
     balls_str = " · ".join(str(b) for b in balls)
     stars_str = " · ".join(str(s) for s in stars)
     pub_iso = published_iso(draw_date, generated_at, 21, 30)
+    og_img = og_image_url("euromillions", draw_date)
 
     recent_archives_card = ""
     if recent_archives:
@@ -688,7 +699,7 @@ def generate_index_html(
 
   <title>Résultats EuroMillions du {date_fr_short(draw_date)} : numéros</title>
   <meta name="description" content="Résultats du tirage EuroMillions du {date_display}. Numéros gagnants : {balls_str}. Étoiles : {stars_str}. Mis à jour automatiquement après chaque tirage.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -697,10 +708,12 @@ def generate_index_html(
   <meta property="og:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{EM_SITE_URL}/">
-  <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Résultats EuroMillions du {date_fr_short(draw_date)} : numéros">
   <meta name="twitter:description" content="Résultats EuroMillions du {date_display} : {balls_str} + étoiles {stars_str}.">
   <meta property="article:published_time" content="{pub_iso}">
@@ -714,8 +727,9 @@ def generate_index_html(
     "dateModified": "{pub_iso}",
     "description": "Numéros gagnants EuroMillions du {date_display} : {balls_str} — étoiles : {stars_str}.",
     "url": "{EM_SITE_URL}/",
+    "image": ["{og_img}"],
     "author": {{"@type": "Organization", "name": "Solutions du Jour"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "https://solution-du-jour.fr/", "logo": {{"@type": "ImageObject", "url": "https://solution-du-jour.fr/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1310,7 +1324,7 @@ def generate_em_stats_html(stats: dict) -> None:
 
   <title>Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis | Solution du Jour</title>
   <meta name="description" content="Numéros et étoiles les plus sortis à l'EuroMillions depuis {year_from} ({n} tirages). Retardataires, tendances récentes. Mis à jour.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/stats/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
@@ -1321,7 +1335,9 @@ def generate_em_stats_html(stats: dict) -> None:
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Statistiques EuroMillions depuis {year_from} — Numéros les plus sortis">
   <meta name="twitter:description" content="Fréquence des numéros sur {n} tirages EuroMillions depuis {year_from}. Mis à jour automatiquement.">
   <meta property="article:modified_time" content="{published_iso(date.fromisoformat(stats['date_to']), stats.get('generated_at'), 22, 0)}">
@@ -1336,7 +1352,7 @@ def generate_em_stats_html(stats: dict) -> None:
     "url": "{EM_SITE_URL}/stats/",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "creator": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}},
-    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/"}}
+    "publisher": {{"@type": "Organization", "name": "Solutions du Jour", "url": "{SITE_URL}/", "logo": {{"@type": "ImageObject", "url": "{SITE_URL}/logo.png", "width": 512, "height": 512}}}}
   }}
   </script>
 
@@ -1639,9 +1655,11 @@ def generate_em_stats_html(stats: dict) -> None:
 
 def _generate_all_html(draw_date: date, data: dict) -> None:
     """Génère tous les fichiers HTML EuroMillions à partir des JSON déjà en place."""
+    og_images.draw_result("euromillions", draw_date, data["balls"], data["stars"])
     all_archives = load_all_archives()
     draw_str = draw_date.isoformat()
     past_archives = [e for e in all_archives if e["date"] != draw_str]
+    facts = draw_history_facts(all_archives, "stars")
 
     print(f"[EuroMillions] Génération des pages HTML d'archive ({len(past_archives)} pages)…")
     for i, entry in enumerate(past_archives):
@@ -1655,6 +1673,7 @@ def _generate_all_html(draw_date: date, data: dict) -> None:
             jackpot_won=entry.get("jackpot_won", False),
             code=entry.get("code", ""),
             generated_at=entry.get("generated_at"),
+            facts=facts.get(entry["date"]),
         )
 
     years = group_by_year(past_archives)
@@ -1842,7 +1861,7 @@ def generate_simulator_html() -> None:
 
   <title>Simulateur EuroMillions — simulation de tirage &amp; gains</title>
   <meta name="description" content="Simulez un tirage aléatoire ou testez votre grille sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription, résultat instantané.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{EM_SITE_URL}/simulateur/">
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
@@ -1851,9 +1870,11 @@ def generate_simulator_html() -> None:
   <meta property="og:type" content="website">
   <meta property="og:url" content="{EM_SITE_URL}/simulateur/">
   <meta property="og:image" content="https://solution-du-jour.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Solutions du Jour">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Simulateur EuroMillions — simulation de tirage &amp; gains">
   <meta name="twitter:description" content="Auriez-vous gagné à l'EuroMillions ? Simulez vos gains sur les 1\u202f900+ tirages depuis 2004. Gratuit, sans inscription.">
 

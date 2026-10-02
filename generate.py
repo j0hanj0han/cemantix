@@ -259,7 +259,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 
   <title>🎯 Solutions du jour : Cémantix, Sutom, Tusmo, Loto, EuroMillions</title>
   <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SITE_URL}/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
@@ -269,7 +269,9 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/">
   <meta property="og:image" content="{SITE_URL}/og-image.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Solutions du jour : Cémantix, Sutom, Loto, EuroMillions">
   <meta name="twitter:description" content="Toutes les solutions du jour au même endroit, mises à jour chaque nuit : Cémantix, Sutom, résultats Loto, EuroMillions.">
 

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-02",
+  "puzzle_num": 1602,
+  "word": "Fourmi",
+  "title_slug": "Fourmi",
+  "title_display": "Fourmi",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fourmi",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : F"
+    ],
+    "level2": [
+      "famille d'insectes",
+      "Taxobox utilisant une classification non précisée",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
+    ],
+    "level3": [
+      "Les ___s sont des insectes, de l'ordre des Hyménoptères et du sous-ordre des Apocrites, qui constituent la famille des Formicidés (Formicidae)."
+    ]
+  },
+  "extract": "Les fourmis sont des insectes, de l'ordre des Hyménoptères et du sous-ordre des Apocrites, qui constituent la famille des Formicidés (Formicidae).",
+  "categories": [
+    "famille d'insectes",
+    "Taxobox utilisant une classification non précisée",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
+  ],
+  "generated_at": "2026-10-02T22:15:50.487030+00:00"
+}

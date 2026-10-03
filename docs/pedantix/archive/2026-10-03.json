@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-03",
+  "puzzle_num": 1603,
+  "word": "Zodiaque",
+  "title_slug": "Zodiaque",
+  "title_display": "Zodiaque",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Zodiaque",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : Z"
+    ],
+    "level2": [
+      "zone circulaire de la sphère céleste",
+      "Astrologie",
+      "Zodiaques tropical et sidéral",
+      "Constellation"
+    ],
+    "level3": [
+      "Le ___ est une zone circulaire de la sphère céleste, dont l'écliptique occupe le milieu."
+    ]
+  },
+  "extract": "Le zodiaque est une zone circulaire de la sphère céleste, dont l'écliptique occupe le milieu.",
+  "categories": [
+    "zone circulaire de la sphère céleste",
+    "Astrologie",
+    "Zodiaques tropical et sidéral",
+    "Constellation"
+  ],
+  "generated_at": "2026-10-03T22:19:04.255482+00:00"
+}

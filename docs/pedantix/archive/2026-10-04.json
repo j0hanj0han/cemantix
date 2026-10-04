@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-04",
+  "puzzle_num": 1604,
+  "word": "Vente",
+  "title_slug": "Vente",
+  "title_display": "Vente",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Vente",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : V"
+    ],
+    "level2": [
+      "convention par laquelle l'un s'oblige à livrer une chose, et l'autre à la payer",
+      "À illustrer",
+      "Droit des affaires",
+      "Marketing"
+    ],
+    "level3": [
+      "Une ___ est une convention par laquelle le vendeur s'oblige à livrer un bien ou un service, et l'acheteur à le payer."
+    ]
+  },
+  "extract": "Une vente est une convention par laquelle le vendeur s'oblige à livrer un bien ou un service, et l'acheteur à le payer.",
+  "categories": [
+    "convention par laquelle l'un s'oblige à livrer une chose, et l'autre à la payer",
+    "À illustrer",
+    "Droit des affaires",
+    "Marketing"
+  ],
+  "generated_at": "2026-10-04T22:15:35.311232+00:00"
+}

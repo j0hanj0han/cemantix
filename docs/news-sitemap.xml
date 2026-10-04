@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-04T00:18:58+02:00</news:publication_date>
-      <news:title>Solution Cémantix du dimanche 4 octobre 2026</news:title>
+      <news:publication_date>2026-10-05T00:15:29+02:00</news:publication_date>
+      <news:title>Solution Cémantix du lundi 5 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-04T00:18:58+02:00</news:publication_date>
-      <news:title>Indices Cémantix du dimanche 4 octobre 2026</news:title>
+      <news:publication_date>2026-10-05T00:15:29+02:00</news:publication_date>
+      <news:title>Indices Cémantix du lundi 5 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-10-03</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-10-04</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-03T00:15:45+02:00</news:publication_date>
-      <news:title>Solution Cémantix du samedi 3 octobre 2026</news:title>
+      <news:publication_date>2026-10-04T00:18:58+02:00</news:publication_date>
+      <news:title>Solution Cémantix du dimanche 4 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,41 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-10-05T00:15:30+02:00</news:publication_date>
+      <news:title>Solution Sutom du lundi 5 octobre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-10-04</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-10-04T00:18:59+02:00</news:publication_date>
       <news:title>Solution Sutom du dimanche 4 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-10-03</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-03T00:15:46+02:00</news:publication_date>
-      <news:title>Solution Sutom du samedi 3 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-04T02:30:13+02:00</news:publication_date>
-      <news:title>Solution Tusmo du dimanche 4 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/archive/2026-10-03</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-03T02:30:12+02:00</news:publication_date>
-      <news:title>Solution Tusmo du samedi 3 octobre 2026</news:title>
     </news:news>
   </url>
 </urlset>

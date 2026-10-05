@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-05",
+  "puzzle_num": 1605,
+  "word": "Modification corporelle",
+  "title_slug": "Modification_corporelle",
+  "title_display": "Modification corporelle",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Modification_corporelle",
+  "hints": {
+    "level1": [
+      "2 mots · 22 lettres",
+      "Premières lettres : M · C"
+    ],
+    "level2": [
+      "altération délibérée de l'anatomie humaine",
+      "Art corporel",
+      "Communication non verbale",
+      "Bioéthique"
+    ],
+    "level3": [
+      "Une ___ est une transformation, localisée ou étendue, réversible ou non, du corps d'un individu, au moyen d'une pratique et dans un but ayant un caractère culturel."
+    ]
+  },
+  "extract": "Une modification corporelle est une transformation, localisée ou étendue, réversible ou non, du corps d'un individu, au moyen d'une pratique et dans un but ayant un caractère culturel.",
+  "categories": [
+    "altération délibérée de l'anatomie humaine",
+    "Art corporel",
+    "Communication non verbale",
+    "Bioéthique"
+  ],
+  "generated_at": "2026-10-05T22:15:44.753596+00:00"
+}

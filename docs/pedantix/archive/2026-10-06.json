@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-06",
+  "puzzle_num": 1606,
+  "word": "Cathédrale Notre-Dame de Paris",
+  "title_slug": "Cathédrale_Notre-Dame_de_Paris",
+  "title_display": "Cathédrale Notre-Dame de Paris",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cathédrale_Notre-Dame_de_Paris",
+  "hints": {
+    "level1": [
+      "4 mots · 27 lettres",
+      "Premières lettres : C · N · D · P"
+    ],
+    "level2": [
+      "cathédrale située à Paris, en France",
+      "Architecture gothique à Paris",
+      "Cathédrale gothique en Île-de-France",
+      "Monument médiéval à Paris"
+    ],
+    "level3": [
+      "La ___, communément appelée ___, est l'un des monuments les plus emblématiques de ___ et de France."
+    ]
+  },
+  "extract": "La cathédrale Notre-Dame de Paris, communément appelée Notre-Dame, est l'un des monuments les plus emblématiques de Paris et de France.",
+  "categories": [
+    "cathédrale située à Paris, en France",
+    "Architecture gothique à Paris",
+    "Cathédrale gothique en Île-de-France",
+    "Monument médiéval à Paris"
+  ],
+  "generated_at": "2026-10-06T22:20:18.359736+00:00"
+}

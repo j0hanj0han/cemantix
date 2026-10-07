@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-07",
+  "puzzle_num": 1607,
+  "word": "Autant en emporte le vent (film)",
+  "title_slug": "Autant_en_emporte_le_vent_(film)",
+  "title_display": "Autant en emporte le vent (film)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Autant_en_emporte_le_vent_(film)",
+  "hints": {
+    "level1": [
+      "6 mots · 27 lettres",
+      "Premières lettres : A · E · E · L · V · ("
+    ],
+    "level2": [
+      "Film de Victor Fleming, sorti en 1939",
+      "Film américain sorti en 1939",
+      "Film dramatique américain",
+      "Film romantique américain"
+    ],
+    "level3": [
+      "___ en ___ le ___ est un film américain de Victor Fleming sorti en 1939, adapté du roman du même nom de Margaret Mitchell paru en 1936."
+    ]
+  },
+  "extract": "Autant en emporte le vent est un film américain de Victor Fleming sorti en 1939, adapté du roman du même nom de Margaret Mitchell paru en 1936.",
+  "categories": [
+    "Film de Victor Fleming, sorti en 1939",
+    "Film américain sorti en 1939",
+    "Film dramatique américain",
+    "Film romantique américain"
+  ],
+  "generated_at": "2026-10-07T22:15:37.552279+00:00"
+}

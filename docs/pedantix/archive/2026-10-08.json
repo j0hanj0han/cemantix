@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-08",
+  "puzzle_num": 1608,
+  "word": "Nazisme",
+  "title_slug": "Nazisme",
+  "title_display": "Nazisme",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nazisme",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : N"
+    ],
+    "level2": [
+      "idéologie politique du Parti nazi",
+      "Idéologie politique"
+    ],
+    "level3": [
+      "Le national-socialisme, couramment abrégé ___, est l'idéologie politique du Parti national-socialiste des travailleurs allemands (NSDAP), parti politique d'extrême droite, fondé en Allemagne en 1920 et dirigé par Adolf Hitler."
+    ]
+  },
+  "extract": "Le national-socialisme, couramment abrégé nazisme, est l'idéologie politique du Parti national-socialiste des travailleurs allemands (NSDAP), parti politique d'extrême droite, fondé en Allemagne en 1920 et dirigé par Adolf Hitler.",
+  "categories": [
+    "idéologie politique du Parti nazi",
+    "Idéologie politique"
+  ],
+  "generated_at": "2026-10-08T22:21:26.359865+00:00"
+}

@@ -4,7 +4,7 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-10-09T02:30:12+02:00</updated>
+  <updated>2026-10-09T21:25:20+02:00</updated>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-10-09</id>
     <link href="https://solution-du-jour.fr/cemantix/"/>
@@ -28,6 +28,14 @@
     <updated>2026-10-09T02:30:12+02:00</updated>
     <summary>Solution et détails pour le vendredi 9 octobre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;FARCEUSE&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/euromillions/archive/2026-10-09</id>
+    <link href="https://solution-du-jour.fr/euromillions/"/>
+    <title>Résultats EuroMillions du vendredi 9 octobre 2026</title>
+    <updated>2026-10-09T21:25:20+02:00</updated>
+    <summary>Solution et détails pour le vendredi 9 octobre 2026.</summary>
+    <content type="html">Numéros : &lt;strong&gt;18 · 22 · 32 · 41 · 48&lt;/strong&gt; — Étoiles : 8 · 10</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-10-08</id>
@@ -135,7 +143,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/euromillions/archive/2026-10-06</id>
-    <link href="https://solution-du-jour.fr/euromillions/"/>
+    <link href="https://solution-du-jour.fr/euromillions/archive/2026-10-06"/>
     <title>Résultats EuroMillions du mardi 6 octobre 2026</title>
     <updated>2026-10-06T21:25:19+02:00</updated>
     <summary>Solution et détails pour le mardi 6 octobre 2026.</summary>

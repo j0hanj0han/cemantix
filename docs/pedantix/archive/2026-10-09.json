@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-09",
+  "puzzle_num": 1609,
+  "word": "Microscope optique",
+  "title_slug": "Microscope_optique",
+  "title_display": "Microscope optique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Microscope_optique",
+  "hints": {
+    "level1": [
+      "2 mots · 17 lettres",
+      "Premières lettres : M · O"
+    ],
+    "level2": [
+      "type de microscope",
+      "Invention du XVIIe siècle"
+    ],
+    "level3": [
+      "Le ___ ou ___ photonique est un instrument d'___ muni d'un objectif et d'un oculaire qui permet de grossir l'image d'un objet de petites dimensions et de séparer les détails de cette image afin qu'il soit observable par l'œil humain."
+    ]
+  },
+  "extract": "Le microscope optique ou microscope photonique est un instrument d'optique muni d'un objectif et d'un oculaire qui permet de grossir l'image d'un objet de petites dimensions et de séparer les détails de cette image afin qu'il soit observable par l'œil humain.",
+  "categories": [
+    "type de microscope",
+    "Invention du XVIIe siècle"
+  ],
+  "generated_at": "2026-10-09T22:15:37.787595+00:00"
+}

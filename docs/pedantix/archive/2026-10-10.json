@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-10",
+  "puzzle_num": 1610,
+  "word": "Nanotube de carbone",
+  "title_slug": "Nanotube_de_carbone",
+  "title_display": "Nanotube de carbone",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nanotube_de_carbone",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : N · D · C"
+    ],
+    "level2": [
+      "forme allotropique du carbone appartenant à la famille des fullerènes",
+      "Nanotechnologie",
+      "Nanomatériau",
+      "Fullerène"
+    ],
+    "level3": [
+      "Les ___s de ___ sont une forme allotropique du ___ appartenant à la famille des fullerènes."
+    ]
+  },
+  "extract": "Les nanotubes de carbone sont une forme allotropique du carbone appartenant à la famille des fullerènes.",
+  "categories": [
+    "forme allotropique du carbone appartenant à la famille des fullerènes",
+    "Nanotechnologie",
+    "Nanomatériau",
+    "Fullerène"
+  ],
+  "generated_at": "2026-10-10T22:16:16.640673+00:00"
+}

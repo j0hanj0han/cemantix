@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-10",
-  "puzzle_num": 1683,
-  "word": "sincère",
-  "first_letter": "S",
-  "word_length": 7,
-  "definition": "Qui est franc, véridique, qui dit ce qu’il pense, ce qu’il sent réellement.",
+  "date": "2026-10-11",
+  "puzzle_num": 1684,
+  "word": "pertinent",
+  "first_letter": "P",
+  "word_length": 9,
+  "definition": "Qui est tel qu’il convient, qui est approprié, qui est en rapport avec le sujet.",
   "hints": {
     "level1": [
       {
-        "word": "terre-à-terre",
+        "word": "justement",
         "percentile": 200,
-        "definition": "."
+        "definition": "Avec justice."
       },
       {
-        "word": "très",
+        "word": "souhaiter",
         "percentile": 267,
-        "definition": "Beaucoup, au plus haut point (devant un adjectif ou un adverbe)."
+        "definition": "Former un souhait."
       },
       {
-        "word": "bienséance",
+        "word": "hyperlien",
         "percentile": 334,
-        "definition": "Convenance de ce qui se dit ou se fait avec ce qui est dû aux personnes, à l’âge, au sexe, à la condition, et avec les usages reçus, les mœurs publiques, le temps, le lieu, etc. Qui correspond à l'idée qu'un groupe social se fait de la morale, du bien, du beau et de l'honnête."
+        "definition": "Référence dans un système hypertexte permettant de passer automatiquement d'un document consulté à un document lié."
       }
     ],
     "level2": [
       {
-        "word": "taquinerie",
+        "word": "inversement",
         "percentile": 500,
-        "definition": "Caractère de celui qui est taquin."
+        "definition": "Dans une situation inverse."
       },
       {
-        "word": "compatriote",
+        "word": "légitimité",
         "percentile": 567,
-        "definition": "Personne provenant d’une même région ou pays, ayant la même patrie."
+        "definition": "Qualité de ce qui est conforme à la loi, à la justice, à la raison, à la tradition ou aux règles établies."
       },
       {
-        "word": "si",
+        "word": "géographique",
         "percentile": 634,
-        "definition": "Dans le cas où, à condition que, supposé que. Conjonction qui introduit une condition (suivie d’une conséquence) ou une supposition qui peut être supprimée en utilisant un conditionnel."
+        "definition": "Relatif à la géographie."
       }
     ],
     "level3": [
       {
-        "word": "espoir",
+        "word": "solution",
         "percentile": 800,
-        "definition": "Fait d’espérer quelque chose. — Pour ce sens, ce mot est rare au pluriel ; on le dit pourtant quelquefois dans la poésie et dans le style soutenu."
+        "definition": "(Couramment) Moyen."
       },
       {
-        "word": "égocentrique",
+        "word": "éventuellement",
         "percentile": 850,
-        "definition": "Centré sur soi-même, qui se croit le centre de l'attention."
+        "definition": "D’une manière éventuelle."
       },
       {
-        "word": "personnellement",
+        "word": "indicateur",
         "percentile": 900,
-        "definition": "En la personne de celui dont il s’agit. — Dans ce sens, il a toujours rapport au régime du verbe qu’il modifie."
+        "definition": "Qui indique."
       }
     ]
   },
-  "tried_count": 38,
-  "generated_at": "2026-10-09T22:15:30.452187+00:00",
+  "tried_count": 116,
+  "generated_at": "2026-10-10T22:16:09.562862+00:00",
   "nearby_top": [
     {
-      "word": "sincère",
+      "word": "pertinent",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "sincérité",
+      "word": "pertinence",
       "percentile": 999,
-      "similarity": 64.17
+      "similarity": 69.06
     },
     {
-      "word": "sincèrement",
+      "word": "précis",
       "percentile": 998,
-      "similarity": 59.15
+      "similarity": 59.23
     },
     {
-      "word": "honnête",
+      "word": "utile",
       "percentile": 997,
-      "similarity": 58.18
+      "similarity": 58.56
     },
     {
-      "word": "honnêteté",
+      "word": "cohérent",
       "percentile": 996,
-      "similarity": 54.21
+      "similarity": 57.1
     },
     {
-      "word": "loyal",
+      "word": "intéressant",
       "percentile": 995,
-      "similarity": 51.79
+      "similarity": 56.78
     },
     {
-      "word": "conviction",
+      "word": "analyser",
       "percentile": 994,
-      "similarity": 51.77
+      "similarity": 56.51
     },
     {
-      "word": "généreux",
+      "word": "approprier",
       "percentile": 993,
-      "similarity": 51.65
+      "similarity": 55.71
     },
     {
-      "word": "sympathie",
+      "word": "problématique",
       "percentile": 992,
-      "similarity": 51.63
+      "similarity": 54.95
     },
     {
-      "word": "amitié",
+      "word": "argumenter",
       "percentile": 991,
-      "similarity": 49.87
+      "similarity": 54.3
     },
     {
-      "word": "fidèle",
+      "word": "analyse",
       "percentile": 990,
-      "similarity": 49.42
+      "similarity": 53.97
     },
     {
-      "word": "lucide",
+      "word": "exhaustif",
       "percentile": 989,
-      "similarity": 49.1
+      "similarity": 53.44
     },
     {
-      "word": "sentiment",
+      "word": "adéquat",
       "percentile": 988,
-      "similarity": 47.95
+      "similarity": 53.22
     },
     {
-      "word": "amour",
+      "word": "critère",
       "percentile": 987,
-      "similarity": 47.87
+      "similarity": 53.11
     },
     {
-      "word": "vérité",
+      "word": "expliciter",
       "percentile": 986,
-      "similarity": 47.71
+      "similarity": 52.69
     },
     {
-      "word": "courageux",
+      "word": "judicieux",
       "percentile": 985,
-      "similarity": 46.94
+      "similarity": 52.48
     },
     {
-      "word": "vrai",
+      "word": "structurer",
       "percentile": 984,
-      "similarity": 46.15
+      "similarity": 52.28
     },
     {
-      "word": "humble",
+      "word": "hiérarchiser",
       "percentile": 983,
-      "similarity": 45.96
+      "similarity": 52.23
     },
     {
-      "word": "dévouer",
+      "word": "identifier",
       "percentile": 982,
-      "similarity": 45.68
+      "similarity": 52.2
     },
     {
-      "word": "générosité",
+      "word": "outil",
       "percentile": 981,
-      "similarity": 45.2
+      "similarity": 51.59
     }
   ]
 }

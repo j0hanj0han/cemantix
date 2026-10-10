@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-11",
+  "puzzle_num": 1684,
+  "word": "pertinent",
+  "first_letter": "P",
+  "word_length": 9,
+  "definition": "Qui est tel qu’il convient, qui est approprié, qui est en rapport avec le sujet.",
+  "hints": {
+    "level1": [
+      {
+        "word": "justement",
+        "percentile": 200,
+        "definition": "Avec justice."
+      },
+      {
+        "word": "souhaiter",
+        "percentile": 267,
+        "definition": "Former un souhait."
+      },
+      {
+        "word": "hyperlien",
+        "percentile": 334,
+        "definition": "Référence dans un système hypertexte permettant de passer automatiquement d'un document consulté à un document lié."
+      }
+    ],
+    "level2": [
+      {
+        "word": "inversement",
+        "percentile": 500,
+        "definition": "Dans une situation inverse."
+      },
+      {
+        "word": "légitimité",
+        "percentile": 567,
+        "definition": "Qualité de ce qui est conforme à la loi, à la justice, à la raison, à la tradition ou aux règles établies."
+      },
+      {
+        "word": "géographique",
+        "percentile": 634,
+        "definition": "Relatif à la géographie."
+      }
+    ],
+    "level3": [
+      {
+        "word": "solution",
+        "percentile": 800,
+        "definition": "(Couramment) Moyen."
+      },
+      {
+        "word": "éventuellement",
+        "percentile": 850,
+        "definition": "D’une manière éventuelle."
+      },
+      {
+        "word": "indicateur",
+        "percentile": 900,
+        "definition": "Qui indique."
+      }
+    ]
+  },
+  "tried_count": 116,
+  "generated_at": "2026-10-10T22:16:09.562862+00:00",
+  "nearby_top": [
+    {
+      "word": "pertinent",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "pertinence",
+      "percentile": 999,
+      "similarity": 69.06
+    },
+    {
+      "word": "précis",
+      "percentile": 998,
+      "similarity": 59.23
+    },
+    {
+      "word": "utile",
+      "percentile": 997,
+      "similarity": 58.56
+    },
+    {
+      "word": "cohérent",
+      "percentile": 996,
+      "similarity": 57.1
+    },
+    {
+      "word": "intéressant",
+      "percentile": 995,
+      "similarity": 56.78
+    },
+    {
+      "word": "analyser",
+      "percentile": 994,
+      "similarity": 56.51
+    },
+    {
+      "word": "approprier",
+      "percentile": 993,
+      "similarity": 55.71
+    },
+    {
+      "word": "problématique",
+      "percentile": 992,
+      "similarity": 54.95
+    },
+    {
+      "word": "argumenter",
+      "percentile": 991,
+      "similarity": 54.3
+    },
+    {
+      "word": "analyse",
+      "percentile": 990,
+      "similarity": 53.97
+    },
+    {
+      "word": "exhaustif",
+      "percentile": 989,
+      "similarity": 53.44
+    },
+    {
+      "word": "adéquat",
+      "percentile": 988,
+      "similarity": 53.22
+    },
+    {
+      "word": "critère",
+      "percentile": 987,
+      "similarity": 53.11
+    },
+    {
+      "word": "expliciter",
+      "percentile": 986,
+      "similarity": 52.69
+    },
+    {
+      "word": "judicieux",
+      "percentile": 985,
+      "similarity": 52.48
+    },
+    {
+      "word": "structurer",
+      "percentile": 984,
+      "similarity": 52.28
+    },
+    {
+      "word": "hiérarchiser",
+      "percentile": 983,
+      "similarity": 52.23
+    },
+    {
+      "word": "identifier",
+      "percentile": 982,
+      "similarity": 52.2
+    },
+    {
+      "word": "outil",
+      "percentile": 981,
+      "similarity": 51.59
+    }
+  ]
+}

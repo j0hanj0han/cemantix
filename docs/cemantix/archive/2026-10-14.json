@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-14",
+  "puzzle_num": 1687,
+  "word": "objection",
+  "first_letter": "O",
+  "word_length": 9,
+  "definition": "Ce que l’on oppose à une affirmation, à une proposition, à une demande.",
+  "hints": {
+    "level1": [
+      {
+        "word": "rétroactivité",
+        "percentile": 200,
+        "definition": "Qualité de ce qui est rétroactif."
+      },
+      {
+        "word": "incohérent",
+        "percentile": 267,
+        "definition": "Qui manque de cohérence, de suite, de liaison."
+      },
+      {
+        "word": "alors",
+        "percentile": 334,
+        "definition": "En ce temps-là ; in illo tempore."
+      }
+    ],
+    "level2": [
+      {
+        "word": "comprendre",
+        "percentile": 500,
+        "definition": "Contenir en soi."
+      },
+      {
+        "word": "possible",
+        "percentile": 567,
+        "definition": "Qui peut être."
+      },
+      {
+        "word": "dilemme",
+        "percentile": 634,
+        "definition": "Sorte d’argument qui contient deux ou plusieurs propositions différentes ou contraires, dont on laisse le choix à l’adversaire, pour le convaincre également, quelle que soit celle qu’il adopte."
+      }
+    ],
+    "level3": [
+      {
+        "word": "inexact",
+        "percentile": 800,
+        "definition": "Qui renferme des inexactitudes."
+      },
+      {
+        "word": "croyance",
+        "percentile": 850,
+        "definition": "Connaissance considérée comme irréfutable sans qu’elle soit basée sur des preuves."
+      },
+      {
+        "word": "négateur",
+        "percentile": 900,
+        "definition": "Celui qui nie, qui a l’habitude, la passion de nier."
+      }
+    ]
+  },
+  "tried_count": 76,
+  "generated_at": "2026-10-14T09:18:17.784439+00:00",
+  "nearby_top": [
+    {
+      "word": "objection",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "argument",
+      "percentile": 999,
+      "similarity": 57.74
+    },
+    {
+      "word": "réfuter",
+      "percentile": 998,
+      "similarity": 53.33
+    },
+    {
+      "word": "argumentation",
+      "percentile": 997,
+      "similarity": 51.4
+    },
+    {
+      "word": "réfutation",
+      "percentile": 996,
+      "similarity": 49.62
+    },
+    {
+      "word": "argumenter",
+      "percentile": 995,
+      "similarity": 48.93
+    },
+    {
+      "word": "raison",
+      "percentile": 994,
+      "similarity": 48.67
+    },
+    {
+      "word": "objecter",
+      "percentile": 993,
+      "similarity": 48.34
+    },
+    {
+      "word": "affirmation",
+      "percentile": 992,
+      "similarity": 47.01
+    },
+    {
+      "word": "hypothèse",
+      "percentile": 991,
+      "similarity": 45.44
+    },
+    {
+      "word": "raisonnement",
+      "percentile": 990,
+      "similarity": 44.83
+    },
+    {
+      "word": "reproche",
+      "percentile": 989,
+      "similarity": 44.81
+    },
+    {
+      "word": "contradicteur",
+      "percentile": 988,
+      "similarity": 44.8
+    },
+    {
+      "word": "formuler",
+      "percentile": 987,
+      "similarity": 44.66
+    },
+    {
+      "word": "supposition",
+      "percentile": 986,
+      "similarity": 44.18
+    },
+    {
+      "word": "sophisme",
+      "percentile": 985,
+      "similarity": 43.79
+    },
+    {
+      "word": "nécessairement",
+      "percentile": 984,
+      "similarity": 43.65
+    },
+    {
+      "word": "énoncer",
+      "percentile": 983,
+      "similarity": 43.5
+    },
+    {
+      "word": "supposer",
+      "percentile": 982,
+      "similarity": 43.4
+    },
+    {
+      "word": "admettre",
+      "percentile": 981,
+      "similarity": 43.35
+    }
+  ]
+}

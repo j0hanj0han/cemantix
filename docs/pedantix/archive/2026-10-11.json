@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-11",
+  "puzzle_num": 1611,
+  "word": "Nikita Khrouchtchev",
+  "title_slug": "Nikita_Khrouchtchev",
+  "title_display": "Nikita Khrouchtchev",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nikita_Khrouchtchev",
+  "hints": {
+    "level1": [
+      "2 mots · 18 lettres",
+      "Premières lettres : N · K"
+    ],
+    "level2": [
+      "homme d’État soviétique",
+      "Chef du gouvernement de l'Union soviétique",
+      "Secrétaire général du Parti communiste de l'Union soviétique",
+      "Dirigeant de l'Union soviétique"
+    ],
+    "level3": [
+      "___ Sergueïevitch ___, né le 3 avril 1894 à Kalinovka, dans l'Empire russe, et mort le 11 septembre 1971 à Moscou, est un homme d'État soviétique qui dirigea l'URSS durant une partie de la guerre froide."
+    ]
+  },
+  "extract": "Nikita Sergueïevitch Khrouchtchev, né le 3 avril 1894 à Kalinovka, dans l'Empire russe, et mort le 11 septembre 1971 à Moscou, est un homme d'État soviétique qui dirigea l'URSS durant une partie de la guerre froide.",
+  "categories": [
+    "homme d’État soviétique",
+    "Chef du gouvernement de l'Union soviétique",
+    "Secrétaire général du Parti communiste de l'Union soviétique",
+    "Dirigeant de l'Union soviétique"
+  ],
+  "generated_at": "2026-10-14T09:18:34.083961+00:00"
+}

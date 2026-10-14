@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-11",
-  "puzzle_num": 1684,
-  "word": "pertinent",
-  "first_letter": "P",
+  "date": "2026-10-14",
+  "puzzle_num": 1687,
+  "word": "objection",
+  "first_letter": "O",
   "word_length": 9,
-  "definition": "Qui est tel qu’il convient, qui est approprié, qui est en rapport avec le sujet.",
+  "definition": "Ce que l’on oppose à une affirmation, à une proposition, à une demande.",
   "hints": {
     "level1": [
       {
-        "word": "justement",
+        "word": "rétroactivité",
         "percentile": 200,
-        "definition": "Avec justice."
+        "definition": "Qualité de ce qui est rétroactif."
       },
       {
-        "word": "souhaiter",
+        "word": "incohérent",
         "percentile": 267,
-        "definition": "Former un souhait."
+        "definition": "Qui manque de cohérence, de suite, de liaison."
       },
       {
-        "word": "hyperlien",
+        "word": "alors",
         "percentile": 334,
-        "definition": "Référence dans un système hypertexte permettant de passer automatiquement d'un document consulté à un document lié."
+        "definition": "En ce temps-là ; in illo tempore."
       }
     ],
     "level2": [
       {
-        "word": "inversement",
+        "word": "comprendre",
         "percentile": 500,
-        "definition": "Dans une situation inverse."
+        "definition": "Contenir en soi."
       },
       {
-        "word": "légitimité",
+        "word": "possible",
         "percentile": 567,
-        "definition": "Qualité de ce qui est conforme à la loi, à la justice, à la raison, à la tradition ou aux règles établies."
+        "definition": "Qui peut être."
       },
       {
-        "word": "géographique",
+        "word": "dilemme",
         "percentile": 634,
-        "definition": "Relatif à la géographie."
+        "definition": "Sorte d’argument qui contient deux ou plusieurs propositions différentes ou contraires, dont on laisse le choix à l’adversaire, pour le convaincre également, quelle que soit celle qu’il adopte."
       }
     ],
     "level3": [
       {
-        "word": "solution",
+        "word": "inexact",
         "percentile": 800,
-        "definition": "(Couramment) Moyen."
+        "definition": "Qui renferme des inexactitudes."
       },
       {
-        "word": "éventuellement",
+        "word": "croyance",
         "percentile": 850,
-        "definition": "D’une manière éventuelle."
+        "definition": "Connaissance considérée comme irréfutable sans qu’elle soit basée sur des preuves."
       },
       {
-        "word": "indicateur",
+        "word": "négateur",
         "percentile": 900,
-        "definition": "Qui indique."
+        "definition": "Celui qui nie, qui a l’habitude, la passion de nier."
       }
     ]
   },
-  "tried_count": 116,
-  "generated_at": "2026-10-10T22:16:09.562862+00:00",
+  "tried_count": 76,
+  "generated_at": "2026-10-14T09:18:17.784439+00:00",
   "nearby_top": [
     {
-      "word": "pertinent",
+      "word": "objection",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "pertinence",
+      "word": "argument",
       "percentile": 999,
-      "similarity": 69.06
+      "similarity": 57.74
     },
     {
-      "word": "précis",
+      "word": "réfuter",
       "percentile": 998,
-      "similarity": 59.23
+      "similarity": 53.33
     },
     {
-      "word": "utile",
+      "word": "argumentation",
       "percentile": 997,
-      "similarity": 58.56
+      "similarity": 51.4
     },
     {
-      "word": "cohérent",
+      "word": "réfutation",
       "percentile": 996,
-      "similarity": 57.1
-    },
-    {
-      "word": "intéressant",
-      "percentile": 995,
-      "similarity": 56.78
-    },
-    {
-      "word": "analyser",
-      "percentile": 994,
-      "similarity": 56.51
-    },
-    {
-      "word": "approprier",
-      "percentile": 993,
-      "similarity": 55.71
-    },
-    {
-      "word": "problématique",
-      "percentile": 992,
-      "similarity": 54.95
+      "similarity": 49.62
     },
     {
       "word": "argumenter",
+      "percentile": 995,
+      "similarity": 48.93
+    },
+    {
+      "word": "raison",
+      "percentile": 994,
+      "similarity": 48.67
+    },
+    {
+      "word": "objecter",
+      "percentile": 993,
+      "similarity": 48.34
+    },
+    {
+      "word": "affirmation",
+      "percentile": 992,
+      "similarity": 47.01
+    },
+    {
+      "word": "hypothèse",
       "percentile": 991,
-      "similarity": 54.3
+      "similarity": 45.44
     },
     {
-      "word": "analyse",
+      "word": "raisonnement",
       "percentile": 990,
-      "similarity": 53.97
+      "similarity": 44.83
     },
     {
-      "word": "exhaustif",
+      "word": "reproche",
       "percentile": 989,
-      "similarity": 53.44
+      "similarity": 44.81
     },
     {
-      "word": "adéquat",
+      "word": "contradicteur",
       "percentile": 988,
-      "similarity": 53.22
+      "similarity": 44.8
     },
     {
-      "word": "critère",
+      "word": "formuler",
       "percentile": 987,
-      "similarity": 53.11
+      "similarity": 44.66
     },
     {
-      "word": "expliciter",
+      "word": "supposition",
       "percentile": 986,
-      "similarity": 52.69
+      "similarity": 44.18
     },
     {
-      "word": "judicieux",
+      "word": "sophisme",
       "percentile": 985,
-      "similarity": 52.48
+      "similarity": 43.79
     },
     {
-      "word": "structurer",
+      "word": "nécessairement",
       "percentile": 984,
-      "similarity": 52.28
+      "similarity": 43.65
     },
     {
-      "word": "hiérarchiser",
+      "word": "énoncer",
       "percentile": 983,
-      "similarity": 52.23
+      "similarity": 43.5
     },
     {
-      "word": "identifier",
+      "word": "supposer",
       "percentile": 982,
-      "similarity": 52.2
+      "similarity": 43.4
     },
     {
-      "word": "outil",
+      "word": "admettre",
       "percentile": 981,
-      "similarity": 51.59
+      "similarity": 43.35
     }
   ]
 }

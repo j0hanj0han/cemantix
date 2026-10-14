@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-12",
+  "puzzle_num": 1612,
+  "word": "Révolte des Taiping",
+  "title_slug": "Révolte_des_Taiping",
+  "title_display": "Révolte des Taiping",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Révolte_des_Taiping",
+  "hints": {
+    "level1": [
+      "3 mots · 17 lettres",
+      "Premières lettres : R · D · T"
+    ],
+    "level2": [
+      "soulèvement en Chine entre 1851 et 1864",
+      "Conflit militaire géolocalisable sans coordonnées paramétrées",
+      "Guerre du XIXe siècle",
+      "Guerre civile du XIXe siècle"
+    ],
+    "level3": [
+      "La ___ est une ___ armée devenue une guerre totale qui eut lieu dans le sud, puis le centre de la Chine, entre 1851 et 1864."
+    ]
+  },
+  "extract": "La révolte des Taiping est une révolte armée devenue une guerre totale qui eut lieu dans le sud, puis le centre de la Chine, entre 1851 et 1864.",
+  "categories": [
+    "soulèvement en Chine entre 1851 et 1864",
+    "Conflit militaire géolocalisable sans coordonnées paramétrées",
+    "Guerre du XIXe siècle",
+    "Guerre civile du XIXe siècle"
+  ],
+  "generated_at": "2026-10-14T09:18:33.686280+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-13",
+  "puzzle_num": 1613,
+  "word": "Poisson abyssal",
+  "title_slug": "Poisson_abyssal",
+  "title_display": "Poisson abyssal",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Poisson_abyssal",
+  "hints": {
+    "level1": [
+      "2 mots · 14 lettres",
+      "Premières lettres : P · A"
+    ],
+    "level2": [
+      "espèce de poissons",
+      "Poisson par adaptation",
+      "Abysses",
+      "Liste de poissons"
+    ],
+    "level3": [
+      "Les ___s abyssaux, ___s des abysses ou ___s des profondeurs sont des ___s qui passent la plus grande partie de leur vie dans les abysses."
+    ]
+  },
+  "extract": "Les poissons abyssaux, poissons des abysses ou poissons des profondeurs sont des poissons qui passent la plus grande partie de leur vie dans les abysses.",
+  "categories": [
+    "espèce de poissons",
+    "Poisson par adaptation",
+    "Abysses",
+    "Liste de poissons"
+  ],
+  "generated_at": "2026-10-14T09:18:33.340280+00:00"
+}

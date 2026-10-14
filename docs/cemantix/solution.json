@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-14",
-  "puzzle_num": 1687,
-  "word": "objection",
-  "first_letter": "O",
-  "word_length": 9,
-  "definition": "Ce que l’on oppose à une affirmation, à une proposition, à une demande.",
+  "date": "2026-10-15",
+  "puzzle_num": 1688,
+  "word": "alerte",
+  "first_letter": "A",
+  "word_length": 6,
+  "definition": "Qui se tient sur ses gardes.",
   "hints": {
     "level1": [
       {
-        "word": "rétroactivité",
+        "word": "bogue",
         "percentile": 200,
-        "definition": "Qualité de ce qui est rétroactif."
+        "definition": "Coque épineuse qui enveloppe la châtaigne, fruit du châtaignier, ou de la faîne, fruit du hêtre. — Ce sont les bractées accrescentes soudées de l’akène."
       },
       {
-        "word": "incohérent",
+        "word": "déclaration",
         "percentile": 267,
-        "definition": "Qui manque de cohérence, de suite, de liaison."
+        "definition": "Loi ; ordonnance ; interprétation d'un édit."
       },
       {
-        "word": "alors",
+        "word": "bloquer",
         "percentile": 334,
-        "definition": "En ce temps-là ; in illo tempore."
+        "definition": "Fermer par un blocus les avenues d'une place, les approches d'un port, etc, immobiliser par un blocus."
       }
     ],
     "level2": [
       {
-        "word": "comprendre",
+        "word": "service",
         "percentile": 500,
-        "definition": "Contenir en soi."
+        "definition": "Action de servir une personne ou une collectivité."
       },
       {
-        "word": "possible",
+        "word": "pressostat",
         "percentile": 567,
-        "definition": "Qui peut être."
+        "definition": "Dispositif détectant le dépassement d’une valeur prédéterminée de la pression d’un fluide et/ou le passage en dessous d'une limite préétablie."
       },
       {
-        "word": "dilemme",
+        "word": "extincteur",
         "percentile": 634,
-        "definition": "Sorte d’argument qui contient deux ou plusieurs propositions différentes ou contraires, dont on laisse le choix à l’adversaire, pour le convaincre également, quelle que soit celle qu’il adopte."
+        "definition": "Qui sert à éteindre."
       }
     ],
     "level3": [
       {
-        "word": "inexact",
+        "word": "désabonnement",
         "percentile": 800,
-        "definition": "Qui renferme des inexactitudes."
+        "definition": "Action de se désabonner."
       },
       {
-        "word": "croyance",
+        "word": "hémovigilance",
         "percentile": 850,
-        "definition": "Connaissance considérée comme irréfutable sans qu’elle soit basée sur des preuves."
+        "definition": "Surveillance relative à l’utilisation thérapeutique des produits sanguins, exercée depuis la collecte du sang et de ses composants jusqu’au suivi des patients transfusés, afin de recueillir et d’évaluer des informations sur les effets inattendus ou indésirables de ces produits et d’en prévenir l’app"
       },
       {
-        "word": "négateur",
+        "word": "inondation",
         "percentile": 900,
-        "definition": "Celui qui nie, qui a l’habitude, la passion de nier."
+        "definition": "Débordement d’un cours d’eau, ou accumulation d’eaux de ruissellement, qui submerge temporairement une zone normalement hors d’eau."
       }
     ]
   },
-  "tried_count": 76,
-  "generated_at": "2026-10-14T09:18:17.784439+00:00",
+  "tried_count": 124,
+  "generated_at": "2026-10-14T22:17:30.095497+00:00",
   "nearby_top": [
     {
-      "word": "objection",
+      "word": "alerte",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "argument",
+      "word": "déclenchement",
       "percentile": 999,
-      "similarity": 57.74
+      "similarity": 49.99
     },
     {
-      "word": "réfuter",
+      "word": "alarme",
       "percentile": 998,
-      "similarity": 53.33
+      "similarity": 48.29
     },
     {
-      "word": "argumentation",
+      "word": "déclencher",
       "percentile": 997,
-      "similarity": 51.4
+      "similarity": 46.93
     },
     {
-      "word": "réfutation",
+      "word": "vigilance",
       "percentile": 996,
-      "similarity": 49.62
+      "similarity": 45.85
     },
     {
-      "word": "argumenter",
+      "word": "surveillance",
       "percentile": 995,
-      "similarity": 48.93
+      "similarity": 45.51
     },
     {
-      "word": "raison",
+      "word": "alerter",
       "percentile": 994,
-      "similarity": 48.67
+      "similarity": 44.23
     },
     {
-      "word": "objecter",
+      "word": "avertir",
       "percentile": 993,
-      "similarity": 48.34
+      "similarity": 43.51
     },
     {
-      "word": "affirmation",
+      "word": "prévenir",
       "percentile": 992,
-      "similarity": 47.01
+      "similarity": 40.25
     },
     {
-      "word": "hypothèse",
+      "word": "signalement",
       "percentile": 991,
-      "similarity": 45.44
+      "similarity": 40.14
     },
     {
-      "word": "raisonnement",
+      "word": "urgence",
       "percentile": 990,
-      "similarity": 44.83
+      "similarity": 39.8
     },
     {
-      "word": "reproche",
+      "word": "détecter",
       "percentile": 989,
-      "similarity": 44.81
+      "similarity": 39.62
     },
     {
-      "word": "contradicteur",
+      "word": "orsec",
       "percentile": 988,
-      "similarity": 44.8
+      "similarity": 39.35
     },
     {
-      "word": "formuler",
+      "word": "veille",
       "percentile": 987,
-      "similarity": 44.66
+      "similarity": 39.08
     },
     {
-      "word": "supposition",
+      "word": "secours",
       "percentile": 986,
-      "similarity": 44.18
+      "similarity": 38.63
     },
     {
-      "word": "sophisme",
+      "word": "sécurité",
       "percentile": 985,
-      "similarity": 43.79
+      "similarity": 37.45
     },
     {
-      "word": "nécessairement",
+      "word": "zonal",
       "percentile": 984,
-      "similarity": 43.65
+      "similarity": 36.77
     },
     {
-      "word": "énoncer",
+      "word": "incident",
       "percentile": 983,
-      "similarity": 43.5
+      "similarity": 36.3
     },
     {
-      "word": "supposer",
+      "word": "surveiller",
       "percentile": 982,
-      "similarity": 43.4
+      "similarity": 35.98
     },
     {
-      "word": "admettre",
+      "word": "informer",
       "percentile": 981,
-      "similarity": 43.35
+      "similarity": 35.56
     }
   ]
 }

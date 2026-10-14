@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "puzzle_num": 1614,
+  "word": "Expressionnisme abstrait",
+  "title_slug": "Expressionnisme_abstrait",
+  "title_display": "Expressionnisme abstrait",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Expressionnisme_abstrait",
+  "hints": {
+    "level1": [
+      "2 mots · 23 lettres",
+      "Premières lettres : E · A"
+    ],
+    "level2": [
+      "mouvement américain de l'avant garde artistique",
+      "Mouvement artistique contemporain",
+      "Art contemporain aux États-Unis",
+      "Expressionnisme"
+    ],
+    "level3": [
+      "L'___ est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis."
+    ]
+  },
+  "extract": "L'expressionnisme abstrait est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis.",
+  "categories": [
+    "mouvement américain de l'avant garde artistique",
+    "Mouvement artistique contemporain",
+    "Art contemporain aux États-Unis",
+    "Expressionnisme"
+  ],
+  "generated_at": "2026-10-14T22:17:37.155135+00:00"
+}

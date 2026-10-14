@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-15",
+  "puzzle_num": 1688,
+  "word": "alerte",
+  "first_letter": "A",
+  "word_length": 6,
+  "definition": "Qui se tient sur ses gardes.",
+  "hints": {
+    "level1": [
+      {
+        "word": "bogue",
+        "percentile": 200,
+        "definition": "Coque épineuse qui enveloppe la châtaigne, fruit du châtaignier, ou de la faîne, fruit du hêtre. — Ce sont les bractées accrescentes soudées de l’akène."
+      },
+      {
+        "word": "déclaration",
+        "percentile": 267,
+        "definition": "Loi ; ordonnance ; interprétation d'un édit."
+      },
+      {
+        "word": "bloquer",
+        "percentile": 334,
+        "definition": "Fermer par un blocus les avenues d'une place, les approches d'un port, etc, immobiliser par un blocus."
+      }
+    ],
+    "level2": [
+      {
+        "word": "service",
+        "percentile": 500,
+        "definition": "Action de servir une personne ou une collectivité."
+      },
+      {
+        "word": "pressostat",
+        "percentile": 567,
+        "definition": "Dispositif détectant le dépassement d’une valeur prédéterminée de la pression d’un fluide et/ou le passage en dessous d'une limite préétablie."
+      },
+      {
+        "word": "extincteur",
+        "percentile": 634,
+        "definition": "Qui sert à éteindre."
+      }
+    ],
+    "level3": [
+      {
+        "word": "désabonnement",
+        "percentile": 800,
+        "definition": "Action de se désabonner."
+      },
+      {
+        "word": "hémovigilance",
+        "percentile": 850,
+        "definition": "Surveillance relative à l’utilisation thérapeutique des produits sanguins, exercée depuis la collecte du sang et de ses composants jusqu’au suivi des patients transfusés, afin de recueillir et d’évaluer des informations sur les effets inattendus ou indésirables de ces produits et d’en prévenir l’app"
+      },
+      {
+        "word": "inondation",
+        "percentile": 900,
+        "definition": "Débordement d’un cours d’eau, ou accumulation d’eaux de ruissellement, qui submerge temporairement une zone normalement hors d’eau."
+      }
+    ]
+  },
+  "tried_count": 124,
+  "generated_at": "2026-10-14T22:17:30.095497+00:00",
+  "nearby_top": [
+    {
+      "word": "alerte",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "déclenchement",
+      "percentile": 999,
+      "similarity": 49.99
+    },
+    {
+      "word": "alarme",
+      "percentile": 998,
+      "similarity": 48.29
+    },
+    {
+      "word": "déclencher",
+      "percentile": 997,
+      "similarity": 46.93
+    },
+    {
+      "word": "vigilance",
+      "percentile": 996,
+      "similarity": 45.85
+    },
+    {
+      "word": "surveillance",
+      "percentile": 995,
+      "similarity": 45.51
+    },
+    {
+      "word": "alerter",
+      "percentile": 994,
+      "similarity": 44.23
+    },
+    {
+      "word": "avertir",
+      "percentile": 993,
+      "similarity": 43.51
+    },
+    {
+      "word": "prévenir",
+      "percentile": 992,
+      "similarity": 40.25
+    },
+    {
+      "word": "signalement",
+      "percentile": 991,
+      "similarity": 40.14
+    },
+    {
+      "word": "urgence",
+      "percentile": 990,
+      "similarity": 39.8
+    },
+    {
+      "word": "détecter",
+      "percentile": 989,
+      "similarity": 39.62
+    },
+    {
+      "word": "orsec",
+      "percentile": 988,
+      "similarity": 39.35
+    },
+    {
+      "word": "veille",
+      "percentile": 987,
+      "similarity": 39.08
+    },
+    {
+      "word": "secours",
+      "percentile": 986,
+      "similarity": 38.63
+    },
+    {
+      "word": "sécurité",
+      "percentile": 985,
+      "similarity": 37.45
+    },
+    {
+      "word": "zonal",
+      "percentile": 984,
+      "similarity": 36.77
+    },
+    {
+      "word": "incident",
+      "percentile": 983,
+      "similarity": 36.3
+    },
+    {
+      "word": "surveiller",
+      "percentile": 982,
+      "similarity": 35.98
+    },
+    {
+      "word": "informer",
+      "percentile": 981,
+      "similarity": 35.56
+    }
+  ]
+}

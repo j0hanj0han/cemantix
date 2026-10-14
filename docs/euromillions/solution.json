@@ -13,5 +13,8 @@
   ],
   "code": "RS 726 2070",
   "next_jackpot": 49000000.0,
-  "generated_at": "2026-10-14T09:18:31.208422+00:00"
+  "generated_at": "2026-10-14T09:18:31.208422+00:00",
+  "jackpot_amount": 37737849,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

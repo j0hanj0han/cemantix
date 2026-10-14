@@ -32,6 +32,17 @@ trap 'pkill -P "$WATCHDOG_PID" 2>/dev/null; kill "$WATCHDOG_PID" 2>/dev/null; tr
 {
   echo "=== $(date '+%Y-%m-%d %H:%M:%S') — Démarrage ==="
 
+  # Espace disque : en dessous de ~1 Go, git peut planter en plein commit (incident du 12/10)
+  FREE_KB=$(df -k "$SCRIPT_DIR" | awk 'NR==2 {print $4}')
+  if [ "$FREE_KB" -lt 1048576 ]; then
+    echo "⛔ Espace disque insuffisant ($((FREE_KB / 1024)) Mo libres) — run annulé."
+    exit 1
+  fi
+
+  # Jeter les fichiers générés laissés par un run interrompu (incident du 12/10 : disque plein),
+  # sinon git pull --rebase échoue à chaque run suivant.
+  git checkout -- docs/ && git clean -fdq docs/
+
   # Récupère les éventuels commits distants avant de générer
   git pull --rebase origin main
 

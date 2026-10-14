@@ -49,7 +49,15 @@ draw_date() {
 {
   echo "=== $(date '+%Y-%m-%d %H:%M:%S') — run_draws ($GAME) : démarrage ==="
 
+  # Espace disque : en dessous de ~1 Go, git peut planter en plein commit (incident du 12/10)
+  FREE_KB=$(df -k "$SCRIPT_DIR" | awk 'NR==2 {print $4}')
+  if [ "$FREE_KB" -lt 1048576 ]; then
+    echo "⛔ Espace disque insuffisant ($((FREE_KB / 1024)) Mo libres) — run annulé."
+    exit 1
+  fi
+
   while :; do
+    git checkout -- docs/ && git clean -fdq docs/   # repartir propre même si un run précédent a été interrompu
     git pull --rebase origin main
     "$PYTHON" generate.py || echo "⚠️  generate.py en erreur, nouvelle tentative au prochain tour"
 

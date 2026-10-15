@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-16",
+  "puzzle_num": 1689,
+  "word": "orienter",
+  "first_letter": "O",
+  "word_length": 8,
+  "definition": "Disposer une chose selon la situation qu’elle doit avoir par rapport à l’orient, aux points cardinaux.",
+  "hints": {
+    "level1": [
+      {
+        "word": "point",
+        "percentile": 200,
+        "definition": "Action de piquer dans un tissu avec une aiguille enfilée ou résultat de cette action, piqûre."
+      },
+      {
+        "word": "adaptation",
+        "percentile": 267,
+        "definition": "Action d’adapter ou de s’adapter."
+      },
+      {
+        "word": "réalisation",
+        "percentile": 334,
+        "definition": "Action de réaliser ; résultat de cette action."
+      }
+    ],
+    "level2": [
+      {
+        "word": "repérable",
+        "percentile": 500,
+        "definition": "Qui peut être repéré."
+      },
+      {
+        "word": "reformuler",
+        "percentile": 567,
+        "definition": "Réitérer un dire, une explication, une proposition, etc. sous une autre forme."
+      },
+      {
+        "word": "découler",
+        "percentile": 634,
+        "definition": "Couler peu à peu et de suite."
+      }
+    ],
+    "level3": [
+      {
+        "word": "complexe",
+        "percentile": 800,
+        "definition": "Qui n’est pas simple ; qui embrasse des éléments divers et entremêlés."
+      },
+      {
+        "word": "conception",
+        "percentile": 850,
+        "definition": "Action par laquelle un enfant est conçu dans le sein de sa mère quand l’embryon se forme par la rencontre d’un ovule et d’un spermatozoïde."
+      },
+      {
+        "word": "existant",
+        "percentile": 900,
+        "definition": "Qui existe."
+      }
+    ]
+  },
+  "tried_count": 295,
+  "generated_at": "2026-10-15T22:18:59.869454+00:00",
+  "nearby_top": [
+    {
+      "word": "orienter",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "orientation",
+      "percentile": 999,
+      "similarity": 54.9
+    },
+    {
+      "word": "structurer",
+      "percentile": 998,
+      "similarity": 51.26
+    },
+    {
+      "word": "guider",
+      "percentile": 997,
+      "similarity": 50.99
+    },
+    {
+      "word": "développer",
+      "percentile": 996,
+      "similarity": 50.07
+    },
+    {
+      "word": "adapter",
+      "percentile": 995,
+      "similarity": 46.37
+    },
+    {
+      "word": "intégrer",
+      "percentile": 994,
+      "similarity": 45.74
+    },
+    {
+      "word": "réorienter",
+      "percentile": 993,
+      "similarity": 45.3
+    },
+    {
+      "word": "articuler",
+      "percentile": 992,
+      "similarity": 44.94
+    },
+    {
+      "word": "privilégier",
+      "percentile": 991,
+      "similarity": 44.87
+    },
+    {
+      "word": "cibler",
+      "percentile": 990,
+      "similarity": 44.74
+    },
+    {
+      "word": "positionner",
+      "percentile": 989,
+      "similarity": 44.57
+    },
+    {
+      "word": "permettre",
+      "percentile": 988,
+      "similarity": 44.33
+    },
+    {
+      "word": "différent",
+      "percentile": 987,
+      "similarity": 44.13
+    },
+    {
+      "word": "réorientation",
+      "percentile": 986,
+      "similarity": 43.52
+    },
+    {
+      "word": "axe",
+      "percentile": 985,
+      "similarity": 43.41
+    },
+    {
+      "word": "spécifique",
+      "percentile": 984,
+      "similarity": 43.33
+    },
+    {
+      "word": "spécifiquement",
+      "percentile": 983,
+      "similarity": 43.24
+    },
+    {
+      "word": "objectif",
+      "percentile": 982,
+      "similarity": 42.98
+    },
+    {
+      "word": "vers",
+      "percentile": 981,
+      "similarity": 42.35
+    }
+  ]
+}

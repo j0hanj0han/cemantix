@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-15",
-  "puzzle_num": 1688,
-  "word": "alerte",
-  "first_letter": "A",
-  "word_length": 6,
-  "definition": "Qui se tient sur ses gardes.",
+  "date": "2026-10-16",
+  "puzzle_num": 1689,
+  "word": "orienter",
+  "first_letter": "O",
+  "word_length": 8,
+  "definition": "Disposer une chose selon la situation qu’elle doit avoir par rapport à l’orient, aux points cardinaux.",
   "hints": {
     "level1": [
       {
-        "word": "bogue",
+        "word": "point",
         "percentile": 200,
-        "definition": "Coque épineuse qui enveloppe la châtaigne, fruit du châtaignier, ou de la faîne, fruit du hêtre. — Ce sont les bractées accrescentes soudées de l’akène."
+        "definition": "Action de piquer dans un tissu avec une aiguille enfilée ou résultat de cette action, piqûre."
       },
       {
-        "word": "déclaration",
+        "word": "adaptation",
         "percentile": 267,
-        "definition": "Loi ; ordonnance ; interprétation d'un édit."
+        "definition": "Action d’adapter ou de s’adapter."
       },
       {
-        "word": "bloquer",
+        "word": "réalisation",
         "percentile": 334,
-        "definition": "Fermer par un blocus les avenues d'une place, les approches d'un port, etc, immobiliser par un blocus."
+        "definition": "Action de réaliser ; résultat de cette action."
       }
     ],
     "level2": [
       {
-        "word": "service",
+        "word": "repérable",
         "percentile": 500,
-        "definition": "Action de servir une personne ou une collectivité."
+        "definition": "Qui peut être repéré."
       },
       {
-        "word": "pressostat",
+        "word": "reformuler",
         "percentile": 567,
-        "definition": "Dispositif détectant le dépassement d’une valeur prédéterminée de la pression d’un fluide et/ou le passage en dessous d'une limite préétablie."
+        "definition": "Réitérer un dire, une explication, une proposition, etc. sous une autre forme."
       },
       {
-        "word": "extincteur",
+        "word": "découler",
         "percentile": 634,
-        "definition": "Qui sert à éteindre."
+        "definition": "Couler peu à peu et de suite."
       }
     ],
     "level3": [
       {
-        "word": "désabonnement",
+        "word": "complexe",
         "percentile": 800,
-        "definition": "Action de se désabonner."
+        "definition": "Qui n’est pas simple ; qui embrasse des éléments divers et entremêlés."
       },
       {
-        "word": "hémovigilance",
+        "word": "conception",
         "percentile": 850,
-        "definition": "Surveillance relative à l’utilisation thérapeutique des produits sanguins, exercée depuis la collecte du sang et de ses composants jusqu’au suivi des patients transfusés, afin de recueillir et d’évaluer des informations sur les effets inattendus ou indésirables de ces produits et d’en prévenir l’app"
+        "definition": "Action par laquelle un enfant est conçu dans le sein de sa mère quand l’embryon se forme par la rencontre d’un ovule et d’un spermatozoïde."
       },
       {
-        "word": "inondation",
+        "word": "existant",
         "percentile": 900,
-        "definition": "Débordement d’un cours d’eau, ou accumulation d’eaux de ruissellement, qui submerge temporairement une zone normalement hors d’eau."
+        "definition": "Qui existe."
       }
     ]
   },
-  "tried_count": 124,
-  "generated_at": "2026-10-14T22:17:30.095497+00:00",
+  "tried_count": 295,
+  "generated_at": "2026-10-15T22:18:59.869454+00:00",
   "nearby_top": [
     {
-      "word": "alerte",
+      "word": "orienter",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "déclenchement",
+      "word": "orientation",
       "percentile": 999,
-      "similarity": 49.99
+      "similarity": 54.9
     },
     {
-      "word": "alarme",
+      "word": "structurer",
       "percentile": 998,
-      "similarity": 48.29
+      "similarity": 51.26
     },
     {
-      "word": "déclencher",
+      "word": "guider",
       "percentile": 997,
-      "similarity": 46.93
+      "similarity": 50.99
     },
     {
-      "word": "vigilance",
+      "word": "développer",
       "percentile": 996,
-      "similarity": 45.85
+      "similarity": 50.07
     },
     {
-      "word": "surveillance",
+      "word": "adapter",
       "percentile": 995,
-      "similarity": 45.51
+      "similarity": 46.37
     },
     {
-      "word": "alerter",
+      "word": "intégrer",
       "percentile": 994,
-      "similarity": 44.23
+      "similarity": 45.74
     },
     {
-      "word": "avertir",
+      "word": "réorienter",
       "percentile": 993,
-      "similarity": 43.51
+      "similarity": 45.3
     },
     {
-      "word": "prévenir",
+      "word": "articuler",
       "percentile": 992,
-      "similarity": 40.25
+      "similarity": 44.94
     },
     {
-      "word": "signalement",
+      "word": "privilégier",
       "percentile": 991,
-      "similarity": 40.14
+      "similarity": 44.87
     },
     {
-      "word": "urgence",
+      "word": "cibler",
       "percentile": 990,
-      "similarity": 39.8
+      "similarity": 44.74
     },
     {
-      "word": "détecter",
+      "word": "positionner",
       "percentile": 989,
-      "similarity": 39.62
+      "similarity": 44.57
     },
     {
-      "word": "orsec",
+      "word": "permettre",
       "percentile": 988,
-      "similarity": 39.35
+      "similarity": 44.33
     },
     {
-      "word": "veille",
+      "word": "différent",
       "percentile": 987,
-      "similarity": 39.08
+      "similarity": 44.13
     },
     {
-      "word": "secours",
+      "word": "réorientation",
       "percentile": 986,
-      "similarity": 38.63
+      "similarity": 43.52
     },
     {
-      "word": "sécurité",
+      "word": "axe",
       "percentile": 985,
-      "similarity": 37.45
+      "similarity": 43.41
     },
     {
-      "word": "zonal",
+      "word": "spécifique",
       "percentile": 984,
-      "similarity": 36.77
+      "similarity": 43.33
     },
     {
-      "word": "incident",
+      "word": "spécifiquement",
       "percentile": 983,
-      "similarity": 36.3
+      "similarity": 43.24
     },
     {
-      "word": "surveiller",
+      "word": "objectif",
       "percentile": 982,
-      "similarity": 35.98
+      "similarity": 42.98
     },
     {
-      "word": "informer",
+      "word": "vers",
       "percentile": 981,
-      "similarity": 35.56
+      "similarity": 42.35
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-16",
+  "puzzle_num": 1616,
+  "word": "Esclavage en Afrique",
+  "title_slug": "Esclavage_en_Afrique",
+  "title_display": "Esclavage en Afrique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Esclavage_en_Afrique",
+  "hints": {
+    "level1": [
+      "3 mots · 18 lettres",
+      "Premières lettres : E · E · A"
+    ],
+    "level2": [
+      "servitude et traite sur le continent africain"
+    ],
+    "level3": [
+      "L’___ regroupe les différents systèmes d'asservissement et de traite sur le continent africain."
+    ]
+  },
+  "extract": "L’esclavage en Afrique regroupe les différents systèmes d'asservissement et de traite sur le continent africain.",
+  "categories": [
+    "servitude et traite sur le continent africain"
+  ],
+  "generated_at": "2026-10-16T22:16:40.634122+00:00"
+}

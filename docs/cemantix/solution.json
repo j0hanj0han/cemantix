@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-16",
-  "puzzle_num": 1689,
-  "word": "orienter",
-  "first_letter": "O",
-  "word_length": 8,
-  "definition": "Disposer une chose selon la situation qu’elle doit avoir par rapport à l’orient, aux points cardinaux.",
+  "date": "2026-10-17",
+  "puzzle_num": 1690,
+  "word": "illégal",
+  "first_letter": "I",
+  "word_length": 7,
+  "definition": "Qui est contre la loi, qui ne respecte pas la loi.",
   "hints": {
     "level1": [
       {
-        "word": "point",
+        "word": "squat",
         "percentile": 200,
-        "definition": "Action de piquer dans un tissu avec une aiguille enfilée ou résultat de cette action, piqûre."
+        "definition": "Logement occupé par une ou plusieurs personnes ne possédant ni titre de propriété ni bail."
       },
       {
-        "word": "adaptation",
+        "word": "incarcéré",
         "percentile": 267,
-        "definition": "Action d’adapter ou de s’adapter."
+        "definition": "Participe passé masculin singulier du verbe incarcérer."
       },
       {
-        "word": "réalisation",
+        "word": "lynchage",
         "percentile": 334,
-        "definition": "Action de réaliser ; résultat de cette action."
+        "definition": "Action de lyncher."
       }
     ],
     "level2": [
       {
-        "word": "repérable",
+        "word": "indu",
         "percentile": 500,
-        "definition": "Qui peut être repéré."
+        "definition": "Qui est contre ce que l’on doit, contre la raison, contre la règle, contre l’usage."
       },
       {
-        "word": "reformuler",
+        "word": "priver",
         "percentile": 567,
-        "definition": "Réitérer un dire, une explication, une proposition, etc. sous une autre forme."
+        "definition": "Ôter à quelqu’un ce qu’il a, ce qu’il possède, l’empêcher de jouir de quelque avantage qu’il avait ou pouvait avoir, le dépouiller de quelque chose qui lui appartient."
       },
       {
-        "word": "découler",
+        "word": "pédophile",
         "percentile": 634,
-        "definition": "Couler peu à peu et de suite."
+        "definition": "Attiré sexuellement par les enfants impubères."
       }
     ],
     "level3": [
       {
-        "word": "complexe",
+        "word": "manquement",
         "percentile": 800,
-        "definition": "Qui n’est pas simple ; qui embrasse des éléments divers et entremêlés."
+        "definition": "Action de manquer à."
       },
       {
-        "word": "conception",
+        "word": "amende",
         "percentile": 850,
-        "definition": "Action par laquelle un enfant est conçu dans le sein de sa mère quand l’embryon se forme par la rencontre d’un ovule et d’un spermatozoïde."
+        "definition": "Peine pécuniaire imposée par la justice."
       },
       {
-        "word": "existant",
+        "word": "usurpation",
         "percentile": 900,
-        "definition": "Qui existe."
+        "definition": "Action d’usurper ou résultat de cette action."
       }
     ]
   },
-  "tried_count": 295,
-  "generated_at": "2026-10-15T22:18:59.869454+00:00",
+  "tried_count": 141,
+  "generated_at": "2026-10-16T22:16:33.288781+00:00",
   "nearby_top": [
     {
-      "word": "orienter",
+      "word": "illégal",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "orientation",
+      "word": "illicite",
       "percentile": 999,
-      "similarity": 54.9
+      "similarity": 62.97
     },
     {
-      "word": "structurer",
+      "word": "illégalement",
       "percentile": 998,
-      "similarity": 51.26
+      "similarity": 60.37
     },
     {
-      "word": "guider",
+      "word": "illégalité",
       "percentile": 997,
-      "similarity": 50.99
+      "similarity": 59.86
     },
     {
-      "word": "développer",
+      "word": "légal",
       "percentile": 996,
-      "similarity": 50.07
+      "similarity": 56.24
     },
     {
-      "word": "adapter",
+      "word": "abusif",
       "percentile": 995,
-      "similarity": 46.37
+      "similarity": 55.54
     },
     {
-      "word": "intégrer",
+      "word": "légalement",
       "percentile": 994,
-      "similarity": 45.74
+      "similarity": 54.33
     },
     {
-      "word": "réorienter",
+      "word": "frauduleux",
       "percentile": 993,
-      "similarity": 45.3
+      "similarity": 54.33
     },
     {
-      "word": "articuler",
+      "word": "interdire",
       "percentile": 992,
-      "similarity": 44.94
+      "similarity": 52.76
     },
     {
-      "word": "privilégier",
+      "word": "délictueux",
       "percentile": 991,
-      "similarity": 44.87
+      "similarity": 49.03
     },
     {
-      "word": "cibler",
+      "word": "prohiber",
       "percentile": 990,
-      "similarity": 44.74
+      "similarity": 47.83
     },
     {
-      "word": "positionner",
+      "word": "répréhensible",
       "percentile": 989,
-      "similarity": 44.57
+      "similarity": 46.67
     },
     {
-      "word": "permettre",
+      "word": "discriminatoire",
       "percentile": 988,
-      "similarity": 44.33
+      "similarity": 46.61
     },
     {
-      "word": "différent",
+      "word": "légaliser",
       "percentile": 987,
-      "similarity": 44.13
+      "similarity": 46.58
     },
     {
-      "word": "réorientation",
+      "word": "piratage",
       "percentile": 986,
-      "similarity": 43.52
+      "similarity": 46.49
     },
     {
-      "word": "axe",
+      "word": "violation",
       "percentile": 985,
-      "similarity": 43.41
+      "similarity": 46.36
     },
     {
-      "word": "spécifique",
+      "word": "agissement",
       "percentile": 984,
-      "similarity": 43.33
+      "similarity": 45.99
     },
     {
-      "word": "spécifiquement",
+      "word": "clandestin",
       "percentile": 983,
-      "similarity": 43.24
+      "similarity": 45.51
     },
     {
-      "word": "objectif",
+      "word": "légalité",
       "percentile": 982,
-      "similarity": 42.98
+      "similarity": 45.38
     },
     {
-      "word": "vers",
+      "word": "frauduleusement",
       "percentile": 981,
-      "similarity": 42.35
+      "similarity": 44.79
     }
   ]
 }

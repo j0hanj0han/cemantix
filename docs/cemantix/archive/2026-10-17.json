@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-17",
+  "puzzle_num": 1690,
+  "word": "illégal",
+  "first_letter": "I",
+  "word_length": 7,
+  "definition": "Qui est contre la loi, qui ne respecte pas la loi.",
+  "hints": {
+    "level1": [
+      {
+        "word": "squat",
+        "percentile": 200,
+        "definition": "Logement occupé par une ou plusieurs personnes ne possédant ni titre de propriété ni bail."
+      },
+      {
+        "word": "incarcéré",
+        "percentile": 267,
+        "definition": "Participe passé masculin singulier du verbe incarcérer."
+      },
+      {
+        "word": "lynchage",
+        "percentile": 334,
+        "definition": "Action de lyncher."
+      }
+    ],
+    "level2": [
+      {
+        "word": "indu",
+        "percentile": 500,
+        "definition": "Qui est contre ce que l’on doit, contre la raison, contre la règle, contre l’usage."
+      },
+      {
+        "word": "priver",
+        "percentile": 567,
+        "definition": "Ôter à quelqu’un ce qu’il a, ce qu’il possède, l’empêcher de jouir de quelque avantage qu’il avait ou pouvait avoir, le dépouiller de quelque chose qui lui appartient."
+      },
+      {
+        "word": "pédophile",
+        "percentile": 634,
+        "definition": "Attiré sexuellement par les enfants impubères."
+      }
+    ],
+    "level3": [
+      {
+        "word": "manquement",
+        "percentile": 800,
+        "definition": "Action de manquer à."
+      },
+      {
+        "word": "amende",
+        "percentile": 850,
+        "definition": "Peine pécuniaire imposée par la justice."
+      },
+      {
+        "word": "usurpation",
+        "percentile": 900,
+        "definition": "Action d’usurper ou résultat de cette action."
+      }
+    ]
+  },
+  "tried_count": 141,
+  "generated_at": "2026-10-16T22:16:33.288781+00:00",
+  "nearby_top": [
+    {
+      "word": "illégal",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "illicite",
+      "percentile": 999,
+      "similarity": 62.97
+    },
+    {
+      "word": "illégalement",
+      "percentile": 998,
+      "similarity": 60.37
+    },
+    {
+      "word": "illégalité",
+      "percentile": 997,
+      "similarity": 59.86
+    },
+    {
+      "word": "légal",
+      "percentile": 996,
+      "similarity": 56.24
+    },
+    {
+      "word": "abusif",
+      "percentile": 995,
+      "similarity": 55.54
+    },
+    {
+      "word": "légalement",
+      "percentile": 994,
+      "similarity": 54.33
+    },
+    {
+      "word": "frauduleux",
+      "percentile": 993,
+      "similarity": 54.33
+    },
+    {
+      "word": "interdire",
+      "percentile": 992,
+      "similarity": 52.76
+    },
+    {
+      "word": "délictueux",
+      "percentile": 991,
+      "similarity": 49.03
+    },
+    {
+      "word": "prohiber",
+      "percentile": 990,
+      "similarity": 47.83
+    },
+    {
+      "word": "répréhensible",
+      "percentile": 989,
+      "similarity": 46.67
+    },
+    {
+      "word": "discriminatoire",
+      "percentile": 988,
+      "similarity": 46.61
+    },
+    {
+      "word": "légaliser",
+      "percentile": 987,
+      "similarity": 46.58
+    },
+    {
+      "word": "piratage",
+      "percentile": 986,
+      "similarity": 46.49
+    },
+    {
+      "word": "violation",
+      "percentile": 985,
+      "similarity": 46.36
+    },
+    {
+      "word": "agissement",
+      "percentile": 984,
+      "similarity": 45.99
+    },
+    {
+      "word": "clandestin",
+      "percentile": 983,
+      "similarity": 45.51
+    },
+    {
+      "word": "légalité",
+      "percentile": 982,
+      "similarity": 45.38
+    },
+    {
+      "word": "frauduleusement",
+      "percentile": 981,
+      "similarity": 44.79
+    }
+  ]
+}

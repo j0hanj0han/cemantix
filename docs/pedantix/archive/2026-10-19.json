@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-19",
+  "puzzle_num": 1619,
+  "word": "Bordeaux",
+  "title_slug": "Bordeaux",
+  "title_display": "Bordeaux",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bordeaux",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : B"
+    ],
+    "level2": [
+      "ville et commune française, chef-lieu du département de la Gironde",
+      "Population de 2017 en infobox",
+      "Population de 2023 en infobox",
+      "Commune en Gironde"
+    ],
+    "level3": [
+      "___ est une commune du Sud-Ouest de la France, préfecture du département de la Gironde et chef-lieu de la région Nouvelle-Aquitaine."
+    ]
+  },
+  "extract": "Bordeaux est une commune du Sud-Ouest de la France, préfecture du département de la Gironde et chef-lieu de la région Nouvelle-Aquitaine.",
+  "categories": [
+    "ville et commune française, chef-lieu du département de la Gironde",
+    "Population de 2017 en infobox",
+    "Population de 2023 en infobox",
+    "Commune en Gironde"
+  ],
+  "generated_at": "2026-10-21T23:22:50.217358+00:00"
+}

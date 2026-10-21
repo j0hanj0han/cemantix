@@ -1,17 +1,20 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-20",
   "balls": [
-    7,
+    9,
     15,
     16,
-    22,
-    35
+    37,
+    43
   ],
   "stars": [
-    4,
-    6
+    7,
+    10
   ],
-  "code": "",
-  "next_jackpot": 59000000.0,
-  "generated_at": "2026-10-16T19:25:18.799033+00:00"
+  "code": "GB 742 6301",
+  "jackpot_amount": 59041442.3,
+  "jackpot_winners": 0,
+  "jackpot_won": false,
+  "next_jackpot": 71000000.0,
+  "generated_at": "2026-10-21T23:22:43.466273+00:00"
 }

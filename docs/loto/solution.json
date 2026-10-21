@@ -1,29 +1,17 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-21",
   "balls": [
-    4,
-    20,
-    32,
-    36,
-    46
+    7,
+    18,
+    30,
+    31,
+    45
   ],
-  "lucky_ball": 5,
-  "draw_num": "26123",
-  "jackpot_amount": 9000000.0,
-  "jackpot_won": false,
-  "jackpot_winners": 0,
-  "next_jackpot": 10000000.0,
-  "generated_at": "2026-10-14T18:40:10.141345+00:00",
-  "codes": [
-    "R14706050",
-    "H48886993",
-    "I96186187",
-    "S70359029",
-    "G33242188",
-    "J43882671",
-    "I48523169",
-    "P88081996",
-    "B27852747",
-    "P22211212"
-  ]
+  "lucky_ball": 7,
+  "draw_num": "26126",
+  "jackpot_amount": 12000000.0,
+  "jackpot_won": true,
+  "jackpot_winners": 1,
+  "next_jackpot": 2000000.0,
+  "generated_at": "2026-10-21T23:22:32.726231+00:00"
 }

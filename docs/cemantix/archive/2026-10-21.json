@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-21",
+  "puzzle_num": 1694,
+  "word": "caméra",
+  "first_letter": "C",
+  "word_length": 6,
+  "definition": "Appareil permettant de filmer, de réaliser la prise de vues d’un film.",
+  "hints": {
+    "level1": [],
+    "level2": [],
+    "level3": [
+      {
+        "word": "afocal",
+        "percentile": 900,
+        "definition": "Qualifie un appareil photographique dont la mise au point intégrée n’est pas utilisée et est remplacée par celle d’une lunette astronomique pour un cliché."
+      },
+      {
+        "word": "rasant",
+        "percentile": 917,
+        "definition": "Qui rase."
+      },
+      {
+        "word": "posemètre",
+        "percentile": 934,
+        "definition": "Appareil utilisé pour mesurer la luminosité d'une scène et ainsi déterminer l'exposition optimale, le temps de pose, d'une prise de vue."
+      }
+    ]
+  },
+  "tried_count": 0,
+  "nearby_top": [
+    {
+      "word": "caméra",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "filmer",
+      "percentile": 999,
+      "similarity": 69.24
+    },
+    {
+      "word": "camer",
+      "percentile": 998,
+      "similarity": 61.92
+    },
+    {
+      "word": "travelling",
+      "percentile": 997,
+      "similarity": 53.55
+    },
+    {
+      "word": "filmage",
+      "percentile": 996,
+      "similarity": 52.85
+    },
+    {
+      "word": "contre-plongée",
+      "percentile": 995,
+      "similarity": 52.53
+    },
+    {
+      "word": "cameraman",
+      "percentile": 994,
+      "similarity": 52.2
+    },
+    {
+      "word": "cadreur",
+      "percentile": 993,
+      "similarity": 51.24
+    },
+    {
+      "word": "plan-séquence",
+      "percentile": 992,
+      "similarity": 51.19
+    },
+    {
+      "word": "caméraman",
+      "percentile": 991,
+      "similarity": 50.0
+    },
+    {
+      "word": "caméscope",
+      "percentile": 990,
+      "similarity": 48.11
+    },
+    {
+      "word": "contre-champ",
+      "percentile": 989,
+      "similarity": 47.56
+    },
+    {
+      "word": "appareil-photo",
+      "percentile": 988,
+      "similarity": 47.01
+    },
+    {
+      "word": "perchman",
+      "percentile": 987,
+      "similarity": 44.95
+    },
+    {
+      "word": "stroboscopique",
+      "percentile": 986,
+      "similarity": 44.43
+    },
+    {
+      "word": "téléobjectif",
+      "percentile": 985,
+      "similarity": 44.34
+    },
+    {
+      "word": "monoculaire",
+      "percentile": 984,
+      "similarity": 44.23
+    },
+    {
+      "word": "écran",
+      "percentile": 983,
+      "similarity": 44.08
+    },
+    {
+      "word": "webcam",
+      "percentile": 982,
+      "similarity": 43.71
+    },
+    {
+      "word": "viseur",
+      "percentile": 981,
+      "similarity": 42.83
+    }
+  ]
+}

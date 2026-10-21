@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-21",
+  "puzzle_num": 1621,
+  "word": "Équitation",
+  "title_slug": "Équitation",
+  "title_display": "Équitation",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Équitation",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : É"
+    ],
+    "level2": [
+      "art ou pratique sportive de monter à cheval"
+    ],
+    "level3": [
+      "L’___ est la technique de conduite d'un équidé monté, sous l'action humaine."
+    ]
+  },
+  "extract": "L’équitation est la technique de conduite d'un équidé monté, sous l'action humaine.",
+  "categories": [
+    "art ou pratique sportive de monter à cheval"
+  ],
+  "generated_at": "2026-10-21T23:22:48.526883+00:00"
+}

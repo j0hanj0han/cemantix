@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-17",
+  "puzzle_num": 1617,
+  "word": "Catalogne",
+  "title_slug": "Catalogne",
+  "title_display": "Catalogne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Catalogne",
+  "hints": {
+    "level1": [
+      "1 mot · 9 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "nation européenne constituée en communauté autonome d'Espagne",
+      "Population de 2024 en infobox"
+    ],
+    "level3": [
+      "La ___ est une communauté autonome du Nord-Est de l'Espagne qui a le statut d'une nationalité dans son statut d’autonomie."
+    ]
+  },
+  "extract": "La Catalogne est une communauté autonome du Nord-Est de l'Espagne qui a le statut d'une nationalité dans son statut d’autonomie.",
+  "categories": [
+    "nation européenne constituée en communauté autonome d'Espagne",
+    "Population de 2024 en infobox"
+  ],
+  "generated_at": "2026-10-21T23:22:51.868186+00:00"
+}

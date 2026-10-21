@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-18",
+  "puzzle_num": 1618,
+  "word": "Antiquité tardive",
+  "title_slug": "Antiquité_tardive",
+  "title_display": "Antiquité tardive",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Antiquité_tardive",
+  "hints": {
+    "level1": [
+      "2 mots · 16 lettres",
+      "Premières lettres : A · T"
+    ],
+    "level2": [
+      "période de l’histoire européenne et méditerranéenne",
+      "Terminologie en historiographie",
+      "Période, étude, concept de l'historiographie du haut Moyen Âge"
+    ],
+    "level3": [
+      "L’___ est une période de l’histoire européenne et méditerranéenne qui commence à la fin du IIIe siècle mais dont le terme est flou."
+    ]
+  },
+  "extract": "L’Antiquité tardive est une période de l’histoire européenne et méditerranéenne qui commence à la fin du IIIe siècle mais dont le terme est flou.",
+  "categories": [
+    "période de l’histoire européenne et méditerranéenne",
+    "Terminologie en historiographie",
+    "Période, étude, concept de l'historiographie du haut Moyen Âge"
+  ],
+  "generated_at": "2026-10-21T23:22:51.055808+00:00"
+}

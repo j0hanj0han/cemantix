@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-22",
+  "puzzle_num": 1695,
+  "word": "renverser",
+  "first_letter": "R",
+  "word_length": 9,
+  "definition": "Mettre à l’envers ; .",
+  "hints": {
+    "level1": [
+      {
+        "word": "tsariste",
+        "percentile": 200,
+        "definition": "Relatif au tsar, au système politique despotique russe qu’il menait."
+      },
+      {
+        "word": "bastingage",
+        "percentile": 267,
+        "definition": "Parapet qu’on formait autour du pont supérieur d’un navire, avec les hamacs de l’équipage, pour se protéger de la mousqueterie et de la petite mitraille de l’ennemi."
+      },
+      {
+        "word": "érafler",
+        "percentile": 334,
+        "definition": "Écorcher légèrement en effleurant."
+      }
+    ],
+    "level2": [
+      {
+        "word": "tonneau",
+        "percentile": 500,
+        "definition": "Grand récipient de bois, de forme à peu près cylindrique, mais renflé dans son milieu, à fonds plats, qui est fait de planches ou douves arquées, maintenues par des cercles de fer, et qui sert à contenir des liquides ou certaines autres marchandises."
+      },
+      {
+        "word": "tendre",
+        "percentile": 567,
+        "definition": "Qui peut aisément être entamé."
+      },
+      {
+        "word": "amollir",
+        "percentile": 634,
+        "definition": "Rendre mou et maniable."
+      }
+    ],
+    "level3": [
+      {
+        "word": "gesticuler",
+        "percentile": 800,
+        "definition": "Faire trop de gestes."
+      },
+      {
+        "word": "agiter",
+        "percentile": 850,
+        "definition": "Secouer vivement en tout sens."
+      },
+      {
+        "word": "violent",
+        "percentile": 900,
+        "definition": "Qui est impétueux, qui agit avec impétuosité, avec une force non contenue, en parlant des évènements, des choses ou des personnes et de leurs actes."
+      }
+    ]
+  },
+  "tried_count": 433,
+  "generated_at": "2026-10-21T23:24:23.409395+00:00",
+  "nearby_top": [
+    {
+      "word": "renverser",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "renversement",
+      "percentile": 999,
+      "similarity": 51.37
+    },
+    {
+      "word": "écraser",
+      "percentile": 998,
+      "similarity": 51.23
+    },
+    {
+      "word": "précipiter",
+      "percentile": 997,
+      "similarity": 47.23
+    },
+    {
+      "word": "brusquement",
+      "percentile": 996,
+      "similarity": 45.27
+    },
+    {
+      "word": "arracher",
+      "percentile": 995,
+      "similarity": 44.45
+    },
+    {
+      "word": "briser",
+      "percentile": 994,
+      "similarity": 44.07
+    },
+    {
+      "word": "inverser",
+      "percentile": 993,
+      "similarity": 43.73
+    },
+    {
+      "word": "secouer",
+      "percentile": 992,
+      "similarity": 43.48
+    },
+    {
+      "word": "ébranler",
+      "percentile": 991,
+      "similarity": 42.95
+    },
+    {
+      "word": "culbuter",
+      "percentile": 990,
+      "similarity": 42.95
+    },
+    {
+      "word": "abattre",
+      "percentile": 989,
+      "similarity": 42.58
+    },
+    {
+      "word": "défaire",
+      "percentile": 988,
+      "similarity": 42.55
+    },
+    {
+      "word": "fracasser",
+      "percentile": 987,
+      "similarity": 42.54
+    },
+    {
+      "word": "soudain",
+      "percentile": 986,
+      "similarity": 42.52
+    },
+    {
+      "word": "anéantir",
+      "percentile": 985,
+      "similarity": 42.32
+    },
+    {
+      "word": "renverse",
+      "percentile": 984,
+      "similarity": 41.94
+    },
+    {
+      "word": "échapper",
+      "percentile": 983,
+      "similarity": 41.67
+    },
+    {
+      "word": "refluer",
+      "percentile": 982,
+      "similarity": 41.46
+    },
+    {
+      "word": "chanceler",
+      "percentile": 981,
+      "similarity": 40.67
+    }
+  ]
+}

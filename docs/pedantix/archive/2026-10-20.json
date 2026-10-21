@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-20",
+  "puzzle_num": 1620,
+  "word": "Musique de la période classique",
+  "title_slug": "Musique_de_la_période_classique",
+  "title_display": "Musique de la période classique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Musique_de_la_période_classique",
+  "hints": {
+    "level1": [
+      "5 mots · 27 lettres",
+      "Premières lettres : M · D · L · P · C"
+    ],
+    "level2": [
+      "période de l'histoire musicale européenne"
+    ],
+    "level3": [
+      "La ___ recouvre par convention la ___ écrite entre la mort de Johann Sebastian Bach soit 1750 et le début de la ___ romantique, soit les années 1820."
+    ]
+  },
+  "extract": "La musique de la période classique recouvre par convention la musique écrite entre la mort de Johann Sebastian Bach soit 1750 et le début de la période romantique, soit les années 1820.",
+  "categories": [
+    "période de l'histoire musicale européenne"
+  ],
+  "generated_at": "2026-10-21T23:22:49.357940+00:00"
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-17",
-  "puzzle_num": 1690,
-  "word": "illégal",
-  "first_letter": "I",
-  "word_length": 7,
-  "definition": "Qui est contre la loi, qui ne respecte pas la loi.",
+  "date": "2026-10-22",
+  "puzzle_num": 1695,
+  "word": "renverser",
+  "first_letter": "R",
+  "word_length": 9,
+  "definition": "Mettre à l’envers ; .",
   "hints": {
     "level1": [
       {
-        "word": "squat",
+        "word": "tsariste",
         "percentile": 200,
-        "definition": "Logement occupé par une ou plusieurs personnes ne possédant ni titre de propriété ni bail."
+        "definition": "Relatif au tsar, au système politique despotique russe qu’il menait."
       },
       {
-        "word": "incarcéré",
+        "word": "bastingage",
         "percentile": 267,
-        "definition": "Participe passé masculin singulier du verbe incarcérer."
+        "definition": "Parapet qu’on formait autour du pont supérieur d’un navire, avec les hamacs de l’équipage, pour se protéger de la mousqueterie et de la petite mitraille de l’ennemi."
       },
       {
-        "word": "lynchage",
+        "word": "érafler",
         "percentile": 334,
-        "definition": "Action de lyncher."
+        "definition": "Écorcher légèrement en effleurant."
       }
     ],
     "level2": [
       {
-        "word": "indu",
+        "word": "tonneau",
         "percentile": 500,
-        "definition": "Qui est contre ce que l’on doit, contre la raison, contre la règle, contre l’usage."
+        "definition": "Grand récipient de bois, de forme à peu près cylindrique, mais renflé dans son milieu, à fonds plats, qui est fait de planches ou douves arquées, maintenues par des cercles de fer, et qui sert à contenir des liquides ou certaines autres marchandises."
       },
       {
-        "word": "priver",
+        "word": "tendre",
         "percentile": 567,
-        "definition": "Ôter à quelqu’un ce qu’il a, ce qu’il possède, l’empêcher de jouir de quelque avantage qu’il avait ou pouvait avoir, le dépouiller de quelque chose qui lui appartient."
+        "definition": "Qui peut aisément être entamé."
       },
       {
-        "word": "pédophile",
+        "word": "amollir",
         "percentile": 634,
-        "definition": "Attiré sexuellement par les enfants impubères."
+        "definition": "Rendre mou et maniable."
       }
     ],
     "level3": [
       {
-        "word": "manquement",
+        "word": "gesticuler",
         "percentile": 800,
-        "definition": "Action de manquer à."
+        "definition": "Faire trop de gestes."
       },
       {
-        "word": "amende",
+        "word": "agiter",
         "percentile": 850,
-        "definition": "Peine pécuniaire imposée par la justice."
+        "definition": "Secouer vivement en tout sens."
       },
       {
-        "word": "usurpation",
+        "word": "violent",
         "percentile": 900,
-        "definition": "Action d’usurper ou résultat de cette action."
+        "definition": "Qui est impétueux, qui agit avec impétuosité, avec une force non contenue, en parlant des évènements, des choses ou des personnes et de leurs actes."
       }
     ]
   },
-  "tried_count": 141,
-  "generated_at": "2026-10-16T22:16:33.288781+00:00",
+  "tried_count": 433,
+  "generated_at": "2026-10-21T23:24:23.409395+00:00",
   "nearby_top": [
     {
-      "word": "illégal",
+      "word": "renverser",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "illicite",
+      "word": "renversement",
       "percentile": 999,
-      "similarity": 62.97
+      "similarity": 51.37
     },
     {
-      "word": "illégalement",
+      "word": "écraser",
       "percentile": 998,
-      "similarity": 60.37
+      "similarity": 51.23
     },
     {
-      "word": "illégalité",
+      "word": "précipiter",
       "percentile": 997,
-      "similarity": 59.86
+      "similarity": 47.23
     },
     {
-      "word": "légal",
+      "word": "brusquement",
       "percentile": 996,
-      "similarity": 56.24
+      "similarity": 45.27
     },
     {
-      "word": "abusif",
+      "word": "arracher",
       "percentile": 995,
-      "similarity": 55.54
+      "similarity": 44.45
     },
     {
-      "word": "légalement",
+      "word": "briser",
       "percentile": 994,
-      "similarity": 54.33
+      "similarity": 44.07
     },
     {
-      "word": "frauduleux",
+      "word": "inverser",
       "percentile": 993,
-      "similarity": 54.33
+      "similarity": 43.73
     },
     {
-      "word": "interdire",
+      "word": "secouer",
       "percentile": 992,
-      "similarity": 52.76
+      "similarity": 43.48
     },
     {
-      "word": "délictueux",
+      "word": "ébranler",
       "percentile": 991,
-      "similarity": 49.03
+      "similarity": 42.95
     },
     {
-      "word": "prohiber",
+      "word": "culbuter",
       "percentile": 990,
-      "similarity": 47.83
+      "similarity": 42.95
     },
     {
-      "word": "répréhensible",
+      "word": "abattre",
       "percentile": 989,
-      "similarity": 46.67
+      "similarity": 42.58
     },
     {
-      "word": "discriminatoire",
+      "word": "défaire",
       "percentile": 988,
-      "similarity": 46.61
+      "similarity": 42.55
     },
     {
-      "word": "légaliser",
+      "word": "fracasser",
       "percentile": 987,
-      "similarity": 46.58
+      "similarity": 42.54
     },
     {
-      "word": "piratage",
+      "word": "soudain",
       "percentile": 986,
-      "similarity": 46.49
+      "similarity": 42.52
     },
     {
-      "word": "violation",
+      "word": "anéantir",
       "percentile": 985,
-      "similarity": 46.36
+      "similarity": 42.32
     },
     {
-      "word": "agissement",
+      "word": "renverse",
       "percentile": 984,
-      "similarity": 45.99
+      "similarity": 41.94
     },
     {
-      "word": "clandestin",
+      "word": "échapper",
       "percentile": 983,
-      "similarity": 45.51
+      "similarity": 41.67
     },
     {
-      "word": "légalité",
+      "word": "refluer",
       "percentile": 982,
-      "similarity": 45.38
+      "similarity": 41.46
     },
     {
-      "word": "frauduleusement",
+      "word": "chanceler",
       "percentile": 981,
-      "similarity": 44.79
+      "similarity": 40.67
     }
   ]
 }

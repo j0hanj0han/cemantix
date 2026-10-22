@@ -128,7 +128,7 @@ def _parse_reducmiz_jackpot(text: str) -> dict[str, dict]:
         day, month, year = date_m.group(1), date_m.group(2), date_m.group(3)
         date_iso = f"{year}-{month}-{day}"
         jackpot_m = re.search(
-            r'5 bons nums\s*\n\+\s*num[eé]ro chance\s*\n(\d+)\s*gagnant\s*\n([^\n]+)',
+            r'5 bons nums\s*\n\+\s*num[eé]ro chance\s*\n(\d+)\s*gagnants?\s*\n([^\n]+)',
             block,
         )
         if not jackpot_m:
@@ -140,7 +140,8 @@ def _parse_reducmiz_jackpot(text: str) -> dict[str, dict]:
         else:
             amt = amount_str.replace('\xa0', '').replace(' €', '').replace(' ', '').replace(',', '.')
             try:
-                entry = {"jackpot_won": True, "jackpot_winners": winners, "jackpot_amount": float(amt)}
+                # reducmiz affiche le gain par grille → jackpot total = gain × gagnants (comme tirage-gagnant)
+                entry = {"jackpot_won": True, "jackpot_winners": winners, "jackpot_amount": float(amt) * winners}
             except ValueError:
                 entry = {"jackpot_won": False, "jackpot_winners": 0, "jackpot_amount": None}
         # Codes gagnants (20 000 €) : lettre + 8 chiffres, séparés par " ; "

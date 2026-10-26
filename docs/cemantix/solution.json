@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-22",
-  "puzzle_num": 1695,
-  "word": "renverser",
-  "first_letter": "R",
-  "word_length": 9,
-  "definition": "Mettre à l’envers ; .",
+  "date": "2026-10-26",
+  "puzzle_num": 1699,
+  "word": "externe",
+  "first_letter": "E",
+  "word_length": 7,
+  "definition": "Qui est, qui paraît au-dehors.",
   "hints": {
     "level1": [
       {
-        "word": "tsariste",
+        "word": "contractualiser",
         "percentile": 200,
-        "definition": "Relatif au tsar, au système politique despotique russe qu’il menait."
+        "definition": "Rendre contractuel."
       },
       {
-        "word": "bastingage",
+        "word": "option",
         "percentile": 267,
-        "definition": "Parapet qu’on formait autour du pont supérieur d’un navire, avec les hamacs de l’équipage, pour se protéger de la mousqueterie et de la petite mitraille de l’ennemi."
+        "definition": "Action d’opter."
       },
       {
-        "word": "érafler",
+        "word": "radiodiagnostic",
         "percentile": 334,
-        "definition": "Écorcher légèrement en effleurant."
+        "definition": "Examen radiologique pour établir un diagnostic."
       }
     ],
     "level2": [
       {
-        "word": "tonneau",
+        "word": "pratique",
         "percentile": 500,
-        "definition": "Grand récipient de bois, de forme à peu près cylindrique, mais renflé dans son milieu, à fonds plats, qui est fait de planches ou douves arquées, maintenues par des cercles de fer, et qui sert à contenir des liquides ou certaines autres marchandises."
+        "definition": "Qui ne s’arrête pas à la simple spéculation, qui tend, qui conduit à l’action, qui s’occupe de l’application."
       },
       {
-        "word": "tendre",
+        "word": "dynamique",
         "percentile": 567,
-        "definition": "Qui peut aisément être entamé."
+        "definition": "Qui change au cours du temps."
       },
       {
-        "word": "amollir",
+        "word": "uniquement",
         "percentile": 634,
-        "definition": "Rendre mou et maniable."
+        "definition": "Exclusivement à tout autre."
       }
     ],
     "level3": [
       {
-        "word": "gesticuler",
+        "word": "professionnel",
         "percentile": 800,
-        "definition": "Faire trop de gestes."
+        "definition": "Qui est relatif à une profession."
       },
       {
-        "word": "agiter",
+        "word": "contrôleur",
         "percentile": 850,
-        "definition": "Secouer vivement en tout sens."
+        "definition": "Celui qui est chargé de contrôler."
       },
       {
-        "word": "violent",
+        "word": "dynamiquement",
         "percentile": 900,
-        "definition": "Qui est impétueux, qui agit avec impétuosité, avec une force non contenue, en parlant des évènements, des choses ou des personnes et de leurs actes."
+        "definition": "Avec dynamisme."
       }
     ]
   },
-  "tried_count": 433,
-  "generated_at": "2026-10-21T23:24:23.409395+00:00",
+  "tried_count": 254,
+  "generated_at": "2026-10-26T04:46:09.257452+00:00",
   "nearby_top": [
     {
-      "word": "renverser",
+      "word": "externe",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "renversement",
+      "word": "interne",
       "percentile": 999,
-      "similarity": 51.37
+      "similarity": 82.86
     },
     {
-      "word": "écraser",
+      "word": "extérieur",
       "percentile": 998,
-      "similarity": 51.23
+      "similarity": 49.51
     },
     {
-      "word": "précipiter",
+      "word": "spécifique",
       "percentile": 997,
-      "similarity": 47.23
+      "similarity": 45.05
     },
     {
-      "word": "brusquement",
+      "word": "gestion",
       "percentile": 996,
-      "similarity": 45.27
+      "similarity": 42.73
     },
     {
-      "word": "arracher",
+      "word": "intranet",
       "percentile": 995,
-      "similarity": 44.45
+      "similarity": 41.57
     },
     {
-      "word": "briser",
+      "word": "support",
       "percentile": 994,
-      "similarity": 44.07
+      "similarity": 41.38
     },
     {
-      "word": "inverser",
+      "word": "interface",
       "percentile": 993,
-      "similarity": 43.73
+      "similarity": 40.75
     },
     {
-      "word": "secouer",
+      "word": "internalisation",
       "percentile": 992,
-      "similarity": 43.48
+      "similarity": 40.68
     },
     {
-      "word": "ébranler",
+      "word": "fonctionnement",
       "percentile": 991,
-      "similarity": 42.95
+      "similarity": 40.68
     },
     {
-      "word": "culbuter",
+      "word": "intégrer",
       "percentile": 990,
-      "similarity": 42.95
+      "similarity": 40.35
     },
     {
-      "word": "abattre",
+      "word": "fonction",
       "percentile": 989,
-      "similarity": 42.58
+      "similarity": 40.28
     },
     {
-      "word": "défaire",
+      "word": "structure",
       "percentile": 988,
-      "similarity": 42.55
+      "similarity": 40.25
     },
     {
-      "word": "fracasser",
+      "word": "internaliser",
       "percentile": 987,
-      "similarity": 42.54
+      "similarity": 39.88
     },
     {
-      "word": "soudain",
+      "word": "technique",
       "percentile": 986,
-      "similarity": 42.52
+      "similarity": 39.16
     },
     {
-      "word": "anéantir",
+      "word": "type",
       "percentile": 985,
-      "similarity": 42.32
+      "similarity": 38.98
     },
     {
-      "word": "renverse",
+      "word": "gérer",
       "percentile": 984,
-      "similarity": 41.94
+      "similarity": 38.88
     },
     {
-      "word": "échapper",
+      "word": "optimiser",
       "percentile": 983,
-      "similarity": 41.67
+      "similarity": 38.81
     },
     {
-      "word": "refluer",
+      "word": "communication",
       "percentile": 982,
-      "similarity": 41.46
+      "similarity": 38.72
     },
     {
-      "word": "chanceler",
+      "word": "organisationnel",
       "percentile": 981,
-      "similarity": 40.67
+      "similarity": 38.64
     }
   ]
 }

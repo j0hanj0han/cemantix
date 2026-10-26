@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-25",
+  "puzzle_num": 1625,
+  "word": "Cuisine japonaise",
+  "title_slug": "Cuisine_japonaise",
+  "title_display": "Cuisine japonaise",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cuisine_japonaise",
+  "hints": {
+    "level1": [
+      "2 mots · 16 lettres",
+      "Premières lettres : C · J"
+    ],
+    "level2": [
+      "cuisine du Japon"
+    ],
+    "level3": [
+      "La ___ peut être définie strictement comme la ___ traditionnelle du Japon, appelée en japonais Nihon ryōri (日本料理) ou washoku (和食), précédant l'ère Meiji, par opposition à la ___ yōshoku (洋食, litt."
+    ]
+  },
+  "extract": "La cuisine japonaise peut être définie strictement comme la cuisine traditionnelle du Japon, appelée en japonais Nihon ryōri (日本料理) ou washoku (和食), précédant l'ère Meiji, par opposition à la cuisine yōshoku (洋食, litt.",
+  "categories": [
+    "cuisine du Japon"
+  ],
+  "generated_at": "2026-10-26T04:46:55.616464+00:00"
+}

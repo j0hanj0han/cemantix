@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-22",
+  "puzzle_num": 1622,
+  "word": "Motivation",
+  "title_slug": "Motivation",
+  "title_display": "Motivation",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Motivation",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "état interne provoquant un comportement orienté vers un but",
+      "Concept de psychologie"
+    ],
+    "level3": [
+      "La ___ est, au sein d'un organisme vivant, la composante ou le processus en jeu pour l'engagement dans une activité précise."
+    ]
+  },
+  "extract": "La motivation est, au sein d'un organisme vivant, la composante ou le processus en jeu pour l'engagement dans une activité précise.",
+  "categories": [
+    "état interne provoquant un comportement orienté vers un but",
+    "Concept de psychologie"
+  ],
+  "generated_at": "2026-10-26T04:46:57.845583+00:00"
+}

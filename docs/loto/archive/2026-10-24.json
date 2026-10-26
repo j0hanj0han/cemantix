@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-24",
+  "draw_num": "26127",
+  "balls": [
+    2,
+    9,
+    29,
+    44,
+    47
+  ],
+  "lucky_ball": 10,
+  "jackpot_amount": 2000000.0,
+  "jackpot_won": false,
+  "jackpot_winners": 0,
+  "next_jackpot": 3000000.0,
+  "generated_at": "2026-10-26T04:46:32.339594+00:00"
+}

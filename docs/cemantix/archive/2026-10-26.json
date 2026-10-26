@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-26",
+  "puzzle_num": 1699,
+  "word": "externe",
+  "first_letter": "E",
+  "word_length": 7,
+  "definition": "Qui est, qui paraît au-dehors.",
+  "hints": {
+    "level1": [
+      {
+        "word": "contractualiser",
+        "percentile": 200,
+        "definition": "Rendre contractuel."
+      },
+      {
+        "word": "option",
+        "percentile": 267,
+        "definition": "Action d’opter."
+      },
+      {
+        "word": "radiodiagnostic",
+        "percentile": 334,
+        "definition": "Examen radiologique pour établir un diagnostic."
+      }
+    ],
+    "level2": [
+      {
+        "word": "pratique",
+        "percentile": 500,
+        "definition": "Qui ne s’arrête pas à la simple spéculation, qui tend, qui conduit à l’action, qui s’occupe de l’application."
+      },
+      {
+        "word": "dynamique",
+        "percentile": 567,
+        "definition": "Qui change au cours du temps."
+      },
+      {
+        "word": "uniquement",
+        "percentile": 634,
+        "definition": "Exclusivement à tout autre."
+      }
+    ],
+    "level3": [
+      {
+        "word": "professionnel",
+        "percentile": 800,
+        "definition": "Qui est relatif à une profession."
+      },
+      {
+        "word": "contrôleur",
+        "percentile": 850,
+        "definition": "Celui qui est chargé de contrôler."
+      },
+      {
+        "word": "dynamiquement",
+        "percentile": 900,
+        "definition": "Avec dynamisme."
+      }
+    ]
+  },
+  "tried_count": 254,
+  "generated_at": "2026-10-26T04:46:09.257452+00:00",
+  "nearby_top": [
+    {
+      "word": "externe",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "interne",
+      "percentile": 999,
+      "similarity": 82.86
+    },
+    {
+      "word": "extérieur",
+      "percentile": 998,
+      "similarity": 49.51
+    },
+    {
+      "word": "spécifique",
+      "percentile": 997,
+      "similarity": 45.05
+    },
+    {
+      "word": "gestion",
+      "percentile": 996,
+      "similarity": 42.73
+    },
+    {
+      "word": "intranet",
+      "percentile": 995,
+      "similarity": 41.57
+    },
+    {
+      "word": "support",
+      "percentile": 994,
+      "similarity": 41.38
+    },
+    {
+      "word": "interface",
+      "percentile": 993,
+      "similarity": 40.75
+    },
+    {
+      "word": "internalisation",
+      "percentile": 992,
+      "similarity": 40.68
+    },
+    {
+      "word": "fonctionnement",
+      "percentile": 991,
+      "similarity": 40.68
+    },
+    {
+      "word": "intégrer",
+      "percentile": 990,
+      "similarity": 40.35
+    },
+    {
+      "word": "fonction",
+      "percentile": 989,
+      "similarity": 40.28
+    },
+    {
+      "word": "structure",
+      "percentile": 988,
+      "similarity": 40.25
+    },
+    {
+      "word": "internaliser",
+      "percentile": 987,
+      "similarity": 39.88
+    },
+    {
+      "word": "technique",
+      "percentile": 986,
+      "similarity": 39.16
+    },
+    {
+      "word": "type",
+      "percentile": 985,
+      "similarity": 38.98
+    },
+    {
+      "word": "gérer",
+      "percentile": 984,
+      "similarity": 38.88
+    },
+    {
+      "word": "optimiser",
+      "percentile": 983,
+      "similarity": 38.81
+    },
+    {
+      "word": "communication",
+      "percentile": 982,
+      "similarity": 38.72
+    },
+    {
+      "word": "organisationnel",
+      "percentile": 981,
+      "similarity": 38.64
+    }
+  ]
+}

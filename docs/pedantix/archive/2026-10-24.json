@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-24",
+  "puzzle_num": 1624,
+  "word": "Black Sabbath",
+  "title_slug": "Black_Sabbath",
+  "title_display": "Black Sabbath",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Black_Sabbath",
+  "hints": {
+    "level1": [
+      "2 mots · 12 lettres",
+      "Premières lettres : B · S"
+    ],
+    "level2": [
+      "groupe de rock britannique",
+      "Groupe anglais de heavy metal",
+      "Groupe anglais de hard rock",
+      "Groupe musical de Birmingham"
+    ],
+    "level3": [
+      "___ est un groupe britannique de rock orienté hard rock, originaire de Birmingham, en Angleterre."
+    ]
+  },
+  "extract": "Black Sabbath est un groupe britannique de rock orienté hard rock, originaire de Birmingham, en Angleterre.",
+  "categories": [
+    "groupe de rock britannique",
+    "Groupe anglais de heavy metal",
+    "Groupe anglais de hard rock",
+    "Groupe musical de Birmingham"
+  ],
+  "generated_at": "2026-10-26T04:46:56.323708+00:00"
+}

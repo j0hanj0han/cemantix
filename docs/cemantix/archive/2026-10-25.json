@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-25",
+  "puzzle_num": 1698,
+  "word": "millénaire",
+  "first_letter": "M",
+  "word_length": 10,
+  "definition": "Qui contient mille unités.",
+  "hints": {
+    "level1": [],
+    "level2": [],
+    "level3": [
+      {
+        "word": "innombrable",
+        "percentile": 900,
+        "definition": "Qui ne peut pas se dénombrer, que l’on renonce à compter devant la difficulté."
+      },
+      {
+        "word": "kalpa",
+        "percentile": 917,
+        "definition": ""
+      },
+      {
+        "word": "mythique",
+        "percentile": 934,
+        "definition": "Qui appartient au mythe, qui est fondé sur un mythe, qui révèle un mythe. Qui est du domaine de la fable."
+      }
+    ]
+  },
+  "tried_count": 0,
+  "nearby_top": [
+    {
+      "word": "millénaire",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "siècle",
+      "percentile": 999,
+      "similarity": 62.31
+    },
+    {
+      "word": "civilisation",
+      "percentile": 998,
+      "similarity": 51.87
+    },
+    {
+      "word": "séculaire",
+      "percentile": 997,
+      "similarity": 48.71
+    },
+    {
+      "word": "décennie",
+      "percentile": 996,
+      "similarity": 48.25
+    },
+    {
+      "word": "ère",
+      "percentile": 995,
+      "similarity": 46.23
+    },
+    {
+      "word": "humanité",
+      "percentile": 994,
+      "similarity": 44.47
+    },
+    {
+      "word": "ancestral",
+      "percentile": 993,
+      "similarity": 44.47
+    },
+    {
+      "word": "continent",
+      "percentile": 992,
+      "similarity": 43.86
+    },
+    {
+      "word": "demi-siècle",
+      "percentile": 991,
+      "similarity": 43.53
+    },
+    {
+      "word": "mésopotamien",
+      "percentile": 990,
+      "similarity": 43.47
+    },
+    {
+      "word": "sumérien",
+      "percentile": 989,
+      "similarity": 42.64
+    },
+    {
+      "word": "néolithique",
+      "percentile": 988,
+      "similarity": 41.79
+    },
+    {
+      "word": "préislamique",
+      "percentile": 987,
+      "similarity": 41.5
+    },
+    {
+      "word": "multiséculaire",
+      "percentile": 986,
+      "similarity": 40.86
+    },
+    {
+      "word": "domestication",
+      "percentile": 985,
+      "similarity": 40.32
+    },
+    {
+      "word": "occident",
+      "percentile": 984,
+      "similarity": 40.26
+    },
+    {
+      "word": "néolithisation",
+      "percentile": 983,
+      "similarity": 40.18
+    },
+    {
+      "word": "avènement",
+      "percentile": 982,
+      "similarity": 40.04
+    },
+    {
+      "word": "paléolithique",
+      "percentile": 981,
+      "similarity": 39.72
+    }
+  ]
+}

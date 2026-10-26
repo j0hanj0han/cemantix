@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "puzzle_num": 1623,
+  "word": "Ukraine",
+  "title_slug": "Ukraine",
+  "title_display": "Ukraine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ukraine",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : U"
+    ],
+    "level2": [
+      "pays d'Europe de l'Est",
+      "Ouvrages à trier",
+      "État postsoviétique"
+    ],
+    "level3": [
+      "L'___ est un État d'Europe orientale, deuxième État d'Europe par sa superficie derrière la Russie, premier pour les pays entièrement européens."
+    ]
+  },
+  "extract": "L'Ukraine est un État d'Europe orientale, deuxième État d'Europe par sa superficie derrière la Russie, premier pour les pays entièrement européens.",
+  "categories": [
+    "pays d'Europe de l'Est",
+    "Ouvrages à trier",
+    "État postsoviétique"
+  ],
+  "generated_at": "2026-10-26T04:46:57.044418+00:00"
+}

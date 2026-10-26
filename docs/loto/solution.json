@@ -1,29 +1,17 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-24",
+  "draw_num": "26127",
   "balls": [
-    7,
-    18,
-    30,
-    31,
-    45
+    2,
+    9,
+    29,
+    44,
+    47
   ],
-  "lucky_ball": 7,
-  "draw_num": "26126",
-  "jackpot_amount": 12000000.0,
-  "jackpot_won": true,
-  "jackpot_winners": 1,
-  "next_jackpot": 2000000.0,
-  "generated_at": "2026-10-21T23:22:32.726231+00:00",
-  "codes": [
-    "J59180076",
-    "P54490537",
-    "Q50198613",
-    "K54627233",
-    "N95793906",
-    "D61445416",
-    "J38260563",
-    "H69192723",
-    "I83273234",
-    "N95547172"
-  ]
+  "lucky_ball": 10,
+  "jackpot_amount": 2000000.0,
+  "jackpot_won": false,
+  "jackpot_winners": 0,
+  "next_jackpot": 3000000.0,
+  "generated_at": "2026-10-26T04:46:32.339594+00:00"
 }

@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-23",
+  "puzzle_num": 1696,
+  "word": "crédibilité",
+  "first_letter": "C",
+  "word_length": 11,
+  "definition": "Ce qui rend une chose digne d’être crue. Sérieux d'une information qui la rend digne de confiance.",
+  "hints": {
+    "level1": [],
+    "level2": [],
+    "level3": [
+      {
+        "word": "présidentiel",
+        "percentile": 900,
+        "definition": "Qui est relatif ou propre à la fonction de président, à la présidence."
+      },
+      {
+        "word": "persuader",
+        "percentile": 917,
+        "definition": "Amener quelqu’un à croire ou à vouloir quelque chose."
+      },
+      {
+        "word": "crucial",
+        "percentile": 934,
+        "definition": "Qui est en forme de croix."
+      }
+    ]
+  },
+  "tried_count": 0,
+  "nearby_top": [
+    {
+      "word": "crédibilité",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "crédible",
+      "percentile": 999,
+      "similarity": 60.62
+    },
+    {
+      "word": "légitimité",
+      "percentile": 998,
+      "similarity": 56.06
+    },
+    {
+      "word": "crédibiliser",
+      "percentile": 997,
+      "similarity": 53.79
+    },
+    {
+      "word": "décrédibiliser",
+      "percentile": 996,
+      "similarity": 52.22
+    },
+    {
+      "word": "confiance",
+      "percentile": 995,
+      "similarity": 50.68
+    },
+    {
+      "word": "efficacité",
+      "percentile": 994,
+      "similarity": 49.12
+    },
+    {
+      "word": "pertinence",
+      "percentile": 993,
+      "similarity": 47.59
+    },
+    {
+      "word": "objectivité",
+      "percentile": 992,
+      "similarity": 46.85
+    },
+    {
+      "word": "convaincre",
+      "percentile": 991,
+      "similarity": 46.68
+    },
+    {
+      "word": "notoriété",
+      "percentile": 990,
+      "similarity": 45.77
+    },
+    {
+      "word": "impartialité",
+      "percentile": 989,
+      "similarity": 45.43
+    },
+    {
+      "word": "honnêteté",
+      "percentile": 988,
+      "similarity": 44.37
+    },
+    {
+      "word": "véracité",
+      "percentile": 987,
+      "similarity": 44.23
+    },
+    {
+      "word": "discréditer",
+      "percentile": 986,
+      "similarity": 44.01
+    },
+    {
+      "word": "cohérence",
+      "percentile": 985,
+      "similarity": 43.02
+    },
+    {
+      "word": "incontestable",
+      "percentile": 984,
+      "similarity": 42.97
+    },
+    {
+      "word": "conviction",
+      "percentile": 983,
+      "similarity": 42.96
+    },
+    {
+      "word": "sincérité",
+      "percentile": 982,
+      "similarity": 42.89
+    },
+    {
+      "word": "preuve",
+      "percentile": 981,
+      "similarity": 42.66
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-28",
+  "puzzle_num": 1701,
+  "word": "barrage",
+  "first_letter": "B",
+  "word_length": 7,
+  "definition": "Barrière qui ferme un chemin.",
+  "hints": {
+    "level1": [],
+    "level2": [],
+    "level3": [
+      {
+        "word": "piézométrique",
+        "percentile": 900,
+        "definition": "Relatif à la mesure de la pression."
+      },
+      {
+        "word": "alluvion",
+        "percentile": 917,
+        "definition": "Accroissement de terrain qui se fait insensiblement à l’un des bords d’une rivière, ou qui a lieu lorsque la rivière s’en retire, et qu’elle prend son cours d’un autre côté."
+      },
+      {
+        "word": "arasement",
+        "percentile": 934,
+        "definition": "Action d’araser."
+      }
+    ]
+  },
+  "tried_count": 0,
+  "nearby_top": [
+    {
+      "word": "barrage",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "digue",
+      "percentile": 999,
+      "similarity": 57.7
+    },
+    {
+      "word": "hydroélectrique",
+      "percentile": 998,
+      "similarity": 52.44
+    },
+    {
+      "word": "éclusée",
+      "percentile": 997,
+      "similarity": 51.31
+    },
+    {
+      "word": "envasement",
+      "percentile": 996,
+      "similarity": 45.95
+    },
+    {
+      "word": "enrochement",
+      "percentile": 995,
+      "similarity": 45.66
+    },
+    {
+      "word": "microcentrale",
+      "percentile": 994,
+      "similarity": 45.11
+    },
+    {
+      "word": "crue",
+      "percentile": 993,
+      "similarity": 44.9
+    },
+    {
+      "word": "endiguement",
+      "percentile": 992,
+      "similarity": 44.78
+    },
+    {
+      "word": "aval",
+      "percentile": 991,
+      "similarity": 44.58
+    },
+    {
+      "word": "écluse",
+      "percentile": 990,
+      "similarity": 44.57
+    },
+    {
+      "word": "hydraulique",
+      "percentile": 989,
+      "similarity": 44.49
+    },
+    {
+      "word": "batardeau",
+      "percentile": 988,
+      "similarity": 44.35
+    },
+    {
+      "word": "turbinage",
+      "percentile": 987,
+      "similarity": 43.69
+    },
+    {
+      "word": "embâcle",
+      "percentile": 986,
+      "similarity": 43.54
+    },
+    {
+      "word": "déversoir",
+      "percentile": 985,
+      "similarity": 43.44
+    },
+    {
+      "word": "étiage",
+      "percentile": 984,
+      "similarity": 43.16
+    },
+    {
+      "word": "merlon",
+      "percentile": 983,
+      "similarity": 42.72
+    },
+    {
+      "word": "rivière",
+      "percentile": 982,
+      "similarity": 42.01
+    },
+    {
+      "word": "paravalanche",
+      "percentile": 981,
+      "similarity": 41.95
+    }
+  ]
+}

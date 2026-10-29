@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-28",
+  "puzzle_num": 1629,
+  "word": "Histoire de l'Espagne",
+  "title_slug": "Histoire_de_l'Espagne",
+  "title_display": "Histoire de l'Espagne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_de_l'Espagne",
+  "hints": {
+    "level1": [
+      "3 mots · 19 lettres",
+      "Premières lettres : H · D · L"
+    ],
+    "level2": [
+      "étude et narration du passé de l'Espagne"
+    ],
+    "level3": [
+      "L'___, pays qui occupe la plus grande partie de la péninsule Ibérique, dans le sud-ouest de l'Europe, comprend plusieurs périodes et événements marquants, depuis la pré___ jusqu'à l'époque contemporaine, en passant par l'époque romaine, la période des Wisigoths, la conquête musulmane, la Reconquista, le Siècle d'or et l'expansion coloniale dont elle fut la plus ancienne puissance européenne avec le Portugal."
+    ]
+  },
+  "extract": "L'histoire de l'Espagne, pays qui occupe la plus grande partie de la péninsule Ibérique, dans le sud-ouest de l'Europe, comprend plusieurs périodes et événements marquants, depuis la préhistoire jusqu'à l'époque contemporaine, en passant par l'époque romaine, la période des Wisigoths, la conquête musulmane, la Reconquista, le Siècle d'or et l'expansion coloniale dont elle fut la plus ancienne puissance européenne avec le Portugal.",
+  "categories": [
+    "étude et narration du passé de l'Espagne"
+  ],
+  "generated_at": "2026-10-29T13:42:40.941510+00:00"
+}

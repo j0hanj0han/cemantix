@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "balls": [
+    21,
+    30,
+    32,
+    42,
+    48
+  ],
+  "stars": [
+    3,
+    6
+  ],
+  "code": "AH 180 7894",
+  "jackpot_amount": 78415028.3,
+  "jackpot_winners": 0,
+  "jackpot_won": false,
+  "next_jackpot": 89000000.0,
+  "generated_at": "2026-10-29T13:42:38.633237+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-27",
+  "puzzle_num": 1628,
+  "word": "Diable de Tasmanie",
+  "title_slug": "Diable_de_Tasmanie",
+  "title_display": "Diable de Tasmanie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diable_de_Tasmanie",
+  "hints": {
+    "level1": [
+      "3 mots · 16 lettres",
+      "Premières lettres : D · D · T"
+    ],
+    "level2": [
+      "espèce de mammifères",
+      "Taxobox utilisant une classification non précisée",
+      "Taxobox début par provenance de l'image - A",
+      "Statut UICN En danger"
+    ],
+    "level3": [
+      "Le ___ est une espèce de marsupiaux carnivores ne vivant qu'en ___, au sud de l'Australie."
+    ]
+  },
+  "extract": "Le diable de Tasmanie est une espèce de marsupiaux carnivores ne vivant qu'en Tasmanie, au sud de l'Australie.",
+  "categories": [
+    "espèce de mammifères",
+    "Taxobox utilisant une classification non précisée",
+    "Taxobox début par provenance de l'image - A",
+    "Statut UICN En danger"
+  ],
+  "generated_at": "2026-10-29T13:42:41.445077+00:00"
+}

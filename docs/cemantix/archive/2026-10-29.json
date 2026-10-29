@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-29",
+  "puzzle_num": 1702,
+  "word": "patrie",
+  "first_letter": "P",
+  "word_length": 6,
+  "definition": "La terre des ancêtres, le pays où l’on est né, la nation dont on fait partie, la société politique dont on est membre.",
+  "hints": {
+    "level1": [
+      {
+        "word": "éminent",
+        "percentile": 200,
+        "definition": "Qui s’élève au-dessus du niveau général, en parlant d’un terrain."
+      },
+      {
+        "word": "ressentiment",
+        "percentile": 267,
+        "definition": "Souvenir douloureux qu’on garde des injures et blessures, avec désir de s’en venger."
+      },
+      {
+        "word": "annexion",
+        "percentile": 334,
+        "definition": "Action d’annexer."
+      }
+    ],
+    "level2": [
+      {
+        "word": "natal",
+        "percentile": 500,
+        "definition": "Relatif au lieu et à l’époque de la naissance."
+      },
+      {
+        "word": "régnant",
+        "percentile": 567,
+        "definition": "Qui règne."
+      },
+      {
+        "word": "magnanime",
+        "percentile": 634,
+        "definition": "Qui a de la grandeur, de la force d'âme."
+      }
+    ],
+    "level3": [
+      {
+        "word": "supplicier",
+        "percentile": 800,
+        "definition": "Faire souffrir le supplice de la mort."
+      },
+      {
+        "word": "postérité",
+        "percentile": 850,
+        "definition": "Suite de ceux qui descendent d’une même origine."
+      },
+      {
+        "word": "mussolinien",
+        "percentile": 900,
+        "definition": "Relatif à , à sa doctrine."
+      }
+    ]
+  },
+  "tried_count": 36,
+  "generated_at": "2026-10-29T13:42:26.859308+00:00",
+  "nearby_top": [
+    {
+      "word": "patrie",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "patriotisme",
+      "percentile": 999,
+      "similarity": 61.63
+    },
+    {
+      "word": "nation",
+      "percentile": 998,
+      "similarity": 61.17
+    },
+    {
+      "word": "peuple",
+      "percentile": 997,
+      "similarity": 59.66
+    },
+    {
+      "word": "patriote",
+      "percentile": 996,
+      "similarity": 55.96
+    },
+    {
+      "word": "patriotique",
+      "percentile": 995,
+      "similarity": 53.56
+    },
+    {
+      "word": "gloire",
+      "percentile": 994,
+      "similarity": 50.66
+    },
+    {
+      "word": "mère-patrie",
+      "percentile": 993,
+      "similarity": 50.09
+    },
+    {
+      "word": "noblement",
+      "percentile": 992,
+      "similarity": 49.18
+    },
+    {
+      "word": "proclamer",
+      "percentile": 991,
+      "similarity": 48.89
+    },
+    {
+      "word": "glorieux",
+      "percentile": 990,
+      "similarity": 48.74
+    },
+    {
+      "word": "proscrit",
+      "percentile": 989,
+      "similarity": 48.44
+    },
+    {
+      "word": "exalter",
+      "percentile": 988,
+      "similarity": 46.65
+    },
+    {
+      "word": "unir",
+      "percentile": 987,
+      "similarity": 45.38
+    },
+    {
+      "word": "oppresseur",
+      "percentile": 986,
+      "similarity": 45.33
+    },
+    {
+      "word": "héroïsme",
+      "percentile": 985,
+      "similarity": 45.18
+    },
+    {
+      "word": "aïeul",
+      "percentile": 984,
+      "similarity": 45.01
+    },
+    {
+      "word": "fraternité",
+      "percentile": 983,
+      "similarity": 44.81
+    },
+    {
+      "word": "glorieusement",
+      "percentile": 982,
+      "similarity": 44.8
+    },
+    {
+      "word": "sacrifice",
+      "percentile": 981,
+      "similarity": 44.63
+    }
+  ]
+}

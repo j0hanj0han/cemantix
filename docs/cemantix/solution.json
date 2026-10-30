@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-29",
-  "puzzle_num": 1702,
-  "word": "patrie",
-  "first_letter": "P",
-  "word_length": 6,
-  "definition": "La terre des ancêtres, le pays où l’on est né, la nation dont on fait partie, la société politique dont on est membre.",
+  "date": "2026-10-30",
+  "puzzle_num": 1703,
+  "word": "recruter",
+  "first_letter": "R",
+  "word_length": 8,
+  "definition": "Lever des hommes pour le service militaire.",
   "hints": {
     "level1": [
       {
-        "word": "éminent",
+        "word": "chance",
         "percentile": 200,
-        "definition": "Qui s’élève au-dessus du niveau général, en parlant d’un terrain."
+        "definition": "Concours de circonstances jugé malheureux ou heureux quant à son influence sur le succès, la réalisation, la réussite ou l’échec d’une action ou d’un événement ; contexte jugé favorable ou non d’une action."
       },
       {
-        "word": "ressentiment",
+        "word": "toiletteur",
         "percentile": 267,
-        "definition": "Souvenir douloureux qu’on garde des injures et blessures, avec désir de s’en venger."
+        "definition": "Personne dont le métier est de faire la toilette, en particulier des chiens."
       },
       {
-        "word": "annexion",
+        "word": "renouvellement",
         "percentile": 334,
-        "definition": "Action d’annexer."
+        "definition": "Action de renouveler ou de se renouveler, résultat de cette action."
       }
     ],
     "level2": [
       {
-        "word": "natal",
+        "word": "parraineur",
         "percentile": 500,
-        "definition": "Relatif au lieu et à l’époque de la naissance."
+        "definition": "Personne physique ou morale qui apporte un soutien matériel à une manifestation, à une personne, à un produit ou à une organisation en vue d'en retirer un bénéfice direct. Emploi officiellement recommandé à la place de l'anglais sponsor."
       },
       {
-        "word": "régnant",
+        "word": "finance",
         "percentile": 567,
-        "definition": "Qui règne."
+        "definition": "Argent comptant."
       },
       {
-        "word": "magnanime",
+        "word": "centralien",
         "percentile": 634,
-        "definition": "Qui a de la grandeur, de la force d'âme."
+        "definition": "Dans l'enseignement supérieur et dans l’industrie, relatif à une école du ou à ses diplômés."
       }
     ],
     "level3": [
       {
-        "word": "supplicier",
+        "word": "féminiser",
         "percentile": 800,
-        "definition": "Faire souffrir le supplice de la mort."
+        "definition": "Faire du genre féminin."
       },
       {
-        "word": "postérité",
+        "word": "licencié",
         "percentile": 850,
-        "definition": "Suite de ceux qui descendent d’une même origine."
+        "definition": "Personne qui, dans les facultés de lettres, de sciences, de droit, a obtenu son diplôme de licence."
       },
       {
-        "word": "mussolinien",
+        "word": "épauler",
         "percentile": 900,
-        "definition": "Relatif à , à sa doctrine."
+        "definition": "Blesser à l’épaule."
       }
     ]
   },
-  "tried_count": 36,
-  "generated_at": "2026-10-29T13:42:26.859308+00:00",
+  "tried_count": 110,
+  "generated_at": "2026-10-30T20:35:20.396092+00:00",
   "nearby_top": [
     {
-      "word": "patrie",
+      "word": "recruter",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "patriotisme",
+      "word": "recrutement",
       "percentile": 999,
-      "similarity": 61.63
+      "similarity": 74.86
     },
     {
-      "word": "nation",
+      "word": "embaucher",
       "percentile": 998,
-      "similarity": 61.17
+      "similarity": 63.43
     },
     {
-      "word": "peuple",
+      "word": "poste",
       "percentile": 997,
-      "similarity": 59.66
+      "similarity": 53.81
     },
     {
-      "word": "patriote",
+      "word": "postuler",
       "percentile": 996,
-      "similarity": 55.96
+      "similarity": 51.93
     },
     {
-      "word": "patriotique",
+      "word": "emploi",
       "percentile": 995,
-      "similarity": 53.56
+      "similarity": 50.22
     },
     {
-      "word": "gloire",
+      "word": "embauche",
       "percentile": 994,
-      "similarity": 50.66
+      "similarity": 49.68
     },
     {
-      "word": "mère-patrie",
+      "word": "pourvoir",
       "percentile": 993,
-      "similarity": 50.09
+      "similarity": 46.94
     },
     {
-      "word": "noblement",
+      "word": "ingénieur",
       "percentile": 992,
-      "similarity": 49.18
+      "similarity": 46.84
     },
     {
-      "word": "proclamer",
+      "word": "diplômé",
       "percentile": 991,
-      "similarity": 48.89
+      "similarity": 46.74
     },
     {
-      "word": "glorieux",
+      "word": "intérim",
       "percentile": 990,
-      "similarity": 48.74
+      "similarity": 45.92
     },
     {
-      "word": "proscrit",
+      "word": "collaborateur",
       "percentile": 989,
-      "similarity": 48.44
+      "similarity": 44.84
     },
     {
-      "word": "exalter",
+      "word": "rémunérer",
       "percentile": 988,
-      "similarity": 46.65
+      "similarity": 43.09
     },
     {
-      "word": "unir",
+      "word": "vacataire",
       "percentile": 987,
-      "similarity": 45.38
+      "similarity": 42.43
     },
     {
-      "word": "oppresseur",
+      "word": "assistant",
       "percentile": 986,
-      "similarity": 45.33
+      "similarity": 41.89
     },
     {
-      "word": "héroïsme",
+      "word": "vivier",
       "percentile": 985,
-      "similarity": 45.18
+      "similarity": 41.57
     },
     {
-      "word": "aïeul",
+      "word": "recrue",
       "percentile": 984,
-      "similarity": 45.01
+      "similarity": 41.56
     },
     {
-      "word": "fraternité",
+      "word": "recruteur",
       "percentile": 983,
-      "similarity": 44.81
+      "similarity": 41.42
     },
     {
-      "word": "glorieusement",
+      "word": "métier",
       "percentile": 982,
-      "similarity": 44.8
+      "similarity": 41.03
     },
     {
-      "word": "sacrifice",
+      "word": "cooptation",
       "percentile": 981,
-      "similarity": 44.63
+      "similarity": 40.84
     }
   ]
 }

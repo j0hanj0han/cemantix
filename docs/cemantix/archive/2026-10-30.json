@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-30",
+  "puzzle_num": 1703,
+  "word": "recruter",
+  "first_letter": "R",
+  "word_length": 8,
+  "definition": "Lever des hommes pour le service militaire.",
+  "hints": {
+    "level1": [
+      {
+        "word": "chance",
+        "percentile": 200,
+        "definition": "Concours de circonstances jugé malheureux ou heureux quant à son influence sur le succès, la réalisation, la réussite ou l’échec d’une action ou d’un événement ; contexte jugé favorable ou non d’une action."
+      },
+      {
+        "word": "toiletteur",
+        "percentile": 267,
+        "definition": "Personne dont le métier est de faire la toilette, en particulier des chiens."
+      },
+      {
+        "word": "renouvellement",
+        "percentile": 334,
+        "definition": "Action de renouveler ou de se renouveler, résultat de cette action."
+      }
+    ],
+    "level2": [
+      {
+        "word": "parraineur",
+        "percentile": 500,
+        "definition": "Personne physique ou morale qui apporte un soutien matériel à une manifestation, à une personne, à un produit ou à une organisation en vue d'en retirer un bénéfice direct. Emploi officiellement recommandé à la place de l'anglais sponsor."
+      },
+      {
+        "word": "finance",
+        "percentile": 567,
+        "definition": "Argent comptant."
+      },
+      {
+        "word": "centralien",
+        "percentile": 634,
+        "definition": "Dans l'enseignement supérieur et dans l’industrie, relatif à une école du ou à ses diplômés."
+      }
+    ],
+    "level3": [
+      {
+        "word": "féminiser",
+        "percentile": 800,
+        "definition": "Faire du genre féminin."
+      },
+      {
+        "word": "licencié",
+        "percentile": 850,
+        "definition": "Personne qui, dans les facultés de lettres, de sciences, de droit, a obtenu son diplôme de licence."
+      },
+      {
+        "word": "épauler",
+        "percentile": 900,
+        "definition": "Blesser à l’épaule."
+      }
+    ]
+  },
+  "tried_count": 110,
+  "generated_at": "2026-10-30T20:35:20.396092+00:00",
+  "nearby_top": [
+    {
+      "word": "recruter",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "recrutement",
+      "percentile": 999,
+      "similarity": 74.86
+    },
+    {
+      "word": "embaucher",
+      "percentile": 998,
+      "similarity": 63.43
+    },
+    {
+      "word": "poste",
+      "percentile": 997,
+      "similarity": 53.81
+    },
+    {
+      "word": "postuler",
+      "percentile": 996,
+      "similarity": 51.93
+    },
+    {
+      "word": "emploi",
+      "percentile": 995,
+      "similarity": 50.22
+    },
+    {
+      "word": "embauche",
+      "percentile": 994,
+      "similarity": 49.68
+    },
+    {
+      "word": "pourvoir",
+      "percentile": 993,
+      "similarity": 46.94
+    },
+    {
+      "word": "ingénieur",
+      "percentile": 992,
+      "similarity": 46.84
+    },
+    {
+      "word": "diplômé",
+      "percentile": 991,
+      "similarity": 46.74
+    },
+    {
+      "word": "intérim",
+      "percentile": 990,
+      "similarity": 45.92
+    },
+    {
+      "word": "collaborateur",
+      "percentile": 989,
+      "similarity": 44.84
+    },
+    {
+      "word": "rémunérer",
+      "percentile": 988,
+      "similarity": 43.09
+    },
+    {
+      "word": "vacataire",
+      "percentile": 987,
+      "similarity": 42.43
+    },
+    {
+      "word": "assistant",
+      "percentile": 986,
+      "similarity": 41.89
+    },
+    {
+      "word": "vivier",
+      "percentile": 985,
+      "similarity": 41.57
+    },
+    {
+      "word": "recrue",
+      "percentile": 984,
+      "similarity": 41.56
+    },
+    {
+      "word": "recruteur",
+      "percentile": 983,
+      "similarity": 41.42
+    },
+    {
+      "word": "métier",
+      "percentile": 982,
+      "similarity": 41.03
+    },
+    {
+      "word": "cooptation",
+      "percentile": 981,
+      "similarity": 40.84
+    }
+  ]
+}

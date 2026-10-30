@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-29",
+  "puzzle_num": 1630,
+  "word": "Étienne Ier (roi de Hongrie)",
+  "title_slug": "Étienne_Ier_(roi_de_Hongrie)",
+  "title_display": "Étienne Ier (roi de Hongrie)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étienne_Ier_(roi_de_Hongrie)",
+  "hints": {
+    "level1": [
+      "5 mots · 24 lettres",
+      "Premières lettres : É · I · ( · D · H"
+    ],
+    "level2": [
+      "premier roi de Hongrie (~975-1038)",
+      "Roi de Hongrie",
+      "Árpád",
+      "Personnalité hongroise du Xe siècle"
+    ],
+    "level3": [
+      "___ Ier ou saint ___, né vers 975 et mort le 15 août 1038, est le fondateur du royaume de Hongrie dont il devient le roi en 1000 ou en 1001."
+    ]
+  },
+  "extract": "Étienne Ier ou saint Étienne, né vers 975 et mort le 15 août 1038, est le fondateur du royaume de Hongrie dont il devient le roi en 1000 ou en 1001.",
+  "categories": [
+    "premier roi de Hongrie (~975-1038)",
+    "Roi de Hongrie",
+    "Árpád",
+    "Personnalité hongroise du Xe siècle"
+  ],
+  "generated_at": "2026-10-30T20:35:31.115557+00:00"
+}

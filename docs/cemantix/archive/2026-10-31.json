@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-31",
+  "puzzle_num": 1704,
+  "word": "apparence",
+  "first_letter": "A",
+  "word_length": 9,
+  "definition": "Ce qui paraît extérieurement.",
+  "hints": {
+    "level1": [
+      {
+        "word": "terne",
+        "percentile": 200,
+        "definition": "Qui n’a pas l’éclat qu’il doit avoir, ou qui en a peu en comparaison d’une autre chose."
+      },
+      {
+        "word": "puéril",
+        "percentile": 267,
+        "definition": "Qui appartient à l’enfance."
+      },
+      {
+        "word": "emphatique",
+        "percentile": 334,
+        "definition": "Qualifie ce qui donne de l’emphase, ce qui exaspère l’expression d’un sentiment, d’une idée dans l’expression écrite ou orale."
+      }
+    ],
+    "level2": [
+      {
+        "word": "signifiance",
+        "percentile": 500,
+        "definition": "Signification."
+      },
+      {
+        "word": "silhouette",
+        "percentile": 567,
+        "definition": "Sorte de dessin fait par un trait tracé autour de l’ombre du visage ou du corps."
+      },
+      {
+        "word": "indubitable",
+        "percentile": 634,
+        "definition": "Dont on ne peut douter, qui est certain, assuré."
+      }
+    ],
+    "level3": [
+      {
+        "word": "simulacre",
+        "percentile": 800,
+        "definition": "Image, statue, idole, représentation d’une fausse divinité."
+      },
+      {
+        "word": "diaphane",
+        "percentile": 850,
+        "definition": "Qui laisse passer à travers soi les rayons lumineux."
+      },
+      {
+        "word": "dénuer",
+        "percentile": 900,
+        "definition": "Priver des choses nécessaires ou regardées comme nécessaires."
+      }
+    ]
+  },
+  "tried_count": 48,
+  "generated_at": "2026-10-30T23:15:38.309194+00:00",
+  "nearby_top": [
+    {
+      "word": "apparence",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "apparent",
+      "percentile": 999,
+      "similarity": 59.15
+    },
+    {
+      "word": "illusion",
+      "percentile": 998,
+      "similarity": 52.43
+    },
+    {
+      "word": "cacher",
+      "percentile": 997,
+      "similarity": 52.33
+    },
+    {
+      "word": "dissimuler",
+      "percentile": 996,
+      "similarity": 51.48
+    },
+    {
+      "word": "réalité",
+      "percentile": 995,
+      "similarity": 49.69
+    },
+    {
+      "word": "trompeur",
+      "percentile": 994,
+      "similarity": 48.01
+    },
+    {
+      "word": "banal",
+      "percentile": 993,
+      "similarity": 47.75
+    },
+    {
+      "word": "sembler",
+      "percentile": 992,
+      "similarity": 47.72
+    },
+    {
+      "word": "masquer",
+      "percentile": 991,
+      "similarity": 47.61
+    },
+    {
+      "word": "ressembler",
+      "percentile": 990,
+      "similarity": 47.36
+    },
+    {
+      "word": "semblable",
+      "percentile": 989,
+      "similarity": 47.36
+    },
+    {
+      "word": "inessentiel",
+      "percentile": 988,
+      "similarity": 46.89
+    },
+    {
+      "word": "vérité",
+      "percentile": 987,
+      "similarity": 46.5
+    },
+    {
+      "word": "superficiel",
+      "percentile": 986,
+      "similarity": 46.23
+    },
+    {
+      "word": "personnage",
+      "percentile": 985,
+      "similarity": 45.43
+    },
+    {
+      "word": "naïf",
+      "percentile": 984,
+      "similarity": 45.17
+    },
+    {
+      "word": "reflet",
+      "percentile": 983,
+      "similarity": 44.9
+    },
+    {
+      "word": "subtil",
+      "percentile": 982,
+      "similarity": 44.47
+    },
+    {
+      "word": "ostentation",
+      "percentile": 981,
+      "similarity": 44.43
+    }
+  ]
+}

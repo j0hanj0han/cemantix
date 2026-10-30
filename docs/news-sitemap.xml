@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-30T21:35:20+01:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 30 octobre 2026</news:title>
+      <news:publication_date>2026-10-31T00:15:38+01:00</news:publication_date>
+      <news:title>Solution Cémantix du samedi 31 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-30T21:35:20+01:00</news:publication_date>
-      <news:title>Indices Cémantix du vendredi 30 octobre 2026</news:title>
+      <news:publication_date>2026-10-31T00:15:38+01:00</news:publication_date>
+      <news:title>Indices Cémantix du samedi 31 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-10-29</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-10-30</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-10-29T14:42:26+01:00</news:publication_date>
-      <news:title>Solution Cémantix du jeudi 29 octobre 2026</news:title>
+      <news:publication_date>2026-10-30T21:35:20+01:00</news:publication_date>
+      <news:title>Solution Cémantix du vendredi 30 octobre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,52 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-10-31T00:15:39+01:00</news:publication_date>
+      <news:title>Solution Sutom du samedi 31 octobre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-10-30</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-10-30T21:35:22+01:00</news:publication_date>
       <news:title>Solution Sutom du vendredi 30 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-10-29</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-29T14:42:28+01:00</news:publication_date>
-      <news:title>Solution Sutom du jeudi 29 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-30T21:35:25+01:00</news:publication_date>
-      <news:title>Solution Tusmo du vendredi 30 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/archive/2026-10-29</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-29T14:42:32+01:00</news:publication_date>
-      <news:title>Solution Tusmo du jeudi 29 octobre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-30T21:35:29+01:00</news:publication_date>
-      <news:title>Résultats EuroMillions du vendredi 30 octobre 2026</news:title>
     </news:news>
   </url>
 </urlset>

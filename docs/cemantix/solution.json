@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-30",
-  "puzzle_num": 1703,
-  "word": "recruter",
-  "first_letter": "R",
-  "word_length": 8,
-  "definition": "Lever des hommes pour le service militaire.",
+  "date": "2026-10-31",
+  "puzzle_num": 1704,
+  "word": "apparence",
+  "first_letter": "A",
+  "word_length": 9,
+  "definition": "Ce qui paraît extérieurement.",
   "hints": {
     "level1": [
       {
-        "word": "chance",
+        "word": "terne",
         "percentile": 200,
-        "definition": "Concours de circonstances jugé malheureux ou heureux quant à son influence sur le succès, la réalisation, la réussite ou l’échec d’une action ou d’un événement ; contexte jugé favorable ou non d’une action."
+        "definition": "Qui n’a pas l’éclat qu’il doit avoir, ou qui en a peu en comparaison d’une autre chose."
       },
       {
-        "word": "toiletteur",
+        "word": "puéril",
         "percentile": 267,
-        "definition": "Personne dont le métier est de faire la toilette, en particulier des chiens."
+        "definition": "Qui appartient à l’enfance."
       },
       {
-        "word": "renouvellement",
+        "word": "emphatique",
         "percentile": 334,
-        "definition": "Action de renouveler ou de se renouveler, résultat de cette action."
+        "definition": "Qualifie ce qui donne de l’emphase, ce qui exaspère l’expression d’un sentiment, d’une idée dans l’expression écrite ou orale."
       }
     ],
     "level2": [
       {
-        "word": "parraineur",
+        "word": "signifiance",
         "percentile": 500,
-        "definition": "Personne physique ou morale qui apporte un soutien matériel à une manifestation, à une personne, à un produit ou à une organisation en vue d'en retirer un bénéfice direct. Emploi officiellement recommandé à la place de l'anglais sponsor."
+        "definition": "Signification."
       },
       {
-        "word": "finance",
+        "word": "silhouette",
         "percentile": 567,
-        "definition": "Argent comptant."
+        "definition": "Sorte de dessin fait par un trait tracé autour de l’ombre du visage ou du corps."
       },
       {
-        "word": "centralien",
+        "word": "indubitable",
         "percentile": 634,
-        "definition": "Dans l'enseignement supérieur et dans l’industrie, relatif à une école du ou à ses diplômés."
+        "definition": "Dont on ne peut douter, qui est certain, assuré."
       }
     ],
     "level3": [
       {
-        "word": "féminiser",
+        "word": "simulacre",
         "percentile": 800,
-        "definition": "Faire du genre féminin."
+        "definition": "Image, statue, idole, représentation d’une fausse divinité."
       },
       {
-        "word": "licencié",
+        "word": "diaphane",
         "percentile": 850,
-        "definition": "Personne qui, dans les facultés de lettres, de sciences, de droit, a obtenu son diplôme de licence."
+        "definition": "Qui laisse passer à travers soi les rayons lumineux."
       },
       {
-        "word": "épauler",
+        "word": "dénuer",
         "percentile": 900,
-        "definition": "Blesser à l’épaule."
+        "definition": "Priver des choses nécessaires ou regardées comme nécessaires."
       }
     ]
   },
-  "tried_count": 110,
-  "generated_at": "2026-10-30T20:35:20.396092+00:00",
+  "tried_count": 48,
+  "generated_at": "2026-10-30T23:15:38.309194+00:00",
   "nearby_top": [
     {
-      "word": "recruter",
+      "word": "apparence",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "recrutement",
+      "word": "apparent",
       "percentile": 999,
-      "similarity": 74.86
+      "similarity": 59.15
     },
     {
-      "word": "embaucher",
+      "word": "illusion",
       "percentile": 998,
-      "similarity": 63.43
+      "similarity": 52.43
     },
     {
-      "word": "poste",
+      "word": "cacher",
       "percentile": 997,
-      "similarity": 53.81
+      "similarity": 52.33
     },
     {
-      "word": "postuler",
+      "word": "dissimuler",
       "percentile": 996,
-      "similarity": 51.93
+      "similarity": 51.48
     },
     {
-      "word": "emploi",
+      "word": "réalité",
       "percentile": 995,
-      "similarity": 50.22
+      "similarity": 49.69
     },
     {
-      "word": "embauche",
+      "word": "trompeur",
       "percentile": 994,
-      "similarity": 49.68
+      "similarity": 48.01
     },
     {
-      "word": "pourvoir",
+      "word": "banal",
       "percentile": 993,
-      "similarity": 46.94
+      "similarity": 47.75
     },
     {
-      "word": "ingénieur",
+      "word": "sembler",
       "percentile": 992,
-      "similarity": 46.84
+      "similarity": 47.72
     },
     {
-      "word": "diplômé",
+      "word": "masquer",
       "percentile": 991,
-      "similarity": 46.74
+      "similarity": 47.61
     },
     {
-      "word": "intérim",
+      "word": "ressembler",
       "percentile": 990,
-      "similarity": 45.92
+      "similarity": 47.36
     },
     {
-      "word": "collaborateur",
+      "word": "semblable",
       "percentile": 989,
-      "similarity": 44.84
+      "similarity": 47.36
     },
     {
-      "word": "rémunérer",
+      "word": "inessentiel",
       "percentile": 988,
-      "similarity": 43.09
+      "similarity": 46.89
     },
     {
-      "word": "vacataire",
+      "word": "vérité",
       "percentile": 987,
-      "similarity": 42.43
+      "similarity": 46.5
     },
     {
-      "word": "assistant",
+      "word": "superficiel",
       "percentile": 986,
-      "similarity": 41.89
+      "similarity": 46.23
     },
     {
-      "word": "vivier",
+      "word": "personnage",
       "percentile": 985,
-      "similarity": 41.57
+      "similarity": 45.43
     },
     {
-      "word": "recrue",
+      "word": "naïf",
       "percentile": 984,
-      "similarity": 41.56
+      "similarity": 45.17
     },
     {
-      "word": "recruteur",
+      "word": "reflet",
       "percentile": 983,
-      "similarity": 41.42
+      "similarity": 44.9
     },
     {
-      "word": "métier",
+      "word": "subtil",
       "percentile": 982,
-      "similarity": 41.03
+      "similarity": 44.47
     },
     {
-      "word": "cooptation",
+      "word": "ostentation",
       "percentile": 981,
-      "similarity": 40.84
+      "similarity": 44.43
     }
   ]
 }

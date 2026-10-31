@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-01",
+  "puzzle_num": 1705,
+  "word": "décret",
+  "first_letter": "D",
+  "word_length": 6,
+  "definition": "Décision qui émane d’une autorité.",
+  "hints": {
+    "level1": [
+      {
+        "word": "concomitamment",
+        "percentile": 200,
+        "definition": "De façon concomitante ; simultanément."
+      },
+      {
+        "word": "enjoindre",
+        "percentile": 267,
+        "definition": "Ordonner expressément."
+      },
+      {
+        "word": "aérodrome",
+        "percentile": 334,
+        "definition": "Aéronef."
+      }
+    ],
+    "level2": [
+      {
+        "word": "justifier",
+        "percentile": 500,
+        "definition": "Montrer la vérité de ce qu’on avance, de ce qu’on allègue."
+      },
+      {
+        "word": "demandeur",
+        "percentile": 567,
+        "definition": "Personne qui demande quelque chose, qui fait métier de demander."
+      },
+      {
+        "word": "mars",
+        "percentile": 634,
+        "definition": "Troisième mois de l’année du calendrier grégorien, qui compte 31 jours."
+      }
+    ],
+    "level3": [
+      {
+        "word": "expiration",
+        "percentile": 800,
+        "definition": "Exhalation, action d’expirer ou résultat de cette action."
+      },
+      {
+        "word": "avenant",
+        "percentile": 850,
+        "definition": "Qui plaît par sa manière d’être, pour une personne."
+      },
+      {
+        "word": "statuer",
+        "percentile": 900,
+        "definition": "Décider ; régler ; établir."
+      }
+    ]
+  },
+  "tried_count": 266,
+  "generated_at": "2026-10-31T23:22:06.535919+00:00",
+  "nearby_top": [
+    {
+      "word": "décret",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "arrêté",
+      "percentile": 999,
+      "similarity": 72.13
+    },
+    {
+      "word": "loi",
+      "percentile": 998,
+      "similarity": 66.81
+    },
+    {
+      "word": "ordonnance",
+      "percentile": 997,
+      "similarity": 63.13
+    },
+    {
+      "word": "abroger",
+      "percentile": 996,
+      "similarity": 61.02
+    },
+    {
+      "word": "relatif",
+      "percentile": 995,
+      "similarity": 60.55
+    },
+    {
+      "word": "circulaire",
+      "percentile": 994,
+      "similarity": 60.31
+    },
+    {
+      "word": "décret-loi",
+      "percentile": 993,
+      "similarity": 60.01
+    },
+    {
+      "word": "instituer",
+      "percentile": 992,
+      "similarity": 58.75
+    },
+    {
+      "word": "applicable",
+      "percentile": 991,
+      "similarity": 57.79
+    },
+    {
+      "word": "susvisé",
+      "percentile": 990,
+      "similarity": 57.36
+    },
+    {
+      "word": "fixer",
+      "percentile": 989,
+      "similarity": 55.76
+    },
+    {
+      "word": "relative",
+      "percentile": 988,
+      "similarity": 55.58
+    },
+    {
+      "word": "modalité",
+      "percentile": 987,
+      "similarity": 55.27
+    },
+    {
+      "word": "promulgation",
+      "percentile": 986,
+      "similarity": 52.6
+    },
+    {
+      "word": "alinéa",
+      "percentile": 985,
+      "similarity": 52.19
+    },
+    {
+      "word": "promulguer",
+      "percentile": 984,
+      "similarity": 51.61
+    },
+    {
+      "word": "disposition",
+      "percentile": 983,
+      "similarity": 51.49
+    },
+    {
+      "word": "code",
+      "percentile": 982,
+      "similarity": 51.07
+    },
+    {
+      "word": "règlement",
+      "percentile": 981,
+      "similarity": 50.25
+    }
+  ]
+}

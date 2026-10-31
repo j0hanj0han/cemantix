@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-31",
+  "puzzle_num": 1631,
+  "word": "Canis lupus",
+  "title_slug": "Canis_lupus",
+  "title_display": "Canis lupus",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Canis_lupus",
+  "hints": {
+    "level1": [
+      "2 mots · 10 lettres",
+      "Premières lettres : C · L"
+    ],
+    "level2": [
+      "espèce de canidé",
+      "Taxobox utilisant la classification ITIS",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
+    ],
+    "level3": [
+      "___, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés."
+    ]
+  },
+  "extract": "Canis lupus, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés.",
+  "categories": [
+    "espèce de canidé",
+    "Taxobox utilisant la classification ITIS",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
+  ],
+  "generated_at": "2026-10-31T23:22:14.341837+00:00"
+}

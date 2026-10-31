@@ -1,165 +1,165 @@
 {
-  "date": "2026-10-31",
-  "puzzle_num": 1704,
-  "word": "apparence",
-  "first_letter": "A",
-  "word_length": 9,
-  "definition": "Ce qui paraît extérieurement.",
+  "date": "2026-11-01",
+  "puzzle_num": 1705,
+  "word": "décret",
+  "first_letter": "D",
+  "word_length": 6,
+  "definition": "Décision qui émane d’une autorité.",
   "hints": {
     "level1": [
       {
-        "word": "terne",
+        "word": "concomitamment",
         "percentile": 200,
-        "definition": "Qui n’a pas l’éclat qu’il doit avoir, ou qui en a peu en comparaison d’une autre chose."
+        "definition": "De façon concomitante ; simultanément."
       },
       {
-        "word": "puéril",
+        "word": "enjoindre",
         "percentile": 267,
-        "definition": "Qui appartient à l’enfance."
+        "definition": "Ordonner expressément."
       },
       {
-        "word": "emphatique",
+        "word": "aérodrome",
         "percentile": 334,
-        "definition": "Qualifie ce qui donne de l’emphase, ce qui exaspère l’expression d’un sentiment, d’une idée dans l’expression écrite ou orale."
+        "definition": "Aéronef."
       }
     ],
     "level2": [
       {
-        "word": "signifiance",
+        "word": "justifier",
         "percentile": 500,
-        "definition": "Signification."
+        "definition": "Montrer la vérité de ce qu’on avance, de ce qu’on allègue."
       },
       {
-        "word": "silhouette",
+        "word": "demandeur",
         "percentile": 567,
-        "definition": "Sorte de dessin fait par un trait tracé autour de l’ombre du visage ou du corps."
+        "definition": "Personne qui demande quelque chose, qui fait métier de demander."
       },
       {
-        "word": "indubitable",
+        "word": "mars",
         "percentile": 634,
-        "definition": "Dont on ne peut douter, qui est certain, assuré."
+        "definition": "Troisième mois de l’année du calendrier grégorien, qui compte 31 jours."
       }
     ],
     "level3": [
       {
-        "word": "simulacre",
+        "word": "expiration",
         "percentile": 800,
-        "definition": "Image, statue, idole, représentation d’une fausse divinité."
+        "definition": "Exhalation, action d’expirer ou résultat de cette action."
       },
       {
-        "word": "diaphane",
+        "word": "avenant",
         "percentile": 850,
-        "definition": "Qui laisse passer à travers soi les rayons lumineux."
+        "definition": "Qui plaît par sa manière d’être, pour une personne."
       },
       {
-        "word": "dénuer",
+        "word": "statuer",
         "percentile": 900,
-        "definition": "Priver des choses nécessaires ou regardées comme nécessaires."
+        "definition": "Décider ; régler ; établir."
       }
     ]
   },
-  "tried_count": 48,
-  "generated_at": "2026-10-30T23:15:38.309194+00:00",
+  "tried_count": 266,
+  "generated_at": "2026-10-31T23:22:06.535919+00:00",
   "nearby_top": [
     {
-      "word": "apparence",
+      "word": "décret",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "apparent",
+      "word": "arrêté",
       "percentile": 999,
-      "similarity": 59.15
+      "similarity": 72.13
     },
     {
-      "word": "illusion",
+      "word": "loi",
       "percentile": 998,
-      "similarity": 52.43
+      "similarity": 66.81
     },
     {
-      "word": "cacher",
+      "word": "ordonnance",
       "percentile": 997,
-      "similarity": 52.33
+      "similarity": 63.13
     },
     {
-      "word": "dissimuler",
+      "word": "abroger",
       "percentile": 996,
-      "similarity": 51.48
+      "similarity": 61.02
     },
     {
-      "word": "réalité",
+      "word": "relatif",
       "percentile": 995,
-      "similarity": 49.69
+      "similarity": 60.55
     },
     {
-      "word": "trompeur",
+      "word": "circulaire",
       "percentile": 994,
-      "similarity": 48.01
+      "similarity": 60.31
     },
     {
-      "word": "banal",
+      "word": "décret-loi",
       "percentile": 993,
-      "similarity": 47.75
+      "similarity": 60.01
     },
     {
-      "word": "sembler",
+      "word": "instituer",
       "percentile": 992,
-      "similarity": 47.72
+      "similarity": 58.75
     },
     {
-      "word": "masquer",
+      "word": "applicable",
       "percentile": 991,
-      "similarity": 47.61
+      "similarity": 57.79
     },
     {
-      "word": "ressembler",
+      "word": "susvisé",
       "percentile": 990,
-      "similarity": 47.36
+      "similarity": 57.36
     },
     {
-      "word": "semblable",
+      "word": "fixer",
       "percentile": 989,
-      "similarity": 47.36
+      "similarity": 55.76
     },
     {
-      "word": "inessentiel",
+      "word": "relative",
       "percentile": 988,
-      "similarity": 46.89
+      "similarity": 55.58
     },
     {
-      "word": "vérité",
+      "word": "modalité",
       "percentile": 987,
-      "similarity": 46.5
+      "similarity": 55.27
     },
     {
-      "word": "superficiel",
+      "word": "promulgation",
       "percentile": 986,
-      "similarity": 46.23
+      "similarity": 52.6
     },
     {
-      "word": "personnage",
+      "word": "alinéa",
       "percentile": 985,
-      "similarity": 45.43
+      "similarity": 52.19
     },
     {
-      "word": "naïf",
+      "word": "promulguer",
       "percentile": 984,
-      "similarity": 45.17
+      "similarity": 51.61
     },
     {
-      "word": "reflet",
+      "word": "disposition",
       "percentile": 983,
-      "similarity": 44.9
+      "similarity": 51.49
     },
     {
-      "word": "subtil",
+      "word": "code",
       "percentile": 982,
-      "similarity": 44.47
+      "similarity": 51.07
     },
     {
-      "word": "ostentation",
+      "word": "règlement",
       "percentile": 981,
-      "similarity": 44.43
+      "similarity": 50.25
     }
   ]
 }

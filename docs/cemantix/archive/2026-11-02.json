@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-02",
+  "puzzle_num": 1706,
+  "word": "rassemblement",
+  "first_letter": "R",
+  "word_length": 13,
+  "definition": "Action de rassembler ce qui est épars, séparé.",
+  "hints": {
+    "level1": [
+      {
+        "word": "katiba",
+        "percentile": 200,
+        "definition": "Camp ou unité de combattants en Afrique du Nord."
+      },
+      {
+        "word": "sédition",
+        "percentile": 267,
+        "definition": "Émeute populaire, révolte ou soulèvement contre la puissance établie."
+      },
+      {
+        "word": "reconstructeur",
+        "percentile": 334,
+        "definition": "Celui (homme, entreprise, ou animal) qui construit, qui sait et qui pratique l’art de construire."
+      }
+    ],
+    "level2": [
+      {
+        "word": "couvre-feux",
+        "percentile": 500,
+        "definition": "Pluriel de couvre-feu."
+      },
+      {
+        "word": "majorité",
+        "percentile": 567,
+        "definition": "Groupe des votants ou des suffrages plus nombreux que les autres, soit majorité absolue ou majorité relative."
+      },
+      {
+        "word": "clôturer",
+        "percentile": 634,
+        "definition": "Fermer à l’aide de barrières."
+      }
+    ],
+    "level3": [
+      {
+        "word": "riposter",
+        "percentile": 800,
+        "definition": "Répondre, repartir vivement et sur-le-champ pour repousser quelque raillerie."
+      },
+      {
+        "word": "concitoyen",
+        "percentile": 850,
+        "definition": "Citoyen de la même ville qu'un autre et, par extension, de la même région, de la même nation."
+      },
+      {
+        "word": "festivité",
+        "percentile": 900,
+        "definition": "Réjouissance qui se tient pour célébrer une fête."
+      }
+    ]
+  },
+  "tried_count": 57,
+  "generated_at": "2026-11-01T23:15:42.499321+00:00",
+  "nearby_top": [
+    {
+      "word": "rassemblement",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "manifestation",
+      "percentile": 999,
+      "similarity": 56.09
+    },
+    {
+      "word": "rassembler",
+      "percentile": 998,
+      "similarity": 55.92
+    },
+    {
+      "word": "mobilisation",
+      "percentile": 997,
+      "similarity": 50.39
+    },
+    {
+      "word": "militant",
+      "percentile": 996,
+      "similarity": 49.9
+    },
+    {
+      "word": "meeting",
+      "percentile": 995,
+      "similarity": 48.1
+    },
+    {
+      "word": "rassembleur",
+      "percentile": 994,
+      "similarity": 45.07
+    },
+    {
+      "word": "antilibéral",
+      "percentile": 993,
+      "similarity": 44.22
+    },
+    {
+      "word": "manifestant",
+      "percentile": 992,
+      "similarity": 42.27
+    },
+    {
+      "word": "communiste",
+      "percentile": 991,
+      "similarity": 41.87
+    },
+    {
+      "word": "sit-in",
+      "percentile": 990,
+      "similarity": 41.6
+    },
+    {
+      "word": "unitaire",
+      "percentile": 989,
+      "similarity": 40.78
+    },
+    {
+      "word": "manifester",
+      "percentile": 988,
+      "similarity": 40.69
+    },
+    {
+      "word": "mobiliser",
+      "percentile": 987,
+      "similarity": 40.41
+    },
+    {
+      "word": "réunir",
+      "percentile": 986,
+      "similarity": 40.37
+    },
+    {
+      "word": "cortège",
+      "percentile": 985,
+      "similarity": 39.99
+    },
+    {
+      "word": "parti",
+      "percentile": 984,
+      "similarity": 39.92
+    },
+    {
+      "word": "riposte",
+      "percentile": 983,
+      "similarity": 39.03
+    },
+    {
+      "word": "unir",
+      "percentile": 982,
+      "similarity": 39.01
+    },
+    {
+      "word": "intersyndical",
+      "percentile": 981,
+      "similarity": 38.96
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-01",
+  "puzzle_num": 1632,
+  "word": "Malcolm X",
+  "title_slug": "Malcolm_X",
+  "title_display": "Malcolm X",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Malcolm_X",
+  "hints": {
+    "level1": [
+      "2 mots · 8 lettres",
+      "Premières lettres : M · X"
+    ],
+    "level2": [
+      "militant américain des droits de l'homme",
+      "Écrivain afro-américain",
+      "Écrivain américain du XXe siècle",
+      "Personnalité politique afro-américaine"
+    ],
+    "level3": [
+      "___, né ___ Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain."
+    ]
+  },
+  "extract": "Malcolm X, né Malcolm Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain.",
+  "categories": [
+    "militant américain des droits de l'homme",
+    "Écrivain afro-américain",
+    "Écrivain américain du XXe siècle",
+    "Personnalité politique afro-américaine"
+  ],
+  "generated_at": "2026-11-01T23:15:50.529427+00:00"
+}

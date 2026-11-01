@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-01",
-  "puzzle_num": 1705,
-  "word": "décret",
-  "first_letter": "D",
-  "word_length": 6,
-  "definition": "Décision qui émane d’une autorité.",
+  "date": "2026-11-02",
+  "puzzle_num": 1706,
+  "word": "rassemblement",
+  "first_letter": "R",
+  "word_length": 13,
+  "definition": "Action de rassembler ce qui est épars, séparé.",
   "hints": {
     "level1": [
       {
-        "word": "concomitamment",
+        "word": "katiba",
         "percentile": 200,
-        "definition": "De façon concomitante ; simultanément."
+        "definition": "Camp ou unité de combattants en Afrique du Nord."
       },
       {
-        "word": "enjoindre",
+        "word": "sédition",
         "percentile": 267,
-        "definition": "Ordonner expressément."
+        "definition": "Émeute populaire, révolte ou soulèvement contre la puissance établie."
       },
       {
-        "word": "aérodrome",
+        "word": "reconstructeur",
         "percentile": 334,
-        "definition": "Aéronef."
+        "definition": "Celui (homme, entreprise, ou animal) qui construit, qui sait et qui pratique l’art de construire."
       }
     ],
     "level2": [
       {
-        "word": "justifier",
+        "word": "couvre-feux",
         "percentile": 500,
-        "definition": "Montrer la vérité de ce qu’on avance, de ce qu’on allègue."
+        "definition": "Pluriel de couvre-feu."
       },
       {
-        "word": "demandeur",
+        "word": "majorité",
         "percentile": 567,
-        "definition": "Personne qui demande quelque chose, qui fait métier de demander."
+        "definition": "Groupe des votants ou des suffrages plus nombreux que les autres, soit majorité absolue ou majorité relative."
       },
       {
-        "word": "mars",
+        "word": "clôturer",
         "percentile": 634,
-        "definition": "Troisième mois de l’année du calendrier grégorien, qui compte 31 jours."
+        "definition": "Fermer à l’aide de barrières."
       }
     ],
     "level3": [
       {
-        "word": "expiration",
+        "word": "riposter",
         "percentile": 800,
-        "definition": "Exhalation, action d’expirer ou résultat de cette action."
+        "definition": "Répondre, repartir vivement et sur-le-champ pour repousser quelque raillerie."
       },
       {
-        "word": "avenant",
+        "word": "concitoyen",
         "percentile": 850,
-        "definition": "Qui plaît par sa manière d’être, pour une personne."
+        "definition": "Citoyen de la même ville qu'un autre et, par extension, de la même région, de la même nation."
       },
       {
-        "word": "statuer",
+        "word": "festivité",
         "percentile": 900,
-        "definition": "Décider ; régler ; établir."
+        "definition": "Réjouissance qui se tient pour célébrer une fête."
       }
     ]
   },
-  "tried_count": 266,
-  "generated_at": "2026-10-31T23:22:06.535919+00:00",
+  "tried_count": 57,
+  "generated_at": "2026-11-01T23:15:42.499321+00:00",
   "nearby_top": [
     {
-      "word": "décret",
+      "word": "rassemblement",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "arrêté",
+      "word": "manifestation",
       "percentile": 999,
-      "similarity": 72.13
+      "similarity": 56.09
     },
     {
-      "word": "loi",
+      "word": "rassembler",
       "percentile": 998,
-      "similarity": 66.81
+      "similarity": 55.92
     },
     {
-      "word": "ordonnance",
+      "word": "mobilisation",
       "percentile": 997,
-      "similarity": 63.13
+      "similarity": 50.39
     },
     {
-      "word": "abroger",
+      "word": "militant",
       "percentile": 996,
-      "similarity": 61.02
+      "similarity": 49.9
     },
     {
-      "word": "relatif",
+      "word": "meeting",
       "percentile": 995,
-      "similarity": 60.55
+      "similarity": 48.1
     },
     {
-      "word": "circulaire",
+      "word": "rassembleur",
       "percentile": 994,
-      "similarity": 60.31
+      "similarity": 45.07
     },
     {
-      "word": "décret-loi",
+      "word": "antilibéral",
       "percentile": 993,
-      "similarity": 60.01
+      "similarity": 44.22
     },
     {
-      "word": "instituer",
+      "word": "manifestant",
       "percentile": 992,
-      "similarity": 58.75
+      "similarity": 42.27
     },
     {
-      "word": "applicable",
+      "word": "communiste",
       "percentile": 991,
-      "similarity": 57.79
+      "similarity": 41.87
     },
     {
-      "word": "susvisé",
+      "word": "sit-in",
       "percentile": 990,
-      "similarity": 57.36
+      "similarity": 41.6
     },
     {
-      "word": "fixer",
+      "word": "unitaire",
       "percentile": 989,
-      "similarity": 55.76
+      "similarity": 40.78
     },
     {
-      "word": "relative",
+      "word": "manifester",
       "percentile": 988,
-      "similarity": 55.58
+      "similarity": 40.69
     },
     {
-      "word": "modalité",
+      "word": "mobiliser",
       "percentile": 987,
-      "similarity": 55.27
+      "similarity": 40.41
     },
     {
-      "word": "promulgation",
+      "word": "réunir",
       "percentile": 986,
-      "similarity": 52.6
+      "similarity": 40.37
     },
     {
-      "word": "alinéa",
+      "word": "cortège",
       "percentile": 985,
-      "similarity": 52.19
+      "similarity": 39.99
     },
     {
-      "word": "promulguer",
+      "word": "parti",
       "percentile": 984,
-      "similarity": 51.61
+      "similarity": 39.92
     },
     {
-      "word": "disposition",
+      "word": "riposte",
       "percentile": 983,
-      "similarity": 51.49
+      "similarity": 39.03
     },
     {
-      "word": "code",
+      "word": "unir",
       "percentile": 982,
-      "similarity": 51.07
+      "similarity": 39.01
     },
     {
-      "word": "règlement",
+      "word": "intersyndical",
       "percentile": 981,
-      "similarity": 50.25
+      "similarity": 38.96
     }
   ]
 }

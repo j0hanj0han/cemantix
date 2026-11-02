@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-02",
-  "puzzle_num": 1706,
-  "word": "rassemblement",
-  "first_letter": "R",
-  "word_length": 13,
-  "definition": "Action de rassembler ce qui est épars, séparé.",
+  "date": "2026-11-03",
+  "puzzle_num": 1707,
+  "word": "expédition",
+  "first_letter": "E",
+  "word_length": 10,
+  "definition": "Action d’expédier, de hâter.",
   "hints": {
     "level1": [
       {
-        "word": "katiba",
+        "word": "chauffeur-livreur",
         "percentile": 200,
-        "definition": "Camp ou unité de combattants en Afrique du Nord."
+        "definition": "Un chauffeur-livreur est une personne responsable soit de l'approvisionnement de son entreprise en produits divers, soit de la livraison de produits finis aux clients de son entreprise."
       },
       {
-        "word": "sédition",
+        "word": "recycleur",
         "percentile": 267,
-        "definition": "Émeute populaire, révolte ou soulèvement contre la puissance établie."
+        "definition": "Qui recycle."
       },
       {
-        "word": "reconstructeur",
+        "word": "ethnographe",
         "percentile": 334,
-        "definition": "Celui (homme, entreprise, ou animal) qui construit, qui sait et qui pratique l’art de construire."
+        "definition": "Celui, celle qui s’occupe d’ethnographie."
       }
     ],
     "level2": [
       {
-        "word": "couvre-feux",
+        "word": "hydrophone",
         "percentile": 500,
-        "definition": "Pluriel de couvre-feu."
+        "definition": "Transducteur électroacoustique destiné à transformer, dans les liquides, des oscillations acoustiques en oscillations électriques."
       },
       {
-        "word": "majorité",
+        "word": "hiverner",
         "percentile": 567,
-        "definition": "Groupe des votants ou des suffrages plus nombreux que les autres, soit majorité absolue ou majorité relative."
+        "definition": "Passer l’hiver, la mauvaise saison, en parlant des troupes, des navires."
       },
       {
-        "word": "clôturer",
+        "word": "crozet",
         "percentile": 634,
-        "definition": "Fermer à l’aide de barrières."
+        "definition": "Variété de pâte alimentaire originaire de Savoie constitué traditionnellement de farine de sarrasin, mais également fabriquées à base de farine de blé dur."
       }
     ],
     "level3": [
       {
-        "word": "riposter",
+        "word": "entrepôt",
         "percentile": 800,
-        "definition": "Répondre, repartir vivement et sur-le-champ pour repousser quelque raillerie."
+        "definition": "Lieu où l’on met des marchandises en dépôt."
       },
       {
-        "word": "concitoyen",
+        "word": "barbaresque",
         "percentile": 850,
-        "definition": "Citoyen de la même ville qu'un autre et, par extension, de la même région, de la même nation."
+        "definition": "Relatif à la , au actuel, ."
       },
       {
-        "word": "festivité",
+        "word": "méhariste",
         "percentile": 900,
-        "definition": "Réjouissance qui se tient pour célébrer une fête."
+        "definition": "Qui monte un dromadaire."
       }
     ]
   },
-  "tried_count": 57,
-  "generated_at": "2026-11-01T23:15:42.499321+00:00",
+  "tried_count": 101,
+  "generated_at": "2026-11-02T23:16:34.429008+00:00",
   "nearby_top": [
     {
-      "word": "rassemblement",
+      "word": "expédition",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "manifestation",
+      "word": "expédier",
       "percentile": 999,
-      "similarity": 56.09
+      "similarity": 50.02
     },
     {
-      "word": "rassembler",
+      "word": "explorateur",
       "percentile": 998,
-      "similarity": 55.92
+      "similarity": 46.4
     },
     {
-      "word": "mobilisation",
+      "word": "colisage",
       "percentile": 997,
-      "similarity": 50.39
+      "similarity": 45.3
     },
     {
-      "word": "militant",
+      "word": "acheminement",
       "percentile": 996,
-      "similarity": 49.9
+      "similarity": 44.68
     },
     {
-      "word": "meeting",
+      "word": "livraison",
       "percentile": 995,
-      "similarity": 48.1
+      "similarity": 44.53
     },
     {
-      "word": "rassembleur",
+      "word": "antarctique",
       "percentile": 994,
-      "similarity": 45.07
+      "similarity": 40.99
     },
     {
-      "word": "antilibéral",
+      "word": "circumnavigation",
       "percentile": 993,
-      "similarity": 44.22
+      "similarity": 40.73
     },
     {
-      "word": "manifestant",
+      "word": "colis",
       "percentile": 992,
-      "similarity": 42.27
+      "similarity": 39.87
     },
     {
-      "word": "communiste",
+      "word": "envoi",
       "percentile": 991,
-      "similarity": 41.87
+      "similarity": 38.47
     },
     {
-      "word": "sit-in",
+      "word": "avarie",
       "percentile": 990,
-      "similarity": 41.6
+      "similarity": 37.15
     },
     {
-      "word": "unitaire",
+      "word": "périple",
       "percentile": 989,
-      "similarity": 40.78
+      "similarity": 36.51
     },
     {
-      "word": "manifester",
+      "word": "acheminer",
       "percentile": 988,
-      "similarity": 40.69
+      "similarity": 36.33
     },
     {
-      "word": "mobiliser",
+      "word": "transitaire",
       "percentile": 987,
-      "similarity": 40.41
+      "similarity": 36.05
     },
     {
-      "word": "réunir",
+      "word": "réexpédition",
       "percentile": 986,
-      "similarity": 40.37
+      "similarity": 35.97
     },
     {
-      "word": "cortège",
+      "word": "alpiniste",
       "percentile": 985,
-      "similarity": 39.99
+      "similarity": 35.92
     },
     {
-      "word": "parti",
+      "word": "commande",
       "percentile": 984,
-      "similarity": 39.92
+      "similarity": 35.9
     },
     {
-      "word": "riposte",
+      "word": "avitaillement",
       "percentile": 983,
-      "similarity": 39.03
+      "similarity": 35.79
     },
     {
-      "word": "unir",
+      "word": "argonaute",
       "percentile": 982,
-      "similarity": 39.01
+      "similarity": 35.72
     },
     {
-      "word": "intersyndical",
+      "word": "transporteur",
       "percentile": 981,
-      "similarity": 38.96
+      "similarity": 35.55
     }
   ]
 }

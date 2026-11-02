@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-02",
+  "puzzle_num": 1633,
+  "word": "Étourneau sansonnet",
+  "title_slug": "Étourneau_sansonnet",
+  "title_display": "Étourneau sansonnet",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étourneau_sansonnet",
+  "hints": {
+    "level1": [
+      "2 mots · 18 lettres",
+      "Premières lettres : É · S"
+    ],
+    "level2": [
+      "espèce d'oiseaux passeriformes de la famille des sturnidae",
+      "Taxobox utilisant la classification du Congrès ornithologique international",
+      "Taxobox début par provenance de l'image - A",
+      "Statut UICN Préoccupation mineure"
+    ],
+    "level3": [
+      "L’___ est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique."
+    ]
+  },
+  "extract": "L’étourneau sansonnet est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique.",
+  "categories": [
+    "espèce d'oiseaux passeriformes de la famille des sturnidae",
+    "Taxobox utilisant la classification du Congrès ornithologique international",
+    "Taxobox début par provenance de l'image - A",
+    "Statut UICN Préoccupation mineure"
+  ],
+  "generated_at": "2026-11-02T23:16:42.638479+00:00"
+}

@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-03",
+  "puzzle_num": 1707,
+  "word": "expédition",
+  "first_letter": "E",
+  "word_length": 10,
+  "definition": "Action d’expédier, de hâter.",
+  "hints": {
+    "level1": [
+      {
+        "word": "chauffeur-livreur",
+        "percentile": 200,
+        "definition": "Un chauffeur-livreur est une personne responsable soit de l'approvisionnement de son entreprise en produits divers, soit de la livraison de produits finis aux clients de son entreprise."
+      },
+      {
+        "word": "recycleur",
+        "percentile": 267,
+        "definition": "Qui recycle."
+      },
+      {
+        "word": "ethnographe",
+        "percentile": 334,
+        "definition": "Celui, celle qui s’occupe d’ethnographie."
+      }
+    ],
+    "level2": [
+      {
+        "word": "hydrophone",
+        "percentile": 500,
+        "definition": "Transducteur électroacoustique destiné à transformer, dans les liquides, des oscillations acoustiques en oscillations électriques."
+      },
+      {
+        "word": "hiverner",
+        "percentile": 567,
+        "definition": "Passer l’hiver, la mauvaise saison, en parlant des troupes, des navires."
+      },
+      {
+        "word": "crozet",
+        "percentile": 634,
+        "definition": "Variété de pâte alimentaire originaire de Savoie constitué traditionnellement de farine de sarrasin, mais également fabriquées à base de farine de blé dur."
+      }
+    ],
+    "level3": [
+      {
+        "word": "entrepôt",
+        "percentile": 800,
+        "definition": "Lieu où l’on met des marchandises en dépôt."
+      },
+      {
+        "word": "barbaresque",
+        "percentile": 850,
+        "definition": "Relatif à la , au actuel, ."
+      },
+      {
+        "word": "méhariste",
+        "percentile": 900,
+        "definition": "Qui monte un dromadaire."
+      }
+    ]
+  },
+  "tried_count": 101,
+  "generated_at": "2026-11-02T23:16:34.429008+00:00",
+  "nearby_top": [
+    {
+      "word": "expédition",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "expédier",
+      "percentile": 999,
+      "similarity": 50.02
+    },
+    {
+      "word": "explorateur",
+      "percentile": 998,
+      "similarity": 46.4
+    },
+    {
+      "word": "colisage",
+      "percentile": 997,
+      "similarity": 45.3
+    },
+    {
+      "word": "acheminement",
+      "percentile": 996,
+      "similarity": 44.68
+    },
+    {
+      "word": "livraison",
+      "percentile": 995,
+      "similarity": 44.53
+    },
+    {
+      "word": "antarctique",
+      "percentile": 994,
+      "similarity": 40.99
+    },
+    {
+      "word": "circumnavigation",
+      "percentile": 993,
+      "similarity": 40.73
+    },
+    {
+      "word": "colis",
+      "percentile": 992,
+      "similarity": 39.87
+    },
+    {
+      "word": "envoi",
+      "percentile": 991,
+      "similarity": 38.47
+    },
+    {
+      "word": "avarie",
+      "percentile": 990,
+      "similarity": 37.15
+    },
+    {
+      "word": "périple",
+      "percentile": 989,
+      "similarity": 36.51
+    },
+    {
+      "word": "acheminer",
+      "percentile": 988,
+      "similarity": 36.33
+    },
+    {
+      "word": "transitaire",
+      "percentile": 987,
+      "similarity": 36.05
+    },
+    {
+      "word": "réexpédition",
+      "percentile": 986,
+      "similarity": 35.97
+    },
+    {
+      "word": "alpiniste",
+      "percentile": 985,
+      "similarity": 35.92
+    },
+    {
+      "word": "commande",
+      "percentile": 984,
+      "similarity": 35.9
+    },
+    {
+      "word": "avitaillement",
+      "percentile": 983,
+      "similarity": 35.79
+    },
+    {
+      "word": "argonaute",
+      "percentile": 982,
+      "similarity": 35.72
+    },
+    {
+      "word": "transporteur",
+      "percentile": 981,
+      "similarity": 35.55
+    }
+  ]
+}

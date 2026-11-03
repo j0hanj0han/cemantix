@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "puzzle_num": 1634,
+  "word": "Pharmacien",
+  "title_slug": "Pharmacien",
+  "title_display": "Pharmacien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pharmacien",
+  "hints": {
+    "level1": [
+      "1 mot · 10 lettres",
+      "Première lettre : P"
+    ],
+    "level2": [
+      "professionnel de la santé pratiquant la pharmacie",
+      "Métier de la santé"
+    ],
+    "level3": [
+      "Un ___ est un professionnel de santé, spécialiste du médicament, dont le rôle consiste à assurer la conformité de la prise en charge pharmaceutique et l'éducation thérapeutique du patient."
+    ]
+  },
+  "extract": "Un pharmacien est un professionnel de santé, spécialiste du médicament, dont le rôle consiste à assurer la conformité de la prise en charge pharmaceutique et l'éducation thérapeutique du patient.",
+  "categories": [
+    "professionnel de la santé pratiquant la pharmacie",
+    "Métier de la santé"
+  ],
+  "generated_at": "2026-11-03T23:15:40.494262+00:00"
+}

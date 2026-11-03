@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-03",
-  "puzzle_num": 1707,
-  "word": "expédition",
-  "first_letter": "E",
-  "word_length": 10,
-  "definition": "Action d’expédier, de hâter.",
+  "date": "2026-11-04",
+  "puzzle_num": 1708,
+  "word": "modalité",
+  "first_letter": "M",
+  "word_length": 8,
+  "definition": "Qualité, manière d’être.",
   "hints": {
     "level1": [
       {
-        "word": "chauffeur-livreur",
+        "word": "coordonner",
         "percentile": 200,
-        "definition": "Un chauffeur-livreur est une personne responsable soit de l'approvisionnement de son entreprise en produits divers, soit de la livraison de produits finis aux clients de son entreprise."
+        "definition": "Arranger certaines choses, en particulier des actions, entre elles pour parvenir à une fin."
       },
       {
-        "word": "recycleur",
+        "word": "filière",
         "percentile": 267,
-        "definition": "Qui recycle."
+        "definition": "Forme creuse permettant de filer un matériau malléable en forme de fil."
       },
       {
-        "word": "ethnographe",
+        "word": "secrétariat",
         "percentile": 334,
-        "definition": "Celui, celle qui s’occupe d’ethnographie."
+        "definition": "Emploi, fonction de secrétaire."
       }
     ],
     "level2": [
       {
-        "word": "hydrophone",
+        "word": "communautaire",
         "percentile": 500,
-        "definition": "Transducteur électroacoustique destiné à transformer, dans les liquides, des oscillations acoustiques en oscillations électriques."
+        "definition": "Qui a trait à la communauté."
       },
       {
-        "word": "hiverner",
+        "word": "auxdites",
         "percentile": 567,
-        "definition": "Passer l’hiver, la mauvaise saison, en parlant des troupes, des navires."
+        "definition": ""
       },
       {
-        "word": "crozet",
+        "word": "également",
         "percentile": 634,
-        "definition": "Variété de pâte alimentaire originaire de Savoie constitué traditionnellement de farine de sarrasin, mais également fabriquées à base de farine de blé dur."
+        "definition": "Aussi."
       }
     ],
     "level3": [
       {
-        "word": "entrepôt",
+        "word": "prévisionnel",
         "percentile": 800,
-        "definition": "Lieu où l’on met des marchandises en dépôt."
+        "definition": "Fondé sur des prévisions."
       },
       {
-        "word": "barbaresque",
+        "word": "recommandation",
         "percentile": 850,
-        "definition": "Relatif à la , au actuel, ."
+        "definition": "Exhortation instante, conseil pressant."
       },
       {
-        "word": "méhariste",
+        "word": "différent",
         "percentile": 900,
-        "definition": "Qui monte un dromadaire."
+        "definition": "Qui n’est pas pareil ; qui est autre ou distinct."
       }
     ]
   },
-  "tried_count": 101,
-  "generated_at": "2026-11-02T23:16:34.429008+00:00",
+  "tried_count": 40,
+  "generated_at": "2026-11-03T23:15:34.591342+00:00",
   "nearby_top": [
     {
-      "word": "expédition",
+      "word": "modalité",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "expédier",
+      "word": "définir",
       "percentile": 999,
-      "similarity": 50.02
+      "similarity": 62.67
     },
     {
-      "word": "explorateur",
+      "word": "condition",
       "percentile": 998,
-      "similarity": 46.4
+      "similarity": 60.73
     },
     {
-      "word": "colisage",
+      "word": "procédure",
       "percentile": 997,
-      "similarity": 45.3
+      "similarity": 59.61
     },
     {
-      "word": "acheminement",
+      "word": "préciser",
       "percentile": 996,
-      "similarity": 44.68
+      "similarity": 58.76
     },
     {
-      "word": "livraison",
+      "word": "spécifique",
       "percentile": 995,
-      "similarity": 44.53
+      "similarity": 58.75
     },
     {
-      "word": "antarctique",
+      "word": "concerner",
       "percentile": 994,
-      "similarity": 40.99
+      "similarity": 58.48
     },
     {
-      "word": "circumnavigation",
+      "word": "attribution",
       "percentile": 993,
-      "similarity": 40.73
+      "similarity": 57.99
     },
     {
-      "word": "colis",
+      "word": "disposition",
       "percentile": 992,
-      "similarity": 39.87
+      "similarity": 57.43
     },
     {
-      "word": "envoi",
+      "word": "relative",
       "percentile": 991,
-      "similarity": 38.47
+      "similarity": 57.32
     },
     {
-      "word": "avarie",
+      "word": "établissement",
       "percentile": 990,
-      "similarity": 37.15
+      "similarity": 57.21
     },
     {
-      "word": "périple",
+      "word": "fixer",
       "percentile": 989,
-      "similarity": 36.51
+      "similarity": 56.83
     },
     {
-      "word": "acheminer",
+      "word": "dispositif",
       "percentile": 988,
-      "similarity": 36.33
+      "similarity": 55.76
     },
     {
-      "word": "transitaire",
+      "word": "applicable",
       "percentile": 987,
-      "similarity": 36.05
+      "similarity": 55.52
     },
     {
-      "word": "réexpédition",
+      "word": "évaluation",
       "percentile": 986,
-      "similarity": 35.97
+      "similarity": 55.43
     },
     {
-      "word": "alpiniste",
+      "word": "décret",
       "percentile": 985,
-      "similarity": 35.92
+      "similarity": 55.27
     },
     {
-      "word": "commande",
+      "word": "préalablement",
       "percentile": 984,
-      "similarity": 35.9
+      "similarity": 55.22
     },
     {
-      "word": "avitaillement",
+      "word": "relatif",
       "percentile": 983,
-      "similarity": 35.79
+      "similarity": 54.5
     },
     {
-      "word": "argonaute",
+      "word": "complémentaire",
       "percentile": 982,
-      "similarity": 35.72
+      "similarity": 54.38
     },
     {
-      "word": "transporteur",
+      "word": "déterminer",
       "percentile": 981,
-      "similarity": 35.55
+      "similarity": 54.13
     }
   ]
 }

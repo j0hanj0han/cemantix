@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-03T00:16:34+01:00</news:publication_date>
-      <news:title>Solution Cémantix du mardi 3 novembre 2026</news:title>
+      <news:publication_date>2026-11-04T00:15:34+01:00</news:publication_date>
+      <news:title>Solution Cémantix du mercredi 4 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-03T00:16:34+01:00</news:publication_date>
-      <news:title>Indices Cémantix du mardi 3 novembre 2026</news:title>
+      <news:publication_date>2026-11-04T00:15:34+01:00</news:publication_date>
+      <news:title>Indices Cémantix du mercredi 4 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-11-02</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-11-03</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-02T00:15:42+01:00</news:publication_date>
-      <news:title>Solution Cémantix du lundi 2 novembre 2026</news:title>
+      <news:publication_date>2026-11-03T00:16:34+01:00</news:publication_date>
+      <news:title>Solution Cémantix du mardi 3 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,52 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-11-04T00:15:36+01:00</news:publication_date>
+      <news:title>Solution Sutom du mercredi 4 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-03</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-11-03T00:16:37+01:00</news:publication_date>
       <news:title>Solution Sutom du mardi 3 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-02</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-02T00:15:44+01:00</news:publication_date>
-      <news:title>Solution Sutom du lundi 2 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-03T02:30:14+01:00</news:publication_date>
-      <news:title>Solution Tusmo du mardi 3 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/archive/2026-11-02</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-02T02:30:14+01:00</news:publication_date>
-      <news:title>Solution Tusmo du lundi 2 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-03T21:30:34+01:00</news:publication_date>
-      <news:title>Résultats EuroMillions du mardi 3 novembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

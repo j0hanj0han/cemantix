@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-04",
+  "puzzle_num": 1708,
+  "word": "modalité",
+  "first_letter": "M",
+  "word_length": 8,
+  "definition": "Qualité, manière d’être.",
+  "hints": {
+    "level1": [
+      {
+        "word": "coordonner",
+        "percentile": 200,
+        "definition": "Arranger certaines choses, en particulier des actions, entre elles pour parvenir à une fin."
+      },
+      {
+        "word": "filière",
+        "percentile": 267,
+        "definition": "Forme creuse permettant de filer un matériau malléable en forme de fil."
+      },
+      {
+        "word": "secrétariat",
+        "percentile": 334,
+        "definition": "Emploi, fonction de secrétaire."
+      }
+    ],
+    "level2": [
+      {
+        "word": "communautaire",
+        "percentile": 500,
+        "definition": "Qui a trait à la communauté."
+      },
+      {
+        "word": "auxdites",
+        "percentile": 567,
+        "definition": ""
+      },
+      {
+        "word": "également",
+        "percentile": 634,
+        "definition": "Aussi."
+      }
+    ],
+    "level3": [
+      {
+        "word": "prévisionnel",
+        "percentile": 800,
+        "definition": "Fondé sur des prévisions."
+      },
+      {
+        "word": "recommandation",
+        "percentile": 850,
+        "definition": "Exhortation instante, conseil pressant."
+      },
+      {
+        "word": "différent",
+        "percentile": 900,
+        "definition": "Qui n’est pas pareil ; qui est autre ou distinct."
+      }
+    ]
+  },
+  "tried_count": 40,
+  "generated_at": "2026-11-03T23:15:34.591342+00:00",
+  "nearby_top": [
+    {
+      "word": "modalité",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "définir",
+      "percentile": 999,
+      "similarity": 62.67
+    },
+    {
+      "word": "condition",
+      "percentile": 998,
+      "similarity": 60.73
+    },
+    {
+      "word": "procédure",
+      "percentile": 997,
+      "similarity": 59.61
+    },
+    {
+      "word": "préciser",
+      "percentile": 996,
+      "similarity": 58.76
+    },
+    {
+      "word": "spécifique",
+      "percentile": 995,
+      "similarity": 58.75
+    },
+    {
+      "word": "concerner",
+      "percentile": 994,
+      "similarity": 58.48
+    },
+    {
+      "word": "attribution",
+      "percentile": 993,
+      "similarity": 57.99
+    },
+    {
+      "word": "disposition",
+      "percentile": 992,
+      "similarity": 57.43
+    },
+    {
+      "word": "relative",
+      "percentile": 991,
+      "similarity": 57.32
+    },
+    {
+      "word": "établissement",
+      "percentile": 990,
+      "similarity": 57.21
+    },
+    {
+      "word": "fixer",
+      "percentile": 989,
+      "similarity": 56.83
+    },
+    {
+      "word": "dispositif",
+      "percentile": 988,
+      "similarity": 55.76
+    },
+    {
+      "word": "applicable",
+      "percentile": 987,
+      "similarity": 55.52
+    },
+    {
+      "word": "évaluation",
+      "percentile": 986,
+      "similarity": 55.43
+    },
+    {
+      "word": "décret",
+      "percentile": 985,
+      "similarity": 55.27
+    },
+    {
+      "word": "préalablement",
+      "percentile": 984,
+      "similarity": 55.22
+    },
+    {
+      "word": "relatif",
+      "percentile": 983,
+      "similarity": 54.5
+    },
+    {
+      "word": "complémentaire",
+      "percentile": 982,
+      "similarity": 54.38
+    },
+    {
+      "word": "déterminer",
+      "percentile": 981,
+      "similarity": 54.13
+    }
+  ]
+}

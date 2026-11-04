@@ -4,7 +4,7 @@
   <link href="https://solution-du-jour.fr/feed.xml" rel="self"/>
   <link href="https://solution-du-jour.fr/"/>
   <id>https://solution-du-jour.fr/</id>
-  <updated>2026-11-04T02:30:14+01:00</updated>
+  <updated>2026-11-04T21:01:11+01:00</updated>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-11-04</id>
     <link href="https://solution-du-jour.fr/cemantix/"/>
@@ -28,6 +28,14 @@
     <updated>2026-11-04T02:30:14+01:00</updated>
     <summary>Solution et détails pour le mercredi 4 novembre 2026.</summary>
     <content type="html">Mot : &lt;strong&gt;EXIGENCE&lt;/strong&gt;</content>
+  </entry>
+  <entry>
+    <id>https://solution-du-jour.fr/loto/archive/2026-11-04</id>
+    <link href="https://solution-du-jour.fr/loto/"/>
+    <title>Résultats Loto du mercredi 4 novembre 2026</title>
+    <updated>2026-11-04T21:01:11+01:00</updated>
+    <summary>Solution et détails pour le mercredi 4 novembre 2026.</summary>
+    <content type="html">Numéros : &lt;strong&gt;18 · 19 · 30 · 37 · 40&lt;/strong&gt; + chance 5</content>
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/cemantix/archive/2026-11-03</id>
@@ -103,7 +111,7 @@
   </entry>
   <entry>
     <id>https://solution-du-jour.fr/loto/archive/2026-11-02</id>
-    <link href="https://solution-du-jour.fr/loto/"/>
+    <link href="https://solution-du-jour.fr/loto/archive/2026-11-02"/>
     <title>Résultats Loto du lundi 2 novembre 2026</title>
     <updated>2026-11-02T20:45:20+01:00</updated>
     <summary>Solution et détails pour le lundi 2 novembre 2026.</summary>

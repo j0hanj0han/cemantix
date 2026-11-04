@@ -13,5 +13,8 @@
   ],
   "code": "",
   "next_jackpot": 130000000.0,
-  "generated_at": "2026-11-03T20:30:34.342628+00:00"
+  "generated_at": "2026-11-03T20:30:34.342628+00:00",
+  "jackpot_amount": 98790357,
+  "jackpot_winners": 0,
+  "jackpot_won": false
 }

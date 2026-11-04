@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-05",
+  "puzzle_num": 1709,
+  "word": "confus",
+  "first_letter": "C",
+  "word_length": 6,
+  "definition": "Dont il est impossible de distinguer les éléments constitutifs.",
+  "hints": {
+    "level1": [
+      {
+        "word": "vagissement",
+        "percentile": 200,
+        "definition": "Cri des nouveau-nés, des bébés."
+      },
+      {
+        "word": "submerger",
+        "percentile": 267,
+        "definition": "Recouvrir d’eau ; faire disparaître sous les eaux."
+      },
+      {
+        "word": "tantinet",
+        "percentile": 334,
+        "definition": "Très petite quantité."
+      }
+    ],
+    "level2": [
+      {
+        "word": "assonance",
+        "percentile": 500,
+        "definition": "Figure de style qui consiste en la répétition d'un son vocalique."
+      },
+      {
+        "word": "conjectural",
+        "percentile": 567,
+        "definition": "Qui n’est fondé que sur des conjectures."
+      },
+      {
+        "word": "appesantir",
+        "percentile": 634,
+        "definition": "Rendre plus pesant."
+      }
+    ],
+    "level3": [
+      {
+        "word": "nébuleux",
+        "percentile": 800,
+        "definition": "Qui est obscurci par les nuages."
+      },
+      {
+        "word": "sous-entendu",
+        "percentile": 850,
+        "definition": "Non dit, mais implicite."
+      },
+      {
+        "word": "oiseux",
+        "percentile": 900,
+        "definition": "Qui ne sert à rien."
+      }
+    ]
+  },
+  "tried_count": 96,
+  "generated_at": "2026-11-04T23:16:01.358248+00:00",
+  "nearby_top": [
+    {
+      "word": "confus",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "embrouiller",
+      "percentile": 999,
+      "similarity": 58.78
+    },
+    {
+      "word": "incompréhensible",
+      "percentile": 998,
+      "similarity": 52.85
+    },
+    {
+      "word": "confusion",
+      "percentile": 997,
+      "similarity": 52.25
+    },
+    {
+      "word": "ambigu",
+      "percentile": 996,
+      "similarity": 52.03
+    },
+    {
+      "word": "flou",
+      "percentile": 995,
+      "similarity": 51.78
+    },
+    {
+      "word": "obscur",
+      "percentile": 994,
+      "similarity": 51.75
+    },
+    {
+      "word": "imprécis",
+      "percentile": 993,
+      "similarity": 50.96
+    },
+    {
+      "word": "inintelligible",
+      "percentile": 992,
+      "similarity": 49.5
+    },
+    {
+      "word": "clair",
+      "percentile": 991,
+      "similarity": 49.02
+    },
+    {
+      "word": "brouiller",
+      "percentile": 990,
+      "similarity": 48.49
+    },
+    {
+      "word": "obscurcir",
+      "percentile": 989,
+      "similarity": 48.11
+    },
+    {
+      "word": "incohérent",
+      "percentile": 988,
+      "similarity": 47.98
+    },
+    {
+      "word": "indistinct",
+      "percentile": 987,
+      "similarity": 47.89
+    },
+    {
+      "word": "contradictoire",
+      "percentile": 986,
+      "similarity": 47.28
+    },
+    {
+      "word": "équivoque",
+      "percentile": 985,
+      "similarity": 46.18
+    },
+    {
+      "word": "alambiquer",
+      "percentile": 984,
+      "similarity": 45.47
+    },
+    {
+      "word": "inconsistant",
+      "percentile": 983,
+      "similarity": 45.28
+    },
+    {
+      "word": "indéchiffrable",
+      "percentile": 982,
+      "similarity": 45.22
+    },
+    {
+      "word": "sembler",
+      "percentile": 981,
+      "similarity": 44.89
+    }
+  ]
+}

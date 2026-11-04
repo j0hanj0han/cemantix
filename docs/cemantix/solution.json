@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-04",
-  "puzzle_num": 1708,
-  "word": "modalité",
-  "first_letter": "M",
-  "word_length": 8,
-  "definition": "Qualité, manière d’être.",
+  "date": "2026-11-05",
+  "puzzle_num": 1709,
+  "word": "confus",
+  "first_letter": "C",
+  "word_length": 6,
+  "definition": "Dont il est impossible de distinguer les éléments constitutifs.",
   "hints": {
     "level1": [
       {
-        "word": "coordonner",
+        "word": "vagissement",
         "percentile": 200,
-        "definition": "Arranger certaines choses, en particulier des actions, entre elles pour parvenir à une fin."
+        "definition": "Cri des nouveau-nés, des bébés."
       },
       {
-        "word": "filière",
+        "word": "submerger",
         "percentile": 267,
-        "definition": "Forme creuse permettant de filer un matériau malléable en forme de fil."
+        "definition": "Recouvrir d’eau ; faire disparaître sous les eaux."
       },
       {
-        "word": "secrétariat",
+        "word": "tantinet",
         "percentile": 334,
-        "definition": "Emploi, fonction de secrétaire."
+        "definition": "Très petite quantité."
       }
     ],
     "level2": [
       {
-        "word": "communautaire",
+        "word": "assonance",
         "percentile": 500,
-        "definition": "Qui a trait à la communauté."
+        "definition": "Figure de style qui consiste en la répétition d'un son vocalique."
       },
       {
-        "word": "auxdites",
+        "word": "conjectural",
         "percentile": 567,
-        "definition": ""
+        "definition": "Qui n’est fondé que sur des conjectures."
       },
       {
-        "word": "également",
+        "word": "appesantir",
         "percentile": 634,
-        "definition": "Aussi."
+        "definition": "Rendre plus pesant."
       }
     ],
     "level3": [
       {
-        "word": "prévisionnel",
+        "word": "nébuleux",
         "percentile": 800,
-        "definition": "Fondé sur des prévisions."
+        "definition": "Qui est obscurci par les nuages."
       },
       {
-        "word": "recommandation",
+        "word": "sous-entendu",
         "percentile": 850,
-        "definition": "Exhortation instante, conseil pressant."
+        "definition": "Non dit, mais implicite."
       },
       {
-        "word": "différent",
+        "word": "oiseux",
         "percentile": 900,
-        "definition": "Qui n’est pas pareil ; qui est autre ou distinct."
+        "definition": "Qui ne sert à rien."
       }
     ]
   },
-  "tried_count": 40,
-  "generated_at": "2026-11-03T23:15:34.591342+00:00",
+  "tried_count": 96,
+  "generated_at": "2026-11-04T23:16:01.358248+00:00",
   "nearby_top": [
     {
-      "word": "modalité",
+      "word": "confus",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "définir",
+      "word": "embrouiller",
       "percentile": 999,
-      "similarity": 62.67
+      "similarity": 58.78
     },
     {
-      "word": "condition",
+      "word": "incompréhensible",
       "percentile": 998,
-      "similarity": 60.73
+      "similarity": 52.85
     },
     {
-      "word": "procédure",
+      "word": "confusion",
       "percentile": 997,
-      "similarity": 59.61
+      "similarity": 52.25
     },
     {
-      "word": "préciser",
+      "word": "ambigu",
       "percentile": 996,
-      "similarity": 58.76
+      "similarity": 52.03
     },
     {
-      "word": "spécifique",
+      "word": "flou",
       "percentile": 995,
-      "similarity": 58.75
+      "similarity": 51.78
     },
     {
-      "word": "concerner",
+      "word": "obscur",
       "percentile": 994,
-      "similarity": 58.48
+      "similarity": 51.75
     },
     {
-      "word": "attribution",
+      "word": "imprécis",
       "percentile": 993,
-      "similarity": 57.99
+      "similarity": 50.96
     },
     {
-      "word": "disposition",
+      "word": "inintelligible",
       "percentile": 992,
-      "similarity": 57.43
+      "similarity": 49.5
     },
     {
-      "word": "relative",
+      "word": "clair",
       "percentile": 991,
-      "similarity": 57.32
+      "similarity": 49.02
     },
     {
-      "word": "établissement",
+      "word": "brouiller",
       "percentile": 990,
-      "similarity": 57.21
+      "similarity": 48.49
     },
     {
-      "word": "fixer",
+      "word": "obscurcir",
       "percentile": 989,
-      "similarity": 56.83
+      "similarity": 48.11
     },
     {
-      "word": "dispositif",
+      "word": "incohérent",
       "percentile": 988,
-      "similarity": 55.76
+      "similarity": 47.98
     },
     {
-      "word": "applicable",
+      "word": "indistinct",
       "percentile": 987,
-      "similarity": 55.52
+      "similarity": 47.89
     },
     {
-      "word": "évaluation",
+      "word": "contradictoire",
       "percentile": 986,
-      "similarity": 55.43
+      "similarity": 47.28
     },
     {
-      "word": "décret",
+      "word": "équivoque",
       "percentile": 985,
-      "similarity": 55.27
+      "similarity": 46.18
     },
     {
-      "word": "préalablement",
+      "word": "alambiquer",
       "percentile": 984,
-      "similarity": 55.22
+      "similarity": 45.47
     },
     {
-      "word": "relatif",
+      "word": "inconsistant",
       "percentile": 983,
-      "similarity": 54.5
+      "similarity": 45.28
     },
     {
-      "word": "complémentaire",
+      "word": "indéchiffrable",
       "percentile": 982,
-      "similarity": 54.38
+      "similarity": 45.22
     },
     {
-      "word": "déterminer",
+      "word": "sembler",
       "percentile": 981,
-      "similarity": 54.13
+      "similarity": 44.89
     }
   ]
 }

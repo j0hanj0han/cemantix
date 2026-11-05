@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-06",
+  "puzzle_num": 1710,
+  "word": "château",
+  "first_letter": "C",
+  "word_length": 7,
+  "definition": "Demeure féodale défendue par des fossés et de gros murs flanqués de tours ou de bastions.",
+  "hints": {
+    "level1": [
+      {
+        "word": "gewurztraminer",
+        "percentile": 200,
+        "definition": "Cépage donnant des petites grappes de petits grains de raisin de couleur rosée, On en cultive environ 2700 hectares en France, en particulier en Alsace."
+      },
+      {
+        "word": "messire",
+        "percentile": 267,
+        "definition": "Titre d’honneur qui se donnait anciennement, dans les actes, à des personnes de distinction."
+      },
+      {
+        "word": "nabatéen",
+        "percentile": 334,
+        "definition": "Relatif à la Nabathée ou Arabie Pétrée dont la capitale était Pétra."
+      }
+    ],
+    "level2": [
+      {
+        "word": "escalier",
+        "percentile": 500,
+        "definition": "Ensemble de marches qui, dans un bâtiment, servent pour monter ou descendre."
+      },
+      {
+        "word": "grès",
+        "percentile": 567,
+        "definition": "Roche détritique formée par l’agglomération de nombreux petits grains unis par un ciment naturel de composition variable (siliceux, calcaire, etc.)."
+      },
+      {
+        "word": "pécharmant",
+        "percentile": 634,
+        "definition": "Un pécharmant est un vin rouge français d'appellation d'origine contrôlée du vignoble de Bergerac dans le Sud-Ouest de la France."
+      }
+    ],
+    "level3": [
+      {
+        "word": "deux-ponts",
+        "percentile": 800,
+        "definition": "Vaisseau à deux ponts ou à deux batteries couvertes."
+      },
+      {
+        "word": "plessis",
+        "percentile": 850,
+        "definition": "Haie obtenue par plessage."
+      },
+      {
+        "word": "princier",
+        "percentile": 900,
+        "definition": "Qui se rapporte à un prince, une princesse."
+      }
+    ]
+  },
+  "tried_count": 57,
+  "generated_at": "2026-11-05T23:15:43.468096+00:00",
+  "nearby_top": [
+    {
+      "word": "château",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "château-fort",
+      "percentile": 999,
+      "similarity": 65.09
+    },
+    {
+      "word": "manoir",
+      "percentile": 998,
+      "similarity": 60.9
+    },
+    {
+      "word": "gentilhommière",
+      "percentile": 997,
+      "similarity": 59.04
+    },
+    {
+      "word": "bâtisse",
+      "percentile": 996,
+      "similarity": 54.26
+    },
+    {
+      "word": "cheverny",
+      "percentile": 995,
+      "similarity": 53.57
+    },
+    {
+      "word": "châtelain",
+      "percentile": 994,
+      "similarity": 53.54
+    },
+    {
+      "word": "chapelle",
+      "percentile": 993,
+      "similarity": 51.76
+    },
+    {
+      "word": "forteresse",
+      "percentile": 992,
+      "similarity": 51.73
+    },
+    {
+      "word": "murol",
+      "percentile": 991,
+      "similarity": 51.09
+    },
+    {
+      "word": "donjon",
+      "percentile": 990,
+      "similarity": 50.58
+    },
+    {
+      "word": "pont-levis",
+      "percentile": 989,
+      "similarity": 50.5
+    },
+    {
+      "word": "avant-cour",
+      "percentile": 988,
+      "similarity": 50.48
+    },
+    {
+      "word": "troglodytique",
+      "percentile": 987,
+      "similarity": 49.92
+    },
+    {
+      "word": "douve",
+      "percentile": 986,
+      "similarity": 48.96
+    },
+    {
+      "word": "abbatial",
+      "percentile": 985,
+      "similarity": 48.82
+    },
+    {
+      "word": "échauguette",
+      "percentile": 984,
+      "similarity": 48.5
+    },
+    {
+      "word": "orangerie",
+      "percentile": 983,
+      "similarity": 48.11
+    },
+    {
+      "word": "barbacane",
+      "percentile": 982,
+      "similarity": 47.52
+    },
+    {
+      "word": "prieuré",
+      "percentile": 981,
+      "similarity": 47.44
+    }
+  ]
+}

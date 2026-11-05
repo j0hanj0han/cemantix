@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-05",
-  "puzzle_num": 1709,
-  "word": "confus",
+  "date": "2026-11-06",
+  "puzzle_num": 1710,
+  "word": "château",
   "first_letter": "C",
-  "word_length": 6,
-  "definition": "Dont il est impossible de distinguer les éléments constitutifs.",
+  "word_length": 7,
+  "definition": "Demeure féodale défendue par des fossés et de gros murs flanqués de tours ou de bastions.",
   "hints": {
     "level1": [
       {
-        "word": "vagissement",
+        "word": "gewurztraminer",
         "percentile": 200,
-        "definition": "Cri des nouveau-nés, des bébés."
+        "definition": "Cépage donnant des petites grappes de petits grains de raisin de couleur rosée, On en cultive environ 2700 hectares en France, en particulier en Alsace."
       },
       {
-        "word": "submerger",
+        "word": "messire",
         "percentile": 267,
-        "definition": "Recouvrir d’eau ; faire disparaître sous les eaux."
+        "definition": "Titre d’honneur qui se donnait anciennement, dans les actes, à des personnes de distinction."
       },
       {
-        "word": "tantinet",
+        "word": "nabatéen",
         "percentile": 334,
-        "definition": "Très petite quantité."
+        "definition": "Relatif à la Nabathée ou Arabie Pétrée dont la capitale était Pétra."
       }
     ],
     "level2": [
       {
-        "word": "assonance",
+        "word": "escalier",
         "percentile": 500,
-        "definition": "Figure de style qui consiste en la répétition d'un son vocalique."
+        "definition": "Ensemble de marches qui, dans un bâtiment, servent pour monter ou descendre."
       },
       {
-        "word": "conjectural",
+        "word": "grès",
         "percentile": 567,
-        "definition": "Qui n’est fondé que sur des conjectures."
+        "definition": "Roche détritique formée par l’agglomération de nombreux petits grains unis par un ciment naturel de composition variable (siliceux, calcaire, etc.)."
       },
       {
-        "word": "appesantir",
+        "word": "pécharmant",
         "percentile": 634,
-        "definition": "Rendre plus pesant."
+        "definition": "Un pécharmant est un vin rouge français d'appellation d'origine contrôlée du vignoble de Bergerac dans le Sud-Ouest de la France."
       }
     ],
     "level3": [
       {
-        "word": "nébuleux",
+        "word": "deux-ponts",
         "percentile": 800,
-        "definition": "Qui est obscurci par les nuages."
+        "definition": "Vaisseau à deux ponts ou à deux batteries couvertes."
       },
       {
-        "word": "sous-entendu",
+        "word": "plessis",
         "percentile": 850,
-        "definition": "Non dit, mais implicite."
+        "definition": "Haie obtenue par plessage."
       },
       {
-        "word": "oiseux",
+        "word": "princier",
         "percentile": 900,
-        "definition": "Qui ne sert à rien."
+        "definition": "Qui se rapporte à un prince, une princesse."
       }
     ]
   },
-  "tried_count": 96,
-  "generated_at": "2026-11-04T23:16:01.358248+00:00",
+  "tried_count": 57,
+  "generated_at": "2026-11-05T23:15:43.468096+00:00",
   "nearby_top": [
     {
-      "word": "confus",
+      "word": "château",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "embrouiller",
+      "word": "château-fort",
       "percentile": 999,
-      "similarity": 58.78
+      "similarity": 65.09
     },
     {
-      "word": "incompréhensible",
+      "word": "manoir",
       "percentile": 998,
-      "similarity": 52.85
+      "similarity": 60.9
     },
     {
-      "word": "confusion",
+      "word": "gentilhommière",
       "percentile": 997,
-      "similarity": 52.25
+      "similarity": 59.04
     },
     {
-      "word": "ambigu",
+      "word": "bâtisse",
       "percentile": 996,
-      "similarity": 52.03
+      "similarity": 54.26
     },
     {
-      "word": "flou",
+      "word": "cheverny",
       "percentile": 995,
-      "similarity": 51.78
+      "similarity": 53.57
     },
     {
-      "word": "obscur",
+      "word": "châtelain",
       "percentile": 994,
-      "similarity": 51.75
+      "similarity": 53.54
     },
     {
-      "word": "imprécis",
+      "word": "chapelle",
       "percentile": 993,
-      "similarity": 50.96
+      "similarity": 51.76
     },
     {
-      "word": "inintelligible",
+      "word": "forteresse",
       "percentile": 992,
-      "similarity": 49.5
+      "similarity": 51.73
     },
     {
-      "word": "clair",
+      "word": "murol",
       "percentile": 991,
-      "similarity": 49.02
+      "similarity": 51.09
     },
     {
-      "word": "brouiller",
+      "word": "donjon",
       "percentile": 990,
-      "similarity": 48.49
+      "similarity": 50.58
     },
     {
-      "word": "obscurcir",
+      "word": "pont-levis",
       "percentile": 989,
+      "similarity": 50.5
+    },
+    {
+      "word": "avant-cour",
+      "percentile": 988,
+      "similarity": 50.48
+    },
+    {
+      "word": "troglodytique",
+      "percentile": 987,
+      "similarity": 49.92
+    },
+    {
+      "word": "douve",
+      "percentile": 986,
+      "similarity": 48.96
+    },
+    {
+      "word": "abbatial",
+      "percentile": 985,
+      "similarity": 48.82
+    },
+    {
+      "word": "échauguette",
+      "percentile": 984,
+      "similarity": 48.5
+    },
+    {
+      "word": "orangerie",
+      "percentile": 983,
       "similarity": 48.11
     },
     {
-      "word": "incohérent",
-      "percentile": 988,
-      "similarity": 47.98
-    },
-    {
-      "word": "indistinct",
-      "percentile": 987,
-      "similarity": 47.89
-    },
-    {
-      "word": "contradictoire",
-      "percentile": 986,
-      "similarity": 47.28
-    },
-    {
-      "word": "équivoque",
-      "percentile": 985,
-      "similarity": 46.18
-    },
-    {
-      "word": "alambiquer",
-      "percentile": 984,
-      "similarity": 45.47
-    },
-    {
-      "word": "inconsistant",
-      "percentile": 983,
-      "similarity": 45.28
-    },
-    {
-      "word": "indéchiffrable",
+      "word": "barbacane",
       "percentile": 982,
-      "similarity": 45.22
+      "similarity": 47.52
     },
     {
-      "word": "sembler",
+      "word": "prieuré",
       "percentile": 981,
-      "similarity": 44.89
+      "similarity": 47.44
     }
   ]
 }

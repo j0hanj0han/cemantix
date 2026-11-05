@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "puzzle_num": 1636,
+  "word": "Roumain",
+  "title_slug": "Roumain",
+  "title_display": "Roumain",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Roumain",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : R"
+    ],
+    "level2": [
+      "langue romane",
+      "Langue SVO",
+      "Langue flexionnelle",
+      "Langue accusative"
+    ],
+    "level3": [
+      "Le ___, également appelé moldave dans les sources soviétiques et les pays issus de la dislocation de l'URSS, et anciennement désigné dans la littérature française comme « valaque » ou « moldo-valaque », est une langue indo-européenne appartenant au groupe des langues romanes orientales et, plus précisément, au diasystème roman de l'Est."
+    ]
+  },
+  "extract": "Le roumain, également appelé moldave dans les sources soviétiques et les pays issus de la dislocation de l'URSS, et anciennement désigné dans la littérature française comme « valaque » ou « moldo-valaque », est une langue indo-européenne appartenant au groupe des langues romanes orientales et, plus précisément, au diasystème roman de l'Est.",
+  "categories": [
+    "langue romane",
+    "Langue SVO",
+    "Langue flexionnelle",
+    "Langue accusative"
+  ],
+  "generated_at": "2026-11-05T23:15:50.597643+00:00"
+}

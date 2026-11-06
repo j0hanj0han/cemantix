@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "puzzle_num": 1637,
+  "word": "Étoile de mer",
+  "title_slug": "Étoile_de_mer",
+  "title_display": "Étoile de mer",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étoile_de_mer",
+  "hints": {
+    "level1": [
+      "3 mots · 11 lettres",
+      "Premières lettres : É · D · M"
+    ],
+    "level2": [
+      "classe d'échinodermes",
+      "Taxobox utilisant la classification World Register of Marine Species",
+      "Taxobox début par provenance de l'image - A",
+      "Échinoderme (nom vernaculaire)"
+    ],
+    "level3": [
+      "Les ___s de mer (Asteroidea) ou Astéries forment une classe d'échinodermes, des animaux marins caractérisés par une silhouette rayonnante et un squelette calcaire formé de pièces articulées."
+    ]
+  },
+  "extract": "Les étoiles de mer (Asteroidea) ou Astéries forment une classe d'échinodermes, des animaux marins caractérisés par une silhouette rayonnante et un squelette calcaire formé de pièces articulées.",
+  "categories": [
+    "classe d'échinodermes",
+    "Taxobox utilisant la classification World Register of Marine Species",
+    "Taxobox début par provenance de l'image - A",
+    "Échinoderme (nom vernaculaire)"
+  ],
+  "generated_at": "2026-11-06T23:16:09.638725+00:00"
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-06",
-  "puzzle_num": 1710,
-  "word": "château",
-  "first_letter": "C",
-  "word_length": 7,
-  "definition": "Demeure féodale défendue par des fossés et de gros murs flanqués de tours ou de bastions.",
+  "date": "2026-11-07",
+  "puzzle_num": 1711,
+  "word": "entrepreneur",
+  "first_letter": "E",
+  "word_length": 12,
+  "definition": "Celui qui dirige une entreprise.",
   "hints": {
     "level1": [
       {
-        "word": "gewurztraminer",
+        "word": "autofinancer",
         "percentile": 200,
-        "definition": "Cépage donnant des petites grappes de petits grains de raisin de couleur rosée, On en cultive environ 2700 hectares en France, en particulier en Alsace."
+        "definition": "Financer sans recours à l’endettement."
       },
       {
-        "word": "messire",
+        "word": "technicien",
         "percentile": 267,
-        "definition": "Titre d’honneur qui se donnait anciennement, dans les actes, à des personnes de distinction."
+        "definition": "Personne qui connaît les procédés pratiques d’un art, d’un métier et qui sait les employer, qui les enseigne ou les étudie."
       },
       {
-        "word": "nabatéen",
+        "word": "citoyen",
         "percentile": 334,
-        "definition": "Relatif à la Nabathée ou Arabie Pétrée dont la capitale était Pétra."
+        "definition": "Homme libre de l’Empire romain, doté de droits politiques dans une cité. En 212, l’empereur Caracalla étend le droit de citoyenneté romaine à l’ensemble des hommes libres de l’empire romain."
       }
     ],
     "level2": [
       {
-        "word": "escalier",
+        "word": "marketer",
         "percentile": 500,
-        "definition": "Ensemble de marches qui, dans un bâtiment, servent pour monter ou descendre."
+        "definition": "Promouvoir par les méthodes du marketing."
       },
       {
-        "word": "grès",
+        "word": "plein-emploi",
         "percentile": 567,
-        "definition": "Roche détritique formée par l’agglomération de nombreux petits grains unis par un ciment naturel de composition variable (siliceux, calcaire, etc.)."
+        "definition": "Situation économique où le chômage est réduit à un niveau incompressible, dit « chômage frictionnel », chômage de faible durée existant entre l’arrêt d’un emploi et le début d’un autre."
       },
       {
-        "word": "pécharmant",
+        "word": "physiocrate",
         "percentile": 634,
-        "definition": "Un pécharmant est un vin rouge français d'appellation d'origine contrôlée du vignoble de Bergerac dans le Sud-Ouest de la France."
+        "definition": "Économiste du dix-huitième siècle qui soutenait que toute richesse vient des produits de la terre, c’est-à-dire de l’agriculture."
       }
     ],
     "level3": [
       {
-        "word": "deux-ponts",
+        "word": "rentable",
         "percentile": 800,
-        "definition": "Vaisseau à deux ponts ou à deux batteries couvertes."
+        "definition": "Lucratif, qui procure une rente, qui donne un bénéfice ou un gain satisfaisant, suffisant."
       },
       {
-        "word": "plessis",
+        "word": "outiller",
         "percentile": 850,
-        "definition": "Haie obtenue par plessage."
+        "definition": "Fournir d’outils."
       },
       {
-        "word": "princier",
+        "word": "capitaliste",
         "percentile": 900,
-        "definition": "Qui se rapporte à un prince, une princesse."
+        "definition": "Relatif au capital ou au capitalisme."
       }
     ]
   },
-  "tried_count": 57,
-  "generated_at": "2026-11-05T23:15:43.468096+00:00",
+  "tried_count": 82,
+  "generated_at": "2026-11-06T23:16:02.045605+00:00",
   "nearby_top": [
     {
-      "word": "château",
+      "word": "entrepreneur",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "château-fort",
+      "word": "entreprise",
       "percentile": 999,
-      "similarity": 65.09
+      "similarity": 62.68
     },
     {
-      "word": "manoir",
+      "word": "entrepreneurial",
       "percentile": 998,
-      "similarity": 60.9
+      "similarity": 58.75
     },
     {
-      "word": "gentilhommière",
+      "word": "entrepreneuriat",
       "percentile": 997,
-      "similarity": 59.04
+      "similarity": 50.08
     },
     {
-      "word": "bâtisse",
+      "word": "repreneur",
       "percentile": 996,
-      "similarity": 54.26
+      "similarity": 47.65
     },
     {
-      "word": "cheverny",
+      "word": "créateur",
       "percentile": 995,
-      "similarity": 53.57
-    },
-    {
-      "word": "châtelain",
-      "percentile": 994,
-      "similarity": 53.54
-    },
-    {
-      "word": "chapelle",
-      "percentile": 993,
-      "similarity": 51.76
-    },
-    {
-      "word": "forteresse",
-      "percentile": 992,
-      "similarity": 51.73
-    },
-    {
-      "word": "murol",
-      "percentile": 991,
-      "similarity": 51.09
-    },
-    {
-      "word": "donjon",
-      "percentile": 990,
-      "similarity": 50.58
-    },
-    {
-      "word": "pont-levis",
-      "percentile": 989,
-      "similarity": 50.5
-    },
-    {
-      "word": "avant-cour",
-      "percentile": 988,
-      "similarity": 50.48
-    },
-    {
-      "word": "troglodytique",
-      "percentile": 987,
-      "similarity": 49.92
-    },
-    {
-      "word": "douve",
-      "percentile": 986,
-      "similarity": 48.96
-    },
-    {
-      "word": "abbatial",
-      "percentile": 985,
-      "similarity": 48.82
-    },
-    {
-      "word": "échauguette",
-      "percentile": 984,
-      "similarity": 48.5
-    },
-    {
-      "word": "orangerie",
-      "percentile": 983,
-      "similarity": 48.11
-    },
-    {
-      "word": "barbacane",
-      "percentile": 982,
       "similarity": 47.52
     },
     {
-      "word": "prieuré",
+      "word": "dirigeant",
+      "percentile": 994,
+      "similarity": 45.42
+    },
+    {
+      "word": "start-up",
+      "percentile": 993,
+      "similarity": 43.62
+    },
+    {
+      "word": "investisseur",
+      "percentile": 992,
+      "similarity": 43.41
+    },
+    {
+      "word": "microentreprise",
+      "percentile": 991,
+      "similarity": 42.56
+    },
+    {
+      "word": "artisan",
+      "percentile": 990,
+      "similarity": 41.12
+    },
+    {
+      "word": "entreprendre",
+      "percentile": 989,
+      "similarity": 40.65
+    },
+    {
+      "word": "expert-comptable",
+      "percentile": 988,
+      "similarity": 40.5
+    },
+    {
+      "word": "innovation",
+      "percentile": 987,
+      "similarity": 39.26
+    },
+    {
+      "word": "banquier",
+      "percentile": 986,
+      "similarity": 38.44
+    },
+    {
+      "word": "opportunité",
+      "percentile": 985,
+      "similarity": 37.83
+    },
+    {
+      "word": "sous-traitant",
+      "percentile": 984,
+      "similarity": 37.68
+    },
+    {
+      "word": "économique",
+      "percentile": 983,
+      "similarity": 36.58
+    },
+    {
+      "word": "franchisé",
+      "percentile": 982,
+      "similarity": 36.35
+    },
+    {
+      "word": "salarié",
       "percentile": 981,
-      "similarity": 47.44
+      "similarity": 35.95
     }
   ]
 }

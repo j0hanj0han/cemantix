@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-08",
+  "puzzle_num": 1712,
+  "word": "faculté",
+  "first_letter": "F",
+  "word_length": 7,
+  "definition": "Puissance physique ou morale qui rend un être capable d’agir d’une certaine manière, de produire certains effets.",
+  "hints": {
+    "level1": [
+      {
+        "word": "noumène",
+        "percentile": 200,
+        "definition": "Chez Kant, désigne la chose en soi, par opposition à phénomène, qui désigne l’objet tel qu’il nous apparaît en passant par notre esprit."
+      },
+      {
+        "word": "archiépiscopal",
+        "percentile": 267,
+        "definition": "Relatif à l’archevêque et à l'archevêché."
+      },
+      {
+        "word": "psychique",
+        "percentile": 334,
+        "definition": "Relatif au psychisme, à la psyché, à l'esprit en général, au mental au sens large ; à l'objet d'étude de la psychologie."
+      }
+    ],
+    "level2": [
+      {
+        "word": "coprince",
+        "percentile": 500,
+        "definition": "."
+      },
+      {
+        "word": "doctoral",
+        "percentile": 567,
+        "definition": "Relatif au doctorat."
+      },
+      {
+        "word": "mystagogue",
+        "percentile": 634,
+        "definition": "Prêtre, prêtresse qui initiait aux mystères de la religion."
+      }
+    ],
+    "level3": [
+      {
+        "word": "autoconservation",
+        "percentile": 800,
+        "definition": "Comportement instinctif qui assure la survie d’un individu, d’une espèce."
+      },
+      {
+        "word": "orthophonie",
+        "percentile": 850,
+        "definition": "Discipline paramédicale s’occupant du traitement et de la rééducation des troubles du langage, de la déglutition et des fonctions cognitives."
+      },
+      {
+        "word": "ampélologie",
+        "percentile": 900,
+        "definition": "Ensemble des disciplines dont l’objet est l’étude de la vigne."
+      }
+    ]
+  },
+  "tried_count": 170,
+  "generated_at": "2026-11-07T23:17:30.082530+00:00",
+  "nearby_top": [
+    {
+      "word": "faculté",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "doyen",
+      "percentile": 999,
+      "similarity": 55.23
+    },
+    {
+      "word": "médecine",
+      "percentile": 998,
+      "similarity": 54.66
+    },
+    {
+      "word": "université",
+      "percentile": 997,
+      "similarity": 52.9
+    },
+    {
+      "word": "facultaire",
+      "percentile": 996,
+      "similarity": 46.21
+    },
+    {
+      "word": "universitaire",
+      "percentile": 995,
+      "similarity": 44.6
+    },
+    {
+      "word": "professeur",
+      "percentile": 994,
+      "similarity": 43.94
+    },
+    {
+      "word": "maître-assistant",
+      "percentile": 993,
+      "similarity": 43.16
+    },
+    {
+      "word": "théologie",
+      "percentile": 992,
+      "similarity": 42.09
+    },
+    {
+      "word": "droit",
+      "percentile": 991,
+      "similarity": 41.92
+    },
+    {
+      "word": "décanat",
+      "percentile": 990,
+      "similarity": 41.42
+    },
+    {
+      "word": "étudiant",
+      "percentile": 989,
+      "similarity": 40.63
+    },
+    {
+      "word": "odontologie",
+      "percentile": 988,
+      "similarity": 40.54
+    },
+    {
+      "word": "propédeutique",
+      "percentile": 987,
+      "similarity": 39.24
+    },
+    {
+      "word": "deug",
+      "percentile": 986,
+      "similarity": 38.25
+    },
+    {
+      "word": "enseignement",
+      "percentile": 985,
+      "similarity": 38.24
+    },
+    {
+      "word": "science",
+      "percentile": 984,
+      "similarity": 37.82
+    },
+    {
+      "word": "fac",
+      "percentile": 983,
+      "similarity": 37.13
+    },
+    {
+      "word": "sorbonne",
+      "percentile": 982,
+      "similarity": 37.04
+    },
+    {
+      "word": "institut",
+      "percentile": 981,
+      "similarity": 36.15
+    }
+  ]
+}

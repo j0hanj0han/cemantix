@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-07",
-  "puzzle_num": 1711,
-  "word": "entrepreneur",
-  "first_letter": "E",
-  "word_length": 12,
-  "definition": "Celui qui dirige une entreprise.",
+  "date": "2026-11-08",
+  "puzzle_num": 1712,
+  "word": "faculté",
+  "first_letter": "F",
+  "word_length": 7,
+  "definition": "Puissance physique ou morale qui rend un être capable d’agir d’une certaine manière, de produire certains effets.",
   "hints": {
     "level1": [
       {
-        "word": "autofinancer",
+        "word": "noumène",
         "percentile": 200,
-        "definition": "Financer sans recours à l’endettement."
+        "definition": "Chez Kant, désigne la chose en soi, par opposition à phénomène, qui désigne l’objet tel qu’il nous apparaît en passant par notre esprit."
       },
       {
-        "word": "technicien",
+        "word": "archiépiscopal",
         "percentile": 267,
-        "definition": "Personne qui connaît les procédés pratiques d’un art, d’un métier et qui sait les employer, qui les enseigne ou les étudie."
+        "definition": "Relatif à l’archevêque et à l'archevêché."
       },
       {
-        "word": "citoyen",
+        "word": "psychique",
         "percentile": 334,
-        "definition": "Homme libre de l’Empire romain, doté de droits politiques dans une cité. En 212, l’empereur Caracalla étend le droit de citoyenneté romaine à l’ensemble des hommes libres de l’empire romain."
+        "definition": "Relatif au psychisme, à la psyché, à l'esprit en général, au mental au sens large ; à l'objet d'étude de la psychologie."
       }
     ],
     "level2": [
       {
-        "word": "marketer",
+        "word": "coprince",
         "percentile": 500,
-        "definition": "Promouvoir par les méthodes du marketing."
+        "definition": "."
       },
       {
-        "word": "plein-emploi",
+        "word": "doctoral",
         "percentile": 567,
-        "definition": "Situation économique où le chômage est réduit à un niveau incompressible, dit « chômage frictionnel », chômage de faible durée existant entre l’arrêt d’un emploi et le début d’un autre."
+        "definition": "Relatif au doctorat."
       },
       {
-        "word": "physiocrate",
+        "word": "mystagogue",
         "percentile": 634,
-        "definition": "Économiste du dix-huitième siècle qui soutenait que toute richesse vient des produits de la terre, c’est-à-dire de l’agriculture."
+        "definition": "Prêtre, prêtresse qui initiait aux mystères de la religion."
       }
     ],
     "level3": [
       {
-        "word": "rentable",
+        "word": "autoconservation",
         "percentile": 800,
-        "definition": "Lucratif, qui procure une rente, qui donne un bénéfice ou un gain satisfaisant, suffisant."
+        "definition": "Comportement instinctif qui assure la survie d’un individu, d’une espèce."
       },
       {
-        "word": "outiller",
+        "word": "orthophonie",
         "percentile": 850,
-        "definition": "Fournir d’outils."
+        "definition": "Discipline paramédicale s’occupant du traitement et de la rééducation des troubles du langage, de la déglutition et des fonctions cognitives."
       },
       {
-        "word": "capitaliste",
+        "word": "ampélologie",
         "percentile": 900,
-        "definition": "Relatif au capital ou au capitalisme."
+        "definition": "Ensemble des disciplines dont l’objet est l’étude de la vigne."
       }
     ]
   },
-  "tried_count": 82,
-  "generated_at": "2026-11-06T23:16:02.045605+00:00",
+  "tried_count": 170,
+  "generated_at": "2026-11-07T23:17:30.082530+00:00",
   "nearby_top": [
     {
-      "word": "entrepreneur",
+      "word": "faculté",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "entreprise",
+      "word": "doyen",
       "percentile": 999,
-      "similarity": 62.68
+      "similarity": 55.23
     },
     {
-      "word": "entrepreneurial",
+      "word": "médecine",
       "percentile": 998,
-      "similarity": 58.75
+      "similarity": 54.66
     },
     {
-      "word": "entrepreneuriat",
+      "word": "université",
       "percentile": 997,
-      "similarity": 50.08
+      "similarity": 52.9
     },
     {
-      "word": "repreneur",
+      "word": "facultaire",
       "percentile": 996,
-      "similarity": 47.65
+      "similarity": 46.21
     },
     {
-      "word": "créateur",
+      "word": "universitaire",
       "percentile": 995,
-      "similarity": 47.52
+      "similarity": 44.6
     },
     {
-      "word": "dirigeant",
+      "word": "professeur",
       "percentile": 994,
-      "similarity": 45.42
+      "similarity": 43.94
     },
     {
-      "word": "start-up",
+      "word": "maître-assistant",
       "percentile": 993,
-      "similarity": 43.62
+      "similarity": 43.16
     },
     {
-      "word": "investisseur",
+      "word": "théologie",
       "percentile": 992,
-      "similarity": 43.41
+      "similarity": 42.09
     },
     {
-      "word": "microentreprise",
+      "word": "droit",
       "percentile": 991,
-      "similarity": 42.56
+      "similarity": 41.92
     },
     {
-      "word": "artisan",
+      "word": "décanat",
       "percentile": 990,
-      "similarity": 41.12
+      "similarity": 41.42
     },
     {
-      "word": "entreprendre",
+      "word": "étudiant",
       "percentile": 989,
-      "similarity": 40.65
+      "similarity": 40.63
     },
     {
-      "word": "expert-comptable",
+      "word": "odontologie",
       "percentile": 988,
-      "similarity": 40.5
+      "similarity": 40.54
     },
     {
-      "word": "innovation",
+      "word": "propédeutique",
       "percentile": 987,
-      "similarity": 39.26
+      "similarity": 39.24
     },
     {
-      "word": "banquier",
+      "word": "deug",
       "percentile": 986,
-      "similarity": 38.44
+      "similarity": 38.25
     },
     {
-      "word": "opportunité",
+      "word": "enseignement",
       "percentile": 985,
-      "similarity": 37.83
+      "similarity": 38.24
     },
     {
-      "word": "sous-traitant",
+      "word": "science",
       "percentile": 984,
-      "similarity": 37.68
+      "similarity": 37.82
     },
     {
-      "word": "économique",
+      "word": "fac",
       "percentile": 983,
-      "similarity": 36.58
+      "similarity": 37.13
     },
     {
-      "word": "franchisé",
+      "word": "sorbonne",
       "percentile": 982,
-      "similarity": 36.35
+      "similarity": 37.04
     },
     {
-      "word": "salarié",
+      "word": "institut",
       "percentile": 981,
-      "similarity": 35.95
+      "similarity": 36.15
     }
   ]
 }

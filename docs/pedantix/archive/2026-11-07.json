@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-07",
+  "puzzle_num": 1638,
+  "word": "Pont de Brooklyn",
+  "title_slug": "Pont_de_Brooklyn",
+  "title_display": "Pont de Brooklyn",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pont_de_Brooklyn",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : P · D · B"
+    ],
+    "level2": [
+      "pont à New York, traversant l'East River mise en service en 1883",
+      "Pont à Brooklyn",
+      "Pont à Manhattan",
+      "Pont suspendu dans l'État de New York"
+    ],
+    "level3": [
+      "Le ___, à New York, est l'un des plus anciens ___s suspendus des États-Unis."
+    ]
+  },
+  "extract": "Le pont de Brooklyn, à New York, est l'un des plus anciens ponts suspendus des États-Unis.",
+  "categories": [
+    "pont à New York, traversant l'East River mise en service en 1883",
+    "Pont à Brooklyn",
+    "Pont à Manhattan",
+    "Pont suspendu dans l'État de New York"
+  ],
+  "generated_at": "2026-11-07T23:18:07.016907+00:00"
+}

@@ -852,6 +852,7 @@ def generate_index_html(
 {items}
       </ul>
       <p style="margin-top:.75rem;font-size:.9rem;">
+        <a href="archive/{draw_date.year}">Tous les tirages du Loto {draw_date.year} &#8594;</a><br>
         <a href="archive/">Voir tous les tirages &#8594;</a>
       </p>
     </div>
@@ -1957,7 +1958,14 @@ def generate_simulator_html() -> None:
     lg.appendChild(btn);
   }}
 
+  function trackSim(action, title) {{
+    if (window.goatcounter && window.goatcounter.count) {{
+      window.goatcounter.count({{path: 'simulateur-loto-' + action, title: title, event: true}});
+    }}
+  }}
+
   document.getElementById('sim-random-btn').addEventListener('click', () => {{
+    trackSim('aleatoire', 'Simulateur Loto : grille aléatoire');
     bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     lg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     const balls = Array.from(bg.querySelectorAll('.sim-ball'));
@@ -1968,6 +1976,7 @@ def generate_simulator_html() -> None:
   }});
 
   document.getElementById('sim-btn').addEventListener('click', () => {{
+    trackSim('lancer', 'Simulateur Loto : simulation lancée');
     fetch('data.json')
       .then(r => r.json())
       .then(draws => {{

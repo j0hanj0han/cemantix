@@ -774,6 +774,12 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
 
     items_html = "\n".join(item_html(e) for e in entries)
     count = len(entries)
+    since = _month_fr(min(e["date"] for e in entries)[:7])
+    page_title = f"Historique Cémantix : les mots passés depuis {since}"
+    page_description = (
+        f"Historique de Cémantix : les mots passés depuis {since}, "
+        "avec numéro de puzzle et indices, classés par mois."
+    )
 
     # Section « Par mois » : liens vers les récaps mensuels
     months_card = ""
@@ -802,15 +808,15 @@ def generate_archive_index(entries: list[dict], months: dict[str, list] | None =
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <title>Archives Cémantix — Toutes les solutions du jour</title>
-  <meta name="description" content="Retrouvez toutes les solutions passées de Cémantix : réponses et indices de chaque puzzle depuis le début.">
+  <title>{page_title}</title>
+  <meta name="description" content="{page_description}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{CEMANTIX_SITE_URL}/archive/">
 {FEED_LINK_TAG}
   <meta name="google-site-verification" content="KLhfwprI4hatb7c2RyrwsiYjulATuj0vJueDdJt0yLs">
 
-  <meta property="og:title" content="Archives Cémantix — Toutes les solutions">
-  <meta property="og:description" content="Toutes les solutions passées du jeu Cémantix avec indices progressifs.">
+  <meta property="og:title" content="{page_title}">
+  <meta property="og:description" content="{page_description}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{CEMANTIX_SITE_URL}/archive/">
   <meta property="og:locale" content="fr_FR">

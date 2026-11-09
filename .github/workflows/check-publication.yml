@@ -1,0 +1,68 @@
+name: Check publication
+
+# Alerte de publication : ce workflow échoue, et GitHub envoie alors un e-mail, si la
+# solution du jour de Cémantix ou de Sutom n'est pas sur main à 06h30, heure de Paris.
+#
+# Le cron GitHub est en UTC : il y a une entrée par saison, et la vérification ignore
+# celle qui ne correspond pas au décalage actuel de Paris. Les deux expressions du
+# `case` ci-dessous doivent rester identiques à celles de `schedule`.
+#
+# Un workflow planifié ne s'exécute que depuis la branche par défaut.
+#
+# Pour tester l'e-mail : lancer le workflow à la main avec une date sans archive.
+
+on:
+  schedule:
+    - cron: '30 4 * * *'  # 06h30 à Paris en heure d'été (UTC+2)
+    - cron: '30 5 * * *'  # 06h30 à Paris en heure d'hiver (UTC+1)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date à vérifier (AAAA-MM-JJ). Vide : aujourd’hui à Paris.'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout archives
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            docs/cemantix/archive
+            docs/sutom/archive
+
+      - name: Check today's archives exist
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            case "$(TZ=Europe/Paris date +%z)" in
+              +0200) CURRENT_CRON='30 4 * * *' ;;
+              *)     CURRENT_CRON='30 5 * * *' ;;
+            esac
+            if [ "$CRON" != "$CURRENT_CRON" ]; then
+              echo "Cron de l'autre saison, rien à vérifier."
+              exit 0
+            fi
+          fi
+
+          DAY="${INPUT_DATE:-$(TZ=Europe/Paris date +%F)}"
+          STATUS=0
+          for GAME in cemantix sutom; do
+            FILE="docs/$GAME/archive/$DAY.json"
+            if [ -f "$FILE" ]; then
+              echo "✅ $FILE"
+            else
+              echo "::error::$FILE manquant : la publication du $DAY est en retard (voir run_daily.log sur le Mac de prod)."
+              STATUS=1
+            fi
+          done
+          exit "$STATUS"

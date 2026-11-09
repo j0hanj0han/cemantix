@@ -674,6 +674,7 @@ def generate_index_html(
 {items}
       </ul>
       <p style="margin-top:.75rem;font-size:.9rem;">
+        <a href="archive/{draw_date.year}">Tous les tirages EuroMillions {draw_date.year} &#8594;</a><br>
         <a href="archive/">Voir tous les tirages &#8594;</a>
       </p>
     </div>"""
@@ -2031,7 +2032,14 @@ def generate_simulator_html() -> None:
     sg.appendChild(btn);
   }}
 
+  function trackSim(action, title) {{
+    if (window.goatcounter && window.goatcounter.count) {{
+      window.goatcounter.count({{path: 'simulateur-euromillions-' + action, title: title, event: true}});
+    }}
+  }}
+
   document.getElementById('sim-random-btn').addEventListener('click', () => {{
+    trackSim('aleatoire', 'Simulateur EuroMillions : grille aléatoire');
     bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     sg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     const balls = Array.from(bg.querySelectorAll('.sim-ball'));
@@ -2043,6 +2051,7 @@ def generate_simulator_html() -> None:
   }});
 
   document.getElementById('sim-btn').addEventListener('click', () => {{
+    trackSim('lancer', 'Simulateur EuroMillions : simulation lancée');
     fetch('data.json')
       .then(r => r.json())
       .then(draws => {{

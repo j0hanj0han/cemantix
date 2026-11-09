@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-08",
-  "puzzle_num": 1712,
-  "word": "faculté",
-  "first_letter": "F",
-  "word_length": 7,
-  "definition": "Puissance physique ou morale qui rend un être capable d’agir d’une certaine manière, de produire certains effets.",
+  "date": "2026-11-09",
+  "puzzle_num": 1713,
+  "word": "palais",
+  "first_letter": "P",
+  "word_length": 6,
+  "definition": "Paroi supérieure qui sépare la fosse nasale de la bouche, chez les êtres humains.",
   "hints": {
     "level1": [
       {
-        "word": "noumène",
+        "word": "milk-bar",
         "percentile": 200,
-        "definition": "Chez Kant, désigne la chose en soi, par opposition à phénomène, qui désigne l’objet tel qu’il nous apparaît en passant par notre esprit."
+        "definition": "Snack-bar où l’on consomme des boissons ou des aliments à base de lait, tel que des milk-shakes ou de la glace à la crème."
       },
       {
-        "word": "archiépiscopal",
+        "word": "miroitant",
         "percentile": 267,
-        "definition": "Relatif à l’archevêque et à l'archevêché."
+        "definition": "Qui miroite."
       },
       {
-        "word": "psychique",
+        "word": "raout",
         "percentile": 334,
-        "definition": "Relatif au psychisme, à la psyché, à l'esprit en général, au mental au sens large ; à l'objet d'étude de la psychologie."
+        "definition": "Réunion, fête où l’on invite des personnes du monde, cocktail mondain."
       }
     ],
     "level2": [
       {
-        "word": "coprince",
+        "word": "monumentalité",
         "percentile": 500,
-        "definition": "."
+        "definition": "Caractère de ce qui est monumental."
       },
       {
-        "word": "doctoral",
+        "word": "planétarium",
         "percentile": 567,
-        "definition": "Relatif au doctorat."
+        "definition": "Salle de spectacle spécialement conçue pour des spectacles sur le thème de l’astronomie."
       },
       {
-        "word": "mystagogue",
+        "word": "déjeuner",
         "percentile": 634,
-        "definition": "Prêtre, prêtresse qui initiait aux mystères de la religion."
+        "definition": "Repas de midi. Repas du matin."
       }
     ],
     "level3": [
       {
-        "word": "autoconservation",
+        "word": "vihara",
         "percentile": 800,
-        "definition": "Comportement instinctif qui assure la survie d’un individu, d’une espèce."
+        "definition": "Monastère bouddhiste."
       },
       {
-        "word": "orthophonie",
+        "word": "baptistère",
         "percentile": 850,
-        "definition": "Discipline paramédicale s’occupant du traitement et de la rééducation des troubles du langage, de la déglutition et des fonctions cognitives."
+        "definition": "Petit édifice bâti auprès des cathédrales, pour y administrer le baptême, et qui renfermait un ou plusieurs autels."
       },
       {
-        "word": "ampélologie",
+        "word": "rococo",
         "percentile": 900,
-        "definition": "Ensemble des disciplines dont l’objet est l’étude de la vigne."
+        "definition": "Se dit d'un style décoratif dérivant du baroque et de la rocaille qui fut en vogue dans la première moitié du dix-huitième siècle, particulièrement en Allemagne, en Autriche et en Italie."
       }
     ]
   },
-  "tried_count": 170,
-  "generated_at": "2026-11-07T23:17:30.082530+00:00",
+  "tried_count": 36,
+  "generated_at": "2026-11-09T09:08:07.627468+00:00",
   "nearby_top": [
     {
-      "word": "faculté",
+      "word": "palais",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "doyen",
+      "word": "péristyle",
       "percentile": 999,
-      "similarity": 55.23
+      "similarity": 43.89
     },
     {
-      "word": "médecine",
+      "word": "rotonde",
       "percentile": 998,
-      "similarity": 54.66
+      "similarity": 43.67
     },
     {
-      "word": "université",
+      "word": "maharajah",
       "percentile": 997,
-      "similarity": 52.9
+      "similarity": 43.52
     },
     {
-      "word": "facultaire",
+      "word": "château",
       "percentile": 996,
-      "similarity": 46.21
+      "similarity": 41.36
     },
     {
-      "word": "universitaire",
+      "word": "hôtel",
       "percentile": 995,
-      "similarity": 44.6
+      "similarity": 40.86
     },
     {
-      "word": "professeur",
+      "word": "cathédrale",
       "percentile": 994,
-      "similarity": 43.94
+      "similarity": 39.99
     },
     {
-      "word": "maître-assistant",
+      "word": "hall",
       "percentile": 993,
-      "similarity": 43.16
+      "similarity": 39.94
     },
     {
-      "word": "théologie",
+      "word": "alhambra",
       "percentile": 992,
-      "similarity": 42.09
+      "similarity": 39.5
     },
     {
-      "word": "droit",
+      "word": "auditorium",
       "percentile": 991,
-      "similarity": 41.92
+      "similarity": 39.47
     },
     {
-      "word": "décanat",
+      "word": "maharadjah",
       "percentile": 990,
-      "similarity": 41.42
+      "similarity": 39.27
     },
     {
-      "word": "étudiant",
+      "word": "esplanade",
       "percentile": 989,
-      "similarity": 40.63
+      "similarity": 39.14
     },
     {
-      "word": "odontologie",
+      "word": "temple",
       "percentile": 988,
-      "similarity": 40.54
+      "similarity": 38.52
     },
     {
-      "word": "propédeutique",
+      "word": "vestibule",
       "percentile": 987,
-      "similarity": 39.24
+      "similarity": 38.5
     },
     {
-      "word": "deug",
+      "word": "basilique",
       "percentile": 986,
-      "similarity": 38.25
+      "similarity": 38.49
     },
     {
-      "word": "enseignement",
+      "word": "cité",
       "percentile": 985,
-      "similarity": 38.24
+      "similarity": 38.45
     },
     {
-      "word": "science",
+      "word": "avant-cour",
       "percentile": 984,
-      "similarity": 37.82
+      "similarity": 38.08
     },
     {
-      "word": "fac",
+      "word": "atrium",
       "percentile": 983,
-      "similarity": 37.13
+      "similarity": 38.04
     },
     {
-      "word": "sorbonne",
+      "word": "orangerie",
       "percentile": 982,
-      "similarity": 37.04
+      "similarity": 38.02
     },
     {
-      "word": "institut",
+      "word": "colonnade",
       "percentile": 981,
-      "similarity": 36.15
+      "similarity": 37.98
     }
   ]
 }

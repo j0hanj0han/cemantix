@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-08",
+  "puzzle_num": 1639,
+  "word": "Clovis Ier",
+  "title_slug": "Clovis_Ier",
+  "title_display": "Clovis Ier",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Clovis_Ier",
+  "hints": {
+    "level1": [
+      "2 mots · 9 lettres",
+      "Premières lettres : C · I"
+    ],
+    "level2": [
+      "roi des Francs de 481 à 511",
+      "Mérovingiens",
+      "Roi des Francs",
+      "Personnalité des Gaules du VIe siècle"
+    ],
+    "level3": [
+      "___ Ier, en latin Chlodovechus, né vers 466 et mort le 27 novembre 511 à Paris, est roi des Francs saliens, puis roi de tous les Francs de 481 à 511."
+    ]
+  },
+  "extract": "Clovis Ier, en latin Chlodovechus, né vers 466 et mort le 27 novembre 511 à Paris, est roi des Francs saliens, puis roi de tous les Francs de 481 à 511.",
+  "categories": [
+    "roi des Francs de 481 à 511",
+    "Mérovingiens",
+    "Roi des Francs",
+    "Personnalité des Gaules du VIe siècle"
+  ],
+  "generated_at": "2026-11-09T09:08:34.681587+00:00"
+}

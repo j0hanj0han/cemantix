@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-09",
+  "puzzle_num": 1713,
+  "word": "palais",
+  "first_letter": "P",
+  "word_length": 6,
+  "definition": "Paroi supérieure qui sépare la fosse nasale de la bouche, chez les êtres humains.",
+  "hints": {
+    "level1": [
+      {
+        "word": "milk-bar",
+        "percentile": 200,
+        "definition": "Snack-bar où l’on consomme des boissons ou des aliments à base de lait, tel que des milk-shakes ou de la glace à la crème."
+      },
+      {
+        "word": "miroitant",
+        "percentile": 267,
+        "definition": "Qui miroite."
+      },
+      {
+        "word": "raout",
+        "percentile": 334,
+        "definition": "Réunion, fête où l’on invite des personnes du monde, cocktail mondain."
+      }
+    ],
+    "level2": [
+      {
+        "word": "monumentalité",
+        "percentile": 500,
+        "definition": "Caractère de ce qui est monumental."
+      },
+      {
+        "word": "planétarium",
+        "percentile": 567,
+        "definition": "Salle de spectacle spécialement conçue pour des spectacles sur le thème de l’astronomie."
+      },
+      {
+        "word": "déjeuner",
+        "percentile": 634,
+        "definition": "Repas de midi. Repas du matin."
+      }
+    ],
+    "level3": [
+      {
+        "word": "vihara",
+        "percentile": 800,
+        "definition": "Monastère bouddhiste."
+      },
+      {
+        "word": "baptistère",
+        "percentile": 850,
+        "definition": "Petit édifice bâti auprès des cathédrales, pour y administrer le baptême, et qui renfermait un ou plusieurs autels."
+      },
+      {
+        "word": "rococo",
+        "percentile": 900,
+        "definition": "Se dit d'un style décoratif dérivant du baroque et de la rocaille qui fut en vogue dans la première moitié du dix-huitième siècle, particulièrement en Allemagne, en Autriche et en Italie."
+      }
+    ]
+  },
+  "tried_count": 36,
+  "generated_at": "2026-11-09T09:08:07.627468+00:00",
+  "nearby_top": [
+    {
+      "word": "palais",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "péristyle",
+      "percentile": 999,
+      "similarity": 43.89
+    },
+    {
+      "word": "rotonde",
+      "percentile": 998,
+      "similarity": 43.67
+    },
+    {
+      "word": "maharajah",
+      "percentile": 997,
+      "similarity": 43.52
+    },
+    {
+      "word": "château",
+      "percentile": 996,
+      "similarity": 41.36
+    },
+    {
+      "word": "hôtel",
+      "percentile": 995,
+      "similarity": 40.86
+    },
+    {
+      "word": "cathédrale",
+      "percentile": 994,
+      "similarity": 39.99
+    },
+    {
+      "word": "hall",
+      "percentile": 993,
+      "similarity": 39.94
+    },
+    {
+      "word": "alhambra",
+      "percentile": 992,
+      "similarity": 39.5
+    },
+    {
+      "word": "auditorium",
+      "percentile": 991,
+      "similarity": 39.47
+    },
+    {
+      "word": "maharadjah",
+      "percentile": 990,
+      "similarity": 39.27
+    },
+    {
+      "word": "esplanade",
+      "percentile": 989,
+      "similarity": 39.14
+    },
+    {
+      "word": "temple",
+      "percentile": 988,
+      "similarity": 38.52
+    },
+    {
+      "word": "vestibule",
+      "percentile": 987,
+      "similarity": 38.5
+    },
+    {
+      "word": "basilique",
+      "percentile": 986,
+      "similarity": 38.49
+    },
+    {
+      "word": "cité",
+      "percentile": 985,
+      "similarity": 38.45
+    },
+    {
+      "word": "avant-cour",
+      "percentile": 984,
+      "similarity": 38.08
+    },
+    {
+      "word": "atrium",
+      "percentile": 983,
+      "similarity": 38.04
+    },
+    {
+      "word": "orangerie",
+      "percentile": 982,
+      "similarity": 38.02
+    },
+    {
+      "word": "colonnade",
+      "percentile": 981,
+      "similarity": 37.98
+    }
+  ]
+}

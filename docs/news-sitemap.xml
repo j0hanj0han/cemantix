@@ -78,4 +78,15 @@
       <news:title>Solution Tusmo du dimanche 8 novembre 2026</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://solution-du-jour.fr/loto/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-09T20:57:06+01:00</news:publication_date>
+      <news:title>Résultats Loto du lundi 9 novembre 2026</news:title>
+    </news:news>
+  </url>
 </urlset>

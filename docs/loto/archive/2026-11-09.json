@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-09",
+  "balls": [
+    4,
+    5,
+    14,
+    37,
+    41
+  ],
+  "lucky_ball": 8,
+  "draw_num": "26134",
+  "jackpot_amount": 14000000.0,
+  "jackpot_won": false,
+  "jackpot_winners": 0,
+  "next_jackpot": 15000000.0,
+  "generated_at": "2026-11-09T19:57:06.672501+00:00"
+}

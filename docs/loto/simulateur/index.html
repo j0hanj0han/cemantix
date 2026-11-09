@@ -206,7 +206,14 @@
     lg.appendChild(btn);
   }
 
+  function trackSim(action, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({path: 'simulateur-loto-' + action, title: title, event: true});
+    }
+  }
+
   document.getElementById('sim-random-btn').addEventListener('click', () => {
+    trackSim('aleatoire', 'Simulateur Loto : grille aléatoire');
     bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     lg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     const balls = Array.from(bg.querySelectorAll('.sim-ball'));
@@ -217,6 +224,7 @@
   });
 
   document.getElementById('sim-btn').addEventListener('click', () => {
+    trackSim('lancer', 'Simulateur Loto : simulation lancée');
     fetch('data.json')
       .then(r => r.json())
       .then(draws => {

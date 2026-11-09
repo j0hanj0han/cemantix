@@ -208,7 +208,14 @@
     sg.appendChild(btn);
   }
 
+  function trackSim(action, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({path: 'simulateur-euromillions-' + action, title: title, event: true});
+    }
+  }
+
   document.getElementById('sim-random-btn').addEventListener('click', () => {
+    trackSim('aleatoire', 'Simulateur EuroMillions : grille aléatoire');
     bg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     sg.querySelectorAll('.sim-ball.selected').forEach(b => b.click());
     const balls = Array.from(bg.querySelectorAll('.sim-ball'));
@@ -220,6 +227,7 @@
   });
 
   document.getElementById('sim-btn').addEventListener('click', () => {
+    trackSim('lancer', 'Simulateur EuroMillions : simulation lancée');
     fetch('data.json')
       .then(r => r.json())
       .then(draws => {

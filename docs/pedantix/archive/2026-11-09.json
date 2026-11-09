@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-09",
+  "puzzle_num": 1640,
+  "word": "Guerre de Crimée",
+  "title_slug": "Guerre_de_Crimée",
+  "title_display": "Guerre de Crimée",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Crimée",
+  "hints": {
+    "level1": [
+      "3 mots · 14 lettres",
+      "Premières lettres : G · D · C"
+    ],
+    "level2": [
+      "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
+      "Guerres russo-turques",
+      "Guerre du Caucase",
+      "Invasion en Russie"
+    ],
+    "level3": [
+      "La ___ oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne."
+    ]
+  },
+  "extract": "La guerre de Crimée oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne.",
+  "categories": [
+    "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
+    "Guerres russo-turques",
+    "Guerre du Caucase",
+    "Invasion en Russie"
+  ],
+  "generated_at": "2026-11-09T23:16:10.723570+00:00"
+}

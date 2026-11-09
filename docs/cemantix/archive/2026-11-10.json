@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-10",
+  "puzzle_num": 1714,
+  "word": "chantier",
+  "first_letter": "C",
+  "word_length": 8,
+  "definition": "Pièce de bois qui sert de support, d’étai.",
+  "hints": {
+    "level1": [
+      {
+        "word": "environnement",
+        "percentile": 200,
+        "definition": "Ce qui est aux environs ; ce qui environne."
+      },
+      {
+        "word": "mi-octobre",
+        "percentile": 267,
+        "definition": "Quinzième jour du mois d’octobre."
+      },
+      {
+        "word": "enduit",
+        "percentile": 334,
+        "definition": "Couche de chaux, de plâtre, de ciment, ou de quelque autre matière semblable, que l’on applique sur les murailles."
+      }
+    ],
+    "level2": [
+      {
+        "word": "public",
+        "percentile": 500,
+        "definition": "Qui appartient au peuple dans son entier."
+      },
+      {
+        "word": "ambitieux",
+        "percentile": 567,
+        "definition": "Qui a de l’ambition."
+      },
+      {
+        "word": "emménagement",
+        "percentile": 634,
+        "definition": "Action d’emménager ou résultat de cette action."
+      }
+    ],
+    "level3": [
+      {
+        "word": "boiseur",
+        "percentile": 800,
+        "definition": "Ouvrier qui consolide les parois des excavations d'une mine au moyen de soutènements en bois, c’est-à-dire qui réalise le boisage."
+      },
+      {
+        "word": "autopont",
+        "percentile": 850,
+        "definition": "Pont enjambant un carrefour ou un axe plutôt encombré d’ordinaire et permettant à la circulation sur un axe privilégié et majoritairement chargé de s’écouler sans avoir à subir les arrêts (feux tricolores ou stop) d’un carrefour classique. ."
+      },
+      {
+        "word": "opérationnel",
+        "percentile": 900,
+        "definition": "Relatif aux opérations (militaires, industrielles, ou commerciales, ou mathématiques)."
+      }
+    ]
+  },
+  "tried_count": 43,
+  "generated_at": "2026-11-09T23:15:30.968416+00:00",
+  "nearby_top": [
+    {
+      "word": "chantier",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "terrassement",
+      "percentile": 999,
+      "similarity": 56.01
+    },
+    {
+      "word": "bâtiment",
+      "percentile": 998,
+      "similarity": 51.88
+    },
+    {
+      "word": "construction",
+      "percentile": 997,
+      "similarity": 51.74
+    },
+    {
+      "word": "rénovation",
+      "percentile": 996,
+      "similarity": 50.25
+    },
+    {
+      "word": "travail",
+      "percentile": 995,
+      "similarity": 49.17
+    },
+    {
+      "word": "réhabilitation",
+      "percentile": 994,
+      "similarity": 48.12
+    },
+    {
+      "word": "préfabrication",
+      "percentile": 993,
+      "similarity": 47.68
+    },
+    {
+      "word": "désamiantage",
+      "percentile": 992,
+      "similarity": 46.73
+    },
+    {
+      "word": "grutier",
+      "percentile": 991,
+      "similarity": 46.59
+    },
+    {
+      "word": "achèvement",
+      "percentile": 990,
+      "similarity": 46.5
+    },
+    {
+      "word": "démolition",
+      "percentile": 989,
+      "similarity": 45.54
+    },
+    {
+      "word": "métreur",
+      "percentile": 988,
+      "similarity": 43.6
+    },
+    {
+      "word": "déblaiement",
+      "percentile": 987,
+      "similarity": 43.45
+    },
+    {
+      "word": "étaiement",
+      "percentile": 986,
+      "similarity": 43.08
+    },
+    {
+      "word": "opération",
+      "percentile": 985,
+      "similarity": 42.63
+    },
+    {
+      "word": "réalisation",
+      "percentile": 984,
+      "similarity": 42.55
+    },
+    {
+      "word": "maçonnerie",
+      "percentile": 983,
+      "similarity": 42.48
+    },
+    {
+      "word": "échafaudage",
+      "percentile": 982,
+      "similarity": 42.37
+    },
+    {
+      "word": "projet",
+      "percentile": 981,
+      "similarity": 42.08
+    }
+  ]
+}

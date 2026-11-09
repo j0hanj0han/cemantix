@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-09",
-  "puzzle_num": 1713,
-  "word": "palais",
-  "first_letter": "P",
-  "word_length": 6,
-  "definition": "Paroi supérieure qui sépare la fosse nasale de la bouche, chez les êtres humains.",
+  "date": "2026-11-10",
+  "puzzle_num": 1714,
+  "word": "chantier",
+  "first_letter": "C",
+  "word_length": 8,
+  "definition": "Pièce de bois qui sert de support, d’étai.",
   "hints": {
     "level1": [
       {
-        "word": "milk-bar",
+        "word": "environnement",
         "percentile": 200,
-        "definition": "Snack-bar où l’on consomme des boissons ou des aliments à base de lait, tel que des milk-shakes ou de la glace à la crème."
+        "definition": "Ce qui est aux environs ; ce qui environne."
       },
       {
-        "word": "miroitant",
+        "word": "mi-octobre",
         "percentile": 267,
-        "definition": "Qui miroite."
+        "definition": "Quinzième jour du mois d’octobre."
       },
       {
-        "word": "raout",
+        "word": "enduit",
         "percentile": 334,
-        "definition": "Réunion, fête où l’on invite des personnes du monde, cocktail mondain."
+        "definition": "Couche de chaux, de plâtre, de ciment, ou de quelque autre matière semblable, que l’on applique sur les murailles."
       }
     ],
     "level2": [
       {
-        "word": "monumentalité",
+        "word": "public",
         "percentile": 500,
-        "definition": "Caractère de ce qui est monumental."
+        "definition": "Qui appartient au peuple dans son entier."
       },
       {
-        "word": "planétarium",
+        "word": "ambitieux",
         "percentile": 567,
-        "definition": "Salle de spectacle spécialement conçue pour des spectacles sur le thème de l’astronomie."
+        "definition": "Qui a de l’ambition."
       },
       {
-        "word": "déjeuner",
+        "word": "emménagement",
         "percentile": 634,
-        "definition": "Repas de midi. Repas du matin."
+        "definition": "Action d’emménager ou résultat de cette action."
       }
     ],
     "level3": [
       {
-        "word": "vihara",
+        "word": "boiseur",
         "percentile": 800,
-        "definition": "Monastère bouddhiste."
+        "definition": "Ouvrier qui consolide les parois des excavations d'une mine au moyen de soutènements en bois, c’est-à-dire qui réalise le boisage."
       },
       {
-        "word": "baptistère",
+        "word": "autopont",
         "percentile": 850,
-        "definition": "Petit édifice bâti auprès des cathédrales, pour y administrer le baptême, et qui renfermait un ou plusieurs autels."
+        "definition": "Pont enjambant un carrefour ou un axe plutôt encombré d’ordinaire et permettant à la circulation sur un axe privilégié et majoritairement chargé de s’écouler sans avoir à subir les arrêts (feux tricolores ou stop) d’un carrefour classique. ."
       },
       {
-        "word": "rococo",
+        "word": "opérationnel",
         "percentile": 900,
-        "definition": "Se dit d'un style décoratif dérivant du baroque et de la rocaille qui fut en vogue dans la première moitié du dix-huitième siècle, particulièrement en Allemagne, en Autriche et en Italie."
+        "definition": "Relatif aux opérations (militaires, industrielles, ou commerciales, ou mathématiques)."
       }
     ]
   },
-  "tried_count": 36,
-  "generated_at": "2026-11-09T09:08:07.627468+00:00",
+  "tried_count": 43,
+  "generated_at": "2026-11-09T23:15:30.968416+00:00",
   "nearby_top": [
     {
-      "word": "palais",
+      "word": "chantier",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "péristyle",
+      "word": "terrassement",
       "percentile": 999,
-      "similarity": 43.89
+      "similarity": 56.01
     },
     {
-      "word": "rotonde",
+      "word": "bâtiment",
       "percentile": 998,
-      "similarity": 43.67
+      "similarity": 51.88
     },
     {
-      "word": "maharajah",
+      "word": "construction",
       "percentile": 997,
-      "similarity": 43.52
+      "similarity": 51.74
     },
     {
-      "word": "château",
+      "word": "rénovation",
       "percentile": 996,
-      "similarity": 41.36
+      "similarity": 50.25
     },
     {
-      "word": "hôtel",
+      "word": "travail",
       "percentile": 995,
-      "similarity": 40.86
+      "similarity": 49.17
     },
     {
-      "word": "cathédrale",
+      "word": "réhabilitation",
       "percentile": 994,
-      "similarity": 39.99
+      "similarity": 48.12
     },
     {
-      "word": "hall",
+      "word": "préfabrication",
       "percentile": 993,
-      "similarity": 39.94
+      "similarity": 47.68
     },
     {
-      "word": "alhambra",
+      "word": "désamiantage",
       "percentile": 992,
-      "similarity": 39.5
+      "similarity": 46.73
     },
     {
-      "word": "auditorium",
+      "word": "grutier",
       "percentile": 991,
-      "similarity": 39.47
+      "similarity": 46.59
     },
     {
-      "word": "maharadjah",
+      "word": "achèvement",
       "percentile": 990,
-      "similarity": 39.27
+      "similarity": 46.5
     },
     {
-      "word": "esplanade",
+      "word": "démolition",
       "percentile": 989,
-      "similarity": 39.14
+      "similarity": 45.54
     },
     {
-      "word": "temple",
+      "word": "métreur",
       "percentile": 988,
-      "similarity": 38.52
+      "similarity": 43.6
     },
     {
-      "word": "vestibule",
+      "word": "déblaiement",
       "percentile": 987,
-      "similarity": 38.5
+      "similarity": 43.45
     },
     {
-      "word": "basilique",
+      "word": "étaiement",
       "percentile": 986,
-      "similarity": 38.49
+      "similarity": 43.08
     },
     {
-      "word": "cité",
+      "word": "opération",
       "percentile": 985,
-      "similarity": 38.45
+      "similarity": 42.63
     },
     {
-      "word": "avant-cour",
+      "word": "réalisation",
       "percentile": 984,
-      "similarity": 38.08
+      "similarity": 42.55
     },
     {
-      "word": "atrium",
+      "word": "maçonnerie",
       "percentile": 983,
-      "similarity": 38.04
+      "similarity": 42.48
     },
     {
-      "word": "orangerie",
+      "word": "échafaudage",
       "percentile": 982,
-      "similarity": 38.02
+      "similarity": 42.37
     },
     {
-      "word": "colonnade",
+      "word": "projet",
       "percentile": 981,
-      "similarity": 37.98
+      "similarity": 42.08
     }
   ]
 }

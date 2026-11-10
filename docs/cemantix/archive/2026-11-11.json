@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-11",
+  "puzzle_num": 1715,
+  "word": "béton",
+  "first_letter": "B",
+  "word_length": 5,
+  "definition": "Matériau de construction fabriqué grâce à un mélange d’agrégats divers (gravier, sable, etc.), d’un liant (argile, bitume, chaux, ciment) et éventuellement d’eau.",
+  "hints": {
+    "level1": [
+      {
+        "word": "gazonner",
+        "percentile": 200,
+        "definition": "Revêtir de gazon."
+      },
+      {
+        "word": "vernisseur",
+        "percentile": 267,
+        "definition": "Celui qui fabrique du vernis ou qui l’applique."
+      },
+      {
+        "word": "brutalisme",
+        "percentile": 334,
+        "definition": "Mouvement littéraire faisant une description brutale de la réalité."
+      }
+    ],
+    "level2": [
+      {
+        "word": "aluminothermie",
+        "percentile": 500,
+        "definition": "Procédé utilisant la chaleur dégagée par l’oxydation de l’aluminium pour la réduction d’oxydes (préparation du chrome, du manganèse, etc.) et la soudure des rails."
+      },
+      {
+        "word": "plinthe",
+        "percentile": 567,
+        "definition": "Pierre plate et carrée qui se trouve sous la colonne ou au-dessus du chapiteau."
+      },
+      {
+        "word": "anodisation",
+        "percentile": 634,
+        "definition": "Traitement de surface qui permet de protéger ou de décorer une pièce en aluminium par oxydation anodique."
+      }
+    ],
+    "level3": [
+      {
+        "word": "feuillure",
+        "percentile": 800,
+        "definition": "Entaillure dans laquelle les fenêtres et les portes s’engagent un peu pour fermer juste."
+      },
+      {
+        "word": "vulcaniser",
+        "percentile": 850,
+        "definition": "Faire subir une préparation au en le mélangeant de soufre pour le rendre insoluble et moins sensible à la chaleur et à la lumière."
+      },
+      {
+        "word": "parallélépipédique",
+        "percentile": 900,
+        "definition": "Qui a la forme d’un parallélépipède."
+      }
+    ]
+  },
+  "tried_count": 170,
+  "generated_at": "2026-11-10T23:18:53.129011+00:00",
+  "nearby_top": [
+    {
+      "word": "béton",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "ciment",
+      "percentile": 999,
+      "similarity": 62.1
+    },
+    {
+      "word": "autonivelant",
+      "percentile": 998,
+      "similarity": 59.32
+    },
+    {
+      "word": "dalle",
+      "percentile": 997,
+      "similarity": 55.0
+    },
+    {
+      "word": "coffrage",
+      "percentile": 996,
+      "similarity": 54.62
+    },
+    {
+      "word": "longrine",
+      "percentile": 995,
+      "similarity": 52.9
+    },
+    {
+      "word": "préfabrication",
+      "percentile": 994,
+      "similarity": 52.77
+    },
+    {
+      "word": "précontraint",
+      "percentile": 993,
+      "similarity": 51.68
+    },
+    {
+      "word": "hourdis",
+      "percentile": 992,
+      "similarity": 51.29
+    },
+    {
+      "word": "platelage",
+      "percentile": 991,
+      "similarity": 51.0
+    },
+    {
+      "word": "décoffrer",
+      "percentile": 990,
+      "similarity": 50.59
+    },
+    {
+      "word": "ferraillage",
+      "percentile": 989,
+      "similarity": 49.68
+    },
+    {
+      "word": "préfabriquer",
+      "percentile": 988,
+      "similarity": 49.59
+    },
+    {
+      "word": "poutrelle",
+      "percentile": 987,
+      "similarity": 49.15
+    },
+    {
+      "word": "contreventement",
+      "percentile": 986,
+      "similarity": 49.07
+    },
+    {
+      "word": "soutènement",
+      "percentile": 985,
+      "similarity": 48.87
+    },
+    {
+      "word": "enrobé",
+      "percentile": 984,
+      "similarity": 48.75
+    },
+    {
+      "word": "bétonnière",
+      "percentile": 983,
+      "similarity": 48.69
+    },
+    {
+      "word": "remblai",
+      "percentile": 982,
+      "similarity": 48.6
+    },
+    {
+      "word": "coulage",
+      "percentile": 981,
+      "similarity": 47.74
+    }
+  ]
+}

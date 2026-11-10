@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-10",
+  "puzzle_num": 1641,
+  "word": "Uruguay",
+  "title_slug": "Uruguay",
+  "title_display": "Uruguay",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Uruguay",
+  "hints": {
+    "level1": [
+      "1 mot · 7 lettres",
+      "Première lettre : U"
+    ],
+    "level2": [
+      "pays d'Amérique du Sud"
+    ],
+    "level3": [
+      "L'___, en forme longue la république orientale de l'___, est un pays du Cône Sud de l'Amérique du Sud, situé au sud du Brésil et au nord-est de l'Argentine, dont il est séparé par le fleuve ___ qui lui a donné son nom."
+    ]
+  },
+  "extract": "L'Uruguay, en forme longue la république orientale de l'Uruguay, est un pays du Cône Sud de l'Amérique du Sud, situé au sud du Brésil et au nord-est de l'Argentine, dont il est séparé par le fleuve Uruguay qui lui a donné son nom.",
+  "categories": [
+    "pays d'Amérique du Sud"
+  ],
+  "generated_at": "2026-11-10T23:19:35.940899+00:00"
+}

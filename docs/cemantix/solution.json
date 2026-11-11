@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-11",
-  "puzzle_num": 1715,
-  "word": "béton",
-  "first_letter": "B",
-  "word_length": 5,
-  "definition": "Matériau de construction fabriqué grâce à un mélange d’agrégats divers (gravier, sable, etc.), d’un liant (argile, bitume, chaux, ciment) et éventuellement d’eau.",
+  "date": "2026-11-12",
+  "puzzle_num": 1716,
+  "word": "continent",
+  "first_letter": "C",
+  "word_length": 9,
+  "definition": "Qui pratique la continence.",
   "hints": {
     "level1": [
       {
-        "word": "gazonner",
+        "word": "infralittoral",
         "percentile": 200,
-        "definition": "Revêtir de gazon."
+        "definition": "Relatif à la partie inférieure de l’estran."
       },
       {
-        "word": "vernisseur",
+        "word": "golfe",
         "percentile": 267,
-        "definition": "Celui qui fabrique du vernis ou qui l’applique."
+        "definition": "Partie de mer plus ou moins vaste, qui entre, qui avance dans les terres, et dont l’ouverture du côté de la mer est ordinairement fort large."
       },
       {
-        "word": "brutalisme",
+        "word": "américanité",
         "percentile": 334,
-        "definition": "Mouvement littéraire faisant une description brutale de la réalité."
+        "definition": "Qualité de ce qui provient de l’hémisphère américain."
       }
     ],
     "level2": [
       {
-        "word": "aluminothermie",
+        "word": "soubresaut",
         "percentile": 500,
-        "definition": "Procédé utilisant la chaleur dégagée par l’oxydation de l’aluminium pour la réduction d’oxydes (préparation du chrome, du manganèse, etc.) et la soudure des rails."
+        "definition": "Saut subit, inopiné."
       },
       {
-        "word": "plinthe",
+        "word": "bioclimat",
         "percentile": 567,
-        "definition": "Pierre plate et carrée qui se trouve sous la colonne ou au-dessus du chapiteau."
+        "definition": ""
       },
       {
-        "word": "anodisation",
+        "word": "angleterre",
         "percentile": 634,
-        "definition": "Traitement de surface qui permet de protéger ou de décorer une pièce en aluminium par oxydation anodique."
+        "definition": "Sorte d’étoffe anglaise."
       }
     ],
     "level3": [
       {
-        "word": "feuillure",
+        "word": "islamiser",
         "percentile": 800,
-        "definition": "Entaillure dans laquelle les fenêtres et les portes s’engagent un peu pour fermer juste."
+        "definition": "Donner à (quelque chose) un caractère musulman."
       },
       {
-        "word": "vulcaniser",
+        "word": "yakoute",
         "percentile": 850,
-        "definition": "Faire subir une préparation au en le mélangeant de soufre pour le rendre insoluble et moins sensible à la chaleur et à la lumière."
+        "definition": "Relatif aux Yakoutes, un peuple turc."
       },
       {
-        "word": "parallélépipédique",
+        "word": "multiséculaire",
         "percentile": 900,
-        "definition": "Qui a la forme d’un parallélépipède."
+        "definition": "Qui dure plusieurs siècles, relatif à plusieurs siècles."
       }
     ]
   },
-  "tried_count": 170,
-  "generated_at": "2026-11-10T23:18:53.129011+00:00",
+  "tried_count": 44,
+  "generated_at": "2026-11-11T23:15:33.613246+00:00",
   "nearby_top": [
     {
-      "word": "béton",
+      "word": "continent",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "ciment",
+      "word": "pays",
       "percentile": 999,
-      "similarity": 62.1
+      "similarity": 56.22
     },
     {
-      "word": "autonivelant",
+      "word": "sous-continent",
       "percentile": 998,
-      "similarity": 59.32
+      "similarity": 53.77
     },
     {
-      "word": "dalle",
+      "word": "africain",
       "percentile": 997,
-      "similarity": 55.0
+      "similarity": 53.68
     },
     {
-      "word": "coffrage",
+      "word": "amérique",
       "percentile": 996,
-      "similarity": 54.62
+      "similarity": 52.6
     },
     {
-      "word": "longrine",
+      "word": "monde",
       "percentile": 995,
-      "similarity": 52.9
+      "similarity": 50.66
     },
     {
-      "word": "préfabrication",
+      "word": "continental",
       "percentile": 994,
-      "similarity": 52.77
+      "similarity": 49.53
     },
     {
-      "word": "précontraint",
+      "word": "eurasiatique",
       "percentile": 993,
-      "similarity": 51.68
+      "similarity": 49.08
     },
     {
-      "word": "hourdis",
+      "word": "globe",
       "percentile": 992,
-      "similarity": 51.29
-    },
-    {
-      "word": "platelage",
-      "percentile": 991,
-      "similarity": 51.0
-    },
-    {
-      "word": "décoffrer",
-      "percentile": 990,
-      "similarity": 50.59
-    },
-    {
-      "word": "ferraillage",
-      "percentile": 989,
-      "similarity": 49.68
-    },
-    {
-      "word": "préfabriquer",
-      "percentile": 988,
-      "similarity": 49.59
-    },
-    {
-      "word": "poutrelle",
-      "percentile": 987,
-      "similarity": 49.15
-    },
-    {
-      "word": "contreventement",
-      "percentile": 986,
-      "similarity": 49.07
-    },
-    {
-      "word": "soutènement",
-      "percentile": 985,
-      "similarity": 48.87
-    },
-    {
-      "word": "enrobé",
-      "percentile": 984,
-      "similarity": 48.75
-    },
-    {
-      "word": "bétonnière",
-      "percentile": 983,
       "similarity": 48.69
     },
     {
-      "word": "remblai",
-      "percentile": 982,
-      "similarity": 48.6
+      "word": "océan",
+      "percentile": 991,
+      "similarity": 47.18
     },
     {
-      "word": "coulage",
+      "word": "pacifique",
+      "percentile": 990,
+      "similarity": 45.68
+    },
+    {
+      "word": "mondial",
+      "percentile": 989,
+      "similarity": 45.36
+    },
+    {
+      "word": "occidental",
+      "percentile": 988,
+      "similarity": 45.32
+    },
+    {
+      "word": "occident",
+      "percentile": 987,
+      "similarity": 45.09
+    },
+    {
+      "word": "nation",
+      "percentile": 986,
+      "similarity": 44.94
+    },
+    {
+      "word": "planète",
+      "percentile": 985,
+      "similarity": 44.37
+    },
+    {
+      "word": "eurasien",
+      "percentile": 984,
+      "similarity": 44.3
+    },
+    {
+      "word": "millénaire",
+      "percentile": 983,
+      "similarity": 43.86
+    },
+    {
+      "word": "civilisation",
+      "percentile": 982,
+      "similarity": 43.73
+    },
+    {
+      "word": "sud",
       "percentile": 981,
-      "similarity": 47.74
+      "similarity": 43.45
     }
   ]
 }

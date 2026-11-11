@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-12",
+  "puzzle_num": 1716,
+  "word": "continent",
+  "first_letter": "C",
+  "word_length": 9,
+  "definition": "Qui pratique la continence.",
+  "hints": {
+    "level1": [
+      {
+        "word": "infralittoral",
+        "percentile": 200,
+        "definition": "Relatif à la partie inférieure de l’estran."
+      },
+      {
+        "word": "golfe",
+        "percentile": 267,
+        "definition": "Partie de mer plus ou moins vaste, qui entre, qui avance dans les terres, et dont l’ouverture du côté de la mer est ordinairement fort large."
+      },
+      {
+        "word": "américanité",
+        "percentile": 334,
+        "definition": "Qualité de ce qui provient de l’hémisphère américain."
+      }
+    ],
+    "level2": [
+      {
+        "word": "soubresaut",
+        "percentile": 500,
+        "definition": "Saut subit, inopiné."
+      },
+      {
+        "word": "bioclimat",
+        "percentile": 567,
+        "definition": ""
+      },
+      {
+        "word": "angleterre",
+        "percentile": 634,
+        "definition": "Sorte d’étoffe anglaise."
+      }
+    ],
+    "level3": [
+      {
+        "word": "islamiser",
+        "percentile": 800,
+        "definition": "Donner à (quelque chose) un caractère musulman."
+      },
+      {
+        "word": "yakoute",
+        "percentile": 850,
+        "definition": "Relatif aux Yakoutes, un peuple turc."
+      },
+      {
+        "word": "multiséculaire",
+        "percentile": 900,
+        "definition": "Qui dure plusieurs siècles, relatif à plusieurs siècles."
+      }
+    ]
+  },
+  "tried_count": 44,
+  "generated_at": "2026-11-11T23:15:33.613246+00:00",
+  "nearby_top": [
+    {
+      "word": "continent",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "pays",
+      "percentile": 999,
+      "similarity": 56.22
+    },
+    {
+      "word": "sous-continent",
+      "percentile": 998,
+      "similarity": 53.77
+    },
+    {
+      "word": "africain",
+      "percentile": 997,
+      "similarity": 53.68
+    },
+    {
+      "word": "amérique",
+      "percentile": 996,
+      "similarity": 52.6
+    },
+    {
+      "word": "monde",
+      "percentile": 995,
+      "similarity": 50.66
+    },
+    {
+      "word": "continental",
+      "percentile": 994,
+      "similarity": 49.53
+    },
+    {
+      "word": "eurasiatique",
+      "percentile": 993,
+      "similarity": 49.08
+    },
+    {
+      "word": "globe",
+      "percentile": 992,
+      "similarity": 48.69
+    },
+    {
+      "word": "océan",
+      "percentile": 991,
+      "similarity": 47.18
+    },
+    {
+      "word": "pacifique",
+      "percentile": 990,
+      "similarity": 45.68
+    },
+    {
+      "word": "mondial",
+      "percentile": 989,
+      "similarity": 45.36
+    },
+    {
+      "word": "occidental",
+      "percentile": 988,
+      "similarity": 45.32
+    },
+    {
+      "word": "occident",
+      "percentile": 987,
+      "similarity": 45.09
+    },
+    {
+      "word": "nation",
+      "percentile": 986,
+      "similarity": 44.94
+    },
+    {
+      "word": "planète",
+      "percentile": 985,
+      "similarity": 44.37
+    },
+    {
+      "word": "eurasien",
+      "percentile": 984,
+      "similarity": 44.3
+    },
+    {
+      "word": "millénaire",
+      "percentile": 983,
+      "similarity": 43.86
+    },
+    {
+      "word": "civilisation",
+      "percentile": 982,
+      "similarity": 43.73
+    },
+    {
+      "word": "sud",
+      "percentile": 981,
+      "similarity": 43.45
+    }
+  ]
+}

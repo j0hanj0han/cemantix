@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-13",
+  "puzzle_num": 1717,
+  "word": "flot",
+  "first_letter": "F",
+  "word_length": 4,
+  "definition": "Masse liquide en mouvement.",
+  "hints": {
+    "level1": [
+      {
+        "word": "berce",
+        "percentile": 200,
+        "definition": "Plante de la famille des Apiacées, croissant et se développant dans les terrains humides de toute l'Europe."
+      },
+      {
+        "word": "dédale",
+        "percentile": 267,
+        "definition": "Labyrinthe, lieu où l’on s’égare, où l’on se perd, à cause de la complication des détours."
+      },
+      {
+        "word": "flétrir",
+        "percentile": 334,
+        "definition": "Décolorer, faner entièrement, en parlant de fleurs, de feuillages."
+      }
+    ],
+    "level2": [
+      {
+        "word": "croulant",
+        "percentile": 500,
+        "definition": "Qui croule."
+      },
+      {
+        "word": "pâle",
+        "percentile": 567,
+        "definition": "Qui est d’un blanc terne, qui est décoloré, en parlant du visage."
+      },
+      {
+        "word": "enjambée",
+        "percentile": 634,
+        "definition": "Action d’enjamber ou espace qu’on enjambe, qu’on peut enjamber."
+      }
+    ],
+    "level3": [
+      {
+        "word": "implorant",
+        "percentile": 800,
+        "definition": "Celui qui implore."
+      },
+      {
+        "word": "creux",
+        "percentile": 850,
+        "definition": "Qui présente une cavité, un trou intérieur."
+      },
+      {
+        "word": "harponner",
+        "percentile": 900,
+        "definition": "Darder ou accrocher avec le harpon."
+      }
+    ]
+  },
+  "tried_count": 45,
+  "generated_at": "2026-11-12T23:15:36.780892+00:00",
+  "nearby_top": [
+    {
+      "word": "flot",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "écume",
+      "percentile": 999,
+      "similarity": 53.16
+    },
+    {
+      "word": "submerger",
+      "percentile": 998,
+      "similarity": 53.0
+    },
+    {
+      "word": "noyer",
+      "percentile": 997,
+      "similarity": 50.93
+    },
+    {
+      "word": "écumant",
+      "percentile": 996,
+      "similarity": 50.82
+    },
+    {
+      "word": "couler",
+      "percentile": 995,
+      "similarity": 50.65
+    },
+    {
+      "word": "mugir",
+      "percentile": 994,
+      "similarity": 49.05
+    },
+    {
+      "word": "ruisselant",
+      "percentile": 993,
+      "similarity": 48.94
+    },
+    {
+      "word": "engloutir",
+      "percentile": 992,
+      "similarity": 48.77
+    },
+    {
+      "word": "clapotis",
+      "percentile": 991,
+      "similarity": 48.64
+    },
+    {
+      "word": "voguer",
+      "percentile": 990,
+      "similarity": 48.27
+    },
+    {
+      "word": "esquif",
+      "percentile": 989,
+      "similarity": 48.21
+    },
+    {
+      "word": "coule",
+      "percentile": 988,
+      "similarity": 46.72
+    },
+    {
+      "word": "torrent",
+      "percentile": 987,
+      "similarity": 46.71
+    },
+    {
+      "word": "grondant",
+      "percentile": 986,
+      "similarity": 46.13
+    },
+    {
+      "word": "chavirer",
+      "percentile": 985,
+      "similarity": 46.02
+    },
+    {
+      "word": "fleuve",
+      "percentile": 984,
+      "similarity": 45.99
+    },
+    {
+      "word": "vague",
+      "percentile": 983,
+      "similarity": 45.86
+    },
+    {
+      "word": "ressac",
+      "percentile": 982,
+      "similarity": 45.73
+    },
+    {
+      "word": "ruisseler",
+      "percentile": 981,
+      "similarity": 45.69
+    }
+  ]
+}

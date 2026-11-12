@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-12",
-  "puzzle_num": 1716,
-  "word": "continent",
-  "first_letter": "C",
-  "word_length": 9,
-  "definition": "Qui pratique la continence.",
+  "date": "2026-11-13",
+  "puzzle_num": 1717,
+  "word": "flot",
+  "first_letter": "F",
+  "word_length": 4,
+  "definition": "Masse liquide en mouvement.",
   "hints": {
     "level1": [
       {
-        "word": "infralittoral",
+        "word": "berce",
         "percentile": 200,
-        "definition": "Relatif à la partie inférieure de l’estran."
+        "definition": "Plante de la famille des Apiacées, croissant et se développant dans les terrains humides de toute l'Europe."
       },
       {
-        "word": "golfe",
+        "word": "dédale",
         "percentile": 267,
-        "definition": "Partie de mer plus ou moins vaste, qui entre, qui avance dans les terres, et dont l’ouverture du côté de la mer est ordinairement fort large."
+        "definition": "Labyrinthe, lieu où l’on s’égare, où l’on se perd, à cause de la complication des détours."
       },
       {
-        "word": "américanité",
+        "word": "flétrir",
         "percentile": 334,
-        "definition": "Qualité de ce qui provient de l’hémisphère américain."
+        "definition": "Décolorer, faner entièrement, en parlant de fleurs, de feuillages."
       }
     ],
     "level2": [
       {
-        "word": "soubresaut",
+        "word": "croulant",
         "percentile": 500,
-        "definition": "Saut subit, inopiné."
+        "definition": "Qui croule."
       },
       {
-        "word": "bioclimat",
+        "word": "pâle",
         "percentile": 567,
-        "definition": ""
+        "definition": "Qui est d’un blanc terne, qui est décoloré, en parlant du visage."
       },
       {
-        "word": "angleterre",
+        "word": "enjambée",
         "percentile": 634,
-        "definition": "Sorte d’étoffe anglaise."
+        "definition": "Action d’enjamber ou espace qu’on enjambe, qu’on peut enjamber."
       }
     ],
     "level3": [
       {
-        "word": "islamiser",
+        "word": "implorant",
         "percentile": 800,
-        "definition": "Donner à (quelque chose) un caractère musulman."
+        "definition": "Celui qui implore."
       },
       {
-        "word": "yakoute",
+        "word": "creux",
         "percentile": 850,
-        "definition": "Relatif aux Yakoutes, un peuple turc."
+        "definition": "Qui présente une cavité, un trou intérieur."
       },
       {
-        "word": "multiséculaire",
+        "word": "harponner",
         "percentile": 900,
-        "definition": "Qui dure plusieurs siècles, relatif à plusieurs siècles."
+        "definition": "Darder ou accrocher avec le harpon."
       }
     ]
   },
-  "tried_count": 44,
-  "generated_at": "2026-11-11T23:15:33.613246+00:00",
+  "tried_count": 45,
+  "generated_at": "2026-11-12T23:15:36.780892+00:00",
   "nearby_top": [
     {
-      "word": "continent",
+      "word": "flot",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "pays",
+      "word": "écume",
       "percentile": 999,
-      "similarity": 56.22
+      "similarity": 53.16
     },
     {
-      "word": "sous-continent",
+      "word": "submerger",
       "percentile": 998,
-      "similarity": 53.77
+      "similarity": 53.0
     },
     {
-      "word": "africain",
+      "word": "noyer",
       "percentile": 997,
-      "similarity": 53.68
+      "similarity": 50.93
     },
     {
-      "word": "amérique",
+      "word": "écumant",
       "percentile": 996,
-      "similarity": 52.6
+      "similarity": 50.82
     },
     {
-      "word": "monde",
+      "word": "couler",
       "percentile": 995,
-      "similarity": 50.66
+      "similarity": 50.65
     },
     {
-      "word": "continental",
+      "word": "mugir",
       "percentile": 994,
-      "similarity": 49.53
+      "similarity": 49.05
     },
     {
-      "word": "eurasiatique",
+      "word": "ruisselant",
       "percentile": 993,
-      "similarity": 49.08
+      "similarity": 48.94
     },
     {
-      "word": "globe",
+      "word": "engloutir",
       "percentile": 992,
-      "similarity": 48.69
+      "similarity": 48.77
     },
     {
-      "word": "océan",
+      "word": "clapotis",
       "percentile": 991,
-      "similarity": 47.18
+      "similarity": 48.64
     },
     {
-      "word": "pacifique",
+      "word": "voguer",
       "percentile": 990,
-      "similarity": 45.68
+      "similarity": 48.27
     },
     {
-      "word": "mondial",
+      "word": "esquif",
       "percentile": 989,
-      "similarity": 45.36
+      "similarity": 48.21
     },
     {
-      "word": "occidental",
+      "word": "coule",
       "percentile": 988,
-      "similarity": 45.32
+      "similarity": 46.72
     },
     {
-      "word": "occident",
+      "word": "torrent",
       "percentile": 987,
-      "similarity": 45.09
+      "similarity": 46.71
     },
     {
-      "word": "nation",
+      "word": "grondant",
       "percentile": 986,
-      "similarity": 44.94
+      "similarity": 46.13
     },
     {
-      "word": "planète",
+      "word": "chavirer",
       "percentile": 985,
-      "similarity": 44.37
+      "similarity": 46.02
     },
     {
-      "word": "eurasien",
+      "word": "fleuve",
       "percentile": 984,
-      "similarity": 44.3
+      "similarity": 45.99
     },
     {
-      "word": "millénaire",
+      "word": "vague",
       "percentile": 983,
-      "similarity": 43.86
+      "similarity": 45.86
     },
     {
-      "word": "civilisation",
+      "word": "ressac",
       "percentile": 982,
-      "similarity": 43.73
+      "similarity": 45.73
     },
     {
-      "word": "sud",
+      "word": "ruisseler",
       "percentile": 981,
-      "similarity": 43.45
+      "similarity": 45.69
     }
   ]
 }

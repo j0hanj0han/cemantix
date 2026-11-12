@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-12",
+  "puzzle_num": 1643,
+  "word": "Belgique",
+  "title_slug": "Belgique",
+  "title_display": "Belgique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Belgique",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : B"
+    ],
+    "level2": [
+      "État d'Europe occidentale depuis 1830",
+      "Éponyme d'une épithète spécifique"
+    ],
+    "level3": [
+      "La ___, en forme longue le royaume de ___, est un pays d'Europe de l'Ouest, bordé par la France, les Pays-Bas, l'Allemagne, le Luxembourg et la mer du Nord."
+    ]
+  },
+  "extract": "La Belgique, en forme longue le royaume de Belgique, est un pays d'Europe de l'Ouest, bordé par la France, les Pays-Bas, l'Allemagne, le Luxembourg et la mer du Nord.",
+  "categories": [
+    "État d'Europe occidentale depuis 1830",
+    "Éponyme d'une épithète spécifique"
+  ],
+  "generated_at": "2026-11-12T23:16:13.183183+00:00"
+}

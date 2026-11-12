@@ -38,7 +38,7 @@
   </script>
 
     <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment fonctionne le simulateur EuroMillions ?", "acceptedAnswer": {"@type": "Answer", "text": "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages EuroMillions depuis 2004 et calcule vos gains cumulés."}}, {"@type": "Question", "name": "Comment simuler un tirage EuroMillions gratuitement ?", "acceptedAnswer": {"@type": "Answer", "text": "Cliquez sur le bouton « Grille aléatoire » : l'outil génère instantanément 5 numéros et 2 étoiles au hasard, sans inscription ni téléchargement. Vous pouvez ensuite lancer la simulation pour voir combien cette grille aurait rapporté sur les 1 900+ tirages EuroMillions depuis 2004, ou cliquer à nouveau pour générer une nouvelle combinaison."}}, {"@type": "Question", "name": "Les gains affichés sont-ils exacts ?", "acceptedAnswer": {"@type": "Answer", "text": "Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les tirages. Les autres rangs reflètent les montants indicatifs officiels."}}, {"@type": "Question", "name": "Combien de tirages EuroMillions sont analysés ?", "acceptedAnswer": {"@type": "Answer", "text": "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour après chaque tirage (mardi et vendredi)."}}, {"@type": "Question", "name": "Quelle est la probabilité de gagner le jackpot EuroMillions ?", "acceptedAnswer": {"@type": "Answer", "text": "La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1 sur 139 838 160. Ce simulateur est un outil ludique illustrant l'espérance mathématique."}}]}
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment fonctionne le simulateur EuroMillions ?", "acceptedAnswer": {"@type": "Answer", "text": "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. L'outil vérifie vos numéros sur tous les tirages EuroMillions depuis 2004 et calcule vos gains cumulés."}}, {"@type": "Question", "name": "Comment simuler un tirage EuroMillions gratuitement ?", "acceptedAnswer": {"@type": "Answer", "text": "Cliquez sur le bouton « Grille aléatoire » : l'outil génère instantanément 5 numéros et 2 étoiles au hasard, sans inscription ni téléchargement. Vous pouvez ensuite lancer la simulation pour voir combien cette grille aurait rapporté sur les 1 900+ tirages EuroMillions depuis 2004, ou cliquer à nouveau pour générer une nouvelle combinaison."}}, {"@type": "Question", "name": "Les gains affichés sont-ils exacts ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, ce sont des estimations : le simulateur applique à chaque rang le gain moyen observé sur 467 tirages FDJ, de février 2020 à juillet 2024. Le jackpot (1er rang), très variable, n'est pas compté dans les gains cumulés."}}, {"@type": "Question", "name": "Combien de tirages EuroMillions sont analysés ?", "acceptedAnswer": {"@type": "Answer", "text": "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour après chaque tirage (mardi et vendredi)."}}, {"@type": "Question", "name": "Quelle est la probabilité de gagner le jackpot EuroMillions ?", "acceptedAnswer": {"@type": "Answer", "text": "La probabilité de décrocher le jackpot EuroMillions (5+2) est d'environ 1 sur 139 838 160. Ce simulateur est un outil ludique illustrant l'espérance mathématique."}}]}
   </script>
 
     <script type="application/ld+json">
@@ -100,6 +100,78 @@
       </table>
     </div>
 
+    <div class="card">
+      <h2>Les 13 rangs de gains EuroMillions : probabilités et gains moyens</h2>
+      <p>
+        Pour gagner à l'EuroMillions, il faut au moins 2 bons numéros, ou 1 bon numéro et les 2 étoiles.
+        Une grille a environ <strong>1 chance sur 13</strong>
+        de remporter un rang, quel qu'il soit.
+      </p>
+      <div class="table-scroll">
+        <table class="sim-rank-table">
+          <thead><tr><th>Rang</th><th>Numéros + étoiles</th><th>Chances</th><th>Gain moyen</th></tr></thead>
+          <tbody>
+            <tr><td>1er</td><td>5+2</td><td>1 sur 139 838 160</td><td>Jackpot, 17 M€ minimum</td></tr>
+            <tr><td>2e</td><td>5+1</td><td>1 sur 6 991 908</td><td>357 000 €</td></tr>
+            <tr><td>3e</td><td>5+0</td><td>1 sur 3 107 515</td><td>36 600 €</td></tr>
+            <tr><td>4e</td><td>4+2</td><td>1 sur 621 503</td><td>1 600 €</td></tr>
+            <tr><td>5e</td><td>4+1</td><td>1 sur 31 076</td><td>126 €</td></tr>
+            <tr><td>6e</td><td>3+2</td><td>1 sur 14 126</td><td>61 €</td></tr>
+            <tr><td>7e</td><td>4+0</td><td>1 sur 13 812</td><td>41 €</td></tr>
+            <tr><td>8e</td><td>2+2</td><td>1 sur 986</td><td>14,70 €</td></tr>
+            <tr><td>9e</td><td>3+1</td><td>1 sur 707</td><td>11,50 €</td></tr>
+            <tr><td>10e</td><td>3+0</td><td>1 sur 314</td><td>9,50 €</td></tr>
+            <tr><td>11e</td><td>1+2</td><td>1 sur 188</td><td>7 €</td></tr>
+            <tr><td>12e</td><td>2+1</td><td>1 sur 50</td><td>5,60 €</td></tr>
+            <tr><td>13e</td><td>2+0</td><td>1 sur 22</td><td>4 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.75rem;font-size:.9rem;color:#6b7280;">
+        Gains moyens observés sur 467 tirages de l'historique FDJ, de février 2020 à juillet 2024, hors option Étoile+.
+        Hors jackpot et code My Million, une grille à 2,50&nbsp;€ rapporte donc en moyenne
+        <strong>0,47&nbsp;€</strong>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Exemple de simulation sur 1 997 tirages</h2>
+      <p>
+        Prenons une grille quelconque : <strong>7, 14, 23, 35, 42</strong> et les étoiles
+        <strong>3 et 9</strong>, jouée à chacun des 1 997
+        tirages depuis le 13 février 2004. Le simulateur donne :
+      </p>
+      <ul style="margin:.5rem 0 .5rem 1.25rem;">
+        <li><strong>4 992,50&nbsp;€</strong> de mises, à 2,50&nbsp;€ par tirage</li>
+        <li><strong>974,40&nbsp;€</strong> de gains estimés, sur 175 tirages gagnants</li>
+        <li>meilleur résultat : <strong>6e rang (3+2)</strong>, atteint 1 fois</li>
+        <li>bilan : <strong>−4 018,10&nbsp;€</strong></li>
+      </ul>
+      <p>
+        Le détail change d'une grille à l'autre, mais les probabilités du tableau restent les mêmes pour toutes.
+        Saisissez vos numéros plus haut pour comparer.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Simulateur de gains FDJ ou simulateur historique : quelle différence ?</h2>
+      <p>
+        La FDJ propose un
+        <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/gains" rel="noopener" target="_blank">simulateur de gains</a>
+        pour vérifier une grille réellement jouée : vous indiquez vos numéros, vos étoiles, l'option Étoile+,
+        votre code My Million et le jour du tirage, et il estime ce que vous avez gagné.
+      </p>
+      <p style="margin-top:.5rem;">
+        Le simulateur de cette page répond à une autre question :
+        <strong>combien cette grille aurait-elle rapporté si vous l'aviez jouée à chaque tirage depuis 2004 ?</strong>
+        Il rejoue vos numéros sur tout l'historique, compte les rangs obtenus et calcule le bilan entre mises et gains estimés.
+      </p>
+      <p style="margin-top:.5rem;">
+        Pour savoir si un ticket est gagnant, référez-vous à la FDJ : ce site n'est pas officiel.
+        Chaque tirage étant indépendant, aucun historique ne permet de prédire les prochains numéros.
+      </p>
+    </div>
+
 
     <div class="card faq-card">
       <h2>Questions fréquentes</h2>
@@ -113,7 +185,7 @@
       </details>
       <details>
         <summary>Les gains affichés sont-ils exacts ?</summary>
-        <p>Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les tirages. Les autres rangs reflètent les montants indicatifs officiels.</p>
+        <p>Non, ce sont des estimations : le simulateur applique à chaque rang le gain moyen observé sur 467 tirages FDJ, de février 2020 à juillet 2024. Le jackpot (1er rang), très variable, n&#x27;est pas compté dans les gains cumulés.</p>
       </details>
       <details>
         <summary>Combien de tirages EuroMillions sont analysés ?</summary>
@@ -143,8 +215,8 @@
 
 <script>
 (function() {
-  const EM_GAINS = {1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4};
-  const EM_MISE = 2.50;
+  const EM_GAINS = {"1": null, "2": 357000, "3": 36600, "4": 1600, "5": 126, "6": 61, "7": 41, "8": 14.7, "9": 11.5, "10": 9.5, "11": 7, "12": 5.6, "13": 4};
+  const EM_MISE = 2.5;
   const RANK_LABELS = {
     1:'1er rang (Jackpot)',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
     6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',

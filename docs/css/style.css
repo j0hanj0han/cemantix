@@ -742,6 +742,9 @@ footer a { color: var(--color-primary); }
   font-size:.78rem; color:var(--color-muted); text-transform:uppercase; }
 .sim-rank-table td { padding:.4rem .5rem; border-bottom:1px solid var(--color-border); }
 .sim-rank-table tr:last-child td { border-bottom:none; }
+@media (max-width:480px) {
+  .sim-rank-table th, .sim-rank-table td { padding:.4rem .3rem; }
+}
 
 /* ── Indices du mot (Cémantix) ─────────────────────────── */
 .word-hints { display:flex; flex-direction:column; gap:.5rem; }

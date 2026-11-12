@@ -22,6 +22,7 @@ import urllib.request
 import zipfile
 from collections import Counter
 from datetime import date, datetime, timezone
+from math import ceil, comb
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -54,6 +55,21 @@ _MONTHS_FR = {
     "janvier": 1, "février": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
     "juillet": 7, "août": 8, "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12,
 }
+
+# Combinaisons gagnantes (bons numéros, bonnes étoiles), du 1er au 13e rang.
+EM_RANKS = [(5, 2), (5, 1), (5, 0), (4, 2), (4, 1), (3, 2), (4, 0), (2, 2), (3, 1), (3, 0), (1, 2), (2, 1), (2, 0)]
+# Gain moyen par rang en euros, observé sur les 467 tirages de l'historique FDJ du 04/02/2020
+# au 23/07/2024 (euromillions_202002.zip), hors Étoile+. Le 1er rang (jackpot) n'est pas chiffré.
+EM_AVG_GAINS = {2: 357000, 3: 36600, 4: 1600, 5: 126, 6: 61, 7: 41, 8: 14.7, 9: 11.5, 10: 9.5, 11: 7, 12: 5.6, 13: 4}
+EM_GAINS_JS = json.dumps({1: None, **EM_AVG_GAINS})
+EM_STAKE = 2.5
+
+
+def _fr_amount(value: float) -> str:
+    """1600 → '1 600' ; 11.5 → '11,50'."""
+    if float(value).is_integer():
+        return f"{int(value):,}".replace(",", " ")
+    return f"{value:,.2f}".replace(",", " ").replace(".", ",")
 
 
 # ── Scraping ──────────────────────────────────────────────────────────────────
@@ -814,7 +830,7 @@ def generate_index_html(
       (function(){{
         const DRAW_BALLS = {balls};
         const DRAW_STARS = {stars};
-        const EM_GAINS = {{1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4}};
+        const EM_GAINS = {EM_GAINS_JS};
         const RANK_LABELS = {{
           1:'1er rang — Jackpot',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
           6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',
@@ -1818,6 +1834,102 @@ def generate_simulator_html() -> None:
     out_dir = EM_DIR / "simulateur"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    draws = _load_archives(EM_ARCHIVE, required_keys=["date", "balls", "stars"])
+    if not draws:
+        print("[EuroMillions] ⚠ Simulateur : aucune archive trouvée")
+        return
+
+    total_grids = comb(50, 5) * comb(12, 2)
+    winning_grids = [comb(5, b) * comb(45, 5 - b) * comb(2, s) * comb(10, 2 - s) for b, s in EM_RANKS]
+    average_return = sum(EM_AVG_GAINS[rank] * winning_grids[rank - 1] / total_grids for rank in EM_AVG_GAINS)
+
+    def rank_name(rank: int) -> str:
+        return "1er" if rank == 1 else f"{rank}e"
+
+    def rank_gain(rank: int) -> str:
+        if rank == 1:
+            return "Jackpot, 17 M€ minimum"
+        return f"{_fr_amount(EM_AVG_GAINS[rank])} €"
+
+    rank_rows = "\n".join(
+        f'            <tr><td>{rank_name(rank)}</td><td>{b}+{s}</td>'
+        f'<td>1 sur {_fr_amount(ceil(total_grids / winning_grids[rank - 1]))}</td>'
+        f'<td>{rank_gain(rank)}</td></tr>'
+        for rank, (b, s) in enumerate(EM_RANKS, 1)
+    )
+    ranks_card = f"""    <div class="card">
+      <h2>Les 13 rangs de gains EuroMillions : probabilités et gains moyens</h2>
+      <p>
+        Pour gagner à l'EuroMillions, il faut au moins 2 bons numéros, ou 1 bon numéro et les 2 étoiles.
+        Une grille a environ <strong>1 chance sur {round(total_grids / sum(winning_grids))}</strong>
+        de remporter un rang, quel qu'il soit.
+      </p>
+      <div class="table-scroll">
+        <table class="sim-rank-table">
+          <thead><tr><th>Rang</th><th>Numéros + étoiles</th><th>Chances</th><th>Gain moyen</th></tr></thead>
+          <tbody>
+{rank_rows}
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.75rem;font-size:.9rem;color:#6b7280;">
+        Gains moyens observés sur 467 tirages de l'historique FDJ, de février 2020 à juillet 2024, hors option Étoile+.
+        Hors jackpot et code My Million, une grille à 2,50&nbsp;€ rapporte donc en moyenne
+        <strong>{_fr_amount(round(average_return, 2))}&nbsp;€</strong>.
+      </p>
+    </div>"""
+
+    example_balls, example_stars = [7, 14, 23, 35, 42], [3, 9]
+    rank_by_match = {match: rank for rank, match in enumerate(EM_RANKS, 1)}
+    example_hits = Counter(
+        rank_by_match.get((len(set(example_balls) & set(d["balls"])), len(set(example_stars) & set(d["stars"]))))
+        for d in draws
+    )
+    example_hits.pop(None, None)
+    example_stake = len(draws) * EM_STAKE
+    example_gains = round(sum(EM_AVG_GAINS.get(rank, 0) * n for rank, n in example_hits.items()), 2)
+    example_balance = round(example_gains - example_stake, 2)
+    best_rank = min(example_hits)
+    best_b, best_s = EM_RANKS[best_rank - 1]
+    first_draw = date.fromisoformat(min(d["date"] for d in draws))
+    example_card = f"""    <div class="card">
+      <h2>Exemple de simulation sur {_fr_amount(len(draws))} tirages</h2>
+      <p>
+        Prenons une grille quelconque : <strong>{", ".join(map(str, example_balls))}</strong> et les étoiles
+        <strong>{example_stars[0]} et {example_stars[1]}</strong>, jouée à chacun des {_fr_amount(len(draws))}
+        tirages depuis le {date_fr_short(first_draw)}. Le simulateur donne :
+      </p>
+      <ul style="margin:.5rem 0 .5rem 1.25rem;">
+        <li><strong>{_fr_amount(example_stake)}&nbsp;€</strong> de mises, à 2,50&nbsp;€ par tirage</li>
+        <li><strong>{_fr_amount(example_gains)}&nbsp;€</strong> de gains estimés, sur {sum(example_hits.values())} tirages gagnants</li>
+        <li>meilleur résultat : <strong>{rank_name(best_rank)} rang ({best_b}+{best_s})</strong>, atteint {example_hits[best_rank]} fois</li>
+        <li>bilan : <strong>{"+" if example_balance >= 0 else "−"}{_fr_amount(abs(example_balance))}&nbsp;€</strong></li>
+      </ul>
+      <p>
+        Le détail change d'une grille à l'autre, mais les probabilités du tableau restent les mêmes pour toutes.
+        Saisissez vos numéros plus haut pour comparer.
+      </p>
+    </div>"""
+
+    fdj_card = """    <div class="card">
+      <h2>Simulateur de gains FDJ ou simulateur historique : quelle différence ?</h2>
+      <p>
+        La FDJ propose un
+        <a href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/gains" rel="noopener" target="_blank">simulateur de gains</a>
+        pour vérifier une grille réellement jouée : vous indiquez vos numéros, vos étoiles, l'option Étoile+,
+        votre code My Million et le jour du tirage, et il estime ce que vous avez gagné.
+      </p>
+      <p style="margin-top:.5rem;">
+        Le simulateur de cette page répond à une autre question :
+        <strong>combien cette grille aurait-elle rapporté si vous l'aviez jouée à chaque tirage depuis 2004 ?</strong>
+        Il rejoue vos numéros sur tout l'historique, compte les rangs obtenus et calcule le bilan entre mises et gains estimés.
+      </p>
+      <p style="margin-top:.5rem;">
+        Pour savoir si un ticket est gagnant, référez-vous à la FDJ : ce site n'est pas officiel.
+        Chaque tirage étant indépendant, aucun historique ne permet de prédire les prochains numéros.
+      </p>
+    </div>"""
+
     faq_items = [
         ("Comment fonctionne le simulateur EuroMillions ?",
          "Sélectionnez vos 5 numéros (1–50) et 2 étoiles (1–12), puis cliquez sur Simuler. "
@@ -1830,8 +1942,9 @@ def generate_simulator_html() -> None:
          "tirages EuroMillions depuis 2004, ou cliquer à nouveau pour générer une nouvelle "
          "combinaison."),
         ("Les gains affichés sont-ils exacts ?",
-         "Les gains sont approximatifs. Le jackpot (1er rang) varie énormément selon les "
-         "tirages. Les autres rangs reflètent les montants indicatifs officiels."),
+         "Non, ce sont des estimations : le simulateur applique à chaque rang le gain moyen "
+         "observé sur 467 tirages FDJ, de février 2020 à juillet 2024. Le jackpot (1er rang), "
+         "très variable, n'est pas compté dans les gains cumulés."),
         ("Combien de tirages EuroMillions sont analysés ?",
          "Le simulateur couvre tous les tirages disponibles depuis février 2004, mis à jour "
          "après chaque tirage (mardi et vendredi)."),
@@ -1947,6 +2060,12 @@ def generate_simulator_html() -> None:
       </table>
     </div>
 
+{ranks_card}
+
+{example_card}
+
+{fdj_card}
+
 {faq_visible}
 
     <div class="card" style="text-align:center;">
@@ -1967,8 +2086,8 @@ def generate_simulator_html() -> None:
 
 <script>
 (function() {{
-  const EM_GAINS = {{1:null,2:600000,3:40000,4:3500,5:200,6:150,7:100,8:20,9:15,10:12,11:10,12:6,13:4}};
-  const EM_MISE = 2.50;
+  const EM_GAINS = {EM_GAINS_JS};
+  const EM_MISE = {EM_STAKE};
   const RANK_LABELS = {{
     1:'1er rang (Jackpot)',2:'2e rang',3:'3e rang',4:'4e rang',5:'5e rang',
     6:'6e rang',7:'7e rang',8:'8e rang',9:'9e rang',10:'10e rang',

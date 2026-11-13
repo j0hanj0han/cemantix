@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-14",
+  "puzzle_num": 1718,
+  "word": "étrange",
+  "first_letter": "É",
+  "word_length": 7,
+  "definition": "Qui est en dehors de l’ordre, de l’usage commun ; qui est singulier, extraordinaire.",
+  "hints": {
+    "level1": [
+      {
+        "word": "subconscience",
+        "percentile": 200,
+        "definition": "Conscience obscure, région de l’âme où s’accumulent les sensations qui ne touchent pas la conscience distincte."
+      },
+      {
+        "word": "tératologie",
+        "percentile": 267,
+        "definition": "Partie des sciences naturelles qui traite des malformations congénitales et des monstruosités organiques."
+      },
+      {
+        "word": "malsain",
+        "percentile": 334,
+        "definition": "Qui n’est pas sain, qui a en soi le germe de quelque maladie."
+      }
+    ],
+    "level2": [
+      {
+        "word": "follement",
+        "percentile": 500,
+        "definition": "D’une manière folle, imprudente, excessive."
+      },
+      {
+        "word": "claustrophobe",
+        "percentile": 567,
+        "definition": "Personne atteinte de claustrophobie."
+      },
+      {
+        "word": "miroitement",
+        "percentile": 634,
+        "definition": "Éclat, reflets que certaines surfaces polies jettent en réfléchissant la lumière comme un miroir."
+      }
+    ],
+    "level3": [
+      {
+        "word": "magiquement",
+        "percentile": 800,
+        "definition": "D'une manière magique."
+      },
+      {
+        "word": "apparence",
+        "percentile": 850,
+        "definition": "Ce qui paraît extérieurement."
+      },
+      {
+        "word": "emplir",
+        "percentile": 900,
+        "definition": "Rendre plein."
+      }
+    ]
+  },
+  "tried_count": 36,
+  "generated_at": "2026-11-13T23:15:27.940625+00:00",
+  "nearby_top": [
+    {
+      "word": "étrange",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "mystérieux",
+      "percentile": 999,
+      "similarity": 74.46
+    },
+    {
+      "word": "intriguer",
+      "percentile": 998,
+      "similarity": 67.92
+    },
+    {
+      "word": "bizarre",
+      "percentile": 997,
+      "similarity": 67.15
+    },
+    {
+      "word": "énigmatique",
+      "percentile": 996,
+      "similarity": 64.03
+    },
+    {
+      "word": "étrangement",
+      "percentile": 995,
+      "similarity": 64.02
+    },
+    {
+      "word": "troublant",
+      "percentile": 994,
+      "similarity": 63.18
+    },
+    {
+      "word": "soudain",
+      "percentile": 993,
+      "similarity": 59.64
+    },
+    {
+      "word": "surprenant",
+      "percentile": 992,
+      "similarity": 58.45
+    },
+    {
+      "word": "fantôme",
+      "percentile": 991,
+      "similarity": 58.32
+    },
+    {
+      "word": "étonnant",
+      "percentile": 990,
+      "similarity": 58.25
+    },
+    {
+      "word": "étrangeté",
+      "percentile": 989,
+      "similarity": 57.03
+    },
+    {
+      "word": "fasciner",
+      "percentile": 988,
+      "similarity": 56.52
+    },
+    {
+      "word": "inexplicable",
+      "percentile": 987,
+      "similarity": 56.32
+    },
+    {
+      "word": "curieux",
+      "percentile": 986,
+      "similarity": 56.09
+    },
+    {
+      "word": "inconnu",
+      "percentile": 985,
+      "similarity": 55.73
+    },
+    {
+      "word": "effrayant",
+      "percentile": 984,
+      "similarity": 54.96
+    },
+    {
+      "word": "soudainement",
+      "percentile": 983,
+      "similarity": 54.77
+    },
+    {
+      "word": "obscur",
+      "percentile": 982,
+      "similarity": 53.94
+    },
+    {
+      "word": "apercevoir",
+      "percentile": 981,
+      "similarity": 53.9
+    }
+  ]
+}

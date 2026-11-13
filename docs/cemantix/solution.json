@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-13",
-  "puzzle_num": 1717,
-  "word": "flot",
-  "first_letter": "F",
-  "word_length": 4,
-  "definition": "Masse liquide en mouvement.",
+  "date": "2026-11-14",
+  "puzzle_num": 1718,
+  "word": "étrange",
+  "first_letter": "É",
+  "word_length": 7,
+  "definition": "Qui est en dehors de l’ordre, de l’usage commun ; qui est singulier, extraordinaire.",
   "hints": {
     "level1": [
       {
-        "word": "berce",
+        "word": "subconscience",
         "percentile": 200,
-        "definition": "Plante de la famille des Apiacées, croissant et se développant dans les terrains humides de toute l'Europe."
+        "definition": "Conscience obscure, région de l’âme où s’accumulent les sensations qui ne touchent pas la conscience distincte."
       },
       {
-        "word": "dédale",
+        "word": "tératologie",
         "percentile": 267,
-        "definition": "Labyrinthe, lieu où l’on s’égare, où l’on se perd, à cause de la complication des détours."
+        "definition": "Partie des sciences naturelles qui traite des malformations congénitales et des monstruosités organiques."
       },
       {
-        "word": "flétrir",
+        "word": "malsain",
         "percentile": 334,
-        "definition": "Décolorer, faner entièrement, en parlant de fleurs, de feuillages."
+        "definition": "Qui n’est pas sain, qui a en soi le germe de quelque maladie."
       }
     ],
     "level2": [
       {
-        "word": "croulant",
+        "word": "follement",
         "percentile": 500,
-        "definition": "Qui croule."
+        "definition": "D’une manière folle, imprudente, excessive."
       },
       {
-        "word": "pâle",
+        "word": "claustrophobe",
         "percentile": 567,
-        "definition": "Qui est d’un blanc terne, qui est décoloré, en parlant du visage."
+        "definition": "Personne atteinte de claustrophobie."
       },
       {
-        "word": "enjambée",
+        "word": "miroitement",
         "percentile": 634,
-        "definition": "Action d’enjamber ou espace qu’on enjambe, qu’on peut enjamber."
+        "definition": "Éclat, reflets que certaines surfaces polies jettent en réfléchissant la lumière comme un miroir."
       }
     ],
     "level3": [
       {
-        "word": "implorant",
+        "word": "magiquement",
         "percentile": 800,
-        "definition": "Celui qui implore."
+        "definition": "D'une manière magique."
       },
       {
-        "word": "creux",
+        "word": "apparence",
         "percentile": 850,
-        "definition": "Qui présente une cavité, un trou intérieur."
+        "definition": "Ce qui paraît extérieurement."
       },
       {
-        "word": "harponner",
+        "word": "emplir",
         "percentile": 900,
-        "definition": "Darder ou accrocher avec le harpon."
+        "definition": "Rendre plein."
       }
     ]
   },
-  "tried_count": 45,
-  "generated_at": "2026-11-12T23:15:36.780892+00:00",
+  "tried_count": 36,
+  "generated_at": "2026-11-13T23:15:27.940625+00:00",
   "nearby_top": [
     {
-      "word": "flot",
+      "word": "étrange",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "écume",
+      "word": "mystérieux",
       "percentile": 999,
-      "similarity": 53.16
+      "similarity": 74.46
     },
     {
-      "word": "submerger",
+      "word": "intriguer",
       "percentile": 998,
-      "similarity": 53.0
+      "similarity": 67.92
     },
     {
-      "word": "noyer",
+      "word": "bizarre",
       "percentile": 997,
-      "similarity": 50.93
+      "similarity": 67.15
     },
     {
-      "word": "écumant",
+      "word": "énigmatique",
       "percentile": 996,
-      "similarity": 50.82
+      "similarity": 64.03
     },
     {
-      "word": "couler",
+      "word": "étrangement",
       "percentile": 995,
-      "similarity": 50.65
+      "similarity": 64.02
     },
     {
-      "word": "mugir",
+      "word": "troublant",
       "percentile": 994,
-      "similarity": 49.05
+      "similarity": 63.18
     },
     {
-      "word": "ruisselant",
+      "word": "soudain",
       "percentile": 993,
-      "similarity": 48.94
+      "similarity": 59.64
     },
     {
-      "word": "engloutir",
+      "word": "surprenant",
       "percentile": 992,
-      "similarity": 48.77
+      "similarity": 58.45
     },
     {
-      "word": "clapotis",
+      "word": "fantôme",
       "percentile": 991,
-      "similarity": 48.64
+      "similarity": 58.32
     },
     {
-      "word": "voguer",
+      "word": "étonnant",
       "percentile": 990,
-      "similarity": 48.27
+      "similarity": 58.25
     },
     {
-      "word": "esquif",
+      "word": "étrangeté",
       "percentile": 989,
-      "similarity": 48.21
+      "similarity": 57.03
     },
     {
-      "word": "coule",
+      "word": "fasciner",
       "percentile": 988,
-      "similarity": 46.72
+      "similarity": 56.52
     },
     {
-      "word": "torrent",
+      "word": "inexplicable",
       "percentile": 987,
-      "similarity": 46.71
+      "similarity": 56.32
     },
     {
-      "word": "grondant",
+      "word": "curieux",
       "percentile": 986,
-      "similarity": 46.13
+      "similarity": 56.09
     },
     {
-      "word": "chavirer",
+      "word": "inconnu",
       "percentile": 985,
-      "similarity": 46.02
+      "similarity": 55.73
     },
     {
-      "word": "fleuve",
+      "word": "effrayant",
       "percentile": 984,
-      "similarity": 45.99
+      "similarity": 54.96
     },
     {
-      "word": "vague",
+      "word": "soudainement",
       "percentile": 983,
-      "similarity": 45.86
+      "similarity": 54.77
     },
     {
-      "word": "ressac",
+      "word": "obscur",
       "percentile": 982,
-      "similarity": 45.73
+      "similarity": 53.94
     },
     {
-      "word": "ruisseler",
+      "word": "apercevoir",
       "percentile": 981,
-      "similarity": 45.69
+      "similarity": 53.9
     }
   ]
 }

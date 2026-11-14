@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-14",
-  "puzzle_num": 1718,
-  "word": "étrange",
-  "first_letter": "É",
-  "word_length": 7,
-  "definition": "Qui est en dehors de l’ordre, de l’usage commun ; qui est singulier, extraordinaire.",
+  "date": "2026-11-15",
+  "puzzle_num": 1719,
+  "word": "universitaire",
+  "first_letter": "U",
+  "word_length": 13,
+  "definition": "De l’université, voire par extension de l’enseignement supérieur.",
   "hints": {
     "level1": [
       {
-        "word": "subconscience",
+        "word": "sociogenèse",
         "percentile": 200,
-        "definition": "Conscience obscure, région de l’âme où s’accumulent les sensations qui ne touchent pas la conscience distincte."
+        "definition": "Genèse, origine d’un comportement, d’un concept social."
       },
       {
-        "word": "tératologie",
+        "word": "exeat",
         "percentile": 267,
-        "definition": "Partie des sciences naturelles qui traite des malformations congénitales et des monstruosités organiques."
+        "definition": "Permission que l’évêque donne à un ecclésiastique, son diocésain, d’aller exercer dans un autre diocèse."
       },
       {
-        "word": "malsain",
+        "word": "partenarial",
         "percentile": 334,
-        "definition": "Qui n’est pas sain, qui a en soi le germe de quelque maladie."
+        "definition": "Qui est propre, relatif au partenariat."
       }
     ],
     "level2": [
       {
-        "word": "follement",
+        "word": "parapsychologie",
         "percentile": 500,
-        "definition": "D’une manière folle, imprudente, excessive."
+        "definition": "Discipline qui tente d'étudier expérimentalement des phénomènes considérés comme miraculeux, magiques ou occultes."
       },
       {
-        "word": "claustrophobe",
+        "word": "psychomotricien",
         "percentile": 567,
-        "definition": "Personne atteinte de claustrophobie."
+        "definition": "Professionnel qui soigne les troubles physiques d’origine psychologique de ses patients."
       },
       {
-        "word": "miroitement",
+        "word": "bibliographique",
         "percentile": 634,
-        "definition": "Éclat, reflets que certaines surfaces polies jettent en réfléchissant la lumière comme un miroir."
+        "definition": "Relatif à la bibliographie."
       }
     ],
     "level3": [
       {
-        "word": "magiquement",
+        "word": "présentiel",
         "percentile": 800,
-        "definition": "D'une manière magique."
+        "definition": "Qui implique une présence réelle."
       },
       {
-        "word": "apparence",
+        "word": "boursier",
         "percentile": 850,
-        "definition": "Ce qui paraît extérieurement."
+        "definition": "Qui concerne la bourse."
       },
       {
-        "word": "emplir",
+        "word": "organisme",
         "percentile": 900,
-        "definition": "Rendre plein."
+        "definition": "Être vivant individuel, unicellulaire ou pluricellulaire, possédant une organisation interne autonome lui permettant d'accomplir ses fonctions vitales."
       }
     ]
   },
-  "tried_count": 36,
-  "generated_at": "2026-11-13T23:15:27.940625+00:00",
+  "tried_count": 233,
+  "generated_at": "2026-11-14T23:22:11.161239+00:00",
   "nearby_top": [
     {
-      "word": "étrange",
+      "word": "universitaire",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "mystérieux",
+      "word": "étudiant",
       "percentile": 999,
-      "similarity": 74.46
+      "similarity": 70.76
     },
     {
-      "word": "intriguer",
+      "word": "université",
       "percentile": 998,
-      "similarity": 67.92
+      "similarity": 68.38
     },
     {
-      "word": "bizarre",
+      "word": "enseignement",
       "percentile": 997,
-      "similarity": 67.15
+      "similarity": 58.5
     },
     {
-      "word": "énigmatique",
+      "word": "chercheur",
       "percentile": 996,
-      "similarity": 64.03
+      "similarity": 55.32
     },
     {
-      "word": "étrangement",
+      "word": "cursus",
       "percentile": 995,
-      "similarity": 64.02
+      "similarity": 55.06
     },
     {
-      "word": "troublant",
+      "word": "scientifique",
       "percentile": 994,
-      "similarity": 63.18
+      "similarity": 50.82
     },
     {
-      "word": "soudain",
+      "word": "académique",
       "percentile": 993,
-      "similarity": 59.64
+      "similarity": 50.73
     },
     {
-      "word": "surprenant",
+      "word": "formation",
       "percentile": 992,
-      "similarity": 58.45
+      "similarity": 50.57
     },
     {
-      "word": "fantôme",
+      "word": "facultaire",
       "percentile": 991,
-      "similarity": 58.32
+      "similarity": 49.85
     },
     {
-      "word": "étonnant",
+      "word": "enseignant",
       "percentile": 990,
-      "similarity": 58.25
+      "similarity": 49.41
     },
     {
-      "word": "étrangeté",
+      "word": "recherche",
       "percentile": 989,
-      "similarity": 57.03
+      "similarity": 48.52
     },
     {
-      "word": "fasciner",
+      "word": "scolarité",
       "percentile": 988,
-      "similarity": 56.52
+      "similarity": 48.29
     },
     {
-      "word": "inexplicable",
+      "word": "institution",
       "percentile": 987,
-      "similarity": 56.32
+      "similarity": 47.05
     },
     {
-      "word": "curieux",
+      "word": "étude",
       "percentile": 986,
-      "similarity": 56.09
+      "similarity": 46.08
     },
     {
-      "word": "inconnu",
+      "word": "discipline",
       "percentile": 985,
-      "similarity": 55.73
+      "similarity": 45.8
     },
     {
-      "word": "effrayant",
+      "word": "master",
       "percentile": 984,
-      "similarity": 54.96
+      "similarity": 45.22
     },
     {
-      "word": "soudainement",
+      "word": "pluridisciplinaire",
       "percentile": 983,
-      "similarity": 54.77
+      "similarity": 44.98
     },
     {
-      "word": "obscur",
+      "word": "diplôme",
       "percentile": 982,
-      "similarity": 53.94
+      "similarity": 44.86
     },
     {
-      "word": "apercevoir",
+      "word": "doctoral",
       "percentile": 981,
-      "similarity": 53.9
+      "similarity": 44.76
     }
   ]
 }

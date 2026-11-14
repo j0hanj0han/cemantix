@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-15",
+  "puzzle_num": 1719,
+  "word": "universitaire",
+  "first_letter": "U",
+  "word_length": 13,
+  "definition": "De l’université, voire par extension de l’enseignement supérieur.",
+  "hints": {
+    "level1": [
+      {
+        "word": "sociogenèse",
+        "percentile": 200,
+        "definition": "Genèse, origine d’un comportement, d’un concept social."
+      },
+      {
+        "word": "exeat",
+        "percentile": 267,
+        "definition": "Permission que l’évêque donne à un ecclésiastique, son diocésain, d’aller exercer dans un autre diocèse."
+      },
+      {
+        "word": "partenarial",
+        "percentile": 334,
+        "definition": "Qui est propre, relatif au partenariat."
+      }
+    ],
+    "level2": [
+      {
+        "word": "parapsychologie",
+        "percentile": 500,
+        "definition": "Discipline qui tente d'étudier expérimentalement des phénomènes considérés comme miraculeux, magiques ou occultes."
+      },
+      {
+        "word": "psychomotricien",
+        "percentile": 567,
+        "definition": "Professionnel qui soigne les troubles physiques d’origine psychologique de ses patients."
+      },
+      {
+        "word": "bibliographique",
+        "percentile": 634,
+        "definition": "Relatif à la bibliographie."
+      }
+    ],
+    "level3": [
+      {
+        "word": "présentiel",
+        "percentile": 800,
+        "definition": "Qui implique une présence réelle."
+      },
+      {
+        "word": "boursier",
+        "percentile": 850,
+        "definition": "Qui concerne la bourse."
+      },
+      {
+        "word": "organisme",
+        "percentile": 900,
+        "definition": "Être vivant individuel, unicellulaire ou pluricellulaire, possédant une organisation interne autonome lui permettant d'accomplir ses fonctions vitales."
+      }
+    ]
+  },
+  "tried_count": 233,
+  "generated_at": "2026-11-14T23:22:11.161239+00:00",
+  "nearby_top": [
+    {
+      "word": "universitaire",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "étudiant",
+      "percentile": 999,
+      "similarity": 70.76
+    },
+    {
+      "word": "université",
+      "percentile": 998,
+      "similarity": 68.38
+    },
+    {
+      "word": "enseignement",
+      "percentile": 997,
+      "similarity": 58.5
+    },
+    {
+      "word": "chercheur",
+      "percentile": 996,
+      "similarity": 55.32
+    },
+    {
+      "word": "cursus",
+      "percentile": 995,
+      "similarity": 55.06
+    },
+    {
+      "word": "scientifique",
+      "percentile": 994,
+      "similarity": 50.82
+    },
+    {
+      "word": "académique",
+      "percentile": 993,
+      "similarity": 50.73
+    },
+    {
+      "word": "formation",
+      "percentile": 992,
+      "similarity": 50.57
+    },
+    {
+      "word": "facultaire",
+      "percentile": 991,
+      "similarity": 49.85
+    },
+    {
+      "word": "enseignant",
+      "percentile": 990,
+      "similarity": 49.41
+    },
+    {
+      "word": "recherche",
+      "percentile": 989,
+      "similarity": 48.52
+    },
+    {
+      "word": "scolarité",
+      "percentile": 988,
+      "similarity": 48.29
+    },
+    {
+      "word": "institution",
+      "percentile": 987,
+      "similarity": 47.05
+    },
+    {
+      "word": "étude",
+      "percentile": 986,
+      "similarity": 46.08
+    },
+    {
+      "word": "discipline",
+      "percentile": 985,
+      "similarity": 45.8
+    },
+    {
+      "word": "master",
+      "percentile": 984,
+      "similarity": 45.22
+    },
+    {
+      "word": "pluridisciplinaire",
+      "percentile": 983,
+      "similarity": 44.98
+    },
+    {
+      "word": "diplôme",
+      "percentile": 982,
+      "similarity": 44.86
+    },
+    {
+      "word": "doctoral",
+      "percentile": 981,
+      "similarity": 44.76
+    }
+  ]
+}

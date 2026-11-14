@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-14",
+  "puzzle_num": 1645,
+  "word": "Corail",
+  "title_slug": "Corail",
+  "title_display": "Corail",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Corail",
+  "hints": {
+    "level1": [
+      "1 mot · 6 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "animal invertébré marin de l'embranchement des Cnidaires",
+      "Cnidaire (nom vernaculaire)",
+      "Faune tropicale"
+    ],
+    "level3": [
+      "Le terme ___ désigne un certain nombre d'animaux marins appartenant à l'embranchement des cnidaires."
+    ]
+  },
+  "extract": "Le terme corail désigne un certain nombre d'animaux marins appartenant à l'embranchement des cnidaires.",
+  "categories": [
+    "animal invertébré marin de l'embranchement des Cnidaires",
+    "Cnidaire (nom vernaculaire)",
+    "Faune tropicale"
+  ],
+  "generated_at": "2026-11-14T23:22:46.464085+00:00"
+}

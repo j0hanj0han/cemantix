@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-16",
+  "puzzle_num": 1720,
+  "word": "abonné",
+  "first_letter": "A",
+  "word_length": 6,
+  "definition": "Personne qui a contracté un abonnement.",
+  "hints": {
+    "level1": [
+      {
+        "word": "microforme",
+        "percentile": 200,
+        "definition": "Support de stockage analogique de haute densité."
+      },
+      {
+        "word": "personnel",
+        "percentile": 267,
+        "definition": "Qui est propre et particulier à chaque personne."
+      },
+      {
+        "word": "néanmoins",
+        "percentile": 334,
+        "definition": "Malgré cela ; en dépit de cela."
+      }
+    ],
+    "level2": [
+      {
+        "word": "revuiste",
+        "percentile": 500,
+        "definition": "Auteur ou de revues."
+      },
+      {
+        "word": "antispam",
+        "percentile": 567,
+        "definition": "Qui lutte contre les pourriels."
+      },
+      {
+        "word": "activable",
+        "percentile": 634,
+        "definition": "Que l’on peut activer."
+      }
+    ],
+    "level3": [
+      {
+        "word": "audience",
+        "percentile": 800,
+        "definition": "Attention donnée à la personne qui parle."
+      },
+      {
+        "word": "télédéclarant",
+        "percentile": 850,
+        "definition": "Qui télédéclare."
+      },
+      {
+        "word": "souscription",
+        "percentile": 900,
+        "definition": "Signature qu’on met au-dessous d’un acte pour l’approuver."
+      }
+    ]
+  },
+  "tried_count": 260,
+  "generated_at": "2026-11-15T23:23:45.109834+00:00",
+  "nearby_top": [
+    {
+      "word": "abonné",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "abonnement",
+      "percentile": 999,
+      "similarity": 66.73
+    },
+    {
+      "word": "abonner",
+      "percentile": 998,
+      "similarity": 54.06
+    },
+    {
+      "word": "réabonnement",
+      "percentile": 997,
+      "similarity": 50.29
+    },
+    {
+      "word": "internaute",
+      "percentile": 996,
+      "similarity": 47.13
+    },
+    {
+      "word": "réabonner",
+      "percentile": 995,
+      "similarity": 46.82
+    },
+    {
+      "word": "utilisateur",
+      "percentile": 994,
+      "similarity": 44.36
+    },
+    {
+      "word": "mobicarte",
+      "percentile": 993,
+      "similarity": 44.06
+    },
+    {
+      "word": "payant",
+      "percentile": 992,
+      "similarity": 43.88
+    },
+    {
+      "word": "opérateur",
+      "percentile": 991,
+      "similarity": 43.84
+    },
+    {
+      "word": "désabonner",
+      "percentile": 990,
+      "similarity": 43.33
+    },
+    {
+      "word": "newsletter",
+      "percentile": 989,
+      "similarity": 42.94
+    },
+    {
+      "word": "multiposte",
+      "percentile": 988,
+      "similarity": 41.86
+    },
+    {
+      "word": "connexion",
+      "percentile": 987,
+      "similarity": 41.27
+    },
+    {
+      "word": "désabonnement",
+      "percentile": 986,
+      "similarity": 40.92
+    },
+    {
+      "word": "dégrouper",
+      "percentile": 985,
+      "similarity": 40.75
+    },
+    {
+      "word": "fournisseur",
+      "percentile": 984,
+      "similarity": 40.43
+    },
+    {
+      "word": "facturer",
+      "percentile": 983,
+      "similarity": 40.22
+    },
+    {
+      "word": "dégroupage",
+      "percentile": 982,
+      "similarity": 40.21
+    },
+    {
+      "word": "télétel",
+      "percentile": 981,
+      "similarity": 39.84
+    }
+  ]
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-15",
-  "puzzle_num": 1719,
-  "word": "universitaire",
-  "first_letter": "U",
-  "word_length": 13,
-  "definition": "De l’université, voire par extension de l’enseignement supérieur.",
+  "date": "2026-11-16",
+  "puzzle_num": 1720,
+  "word": "abonné",
+  "first_letter": "A",
+  "word_length": 6,
+  "definition": "Personne qui a contracté un abonnement.",
   "hints": {
     "level1": [
       {
-        "word": "sociogenèse",
+        "word": "microforme",
         "percentile": 200,
-        "definition": "Genèse, origine d’un comportement, d’un concept social."
+        "definition": "Support de stockage analogique de haute densité."
       },
       {
-        "word": "exeat",
+        "word": "personnel",
         "percentile": 267,
-        "definition": "Permission que l’évêque donne à un ecclésiastique, son diocésain, d’aller exercer dans un autre diocèse."
+        "definition": "Qui est propre et particulier à chaque personne."
       },
       {
-        "word": "partenarial",
+        "word": "néanmoins",
         "percentile": 334,
-        "definition": "Qui est propre, relatif au partenariat."
+        "definition": "Malgré cela ; en dépit de cela."
       }
     ],
     "level2": [
       {
-        "word": "parapsychologie",
+        "word": "revuiste",
         "percentile": 500,
-        "definition": "Discipline qui tente d'étudier expérimentalement des phénomènes considérés comme miraculeux, magiques ou occultes."
+        "definition": "Auteur ou de revues."
       },
       {
-        "word": "psychomotricien",
+        "word": "antispam",
         "percentile": 567,
-        "definition": "Professionnel qui soigne les troubles physiques d’origine psychologique de ses patients."
+        "definition": "Qui lutte contre les pourriels."
       },
       {
-        "word": "bibliographique",
+        "word": "activable",
         "percentile": 634,
-        "definition": "Relatif à la bibliographie."
+        "definition": "Que l’on peut activer."
       }
     ],
     "level3": [
       {
-        "word": "présentiel",
+        "word": "audience",
         "percentile": 800,
-        "definition": "Qui implique une présence réelle."
+        "definition": "Attention donnée à la personne qui parle."
       },
       {
-        "word": "boursier",
+        "word": "télédéclarant",
         "percentile": 850,
-        "definition": "Qui concerne la bourse."
+        "definition": "Qui télédéclare."
       },
       {
-        "word": "organisme",
+        "word": "souscription",
         "percentile": 900,
-        "definition": "Être vivant individuel, unicellulaire ou pluricellulaire, possédant une organisation interne autonome lui permettant d'accomplir ses fonctions vitales."
+        "definition": "Signature qu’on met au-dessous d’un acte pour l’approuver."
       }
     ]
   },
-  "tried_count": 233,
-  "generated_at": "2026-11-14T23:22:11.161239+00:00",
+  "tried_count": 260,
+  "generated_at": "2026-11-15T23:23:45.109834+00:00",
   "nearby_top": [
     {
-      "word": "universitaire",
+      "word": "abonné",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "étudiant",
+      "word": "abonnement",
       "percentile": 999,
-      "similarity": 70.76
+      "similarity": 66.73
     },
     {
-      "word": "université",
+      "word": "abonner",
       "percentile": 998,
-      "similarity": 68.38
+      "similarity": 54.06
     },
     {
-      "word": "enseignement",
+      "word": "réabonnement",
       "percentile": 997,
-      "similarity": 58.5
+      "similarity": 50.29
     },
     {
-      "word": "chercheur",
+      "word": "internaute",
       "percentile": 996,
-      "similarity": 55.32
+      "similarity": 47.13
     },
     {
-      "word": "cursus",
+      "word": "réabonner",
       "percentile": 995,
-      "similarity": 55.06
+      "similarity": 46.82
     },
     {
-      "word": "scientifique",
+      "word": "utilisateur",
       "percentile": 994,
-      "similarity": 50.82
+      "similarity": 44.36
     },
     {
-      "word": "académique",
+      "word": "mobicarte",
       "percentile": 993,
-      "similarity": 50.73
+      "similarity": 44.06
     },
     {
-      "word": "formation",
+      "word": "payant",
       "percentile": 992,
-      "similarity": 50.57
+      "similarity": 43.88
     },
     {
-      "word": "facultaire",
+      "word": "opérateur",
       "percentile": 991,
-      "similarity": 49.85
+      "similarity": 43.84
     },
     {
-      "word": "enseignant",
+      "word": "désabonner",
       "percentile": 990,
-      "similarity": 49.41
+      "similarity": 43.33
     },
     {
-      "word": "recherche",
+      "word": "newsletter",
       "percentile": 989,
-      "similarity": 48.52
+      "similarity": 42.94
     },
     {
-      "word": "scolarité",
+      "word": "multiposte",
       "percentile": 988,
-      "similarity": 48.29
+      "similarity": 41.86
     },
     {
-      "word": "institution",
+      "word": "connexion",
       "percentile": 987,
-      "similarity": 47.05
+      "similarity": 41.27
     },
     {
-      "word": "étude",
+      "word": "désabonnement",
       "percentile": 986,
-      "similarity": 46.08
+      "similarity": 40.92
     },
     {
-      "word": "discipline",
+      "word": "dégrouper",
       "percentile": 985,
-      "similarity": 45.8
+      "similarity": 40.75
     },
     {
-      "word": "master",
+      "word": "fournisseur",
       "percentile": 984,
-      "similarity": 45.22
+      "similarity": 40.43
     },
     {
-      "word": "pluridisciplinaire",
+      "word": "facturer",
       "percentile": 983,
-      "similarity": 44.98
+      "similarity": 40.22
     },
     {
-      "word": "diplôme",
+      "word": "dégroupage",
       "percentile": 982,
-      "similarity": 44.86
+      "similarity": 40.21
     },
     {
-      "word": "doctoral",
+      "word": "télétel",
       "percentile": 981,
-      "similarity": 44.76
+      "similarity": 39.84
     }
   ]
 }

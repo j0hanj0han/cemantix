@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-18",
+  "puzzle_num": 1722,
+  "word": "ombre",
+  "first_letter": "O",
+  "word_length": 5,
+  "definition": "Obscurité relative que cause un corps opaque en interceptant la lumière.vignette|Femme à l’ombre (1) d’une ombrelle.",
+  "hints": {
+    "level1": [
+      {
+        "word": "rapière",
+        "percentile": 200,
+        "definition": "Épée longue et fine, à garde filiforme ou hémisphérique."
+      },
+      {
+        "word": "exhalaison",
+        "percentile": 267,
+        "definition": "Ce qui s’exhale d’un corps."
+      },
+      {
+        "word": "rembrunir",
+        "percentile": 334,
+        "definition": "Rendre brun, rendre plus sombre."
+      }
+    ],
+    "level2": [
+      {
+        "word": "lugubrement",
+        "percentile": 500,
+        "definition": "D’une manière lugubre."
+      },
+      {
+        "word": "éclaircir",
+        "percentile": 567,
+        "definition": "Rendre clair, rendre plus clair."
+      },
+      {
+        "word": "revenant",
+        "percentile": 634,
+        "definition": "Qui revient."
+      }
+    ],
+    "level3": [
+      {
+        "word": "pesamment",
+        "percentile": 800,
+        "definition": "D’une manière pesante."
+      },
+      {
+        "word": "entrevoir",
+        "percentile": 850,
+        "definition": "Voir imparfaitement, ou en passant."
+      },
+      {
+        "word": "éclaire",
+        "percentile": 900,
+        "definition": "Synonyme de chélidoine."
+      }
+    ]
+  },
+  "tried_count": 39,
+  "generated_at": "2026-11-17T23:15:27.823689+00:00",
+  "nearby_top": [
+    {
+      "word": "ombre",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "sombre",
+      "percentile": 999,
+      "similarity": 62.01
+    },
+    {
+      "word": "pénombre",
+      "percentile": 998,
+      "similarity": 60.92
+    },
+    {
+      "word": "lumière",
+      "percentile": 997,
+      "similarity": 59.89
+    },
+    {
+      "word": "obscurité",
+      "percentile": 996,
+      "similarity": 59.46
+    },
+    {
+      "word": "brume",
+      "percentile": 995,
+      "similarity": 55.29
+    },
+    {
+      "word": "ténèbre",
+      "percentile": 994,
+      "similarity": 55.28
+    },
+    {
+      "word": "crépuscule",
+      "percentile": 993,
+      "similarity": 54.37
+    },
+    {
+      "word": "obscur",
+      "percentile": 992,
+      "similarity": 52.45
+    },
+    {
+      "word": "ténébreux",
+      "percentile": 991,
+      "similarity": 52.04
+    },
+    {
+      "word": "lueur",
+      "percentile": 990,
+      "similarity": 51.21
+    },
+    {
+      "word": "fantôme",
+      "percentile": 989,
+      "similarity": 50.77
+    },
+    {
+      "word": "pâle",
+      "percentile": 988,
+      "similarity": 50.58
+    },
+    {
+      "word": "planer",
+      "percentile": 987,
+      "similarity": 50.29
+    },
+    {
+      "word": "contre-jour",
+      "percentile": 986,
+      "similarity": 50.23
+    },
+    {
+      "word": "blafard",
+      "percentile": 985,
+      "similarity": 50.2
+    },
+    {
+      "word": "rougeoyer",
+      "percentile": 984,
+      "similarity": 50.15
+    },
+    {
+      "word": "rougeoyant",
+      "percentile": 983,
+      "similarity": 49.91
+    },
+    {
+      "word": "clair-obscur",
+      "percentile": 982,
+      "similarity": 49.86
+    },
+    {
+      "word": "miroiter",
+      "percentile": 981,
+      "similarity": 49.51
+    }
+  ]
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-17",
-  "puzzle_num": 1721,
-  "word": "pâte",
-  "first_letter": "P",
-  "word_length": 4,
-  "definition": "Préparation culinaire à base de farine consommée après cuisson sous forme de pain, tarte, gâteau, friandise, etc.",
+  "date": "2026-11-18",
+  "puzzle_num": 1722,
+  "word": "ombre",
+  "first_letter": "O",
+  "word_length": 5,
+  "definition": "Obscurité relative que cause un corps opaque en interceptant la lumière.vignette|Femme à l’ombre (1) d’une ombrelle.",
   "hints": {
     "level1": [
       {
-        "word": "aqueux",
+        "word": "rapière",
         "percentile": 200,
-        "definition": "Qui est de la nature de l’eau."
+        "definition": "Épée longue et fine, à garde filiforme ou hémisphérique."
       },
       {
-        "word": "jambonnette",
+        "word": "exhalaison",
         "percentile": 267,
-        "definition": "Couenne farcie de viande de porc, notamment de l'épaule et du jambon désossé, on lui donne généralement la forme d'un petit jambon que l'on fait cuire dans un bouillon."
+        "definition": "Ce qui s’exhale d’un corps."
       },
       {
-        "word": "cellulosique",
+        "word": "rembrunir",
         "percentile": 334,
-        "definition": "De la nature de la cellulose ; qui contient de la cellulose."
+        "definition": "Rendre brun, rendre plus sombre."
       }
     ],
     "level2": [
       {
-        "word": "gaufrette",
+        "word": "lugubrement",
         "percentile": 500,
-        "definition": "Petite gaufre, souvent fourrée d'une crème ou d'une confiture."
+        "definition": "D’une manière lugubre."
       },
       {
-        "word": "abricoter",
+        "word": "éclaircir",
         "percentile": 567,
-        "definition": "Napper ou lustrer un dessert d’une fine couche de nappage blond (nappage à base d’eau et de confiture d’abricot), ou de confiture ou gelée d’abricot."
+        "definition": "Rendre clair, rendre plus clair."
       },
       {
-        "word": "collant",
+        "word": "revenant",
         "percentile": 634,
-        "definition": "Qui colle."
+        "definition": "Qui revient."
       }
     ],
     "level3": [
       {
-        "word": "égoutter",
+        "word": "pesamment",
         "percentile": 800,
-        "definition": "Faire qu’une chose se débarrasse goutte à goutte du liquide qu’elle contient."
+        "definition": "D’une manière pesante."
       },
       {
-        "word": "recuisson",
+        "word": "entrevoir",
         "percentile": 850,
-        "definition": "Action de recuire."
+        "definition": "Voir imparfaitement, ou en passant."
       },
       {
-        "word": "spatule",
+        "word": "éclaire",
         "percentile": 900,
-        "definition": "Baguette de bois, de métal, d’ivoire, etc., élargie et aplatie à un bout, dont on se sert en pharmacie et en chimie."
+        "definition": "Synonyme de chélidoine."
       }
     ]
   },
-  "tried_count": 283,
-  "generated_at": "2026-11-17T20:24:56.655824+00:00",
+  "tried_count": 39,
+  "generated_at": "2026-11-17T23:15:27.823689+00:00",
   "nearby_top": [
     {
-      "word": "pâte",
+      "word": "ombre",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "pâton",
+      "word": "sombre",
       "percentile": 999,
-      "similarity": 57.87
+      "similarity": 62.01
     },
     {
-      "word": "abaisse",
+      "word": "pénombre",
       "percentile": 998,
-      "similarity": 47.81
+      "similarity": 60.92
     },
     {
-      "word": "fariner",
+      "word": "lumière",
       "percentile": 997,
-      "similarity": 47.45
+      "similarity": 59.89
     },
     {
-      "word": "tourtière",
+      "word": "obscurité",
       "percentile": 996,
-      "similarity": 46.79
+      "similarity": 59.46
     },
     {
-      "word": "pastillage",
+      "word": "brume",
       "percentile": 995,
-      "similarity": 46.62
+      "similarity": 55.29
     },
     {
-      "word": "malaxer",
+      "word": "ténèbre",
       "percentile": 994,
-      "similarity": 45.77
+      "similarity": 55.28
     },
     {
-      "word": "modeler",
+      "word": "crépuscule",
       "percentile": 993,
-      "similarity": 44.98
+      "similarity": 54.37
     },
     {
-      "word": "défibreur",
+      "word": "obscur",
       "percentile": 992,
-      "similarity": 44.44
+      "similarity": 52.45
     },
     {
-      "word": "glaçage",
+      "word": "ténébreux",
       "percentile": 991,
-      "similarity": 44.32
+      "similarity": 52.04
     },
     {
-      "word": "farine",
+      "word": "lueur",
       "percentile": 990,
-      "similarity": 43.44
+      "similarity": 51.21
     },
     {
-      "word": "sulfurisé",
+      "word": "fantôme",
       "percentile": 989,
-      "similarity": 43.0
+      "similarity": 50.77
     },
     {
-      "word": "pétrissage",
+      "word": "pâle",
       "percentile": 988,
-      "similarity": 42.65
+      "similarity": 50.58
     },
     {
-      "word": "précuit",
+      "word": "planer",
       "percentile": 987,
-      "similarity": 42.38
+      "similarity": 50.29
     },
     {
-      "word": "pétrir",
+      "word": "contre-jour",
       "percentile": 986,
-      "similarity": 40.35
+      "similarity": 50.23
     },
     {
-      "word": "enfourner",
+      "word": "blafard",
       "percentile": 985,
-      "similarity": 39.75
+      "similarity": 50.2
     },
     {
-      "word": "massepain",
+      "word": "rougeoyer",
       "percentile": 984,
-      "similarity": 39.72
+      "similarity": 50.15
     },
     {
-      "word": "pâtisserie",
+      "word": "rougeoyant",
       "percentile": 983,
-      "similarity": 39.58
+      "similarity": 49.91
     },
     {
-      "word": "cuire",
+      "word": "clair-obscur",
       "percentile": 982,
-      "similarity": 39.51
+      "similarity": 49.86
     },
     {
-      "word": "cuisson",
+      "word": "miroiter",
       "percentile": 981,
-      "similarity": 39.45
+      "similarity": 49.51
     }
   ]
 }

@@ -8,8 +8,8 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-17T21:24:56+01:00</news:publication_date>
-      <news:title>Solution Cémantix du mardi 17 novembre 2026</news:title>
+      <news:publication_date>2026-11-18T00:15:27+01:00</news:publication_date>
+      <news:title>Solution Cémantix du mercredi 18 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -19,19 +19,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-17T21:24:56+01:00</news:publication_date>
-      <news:title>Indices Cémantix du mardi 17 novembre 2026</news:title>
+      <news:publication_date>2026-11-18T00:15:27+01:00</news:publication_date>
+      <news:title>Indices Cémantix du mercredi 18 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-11-16</loc>
+    <loc>https://solution-du-jour.fr/cemantix/archive/2026-11-17</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-11-16T00:23:45+01:00</news:publication_date>
-      <news:title>Solution Cémantix du lundi 16 novembre 2026</news:title>
+      <news:publication_date>2026-11-17T21:24:56+01:00</news:publication_date>
+      <news:title>Solution Cémantix du mardi 17 novembre 2026</news:title>
     </news:news>
   </url>
   <url>
@@ -41,52 +41,19 @@
         <news:name>Solutions du Jour</news:name>
         <news:language>fr</news:language>
       </news:publication>
+      <news:publication_date>2026-11-18T00:15:28+01:00</news:publication_date>
+      <news:title>Solution Sutom du mercredi 18 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-17</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
       <news:publication_date>2026-11-17T21:24:58+01:00</news:publication_date>
       <news:title>Solution Sutom du mardi 17 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-16</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-16T00:23:45+01:00</news:publication_date>
-      <news:title>Solution Sutom du lundi 16 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-17T21:25:03+01:00</news:publication_date>
-      <news:title>Solution Tusmo du mardi 17 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/archive/2026-11-16</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-16T02:30:13+01:00</news:publication_date>
-      <news:title>Solution Tusmo du lundi 16 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-17T21:25:37+01:00</news:publication_date>
-      <news:title>Résultats EuroMillions du mardi 17 novembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

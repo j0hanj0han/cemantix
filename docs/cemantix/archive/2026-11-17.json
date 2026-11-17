@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-17",
+  "puzzle_num": 1721,
+  "word": "pâte",
+  "first_letter": "P",
+  "word_length": 4,
+  "definition": "Préparation culinaire à base de farine consommée après cuisson sous forme de pain, tarte, gâteau, friandise, etc.",
+  "hints": {
+    "level1": [
+      {
+        "word": "aqueux",
+        "percentile": 200,
+        "definition": "Qui est de la nature de l’eau."
+      },
+      {
+        "word": "jambonnette",
+        "percentile": 267,
+        "definition": "Couenne farcie de viande de porc, notamment de l'épaule et du jambon désossé, on lui donne généralement la forme d'un petit jambon que l'on fait cuire dans un bouillon."
+      },
+      {
+        "word": "cellulosique",
+        "percentile": 334,
+        "definition": "De la nature de la cellulose ; qui contient de la cellulose."
+      }
+    ],
+    "level2": [
+      {
+        "word": "gaufrette",
+        "percentile": 500,
+        "definition": "Petite gaufre, souvent fourrée d'une crème ou d'une confiture."
+      },
+      {
+        "word": "abricoter",
+        "percentile": 567,
+        "definition": "Napper ou lustrer un dessert d’une fine couche de nappage blond (nappage à base d’eau et de confiture d’abricot), ou de confiture ou gelée d’abricot."
+      },
+      {
+        "word": "collant",
+        "percentile": 634,
+        "definition": "Qui colle."
+      }
+    ],
+    "level3": [
+      {
+        "word": "égoutter",
+        "percentile": 800,
+        "definition": "Faire qu’une chose se débarrasse goutte à goutte du liquide qu’elle contient."
+      },
+      {
+        "word": "recuisson",
+        "percentile": 850,
+        "definition": "Action de recuire."
+      },
+      {
+        "word": "spatule",
+        "percentile": 900,
+        "definition": "Baguette de bois, de métal, d’ivoire, etc., élargie et aplatie à un bout, dont on se sert en pharmacie et en chimie."
+      }
+    ]
+  },
+  "tried_count": 283,
+  "generated_at": "2026-11-17T20:24:56.655824+00:00",
+  "nearby_top": [
+    {
+      "word": "pâte",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "pâton",
+      "percentile": 999,
+      "similarity": 57.87
+    },
+    {
+      "word": "abaisse",
+      "percentile": 998,
+      "similarity": 47.81
+    },
+    {
+      "word": "fariner",
+      "percentile": 997,
+      "similarity": 47.45
+    },
+    {
+      "word": "tourtière",
+      "percentile": 996,
+      "similarity": 46.79
+    },
+    {
+      "word": "pastillage",
+      "percentile": 995,
+      "similarity": 46.62
+    },
+    {
+      "word": "malaxer",
+      "percentile": 994,
+      "similarity": 45.77
+    },
+    {
+      "word": "modeler",
+      "percentile": 993,
+      "similarity": 44.98
+    },
+    {
+      "word": "défibreur",
+      "percentile": 992,
+      "similarity": 44.44
+    },
+    {
+      "word": "glaçage",
+      "percentile": 991,
+      "similarity": 44.32
+    },
+    {
+      "word": "farine",
+      "percentile": 990,
+      "similarity": 43.44
+    },
+    {
+      "word": "sulfurisé",
+      "percentile": 989,
+      "similarity": 43.0
+    },
+    {
+      "word": "pétrissage",
+      "percentile": 988,
+      "similarity": 42.65
+    },
+    {
+      "word": "précuit",
+      "percentile": 987,
+      "similarity": 42.38
+    },
+    {
+      "word": "pétrir",
+      "percentile": 986,
+      "similarity": 40.35
+    },
+    {
+      "word": "enfourner",
+      "percentile": 985,
+      "similarity": 39.75
+    },
+    {
+      "word": "massepain",
+      "percentile": 984,
+      "similarity": 39.72
+    },
+    {
+      "word": "pâtisserie",
+      "percentile": 983,
+      "similarity": 39.58
+    },
+    {
+      "word": "cuire",
+      "percentile": 982,
+      "similarity": 39.51
+    },
+    {
+      "word": "cuisson",
+      "percentile": 981,
+      "similarity": 39.45
+    }
+  ]
+}

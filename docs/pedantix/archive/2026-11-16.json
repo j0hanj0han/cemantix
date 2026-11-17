@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-16",
+  "puzzle_num": 1648,
+  "word": "Tourte voyageuse",
+  "title_slug": "Tourte_voyageuse",
+  "title_display": "Tourte voyageuse",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tourte_voyageuse",
+  "hints": {
+    "level1": [
+      "2 mots · 15 lettres",
+      "Premières lettres : T · V"
+    ],
+    "level2": [
+      "espèce d'oiseaux columbiformes éteinte de la famille des columbidae",
+      "Taxobox utilisant la classification du Congrès ornithologique international",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
+    ],
+    "level3": [
+      "La ___, pigeon migrateur ou colombe ___ est une espèce d'oiseaux, aujourd'hui éteinte de la famille des Columbidae."
+    ]
+  },
+  "extract": "La Tourte voyageuse, pigeon migrateur ou colombe voyageuse est une espèce d'oiseaux, aujourd'hui éteinte de la famille des Columbidae.",
+  "categories": [
+    "espèce d'oiseaux columbiformes éteinte de la famille des columbidae",
+    "Taxobox utilisant la classification du Congrès ornithologique international",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
+  ],
+  "generated_at": "2026-11-17T20:25:39.367670+00:00"
+}

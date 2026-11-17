@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-16",
-  "puzzle_num": 1720,
-  "word": "abonné",
-  "first_letter": "A",
-  "word_length": 6,
-  "definition": "Personne qui a contracté un abonnement.",
+  "date": "2026-11-17",
+  "puzzle_num": 1721,
+  "word": "pâte",
+  "first_letter": "P",
+  "word_length": 4,
+  "definition": "Préparation culinaire à base de farine consommée après cuisson sous forme de pain, tarte, gâteau, friandise, etc.",
   "hints": {
     "level1": [
       {
-        "word": "microforme",
+        "word": "aqueux",
         "percentile": 200,
-        "definition": "Support de stockage analogique de haute densité."
+        "definition": "Qui est de la nature de l’eau."
       },
       {
-        "word": "personnel",
+        "word": "jambonnette",
         "percentile": 267,
-        "definition": "Qui est propre et particulier à chaque personne."
+        "definition": "Couenne farcie de viande de porc, notamment de l'épaule et du jambon désossé, on lui donne généralement la forme d'un petit jambon que l'on fait cuire dans un bouillon."
       },
       {
-        "word": "néanmoins",
+        "word": "cellulosique",
         "percentile": 334,
-        "definition": "Malgré cela ; en dépit de cela."
+        "definition": "De la nature de la cellulose ; qui contient de la cellulose."
       }
     ],
     "level2": [
       {
-        "word": "revuiste",
+        "word": "gaufrette",
         "percentile": 500,
-        "definition": "Auteur ou de revues."
+        "definition": "Petite gaufre, souvent fourrée d'une crème ou d'une confiture."
       },
       {
-        "word": "antispam",
+        "word": "abricoter",
         "percentile": 567,
-        "definition": "Qui lutte contre les pourriels."
+        "definition": "Napper ou lustrer un dessert d’une fine couche de nappage blond (nappage à base d’eau et de confiture d’abricot), ou de confiture ou gelée d’abricot."
       },
       {
-        "word": "activable",
+        "word": "collant",
         "percentile": 634,
-        "definition": "Que l’on peut activer."
+        "definition": "Qui colle."
       }
     ],
     "level3": [
       {
-        "word": "audience",
+        "word": "égoutter",
         "percentile": 800,
-        "definition": "Attention donnée à la personne qui parle."
+        "definition": "Faire qu’une chose se débarrasse goutte à goutte du liquide qu’elle contient."
       },
       {
-        "word": "télédéclarant",
+        "word": "recuisson",
         "percentile": 850,
-        "definition": "Qui télédéclare."
+        "definition": "Action de recuire."
       },
       {
-        "word": "souscription",
+        "word": "spatule",
         "percentile": 900,
-        "definition": "Signature qu’on met au-dessous d’un acte pour l’approuver."
+        "definition": "Baguette de bois, de métal, d’ivoire, etc., élargie et aplatie à un bout, dont on se sert en pharmacie et en chimie."
       }
     ]
   },
-  "tried_count": 260,
-  "generated_at": "2026-11-15T23:23:45.109834+00:00",
+  "tried_count": 283,
+  "generated_at": "2026-11-17T20:24:56.655824+00:00",
   "nearby_top": [
     {
-      "word": "abonné",
+      "word": "pâte",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "abonnement",
+      "word": "pâton",
       "percentile": 999,
-      "similarity": 66.73
+      "similarity": 57.87
     },
     {
-      "word": "abonner",
+      "word": "abaisse",
       "percentile": 998,
-      "similarity": 54.06
+      "similarity": 47.81
     },
     {
-      "word": "réabonnement",
+      "word": "fariner",
       "percentile": 997,
-      "similarity": 50.29
+      "similarity": 47.45
     },
     {
-      "word": "internaute",
+      "word": "tourtière",
       "percentile": 996,
-      "similarity": 47.13
+      "similarity": 46.79
     },
     {
-      "word": "réabonner",
+      "word": "pastillage",
       "percentile": 995,
-      "similarity": 46.82
+      "similarity": 46.62
     },
     {
-      "word": "utilisateur",
+      "word": "malaxer",
       "percentile": 994,
-      "similarity": 44.36
+      "similarity": 45.77
     },
     {
-      "word": "mobicarte",
+      "word": "modeler",
       "percentile": 993,
-      "similarity": 44.06
+      "similarity": 44.98
     },
     {
-      "word": "payant",
+      "word": "défibreur",
       "percentile": 992,
-      "similarity": 43.88
+      "similarity": 44.44
     },
     {
-      "word": "opérateur",
+      "word": "glaçage",
       "percentile": 991,
-      "similarity": 43.84
+      "similarity": 44.32
     },
     {
-      "word": "désabonner",
+      "word": "farine",
       "percentile": 990,
-      "similarity": 43.33
+      "similarity": 43.44
     },
     {
-      "word": "newsletter",
+      "word": "sulfurisé",
       "percentile": 989,
-      "similarity": 42.94
+      "similarity": 43.0
     },
     {
-      "word": "multiposte",
+      "word": "pétrissage",
       "percentile": 988,
-      "similarity": 41.86
+      "similarity": 42.65
     },
     {
-      "word": "connexion",
+      "word": "précuit",
       "percentile": 987,
-      "similarity": 41.27
+      "similarity": 42.38
     },
     {
-      "word": "désabonnement",
+      "word": "pétrir",
       "percentile": 986,
-      "similarity": 40.92
+      "similarity": 40.35
     },
     {
-      "word": "dégrouper",
+      "word": "enfourner",
       "percentile": 985,
-      "similarity": 40.75
+      "similarity": 39.75
     },
     {
-      "word": "fournisseur",
+      "word": "massepain",
       "percentile": 984,
-      "similarity": 40.43
+      "similarity": 39.72
     },
     {
-      "word": "facturer",
+      "word": "pâtisserie",
       "percentile": 983,
-      "similarity": 40.22
+      "similarity": 39.58
     },
     {
-      "word": "dégroupage",
+      "word": "cuire",
       "percentile": 982,
-      "similarity": 40.21
+      "similarity": 39.51
     },
     {
-      "word": "télétel",
+      "word": "cuisson",
       "percentile": 981,
-      "similarity": 39.84
+      "similarity": 39.45
     }
   ]
 }

@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-19",
+  "puzzle_num": 1723,
+  "word": "continental",
+  "first_letter": "C",
+  "word_length": 11,
+  "definition": "Qui appartient à un continent.",
+  "hints": {
+    "level1": [
+      {
+        "word": "glaucophane",
+        "percentile": 200,
+        "definition": "Espèce minérale du groupe des silicates sous groupe des inosilicates de la famille des amphiboles sodiques. Sa formule chimique est Na2(Mg,Fe)3Al2Si8O22(OH)2."
+      },
+      {
+        "word": "patriciat",
+        "percentile": 267,
+        "definition": "Ordre des patriciens chez les anciens romains."
+      },
+      {
+        "word": "comparatisme",
+        "percentile": 334,
+        "definition": "Étude comparée des grammaires ou des littératures de langues différentes."
+      }
+    ],
+    "level2": [
+      {
+        "word": "large",
+        "percentile": 500,
+        "definition": "Qui a une dimension déterminée dans le sens de la largeur, par opposition à long, à haut, à profond."
+      },
+      {
+        "word": "maastrichtien",
+        "percentile": 567,
+        "definition": "Relatif au Maastrichtien."
+      },
+      {
+        "word": "expansionnisme",
+        "percentile": 634,
+        "definition": "Doctrine qui préconise l’expansion d’un pays au-delà de ses frontières."
+      }
+    ],
+    "level3": [
+      {
+        "word": "poldérisation",
+        "percentile": 800,
+        "definition": "Action de poldériser, de transformer une étendue d’eau ou encore une région en polder."
+      },
+      {
+        "word": "glaciaire",
+        "percentile": 850,
+        "definition": "Qui appartient aux glaciers."
+      },
+      {
+        "word": "estuarien",
+        "percentile": 900,
+        "definition": "Propre au delta ; relatif à l’estuaire d’un cours d’eau."
+      }
+    ]
+  },
+  "tried_count": 243,
+  "generated_at": "2026-11-18T23:23:53.072114+00:00",
+  "nearby_top": [
+    {
+      "word": "continental",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "continent",
+      "percentile": 999,
+      "similarity": 49.53
+    },
+    {
+      "word": "océanique",
+      "percentile": 998,
+      "similarity": 49.23
+    },
+    {
+      "word": "mésozoïque",
+      "percentile": 997,
+      "similarity": 48.1
+    },
+    {
+      "word": "hercynien",
+      "percentile": 996,
+      "similarity": 46.46
+    },
+    {
+      "word": "biogéographique",
+      "percentile": 995,
+      "similarity": 46.18
+    },
+    {
+      "word": "orogenèse",
+      "percentile": 994,
+      "similarity": 45.21
+    },
+    {
+      "word": "craton",
+      "percentile": 993,
+      "similarity": 44.4
+    },
+    {
+      "word": "côtier",
+      "percentile": 992,
+      "similarity": 43.53
+    },
+    {
+      "word": "septentrional",
+      "percentile": 991,
+      "similarity": 43.5
+    },
+    {
+      "word": "crustal",
+      "percentile": 990,
+      "similarity": 43.38
+    },
+    {
+      "word": "graben",
+      "percentile": 989,
+      "similarity": 43.12
+    },
+    {
+      "word": "miocène",
+      "percentile": 988,
+      "similarity": 43.04
+    },
+    {
+      "word": "néogène",
+      "percentile": 987,
+      "similarity": 42.49
+    },
+    {
+      "word": "cénozoïque",
+      "percentile": 986,
+      "similarity": 41.95
+    },
+    {
+      "word": "continentalité",
+      "percentile": 985,
+      "similarity": 41.89
+    },
+    {
+      "word": "sédimentaire",
+      "percentile": 984,
+      "similarity": 41.87
+    },
+    {
+      "word": "orogène",
+      "percentile": 983,
+      "similarity": 41.6
+    },
+    {
+      "word": "insulaire",
+      "percentile": 982,
+      "similarity": 41.55
+    },
+    {
+      "word": "eustatique",
+      "percentile": 981,
+      "similarity": 41.43
+    }
+  ]
+}

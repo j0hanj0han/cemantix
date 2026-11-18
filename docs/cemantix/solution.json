@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-18",
-  "puzzle_num": 1722,
-  "word": "ombre",
-  "first_letter": "O",
-  "word_length": 5,
-  "definition": "Obscurité relative que cause un corps opaque en interceptant la lumière.vignette|Femme à l’ombre (1) d’une ombrelle.",
+  "date": "2026-11-19",
+  "puzzle_num": 1723,
+  "word": "continental",
+  "first_letter": "C",
+  "word_length": 11,
+  "definition": "Qui appartient à un continent.",
   "hints": {
     "level1": [
       {
-        "word": "rapière",
+        "word": "glaucophane",
         "percentile": 200,
-        "definition": "Épée longue et fine, à garde filiforme ou hémisphérique."
+        "definition": "Espèce minérale du groupe des silicates sous groupe des inosilicates de la famille des amphiboles sodiques. Sa formule chimique est Na2(Mg,Fe)3Al2Si8O22(OH)2."
       },
       {
-        "word": "exhalaison",
+        "word": "patriciat",
         "percentile": 267,
-        "definition": "Ce qui s’exhale d’un corps."
+        "definition": "Ordre des patriciens chez les anciens romains."
       },
       {
-        "word": "rembrunir",
+        "word": "comparatisme",
         "percentile": 334,
-        "definition": "Rendre brun, rendre plus sombre."
+        "definition": "Étude comparée des grammaires ou des littératures de langues différentes."
       }
     ],
     "level2": [
       {
-        "word": "lugubrement",
+        "word": "large",
         "percentile": 500,
-        "definition": "D’une manière lugubre."
+        "definition": "Qui a une dimension déterminée dans le sens de la largeur, par opposition à long, à haut, à profond."
       },
       {
-        "word": "éclaircir",
+        "word": "maastrichtien",
         "percentile": 567,
-        "definition": "Rendre clair, rendre plus clair."
+        "definition": "Relatif au Maastrichtien."
       },
       {
-        "word": "revenant",
+        "word": "expansionnisme",
         "percentile": 634,
-        "definition": "Qui revient."
+        "definition": "Doctrine qui préconise l’expansion d’un pays au-delà de ses frontières."
       }
     ],
     "level3": [
       {
-        "word": "pesamment",
+        "word": "poldérisation",
         "percentile": 800,
-        "definition": "D’une manière pesante."
+        "definition": "Action de poldériser, de transformer une étendue d’eau ou encore une région en polder."
       },
       {
-        "word": "entrevoir",
+        "word": "glaciaire",
         "percentile": 850,
-        "definition": "Voir imparfaitement, ou en passant."
+        "definition": "Qui appartient aux glaciers."
       },
       {
-        "word": "éclaire",
+        "word": "estuarien",
         "percentile": 900,
-        "definition": "Synonyme de chélidoine."
+        "definition": "Propre au delta ; relatif à l’estuaire d’un cours d’eau."
       }
     ]
   },
-  "tried_count": 39,
-  "generated_at": "2026-11-17T23:15:27.823689+00:00",
+  "tried_count": 243,
+  "generated_at": "2026-11-18T23:23:53.072114+00:00",
   "nearby_top": [
     {
-      "word": "ombre",
+      "word": "continental",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "sombre",
+      "word": "continent",
       "percentile": 999,
-      "similarity": 62.01
+      "similarity": 49.53
     },
     {
-      "word": "pénombre",
+      "word": "océanique",
       "percentile": 998,
-      "similarity": 60.92
+      "similarity": 49.23
     },
     {
-      "word": "lumière",
+      "word": "mésozoïque",
       "percentile": 997,
-      "similarity": 59.89
+      "similarity": 48.1
     },
     {
-      "word": "obscurité",
+      "word": "hercynien",
       "percentile": 996,
-      "similarity": 59.46
+      "similarity": 46.46
     },
     {
-      "word": "brume",
+      "word": "biogéographique",
       "percentile": 995,
-      "similarity": 55.29
+      "similarity": 46.18
     },
     {
-      "word": "ténèbre",
+      "word": "orogenèse",
       "percentile": 994,
-      "similarity": 55.28
+      "similarity": 45.21
     },
     {
-      "word": "crépuscule",
+      "word": "craton",
       "percentile": 993,
-      "similarity": 54.37
+      "similarity": 44.4
     },
     {
-      "word": "obscur",
+      "word": "côtier",
       "percentile": 992,
-      "similarity": 52.45
+      "similarity": 43.53
     },
     {
-      "word": "ténébreux",
+      "word": "septentrional",
       "percentile": 991,
-      "similarity": 52.04
+      "similarity": 43.5
     },
     {
-      "word": "lueur",
+      "word": "crustal",
       "percentile": 990,
-      "similarity": 51.21
+      "similarity": 43.38
     },
     {
-      "word": "fantôme",
+      "word": "graben",
       "percentile": 989,
-      "similarity": 50.77
+      "similarity": 43.12
     },
     {
-      "word": "pâle",
+      "word": "miocène",
       "percentile": 988,
-      "similarity": 50.58
+      "similarity": 43.04
     },
     {
-      "word": "planer",
+      "word": "néogène",
       "percentile": 987,
-      "similarity": 50.29
+      "similarity": 42.49
     },
     {
-      "word": "contre-jour",
+      "word": "cénozoïque",
       "percentile": 986,
-      "similarity": 50.23
+      "similarity": 41.95
     },
     {
-      "word": "blafard",
+      "word": "continentalité",
       "percentile": 985,
-      "similarity": 50.2
+      "similarity": 41.89
     },
     {
-      "word": "rougeoyer",
+      "word": "sédimentaire",
       "percentile": 984,
-      "similarity": 50.15
+      "similarity": 41.87
     },
     {
-      "word": "rougeoyant",
+      "word": "orogène",
       "percentile": 983,
-      "similarity": 49.91
+      "similarity": 41.6
     },
     {
-      "word": "clair-obscur",
+      "word": "insulaire",
       "percentile": 982,
-      "similarity": 49.86
+      "similarity": 41.55
     },
     {
-      "word": "miroiter",
+      "word": "eustatique",
       "percentile": 981,
-      "similarity": 49.51
+      "similarity": 41.43
     }
   ]
 }

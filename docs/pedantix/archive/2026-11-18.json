@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-18",
+  "puzzle_num": 1649,
+  "word": "Milan",
+  "title_slug": "Milan",
+  "title_display": "Milan",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Milan",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "capitale de la région de Lombardie, Italie",
+      "Population de 2026 en infobox"
+    ],
+    "level3": [
+      "___ est une ville d'Italie située au nord du pays, à proximité des Alpes."
+    ]
+  },
+  "extract": "Milan est une ville d'Italie située au nord du pays, à proximité des Alpes.",
+  "categories": [
+    "capitale de la région de Lombardie, Italie",
+    "Population de 2026 en infobox"
+  ],
+  "generated_at": "2026-11-18T23:24:37.556710+00:00"
+}

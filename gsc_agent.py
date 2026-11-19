@@ -167,7 +167,7 @@ def get_weekly_trend(service, weeks: int = 8) -> list[dict]:
     return results
 
 
-GAME_SLUGS = ("cemantix", "sutom", "tusmo", "wordle", "pedantix", "loto", "euromillions")
+GAME_SLUGS = ("cemantix", "sutom", "tusmo", "wordle", "pedantix", "loto", "euromillions", "keno")
 EVERGREEN_SEGMENTS = ("comment-jouer", "astuces", "meilleurs-mots", "statistiques", "indice")
 
 
@@ -192,7 +192,7 @@ def _classify_page(url: str) -> tuple[str, str] | None:
         if re.fullmatch(r"\d{4}", d):
             return game, "archive_annee"
         return game, "archive_autre"
-    if rest[0] in ("simulateur", "stats"):
+    if rest[0] in ("simulateur", "stats", "calcul-gains"):
         return game, "outil"
     if rest[0] in EVERGREEN_SEGMENTS:
         return game, "evergreen"

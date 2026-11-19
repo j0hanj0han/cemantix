@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-12",
+  "puzzle_num": 1941,
+  "word": "YODEL",
+  "letter_count": 5,
+  "translation": "tyrolienne, sorte de chanson des zones alpines",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Tyrolienne, sorte de chanson des zones alpines."
+    },
+    {
+      "pos": "verbe",
+      "text": "Yodler, faire des tyroliennes."
+    }
+  ],
+  "definition_en": "Verbe : To sing (a song) in such a way that the voice fluctuates rapidly between the normal chest voice and falsetto.",
+  "editor": "Tracy Bennett"
+}

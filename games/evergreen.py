@@ -439,20 +439,22 @@ _ABOUT_BODY = """    <div class="card">
       <p>
         <strong>Solutions du Jour</strong> est un site non officiel qui publie chaque jour les
         solutions et indices des jeux <strong>Cémantix</strong>, <strong>Sutom</strong>,
-        <strong>Tusmo</strong> et <strong>Pédantix</strong>, ainsi que les <strong>résultats Loto et EuroMillions</strong>.
+        <strong>Tusmo</strong> et <strong>Pédantix</strong>, la réponse du <strong>Wordle</strong> (avec sa traduction
+        en français), ainsi que les <strong>résultats Loto, EuroMillions et Keno</strong>.
         Tout le contenu est généré automatiquement, sans intervention humaine, à partir des
         publications officielles de chaque jeu ou de la Française des Jeux.
       </p>
       <p style="margin-top:.75rem;">
-        Les solutions Cémantix, Sutom, Tusmo et Pédantix sont publiées chaque nuit vers <strong>0h20</strong>
+        Les solutions Cémantix, Sutom, Tusmo, Pédantix et Wordle sont publiées chaque nuit vers <strong>0h20</strong>
         (heure de Paris). Les résultats Loto sont mis à jour après chaque tirage (lundi, mercredi, samedi) et
-        les résultats EuroMillions après chaque tirage (mardi, vendredi).
+        les résultats EuroMillions après chaque tirage (mardi, vendredi). Le dernier tirage Keno est ajouté
+        chaque nuit, avec un <a href="../keno/calcul-gains/">calculateur de gains Keno</a> et des statistiques.
       </p>
     </div>
     <div class="card">
       <h2>Ce site n'est affilié à aucun des jeux présentés</h2>
       <p>
-        Cémantix, Sutom, Tusmo, Pédantix, le Loto et l'EuroMillions sont des marques et jeux qui
+        Cémantix, Sutom, Tusmo, Pédantix, Wordle (The New York Times), le Loto, l'EuroMillions et le Keno sont des marques et jeux qui
         appartiennent à leurs éditeurs respectifs. Solutions du Jour se contente de documenter
         publiquement leurs résultats quotidiens à des fins d'information.
       </p>
@@ -471,7 +473,7 @@ def generate_about_page() -> None:
     }
     html = render_page(
         title="À propos de Solutions du Jour",
-        description="Présentation du site Solutions du Jour : solutions Cémantix, Sutom, Tusmo, Pédantix et résultats Loto/EuroMillions générés automatiquement chaque jour.",
+        description="Présentation du site Solutions du Jour : solutions Cémantix, Sutom, Tusmo, Pédantix et résultats Loto/EuroMillions/Keno générés automatiquement chaque jour.",
         canonical=canonical,
         h1="À propos de Solutions du Jour",
         body_html=_ABOUT_BODY,

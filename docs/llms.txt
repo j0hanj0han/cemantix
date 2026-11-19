@@ -1,6 +1,6 @@
 # Solutions du Jour
 
-> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Tusmo, Pédantix) et les résultats des tirages FDJ (Loto, EuroMillions). Mis à jour automatiquement chaque nuit et après chaque tirage.
+> Site francophone publiant quotidiennement les solutions de jeux en ligne (Cémantix, Sutom, Tusmo, Pédantix, Wordle) et les résultats des tirages FDJ (Loto, EuroMillions, Keno). Mis à jour automatiquement chaque nuit et après chaque tirage.
 
 ## Pages principales
 
@@ -9,19 +9,23 @@
 - [Indices Cémantix (sans la solution)](https://solution-du-jour.fr/cemantix/indice/): Indices progressifs du jour sans révéler la solution.
 - [Sutom — Solution du jour](https://solution-du-jour.fr/sutom/): Solution du Wordle français (Sutom) quotidien.
 - [Tusmo — Solution du jour](https://solution-du-jour.fr/tusmo/): Réponse et indices progressifs du Tusmo quotidien (Wordle français de tusmo.xyz).
+- [Wordle — Réponse du jour](https://solution-du-jour.fr/wordle/): Réponse du Wordle du New York Times, indices progressifs et traduction du mot anglais en français.
 - [Pédantix — Solution du jour](https://solution-du-jour.fr/pedantix/): Solution et indices de l'article Wikipedia secret du Pédantix quotidien.
 - [Loto — Résultats du dernier tirage](https://solution-du-jour.fr/loto/): Numéros gagnants du dernier tirage Loto FDJ (lundi, mercredi, samedi).
 - [EuroMillions — Résultats du dernier tirage](https://solution-du-jour.fr/euromillions/): Numéros gagnants du dernier tirage EuroMillions (mardi, vendredi).
+- [Keno FDJ — Derniers tirages](https://solution-du-jour.fr/keno/): Les 16 numéros et le multiplicateur du dernier tirage Keno, et les 20 tirages précédents (formule du 3 novembre 2025).
 
 ## Simulateurs de gains
 
 - [Simulateur Loto FDJ](https://solution-du-jour.fr/loto/simulateur/): Testez vos 5 numéros + chance sur les 2 600+ tirages Loto depuis 2019. Calcul des gains cumulés et bilan.
 - [Simulateur EuroMillions](https://solution-du-jour.fr/euromillions/simulateur/): Testez vos 5 numéros + 2 étoiles sur les 1 900+ tirages EuroMillions depuis 2004. Calcul des gains cumulés et bilan.
+- [Calcul des gains Keno](https://solution-du-jour.fr/keno/calcul-gains/): Calculateur de gain Keno (numéros cochés et trouvés, mise, multiplicateur), grille officielle des gains depuis le 3 novembre 2025, probabilités, taux de retour, et test d'une grille sur tous les tirages de la nouvelle formule.
 
 ## Statistiques
 
 - [Statistiques Loto 2025-2026](https://solution-du-jour.fr/loto/stats/): Numéros les plus fréquents, numéro chance, et retardataires sur les 100 derniers tirages Loto FDJ.
 - [Statistiques EuroMillions](https://solution-du-jour.fr/euromillions/stats/): Numéros les plus sortis, étoiles fréquentes et retardataires sur les tirages EuroMillions.
+- [Statistiques Keno](https://solution-du-jour.fr/keno/stats/): Fréquence des 56 numéros, écarts, paires et multiplicateurs sur les tirages Keno depuis le 3 novembre 2025. Données brutes : https://solution-du-jour.fr/keno/tirages.json
 
 ## Guides & astuces
 
@@ -39,15 +43,17 @@
 - [Archives Cémantix](https://solution-du-jour.fr/cemantix/archive/): Toutes les solutions passées du Cémantix, avec des pages récapitulatives mensuelles (ex. /cemantix/archive/2026-09).
 - [Archives Sutom](https://solution-du-jour.fr/sutom/archive/): Toutes les solutions passées du Sutom.
 - [Archives Tusmo](https://solution-du-jour.fr/tusmo/archive/): Toutes les réponses passées du Tusmo, jour par jour et par mois (ex. /tusmo/archive/2026-09).
+- [Archives Wordle](https://solution-du-jour.fr/wordle/archive/): Toutes les réponses passées du Wordle avec leur traduction, jour par jour et par mois (ex. /wordle/archive/2026-11).
 - [Archives Pédantix](https://solution-du-jour.fr/pedantix/archive/): Toutes les solutions passées du Pédantix.
 - [Archives Loto](https://solution-du-jour.fr/loto/archive/): Tous les tirages Loto depuis 2024.
 - [Archives EuroMillions](https://solution-du-jour.fr/euromillions/archive/): Tous les tirages EuroMillions depuis 2021.
 
 ## Fréquence de mise à jour
 
-- Cémantix, Sutom, Tusmo et Pédantix : chaque nuit vers 0h20 (heure de Paris)
+- Cémantix, Sutom, Tusmo, Pédantix et Wordle : chaque nuit vers 0h20 (heure de Paris)
 - Loto : après chaque tirage du soir (lundi, mercredi, samedi ~20h20)
 - EuroMillions : après chaque tirage du soir (mardi, vendredi ~21h05)
+- Keno : chaque nuit vers 0h20 avec le tirage de la veille au soir
 
 ## Format des données
 

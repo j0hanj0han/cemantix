@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-22",
+  "puzzle_num": 1951,
+  "word": "RESET",
+  "letter_count": 5,
+  "translation": "remettre à zéro, réinitialiser",
+  "senses": [
+    {
+      "pos": "verbe",
+      "text": "Remettre à zéro, réinitialiser."
+    },
+    {
+      "pos": "nom",
+      "text": "Reset, réinitialisation."
+    }
+  ],
+  "definition_en": "Verbe : To set back to the initial state.",
+  "editor": "Tracy Bennett"
+}

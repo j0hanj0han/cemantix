@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-15",
+  "puzzle_num": 1975,
+  "word": "SNARK",
+  "letter_count": 5,
+  "translation": "sarcasme",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Sarcasme."
+    },
+    {
+      "pos": "verbe",
+      "text": "Faire des sarcasmes."
+    }
+  ],
+  "definition_en": "Nom : An attitude or expression of mocking irreverence and sarcasm.",
+  "editor": "Tracy Bennett"
+}

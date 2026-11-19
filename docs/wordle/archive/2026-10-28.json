@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-28",
+  "puzzle_num": 1957,
+  "word": "GRIST",
+  "letter_count": 5,
+  "translation": "grain moulu",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Grain moulu."
+    },
+    {
+      "pos": "nom",
+      "text": "Grain à moudre, blé à moudre."
+    },
+    {
+      "pos": "nom",
+      "text": "Paquet, tas (au sens de quantité)."
+    },
+    {
+      "pos": "nom",
+      "text": "Substance, essentiel, fond."
+    }
+  ],
+  "definition_en": "Nom : Grain that is to be ground in a mill.",
+  "editor": "Tracy Bennett"
+}

@@ -54,6 +54,9 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.cemantix.draws.plist
 launchctl print gui/$(id -u)/io.cemantix.draws
 ```
 
+Keno (tirage chaque soir vers 20h) n'a pas de job dédié : `generate.py` met à jour
+`docs/keno/` à chaque run, donc à 00h15 et, les soirs Loto/EuroMillions, dès `run_draws.sh`.
+
 Source Loto : `games/loto.py::run()` interroge OpenDataSoft (≈1 jour de retard) **et**
 tirage-gagnant.com (à jour le soir même) et garde le tirage le plus récent ; le n° de
 tirage est alors déduit de la dernière archive (`_next_draw_num`).
@@ -245,7 +248,7 @@ venv/bin/python -c "import generate as g; g.ping_daily_indexnow()"
 Vérifier ensuite que chaque `docs/<jeu>/solution.json` porte la date attendue :
 
 ```bash
-for g in cemantix sutom tusmo loto euromillions; do
+for g in cemantix sutom tusmo wordle loto euromillions; do
   echo -n "$g: "; python3 -c "import json;print(json.load(open('docs/$g/solution.json')).get('date'))"
 done
 ```

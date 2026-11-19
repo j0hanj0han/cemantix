@@ -6,6 +6,7 @@ on:
       - 'docs/cemantix/solution.json'   # déclenché quand le Mac pousse la solution Cémantix
       - 'docs/sutom/solution.json'      # déclenché quand le Mac pousse la solution Sutom
       - 'docs/tusmo/solution.json'      # déclenché quand le Mac pousse la solution Tusmo
+      - 'docs/wordle/solution.json'     # déclenché quand le Mac pousse la réponse Wordle
       - 'docs/pedantix/solution.json'   # déclenché quand le Mac pousse la solution Pédantix
       - 'docs/loto/solution.json'          # déclenché quand le Mac pousse les résultats Loto
       - 'docs/euromillions/solution.json'  # déclenché quand le Mac pousse les résultats EuroMillions
@@ -82,6 +83,22 @@ jobs:
             echo "⚠ docs/tusmo/solution.json introuvable"
           fi
 
+          # Vérification Wordle
+          if [ -f docs/wordle/solution.json ]; then
+            DOC_DATE=$(python3 -c "import json; d=json.load(open('docs/wordle/solution.json')); print(d.get('date',''))")
+            if [ "$DOC_DATE" = "$TODAY" ]; then
+              echo "wordle_ready=true" >> "$GITHUB_OUTPUT"
+              ANY_READY=true
+              echo "✅ wordle/solution.json est à jour pour $TODAY"
+            else
+              echo "wordle_ready=false" >> "$GITHUB_OUTPUT"
+              echo "⚠ wordle/solution.json date=$DOC_DATE, aujourd'hui=$TODAY"
+            fi
+          else
+            echo "wordle_ready=false" >> "$GITHUB_OUTPUT"
+            echo "⚠ docs/wordle/solution.json introuvable"
+          fi
+
           # Vérification Loto (toujours "prêt" si solution.json existe)
           if [ -f docs/loto/solution.json ]; then
             echo "loto_ready=true" >> "$GITHUB_OUTPUT"
@@ -156,6 +173,7 @@ jobs:
             echo "- Cémantix : ${{ steps.check.outputs.cemantix_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Sutom    : ${{ steps.check.outputs.sutom_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Tusmo    : ${{ steps.check.outputs.tusmo_ready }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Wordle   : ${{ steps.check.outputs.wordle_ready }}" >> $GITHUB_STEP_SUMMARY
             echo "- Pédantix : ${{ steps.check.outputs.pedantix_ready }}" >> $GITHUB_STEP_SUMMARY
           else
             echo "### ℹ Pas d'action — aucune solution n'est à jour pour aujourd'hui" >> $GITHUB_STEP_SUMMARY

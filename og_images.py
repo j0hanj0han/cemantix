@@ -30,6 +30,7 @@ GAMES = {
     "cemantix": ("CÉMANTIX", (245, 158, 11)),
     "sutom": ("SUTOM", (231, 0, 42)),
     "tusmo": ("TUSMO", (37, 99, 235)),
+    "wordle": ("WORDLE", (83, 141, 78)),
     "pedantix": ("PÉDANTIX", (139, 92, 246)),
     "loto": ("LOTO", (16, 185, 129)),
     "euromillions": ("EUROMILLIONS", (124, 58, 237)),
@@ -38,6 +39,7 @@ GAMES = {
 _HINT_CHIPS = {
     "cemantix": ["1re lettre", "Longueur", "Définition", "Mots proches", "Solution"],
     "pedantix": ["Catégories", "Indices", "Extrait", "Solution"],
+    "wordle": ["Voyelles", "Lettre répétée", "1re lettre", "Traduction", "Réponse"],
 }
 
 
@@ -100,7 +102,7 @@ def _tagline(draw, text: str, accent) -> None:
 
 def word_game(game: str, d: date, puzzle_num: int, *, word: str | None = None) -> Path | None:
     """Image d'un jeu de mots. `word` (Sutom/Tusmo) n'est utilisé que pour la longueur et
-    la 1re lettre, déjà publiques dans le title ; Cémantix/Pédantix n'en révèlent rien."""
+    la 1re lettre, déjà publiques dans le title ; Cémantix/Pédantix/Wordle n'en révèlent rien."""
     path = image_path(game, d)
     if path.exists() or _pil() is None:
         return None
@@ -200,7 +202,7 @@ def ensure_logo() -> Path | None:
 def backfill(since: date) -> int:
     """Génère les images manquantes de toutes les archives depuis `since`. Retourne le nombre créé."""
     created = 0
-    for game in ("cemantix", "sutom", "tusmo", "pedantix"):
+    for game in ("cemantix", "sutom", "tusmo", "pedantix", "wordle"):
         for e in load_all_archives(DOCS_DIR / game / "archive", required_keys=["date", "puzzle_num"]):
             d = date.fromisoformat(e["date"])
             if d < since:

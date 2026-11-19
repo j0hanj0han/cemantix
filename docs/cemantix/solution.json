@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-19",
-  "puzzle_num": 1723,
-  "word": "continental",
-  "first_letter": "C",
-  "word_length": 11,
-  "definition": "Qui appartient à un continent.",
+  "date": "2026-11-20",
+  "puzzle_num": 1724,
+  "word": "organe",
+  "first_letter": "O",
+  "word_length": 6,
+  "definition": "Partie d’un organisme vivant, considéré comme un tout et comme remplissant une fonction nécessaire ou utile à sa vie.",
   "hints": {
     "level1": [
       {
-        "word": "glaucophane",
+        "word": "extrajudiciaire",
         "percentile": 200,
-        "definition": "Espèce minérale du groupe des silicates sous groupe des inosilicates de la famille des amphiboles sodiques. Sa formule chimique est Na2(Mg,Fe)3Al2Si8O22(OH)2."
+        "definition": "Qui n’est pas relatif à un procès actuellement pendant en justice."
       },
       {
-        "word": "patriciat",
+        "word": "greffon",
         "percentile": 267,
-        "definition": "Ordre des patriciens chez les anciens romains."
+        "definition": "Partie d’un végétal qu’on greffe sur la tige d’un autre végétal."
       },
       {
-        "word": "comparatisme",
+        "word": "cambium",
         "percentile": 334,
-        "definition": "Étude comparée des grammaires ou des littératures de langues différentes."
+        "definition": "Méristème secondaire formant une fine couche de cellules indifférenciées entre le xylème secondaire et le phloème secondaire, responsable de la croissance en épaisseur des tiges et des racines chez les plantes ligneuses. Il produit vers l’intérieur le xylème secondaire et vers l’extérieur le phloème"
       }
     ],
     "level2": [
       {
-        "word": "large",
+        "word": "parlement",
         "percentile": 500,
-        "definition": "Qui a une dimension déterminée dans le sens de la largeur, par opposition à long, à haut, à profond."
+        "definition": "Dans l'ancienne France, jusqu'au siècle, assemblée des grands du royaume, que le roi convoquait pour traiter des affaires importantes."
       },
       {
-        "word": "maastrichtien",
+        "word": "sécréter",
         "percentile": 567,
-        "definition": "Relatif au Maastrichtien."
+        "definition": "Produire une sécrétion."
       },
       {
-        "word": "expansionnisme",
+        "word": "trijumeau",
         "percentile": 634,
-        "definition": "Doctrine qui préconise l’expansion d’un pays au-delà de ses frontières."
+        "definition": "Relatif au nerf crânien de la cinquième paire."
       }
     ],
     "level3": [
       {
-        "word": "poldérisation",
+        "word": "extéroceptif",
         "percentile": 800,
-        "definition": "Action de poldériser, de transformer une étendue d’eau ou encore une région en polder."
+        "definition": "Relatif aux extérocepteurs."
       },
       {
-        "word": "glaciaire",
+        "word": "neuropathologie",
         "percentile": 850,
-        "definition": "Qui appartient aux glaciers."
+        "definition": "Domaine de la pathologie qui s’occupe des maladies du système nerveux."
       },
       {
-        "word": "estuarien",
+        "word": "hématopoïèse",
         "percentile": 900,
-        "definition": "Propre au delta ; relatif à l’estuaire d’un cours d’eau."
+        "definition": "Production du sang, des cellules sanguines."
       }
     ]
   },
-  "tried_count": 243,
-  "generated_at": "2026-11-18T23:23:53.072114+00:00",
+  "tried_count": 258,
+  "generated_at": "2026-11-19T23:18:16.988420+00:00",
   "nearby_top": [
     {
-      "word": "continental",
+      "word": "organe",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "continent",
+      "word": "gemmule",
       "percentile": 999,
-      "similarity": 49.53
+      "similarity": 42.17
     },
     {
-      "word": "océanique",
+      "word": "néphron",
       "percentile": 998,
-      "similarity": 49.23
+      "similarity": 40.3
     },
     {
-      "word": "mésozoïque",
+      "word": "consultatif",
       "percentile": 997,
-      "similarity": 48.1
+      "similarity": 39.64
     },
     {
-      "word": "hercynien",
+      "word": "instance",
       "percentile": 996,
-      "similarity": 46.46
+      "similarity": 39.5
     },
     {
-      "word": "biogéographique",
+      "word": "pinéal",
       "percentile": 995,
-      "similarity": 46.18
+      "similarity": 39.01
     },
     {
-      "word": "orogenèse",
+      "word": "lobule",
       "percentile": 994,
-      "similarity": 45.21
+      "similarity": 38.51
     },
     {
-      "word": "craton",
+      "word": "transplanteur",
       "percentile": 993,
-      "similarity": 44.4
+      "similarity": 38.31
     },
     {
-      "word": "côtier",
+      "word": "organisme",
       "percentile": 992,
-      "similarity": 43.53
+      "similarity": 38.21
     },
     {
-      "word": "septentrional",
+      "word": "émaner",
       "percentile": 991,
-      "similarity": 43.5
+      "similarity": 37.86
     },
     {
-      "word": "crustal",
+      "word": "endocrine",
       "percentile": 990,
-      "similarity": 43.38
+      "similarity": 37.83
     },
     {
-      "word": "graben",
+      "word": "exocrine",
       "percentile": 989,
-      "similarity": 43.12
+      "similarity": 37.79
     },
     {
-      "word": "miocène",
+      "word": "désigner",
       "percentile": 988,
-      "similarity": 43.04
+      "similarity": 37.29
     },
     {
-      "word": "néogène",
+      "word": "hypophyse",
       "percentile": 987,
-      "similarity": 42.49
+      "similarity": 36.92
     },
     {
-      "word": "cénozoïque",
+      "word": "innervation",
       "percentile": 986,
-      "similarity": 41.95
+      "similarity": 36.57
     },
     {
-      "word": "continentalité",
+      "word": "siéger",
       "percentile": 985,
-      "similarity": 41.89
+      "similarity": 36.45
     },
     {
-      "word": "sédimentaire",
+      "word": "sensille",
       "percentile": 984,
-      "similarity": 41.87
+      "similarity": 36.33
     },
     {
-      "word": "orogène",
+      "word": "exécutif",
       "percentile": 983,
-      "similarity": 41.6
+      "similarity": 36.28
     },
     {
-      "word": "insulaire",
+      "word": "névraxe",
       "percentile": 982,
-      "similarity": 41.55
+      "similarity": 36.27
     },
     {
-      "word": "eustatique",
+      "word": "mésoderme",
       "percentile": 981,
-      "similarity": 41.43
+      "similarity": 36.19
     }
   ]
 }

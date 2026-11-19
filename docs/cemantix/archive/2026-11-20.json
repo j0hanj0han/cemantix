@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-20",
+  "puzzle_num": 1724,
+  "word": "organe",
+  "first_letter": "O",
+  "word_length": 6,
+  "definition": "Partie d’un organisme vivant, considéré comme un tout et comme remplissant une fonction nécessaire ou utile à sa vie.",
+  "hints": {
+    "level1": [
+      {
+        "word": "extrajudiciaire",
+        "percentile": 200,
+        "definition": "Qui n’est pas relatif à un procès actuellement pendant en justice."
+      },
+      {
+        "word": "greffon",
+        "percentile": 267,
+        "definition": "Partie d’un végétal qu’on greffe sur la tige d’un autre végétal."
+      },
+      {
+        "word": "cambium",
+        "percentile": 334,
+        "definition": "Méristème secondaire formant une fine couche de cellules indifférenciées entre le xylème secondaire et le phloème secondaire, responsable de la croissance en épaisseur des tiges et des racines chez les plantes ligneuses. Il produit vers l’intérieur le xylème secondaire et vers l’extérieur le phloème"
+      }
+    ],
+    "level2": [
+      {
+        "word": "parlement",
+        "percentile": 500,
+        "definition": "Dans l'ancienne France, jusqu'au siècle, assemblée des grands du royaume, que le roi convoquait pour traiter des affaires importantes."
+      },
+      {
+        "word": "sécréter",
+        "percentile": 567,
+        "definition": "Produire une sécrétion."
+      },
+      {
+        "word": "trijumeau",
+        "percentile": 634,
+        "definition": "Relatif au nerf crânien de la cinquième paire."
+      }
+    ],
+    "level3": [
+      {
+        "word": "extéroceptif",
+        "percentile": 800,
+        "definition": "Relatif aux extérocepteurs."
+      },
+      {
+        "word": "neuropathologie",
+        "percentile": 850,
+        "definition": "Domaine de la pathologie qui s’occupe des maladies du système nerveux."
+      },
+      {
+        "word": "hématopoïèse",
+        "percentile": 900,
+        "definition": "Production du sang, des cellules sanguines."
+      }
+    ]
+  },
+  "tried_count": 258,
+  "generated_at": "2026-11-19T23:18:16.988420+00:00",
+  "nearby_top": [
+    {
+      "word": "organe",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "gemmule",
+      "percentile": 999,
+      "similarity": 42.17
+    },
+    {
+      "word": "néphron",
+      "percentile": 998,
+      "similarity": 40.3
+    },
+    {
+      "word": "consultatif",
+      "percentile": 997,
+      "similarity": 39.64
+    },
+    {
+      "word": "instance",
+      "percentile": 996,
+      "similarity": 39.5
+    },
+    {
+      "word": "pinéal",
+      "percentile": 995,
+      "similarity": 39.01
+    },
+    {
+      "word": "lobule",
+      "percentile": 994,
+      "similarity": 38.51
+    },
+    {
+      "word": "transplanteur",
+      "percentile": 993,
+      "similarity": 38.31
+    },
+    {
+      "word": "organisme",
+      "percentile": 992,
+      "similarity": 38.21
+    },
+    {
+      "word": "émaner",
+      "percentile": 991,
+      "similarity": 37.86
+    },
+    {
+      "word": "endocrine",
+      "percentile": 990,
+      "similarity": 37.83
+    },
+    {
+      "word": "exocrine",
+      "percentile": 989,
+      "similarity": 37.79
+    },
+    {
+      "word": "désigner",
+      "percentile": 988,
+      "similarity": 37.29
+    },
+    {
+      "word": "hypophyse",
+      "percentile": 987,
+      "similarity": 36.92
+    },
+    {
+      "word": "innervation",
+      "percentile": 986,
+      "similarity": 36.57
+    },
+    {
+      "word": "siéger",
+      "percentile": 985,
+      "similarity": 36.45
+    },
+    {
+      "word": "sensille",
+      "percentile": 984,
+      "similarity": 36.33
+    },
+    {
+      "word": "exécutif",
+      "percentile": 983,
+      "similarity": 36.28
+    },
+    {
+      "word": "névraxe",
+      "percentile": 982,
+      "similarity": 36.27
+    },
+    {
+      "word": "mésoderme",
+      "percentile": 981,
+      "similarity": 36.19
+    }
+  ]
+}

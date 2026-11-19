@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-03",
+  "puzzle_num": 1932,
+  "word": "PEEVE",
+  "letter_count": 5,
+  "translation": "irritation",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Irritation."
+    },
+    {
+      "pos": "verbe",
+      "text": "Irriter, énerver."
+    }
+  ],
+  "definition_en": "Nom : An annoyance or grievance.",
+  "editor": "Tracy Bennett"
+}

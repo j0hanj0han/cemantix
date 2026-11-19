@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "puzzle_num": 1943,
+  "word": "PSYCH",
+  "letter_count": 5,
+  "translation": "psychologie",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Psychologie."
+    },
+    {
+      "pos": "nom",
+      "text": "Psychiatrie."
+    },
+    {
+      "pos": "nom",
+      "text": "Psychologue."
+    },
+    {
+      "pos": "nom",
+      "text": "Psychiatre."
+    }
+  ],
+  "definition_en": "Nom : Clipping of psychiatry. A psychiatric hospital or other treatment facility; also, a psychiatric department or ward in such a facility.",
+  "editor": "Tracy Bennett"
+}

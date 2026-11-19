@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-21",
+  "puzzle_num": 1950,
+  "word": "PENNY",
+  "letter_count": 5,
+  "translation": "penny",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Penny. Le symbole est p depuis la réforme monétaire de 1971 (100 p = 1 £), et il était d avant cela (240 d = 20 s = 1 £)."
+    },
+    {
+      "pos": "nom",
+      "text": "Pièce de monnaie d'un cent."
+    }
+  ],
+  "definition_en": "Nom : In the United Kingdom and Ireland and many other countries, a unit of currency worth ⁄240 of a pound sterling or Irish pound before decimalisation, or a copper coin worth this amount. Abbreviation: d.",
+  "editor": "Tracy Bennett"
+}

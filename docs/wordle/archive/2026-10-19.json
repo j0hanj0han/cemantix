@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-19",
+  "puzzle_num": 1948,
+  "word": "STINK",
+  "letter_count": 5,
+  "translation": "puer",
+  "senses": [
+    {
+      "pos": "verbe",
+      "text": "Puer."
+    },
+    {
+      "pos": "nom",
+      "text": "Puanteur, mauvaise odeur."
+    },
+    {
+      "pos": "nom",
+      "text": "Tracas, mouvement accompagné d’embarras."
+    }
+  ],
+  "definition_en": "Verbe : To have a strong bad smell.",
+  "editor": "Tracy Bennett"
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-16",
+  "puzzle_num": 1976,
+  "word": "DRAWL",
+  "letter_count": 5,
+  "translation": "voix traînante",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Voix traînante."
+    },
+    {
+      "pos": "verbe",
+      "text": "Parler d'une voix traînante."
+    }
+  ],
+  "definition_en": "Verbe : To drag on slowly and heavily; to dawdle or while away time indolently.",
+  "editor": "Tracy Bennett"
+}

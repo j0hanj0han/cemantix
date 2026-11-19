@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-27",
+  "puzzle_num": 1956,
+  "word": "BINGO",
+  "letter_count": 5,
+  "translation": "bingo",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Bingo."
+    },
+    {
+      "pos": "interjection",
+      "text": "Employé pour signaler une victoire au jeu bingo."
+    },
+    {
+      "pos": "interjection",
+      "text": "Ça y est."
+    }
+  ],
+  "definition_en": "Nom : A game of chance for two or more players, who mark off numbers on a grid as they are announced by the caller; the game is won by the first person to call out \"bingo!\" or \"house!\" after crossing off all numbers on the grid or in one line of the grid.",
+  "editor": "Tracy Bennett"
+}

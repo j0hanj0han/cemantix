@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "puzzle_num": 1963,
+  "word": "POUCH",
+  "letter_count": 5,
+  "translation": "poche, petit sac, sachet",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Poche, petit sac, sachet."
+    },
+    {
+      "pos": "nom",
+      "text": "Poche d’un marsupial : marsupium, poche marsupiale, mastothèque."
+    },
+    {
+      "pos": "nom",
+      "text": "Partie extensible de la gorge d’un oiseau, le sac gulaire."
+    },
+    {
+      "pos": "nom",
+      "text": "Cul-de-sac."
+    }
+  ],
+  "definition_en": "Nom : A small bag usually closed with a drawstring.",
+  "editor": "Tracy Bennett"
+}

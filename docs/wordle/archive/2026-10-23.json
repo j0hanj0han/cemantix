@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-23",
+  "puzzle_num": 1952,
+  "word": "TRILL",
+  "letter_count": 5,
+  "translation": "trille",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Trille."
+    },
+    {
+      "pos": "nom",
+      "text": "Trille, roulé."
+    },
+    {
+      "pos": "verbe",
+      "text": "Triller."
+    },
+    {
+      "pos": "verbe",
+      "text": "Triller, rouler."
+    }
+  ],
+  "definition_en": "Nom : A rapid alternation between an indicated note and the one above it as an ornament; in musical notation usually indicated with the letters tr written above the staff.",
+  "editor": "Tracy Bennett"
+}

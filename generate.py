@@ -28,6 +28,7 @@ GAMES_CFG = {
     "cemantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Cémantix du"},
     "sutom":        {"pub_time": (0, 15),  "title_prefix": "Solution Sutom du"},
     "tusmo":        {"pub_time": (0, 15),  "title_prefix": "Solution Tusmo du"},
+    "wordle":       {"pub_time": (0, 15),  "title_prefix": "Réponse Wordle du"},
     "pedantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Pédantix du"},
     "loto":         {"pub_time": (22, 0),  "title_prefix": "Résultats Loto du"},
     "euromillions": {"pub_time": (21, 30), "title_prefix": "Résultats EuroMillions du"},
@@ -50,6 +51,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     em = game_data.get("euromillions")
     pedantix = game_data.get("pedantix")
     tusmo = game_data.get("tusmo")
+    wordle = game_data.get("wordle")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -146,6 +148,36 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <p class="game-card-desc">Devinez le mot du jour en 6 essais.</p>
       <p class="game-unavailable">Solution en cours de génération…</p>
       <span class="game-link-arrow">Aller sur Tusmo &#8594;</span>
+    </a>"""
+
+    # ── Carte Wordle ──
+    if wordle:
+        wordle_card = f"""
+    <a class="game-card" href="wordle/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Wordle</h2>
+        <span class="game-badge game-badge-wordle">NYT · anglais</span>
+      </div>
+      <p class="game-card-desc">Devinez le mot anglais de 5 lettres, avec sa traduction en français.</p>
+      <div class="game-card-solution">
+        <span class="game-label">Réponse n°{wordle["puzzle_num"]}</span>
+        <div class="solution-blur solution-blur-sm" id="sol-wordle">
+          <span class="solution-word solution-word-sm">{wordle["word"]}</span>
+        </div>
+        <button class="reveal-btn-sm" onclick="reveal(event,'sol-wordle')">Révéler</button>
+      </div>
+      <span class="game-link-arrow">Voir la réponse &amp; indices &#8594;</span>
+    </a>"""
+    else:
+        wordle_card = """
+    <a class="game-card game-card-unavailable" href="wordle/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Wordle</h2>
+        <span class="game-badge game-badge-wordle">NYT · anglais</span>
+      </div>
+      <p class="game-card-desc">Devinez le mot anglais de 5 lettres en 6 essais.</p>
+      <p class="game-unavailable">Réponse en cours de génération…</p>
+      <span class="game-link-arrow">Aller sur Wordle &#8594;</span>
     </a>"""
 
     # ── Carte Loto ──
@@ -258,7 +290,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>🎯 Solutions du jour : Cémantix, Sutom, Tusmo, Loto, EuroMillions</title>
-  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
+  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, Wordle, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SITE_URL}/">
 {FEED_LINK_TAG}
@@ -305,9 +337,10 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       {{"@type": "ListItem", "position": 1, "name": "Cémantix — Solution du jour", "url": "{SITE_URL}/cemantix/"}},
       {{"@type": "ListItem", "position": 2, "name": "Sutom — Solution du jour", "url": "{SITE_URL}/sutom/"}},
       {{"@type": "ListItem", "position": 3, "name": "Tusmo — Solution du jour", "url": "{SITE_URL}/tusmo/"}},
-      {{"@type": "ListItem", "position": 4, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
-      {{"@type": "ListItem", "position": 5, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
-      {{"@type": "ListItem", "position": 6, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
+      {{"@type": "ListItem", "position": 4, "name": "Wordle — Réponse du jour", "url": "{SITE_URL}/wordle/"}},
+      {{"@type": "ListItem", "position": 5, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
+      {{"@type": "ListItem", "position": 6, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
+      {{"@type": "ListItem", "position": 7, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
     ]
   }}
   </script>
@@ -354,7 +387,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 
 <main class="hub-main">
   <p class="hub-intro">
-    Retrouvez chaque jour les <strong>solutions Cémantix, Sutom et Tusmo</strong> ainsi que les
+    Retrouvez chaque jour les <strong>solutions Cémantix, Sutom et Tusmo</strong>, la
+    <strong>réponse du Wordle</strong> ainsi que les
     <strong>résultats Loto et EuroMillions</strong>.
     Mis à jour automatiquement après chaque tirage et chaque nouveau puzzle.
   </p>
@@ -363,6 +397,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 {cemantix_card}
 {sutom_card}
 {tusmo_card}
+{wordle_card}
 {pedantix_card}
 {loto_card}
 {em_card}
@@ -434,6 +469,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     <a href="cemantix/">Cémantix</a> ·
     <a href="sutom/">Sutom</a> ·
     <a href="tusmo/">Tusmo</a> ·
+    <a href="wordle/">Wordle</a> ·
     <a href="pedantix/">Pédantix</a> ·
     <a href="loto/">Loto</a> ·
     <a href="euromillions/">EuroMillions</a> ·
@@ -457,6 +493,27 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     atomic_write(DOCS_DIR / "index.html", html)
 
 
+def _games_dirs() -> dict[str, tuple[str, Path]]:
+    """{jeu: (url de base, dossier d'archive)} pour tous les jeux du site."""
+    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
+    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
+    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
+    from games.wordle import WORDLE_ARCHIVE, WORDLE_SITE_URL
+    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
+    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
+    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
+
+    return {
+        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
+        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
+        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
+        "wordle":       (WORDLE_SITE_URL,   WORDLE_ARCHIVE),
+        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
+        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
+        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
+    }
+
+
 # ── Google News Sitemap ───────────────────────────────────────────────────────
 
 def generate_news_sitemap(today: date, game_data: dict) -> None:
@@ -465,23 +522,8 @@ def generate_news_sitemap(today: date, game_data: dict) -> None:
     Inclut les pages du jour (et d'hier si disponible) pour chaque jeu.
     À soumettre dans GSC → Sitemaps pour accélérer l'indexation des pages fraîches.
     """
-    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
-    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
-    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
-    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
-    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
-    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
-
     yesterday = today - timedelta(days=1)
-
-    games_dirs = {
-        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
-        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
-        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
-        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
-        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
-        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
-    }
+    games_dirs = _games_dirs()
 
     entries = []
     for key, (base_url, archive_dir) in games_dirs.items():
@@ -632,7 +674,7 @@ def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date])
 
 
 _SUB_SITEMAPS = [
-    "sitemap-cemantix.xml", "sitemap-sutom.xml", "sitemap-tusmo.xml", "sitemap-pedantix.xml",
+    "sitemap-cemantix.xml", "sitemap-sutom.xml", "sitemap-tusmo.xml", "sitemap-wordle.xml", "sitemap-pedantix.xml",
     "sitemap-loto.xml", "sitemap-euromillions.xml", "sitemap-pages.xml",
 ]
 
@@ -657,6 +699,7 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
     from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
     from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
     from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
+    from games.wordle import WORDLE_ARCHIVE, WORDLE_SITE_URL
     from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
     from games.euromillions import EM_ARCHIVE, EM_SITE_URL
     from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
@@ -687,6 +730,9 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
     _write_urlset(DOCS_DIR / "sitemap-tusmo.xml", _game_sitemap(
         "tusmo", TUSMO_SITE_URL, TUSMO_ARCHIVE, _index_lastmod("tusmo", TUSMO_ARCHIVE), month_pages=True,
     ))
+    _write_urlset(DOCS_DIR / "sitemap-wordle.xml", _game_sitemap(
+        "wordle", WORDLE_SITE_URL, WORDLE_ARCHIVE, _index_lastmod("wordle", WORDLE_ARCHIVE), month_pages=True,
+    ))
     _write_urlset(DOCS_DIR / "sitemap-pedantix.xml", _game_sitemap(
         "pedantix", PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE, _index_lastmod("pedantix", PEDANTIX_ARCHIVE), month_pages=True,
     ))
@@ -710,7 +756,7 @@ def generate_global_sitemap(today: date, game_data: dict | None = None) -> None:
 
 def _feed_content(key: str, data: dict) -> str:
     """Résumé HTML (avec solution) pour le flux Atom — pas indexé comme une page web."""
-    if key in ("cemantix", "sutom", "tusmo"):
+    if key in ("cemantix", "sutom", "tusmo", "wordle"):
         return f"Mot : <strong>{_xml_escape(data.get('word', '').upper())}</strong>"
     if key == "pedantix":
         title = data.get("title_display") or data.get("word", "")
@@ -727,21 +773,7 @@ def _feed_content(key: str, data: dict) -> str:
 
 def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
     """Génère docs/feed.xml — flux Atom des `days` derniers jours, tous jeux confondus."""
-    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
-    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
-    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
-    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
-    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
-    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
-
-    games_dirs = {
-        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
-        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
-        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
-        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
-        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
-        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
-    }
+    games_dirs = _games_dirs()
 
     raw_entries = []
     for key, (base_url, archive_dir) in games_dirs.items():
@@ -804,7 +836,7 @@ def generate_atom_feed(today: date, game_data: dict, days: int = 30) -> None:
 # ── Régénération quotidienne (daily.yml + seed_archives.py) ──────────────────
 
 def regenerate_all(today: date | None = None) -> dict:
-    """Relit les 6 solution.json et régénère tout le HTML + hub + sitemaps + flux Atom.
+    """Relit les 7 solution.json et régénère tout le HTML + hub + sitemaps + flux Atom.
 
     Reprend la logique du script inline historique de .github/workflows/daily.yml —
     seul point d'entrée à faire évoluer désormais si les signatures des jeux changent.
@@ -813,7 +845,7 @@ def regenerate_all(today: date | None = None) -> dict:
         today = date.today()
     today_str = today.isoformat()
 
-    cemantix_data = sutom_data = tusmo_data = pedantix_data = loto_data = em_data = None
+    cemantix_data = sutom_data = tusmo_data = wordle_data = pedantix_data = loto_data = em_data = None
 
     cemantix_json = DOCS_DIR / "cemantix" / "solution.json"
     if cemantix_json.exists():
@@ -853,6 +885,16 @@ def regenerate_all(today: date | None = None) -> dict:
             )
             print("✅ HTML Tusmo régénéré")
 
+    wordle_json = DOCS_DIR / "wordle" / "solution.json"
+    if wordle_json.exists():
+        data = json.loads(wordle_json.read_text(encoding="utf-8"))
+        if data.get("date") == today_str:
+            wordle_data = data
+            from games import wordle as wd
+            print(f"Régénération HTML Wordle n°{data['puzzle_num']} '{data['word']}'")
+            wd._generate_all_html(today, data)
+            print("✅ HTML Wordle régénéré")
+
     pedantix_json = DOCS_DIR / "pedantix" / "solution.json"
     if pedantix_json.exists():
         data = json.loads(pedantix_json.read_text(encoding="utf-8"))
@@ -889,7 +931,7 @@ def regenerate_all(today: date | None = None) -> dict:
 
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data,
-        "tusmo": tusmo_data, "pedantix": pedantix_data,
+        "tusmo": tusmo_data, "wordle": wordle_data, "pedantix": pedantix_data,
         "loto": loto_data, "euromillions": em_data,
     }
     from games.evergreen import generate_evergreen, generate_about_page
@@ -905,22 +947,8 @@ def regenerate_all(today: date | None = None) -> dict:
 
 def daily_urls(today: date, game_data: dict) -> list[str]:
     """URLs à notifier à IndexNow chaque jour (hub, index par jeu, archive d'hier, mois courant)."""
-    from games.cemantix import CEMANTIX_ARCHIVE, CEMANTIX_SITE_URL
-    from games.sutom import SUTOM_ARCHIVE, SUTOM_SITE_URL
-    from games.tusmo import TUSMO_ARCHIVE, TUSMO_SITE_URL
-    from games.loto import LOTO_ARCHIVE, LOTO_SITE_URL
-    from games.euromillions import EM_ARCHIVE, EM_SITE_URL
-    from games.pedantix import PEDANTIX_ARCHIVE, PEDANTIX_SITE_URL
-
     yesterday = today - timedelta(days=1)
-    games_dirs = {
-        "cemantix":     (CEMANTIX_SITE_URL, CEMANTIX_ARCHIVE),
-        "sutom":        (SUTOM_SITE_URL,    SUTOM_ARCHIVE),
-        "tusmo":        (TUSMO_SITE_URL,    TUSMO_ARCHIVE),
-        "pedantix":     (PEDANTIX_SITE_URL, PEDANTIX_ARCHIVE),
-        "loto":         (LOTO_SITE_URL,     LOTO_ARCHIVE),
-        "euromillions": (EM_SITE_URL,       EM_ARCHIVE),
-    }
+    games_dirs = _games_dirs()
 
     urls = [f"{SITE_URL}/"]
     for key, (base_url, archive_dir) in games_dirs.items():
@@ -973,6 +1001,11 @@ def main():
     from games.tusmo import run as run_tusmo
     tusmo_data = run_tusmo(today)
 
+    # 2ter. Wordle
+    print("\n─── Wordle ─────────────────────────────────────────────")
+    from games.wordle import run as run_wordle
+    wordle_data = run_wordle(today)
+
     # 3. Loto
     print("\n─── Loto ───────────────────────────────────────────────")
     from games.loto import run as run_loto
@@ -997,7 +1030,7 @@ def main():
     pedantix_data = run_pedantix(today)
 
     game_data_all = {
-        "cemantix": cemantix_data, "sutom": sutom_data, "tusmo": tusmo_data,
+        "cemantix": cemantix_data, "sutom": sutom_data, "tusmo": tusmo_data, "wordle": wordle_data,
         "loto": loto_data, "euromillions": em_data,
         "pedantix": pedantix_data,
     }
@@ -1031,6 +1064,7 @@ def main():
     print(f"   docs/cemantix/index.html                 {'✓' if cemantix_data else '⚠ indisponible'}")
     print(f"   docs/sutom/index.html                    {'✓' if sutom_data else '⚠ indisponible'}")
     print(f"   docs/tusmo/index.html                    {'✓' if tusmo_data else '⚠ indisponible'}")
+    print(f"   docs/wordle/index.html                   {'✓' if wordle_data else '⚠ indisponible'}")
     print(f"   docs/pedantix/index.html                 {'✓' if pedantix_data else '⚠ indisponible'}")
     print(f"   docs/loto/index.html                     {'✓' if loto_data else '⚠ indisponible'}")
     print(f"   docs/loto/simulateur/                    ✓")

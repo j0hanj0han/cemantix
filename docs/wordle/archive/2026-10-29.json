@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-29",
+  "puzzle_num": 1958,
+  "word": "MOTOR",
+  "letter_count": 5,
+  "translation": "moteur",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Moteur."
+    },
+    {
+      "pos": "nom",
+      "text": "Voiture."
+    }
+  ],
+  "definition_en": "Nom : A machine or device that converts other energy forms into mechanical energy, or imparts motion.",
+  "editor": "Tracy Bennett"
+}

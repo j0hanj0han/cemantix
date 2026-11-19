@@ -422,6 +422,7 @@ footer a { color: var(--color-primary); }
 
 .game-badge-semantix { background: #8b5cf6; }
 .game-badge-sutom    { background: #ef4444; }
+.game-badge-wordle   { background: #437a3f; }
 
 .game-card-desc {
   font-size: .9rem;
@@ -525,6 +526,11 @@ footer a { color: var(--color-primary); }
 
 .sutom-correct {
   background: #ef4444;
+  color: #fff;
+}
+
+.wordle-correct {
+  background: #437a3f;
   color: #fff;
 }
 

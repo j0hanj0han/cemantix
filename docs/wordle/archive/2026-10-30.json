@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-30",
+  "puzzle_num": 1959,
+  "word": "SLIDE",
+  "letter_count": 5,
+  "translation": "glissoire, toboggan",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Glissoire, toboggan."
+    },
+    {
+      "pos": "nom",
+      "text": "Diapositive, transparent, slide."
+    },
+    {
+      "pos": "nom",
+      "text": "Glissando."
+    },
+    {
+      "pos": "nom",
+      "text": "coulisse d’un instrument à vent."
+    }
+  ],
+  "definition_en": "Verbe : To (cause to) move in continuous contact with a surface.",
+  "editor": "Tracy Bennett"
+}

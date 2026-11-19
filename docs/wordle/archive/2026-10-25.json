@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-25",
+  "puzzle_num": 1954,
+  "word": "DRESS",
+  "letter_count": 5,
+  "translation": "habit",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Habit."
+    },
+    {
+      "pos": "nom",
+      "text": "Robe (vêtement)."
+    },
+    {
+      "pos": "nom",
+      "text": "Tenue (manière d’être habillé)."
+    },
+    {
+      "pos": "verbe",
+      "text": "Habiller, revêtir, vêtir."
+    }
+  ],
+  "definition_en": "Verbe : To put clothes (or, formerly, armour) on (oneself or someone, a doll, a mannequin, etc.); to clothe.",
+  "editor": "Tracy Bennett"
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-09",
+  "puzzle_num": 1938,
+  "word": "MAJOR",
+  "letter_count": 5,
+  "translation": "majeur",
+  "senses": [
+    {
+      "pos": "adjectif",
+      "text": "Majeur."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Qualifie un frère aîné ou une sœur aînée (terme utilisé dans les lycées)."
+    },
+    {
+      "pos": "nom",
+      "text": "Grade militaire équivalent à celui de commandant en France."
+    },
+    {
+      "pos": "nom",
+      "text": "Spécialité dans les études supérieures."
+    }
+  ],
+  "definition_en": "Adjectif : : Greater in dignity, rank, importance, significance, or interest. Greater in number, quantity, or extent.",
+  "editor": "Tracy Bennett"
+}

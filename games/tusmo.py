@@ -304,7 +304,7 @@ def _progressive_hints_card(word: str, definition: str) -> str:
 
 
 def _other_games_card() -> str:
-    links = [("../sutom/", "🔤 Sutom"), ("../cemantix/", "🧠 Cémantix"), ("../pedantix/", "📖 Pédantix"),
+    links = [("../sutom/", "🔤 Sutom"), ("../wordle/", "🔠 Wordle"), ("../cemantix/", "🧠 Cémantix"), ("../pedantix/", "📖 Pédantix"),
              ("../loto/", "🎱 Loto FDJ"), ("../euromillions/", "⭐ EuroMillions")]
     items = "\n".join(
         f'        <a href="{href}" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;'

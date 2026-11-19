@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-08",
+  "puzzle_num": 1968,
+  "word": "FIRST",
+  "letter_count": 5,
+  "translation": "premier, unième",
+  "senses": [
+    {
+      "pos": "adjectif",
+      "text": "Premier, unième."
+    },
+    {
+      "pos": "nom",
+      "text": "Premier."
+    },
+    {
+      "pos": "nom",
+      "text": "Première base."
+    },
+    {
+      "pos": "adverbe",
+      "text": "Premièrement, d’abord, pour la première fois."
+    }
+  ],
+  "definition_en": "Adjectif : Preceding all others of a series or kind; the ordinal of one; earliest.",
+  "editor": "Tracy Bennett"
+}

@@ -58,6 +58,29 @@ Source Loto : `games/loto.py::run()` interroge OpenDataSoft (≈1 jour de retard
 tirage-gagnant.com (à jour le soir même) et garde le tirage le plus récent ; le n° de
 tirage est alors déduit de la dernière archive (`_next_draw_num`).
 
+### Run de midi : Pédantix (`io.cemantix.pedantix`)
+
+**Pédantix change d'article à midi (heure de Paris), pas à minuit** (`data-utc-time="39600"`
+sur la page, contre `82800` pour Cémantix). Un puzzle est daté du jour où il **commence**,
+comme chez gamewave.fr / mobi.gg qui publient entre 12h00 et 12h10 : la date se calcule
+toujours depuis le numéro (`games/pedantix.py::puzzle_date`), jamais depuis `today`.
+
+Un 3ᵉ job launchd lance `run_pedantix.sh` chaque jour à **12h05** :
+`generate.run_pedantix_noon()` → solveur (`games/pedantix_solver.py`, même modèle `.bin`
+que Cémantix, ~120–450 appels `/score`, 1 à 3 min) → hub/sitemaps/flux → commit/push/IndexNow.
+Tant que la page affiche encore le puzzle d'hier (code 2), il réessaie toutes les 5 min
+jusqu'à 13h ; si le solveur échoue (code 3), il reprend 2 fois (les réponses `/score` sont
+en cache dans `.cache/pedantix/<n>.json`, la reprise n'en refait aucune). Le run de 00h15
+retente aussi un puzzle non résolu. Il partage `run_daily.log`.
+
+Installation (sur le Mac de prod, chemins du plist à adapter si besoin) :
+
+```bash
+cp io.cemantix.pedantix.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.cemantix.pedantix.plist
+launchctl print gui/$(id -u)/io.cemantix.pedantix
+```
+
 ---
 
 ## Fichiers impliqués
@@ -227,8 +250,8 @@ for g in cemantix sutom tusmo loto euromillions; do
 done
 ```
 
-(Pédantix n'a pas toujours de `solution.json` — la réponse du jour n'est publiée par
-le site source que le lendemain ; c'est normal, voir `games/pedantix.py::run()`.)
+(Pédantix change à midi : avant 12h05, `docs/pedantix/solution.json` porte normalement
+la date **de la veille** — c'est le puzzle en cours. Pour le rattraper : `bash run_pedantix.sh`.)
 
 ---
 

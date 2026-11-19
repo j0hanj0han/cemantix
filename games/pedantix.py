@@ -16,7 +16,8 @@ from html import escape as _html_escape
 from pathlib import Path
 
 from core import (
-    SITE_URL, DOCS_DIR, _session, date_fr, date_fr_short, atomic_write, load_all_archives as _load_archives,
+    SITE_URL, DOCS_DIR, PARIS_TZ, _session, date_fr, date_fr_short, atomic_write,
+    load_all_archives as _load_archives,
     published_iso, og_image_url, FEED_LINK_TAG, updated_block,
     hint_levels_html, solution_box_html, faq_jsonld, faq_html,
     month_fr, de_month_fr, group_by_month,
@@ -35,36 +36,49 @@ _HEADERS_FORM = {
     "Origin": BASE_URL,
     "Referer": BASE_URL + "/",
 }
-_HEADERS_JSON = {
-    "Content-Type": "application/json",
-    "Origin": BASE_URL,
-    "Referer": BASE_URL + "/",
-}
 
-# Point de référence pour calculer le numéro de puzzle par la date
+# Pédantix change de page à MIDI heure de Paris (data-utc-time="39600" sur la page),
+# pas à minuit comme Cémantix. Convention de date (celle de gamewave.fr, mobi.gg…) :
+# un puzzle porte la date du jour où il COMMENCE. #1444 a commencé le 26/04/2026 à midi.
 _REF_DATE = date(2026, 4, 26)
 _REF_PUZZLE = 1444
+RESET_HOUR = 12
+PUB_TIME = (12, 5)   # heure de publication de repli (run launchd de 12h05)
 
+
+def puzzle_date(puzzle_num: int) -> date:
+    """Date d'un puzzle = jour où il commence (à midi). Ne jamais la déduire de `today`."""
+    return _REF_DATE + timedelta(days=puzzle_num - _REF_PUZZLE)
+
+
+def current_puzzle_num(now: datetime | None = None) -> int:
+    """Numéro du puzzle en cours d'après l'horloge (repli si la page est injoignable)."""
+    now = (now or datetime.now(PARIS_TZ)).astimezone(PARIS_TZ)
+    start = now.date() if now.hour >= RESET_HOUR else now.date() - timedelta(days=1)
+    return _REF_PUZZLE + (start - _REF_DATE).days
 
 
 # ── API Pédantix ──────────────────────────────────────────────────────────────
 
-def get_page_info() -> tuple[int, str | None, str | None]:
+def get_page_info() -> tuple[int, str | None, str | None, str | None]:
     """
     Scrape la page Pédantix.
-    Retourne (puzzle_num, yesterday_slug, yesterday_name).
-    yesterday_slug/name = None si non trouvé.
+    Retourne (puzzle_num, yesterday_slug, yesterday_name, html).
+    yesterday_slug/name/html = None si non trouvé.
     """
     from bs4 import BeautifulSoup
-    puzzle_num = _REF_PUZZLE + (date.today() - _REF_DATE).days
-    yesterday_slug = yesterday_name = None
+    puzzle_num = current_puzzle_num()
+    yesterday_slug = yesterday_name = html = None
     try:
-        resp = _session.get(BASE_URL, headers=_HEADERS_FORM, timeout=10)
-        soup = BeautifulSoup(resp.text, "html.parser")
+        resp = _session.get(BASE_URL, headers=_HEADERS_FORM, timeout=15)
+        html = resp.text
+        soup = BeautifulSoup(html, "html.parser")
         script = soup.find("script", id="script")
         if script and "data-puzzle-number" in script.attrs:
             puzzle_num = int(script["data-puzzle-number"])
-        # Extraire la réponse d'hier depuis l'élément <a id="yesterday">
+        else:
+            html = None
+        # Réponse du puzzle précédent : <a id="yesterday">
         yesterday_el = soup.find("a", id="yesterday")
         if yesterday_el:
             href = yesterday_el.get("href", "")
@@ -73,27 +87,11 @@ def get_page_info() -> tuple[int, str | None, str | None]:
             yesterday_name = yesterday_el.get_text(strip=True)
     except Exception as e:
         print(f"   ⚠ Erreur scraping page Pédantix : {e}")
-    return puzzle_num, yesterday_slug, yesterday_name
+    return puzzle_num, yesterday_slug, yesterday_name, html
 
 
 def get_puzzle_number() -> int:
-    puzzle_num, _, _ = get_page_info()
-    return puzzle_num
-
-
-def _score_candidate(word: str, puzzle_num: int) -> dict | None:
-    time.sleep(0.3)
-    try:
-        resp = _session.post(
-            f"{BASE_URL}/score?n={puzzle_num}",
-            data=json.dumps({"num": puzzle_num, "word": word, "answer": []}),
-            headers=_HEADERS_JSON,
-            timeout=10,
-        )
-        return resp.json()
-    except Exception as e:
-        print(f"   ⚠ /score ({word!r}) : {e}")
-    return None
+    return get_page_info()[0]
 
 
 def _get_page(article_slug: str) -> dict | None:
@@ -185,21 +183,6 @@ def fetch_history() -> list[tuple[int, str, str]]:
     except Exception as e:
         print(f"   ⚠ /history : {e}")
     return []
-
-
-def solve(puzzle_num: int) -> tuple[str | None, str | None]:
-    """
-    Trouve le titre de l'article Pédantix via l'endpoint /history.
-    Retourne (slug, display_name) ou (None, None) si échec.
-    """
-    print(f"[Pédantix] Résolution puzzle #{puzzle_num} via /history…")
-    history = fetch_history()
-    for num, slug, name in history:
-        if num == puzzle_num:
-            print(f"[Pédantix] ✅ Trouvé dans /history : {name!r}")
-            return slug, name
-    print(f"[Pédantix] ❌ Puzzle #{puzzle_num} introuvable dans /history ({len(history)} entrées).")
-    return None, None
 
 
 # ── Construction des indices ───────────────────────────────────────────────────
@@ -400,7 +383,7 @@ def generate_archive_html(
 ) -> None:
     PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
     date_str = d.isoformat()
-    pub_iso = published_iso(d, generated_at, 0, 15)
+    pub_iso = published_iso(d, generated_at, *PUB_TIME)
     og_img = og_image_url("pedantix", d)
     date_display = date_fr(d)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
@@ -840,7 +823,7 @@ def generate_index_html(
 ) -> None:
     date_str = today.isoformat()
     date_display = date_fr(today)
-    pub_iso = published_iso(today, generated_at, 0, 15)
+    pub_iso = published_iso(today, generated_at, *PUB_TIME)
     og_img = og_image_url("pedantix", today)
     hints_l1, hints_l2, hints_l3 = _hints_html(hints)
     title_card = _title_hints_card_html(title_display, puzzle_num, date_display)
@@ -993,8 +976,9 @@ def generate_index_html(
         Le but est de retrouver le titre de l'article.
       </p>
       <p style="margin-top:.75rem;">
-        Cette page est mise à jour automatiquement chaque nuit vers 0h20 avec la <strong>solution du jour</strong>
-        et des <strong>indices pédantix</strong> pour vous aider sans trop vous spoiler.
+        Pédantix change d'article chaque jour à midi. Cette page est mise à jour automatiquement
+        vers 12h05 avec la <strong>solution du jour</strong> et des <strong>indices pédantix</strong>
+        pour vous aider sans trop vous spoiler.
       </p>
     </div>
 
@@ -1088,147 +1072,187 @@ def _generate_all_html(
 
 # ── Point d'entrée ────────────────────────────────────────────────────────────
 
-def _archive_yesterday(today: date, puzzle_num: int, yesterday_slug: str, yesterday_name: str) -> None:
-    """
-    Archive la solution d'hier si elle n'est pas déjà en base.
-    Appelle les endpoints Wikipedia pour obtenir l'extrait et les catégories.
-    """
-    yesterday = today - timedelta(days=1)
-    yesterday_str = yesterday.isoformat()
-    archive_json_path = PEDANTIX_ARCHIVE / f"{yesterday_str}.json"
-    if archive_json_path.exists():
-        return  # déjà archivé
+BACKFILL_LIMIT = 20   # archives écrites max par run (chacune coûte 2 appels Wikipédia)
 
-    print(f"[Pédantix] Archivage réponse d'hier : {yesterday_name!r} ({yesterday_str})…")
-    hints = build_hints(yesterday_name, yesterday_slug)
-    yesterday_data = {
-        "date": yesterday_str,
-        "puzzle_num": puzzle_num - 1,
-        "word": yesterday_name,
-        "title_slug": yesterday_slug,
-        "title_display": yesterday_name,
-        "wikipedia_url": f"https://fr.wikipedia.org/wiki/{yesterday_slug}",
-        "hints": {
-            "level1": hints["level1"],
-            "level2": hints["level2"],
-            "level3": hints["level3"],
-        },
+
+def _archive_entry(num: int, slug: str, name: str, generated_at: str | None = None) -> dict:
+    """Archive d'un puzzle terminé, datée par son numéro (indices via Wikipédia)."""
+    hints = build_hints(name, slug)
+    return {
+        "date": puzzle_date(num).isoformat(),
+        "puzzle_num": num,
+        "word": name,
+        "title_slug": slug,
+        "title_display": name,
+        "wikipedia_url": f"https://fr.wikipedia.org/wiki/{slug}",
+        "hints": {k: hints[k] for k in ("level1", "level2", "level3")},
         "extract": hints.get("extract", ""),
         "categories": hints.get("categories", []),
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).isoformat(),
     }
-    PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
-    atomic_write(archive_json_path, json.dumps(yesterday_data, ensure_ascii=False, indent=2))
-    print(f"[Pédantix] ✅ Archive d'hier créée : {yesterday_str}.json")
 
 
-def run(today: date) -> dict | None:
-    """Lance solve + génère tous les fichiers Pédantix. Retourne le dict data ou None."""
+def _sync_finished(finished: list[tuple[int, str, str]], active_num: int) -> int:
+    """
+    Archive les puzzles terminés (source : /history + lien « page d'hier »).
+    Crée les archives manquantes et corrige celles qui ne correspondent pas à la
+    source (mauvais puzzle à cette date, ou titre trouvé par le solveur différent).
+    Retourne le nombre d'archives écrites.
+    """
+    written = 0
+    for num, slug, name in sorted(finished, reverse=True):
+        if written >= BACKFILL_LIMIT:
+            break
+        if num >= active_num or not slug or not name:
+            continue
+        path = PEDANTIX_ARCHIVE / f"{puzzle_date(num).isoformat()}.json"
+        generated_at = None
+        if path.exists():
+            try:
+                existing = json.loads(path.read_text(encoding="utf-8"))
+            except ValueError:
+                existing = {}
+            if existing.get("puzzle_num") == num and existing.get("word") == name:
+                continue
+            if existing.get("puzzle_num") == num:
+                generated_at = existing.get("generated_at")   # garder l'heure de publication d'origine
+            print(f"[Pédantix] ⚠ Archive {path.name} corrigée : "
+                  f"#{existing.get('puzzle_num')} {existing.get('word')!r} → #{num} {name!r}")
+        else:
+            print(f"[Pédantix] Archivage #{num} ({path.stem}) : {name!r}…")
+        atomic_write(path, json.dumps(_archive_entry(num, slug, name, generated_at), ensure_ascii=False, indent=2))
+        written += 1
+    return written
+
+
+def _redate_archives() -> int:
+    """
+    Remet chaque archive à la date de son numéro de puzzle (`puzzle_date`).
+
+    Corrige le décalage d'un jour hérité de l'ancien code (qui supposait un changement
+    à minuit) : fichiers mal datés, doublons du même puzzle, pages et images sociales
+    périmées. Idempotent et sans réseau. Retourne le nombre de dates modifiées.
+    """
+    by_num: dict[int, dict] = {}
+    current: dict[str, int] = {}          # date du fichier → puzzle qu'il contient
+    for f in sorted(PEDANTIX_ARCHIVE.glob("????-??-??.json")):
+        try:
+            entry = json.loads(f.read_text(encoding="utf-8"))
+            num = int(entry["puzzle_num"])
+        except (ValueError, KeyError, TypeError):
+            continue
+        current[f.stem] = num
+        kept = by_num.get(num)
+        # doublon : garder la première publication (heure d'origine pour datePublished)
+        if kept is None or (entry.get("generated_at") or "") < (kept.get("generated_at") or "~"):
+            by_num[num] = entry
+    target = {puzzle_date(n).isoformat(): e for n, e in by_num.items()}
+
+    changed = 0
+    for ds in sorted(set(current) | set(target)):
+        want = target.get(ds)
+        if want is not None and current.get(ds) == want["puzzle_num"] and want.get("date") == ds:
+            continue
+        changed += 1
+        (PEDANTIX_ARCHIVE / f"{ds}.html").unlink(missing_ok=True)   # régénérée si la date reste valide
+        img = PEDANTIX_DIR / "img" / f"{ds}.png"
+        had_img = img.exists()
+        img.unlink(missing_ok=True)                                  # le n° de puzzle y est imprimé
+        if want is None:
+            (PEDANTIX_ARCHIVE / f"{ds}.json").unlink(missing_ok=True)
+            continue
+        atomic_write(PEDANTIX_ARCHIVE / f"{ds}.json",
+                     json.dumps({**want, "date": ds}, ensure_ascii=False, indent=2))
+        if had_img:
+            og_images.word_game("pedantix", date.fromisoformat(ds), want["puzzle_num"])
+    if changed:
+        print(f"[Pédantix] 🔧 {changed} date(s) d'archive recalée(s) sur le numéro de puzzle")
+    return changed
+
+
+def _show_latest_archive(active_num: int) -> None:
+    """Repli : afficher la dernière solution connue tant que le puzzle en cours n'est pas résolu."""
+    all_archives = load_all_archives()
+    if not all_archives:
+        return
+    latest = all_archives[0]  # archives triées DESC
+    title_display = latest.get("title_display") or latest.get("word", "")
+    title_slug = latest.get("title_slug", title_display)
+    hints = latest.get("hints", {"level1": [], "level2": [], "level3": []})
+    print(f"[Pédantix] ℹ Affichage de la dernière solution connue : #{latest.get('puzzle_num')} {title_display!r}")
+    _generate_all_html(
+        date.fromisoformat(latest["date"]), latest.get("puzzle_num", active_num - 1),
+        title_display, title_slug, hints, latest.get("extract", ""), latest.get("generated_at"),
+    )
+
+
+def run(today: date, model=None) -> dict | None:
+    """
+    Résout le puzzle Pédantix EN COURS et génère toutes les pages.
+
+    La date d'un puzzle vient de son numéro (`puzzle_date`), jamais de `today` :
+    Pédantix change à midi, donc à 00h15 le puzzle en cours est daté de la veille.
+    `model` : KeyedVectors déjà chargé (sinon le solveur le charge).
+    Retourne le dict solution du puzzle en cours, ou None si non résolu.
+    """
+    from urllib.parse import unquote
+
     PEDANTIX_DIR.mkdir(parents=True, exist_ok=True)
     PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    _redate_archives()
 
-    # Scraper le puzzle number ET la réponse d'hier en une seule requête
     print("[Pédantix] Scraping de la page…")
-    puzzle_num, yesterday_slug, yesterday_name = get_page_info()
-    print(f"[Pédantix] Puzzle du jour : #{puzzle_num}")
-    if yesterday_name:
-        print(f"[Pédantix] Réponse d'hier : {yesterday_name!r}")
+    active, y_slug, y_name, html = get_page_info()
+    active_date = puzzle_date(active)
+    print(f"[Pédantix] Puzzle en cours : #{active} (commencé le {date_fr(active_date)} à midi)")
 
-    # Récupérer l'historique complet pour backfill + solve
     print("[Pédantix] Récupération de l'historique /history…")
-    history = fetch_history()
-    print(f"[Pédantix] {len(history)} entrées dans /history")
+    finished = [(n, s, nm) for n, s, nm in fetch_history() if s]
+    print(f"[Pédantix] {len(finished)} puzzles terminés dans /history")
+    if y_slug and y_name and all(n != active - 1 for n, _, _ in finished):
+        finished.append((active - 1, unquote(y_slug), y_name))
+    written = _sync_finished(finished, active)
+    if written:
+        print(f"[Pédantix] ✅ {written} archive(s) écrite(s)")
 
-    # Backfill des archives passées depuis /history (max 20 par run pour ne pas surcharger Wikipedia)
-    history_map = {num: (slug, name) for num, slug, name in history if slug}
-    backfilled = 0
-    BACKFILL_LIMIT = 20
-    for num, slug, name in sorted(history, key=lambda x: x[0], reverse=True):
-        if backfilled >= BACKFILL_LIMIT:
-            break
-        if num >= puzzle_num or not slug or not name:
-            continue  # puzzle du jour / futur ou réponse non révélée
-        days_ago = puzzle_num - num
-        past_date = today - timedelta(days=days_ago)
-        archive_path = PEDANTIX_ARCHIVE / f"{past_date.isoformat()}.json"
-        if not archive_path.exists():
-            print(f"[Pédantix] Backfill #{num} ({past_date.isoformat()}) : {name!r}…")
-            hints = build_hints(name, slug)
-            past_data = {
-                "date": past_date.isoformat(),
-                "puzzle_num": num,
-                "word": name,
-                "title_slug": slug,
-                "title_display": name,
-                "wikipedia_url": f"https://fr.wikipedia.org/wiki/{slug}",
-                "hints": {
-                    "level1": hints["level1"],
-                    "level2": hints["level2"],
-                    "level3": hints["level3"],
-                },
-                "extract": hints.get("extract", ""),
-                "categories": hints.get("categories", []),
-                "generated_at": datetime.now(timezone.utc).isoformat(),
-            }
-            PEDANTIX_ARCHIVE.mkdir(parents=True, exist_ok=True)
-            atomic_write(archive_path, json.dumps(past_data, ensure_ascii=False, indent=2))
-            backfilled += 1
-    if backfilled:
-        print(f"[Pédantix] ✅ {backfilled} archives backfillées depuis /history")
-
-    # Archiver la réponse d'hier si disponible (via scraping HTML — priorité sur /history)
-    if yesterday_slug and yesterday_name:
-        _archive_yesterday(today, puzzle_num, yesterday_slug, yesterday_name)
-
-    # Vérifier si la solution est déjà générée pour aujourd'hui
     solution_path = PEDANTIX_DIR / "solution.json"
     if solution_path.exists():
         existing = json.loads(solution_path.read_text(encoding="utf-8"))
-        if existing.get("date") == today.isoformat() and existing.get("word"):
+        if existing.get("puzzle_num") == active and existing.get("word"):
+            if existing.get("date") != active_date.isoformat():   # daté par l'ancien code
+                existing["date"] = active_date.isoformat()
+                atomic_write(solution_path, json.dumps(existing, ensure_ascii=False, indent=2))
             title_display = existing["word"]
             title_slug = existing.get("title_slug", title_display)
             hints = existing.get("hints", {"level1": [], "level2": [], "level3": []})
-            extract = existing.get("extract", "")
-            print(f"[Pédantix] ℹ Solution déjà présente : {title_display!r} — régénération HTML uniquement.")
-            generate_archive_json(today, existing)
-            _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, existing.get("generated_at"))
+            print(f"[Pédantix] ℹ Solution #{active} déjà trouvée : {title_display!r} — régénération HTML uniquement.")
+            generate_archive_json(active_date, existing)
+            _generate_all_html(active_date, active, title_display, title_slug, hints,
+                               existing.get("extract", ""), existing.get("generated_at"))
             return existing
 
-    print(f"[Pédantix] Résolution du puzzle #{puzzle_num}…")
-    if puzzle_num in history_map:
-        title_slug, title_display = history_map[puzzle_num]
-        print(f"[Pédantix] ✅ Trouvé dans /history : {title_display!r}")
-    else:
-        title_slug, title_display = None, None
-        print(f"[Pédantix] ❌ Puzzle #{puzzle_num} absent de /history.")
-
-    if not title_display:
-        # /history ne révèle pas encore le puzzle actif — utiliser la dernière archive connue
-        print("[Pédantix] ⏳ Solution du jour non disponible dans /history (puzzle actif).")
-        all_archives = load_all_archives()
-        if all_archives:
-            latest = all_archives[0]  # archives triées DESC
-            title_display = latest.get("title_display") or latest.get("word", "")
-            title_slug = latest.get("title_slug", title_display)
-            hints = latest.get("hints", {"level1": [], "level2": [], "level3": []})
-            extract = latest.get("extract", "")
-            latest_puzzle_num = latest.get("puzzle_num", puzzle_num - 1)
-            print(f"[Pédantix] ℹ Affichage de la dernière solution connue : #{latest_puzzle_num} {title_display!r}")
-            _generate_all_html(date.fromisoformat(latest["date"]), latest_puzzle_num, title_display, title_slug, hints, extract, latest.get("generated_at"))
+    solved = None
+    if html:
+        try:
+            from games.pedantix_solver import solve as solve_live
+            solved = solve_live(html=html, model=model, expected_puzzle=active)
+        except Exception as e:
+            print(f"[Pédantix] ❌ Solveur en erreur : {e}")
+    if not solved or solved[0] != active:
+        print(f"[Pédantix] ⏳ Puzzle #{active} non résolu.")
+        _show_latest_archive(active)
         return None
 
-    print(f"[Pédantix] ✅ Solution : {title_display!r}")
-
+    _, title_display, title_slug = solved
+    print(f"[Pédantix] ✅ Solution #{active} : {title_display!r} ({title_slug})")
     print("[Pédantix] Récupération des indices Wikipedia…")
     hints = build_hints(title_display, title_slug)
     extract = hints.get("extract", "")
     print(f"[Pédantix]    Catégories : {hints.get('categories', [])}")
-    if extract:
-        print(f"[Pédantix]    Extrait : {extract[:60]}…")
 
-    data = generate_solution_json(today, puzzle_num, title_slug, title_display, hints)
-    generate_archive_json(today, data)
-    _generate_all_html(today, puzzle_num, title_display, title_slug, hints, extract, data.get("generated_at"))
+    data = generate_solution_json(active_date, active, title_slug, title_display, hints)
+    generate_archive_json(active_date, data)
+    _generate_all_html(active_date, active, title_display, title_slug, hints, extract, data.get("generated_at"))
 
-    print(f"[Pédantix] 🎉 Site généré ({today.isoformat()}, #{puzzle_num}, {title_display!r})")
+    print(f"[Pédantix] 🎉 Site généré ({active_date.isoformat()}, #{active}, {title_display!r})")
     return data

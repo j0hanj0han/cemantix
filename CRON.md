@@ -54,6 +54,9 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.cemantix.draws.plist
 launchctl print gui/$(id -u)/io.cemantix.draws
 ```
 
+Keno (tirage chaque soir vers 20h) n'a pas de job dédié : `generate.py` met à jour
+`docs/keno/` à chaque run, donc à 00h15 et, les soirs Loto/EuroMillions, dès `run_draws.sh`.
+
 Source Loto : `games/loto.py::run()` interroge OpenDataSoft (≈1 jour de retard) **et**
 tirage-gagnant.com (à jour le soir même) et garde le tirage le plus récent ; le n° de
 tirage est alors déduit de la dernière archive (`_next_draw_num`).

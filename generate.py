@@ -52,6 +52,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     pedantix = game_data.get("pedantix")
     tusmo = game_data.get("tusmo")
     wordle = game_data.get("wordle")
+    keno = game_data.get("keno")
 
     # ── Carte Cémantix ──
     if cemantix:
@@ -282,6 +283,32 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <span class="game-link-arrow">Aller sur Pédantix &#8594;</span>
     </a>"""
 
+    # ── Carte Keno (pas de flou : un tirage n'est pas un spoiler) ──
+    if keno:
+        from games.keno import _balls_html as _keno_balls
+        keno_date_display = date_fr(date.fromisoformat(keno["date"]))
+        keno_card = f"""
+    <a class="game-card" href="keno/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Keno</h2>
+        <span class="game-badge game-badge-keno">FDJ</span>
+      </div>
+      <p class="game-card-desc">Tirage du {keno_date_display} — 16 numéros sur 56, multiplicateur ×{keno["mult"]}.</p>
+      {_keno_balls(keno["balls"], small=True)}
+      <span class="game-link-arrow">Calcul des gains &amp; statistiques &#8594;</span>
+    </a>"""
+    else:
+        keno_card = """
+    <a class="game-card game-card-unavailable" href="keno/">
+      <div class="game-card-header">
+        <h2 class="game-card-title">Keno</h2>
+        <span class="game-badge game-badge-keno">FDJ</span>
+      </div>
+      <p class="game-card-desc">Tirage Keno chaque soir : 16 numéros sur 56.</p>
+      <p class="game-unavailable">Résultats en cours de récupération…</p>
+      <span class="game-link-arrow">Aller sur Keno &#8594;</span>
+    </a>"""
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -290,7 +317,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <title>🎯 Solutions du jour : Cémantix, Sutom, Tusmo, Loto, EuroMillions</title>
-  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, Wordle, résultats Loto et EuroMillions + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
+  <meta name="description" content="Toutes les solutions du jour au même endroit : Cémantix, Sutom, Tusmo, Wordle, résultats Loto, EuroMillions et Keno + simulateurs de gains gratuits. Mis à jour chaque nuit et après chaque tirage.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{SITE_URL}/">
 {FEED_LINK_TAG}
@@ -340,7 +367,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       {{"@type": "ListItem", "position": 4, "name": "Wordle — Réponse du jour", "url": "{SITE_URL}/wordle/"}},
       {{"@type": "ListItem", "position": 5, "name": "P\u00e9dantix — Solution du jour", "url": "{SITE_URL}/pedantix/"}},
       {{"@type": "ListItem", "position": 6, "name": "Loto FDJ — Résultats", "url": "{SITE_URL}/loto/"}},
-      {{"@type": "ListItem", "position": 7, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}}
+      {{"@type": "ListItem", "position": 7, "name": "EuroMillions — Résultats", "url": "{SITE_URL}/euromillions/"}},
+      {{"@type": "ListItem", "position": 8, "name": "Keno FDJ — Tirages et calcul des gains", "url": "{SITE_URL}/keno/"}}
     ]
   }}
   </script>
@@ -389,7 +417,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
   <p class="hub-intro">
     Retrouvez chaque jour les <strong>solutions Cémantix, Sutom et Tusmo</strong>, la
     <strong>réponse du Wordle</strong> ainsi que les
-    <strong>résultats Loto et EuroMillions</strong>.
+    <strong>résultats Loto, EuroMillions et Keno</strong>.
     Mis à jour automatiquement après chaque tirage et chaque nouveau puzzle.
   </p>
 
@@ -401,6 +429,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
 {pedantix_card}
 {loto_card}
 {em_card}
+{keno_card}
   </div>
 
   <section style="margin-top:1.5rem;">
@@ -410,6 +439,8 @@ def generate_hub_html(today: date, game_data: dict) -> None:
       <a href="loto/stats/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques Loto</a>
       <a href="euromillions/simulateur/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Simulateur EuroMillions</a>
       <a href="euromillions/stats/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques EuroMillions</a>
+      <a href="keno/calcul-gains/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">🎯 Calcul des gains Keno</a>
+      <a href="keno/stats/" style="padding:.4rem .85rem;background:#f3f4f6;border-radius:.375rem;text-decoration:none;color:#374151;font-weight:500;">📊 Statistiques Keno</a>
     </div>
   </section>
 
@@ -473,6 +504,7 @@ def generate_hub_html(today: date, game_data: dict) -> None:
     <a href="pedantix/">Pédantix</a> ·
     <a href="loto/">Loto</a> ·
     <a href="euromillions/">EuroMillions</a> ·
+    <a href="keno/">Keno</a> ·
     <a href="a-propos/">À propos</a>
   </p>
 </footer>
@@ -663,6 +695,13 @@ def _pages_sitemap(today_str: str, loto_dates: list[date], em_dates: list[date])
         em_lastmod = em_dates[0].isoformat()
         urls.append(_url_entry(f"{SITE_URL}/euromillions/simulateur/", em_lastmod))
         urls.append(_url_entry(f"{SITE_URL}/euromillions/stats/", em_lastmod))
+
+    from games.keno import latest_draw as keno_latest
+    keno_last = keno_latest()
+    if keno_last:
+        for path in ("keno/", "keno/calcul-gains/", "keno/stats/"):
+            if (DOCS_DIR / path / "index.html").exists():
+                urls.append(_url_entry(f"{SITE_URL}/{path}", keno_last["date"]))
 
     from games.evergreen import PAGES as EVERGREEN_PAGES
     for page in EVERGREEN_PAGES:
@@ -929,10 +968,15 @@ def regenerate_all(today: date | None = None) -> dict:
         em._generate_all_html(draw_date_em, data)
         print("✅ HTML EuroMillions régénéré")
 
+    from games import keno as kn
+    keno_data = kn.regenerate()
+    if keno_data:
+        print(f"✅ HTML Keno régénéré (dernier tirage {keno_data['date']})")
+
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data,
         "tusmo": tusmo_data, "wordle": wordle_data, "pedantix": pedantix_data,
-        "loto": loto_data, "euromillions": em_data,
+        "loto": loto_data, "euromillions": em_data, "keno": keno_data,
     }
     from games.evergreen import generate_evergreen, generate_about_page
     generate_evergreen(today)
@@ -962,6 +1006,9 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
             urls.append(f"{base_url}/archive/{ym}")
         if key == "cemantix" and (DOCS_DIR / "cemantix" / "indice" / "index.html").exists():
             urls.append(f"{base_url}/indice/")
+    for path in ("keno/", "keno/calcul-gains/", "keno/stats/"):
+        if (DOCS_DIR / path / "index.html").exists():
+            urls.append(f"{SITE_URL}/{path}")
     return urls
 
 
@@ -1024,6 +1071,11 @@ def main():
     em_sim_data()
     em_sim_html()
 
+    # 4bis. Keno
+    print("\n─── Keno ───────────────────────────────────────────────")
+    from games.keno import run as run_keno
+    keno_data = run_keno(today)
+
     # 5. Pédantix
     print("\n─── Pédantix ───────────────────────────────────────────")
     from games.pedantix import run as run_pedantix
@@ -1031,7 +1083,7 @@ def main():
 
     game_data_all = {
         "cemantix": cemantix_data, "sutom": sutom_data, "tusmo": tusmo_data, "wordle": wordle_data,
-        "loto": loto_data, "euromillions": em_data,
+        "loto": loto_data, "euromillions": em_data, "keno": keno_data,
         "pedantix": pedantix_data,
     }
 
@@ -1070,6 +1122,7 @@ def main():
     print(f"   docs/loto/simulateur/                    ✓")
     print(f"   docs/euromillions/index.html             {'✓' if em_data else '⚠ indisponible'}")
     print(f"   docs/euromillions/simulateur/            ✓")
+    print(f"   docs/keno/ (+ calcul-gains, stats)       {'✓' if keno_data else '⚠ indisponible'}")
     print(f"   docs/sitemap.xml                         ✓")
     print(f"   docs/news-sitemap.xml                    ✓\n")
 

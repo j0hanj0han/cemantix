@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-20",
-  "puzzle_num": 1724,
-  "word": "organe",
-  "first_letter": "O",
-  "word_length": 6,
-  "definition": "Partie d’un organisme vivant, considéré comme un tout et comme remplissant une fonction nécessaire ou utile à sa vie.",
+  "date": "2026-11-21",
+  "puzzle_num": 1725,
+  "word": "acheteur",
+  "first_letter": "A",
+  "word_length": 8,
+  "definition": "Celui qui achète.",
   "hints": {
     "level1": [
       {
-        "word": "extrajudiciaire",
+        "word": "réel",
         "percentile": 200,
-        "definition": "Qui n’est pas relatif à un procès actuellement pendant en justice."
+        "definition": "Véritable, effectif, vrai, sans fiction ni figure."
       },
       {
-        "word": "greffon",
+        "word": "discrétionnaire",
         "percentile": 267,
-        "definition": "Partie d’un végétal qu’on greffe sur la tige d’un autre végétal."
+        "definition": "Dont le pouvoir de décider est laissé à la discrétion, au jugement, au choix, à la préférence, à la volonté de quelqu'un."
       },
       {
-        "word": "cambium",
+        "word": "précompter",
         "percentile": 334,
-        "definition": "Méristème secondaire formant une fine couche de cellules indifférenciées entre le xylème secondaire et le phloème secondaire, responsable de la croissance en épaisseur des tiges et des racines chez les plantes ligneuses. Il produit vers l’intérieur le xylème secondaire et vers l’extérieur le phloème"
+        "definition": "Compter par avance les sommes qui sont à déduire."
       }
     ],
     "level2": [
       {
-        "word": "parlement",
+        "word": "garagiste",
         "percentile": 500,
-        "definition": "Dans l'ancienne France, jusqu'au siècle, assemblée des grands du royaume, que le roi convoquait pour traiter des affaires importantes."
+        "definition": "Personne qui s'occupe d'un garage ou qui y travaille ; qui répare des automobiles, motocycles ou des machines agricoles."
       },
       {
-        "word": "sécréter",
+        "word": "opportunité",
         "percentile": 567,
-        "definition": "Produire une sécrétion."
+        "definition": "Caractère de ce qui est opportun."
       },
       {
-        "word": "trijumeau",
+        "word": "kilowattheure",
         "percentile": 634,
-        "definition": "Relatif au nerf crânien de la cinquième paire."
+        "definition": "Unité de mesure d’énergie, équivalant à une puissance d’un kilowatt agissant pendant une heure, soit 3,6 mégajoules. Le symbole est kWh."
       }
     ],
     "level3": [
       {
-        "word": "extéroceptif",
+        "word": "dématérialiser",
         "percentile": 800,
-        "definition": "Relatif aux extérocepteurs."
+        "definition": "Retirer à (quelque chose) son caractère matériel, physique."
       },
       {
-        "word": "neuropathologie",
+        "word": "particulier",
         "percentile": 850,
-        "definition": "Domaine de la pathologie qui s’occupe des maladies du système nerveux."
+        "definition": "Qui présente une caractéristique spéciale, qui appartient, proprement et singulièrement, à certaines personnes ou à certaines choses ; qui n’est pas commun à d’autres personnes, à d’autres choses de même espèce."
       },
       {
-        "word": "hématopoïèse",
+        "word": "concessionnaire",
         "percentile": 900,
-        "definition": "Production du sang, des cellules sanguines."
+        "definition": "Celui, celle qui a obtenu une concession de terrain à exploiter ou de travaux publics à exécuter."
       }
     ]
   },
-  "tried_count": 258,
-  "generated_at": "2026-11-19T23:18:16.988420+00:00",
+  "tried_count": 294,
+  "generated_at": "2026-11-20T23:19:44.464488+00:00",
   "nearby_top": [
     {
-      "word": "organe",
+      "word": "acheteur",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "gemmule",
+      "word": "vendeur",
       "percentile": 999,
-      "similarity": 42.17
+      "similarity": 66.63
     },
     {
-      "word": "néphron",
+      "word": "acquéreur",
       "percentile": 998,
-      "similarity": 40.3
+      "similarity": 61.87
     },
     {
-      "word": "consultatif",
+      "word": "achat",
       "percentile": 997,
-      "similarity": 39.64
+      "similarity": 57.26
     },
     {
-      "word": "instance",
+      "word": "client",
       "percentile": 996,
-      "similarity": 39.5
+      "similarity": 54.67
     },
     {
-      "word": "pinéal",
+      "word": "vente",
       "percentile": 995,
-      "similarity": 39.01
+      "similarity": 54.32
     },
     {
-      "word": "lobule",
+      "word": "fournisseur",
       "percentile": 994,
-      "similarity": 38.51
+      "similarity": 53.99
     },
     {
-      "word": "transplanteur",
+      "word": "transaction",
       "percentile": 993,
-      "similarity": 38.31
+      "similarity": 53.27
     },
     {
-      "word": "organisme",
+      "word": "produit",
       "percentile": 992,
-      "similarity": 38.21
+      "similarity": 50.94
     },
     {
-      "word": "émaner",
+      "word": "marché",
       "percentile": 991,
-      "similarity": 37.86
+      "similarity": 50.79
     },
     {
-      "word": "endocrine",
+      "word": "consommateur",
       "percentile": 990,
-      "similarity": 37.83
+      "similarity": 48.17
     },
     {
-      "word": "exocrine",
+      "word": "commande",
       "percentile": 989,
-      "similarity": 37.79
+      "similarity": 47.69
     },
     {
-      "word": "désigner",
+      "word": "livraison",
       "percentile": 988,
-      "similarity": 37.29
+      "similarity": 47.63
     },
     {
-      "word": "hypophyse",
+      "word": "revente",
       "percentile": 987,
-      "similarity": 36.92
+      "similarity": 45.5
     },
     {
-      "word": "innervation",
+      "word": "offre",
       "percentile": 986,
-      "similarity": 36.57
+      "similarity": 45.01
     },
     {
-      "word": "siéger",
+      "word": "paiement",
       "percentile": 985,
-      "similarity": 36.45
+      "similarity": 44.97
     },
     {
-      "word": "sensille",
+      "word": "enchérisseur",
       "percentile": 984,
-      "similarity": 36.33
+      "similarity": 44.65
     },
     {
-      "word": "exécutif",
+      "word": "prestataire",
       "percentile": 983,
-      "similarity": 36.28
+      "similarity": 43.26
     },
     {
-      "word": "névraxe",
+      "word": "transporteur",
       "percentile": 982,
-      "similarity": 36.27
+      "similarity": 41.36
     },
     {
-      "word": "mésoderme",
+      "word": "cocontractant",
       "percentile": 981,
-      "similarity": 36.19
+      "similarity": 41.29
     }
   ]
 }

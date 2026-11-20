@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-21",
+  "puzzle_num": 1725,
+  "word": "acheteur",
+  "first_letter": "A",
+  "word_length": 8,
+  "definition": "Celui qui achète.",
+  "hints": {
+    "level1": [
+      {
+        "word": "réel",
+        "percentile": 200,
+        "definition": "Véritable, effectif, vrai, sans fiction ni figure."
+      },
+      {
+        "word": "discrétionnaire",
+        "percentile": 267,
+        "definition": "Dont le pouvoir de décider est laissé à la discrétion, au jugement, au choix, à la préférence, à la volonté de quelqu'un."
+      },
+      {
+        "word": "précompter",
+        "percentile": 334,
+        "definition": "Compter par avance les sommes qui sont à déduire."
+      }
+    ],
+    "level2": [
+      {
+        "word": "garagiste",
+        "percentile": 500,
+        "definition": "Personne qui s'occupe d'un garage ou qui y travaille ; qui répare des automobiles, motocycles ou des machines agricoles."
+      },
+      {
+        "word": "opportunité",
+        "percentile": 567,
+        "definition": "Caractère de ce qui est opportun."
+      },
+      {
+        "word": "kilowattheure",
+        "percentile": 634,
+        "definition": "Unité de mesure d’énergie, équivalant à une puissance d’un kilowatt agissant pendant une heure, soit 3,6 mégajoules. Le symbole est kWh."
+      }
+    ],
+    "level3": [
+      {
+        "word": "dématérialiser",
+        "percentile": 800,
+        "definition": "Retirer à (quelque chose) son caractère matériel, physique."
+      },
+      {
+        "word": "particulier",
+        "percentile": 850,
+        "definition": "Qui présente une caractéristique spéciale, qui appartient, proprement et singulièrement, à certaines personnes ou à certaines choses ; qui n’est pas commun à d’autres personnes, à d’autres choses de même espèce."
+      },
+      {
+        "word": "concessionnaire",
+        "percentile": 900,
+        "definition": "Celui, celle qui a obtenu une concession de terrain à exploiter ou de travaux publics à exécuter."
+      }
+    ]
+  },
+  "tried_count": 294,
+  "generated_at": "2026-11-20T23:19:44.464488+00:00",
+  "nearby_top": [
+    {
+      "word": "acheteur",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "vendeur",
+      "percentile": 999,
+      "similarity": 66.63
+    },
+    {
+      "word": "acquéreur",
+      "percentile": 998,
+      "similarity": 61.87
+    },
+    {
+      "word": "achat",
+      "percentile": 997,
+      "similarity": 57.26
+    },
+    {
+      "word": "client",
+      "percentile": 996,
+      "similarity": 54.67
+    },
+    {
+      "word": "vente",
+      "percentile": 995,
+      "similarity": 54.32
+    },
+    {
+      "word": "fournisseur",
+      "percentile": 994,
+      "similarity": 53.99
+    },
+    {
+      "word": "transaction",
+      "percentile": 993,
+      "similarity": 53.27
+    },
+    {
+      "word": "produit",
+      "percentile": 992,
+      "similarity": 50.94
+    },
+    {
+      "word": "marché",
+      "percentile": 991,
+      "similarity": 50.79
+    },
+    {
+      "word": "consommateur",
+      "percentile": 990,
+      "similarity": 48.17
+    },
+    {
+      "word": "commande",
+      "percentile": 989,
+      "similarity": 47.69
+    },
+    {
+      "word": "livraison",
+      "percentile": 988,
+      "similarity": 47.63
+    },
+    {
+      "word": "revente",
+      "percentile": 987,
+      "similarity": 45.5
+    },
+    {
+      "word": "offre",
+      "percentile": 986,
+      "similarity": 45.01
+    },
+    {
+      "word": "paiement",
+      "percentile": 985,
+      "similarity": 44.97
+    },
+    {
+      "word": "enchérisseur",
+      "percentile": 984,
+      "similarity": 44.65
+    },
+    {
+      "word": "prestataire",
+      "percentile": 983,
+      "similarity": 43.26
+    },
+    {
+      "word": "transporteur",
+      "percentile": 982,
+      "similarity": 41.36
+    },
+    {
+      "word": "cocontractant",
+      "percentile": 981,
+      "similarity": 41.29
+    }
+  ]
+}

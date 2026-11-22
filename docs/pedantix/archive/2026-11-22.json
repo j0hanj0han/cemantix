@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-22",
+  "puzzle_num": 1653,
+  "word": "Clavecin",
+  "title_slug": "Clavecin",
+  "title_display": "Clavecin",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Clavecin",
+  "hints": {
+    "level1": [
+      "1 mot · 8 lettres",
+      "Première lettre : C"
+    ],
+    "level2": [
+      "instrument de musique à clavier et cordes pincées",
+      "Instrument de musique classique",
+      "Instrument à clavier",
+      "Instrument à cordes pincées"
+    ],
+    "level3": [
+      "Le ___ est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers."
+    ]
+  },
+  "extract": "Le clavecin est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers.",
+  "categories": [
+    "instrument de musique à clavier et cordes pincées",
+    "Instrument de musique classique",
+    "Instrument à clavier",
+    "Instrument à cordes pincées"
+  ],
+  "generated_at": "2026-11-22T23:16:06.542137+00:00"
+}

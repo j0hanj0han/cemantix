@@ -1,20 +1,16 @@
 {
-  "date": "2026-11-22",
-  "puzzle_num": 1982,
-  "word": "UPEND",
+  "date": "2026-11-23",
+  "puzzle_num": 1983,
+  "word": "FILTH",
   "letter_count": 5,
-  "translation": "mettre à l'envers, retourner",
+  "translation": "saleté",
   "senses": [
     {
-      "pos": "verbe",
-      "text": "Mettre à l'envers, retourner."
-    },
-    {
-      "pos": "verbe",
-      "text": "Renverser, vaincre."
+      "pos": "nom",
+      "text": "Saleté."
     }
   ],
-  "definition_en": "Verbe : To end up; to set on end.",
+  "definition_en": "Nom : Dirt; foul matter; that which soils or defiles.",
   "editor": "Tracy Bennett",
-  "generated_at": "2026-11-21T23:16:12.757555+00:00"
+  "generated_at": "2026-11-22T23:15:34.134373+00:00"
 }

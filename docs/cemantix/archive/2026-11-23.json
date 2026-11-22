@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-23",
+  "puzzle_num": 1727,
+  "word": "marin",
+  "first_letter": "M",
+  "word_length": 5,
+  "definition": "Qui appartient à la mer.",
+  "hints": {
+    "level1": [
+      {
+        "word": "gorgone",
+        "percentile": 200,
+        "definition": "Créature de la mythologie grecque représentée sous les traits d’une femme à la chevelure de serpents au regard paralysant."
+      },
+      {
+        "word": "inhospitalier",
+        "percentile": 267,
+        "definition": "Qui n’est pas hospitalier, qui n’exerce pas l’hospitalité, qui est inhumain envers les étrangers."
+      },
+      {
+        "word": "chenal",
+        "percentile": 334,
+        "definition": "Canal naturel ou artificiel à l’entrée d’un port."
+      }
+    ],
+    "level2": [
+      {
+        "word": "pré-salé",
+        "percentile": 500,
+        "definition": "Mouton qui a pâturé dans des prés voisins de la mer."
+      },
+      {
+        "word": "émersion",
+        "percentile": 567,
+        "definition": "Action d’émerger."
+      },
+      {
+        "word": "baliste",
+        "percentile": 634,
+        "definition": "Machine de guerre en usage chez les anciens qui servait à lancer des pierres et des poutres."
+      }
+    ],
+    "level3": [
+      {
+        "word": "échouage",
+        "percentile": 800,
+        "definition": "Action de faire échouer une embarcation ou résultat de cette action, dans les deux cas de manière volontaire. On pratique par exemple l’échouage sur une plage de sable pour caréner."
+      },
+      {
+        "word": "calfatage",
+        "percentile": 850,
+        "definition": "Action de calfater ou résultat de cette action."
+      },
+      {
+        "word": "palangre",
+        "percentile": 900,
+        "definition": "Corde ou grosse ligne à laquelle sont suspendues des lignes munies d'hameçons, qui peut reposer sur le fond ou être soutenue par des flotteurs."
+      }
+    ]
+  },
+  "tried_count": 36,
+  "generated_at": "2026-11-22T23:15:31.677614+00:00",
+  "nearby_top": [
+    {
+      "word": "marin",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "marine",
+      "percentile": 999,
+      "similarity": 66.5
+    },
+    {
+      "word": "mer",
+      "percentile": 998,
+      "similarity": 60.47
+    },
+    {
+      "word": "hydrographe",
+      "percentile": 997,
+      "similarity": 57.74
+    },
+    {
+      "word": "matelot",
+      "percentile": 996,
+      "similarity": 56.52
+    },
+    {
+      "word": "maritime",
+      "percentile": 995,
+      "similarity": 55.71
+    },
+    {
+      "word": "sous-marinier",
+      "percentile": 994,
+      "similarity": 55.69
+    },
+    {
+      "word": "cap-hornier",
+      "percentile": 993,
+      "similarity": 55.43
+    },
+    {
+      "word": "trois-mâts",
+      "percentile": 992,
+      "similarity": 54.38
+    },
+    {
+      "word": "naval",
+      "percentile": 991,
+      "similarity": 54.37
+    },
+    {
+      "word": "navire",
+      "percentile": 990,
+      "similarity": 54.2
+    },
+    {
+      "word": "matelotage",
+      "percentile": 989,
+      "similarity": 54.06
+    },
+    {
+      "word": "goélette",
+      "percentile": 988,
+      "similarity": 53.97
+    },
+    {
+      "word": "sous-marin",
+      "percentile": 987,
+      "similarity": 52.82
+    },
+    {
+      "word": "garde-côte",
+      "percentile": 986,
+      "similarity": 52.35
+    },
+    {
+      "word": "hauturier",
+      "percentile": 985,
+      "similarity": 51.85
+    },
+    {
+      "word": "marin-pêcheur",
+      "percentile": 984,
+      "similarity": 51.71
+    },
+    {
+      "word": "langoustier",
+      "percentile": 983,
+      "similarity": 51.26
+    },
+    {
+      "word": "navire-école",
+      "percentile": 982,
+      "similarity": 51.09
+    },
+    {
+      "word": "escorteur",
+      "percentile": 981,
+      "similarity": 50.98
+    }
+  ]
+}

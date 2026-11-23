@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-23",
-  "puzzle_num": 1727,
-  "word": "marin",
-  "first_letter": "M",
-  "word_length": 5,
-  "definition": "Qui appartient à la mer.",
+  "date": "2026-11-24",
+  "puzzle_num": 1728,
+  "word": "jury",
+  "first_letter": "J",
+  "word_length": 4,
+  "definition": "Tous les jurés désignés pour une session, ou seulement des douze jurés auxquels une affaire est soumise.",
   "hints": {
     "level1": [
       {
-        "word": "gorgone",
+        "word": "constitution",
         "percentile": 200,
-        "definition": "Créature de la mythologie grecque représentée sous les traits d’une femme à la chevelure de serpents au regard paralysant."
+        "definition": "Manière dont une chose est constituée, dont ses éléments combinés forment un tout."
       },
       {
-        "word": "inhospitalier",
+        "word": "parité",
         "percentile": 267,
-        "definition": "Qui n’est pas hospitalier, qui n’exerce pas l’hospitalité, qui est inhumain envers les étrangers."
+        "definition": "Égalité, similitude entre des objets de même qualité, de même nature."
       },
       {
-        "word": "chenal",
+        "word": "coordinateur",
         "percentile": 334,
-        "definition": "Canal naturel ou artificiel à l’entrée d’un port."
+        "definition": "Celui qui coordonne, qui organise les rencontres entre différents intervenants, qui planifie les différentes tâches de différents intervenants ou qui organise leur travail."
       }
     ],
     "level2": [
       {
-        "word": "pré-salé",
+        "word": "promotion",
         "percentile": 500,
-        "definition": "Mouton qui a pâturé dans des prés voisins de la mer."
+        "definition": "Action par laquelle on élève à la fois plusieurs personnes à un même grade, à une même dignité."
       },
       {
-        "word": "émersion",
+        "word": "définitif",
         "percentile": 567,
-        "definition": "Action d’émerger."
+        "definition": "Qui est réglé, fixé de manière qu’on n’y devra plus revenir."
       },
       {
-        "word": "baliste",
+        "word": "réception",
         "percentile": 634,
-        "definition": "Machine de guerre en usage chez les anciens qui servait à lancer des pierres et des poutres."
+        "definition": "Action de recevoir une chose qui a été adressée."
       }
     ],
     "level3": [
       {
-        "word": "échouage",
+        "word": "intéressé",
         "percentile": 800,
-        "definition": "Action de faire échouer une embarcation ou résultat de cette action, dans les deux cas de manière volontaire. On pratique par exemple l’échouage sur une plage de sable pour caréner."
+        "definition": "Qui porte de l’intérêt, de l’attention."
       },
       {
-        "word": "calfatage",
+        "word": "olympiade",
         "percentile": 850,
-        "definition": "Action de calfater ou résultat de cette action."
+        "definition": "Espace de quatre ans qui s’écoulait d’une célébration des jeux olympiques à une autre. Elle est la base de la chronologie du monde grec à partir d’."
       },
       {
-        "word": "palangre",
+        "word": "réunir",
         "percentile": 900,
-        "definition": "Corde ou grosse ligne à laquelle sont suspendues des lignes munies d'hameçons, qui peut reposer sur le fond ou être soutenue par des flotteurs."
+        "definition": "Rejoindre ce qui est désuni, séparé."
       }
     ]
   },
-  "tried_count": 36,
-  "generated_at": "2026-11-22T23:15:31.677614+00:00",
+  "tried_count": 148,
+  "generated_at": "2026-11-23T23:17:28.257722+00:00",
   "nearby_top": [
     {
-      "word": "marin",
+      "word": "jury",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "marine",
+      "word": "lauréat",
       "percentile": 999,
-      "similarity": 66.5
+      "similarity": 57.12
     },
     {
-      "word": "mer",
+      "word": "candidat",
       "percentile": 998,
-      "similarity": 60.47
+      "similarity": 52.7
     },
     {
-      "word": "hydrographe",
+      "word": "présélectionner",
       "percentile": 997,
-      "similarity": 57.74
-    },
-    {
-      "word": "matelot",
-      "percentile": 996,
-      "similarity": 56.52
-    },
-    {
-      "word": "maritime",
-      "percentile": 995,
-      "similarity": 55.71
-    },
-    {
-      "word": "sous-marinier",
-      "percentile": 994,
-      "similarity": 55.69
-    },
-    {
-      "word": "cap-hornier",
-      "percentile": 993,
-      "similarity": 55.43
-    },
-    {
-      "word": "trois-mâts",
-      "percentile": 992,
-      "similarity": 54.38
-    },
-    {
-      "word": "naval",
-      "percentile": 991,
-      "similarity": 54.37
-    },
-    {
-      "word": "navire",
-      "percentile": 990,
-      "similarity": 54.2
-    },
-    {
-      "word": "matelotage",
-      "percentile": 989,
-      "similarity": 54.06
-    },
-    {
-      "word": "goélette",
-      "percentile": 988,
-      "similarity": 53.97
-    },
-    {
-      "word": "sous-marin",
-      "percentile": 987,
-      "similarity": 52.82
-    },
-    {
-      "word": "garde-côte",
-      "percentile": 986,
-      "similarity": 52.35
-    },
-    {
-      "word": "hauturier",
-      "percentile": 985,
-      "similarity": 51.85
-    },
-    {
-      "word": "marin-pêcheur",
-      "percentile": 984,
       "similarity": 51.71
     },
     {
-      "word": "langoustier",
+      "word": "concours",
+      "percentile": 996,
+      "similarity": 49.69
+    },
+    {
+      "word": "finaliste",
+      "percentile": 995,
+      "similarity": 48.88
+    },
+    {
+      "word": "présélection",
+      "percentile": 994,
+      "similarity": 47.26
+    },
+    {
+      "word": "juré",
+      "percentile": 993,
+      "similarity": 46.83
+    },
+    {
+      "word": "examinateur",
+      "percentile": 992,
+      "similarity": 46.82
+    },
+    {
+      "word": "décerner",
+      "percentile": 991,
+      "similarity": 46.77
+    },
+    {
+      "word": "épreuve",
+      "percentile": 990,
+      "similarity": 45.93
+    },
+    {
+      "word": "soutenance",
+      "percentile": 989,
+      "similarity": 45.58
+    },
+    {
+      "word": "admissibilité",
+      "percentile": 988,
+      "similarity": 44.62
+    },
+    {
+      "word": "départager",
+      "percentile": 987,
+      "similarity": 43.39
+    },
+    {
+      "word": "examen",
+      "percentile": 986,
+      "similarity": 42.97
+    },
+    {
+      "word": "candidature",
+      "percentile": 985,
+      "similarity": 39.66
+    },
+    {
+      "word": "admission",
+      "percentile": 984,
+      "similarity": 39.61
+    },
+    {
+      "word": "sélection",
       "percentile": 983,
-      "similarity": 51.26
+      "similarity": 39.51
     },
     {
-      "word": "navire-école",
+      "word": "récompenser",
       "percentile": 982,
-      "similarity": 51.09
+      "similarity": 38.89
     },
     {
-      "word": "escorteur",
+      "word": "interclasser",
       "percentile": 981,
-      "similarity": 50.98
+      "similarity": 38.78
     }
   ]
 }

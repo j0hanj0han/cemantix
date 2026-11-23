@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-24",
+  "puzzle_num": 1984,
+  "word": "SNEER",
+  "letter_count": 5,
+  "translation": "ricaner",
+  "senses": [
+    {
+      "pos": "verbe",
+      "text": "Ricaner."
+    },
+    {
+      "pos": "nom",
+      "text": "Ricanement."
+    },
+    {
+      "pos": "nom",
+      "text": "Rictus."
+    }
+  ],
+  "definition_en": "Verbe : To raise a corner of the upper lip slightly, especially in scorn.",
+  "editor": "Tracy Bennett",
+  "generated_at": "2026-11-23T23:17:30.715045+00:00"
+}

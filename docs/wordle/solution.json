@@ -1,16 +1,24 @@
 {
-  "date": "2026-11-23",
-  "puzzle_num": 1983,
-  "word": "FILTH",
+  "date": "2026-11-24",
+  "puzzle_num": 1984,
+  "word": "SNEER",
   "letter_count": 5,
-  "translation": "saleté",
+  "translation": "ricaner",
   "senses": [
     {
+      "pos": "verbe",
+      "text": "Ricaner."
+    },
+    {
       "pos": "nom",
-      "text": "Saleté."
+      "text": "Ricanement."
+    },
+    {
+      "pos": "nom",
+      "text": "Rictus."
     }
   ],
-  "definition_en": "Nom : Dirt; foul matter; that which soils or defiles.",
+  "definition_en": "Verbe : To raise a corner of the upper lip slightly, especially in scorn.",
   "editor": "Tracy Bennett",
-  "generated_at": "2026-11-22T23:15:34.134373+00:00"
+  "generated_at": "2026-11-23T23:17:30.715045+00:00"
 }

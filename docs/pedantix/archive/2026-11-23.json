@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-23",
+  "puzzle_num": 1654,
+  "word": "Miami",
+  "title_slug": "Miami",
+  "title_display": "Miami",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Miami",
+  "hints": {
+    "level1": [
+      "1 mot · 5 lettres",
+      "Première lettre : M"
+    ],
+    "level2": [
+      "ville américaine située en Floride",
+      "Population de 2020 en infobox",
+      "Division administrative fondée en 1836"
+    ],
+    "level3": [
+      "___ est une ville américaine située dans le sud-est de l'État de Floride, sur la baie de Biscayne."
+    ]
+  },
+  "extract": "Miami est une ville américaine située dans le sud-est de l'État de Floride, sur la baie de Biscayne.",
+  "categories": [
+    "ville américaine située en Floride",
+    "Population de 2020 en infobox",
+    "Division administrative fondée en 1836"
+  ],
+  "generated_at": "2026-11-23T23:18:05.746481+00:00"
+}

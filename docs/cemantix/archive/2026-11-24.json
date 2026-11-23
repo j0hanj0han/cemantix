@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-24",
+  "puzzle_num": 1728,
+  "word": "jury",
+  "first_letter": "J",
+  "word_length": 4,
+  "definition": "Tous les jurés désignés pour une session, ou seulement des douze jurés auxquels une affaire est soumise.",
+  "hints": {
+    "level1": [
+      {
+        "word": "constitution",
+        "percentile": 200,
+        "definition": "Manière dont une chose est constituée, dont ses éléments combinés forment un tout."
+      },
+      {
+        "word": "parité",
+        "percentile": 267,
+        "definition": "Égalité, similitude entre des objets de même qualité, de même nature."
+      },
+      {
+        "word": "coordinateur",
+        "percentile": 334,
+        "definition": "Celui qui coordonne, qui organise les rencontres entre différents intervenants, qui planifie les différentes tâches de différents intervenants ou qui organise leur travail."
+      }
+    ],
+    "level2": [
+      {
+        "word": "promotion",
+        "percentile": 500,
+        "definition": "Action par laquelle on élève à la fois plusieurs personnes à un même grade, à une même dignité."
+      },
+      {
+        "word": "définitif",
+        "percentile": 567,
+        "definition": "Qui est réglé, fixé de manière qu’on n’y devra plus revenir."
+      },
+      {
+        "word": "réception",
+        "percentile": 634,
+        "definition": "Action de recevoir une chose qui a été adressée."
+      }
+    ],
+    "level3": [
+      {
+        "word": "intéressé",
+        "percentile": 800,
+        "definition": "Qui porte de l’intérêt, de l’attention."
+      },
+      {
+        "word": "olympiade",
+        "percentile": 850,
+        "definition": "Espace de quatre ans qui s’écoulait d’une célébration des jeux olympiques à une autre. Elle est la base de la chronologie du monde grec à partir d’."
+      },
+      {
+        "word": "réunir",
+        "percentile": 900,
+        "definition": "Rejoindre ce qui est désuni, séparé."
+      }
+    ]
+  },
+  "tried_count": 148,
+  "generated_at": "2026-11-23T23:17:28.257722+00:00",
+  "nearby_top": [
+    {
+      "word": "jury",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "lauréat",
+      "percentile": 999,
+      "similarity": 57.12
+    },
+    {
+      "word": "candidat",
+      "percentile": 998,
+      "similarity": 52.7
+    },
+    {
+      "word": "présélectionner",
+      "percentile": 997,
+      "similarity": 51.71
+    },
+    {
+      "word": "concours",
+      "percentile": 996,
+      "similarity": 49.69
+    },
+    {
+      "word": "finaliste",
+      "percentile": 995,
+      "similarity": 48.88
+    },
+    {
+      "word": "présélection",
+      "percentile": 994,
+      "similarity": 47.26
+    },
+    {
+      "word": "juré",
+      "percentile": 993,
+      "similarity": 46.83
+    },
+    {
+      "word": "examinateur",
+      "percentile": 992,
+      "similarity": 46.82
+    },
+    {
+      "word": "décerner",
+      "percentile": 991,
+      "similarity": 46.77
+    },
+    {
+      "word": "épreuve",
+      "percentile": 990,
+      "similarity": 45.93
+    },
+    {
+      "word": "soutenance",
+      "percentile": 989,
+      "similarity": 45.58
+    },
+    {
+      "word": "admissibilité",
+      "percentile": 988,
+      "similarity": 44.62
+    },
+    {
+      "word": "départager",
+      "percentile": 987,
+      "similarity": 43.39
+    },
+    {
+      "word": "examen",
+      "percentile": 986,
+      "similarity": 42.97
+    },
+    {
+      "word": "candidature",
+      "percentile": 985,
+      "similarity": 39.66
+    },
+    {
+      "word": "admission",
+      "percentile": 984,
+      "similarity": 39.61
+    },
+    {
+      "word": "sélection",
+      "percentile": 983,
+      "similarity": 39.51
+    },
+    {
+      "word": "récompenser",
+      "percentile": 982,
+      "similarity": 38.89
+    },
+    {
+      "word": "interclasser",
+      "percentile": 981,
+      "similarity": 38.78
+    }
+  ]
+}

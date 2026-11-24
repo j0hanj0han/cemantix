@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-25",
+  "puzzle_num": 1729,
+  "word": "quête",
+  "first_letter": "Q",
+  "word_length": 5,
+  "definition": "Action par laquelle on cherche.",
+  "hints": {
+    "level1": [
+      {
+        "word": "contingence",
+        "percentile": 200,
+        "definition": "Qualité de ce qui est contingent ; probabilité de survenance."
+      },
+      {
+        "word": "dépossession",
+        "percentile": 267,
+        "definition": "Action de déposséder ou état d’une personne dépossédée."
+      },
+      {
+        "word": "fétichiser",
+        "percentile": 334,
+        "definition": "Considérer comme un fétiche quelque chose qui ne l’est pas."
+      }
+    ],
+    "level2": [
+      {
+        "word": "sensualité",
+        "percentile": 500,
+        "definition": "Attachement aux plaisirs des sens."
+      },
+      {
+        "word": "irrépressible",
+        "percentile": 567,
+        "definition": "Qu’on ne peut réprimer ou contenir, irrésistible."
+      },
+      {
+        "word": "resurgir",
+        "percentile": 634,
+        "definition": "Surgir à nouveau."
+      }
+    ],
+    "level3": [
+      {
+        "word": "originel",
+        "percentile": 800,
+        "definition": "Qui vient de l’origine, qui remonte jusqu’à l’origine."
+      },
+      {
+        "word": "épris",
+        "percentile": 850,
+        "definition": "Qui est saisi par un vif sentiment de relation affective, une passion pour quelqu'un ou quelque chose."
+      },
+      {
+        "word": "obsessionnel",
+        "percentile": 900,
+        "definition": "Relatif à l'obsession, aux pensées intrusives."
+      }
+    ]
+  },
+  "tried_count": 53,
+  "generated_at": "2026-11-24T23:15:35.951263+00:00",
+  "nearby_top": [
+    {
+      "word": "quête",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "errance",
+      "percentile": 999,
+      "similarity": 48.28
+    },
+    {
+      "word": "aventure",
+      "percentile": 998,
+      "similarity": 47.55
+    },
+    {
+      "word": "graal",
+      "percentile": 997,
+      "similarity": 43.71
+    },
+    {
+      "word": "héros",
+      "percentile": 996,
+      "similarity": 43.24
+    },
+    {
+      "word": "désir",
+      "percentile": 995,
+      "similarity": 43.23
+    },
+    {
+      "word": "aventurier",
+      "percentile": 994,
+      "similarity": 42.33
+    },
+    {
+      "word": "initiatique",
+      "percentile": 993,
+      "similarity": 42.17
+    },
+    {
+      "word": "avide",
+      "percentile": 992,
+      "similarity": 41.17
+    },
+    {
+      "word": "rédemption",
+      "percentile": 991,
+      "similarity": 40.08
+    },
+    {
+      "word": "désenchanter",
+      "percentile": 990,
+      "similarity": 39.74
+    },
+    {
+      "word": "ultime",
+      "percentile": 989,
+      "similarity": 39.37
+    },
+    {
+      "word": "aventureux",
+      "percentile": 988,
+      "similarity": 39.34
+    },
+    {
+      "word": "mystérieux",
+      "percentile": 987,
+      "similarity": 39.23
+    },
+    {
+      "word": "mystique",
+      "percentile": 986,
+      "similarity": 39.02
+    },
+    {
+      "word": "existentiel",
+      "percentile": 985,
+      "similarity": 38.89
+    },
+    {
+      "word": "destin",
+      "percentile": 984,
+      "similarity": 38.74
+    },
+    {
+      "word": "assoiffer",
+      "percentile": 983,
+      "similarity": 38.49
+    },
+    {
+      "word": "énigme",
+      "percentile": 982,
+      "similarity": 38.45
+    },
+    {
+      "word": "spiritualité",
+      "percentile": 981,
+      "similarity": 37.93
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-25",
+  "puzzle_num": 1985,
+  "word": "SPICY",
+  "letter_count": 5,
+  "translation": "épicé, qui contient des épices",
+  "senses": [
+    {
+      "pos": "adjectif",
+      "text": "Épicé, qui contient des épices."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Pimenté."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Relevé, corsé, épicé."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Coloré, original, intéressant."
+    }
+  ],
+  "definition_en": "Adjectif : Of, pertaining to, or containing spice.",
+  "editor": "Tracy Bennett",
+  "generated_at": "2026-11-24T23:15:38.136815+00:00"
+}

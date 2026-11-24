@@ -1,24 +1,28 @@
 {
-  "date": "2026-11-24",
-  "puzzle_num": 1984,
-  "word": "SNEER",
+  "date": "2026-11-25",
+  "puzzle_num": 1985,
+  "word": "SPICY",
   "letter_count": 5,
-  "translation": "ricaner",
+  "translation": "épicé, qui contient des épices",
   "senses": [
     {
-      "pos": "verbe",
-      "text": "Ricaner."
+      "pos": "adjectif",
+      "text": "Épicé, qui contient des épices."
     },
     {
-      "pos": "nom",
-      "text": "Ricanement."
+      "pos": "adjectif",
+      "text": "Pimenté."
     },
     {
-      "pos": "nom",
-      "text": "Rictus."
+      "pos": "adjectif",
+      "text": "Relevé, corsé, épicé."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Coloré, original, intéressant."
     }
   ],
-  "definition_en": "Verbe : To raise a corner of the upper lip slightly, especially in scorn.",
+  "definition_en": "Adjectif : Of, pertaining to, or containing spice.",
   "editor": "Tracy Bennett",
-  "generated_at": "2026-11-23T23:17:30.715045+00:00"
+  "generated_at": "2026-11-24T23:15:38.136815+00:00"
 }

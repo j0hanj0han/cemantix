@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-24",
-  "puzzle_num": 1728,
-  "word": "jury",
-  "first_letter": "J",
-  "word_length": 4,
-  "definition": "Tous les jurés désignés pour une session, ou seulement des douze jurés auxquels une affaire est soumise.",
+  "date": "2026-11-25",
+  "puzzle_num": 1729,
+  "word": "quête",
+  "first_letter": "Q",
+  "word_length": 5,
+  "definition": "Action par laquelle on cherche.",
   "hints": {
     "level1": [
       {
-        "word": "constitution",
+        "word": "contingence",
         "percentile": 200,
-        "definition": "Manière dont une chose est constituée, dont ses éléments combinés forment un tout."
+        "definition": "Qualité de ce qui est contingent ; probabilité de survenance."
       },
       {
-        "word": "parité",
+        "word": "dépossession",
         "percentile": 267,
-        "definition": "Égalité, similitude entre des objets de même qualité, de même nature."
+        "definition": "Action de déposséder ou état d’une personne dépossédée."
       },
       {
-        "word": "coordinateur",
+        "word": "fétichiser",
         "percentile": 334,
-        "definition": "Celui qui coordonne, qui organise les rencontres entre différents intervenants, qui planifie les différentes tâches de différents intervenants ou qui organise leur travail."
+        "definition": "Considérer comme un fétiche quelque chose qui ne l’est pas."
       }
     ],
     "level2": [
       {
-        "word": "promotion",
+        "word": "sensualité",
         "percentile": 500,
-        "definition": "Action par laquelle on élève à la fois plusieurs personnes à un même grade, à une même dignité."
+        "definition": "Attachement aux plaisirs des sens."
       },
       {
-        "word": "définitif",
+        "word": "irrépressible",
         "percentile": 567,
-        "definition": "Qui est réglé, fixé de manière qu’on n’y devra plus revenir."
+        "definition": "Qu’on ne peut réprimer ou contenir, irrésistible."
       },
       {
-        "word": "réception",
+        "word": "resurgir",
         "percentile": 634,
-        "definition": "Action de recevoir une chose qui a été adressée."
+        "definition": "Surgir à nouveau."
       }
     ],
     "level3": [
       {
-        "word": "intéressé",
+        "word": "originel",
         "percentile": 800,
-        "definition": "Qui porte de l’intérêt, de l’attention."
+        "definition": "Qui vient de l’origine, qui remonte jusqu’à l’origine."
       },
       {
-        "word": "olympiade",
+        "word": "épris",
         "percentile": 850,
-        "definition": "Espace de quatre ans qui s’écoulait d’une célébration des jeux olympiques à une autre. Elle est la base de la chronologie du monde grec à partir d’."
+        "definition": "Qui est saisi par un vif sentiment de relation affective, une passion pour quelqu'un ou quelque chose."
       },
       {
-        "word": "réunir",
+        "word": "obsessionnel",
         "percentile": 900,
-        "definition": "Rejoindre ce qui est désuni, séparé."
+        "definition": "Relatif à l'obsession, aux pensées intrusives."
       }
     ]
   },
-  "tried_count": 148,
-  "generated_at": "2026-11-23T23:17:28.257722+00:00",
+  "tried_count": 53,
+  "generated_at": "2026-11-24T23:15:35.951263+00:00",
   "nearby_top": [
     {
-      "word": "jury",
+      "word": "quête",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "lauréat",
+      "word": "errance",
       "percentile": 999,
-      "similarity": 57.12
+      "similarity": 48.28
     },
     {
-      "word": "candidat",
+      "word": "aventure",
       "percentile": 998,
-      "similarity": 52.7
+      "similarity": 47.55
     },
     {
-      "word": "présélectionner",
+      "word": "graal",
       "percentile": 997,
-      "similarity": 51.71
+      "similarity": 43.71
     },
     {
-      "word": "concours",
+      "word": "héros",
       "percentile": 996,
-      "similarity": 49.69
+      "similarity": 43.24
     },
     {
-      "word": "finaliste",
+      "word": "désir",
       "percentile": 995,
-      "similarity": 48.88
+      "similarity": 43.23
     },
     {
-      "word": "présélection",
+      "word": "aventurier",
       "percentile": 994,
-      "similarity": 47.26
+      "similarity": 42.33
     },
     {
-      "word": "juré",
+      "word": "initiatique",
       "percentile": 993,
-      "similarity": 46.83
+      "similarity": 42.17
     },
     {
-      "word": "examinateur",
+      "word": "avide",
       "percentile": 992,
-      "similarity": 46.82
+      "similarity": 41.17
     },
     {
-      "word": "décerner",
+      "word": "rédemption",
       "percentile": 991,
-      "similarity": 46.77
+      "similarity": 40.08
     },
     {
-      "word": "épreuve",
+      "word": "désenchanter",
       "percentile": 990,
-      "similarity": 45.93
+      "similarity": 39.74
     },
     {
-      "word": "soutenance",
+      "word": "ultime",
       "percentile": 989,
-      "similarity": 45.58
+      "similarity": 39.37
     },
     {
-      "word": "admissibilité",
+      "word": "aventureux",
       "percentile": 988,
-      "similarity": 44.62
+      "similarity": 39.34
     },
     {
-      "word": "départager",
+      "word": "mystérieux",
       "percentile": 987,
-      "similarity": 43.39
+      "similarity": 39.23
     },
     {
-      "word": "examen",
+      "word": "mystique",
       "percentile": 986,
-      "similarity": 42.97
+      "similarity": 39.02
     },
     {
-      "word": "candidature",
+      "word": "existentiel",
       "percentile": 985,
-      "similarity": 39.66
-    },
-    {
-      "word": "admission",
-      "percentile": 984,
-      "similarity": 39.61
-    },
-    {
-      "word": "sélection",
-      "percentile": 983,
-      "similarity": 39.51
-    },
-    {
-      "word": "récompenser",
-      "percentile": 982,
       "similarity": 38.89
     },
     {
-      "word": "interclasser",
+      "word": "destin",
+      "percentile": 984,
+      "similarity": 38.74
+    },
+    {
+      "word": "assoiffer",
+      "percentile": 983,
+      "similarity": 38.49
+    },
+    {
+      "word": "énigme",
+      "percentile": 982,
+      "similarity": 38.45
+    },
+    {
+      "word": "spiritualité",
       "percentile": 981,
-      "similarity": 38.78
+      "similarity": 37.93
     }
   ]
 }

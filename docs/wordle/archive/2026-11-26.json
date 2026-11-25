@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-26",
+  "puzzle_num": 1986,
+  "word": "TENSE",
+  "letter_count": 5,
+  "translation": "tendu, qui subit une tension",
+  "senses": [
+    {
+      "pos": "adjectif",
+      "text": "Tendu, qui subit une tension."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Tendu, anxieux, nerveux."
+    },
+    {
+      "pos": "adjectif",
+      "text": "Tendue."
+    },
+    {
+      "pos": "nom",
+      "text": "Temps."
+    }
+  ],
+  "definition_en": "Nom : The property of indicating the point in time at which an action or state of being occurs or exists.",
+  "editor": "Tracy Bennett",
+  "generated_at": "2026-11-25T23:15:38.393249+00:00"
+}

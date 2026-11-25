@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-26",
+  "puzzle_num": 1730,
+  "word": "virtuel",
+  "first_letter": "V",
+  "word_length": 7,
+  "definition": "Qui est seulement en puissance et sans effet actuel.",
+  "hints": {
+    "level1": [
+      {
+        "word": "streaming",
+        "percentile": 200,
+        "definition": "Lecture en continu, diffusion en flux, lecture en transit, diffusion en continu, sans sauvegarder un fichier entier."
+      },
+      {
+        "word": "kilobyte",
+        "percentile": 267,
+        "definition": "Kilooctet."
+      },
+      {
+        "word": "accro",
+        "percentile": 334,
+        "definition": "Personne dépendante d’une drogue."
+      }
+    ],
+    "level2": [
+      {
+        "word": "mental",
+        "percentile": 500,
+        "definition": "Qui se fait, qui s’exécute dans l’esprit, dans l’entendement."
+      },
+      {
+        "word": "audiotex",
+        "percentile": 567,
+        "definition": "Service automatisé délivrant des messages vocaux digitalisés reçus par téléphone."
+      },
+      {
+        "word": "tchat",
+        "percentile": 634,
+        "definition": "Conversation écrite virtuelle et en temps réel, par écran interposé, sur internet."
+      }
+    ],
+    "level3": [
+      {
+        "word": "protéiforme",
+        "percentile": 800,
+        "definition": "Qui est susceptible de prendre les formes les plus différentes."
+      },
+      {
+        "word": "permettre",
+        "percentile": 850,
+        "definition": "Donner liberté, pouvoir de faire, de dire."
+      },
+      {
+        "word": "irréel",
+        "percentile": 900,
+        "definition": "Qui n’est pas réel, qui est illusoire."
+      }
+    ]
+  },
+  "tried_count": 52,
+  "generated_at": "2026-11-25T23:15:36.132773+00:00",
+  "nearby_top": [
+    {
+      "word": "virtuel",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "virtuellement",
+      "percentile": 999,
+      "similarity": 61.4
+    },
+    {
+      "word": "interactif",
+      "percentile": 998,
+      "similarity": 53.99
+    },
+    {
+      "word": "virtualité",
+      "percentile": 997,
+      "similarity": 51.97
+    },
+    {
+      "word": "cyberspace",
+      "percentile": 996,
+      "similarity": 51.92
+    },
+    {
+      "word": "interactivité",
+      "percentile": 995,
+      "similarity": 50.56
+    },
+    {
+      "word": "cyberespace",
+      "percentile": 994,
+      "similarity": 49.37
+    },
+    {
+      "word": "virtualiser",
+      "percentile": 993,
+      "similarity": 49.0
+    },
+    {
+      "word": "réel",
+      "percentile": 992,
+      "similarity": 46.08
+    },
+    {
+      "word": "cyberculture",
+      "percentile": 991,
+      "similarity": 45.98
+    },
+    {
+      "word": "interagir",
+      "percentile": 990,
+      "similarity": 45.93
+    },
+    {
+      "word": "numérique",
+      "percentile": 989,
+      "similarity": 43.64
+    },
+    {
+      "word": "fictif",
+      "percentile": 988,
+      "similarity": 42.35
+    },
+    {
+      "word": "internet",
+      "percentile": 987,
+      "similarity": 41.67
+    },
+    {
+      "word": "goréen",
+      "percentile": 986,
+      "similarity": 41.61
+    },
+    {
+      "word": "haptique",
+      "percentile": 985,
+      "similarity": 40.86
+    },
+    {
+      "word": "ordinateur",
+      "percentile": 984,
+      "similarity": 39.53
+    },
+    {
+      "word": "immersif",
+      "percentile": 983,
+      "similarity": 39.41
+    },
+    {
+      "word": "simuler",
+      "percentile": 982,
+      "similarity": 39.31
+    },
+    {
+      "word": "imaginaire",
+      "percentile": 981,
+      "similarity": 38.96
+    }
+  ]
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-25",
-  "puzzle_num": 1729,
-  "word": "quête",
-  "first_letter": "Q",
-  "word_length": 5,
-  "definition": "Action par laquelle on cherche.",
+  "date": "2026-11-26",
+  "puzzle_num": 1730,
+  "word": "virtuel",
+  "first_letter": "V",
+  "word_length": 7,
+  "definition": "Qui est seulement en puissance et sans effet actuel.",
   "hints": {
     "level1": [
       {
-        "word": "contingence",
+        "word": "streaming",
         "percentile": 200,
-        "definition": "Qualité de ce qui est contingent ; probabilité de survenance."
+        "definition": "Lecture en continu, diffusion en flux, lecture en transit, diffusion en continu, sans sauvegarder un fichier entier."
       },
       {
-        "word": "dépossession",
+        "word": "kilobyte",
         "percentile": 267,
-        "definition": "Action de déposséder ou état d’une personne dépossédée."
+        "definition": "Kilooctet."
       },
       {
-        "word": "fétichiser",
+        "word": "accro",
         "percentile": 334,
-        "definition": "Considérer comme un fétiche quelque chose qui ne l’est pas."
+        "definition": "Personne dépendante d’une drogue."
       }
     ],
     "level2": [
       {
-        "word": "sensualité",
+        "word": "mental",
         "percentile": 500,
-        "definition": "Attachement aux plaisirs des sens."
+        "definition": "Qui se fait, qui s’exécute dans l’esprit, dans l’entendement."
       },
       {
-        "word": "irrépressible",
+        "word": "audiotex",
         "percentile": 567,
-        "definition": "Qu’on ne peut réprimer ou contenir, irrésistible."
+        "definition": "Service automatisé délivrant des messages vocaux digitalisés reçus par téléphone."
       },
       {
-        "word": "resurgir",
+        "word": "tchat",
         "percentile": 634,
-        "definition": "Surgir à nouveau."
+        "definition": "Conversation écrite virtuelle et en temps réel, par écran interposé, sur internet."
       }
     ],
     "level3": [
       {
-        "word": "originel",
+        "word": "protéiforme",
         "percentile": 800,
-        "definition": "Qui vient de l’origine, qui remonte jusqu’à l’origine."
+        "definition": "Qui est susceptible de prendre les formes les plus différentes."
       },
       {
-        "word": "épris",
+        "word": "permettre",
         "percentile": 850,
-        "definition": "Qui est saisi par un vif sentiment de relation affective, une passion pour quelqu'un ou quelque chose."
+        "definition": "Donner liberté, pouvoir de faire, de dire."
       },
       {
-        "word": "obsessionnel",
+        "word": "irréel",
         "percentile": 900,
-        "definition": "Relatif à l'obsession, aux pensées intrusives."
+        "definition": "Qui n’est pas réel, qui est illusoire."
       }
     ]
   },
-  "tried_count": 53,
-  "generated_at": "2026-11-24T23:15:35.951263+00:00",
+  "tried_count": 52,
+  "generated_at": "2026-11-25T23:15:36.132773+00:00",
   "nearby_top": [
     {
-      "word": "quête",
+      "word": "virtuel",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "errance",
+      "word": "virtuellement",
       "percentile": 999,
-      "similarity": 48.28
+      "similarity": 61.4
     },
     {
-      "word": "aventure",
+      "word": "interactif",
       "percentile": 998,
-      "similarity": 47.55
+      "similarity": 53.99
     },
     {
-      "word": "graal",
+      "word": "virtualité",
       "percentile": 997,
-      "similarity": 43.71
+      "similarity": 51.97
     },
     {
-      "word": "héros",
+      "word": "cyberspace",
       "percentile": 996,
-      "similarity": 43.24
+      "similarity": 51.92
     },
     {
-      "word": "désir",
+      "word": "interactivité",
       "percentile": 995,
-      "similarity": 43.23
+      "similarity": 50.56
     },
     {
-      "word": "aventurier",
+      "word": "cyberespace",
       "percentile": 994,
-      "similarity": 42.33
+      "similarity": 49.37
     },
     {
-      "word": "initiatique",
+      "word": "virtualiser",
       "percentile": 993,
-      "similarity": 42.17
+      "similarity": 49.0
     },
     {
-      "word": "avide",
+      "word": "réel",
       "percentile": 992,
-      "similarity": 41.17
+      "similarity": 46.08
     },
     {
-      "word": "rédemption",
+      "word": "cyberculture",
       "percentile": 991,
-      "similarity": 40.08
+      "similarity": 45.98
     },
     {
-      "word": "désenchanter",
+      "word": "interagir",
       "percentile": 990,
-      "similarity": 39.74
+      "similarity": 45.93
     },
     {
-      "word": "ultime",
+      "word": "numérique",
       "percentile": 989,
-      "similarity": 39.37
+      "similarity": 43.64
     },
     {
-      "word": "aventureux",
+      "word": "fictif",
       "percentile": 988,
-      "similarity": 39.34
+      "similarity": 42.35
     },
     {
-      "word": "mystérieux",
+      "word": "internet",
       "percentile": 987,
-      "similarity": 39.23
+      "similarity": 41.67
     },
     {
-      "word": "mystique",
+      "word": "goréen",
       "percentile": 986,
-      "similarity": 39.02
+      "similarity": 41.61
     },
     {
-      "word": "existentiel",
+      "word": "haptique",
       "percentile": 985,
-      "similarity": 38.89
+      "similarity": 40.86
     },
     {
-      "word": "destin",
+      "word": "ordinateur",
       "percentile": 984,
-      "similarity": 38.74
+      "similarity": 39.53
     },
     {
-      "word": "assoiffer",
+      "word": "immersif",
       "percentile": 983,
-      "similarity": 38.49
+      "similarity": 39.41
     },
     {
-      "word": "énigme",
+      "word": "simuler",
       "percentile": 982,
-      "similarity": 38.45
+      "similarity": 39.31
     },
     {
-      "word": "spiritualité",
+      "word": "imaginaire",
       "percentile": 981,
-      "similarity": 37.93
+      "similarity": 38.96
     }
   ]
 }

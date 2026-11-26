@@ -1,31 +1,31 @@
 {
   "date": "2026-03-01",
-  "puzzle_num": 1387,
-  "word": "Chant grégorien",
-  "title_slug": "Chant_grégorien",
-  "title_display": "Chant grégorien",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chant_grégorien",
+  "puzzle_num": 1388,
+  "word": "Royaume de Germanie",
+  "title_slug": "Royaume_de_Germanie",
+  "title_display": "Royaume de Germanie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_de_Germanie",
   "hints": {
     "level1": [
-      "2 mots · 14 lettres",
-      "Premières lettres : C · G"
+      "3 mots · 17 lettres",
+      "Premières lettres : R · D · G"
     ],
     "level2": [
-      "chant liturgique de l'Église catholique romaine en latin",
-      "Église latine",
-      "Éponyme d'un objet céleste",
-      "Nommé d'après Grégoire Ier"
+      "entité géopolitique d'Europe centrale entre 911 et 1806",
+      "Histoire de l'Allemagne",
+      "Ancien royaume en Europe",
+      "Territoire du Moyen Âge"
     ],
     "level3": [
-      "Le ___ est le ___ liturgique officiel et ordinaire de l'Église catholique."
+      "Le ___ est un ___ constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle."
     ]
   },
-  "extract": "Le chant grégorien est le chant liturgique officiel et ordinaire de l'Église catholique.",
+  "extract": "Le royaume de Germanie est un royaume constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle.",
   "categories": [
-    "chant liturgique de l'Église catholique romaine en latin",
-    "Église latine",
-    "Éponyme d'un objet céleste",
-    "Nommé d'après Grégoire Ier"
+    "entité géopolitique d'Europe centrale entre 911 et 1806",
+    "Histoire de l'Allemagne",
+    "Ancien royaume en Europe",
+    "Territoire du Moyen Âge"
   ],
-  "generated_at": "2026-04-26T22:15:39.151385+00:00"
+  "generated_at": "2026-04-26T22:15:38.538933+00:00"
 }

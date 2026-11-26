@@ -1,29 +1,25 @@
 {
   "date": "2026-10-15",
-  "puzzle_num": 1615,
-  "word": "Dynastie Liao",
-  "title_slug": "Dynastie_Liao",
-  "title_display": "Dynastie Liao",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dynastie_Liao",
+  "puzzle_num": 1616,
+  "word": "Esclavage en Afrique",
+  "title_slug": "Esclavage_en_Afrique",
+  "title_display": "Esclavage en Afrique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Esclavage_en_Afrique",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : D · L"
+      "3 mots · 18 lettres",
+      "Premières lettres : E · E · A"
     ],
     "level2": [
-      "dynastie impériale d’Asie orientale du Xe au XIIe siècle, qui contrôlait le nord et le nord-est de la Chine, la Mongolie, l’Extrème-Orient russe et la Corée du Nord",
-      "Typographie à vérifier",
-      "Territoire de la Chine médiévale"
+      "servitude et traite sur le continent africain"
     ],
     "level3": [
-      "La ___, également connue sous le nom d'Empire Khitan, est un empire d'Asie orientale qui règne sur l'actuelle Mongolie et une partie de l'actuelle Russie orientale et du nord de l'actuelle Chine continentale entre 907 et 1125."
+      "L’___ regroupe les différents systèmes d'asservissement et de traite sur le continent africain."
     ]
   },
-  "extract": "La dynastie Liao, également connue sous le nom d'Empire Khitan, est un empire d'Asie orientale qui règne sur l'actuelle Mongolie et une partie de l'actuelle Russie orientale et du nord de l'actuelle Chine continentale entre 907 et 1125.",
+  "extract": "L’esclavage en Afrique regroupe les différents systèmes d'asservissement et de traite sur le continent africain.",
   "categories": [
-    "dynastie impériale d’Asie orientale du Xe au XIIe siècle, qui contrôlait le nord et le nord-est de la Chine, la Mongolie, l’Extrème-Orient russe et la Corée du Nord",
-    "Typographie à vérifier",
-    "Territoire de la Chine médiévale"
+    "servitude et traite sur le continent africain"
   ],
-  "generated_at": "2026-10-15T22:19:06.352780+00:00"
+  "generated_at": "2026-10-16T22:16:40.634122+00:00"
 }

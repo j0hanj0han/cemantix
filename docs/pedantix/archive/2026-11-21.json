@@ -1,29 +1,31 @@
 {
   "date": "2026-11-21",
-  "puzzle_num": 1652,
-  "word": "Dualisme (philosophie de l'esprit)",
-  "title_slug": "Dualisme_(philosophie_de_l'esprit)",
-  "title_display": "Dualisme (philosophie de l'esprit)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dualisme_(philosophie_de_l'esprit)",
+  "puzzle_num": 1653,
+  "word": "Clavecin",
+  "title_slug": "Clavecin",
+  "title_display": "Clavecin",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Clavecin",
   "hints": {
     "level1": [
-      "4 mots · 31 lettres",
-      "Premières lettres : D · ( · D · L"
+      "1 mot · 8 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "vision de la relation matière-esprit fondée sur l'affirmation que les phénomènes mentaux possèdent des caractéristiques qui sortent du champ de la physique",
-      "Théorie métaphysique",
-      "Théorie de philosophie de l'esprit"
+      "instrument de musique à clavier et cordes pincées",
+      "Instrument de musique classique",
+      "Instrument à clavier",
+      "Instrument à cordes pincées"
     ],
     "level3": [
-      "En philosophie de l'esprit, le ___ est la thèse selon laquelle l'Univers est constitué de substances matérielles et de substances mentales."
+      "Le ___ est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers."
     ]
   },
-  "extract": "En philosophie de l'esprit, le dualisme est la thèse selon laquelle l'Univers est constitué de substances matérielles et de substances mentales.",
+  "extract": "Le clavecin est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers.",
   "categories": [
-    "vision de la relation matière-esprit fondée sur l'affirmation que les phénomènes mentaux possèdent des caractéristiques qui sortent du champ de la physique",
-    "Théorie métaphysique",
-    "Théorie de philosophie de l'esprit"
+    "instrument de musique à clavier et cordes pincées",
+    "Instrument de musique classique",
+    "Instrument à clavier",
+    "Instrument à cordes pincées"
   ],
-  "generated_at": "2026-11-21T23:16:48.247065+00:00"
+  "generated_at": "2026-11-22T23:16:06.542137+00:00"
 }

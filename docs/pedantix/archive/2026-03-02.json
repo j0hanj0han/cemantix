@@ -1,31 +1,31 @@
 {
   "date": "2026-03-02",
-  "puzzle_num": 1388,
-  "word": "Royaume de Germanie",
-  "title_slug": "Royaume_de_Germanie",
-  "title_display": "Royaume de Germanie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_de_Germanie",
+  "puzzle_num": 1389,
+  "word": "Huguenot",
+  "title_slug": "Huguenot",
+  "title_display": "Huguenot",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Huguenot",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : R · D · G"
+      "1 mot · 8 lettres",
+      "Première lettre : H"
     ],
     "level2": [
-      "entité géopolitique d'Europe centrale entre 911 et 1806",
-      "Histoire de l'Allemagne",
-      "Ancien royaume en Europe",
-      "Territoire du Moyen Âge"
+      "groupe ethnoreligieux des calvinistes français",
+      "Histoire du protestantisme",
+      "Religion sous l'Ancien Régime",
+      "Répression du protestantisme"
     ],
     "level3": [
-      "Le ___ est un ___ constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle."
+      "Les ___s sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques."
     ]
   },
-  "extract": "Le royaume de Germanie est un royaume constitué des États du Saint-Empire romain issus de la Francie orientale au Xe siècle.",
+  "extract": "Les huguenots sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques.",
   "categories": [
-    "entité géopolitique d'Europe centrale entre 911 et 1806",
-    "Histoire de l'Allemagne",
-    "Ancien royaume en Europe",
-    "Territoire du Moyen Âge"
+    "groupe ethnoreligieux des calvinistes français",
+    "Histoire du protestantisme",
+    "Religion sous l'Ancien Régime",
+    "Répression du protestantisme"
   ],
-  "generated_at": "2026-04-26T22:15:38.538933+00:00"
+  "generated_at": "2026-04-26T22:15:38.244820+00:00"
 }

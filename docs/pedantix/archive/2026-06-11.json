@@ -1,25 +1,25 @@
 {
   "date": "2026-06-11",
-  "puzzle_num": 1489,
-  "word": "Trombone (instrument)",
-  "title_slug": "Trombone_(instrument)",
-  "title_display": "Trombone (instrument)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Trombone_(instrument)",
+  "puzzle_num": 1490,
+  "word": "Économie de la république populaire de Chine",
+  "title_slug": "Économie_de_la_république_populaire_de_Chine",
+  "title_display": "Économie de la république populaire de Chine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Économie_de_la_république_populaire_de_Chine",
   "hints": {
     "level1": [
-      "2 mots · 20 lettres",
-      "Premières lettres : T · ("
+      "7 mots · 38 lettres",
+      "Premières lettres : É · D · L · R · P · D · C"
     ],
     "level2": [
-      "instrument de musique de la famille des cuivres"
+      "modèle économique chinois"
     ],
     "level3": [
-      "Le ___ est un instrument de musique à vent et à embouchure de la famille des cuivres clairs."
+      "La ___ est le deuxième pays du monde par son produit intérieur brut (PIB) nominal, derrière les États-Unis."
     ]
   },
-  "extract": "Le trombone est un instrument de musique à vent et à embouchure de la famille des cuivres clairs.",
+  "extract": "La Chine est le deuxième pays du monde par son produit intérieur brut (PIB) nominal, derrière les États-Unis.",
   "categories": [
-    "instrument de musique de la famille des cuivres"
+    "modèle économique chinois"
   ],
-  "generated_at": "2026-06-11T22:21:47.332686+00:00"
+  "generated_at": "2026-06-12T22:15:54.511473+00:00"
 }

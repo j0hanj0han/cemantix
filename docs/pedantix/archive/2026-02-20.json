@@ -1,29 +1,31 @@
 {
   "date": "2026-02-20",
-  "puzzle_num": 1378,
-  "word": "Mirage",
-  "title_slug": "Mirage",
-  "title_display": "Mirage",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mirage",
+  "puzzle_num": 1379,
+  "word": "McDonald's",
+  "title_slug": "McDonald's",
+  "title_display": "McDonald's",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/McDonald's",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
+      "1 mot · 10 lettres",
       "Première lettre : M"
     ],
     "level2": [
-      "phénomène optique naturel",
-      "Photométéore",
-      "Illusion d'optique"
+      "chaîne de restauration rapide",
+      "Société cotée au NYSE",
+      "Chaîne de restauration rapide ayant son siège aux États-Unis",
+      "Entreprise fondée en 1940"
     ],
     "level3": [
-      "Le ___ est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes."
+      "___ Corporation est une multinationale américaine de la restauration rapide dont le siège se situe à Chicago."
     ]
   },
-  "extract": "Le mirage est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes.",
+  "extract": "McDonald's Corporation est une multinationale américaine de la restauration rapide dont le siège se situe à Chicago.",
   "categories": [
-    "phénomène optique naturel",
-    "Photométéore",
-    "Illusion d'optique"
+    "chaîne de restauration rapide",
+    "Société cotée au NYSE",
+    "Chaîne de restauration rapide ayant son siège aux États-Unis",
+    "Entreprise fondée en 1940"
   ],
-  "generated_at": "2026-04-27T22:15:40.087493+00:00"
+  "generated_at": "2026-04-27T22:15:39.806073+00:00"
 }

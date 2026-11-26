@@ -1,31 +1,31 @@
 {
   "date": "2026-09-08",
-  "puzzle_num": 1578,
-  "word": "Longévité",
-  "title_slug": "Longévité",
-  "title_display": "Longévité",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Longévité",
+  "puzzle_num": 1579,
+  "word": "Prévention et dépistage du cancer du col utérin",
+  "title_slug": "Prévention_et_dépistage_du_cancer_du_col_utérin",
+  "title_display": "Prévention et dépistage du cancer du col utérin",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prévention_et_dépistage_du_cancer_du_col_utérin",
   "hints": {
     "level1": [
-      "1 mot · 9 lettres",
-      "Première lettre : L"
+      "8 mots · 40 lettres",
+      "Premières lettres : P · E · D · D · C · D · C · U"
     ],
     "level2": [
-      "durée de vie supérieure à la normale, notamment pour les humains",
-      "Liste en rapport avec les animaux",
-      "Centenaire",
-      "Gériatrie"
+      "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
+      "Anatomopathologie",
+      "Dépistage et diagnostic en gynécologie-obstétrique",
+      "Diagnostic du cancer"
     ],
     "level3": [
-      "La ___ potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique."
+      "La ___ et le ___ du ___ du col ___ sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce ___, principalement causé par une infection persistante par des papillomavirus humains oncogènes."
     ]
   },
-  "extract": "La longévité potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique.",
+  "extract": "La prévention et le dépistage du cancer du col utérin sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce cancer, principalement causé par une infection persistante par des papillomavirus humains oncogènes.",
   "categories": [
-    "durée de vie supérieure à la normale, notamment pour les humains",
-    "Liste en rapport avec les animaux",
-    "Centenaire",
-    "Gériatrie"
+    "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
+    "Anatomopathologie",
+    "Dépistage et diagnostic en gynécologie-obstétrique",
+    "Diagnostic du cancer"
   ],
-  "generated_at": "2026-09-08T22:18:48.398529+00:00"
+  "generated_at": "2026-09-09T22:20:54.906485+00:00"
 }

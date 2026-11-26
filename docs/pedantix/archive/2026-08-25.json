@@ -1,31 +1,23 @@
 {
   "date": "2026-08-25",
-  "puzzle_num": 1564,
-  "word": "Géorgie (pays)",
-  "title_slug": "Géorgie_(pays)",
-  "title_display": "Géorgie (pays)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Géorgie_(pays)",
+  "puzzle_num": 1565,
+  "word": "Changement climatique",
+  "title_slug": "Changement_climatique",
+  "title_display": "Changement climatique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Changement_climatique",
   "hints": {
     "level1": [
-      "2 mots · 13 lettres",
-      "Premières lettres : G · ("
+      "2 mots · 20 lettres",
+      "Premières lettres : C · C"
     ],
     "level2": [
-      "pays du Caucase",
-      "Géorgie",
-      "Éponyme d'une épithète spécifique",
-      "État postsoviétique"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "La ___ est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest."
+      "Extrait non disponible"
     ]
   },
-  "extract": "La Géorgie est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest.",
-  "categories": [
-    "pays du Caucase",
-    "Géorgie",
-    "Éponyme d'une épithète spécifique",
-    "État postsoviétique"
-  ],
-  "generated_at": "2026-08-25T22:19:17.701435+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-08-26T22:20:52.754501+00:00"
 }

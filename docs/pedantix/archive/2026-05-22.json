@@ -1,14 +1,14 @@
 {
   "date": "2026-05-22",
-  "puzzle_num": 1469,
-  "word": "Illusion d'optique",
-  "title_slug": "Illusion_d'optique",
-  "title_display": "Illusion d'optique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Illusion_d'optique",
+  "puzzle_num": 1470,
+  "word": "Thalès",
+  "title_slug": "Thalès",
+  "title_display": "Thalès",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Thalès",
   "hints": {
     "level1": [
-      "2 mots · 17 lettres",
-      "Premières lettres : I · D"
+      "1 mot · 6 lettres",
+      "Première lettre : T"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-05-22T22:15:29.684256+00:00"
+  "generated_at": "2026-05-23T22:15:33.902181+00:00"
 }

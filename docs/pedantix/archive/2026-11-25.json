@@ -1,31 +1,23 @@
 {
   "date": "2026-11-25",
-  "puzzle_num": 1656,
-  "word": "Thor",
-  "title_slug": "Thor",
-  "title_display": "Thor",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Thor",
+  "puzzle_num": 1657,
+  "word": "Tête colossale olmèque",
+  "title_slug": "Tête_colossale_olmèque",
+  "title_display": "Tête colossale olmèque",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tête_colossale_olmèque",
   "hints": {
     "level1": [
-      "1 mot · 4 lettres",
-      "Première lettre : T"
+      "3 mots · 20 lettres",
+      "Premières lettres : T · C · O"
     ],
     "level2": [
-      "dieu du Tonnerre dans la mythologie nordique",
-      "Dieu Ase",
-      "Divinité liée aux orages",
-      "Divinité de la guerre"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "___ est le dieu du Tonnerre dans la mythologie nordique et dans le paganisme germanique."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Thor est le dieu du Tonnerre dans la mythologie nordique et dans le paganisme germanique.",
-  "categories": [
-    "dieu du Tonnerre dans la mythologie nordique",
-    "Dieu Ase",
-    "Divinité liée aux orages",
-    "Divinité de la guerre"
-  ],
-  "generated_at": "2026-11-25T23:15:48.168690+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-11-26T23:18:56.827074+00:00"
 }

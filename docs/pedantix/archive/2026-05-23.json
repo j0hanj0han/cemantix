@@ -1,23 +1,25 @@
 {
   "date": "2026-05-23",
-  "puzzle_num": 1470,
-  "word": "Thalès",
-  "title_slug": "Thalès",
-  "title_display": "Thalès",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Thalès",
+  "puzzle_num": 1471,
+  "word": "Ballon dirigeable",
+  "title_slug": "Ballon_dirigeable",
+  "title_display": "Ballon dirigeable",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ballon_dirigeable",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : T"
+      "2 mots · 16 lettres",
+      "Premières lettres : B · D"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "aéronef léger avec un système de propulsion"
     ],
     "level3": [
-      "Extrait non disponible"
+      "Un ___ ou simplement ___ est un aéronef utilisant un gaz porteur destiné à assurer l'essentiel de sa sustentation, et des systèmes de propulsion lui conférant une certaine manœuvrabilité tridimensionnelle."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-05-23T22:15:33.902181+00:00"
+  "extract": "Un ballon dirigeable ou simplement dirigeable est un aéronef utilisant un gaz porteur destiné à assurer l'essentiel de sa sustentation, et des systèmes de propulsion lui conférant une certaine manœuvrabilité tridimensionnelle.",
+  "categories": [
+    "aéronef léger avec un système de propulsion"
+  ],
+  "generated_at": "2026-05-24T22:16:51.939040+00:00"
 }

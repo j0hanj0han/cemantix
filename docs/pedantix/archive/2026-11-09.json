@@ -1,31 +1,25 @@
 {
   "date": "2026-11-09",
-  "puzzle_num": 1640,
-  "word": "Guerre de Crimée",
-  "title_slug": "Guerre_de_Crimée",
-  "title_display": "Guerre de Crimée",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Crimée",
+  "puzzle_num": 1641,
+  "word": "Uruguay",
+  "title_slug": "Uruguay",
+  "title_display": "Uruguay",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Uruguay",
   "hints": {
     "level1": [
-      "3 mots · 14 lettres",
-      "Premières lettres : G · D · C"
+      "1 mot · 7 lettres",
+      "Première lettre : U"
     ],
     "level2": [
-      "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
-      "Guerres russo-turques",
-      "Guerre du Caucase",
-      "Invasion en Russie"
+      "pays d'Amérique du Sud"
     ],
     "level3": [
-      "La ___ oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne."
+      "L'___, en forme longue la république orientale de l'___, est un pays du Cône Sud de l'Amérique du Sud, situé au sud du Brésil et au nord-est de l'Argentine, dont il est séparé par le fleuve ___ qui lui a donné son nom."
     ]
   },
-  "extract": "La guerre de Crimée oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne.",
+  "extract": "L'Uruguay, en forme longue la république orientale de l'Uruguay, est un pays du Cône Sud de l'Amérique du Sud, situé au sud du Brésil et au nord-est de l'Argentine, dont il est séparé par le fleuve Uruguay qui lui a donné son nom.",
   "categories": [
-    "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
-    "Guerres russo-turques",
-    "Guerre du Caucase",
-    "Invasion en Russie"
+    "pays d'Amérique du Sud"
   ],
-  "generated_at": "2026-11-09T23:16:10.723570+00:00"
+  "generated_at": "2026-11-10T23:19:35.940899+00:00"
 }

@@ -1,27 +1,31 @@
 {
   "date": "2026-10-09",
-  "puzzle_num": 1609,
-  "word": "Microscope optique",
-  "title_slug": "Microscope_optique",
-  "title_display": "Microscope optique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Microscope_optique",
+  "puzzle_num": 1610,
+  "word": "Nanotube de carbone",
+  "title_slug": "Nanotube_de_carbone",
+  "title_display": "Nanotube de carbone",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nanotube_de_carbone",
   "hints": {
     "level1": [
-      "2 mots · 17 lettres",
-      "Premières lettres : M · O"
+      "3 mots · 17 lettres",
+      "Premières lettres : N · D · C"
     ],
     "level2": [
-      "type de microscope",
-      "Invention du XVIIe siècle"
+      "forme allotropique du carbone appartenant à la famille des fullerènes",
+      "Nanotechnologie",
+      "Nanomatériau",
+      "Fullerène"
     ],
     "level3": [
-      "Le ___ ou ___ photonique est un instrument d'___ muni d'un objectif et d'un oculaire qui permet de grossir l'image d'un objet de petites dimensions et de séparer les détails de cette image afin qu'il soit observable par l'œil humain."
+      "Les ___s de ___ sont une forme allotropique du ___ appartenant à la famille des fullerènes."
     ]
   },
-  "extract": "Le microscope optique ou microscope photonique est un instrument d'optique muni d'un objectif et d'un oculaire qui permet de grossir l'image d'un objet de petites dimensions et de séparer les détails de cette image afin qu'il soit observable par l'œil humain.",
+  "extract": "Les nanotubes de carbone sont une forme allotropique du carbone appartenant à la famille des fullerènes.",
   "categories": [
-    "type de microscope",
-    "Invention du XVIIe siècle"
+    "forme allotropique du carbone appartenant à la famille des fullerènes",
+    "Nanotechnologie",
+    "Nanomatériau",
+    "Fullerène"
   ],
-  "generated_at": "2026-10-09T22:15:37.787595+00:00"
+  "generated_at": "2026-10-10T22:16:16.640673+00:00"
 }

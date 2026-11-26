@@ -1,31 +1,25 @@
 {
   "date": "2026-07-21",
-  "puzzle_num": 1529,
-  "word": "Moment d'une force",
-  "title_slug": "Moment_d'une_force",
-  "title_display": "Moment d'une force",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Moment_d'une_force",
+  "puzzle_num": 1530,
+  "word": "Basilique Saint-Pierre",
+  "title_slug": "Basilique_Saint-Pierre",
+  "title_display": "Basilique Saint-Pierre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Basilique_Saint-Pierre",
   "hints": {
     "level1": [
-      "3 mots · 16 lettres",
-      "Premières lettres : M · D · F"
+      "2 mots · 21 lettres",
+      "Premières lettres : B · S"
     ],
     "level2": [
-      "grandeur physique vectorielle qui caractérise l'aptitude d'une force à faire tourner un système mécanique",
-      "Vecteur",
-      "Grandeur physique extensive",
-      "Mécanique classique"
+      "basilique catholique de la Cité du Vatican"
     ],
     "level3": [
-      "Le ___ par rapport à un point donné est une grandeur physique vectorielle traduisant l'aptitude de cette ___ à faire tourner un système mécanique autour de ce point, souvent appelé pivot."
+      "La ___ ou la ___ papale ___ au Vatican, parfois appelée ___ de Rome, est l'édifice religieux le plus important du catholicisme."
     ]
   },
-  "extract": "Le moment d'une force par rapport à un point donné est une grandeur physique vectorielle traduisant l'aptitude de cette force à faire tourner un système mécanique autour de ce point, souvent appelé pivot.",
+  "extract": "La basilique Saint-Pierre ou la basilique papale Saint-Pierre au Vatican, parfois appelée Saint-Pierre de Rome, est l'édifice religieux le plus important du catholicisme.",
   "categories": [
-    "grandeur physique vectorielle qui caractérise l'aptitude d'une force à faire tourner un système mécanique",
-    "Vecteur",
-    "Grandeur physique extensive",
-    "Mécanique classique"
+    "basilique catholique de la Cité du Vatican"
   ],
-  "generated_at": "2026-07-21T22:17:00.302004+00:00"
+  "generated_at": "2026-07-22T22:15:58.897108+00:00"
 }

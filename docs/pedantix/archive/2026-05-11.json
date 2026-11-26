@@ -1,25 +1,23 @@
 {
   "date": "2026-05-11",
-  "puzzle_num": 1458,
-  "word": "Groupe fondamental",
-  "title_slug": "Groupe_fondamental",
-  "title_display": "Groupe fondamental",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Groupe_fondamental",
+  "puzzle_num": 1459,
+  "word": "Maximilien de Robespierre",
+  "title_slug": "Maximilien_de_Robespierre",
+  "title_display": "Maximilien de Robespierre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Maximilien_de_Robespierre",
   "hints": {
     "level1": [
-      "2 mots · 17 lettres",
-      "Premières lettres : G · F"
+      "3 mots · 23 lettres",
+      "Premières lettres : M · D · R"
     ],
     "level2": [
-      "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "En mathématiques, et plus spécifiquement en topologie algébrique, le ___, ou ___ de Poincaré, est un invariant topologique."
+      "Extrait non disponible"
     ]
   },
-  "extract": "En mathématiques, et plus spécifiquement en topologie algébrique, le groupe fondamental, ou groupe de Poincaré, est un invariant topologique.",
-  "categories": [
-    "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
-  ],
-  "generated_at": "2026-05-11T22:20:17.736019+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-05-12T22:15:51.815427+00:00"
 }

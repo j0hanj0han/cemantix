@@ -1,29 +1,25 @@
 {
   "date": "2026-05-08",
-  "puzzle_num": 1455,
-  "word": "Famille de langues",
-  "title_slug": "Famille_de_langues",
-  "title_display": "Famille de langues",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Famille_de_langues",
+  "puzzle_num": 1456,
+  "word": "Nombre irrationnel",
+  "title_slug": "Nombre_irrationnel",
+  "title_display": "Nombre irrationnel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nombre_irrationnel",
   "hints": {
     "level1": [
-      "3 mots · 16 lettres",
-      "Premières lettres : F · D · L"
+      "2 mots · 17 lettres",
+      "Premières lettres : N · I"
     ],
     "level2": [
-      "groupe de langues dérivées d'un ancêtre commun",
-      "Comparaison des langues",
-      "Linguistique historique"
+      "nombre réel qui n'est pas rationnel"
     ],
     "level3": [
-      "Une ___ est un ensemble de ___ apparentées qui ont évolué par transmission de génération en génération de locuteurs à partir d'une langue ancestrale commune."
+      "Un ___ est un ___ réel qui n'est pas rationnel, c'est-à-dire qu'il ne peut pas s'écrire sous la forme d'une fraction a/b, où a et b sont deux entiers relatifs."
     ]
   },
-  "extract": "Une famille de langues est un ensemble de langues apparentées qui ont évolué par transmission de génération en génération de locuteurs à partir d'une langue ancestrale commune.",
+  "extract": "Un nombre irrationnel est un nombre réel qui n'est pas rationnel, c'est-à-dire qu'il ne peut pas s'écrire sous la forme d'une fraction a/b, où a et b sont deux entiers relatifs.",
   "categories": [
-    "groupe de langues dérivées d'un ancêtre commun",
-    "Comparaison des langues",
-    "Linguistique historique"
+    "nombre réel qui n'est pas rationnel"
   ],
-  "generated_at": "2026-05-08T22:17:05.714230+00:00"
+  "generated_at": "2026-05-09T22:20:58.012513+00:00"
 }

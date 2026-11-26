@@ -1,31 +1,23 @@
 {
   "date": "2026-04-27",
-  "puzzle_num": 1444,
-  "word": "Madonna",
-  "title_slug": "Madonna",
-  "title_display": "Madonna",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Madonna",
+  "puzzle_num": 1445,
+  "word": "Polynésie française",
+  "title_slug": "Polynésie_française",
+  "title_display": "Polynésie française",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Polynésie_française",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : M"
+      "2 mots · 18 lettres",
+      "Premières lettres : P · F"
     ],
     "level2": [
-      "chanteuse, danseuse, productrice, réalisatrice et femme d'affaires américaine",
-      "Auteure-compositrice-interprète américaine",
-      "Musicienne de musique électronique",
-      "Chanteuse de country"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "___, mononyme de ___ Louise Ciccone, née le 16 août 1958 à Bay City (Michigan), est une autrice-compositrice-interprète, danseuse, actrice, productrice de cinéma, réalisatrice et femme d'affaires américaine."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Madonna, mononyme de Madonna Louise Ciccone, née le 16 août 1958 à Bay City (Michigan), est une autrice-compositrice-interprète, danseuse, actrice, productrice de cinéma, réalisatrice et femme d'affaires américaine.",
-  "categories": [
-    "chanteuse, danseuse, productrice, réalisatrice et femme d'affaires américaine",
-    "Auteure-compositrice-interprète américaine",
-    "Musicienne de musique électronique",
-    "Chanteuse de country"
-  ],
-  "generated_at": "2026-04-27T22:15:38.711535+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-04-28T22:16:24.599089+00:00"
 }

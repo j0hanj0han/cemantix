@@ -1,23 +1,31 @@
 {
   "date": "2026-08-24",
-  "puzzle_num": 1563,
-  "word": "Memphis (Égypte)",
-  "title_slug": "Memphis_(Égypte)",
-  "title_display": "Memphis (Égypte)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Memphis_(Égypte)",
+  "puzzle_num": 1564,
+  "word": "Géorgie (pays)",
+  "title_slug": "Géorgie_(pays)",
+  "title_display": "Géorgie (pays)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Géorgie_(pays)",
   "hints": {
     "level1": [
-      "2 mots · 15 lettres",
-      "Premières lettres : M · ("
+      "2 mots · 13 lettres",
+      "Premières lettres : G · ("
     ],
     "level2": [
-      "Catégories non disponibles"
+      "pays du Caucase",
+      "Géorgie",
+      "Éponyme d'une épithète spécifique",
+      "État postsoviétique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "La ___ est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-08-24T22:19:32.497838+00:00"
+  "extract": "La Géorgie est un pays sur la côte est de la mer Noire dans le Caucase, situé à la fois en Europe de l'Est et en Asie de l'Ouest.",
+  "categories": [
+    "pays du Caucase",
+    "Géorgie",
+    "Éponyme d'une épithète spécifique",
+    "État postsoviétique"
+  ],
+  "generated_at": "2026-08-25T22:19:17.701435+00:00"
 }

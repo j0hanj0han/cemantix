@@ -1,14 +1,14 @@
 {
   "date": "2026-05-02",
-  "puzzle_num": 1449,
-  "word": "Durian",
-  "title_slug": "Durian",
-  "title_display": "Durian",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Durian",
+  "puzzle_num": 1450,
+  "word": "Houston",
+  "title_slug": "Houston",
+  "title_display": "Houston",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Houston",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : D"
+      "1 mot · 7 lettres",
+      "Première lettre : H"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-05-02T22:15:30.627049+00:00"
+  "generated_at": "2026-05-03T22:19:15.380633+00:00"
 }

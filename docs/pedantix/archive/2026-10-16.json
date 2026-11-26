@@ -1,25 +1,27 @@
 {
   "date": "2026-10-16",
-  "puzzle_num": 1616,
-  "word": "Esclavage en Afrique",
-  "title_slug": "Esclavage_en_Afrique",
-  "title_display": "Esclavage en Afrique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Esclavage_en_Afrique",
+  "puzzle_num": 1617,
+  "word": "Catalogne",
+  "title_slug": "Catalogne",
+  "title_display": "Catalogne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Catalogne",
   "hints": {
     "level1": [
-      "3 mots · 18 lettres",
-      "Premières lettres : E · E · A"
+      "1 mot · 9 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "servitude et traite sur le continent africain"
+      "nation européenne constituée en communauté autonome d'Espagne",
+      "Population de 2024 en infobox"
     ],
     "level3": [
-      "L’___ regroupe les différents systèmes d'asservissement et de traite sur le continent africain."
+      "La ___ est une communauté autonome du Nord-Est de l'Espagne qui a le statut d'une nationalité dans son statut d’autonomie."
     ]
   },
-  "extract": "L’esclavage en Afrique regroupe les différents systèmes d'asservissement et de traite sur le continent africain.",
+  "extract": "La Catalogne est une communauté autonome du Nord-Est de l'Espagne qui a le statut d'une nationalité dans son statut d’autonomie.",
   "categories": [
-    "servitude et traite sur le continent africain"
+    "nation européenne constituée en communauté autonome d'Espagne",
+    "Population de 2024 en infobox"
   ],
-  "generated_at": "2026-10-16T22:16:40.634122+00:00"
+  "generated_at": "2026-10-21T23:22:51.868186+00:00"
 }

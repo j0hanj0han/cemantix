@@ -1,25 +1,31 @@
 {
   "date": "2026-05-26",
-  "puzzle_num": 1473,
-  "word": "Téhéran",
-  "title_slug": "Téhéran",
-  "title_display": "Téhéran",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Téhéran",
+  "puzzle_num": 1474,
+  "word": "Dynastie Zhou",
+  "title_slug": "Dynastie_Zhou",
+  "title_display": "Dynastie Zhou",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dynastie_Zhou",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : T"
+      "2 mots · 12 lettres",
+      "Premières lettres : D · Z"
     ],
     "level2": [
-      "capitale de l'Iran"
+      "dynastie chinoise, de 1046 à 256 av. J.-C.",
+      "Typographie à vérifier",
+      "Âge du bronze en Chine",
+      "Période des Printemps et des Automnes"
     ],
     "level3": [
-      "___ est la capitale et la plus grande ville de l'Iran."
+      "La ___ est selon l'historiographie traditionnelle la troisième ___ chinoise."
     ]
   },
-  "extract": "Téhéran est la capitale et la plus grande ville de l'Iran.",
+  "extract": "La dynastie Zhou est selon l'historiographie traditionnelle la troisième dynastie chinoise.",
   "categories": [
-    "capitale de l'Iran"
+    "dynastie chinoise, de 1046 à 256 av. J.-C.",
+    "Typographie à vérifier",
+    "Âge du bronze en Chine",
+    "Période des Printemps et des Automnes"
   ],
-  "generated_at": "2026-05-26T22:21:12.661330+00:00"
+  "generated_at": "2026-05-27T22:16:01.943135+00:00"
 }

@@ -1,31 +1,31 @@
 {
   "date": "2026-10-05",
-  "puzzle_num": 1605,
-  "word": "Modification corporelle",
-  "title_slug": "Modification_corporelle",
-  "title_display": "Modification corporelle",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Modification_corporelle",
+  "puzzle_num": 1606,
+  "word": "Cathédrale Notre-Dame de Paris",
+  "title_slug": "Cathédrale_Notre-Dame_de_Paris",
+  "title_display": "Cathédrale Notre-Dame de Paris",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cathédrale_Notre-Dame_de_Paris",
   "hints": {
     "level1": [
-      "2 mots · 22 lettres",
-      "Premières lettres : M · C"
+      "4 mots · 27 lettres",
+      "Premières lettres : C · N · D · P"
     ],
     "level2": [
-      "altération délibérée de l'anatomie humaine",
-      "Art corporel",
-      "Communication non verbale",
-      "Bioéthique"
+      "cathédrale située à Paris, en France",
+      "Architecture gothique à Paris",
+      "Cathédrale gothique en Île-de-France",
+      "Monument médiéval à Paris"
     ],
     "level3": [
-      "Une ___ est une transformation, localisée ou étendue, réversible ou non, du corps d'un individu, au moyen d'une pratique et dans un but ayant un caractère culturel."
+      "La ___, communément appelée ___, est l'un des monuments les plus emblématiques de ___ et de France."
     ]
   },
-  "extract": "Une modification corporelle est une transformation, localisée ou étendue, réversible ou non, du corps d'un individu, au moyen d'une pratique et dans un but ayant un caractère culturel.",
+  "extract": "La cathédrale Notre-Dame de Paris, communément appelée Notre-Dame, est l'un des monuments les plus emblématiques de Paris et de France.",
   "categories": [
-    "altération délibérée de l'anatomie humaine",
-    "Art corporel",
-    "Communication non verbale",
-    "Bioéthique"
+    "cathédrale située à Paris, en France",
+    "Architecture gothique à Paris",
+    "Cathédrale gothique en Île-de-France",
+    "Monument médiéval à Paris"
   ],
-  "generated_at": "2026-10-05T22:15:44.753596+00:00"
+  "generated_at": "2026-10-06T22:20:18.359736+00:00"
 }

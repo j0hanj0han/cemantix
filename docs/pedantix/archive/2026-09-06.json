@@ -1,31 +1,29 @@
 {
   "date": "2026-09-06",
-  "puzzle_num": 1576,
-  "word": "Hypatie",
-  "title_slug": "Hypatie",
-  "title_display": "Hypatie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hypatie",
+  "puzzle_num": 1577,
+  "word": "Saint-Louis (Missouri)",
+  "title_slug": "Saint-Louis_(Missouri)",
+  "title_display": "Saint-Louis (Missouri)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Saint-Louis_(Missouri)",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : H"
+      "2 mots · 21 lettres",
+      "Premières lettres : S · ("
     ],
     "level2": [
-      "mathématicienne, astronome et philosophe grecque d'Alexandrie (vers 360-415)",
-      "Astronome de la Grèce antique",
-      "Écrivain de langue grecque d'époque romaine",
-      "Femme astronome"
+      "municipalité du Missouri, aux États-Unis",
+      "Population de 2020 en infobox",
+      "Toponyme évoquant une personnalité"
     ],
     "level3": [
-      "___, née entre 355 et 370 selon les sources et assassinée par des chrétiens fanatiques en 415, est une philosophe néoplatonicienne, astronome et mathématicienne grecque d'Alexandrie."
+      "___ est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi."
     ]
   },
-  "extract": "Hypatie, née entre 355 et 370 selon les sources et assassinée par des chrétiens fanatiques en 415, est une philosophe néoplatonicienne, astronome et mathématicienne grecque d'Alexandrie.",
+  "extract": "Saint-Louis est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi.",
   "categories": [
-    "mathématicienne, astronome et philosophe grecque d'Alexandrie (vers 360-415)",
-    "Astronome de la Grèce antique",
-    "Écrivain de langue grecque d'époque romaine",
-    "Femme astronome"
+    "municipalité du Missouri, aux États-Unis",
+    "Population de 2020 en infobox",
+    "Toponyme évoquant une personnalité"
   ],
-  "generated_at": "2026-09-06T22:16:28.062690+00:00"
+  "generated_at": "2026-09-07T22:16:27.861370+00:00"
 }

@@ -1,31 +1,31 @@
 {
   "date": "2026-09-22",
-  "puzzle_num": 1592,
-  "word": "Ziggurat",
-  "title_slug": "Ziggurat",
-  "title_display": "Ziggurat",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ziggurat",
+  "puzzle_num": 1593,
+  "word": "Antigone le Borgne",
+  "title_slug": "Antigone_le_Borgne",
+  "title_display": "Antigone le Borgne",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Antigone_le_Borgne",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : Z"
+      "3 mots · 16 lettres",
+      "Premières lettres : A · L · B"
     ],
     "level2": [
-      "édifice religieux mésopotamien à degrés",
-      "Architecture religieuse",
-      "Religion mésopotamienne",
-      "Pyramide"
+      "général macédonien fondateur de la dynastie des Antigonides (382-301 av. J.-C.)",
+      "Naissance en Macédoine-Centrale",
+      "Naissance en 382 av. J.-C.",
+      "Décès en 301 av. J.-C."
     ],
     "level3": [
-      "Une ___ ou ziggourat est un édifice religieux mésopotamien à degrés, présent aussi en Élam, constitué d'un empilement de plusieurs terrasses hautes supportant probablement un temple construit à son sommet."
+      "___, né en 382 av."
     ]
   },
-  "extract": "Une ziggurat ou ziggourat est un édifice religieux mésopotamien à degrés, présent aussi en Élam, constitué d'un empilement de plusieurs terrasses hautes supportant probablement un temple construit à son sommet.",
+  "extract": "Antigone le Borgne, né en 382 av.",
   "categories": [
-    "édifice religieux mésopotamien à degrés",
-    "Architecture religieuse",
-    "Religion mésopotamienne",
-    "Pyramide"
+    "général macédonien fondateur de la dynastie des Antigonides (382-301 av. J.-C.)",
+    "Naissance en Macédoine-Centrale",
+    "Naissance en 382 av. J.-C.",
+    "Décès en 301 av. J.-C."
   ],
-  "generated_at": "2026-09-22T22:21:53.855897+00:00"
+  "generated_at": "2026-09-23T22:15:38.873188+00:00"
 }

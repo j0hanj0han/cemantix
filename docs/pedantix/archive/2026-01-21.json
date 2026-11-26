@@ -1,14 +1,14 @@
 {
   "date": "2026-01-21",
-  "puzzle_num": 1348,
-  "word": "Icône",
-  "title_slug": "Icône",
-  "title_display": "Icône",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Icône",
+  "puzzle_num": 1349,
+  "word": "Ville de Bruxelles",
+  "title_slug": "Ville_de_Bruxelles",
+  "title_display": "Ville de Bruxelles",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ville_de_Bruxelles",
   "hints": {
     "level1": [
-      "1 mot · 5 lettres",
-      "Première lettre : I"
+      "3 mots · 16 lettres",
+      "Premières lettres : V · D · B"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:28.156811+00:00"
+  "generated_at": "2026-04-28T22:16:27.931954+00:00"
 }

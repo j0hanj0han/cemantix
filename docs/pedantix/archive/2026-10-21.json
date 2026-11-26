@@ -1,25 +1,27 @@
 {
   "date": "2026-10-21",
-  "puzzle_num": 1621,
-  "word": "Équitation",
-  "title_slug": "Équitation",
-  "title_display": "Équitation",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Équitation",
+  "puzzle_num": 1622,
+  "word": "Motivation",
+  "title_slug": "Motivation",
+  "title_display": "Motivation",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Motivation",
   "hints": {
     "level1": [
       "1 mot · 10 lettres",
-      "Première lettre : É"
+      "Première lettre : M"
     ],
     "level2": [
-      "art ou pratique sportive de monter à cheval"
+      "état interne provoquant un comportement orienté vers un but",
+      "Concept de psychologie"
     ],
     "level3": [
-      "L’___ est la technique de conduite d'un équidé monté, sous l'action humaine."
+      "La ___ est, au sein d'un organisme vivant, la composante ou le processus en jeu pour l'engagement dans une activité précise."
     ]
   },
-  "extract": "L’équitation est la technique de conduite d'un équidé monté, sous l'action humaine.",
+  "extract": "La motivation est, au sein d'un organisme vivant, la composante ou le processus en jeu pour l'engagement dans une activité précise.",
   "categories": [
-    "art ou pratique sportive de monter à cheval"
+    "état interne provoquant un comportement orienté vers un but",
+    "Concept de psychologie"
   ],
-  "generated_at": "2026-10-21T23:22:48.526883+00:00"
+  "generated_at": "2026-10-26T04:46:57.845583+00:00"
 }

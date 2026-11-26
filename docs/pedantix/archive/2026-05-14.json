@@ -1,25 +1,25 @@
 {
   "date": "2026-05-14",
-  "puzzle_num": 1461,
-  "word": "Courants de Foucault",
-  "title_slug": "Courants_de_Foucault",
-  "title_display": "Courants de Foucault",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Courants_de_Foucault",
+  "puzzle_num": 1462,
+  "word": "Dromadaire",
+  "title_slug": "Dromadaire",
+  "title_display": "Dromadaire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dromadaire",
   "hints": {
     "level1": [
-      "3 mots · 18 lettres",
-      "Premières lettres : C · D · F"
+      "1 mot · 10 lettres",
+      "Première lettre : D"
     ],
     "level2": [
-      "courants électriques créés dans un conducteur par induction électromagnétique"
+      "espèce de mammifères"
     ],
     "level3": [
-      "On appelle ___ les ___ électriques créés dans une masse conductrice, soit par la variation au cours du temps d'un champ magnétique extérieur traversant ce milieu, soit par un déplacement de cette masse dans un champ magnétique."
+      "Le ___, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés."
     ]
   },
-  "extract": "On appelle courants de Foucault les courants électriques créés dans une masse conductrice, soit par la variation au cours du temps d'un champ magnétique extérieur traversant ce milieu, soit par un déplacement de cette masse dans un champ magnétique.",
+  "extract": "Le dromadaire, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés.",
   "categories": [
-    "courants électriques créés dans un conducteur par induction électromagnétique"
+    "espèce de mammifères"
   ],
-  "generated_at": "2026-05-14T22:15:31.488236+00:00"
+  "generated_at": "2026-05-15T22:15:39.101691+00:00"
 }

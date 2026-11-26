@@ -1,29 +1,29 @@
 {
   "date": "2026-09-16",
-  "puzzle_num": 1586,
-  "word": "Psychopathie",
-  "title_slug": "Psychopathie",
-  "title_display": "Psychopathie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Psychopathie",
+  "puzzle_num": 1587,
+  "word": "Peinture de paysage",
+  "title_slug": "Peinture_de_paysage",
+  "title_display": "Peinture de paysage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Peinture_de_paysage",
   "hints": {
     "level1": [
-      "1 mot · 12 lettres",
-      "Première lettre : P"
+      "3 mots · 17 lettres",
+      "Premières lettres : P · D · P"
     ],
     "level2": [
-      "trouble psychologique",
-      "Criminalité",
-      "Criminologie"
+      "genre artistique",
+      "Paysage dans la peinture",
+      "Peinture par thème"
     ],
     "level3": [
-      "La ___ est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains »."
+      "La ___ est un genre pictural figuratif qui représente le ___."
     ]
   },
-  "extract": "La psychopathie est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains ».",
+  "extract": "La peinture de paysage est un genre pictural figuratif qui représente le paysage.",
   "categories": [
-    "trouble psychologique",
-    "Criminalité",
-    "Criminologie"
+    "genre artistique",
+    "Paysage dans la peinture",
+    "Peinture par thème"
   ],
-  "generated_at": "2026-09-16T22:16:34.406070+00:00"
+  "generated_at": "2026-09-17T22:17:26.930492+00:00"
 }

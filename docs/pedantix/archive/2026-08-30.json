@@ -1,31 +1,31 @@
 {
   "date": "2026-08-30",
-  "puzzle_num": 1569,
-  "word": "Stonehenge",
-  "title_slug": "Stonehenge",
-  "title_display": "Stonehenge",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Stonehenge",
+  "puzzle_num": 1570,
+  "word": "Cetacea",
+  "title_slug": "Cetacea",
+  "title_display": "Cetacea",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cetacea",
   "hints": {
     "level1": [
-      "1 mot · 10 lettres",
-      "Première lettre : S"
+      "1 mot · 7 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "monument préhistorique dans le Wiltshire, Angleterre",
-      "Cromlech",
-      "Site mégalithique en Angleterre",
-      "Patrimoine mondial en Angleterre"
+      "ordre de mammifères marins",
+      "Orthographe à vérifier",
+      "Taxobox utilisant la classification World Register of Marine Species",
+      "Taxobox début par provenance de l'image - A"
     ],
     "level3": [
-      "___ est un monument mégalithique composé d'un ensemble de structures circulaires concentriques, construit en cinq grandes étapes, entre 3000 et 1100 av."
+      "Les Cétacés sont un infra-ordre de mammifères aquatiques."
     ]
   },
-  "extract": "Stonehenge est un monument mégalithique composé d'un ensemble de structures circulaires concentriques, construit en cinq grandes étapes, entre 3000 et 1100 av.",
+  "extract": "Les Cétacés sont un infra-ordre de mammifères aquatiques.",
   "categories": [
-    "monument préhistorique dans le Wiltshire, Angleterre",
-    "Cromlech",
-    "Site mégalithique en Angleterre",
-    "Patrimoine mondial en Angleterre"
+    "ordre de mammifères marins",
+    "Orthographe à vérifier",
+    "Taxobox utilisant la classification World Register of Marine Species",
+    "Taxobox début par provenance de l'image - A"
   ],
-  "generated_at": "2026-08-30T22:15:49.978354+00:00"
+  "generated_at": "2026-08-31T22:16:07.612393+00:00"
 }

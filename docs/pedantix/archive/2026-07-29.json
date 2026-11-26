@@ -1,14 +1,14 @@
 {
   "date": "2026-07-29",
-  "puzzle_num": 1537,
-  "word": "Cahokia",
-  "title_slug": "Cahokia",
-  "title_display": "Cahokia",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cahokia",
+  "puzzle_num": 1538,
+  "word": "Guerre d'indépendance des États-Unis",
+  "title_slug": "Guerre_d'indépendance_des_États-Unis",
+  "title_display": "Guerre d'indépendance des États-Unis",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_d'indépendance_des_États-Unis",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : C"
+      "4 mots · 33 lettres",
+      "Premières lettres : G · D · D · É"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-07-30T07:20:34.393225+00:00"
+  "generated_at": "2026-07-30T22:15:34.559520+00:00"
 }

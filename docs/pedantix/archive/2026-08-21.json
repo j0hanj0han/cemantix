@@ -1,25 +1,23 @@
 {
   "date": "2026-08-21",
-  "puzzle_num": 1560,
-  "word": "Fibre optique",
-  "title_slug": "Fibre_optique",
-  "title_display": "Fibre optique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fibre_optique",
+  "puzzle_num": 1561,
+  "word": "Dyslexie",
+  "title_slug": "Dyslexie",
+  "title_display": "Dyslexie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dyslexie",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : F · O"
+      "1 mot · 8 lettres",
+      "Première lettre : D"
     ],
     "level2": [
-      "fibre très fine ayant la propriété de conduire la lumière"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "La ___ est un fil dont l’âme, très fine et faite de verre ou de plastique, a la propriété de conduire la lumière et sert pour la fibroscopie, l'éclairage ou la transmission de données numériques."
+      "Extrait non disponible"
     ]
   },
-  "extract": "La fibre optique est un fil dont l’âme, très fine et faite de verre ou de plastique, a la propriété de conduire la lumière et sert pour la fibroscopie, l'éclairage ou la transmission de données numériques.",
-  "categories": [
-    "fibre très fine ayant la propriété de conduire la lumière"
-  ],
-  "generated_at": "2026-08-21T22:15:33.961336+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-08-22T22:17:32.943656+00:00"
 }

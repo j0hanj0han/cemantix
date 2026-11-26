@@ -1,25 +1,31 @@
 {
   "date": "2026-11-19",
-  "puzzle_num": 1650,
-  "word": "Tir à l'arc",
-  "title_slug": "Tir_à_l'arc",
-  "title_display": "Tir à l'arc",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tir_à_l'arc",
+  "puzzle_num": 1651,
+  "word": "Religion en Mésopotamie",
+  "title_slug": "Religion_en_Mésopotamie",
+  "title_display": "Religion en Mésopotamie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Religion_en_Mésopotamie",
   "hints": {
     "level1": [
-      "3 mots · 9 lettres",
-      "Premières lettres : T · À · L"
+      "3 mots · 21 lettres",
+      "Premières lettres : R · E · M"
     ],
     "level2": [
-      "sport"
+      "phénomène religieux, social et culturel de la Mésopotamie",
+      "Religion du Proche-Orient ancien",
+      "Religion mésopotamienne",
+      "Religion au IIIe millénaire av. J.-C."
     ],
     "level3": [
-      "Le ___ est un sport de précision et de concentration dans lequel les compétiteurs tentent de tirer leurs flèches au centre d'une cible avec leur arc."
+      "La ___ de la ___ rassemble les pratiques et croyances religieuses polythéistes des divers peuples qui ont vécu en ___ pendant l'Antiquité, entre le IVe millénaire av."
     ]
   },
-  "extract": "Le tir à l'arc est un sport de précision et de concentration dans lequel les compétiteurs tentent de tirer leurs flèches au centre d'une cible avec leur arc.",
+  "extract": "La religion de la Mésopotamie rassemble les pratiques et croyances religieuses polythéistes des divers peuples qui ont vécu en Mésopotamie pendant l'Antiquité, entre le IVe millénaire av.",
   "categories": [
-    "sport"
+    "phénomène religieux, social et culturel de la Mésopotamie",
+    "Religion du Proche-Orient ancien",
+    "Religion mésopotamienne",
+    "Religion au IIIe millénaire av. J.-C."
   ],
-  "generated_at": "2026-11-19T23:18:25.507493+00:00"
+  "generated_at": "2026-11-20T23:20:21.418823+00:00"
 }

@@ -1,31 +1,29 @@
 {
   "date": "2026-02-08",
-  "puzzle_num": 1366,
-  "word": "Livre de la Genèse",
-  "title_slug": "Livre_de_la_Genèse",
-  "title_display": "Livre de la Genèse",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Livre_de_la_Genèse",
+  "puzzle_num": 1367,
+  "word": "Cancer de la prostate",
+  "title_slug": "Cancer_de_la_prostate",
+  "title_display": "Cancer de la prostate",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_de_la_prostate",
   "hints": {
     "level1": [
-      "4 mots · 15 lettres",
-      "Premières lettres : L · D · L · G"
+      "4 mots · 18 lettres",
+      "Premières lettres : C · D · L · P"
     ],
     "level2": [
-      "premier livre de la Bible, composé de 50 chapitres",
-      "Créationnisme",
-      "Mythe de création",
-      "Livre de la Torah"
+      "type de cancer",
+      "Maladie tumorale de l'appareil reproducteur masculin",
+      "Condition masculine"
     ],
     "level3": [
-      "Le ___ est le premier ___ de la Bible."
+      "Le ___ est un ___ fréquent touchant la ___, une glande de l'appareil reproducteur de l'homme."
     ]
   },
-  "extract": "Le Livre de la Genèse est le premier livre de la Bible.",
+  "extract": "Le cancer de la prostate est un cancer fréquent touchant la prostate, une glande de l'appareil reproducteur de l'homme.",
   "categories": [
-    "premier livre de la Bible, composé de 50 chapitres",
-    "Créationnisme",
-    "Mythe de création",
-    "Livre de la Torah"
+    "type de cancer",
+    "Maladie tumorale de l'appareil reproducteur masculin",
+    "Condition masculine"
   ],
-  "generated_at": "2026-04-27T22:15:43.084214+00:00"
+  "generated_at": "2026-04-27T22:15:42.784416+00:00"
 }

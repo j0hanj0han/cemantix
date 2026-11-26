@@ -1,27 +1,31 @@
 {
   "date": "2026-09-24",
-  "puzzle_num": 1594,
-  "word": "Danemark",
-  "title_slug": "Danemark",
-  "title_display": "Danemark",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Danemark",
+  "puzzle_num": 1595,
+  "word": "Grec ancien",
+  "title_slug": "Grec_ancien",
+  "title_display": "Grec ancien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Grec_ancien",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : D"
+      "2 mots · 10 lettres",
+      "Premières lettres : G · A"
     ],
     "level2": [
-      "État souverain et monarchie constitutionnelle transcontinentale",
-      "Éponyme d'une épithète spécifique"
+      "langue grecque antique",
+      "Langue SOV",
+      "Langue SVO",
+      "Langue flexionnelle"
     ],
     "level3": [
-      "Le ___, en forme longue le royaume de ___, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie."
+      "Le ___ est l’étape historique de la langue ___que qui s'étend du IXe siècle av."
     ]
   },
-  "extract": "Le Danemark, en forme longue le royaume de Danemark, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie.",
+  "extract": "Le grec ancien est l’étape historique de la langue grecque qui s'étend du IXe siècle av.",
   "categories": [
-    "État souverain et monarchie constitutionnelle transcontinentale",
-    "Éponyme d'une épithète spécifique"
+    "langue grecque antique",
+    "Langue SOV",
+    "Langue SVO",
+    "Langue flexionnelle"
   ],
-  "generated_at": "2026-09-24T22:20:18.460569+00:00"
+  "generated_at": "2026-09-25T22:18:59.771678+00:00"
 }

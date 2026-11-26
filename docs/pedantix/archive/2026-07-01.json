@@ -1,25 +1,25 @@
 {
   "date": "2026-07-01",
-  "puzzle_num": 1509,
-  "word": "Diélectrique",
-  "title_slug": "Diélectrique",
-  "title_display": "Diélectrique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diélectrique",
+  "puzzle_num": 1510,
+  "word": "Aurochs",
+  "title_slug": "Aurochs",
+  "title_display": "Aurochs",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Aurochs",
   "hints": {
     "level1": [
-      "1 mot · 12 lettres",
-      "Première lettre : D"
+      "1 mot · 7 lettres",
+      "Première lettre : A"
     ],
     "level2": [
-      "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
+      "espèce d'animaux"
     ],
     "level3": [
-      "Un milieu est ___ s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique."
+      "L'___ est une espèce de bovidé, ancêtre des races actuelles de bovins domestiques et dont la descendance sauvage est désormais éteinte."
     ]
   },
-  "extract": "Un milieu est diélectrique s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique.",
+  "extract": "L'aurochs est une espèce de bovidé, ancêtre des races actuelles de bovins domestiques et dont la descendance sauvage est désormais éteinte.",
   "categories": [
-    "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
+    "espèce d'animaux"
   ],
-  "generated_at": "2026-07-01T22:15:40.943478+00:00"
+  "generated_at": "2026-07-02T22:15:37.203999+00:00"
 }

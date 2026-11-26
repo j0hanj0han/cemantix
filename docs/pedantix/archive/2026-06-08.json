@@ -1,25 +1,23 @@
 {
   "date": "2026-06-08",
-  "puzzle_num": 1486,
-  "word": "Yttrium",
-  "title_slug": "Yttrium",
-  "title_display": "Yttrium",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Yttrium",
+  "puzzle_num": 1487,
+  "word": "Royaume d'Angleterre",
+  "title_slug": "Royaume_d'Angleterre",
+  "title_display": "Royaume d'Angleterre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_d'Angleterre",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : Y"
+      "2 mots · 19 lettres",
+      "Premières lettres : R · D"
     ],
     "level2": [
-      "élément chimique de numéro atomique 39 et de symbole Y"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "L'___ est l'élément chimique de numéro atomique 39, de symbole Y."
+      "Extrait non disponible"
     ]
   },
-  "extract": "L'yttrium est l'élément chimique de numéro atomique 39, de symbole Y.",
-  "categories": [
-    "élément chimique de numéro atomique 39 et de symbole Y"
-  ],
-  "generated_at": "2026-06-08T22:16:11.463398+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-06-09T22:16:25.291535+00:00"
 }

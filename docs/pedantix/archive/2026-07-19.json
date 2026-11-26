@@ -1,25 +1,23 @@
 {
   "date": "2026-07-19",
-  "puzzle_num": 1527,
-  "word": "World Wide Web",
-  "title_slug": "World_Wide_Web",
-  "title_display": "World Wide Web",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/World_Wide_Web",
+  "puzzle_num": 1528,
+  "word": "Patagonie",
+  "title_slug": "Patagonie",
+  "title_display": "Patagonie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Patagonie",
   "hints": {
     "level1": [
-      "3 mots · 12 lettres",
-      "Premières lettres : W · W · W"
+      "1 mot · 9 lettres",
+      "Première lettre : P"
     ],
     "level2": [
-      "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "Le ___, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Le World Wide Web, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet.",
-  "categories": [
-    "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
-  ],
-  "generated_at": "2026-07-19T22:15:45.799498+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-07-20T22:17:38.045573+00:00"
 }

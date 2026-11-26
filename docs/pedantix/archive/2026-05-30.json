@@ -1,14 +1,14 @@
 {
   "date": "2026-05-30",
-  "puzzle_num": 1477,
-  "word": "Santé publique",
-  "title_slug": "Santé_publique",
-  "title_display": "Santé publique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Santé_publique",
+  "puzzle_num": 1478,
+  "word": "Diphtérie",
+  "title_slug": "Diphtérie",
+  "title_display": "Diphtérie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diphtérie",
   "hints": {
     "level1": [
-      "2 mots · 13 lettres",
-      "Premières lettres : S · P"
+      "1 mot · 9 lettres",
+      "Première lettre : D"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-05-30T22:15:38.770400+00:00"
+  "generated_at": "2026-05-31T22:21:48.780424+00:00"
 }

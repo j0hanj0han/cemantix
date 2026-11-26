@@ -1,31 +1,27 @@
 {
   "date": "2026-09-23",
-  "puzzle_num": 1593,
-  "word": "Antigone le Borgne",
-  "title_slug": "Antigone_le_Borgne",
-  "title_display": "Antigone le Borgne",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Antigone_le_Borgne",
+  "puzzle_num": 1594,
+  "word": "Danemark",
+  "title_slug": "Danemark",
+  "title_display": "Danemark",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Danemark",
   "hints": {
     "level1": [
-      "3 mots · 16 lettres",
-      "Premières lettres : A · L · B"
+      "1 mot · 8 lettres",
+      "Première lettre : D"
     ],
     "level2": [
-      "général macédonien fondateur de la dynastie des Antigonides (382-301 av. J.-C.)",
-      "Naissance en Macédoine-Centrale",
-      "Naissance en 382 av. J.-C.",
-      "Décès en 301 av. J.-C."
+      "État souverain et monarchie constitutionnelle transcontinentale",
+      "Éponyme d'une épithète spécifique"
     ],
     "level3": [
-      "___, né en 382 av."
+      "Le ___, en forme longue le royaume de ___, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie."
     ]
   },
-  "extract": "Antigone le Borgne, né en 382 av.",
+  "extract": "Le Danemark, en forme longue le royaume de Danemark, est un pays transcontinental dont le territoire métropolitain est situé en Europe du Nord et en Scandinavie.",
   "categories": [
-    "général macédonien fondateur de la dynastie des Antigonides (382-301 av. J.-C.)",
-    "Naissance en Macédoine-Centrale",
-    "Naissance en 382 av. J.-C.",
-    "Décès en 301 av. J.-C."
+    "État souverain et monarchie constitutionnelle transcontinentale",
+    "Éponyme d'une épithète spécifique"
   ],
-  "generated_at": "2026-09-23T22:15:38.873188+00:00"
+  "generated_at": "2026-09-24T22:20:18.460569+00:00"
 }

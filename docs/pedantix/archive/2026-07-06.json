@@ -1,14 +1,14 @@
 {
   "date": "2026-07-06",
-  "puzzle_num": 1514,
-  "word": "Anneau planétaire",
-  "title_slug": "Anneau_planétaire",
-  "title_display": "Anneau planétaire",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Anneau_planétaire",
+  "puzzle_num": 1515,
+  "word": "Char",
+  "title_slug": "Char",
+  "title_display": "Char",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Char",
   "hints": {
     "level1": [
-      "2 mots · 16 lettres",
-      "Premières lettres : A · P"
+      "1 mot · 4 lettres",
+      "Première lettre : C"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-07-06T22:21:44.869875+00:00"
+  "generated_at": "2026-07-07T22:15:54.712315+00:00"
 }

@@ -1,29 +1,27 @@
 {
   "date": "2026-09-27",
-  "puzzle_num": 1597,
-  "word": "Chasseur-cueilleur",
-  "title_slug": "Chasseur-cueilleur",
-  "title_display": "Chasseur-cueilleur",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chasseur-cueilleur",
+  "puzzle_num": 1598,
+  "word": "Bateau",
+  "title_slug": "Bateau",
+  "title_display": "Bateau",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bateau",
   "hints": {
     "level1": [
-      "1 mot · 18 lettres",
-      "Première lettre : C"
+      "1 mot · 6 lettres",
+      "Première lettre : B"
     ],
     "level2": [
-      "humain vivant dans une société où l'alimentation provient en majorité de la chasse et de la cueillette des plantes",
-      "Peuple chasseur-cueilleur",
-      "Préhistoire"
+      "moyen de transport flottant",
+      "Vocabulaire maritime"
     ],
     "level3": [
-      "Le ___ est un être humain dont le mode de vie est fondé sur la chasse, la pêche et la cueillette."
+      "Un ___ est un moyen de transport capable de flotter sur l'eau et de s'y déplacer, dirigé par ses occupants."
     ]
   },
-  "extract": "Le chasseur-cueilleur est un être humain dont le mode de vie est fondé sur la chasse, la pêche et la cueillette.",
+  "extract": "Un bateau est un moyen de transport capable de flotter sur l'eau et de s'y déplacer, dirigé par ses occupants.",
   "categories": [
-    "humain vivant dans une société où l'alimentation provient en majorité de la chasse et de la cueillette des plantes",
-    "Peuple chasseur-cueilleur",
-    "Préhistoire"
+    "moyen de transport flottant",
+    "Vocabulaire maritime"
   ],
-  "generated_at": "2026-09-27T22:21:30.078864+00:00"
+  "generated_at": "2026-09-28T22:15:40.647508+00:00"
 }

@@ -1,14 +1,14 @@
 {
   "date": "2026-07-09",
-  "puzzle_num": 1517,
-  "word": "Casablanca (film)",
-  "title_slug": "Casablanca_(film)",
-  "title_display": "Casablanca (film)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Casablanca_(film)",
+  "puzzle_num": 1518,
+  "word": "Philadelphie",
+  "title_slug": "Philadelphie",
+  "title_display": "Philadelphie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Philadelphie",
   "hints": {
     "level1": [
-      "2 mots · 16 lettres",
-      "Premières lettres : C · ("
+      "1 mot · 12 lettres",
+      "Première lettre : P"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-07-09T22:15:54.041189+00:00"
+  "generated_at": "2026-07-10T22:18:34.829946+00:00"
 }

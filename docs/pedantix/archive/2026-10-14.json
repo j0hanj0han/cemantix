@@ -1,31 +1,29 @@
 {
   "date": "2026-10-14",
-  "puzzle_num": 1614,
-  "word": "Expressionnisme abstrait",
-  "title_slug": "Expressionnisme_abstrait",
-  "title_display": "Expressionnisme abstrait",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Expressionnisme_abstrait",
+  "puzzle_num": 1615,
+  "word": "Dynastie Liao",
+  "title_slug": "Dynastie_Liao",
+  "title_display": "Dynastie Liao",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dynastie_Liao",
   "hints": {
     "level1": [
-      "2 mots · 23 lettres",
-      "Premières lettres : E · A"
+      "2 mots · 12 lettres",
+      "Premières lettres : D · L"
     ],
     "level2": [
-      "mouvement américain de l'avant garde artistique",
-      "Mouvement artistique contemporain",
-      "Art contemporain aux États-Unis",
-      "Expressionnisme"
+      "dynastie impériale d’Asie orientale du Xe au XIIe siècle, qui contrôlait le nord et le nord-est de la Chine, la Mongolie, l’Extrème-Orient russe et la Corée du Nord",
+      "Typographie à vérifier",
+      "Territoire de la Chine médiévale"
     ],
     "level3": [
-      "L'___ est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis."
+      "La ___, également connue sous le nom d'Empire Khitan, est un empire d'Asie orientale qui règne sur l'actuelle Mongolie et une partie de l'actuelle Russie orientale et du nord de l'actuelle Chine continentale entre 907 et 1125."
     ]
   },
-  "extract": "L'expressionnisme abstrait est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis.",
+  "extract": "La dynastie Liao, également connue sous le nom d'Empire Khitan, est un empire d'Asie orientale qui règne sur l'actuelle Mongolie et une partie de l'actuelle Russie orientale et du nord de l'actuelle Chine continentale entre 907 et 1125.",
   "categories": [
-    "mouvement américain de l'avant garde artistique",
-    "Mouvement artistique contemporain",
-    "Art contemporain aux États-Unis",
-    "Expressionnisme"
+    "dynastie impériale d’Asie orientale du Xe au XIIe siècle, qui contrôlait le nord et le nord-est de la Chine, la Mongolie, l’Extrème-Orient russe et la Corée du Nord",
+    "Typographie à vérifier",
+    "Territoire de la Chine médiévale"
   ],
-  "generated_at": "2026-10-14T22:17:37.155135+00:00"
+  "generated_at": "2026-10-15T22:19:06.352780+00:00"
 }

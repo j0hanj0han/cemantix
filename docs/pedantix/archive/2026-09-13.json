@@ -1,31 +1,31 @@
 {
   "date": "2026-09-13",
-  "puzzle_num": 1583,
-  "word": "Documentaire",
-  "title_slug": "Documentaire",
-  "title_display": "Documentaire",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Documentaire",
+  "puzzle_num": 1584,
+  "word": "Mary Shelley",
+  "title_slug": "Mary_Shelley",
+  "title_display": "Mary Shelley",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mary_Shelley",
   "hints": {
     "level1": [
-      "1 mot · 12 lettres",
-      "Première lettre : D"
+      "2 mots · 11 lettres",
+      "Premières lettres : M · S"
     ],
     "level2": [
-      "film à caractère didactique, descriptif et/ou informatif",
-      "Genre cinématographique",
-      "Film documentaire",
-      "Média d'information générale"
+      "romancière et autrice dramatique britannique",
+      "Naissance en août 1797",
+      "Naissance à Camden (borough londonien)",
+      "Écrivain britannique du XIXe siècle"
     ],
     "level3": [
-      "Le film ___ ou le ___ est un genre cinématographique, audiovisuel, télévisuel et radiophonique qui se différencie de la fiction."
+      "___, née ___ Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage."
     ]
   },
-  "extract": "Le film documentaire ou le documentaire est un genre cinématographique, audiovisuel, télévisuel et radiophonique qui se différencie de la fiction.",
+  "extract": "Mary Shelley, née Mary Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage.",
   "categories": [
-    "film à caractère didactique, descriptif et/ou informatif",
-    "Genre cinématographique",
-    "Film documentaire",
-    "Média d'information générale"
+    "romancière et autrice dramatique britannique",
+    "Naissance en août 1797",
+    "Naissance à Camden (borough londonien)",
+    "Écrivain britannique du XIXe siècle"
   ],
-  "generated_at": "2026-09-14T07:05:39.122410+00:00"
+  "generated_at": "2026-09-14T22:16:22.216895+00:00"
 }

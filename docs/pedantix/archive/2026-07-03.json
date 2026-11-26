@@ -1,14 +1,14 @@
 {
   "date": "2026-07-03",
-  "puzzle_num": 1511,
-  "word": "Maison Plantagenêt",
-  "title_slug": "Maison_Plantagenêt",
-  "title_display": "Maison Plantagenêt",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Maison_Plantagenêt",
+  "puzzle_num": 1512,
+  "word": "Produit dérivé financier",
+  "title_slug": "Produit_dérivé_financier",
+  "title_display": "Produit dérivé financier",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Produit_dérivé_financier",
   "hints": {
     "level1": [
-      "2 mots · 17 lettres",
-      "Premières lettres : M · P"
+      "3 mots · 22 lettres",
+      "Premières lettres : P · D · F"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-07-03T22:20:27.400057+00:00"
+  "generated_at": "2026-07-04T22:16:40.037806+00:00"
 }

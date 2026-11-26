@@ -1,23 +1,25 @@
 {
   "date": "2026-05-25",
-  "puzzle_num": 1472,
-  "word": "Yin et yang",
-  "title_slug": "Yin_et_yang",
-  "title_display": "Yin et yang",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Yin_et_yang",
+  "puzzle_num": 1473,
+  "word": "Téhéran",
+  "title_slug": "Téhéran",
+  "title_display": "Téhéran",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Téhéran",
   "hints": {
     "level1": [
-      "3 mots · 9 lettres",
-      "Premières lettres : Y · E · Y"
+      "1 mot · 7 lettres",
+      "Première lettre : T"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "capitale de l'Iran"
     ],
     "level3": [
-      "Extrait non disponible"
+      "___ est la capitale et la plus grande ville de l'Iran."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-05-25T22:18:55.671021+00:00"
+  "extract": "Téhéran est la capitale et la plus grande ville de l'Iran.",
+  "categories": [
+    "capitale de l'Iran"
+  ],
+  "generated_at": "2026-05-26T22:21:12.661330+00:00"
 }

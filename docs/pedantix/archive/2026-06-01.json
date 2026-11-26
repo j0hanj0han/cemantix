@@ -1,14 +1,14 @@
 {
   "date": "2026-06-01",
-  "puzzle_num": 1479,
-  "word": "Taxe sur la valeur ajoutée",
-  "title_slug": "Taxe_sur_la_valeur_ajoutée",
-  "title_display": "Taxe sur la valeur ajoutée",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Taxe_sur_la_valeur_ajoutée",
+  "puzzle_num": 1480,
+  "word": "Cyclone",
+  "title_slug": "Cyclone",
+  "title_display": "Cyclone",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cyclone",
   "hints": {
     "level1": [
-      "5 mots · 22 lettres",
-      "Premières lettres : T · S · L · V · A"
+      "1 mot · 7 lettres",
+      "Première lettre : C"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-06-01T22:15:37.844108+00:00"
+  "generated_at": "2026-06-03T22:15:40.732881+00:00"
 }

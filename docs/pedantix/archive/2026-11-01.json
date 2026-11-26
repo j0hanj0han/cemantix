@@ -1,31 +1,31 @@
 {
   "date": "2026-11-01",
-  "puzzle_num": 1632,
-  "word": "Malcolm X",
-  "title_slug": "Malcolm_X",
-  "title_display": "Malcolm X",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Malcolm_X",
+  "puzzle_num": 1633,
+  "word": "Étourneau sansonnet",
+  "title_slug": "Étourneau_sansonnet",
+  "title_display": "Étourneau sansonnet",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étourneau_sansonnet",
   "hints": {
     "level1": [
-      "2 mots · 8 lettres",
-      "Premières lettres : M · X"
+      "2 mots · 18 lettres",
+      "Premières lettres : É · S"
     ],
     "level2": [
-      "militant américain des droits de l'homme",
-      "Écrivain afro-américain",
-      "Écrivain américain du XXe siècle",
-      "Personnalité politique afro-américaine"
+      "espèce d'oiseaux passeriformes de la famille des sturnidae",
+      "Taxobox utilisant la classification du Congrès ornithologique international",
+      "Taxobox début par provenance de l'image - A",
+      "Statut UICN Préoccupation mineure"
     ],
     "level3": [
-      "___, né ___ Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain."
+      "L’___ est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique."
     ]
   },
-  "extract": "Malcolm X, né Malcolm Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain.",
+  "extract": "L’étourneau sansonnet est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique.",
   "categories": [
-    "militant américain des droits de l'homme",
-    "Écrivain afro-américain",
-    "Écrivain américain du XXe siècle",
-    "Personnalité politique afro-américaine"
+    "espèce d'oiseaux passeriformes de la famille des sturnidae",
+    "Taxobox utilisant la classification du Congrès ornithologique international",
+    "Taxobox début par provenance de l'image - A",
+    "Statut UICN Préoccupation mineure"
   ],
-  "generated_at": "2026-11-01T23:15:50.529427+00:00"
+  "generated_at": "2026-11-02T23:16:42.638479+00:00"
 }

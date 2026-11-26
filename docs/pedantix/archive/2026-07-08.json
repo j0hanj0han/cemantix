@@ -1,14 +1,14 @@
 {
   "date": "2026-07-08",
-  "puzzle_num": 1516,
-  "word": "John Dewey",
-  "title_slug": "John_Dewey",
-  "title_display": "John Dewey",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/John_Dewey",
+  "puzzle_num": 1517,
+  "word": "Casablanca (film)",
+  "title_slug": "Casablanca_(film)",
+  "title_display": "Casablanca (film)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Casablanca_(film)",
   "hints": {
     "level1": [
-      "2 mots · 9 lettres",
-      "Premières lettres : J · D"
+      "2 mots · 16 lettres",
+      "Premières lettres : C · ("
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-07-08T22:18:41.068297+00:00"
+  "generated_at": "2026-07-09T22:15:54.041189+00:00"
 }

@@ -1,29 +1,31 @@
 {
   "date": "2026-09-17",
-  "puzzle_num": 1587,
-  "word": "Peinture de paysage",
-  "title_slug": "Peinture_de_paysage",
-  "title_display": "Peinture de paysage",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Peinture_de_paysage",
+  "puzzle_num": 1588,
+  "word": "John Wesley",
+  "title_slug": "John_Wesley",
+  "title_display": "John Wesley",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/John_Wesley",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : P · D · P"
+      "2 mots · 10 lettres",
+      "Premières lettres : J · W"
     ],
     "level2": [
-      "genre artistique",
-      "Paysage dans la peinture",
-      "Peinture par thème"
+      "prêtre anglican et fondateur du méthodisme",
+      "Typographie à vérifier",
+      "Antiesclavagiste britannique",
+      "Militant britannique du XVIIIe siècle"
     ],
     "level3": [
-      "La ___ est un genre pictural figuratif qui représente le ___."
+      "___, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme."
     ]
   },
-  "extract": "La peinture de paysage est un genre pictural figuratif qui représente le paysage.",
+  "extract": "John Wesley, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme.",
   "categories": [
-    "genre artistique",
-    "Paysage dans la peinture",
-    "Peinture par thème"
+    "prêtre anglican et fondateur du méthodisme",
+    "Typographie à vérifier",
+    "Antiesclavagiste britannique",
+    "Militant britannique du XVIIIe siècle"
   ],
-  "generated_at": "2026-09-17T22:17:26.930492+00:00"
+  "generated_at": "2026-09-18T22:20:57.444300+00:00"
 }

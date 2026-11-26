@@ -1,31 +1,31 @@
 {
   "date": "2026-02-23",
-  "puzzle_num": 1381,
-  "word": "Fernando Pessoa",
-  "title_slug": "Fernando_Pessoa",
-  "title_display": "Fernando Pessoa",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fernando_Pessoa",
+  "puzzle_num": 1382,
+  "word": "Burj Khalifa",
+  "title_slug": "Burj_Khalifa",
+  "title_display": "Burj Khalifa",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Burj_Khalifa",
   "hints": {
     "level1": [
-      "2 mots · 14 lettres",
-      "Premières lettres : F · P"
+      "2 mots · 11 lettres",
+      "Premières lettres : B · K"
     ],
     "level2": [
-      "écrivain et poète portugais",
-      "Infobox avec une légende automatique à partir de la date de l'image",
-      "Naissance à Lisbonne",
-      "Écrivain portugais du XXe siècle"
+      "gratte-ciel situé à Dubaï, aux Émirats arabes unis",
+      "Gratte-ciel à Dubaï",
+      "Gratte-ciel achevé mesurant 500 mètres ou plus",
+      "Gratte-ciel construit en 2010"
     ],
     "level3": [
-      "___ António Nogueira ___ est un écrivain, critique, polémiste et poète portugais trilingue."
+      "La ___ est un gratte-ciel situé à Dubaï aux Émirats arabes unis, devenu en mai 2008 la plus haute structure humaine jamais construite."
     ]
   },
-  "extract": "Fernando António Nogueira Pessoa est un écrivain, critique, polémiste et poète portugais trilingue.",
+  "extract": "La Burj Khalifa est un gratte-ciel situé à Dubaï aux Émirats arabes unis, devenu en mai 2008 la plus haute structure humaine jamais construite.",
   "categories": [
-    "écrivain et poète portugais",
-    "Infobox avec une légende automatique à partir de la date de l'image",
-    "Naissance à Lisbonne",
-    "Écrivain portugais du XXe siècle"
+    "gratte-ciel situé à Dubaï, aux Émirats arabes unis",
+    "Gratte-ciel à Dubaï",
+    "Gratte-ciel achevé mesurant 500 mètres ou plus",
+    "Gratte-ciel construit en 2010"
   ],
-  "generated_at": "2026-04-27T22:15:39.262906+00:00"
+  "generated_at": "2026-04-27T22:15:38.985255+00:00"
 }

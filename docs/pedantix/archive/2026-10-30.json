@@ -1,31 +1,31 @@
 {
   "date": "2026-10-30",
-  "puzzle_num": 1630,
-  "word": "Étienne Ier (roi de Hongrie)",
-  "title_slug": "Étienne_Ier_(roi_de_Hongrie)",
-  "title_display": "Étienne Ier (roi de Hongrie)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étienne_Ier_(roi_de_Hongrie)",
+  "puzzle_num": 1631,
+  "word": "Canis lupus",
+  "title_slug": "Canis_lupus",
+  "title_display": "Canis lupus",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Canis_lupus",
   "hints": {
     "level1": [
-      "5 mots · 24 lettres",
-      "Premières lettres : É · I · ( · D · H"
+      "2 mots · 10 lettres",
+      "Premières lettres : C · L"
     ],
     "level2": [
-      "premier roi de Hongrie (~975-1038)",
-      "Roi de Hongrie",
-      "Árpád",
-      "Personnalité hongroise du Xe siècle"
+      "espèce de canidé",
+      "Taxobox utilisant la classification ITIS",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
     ],
     "level3": [
-      "___ Ier ou saint ___, né vers 975 et mort le 15 août 1038, est le fondateur du royaume de Hongrie dont il devient le roi en 1000 ou en 1001."
+      "___, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés."
     ]
   },
-  "extract": "Étienne Ier ou saint Étienne, né vers 975 et mort le 15 août 1038, est le fondateur du royaume de Hongrie dont il devient le roi en 1000 ou en 1001.",
+  "extract": "Canis lupus, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés.",
   "categories": [
-    "premier roi de Hongrie (~975-1038)",
-    "Roi de Hongrie",
-    "Árpád",
-    "Personnalité hongroise du Xe siècle"
+    "espèce de canidé",
+    "Taxobox utilisant la classification ITIS",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
   ],
-  "generated_at": "2026-10-30T23:15:44.552344+00:00"
+  "generated_at": "2026-10-31T23:22:14.341837+00:00"
 }

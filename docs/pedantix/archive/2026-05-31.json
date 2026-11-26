@@ -1,14 +1,14 @@
 {
   "date": "2026-05-31",
-  "puzzle_num": 1478,
-  "word": "Diphtérie",
-  "title_slug": "Diphtérie",
-  "title_display": "Diphtérie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diphtérie",
+  "puzzle_num": 1479,
+  "word": "Taxe sur la valeur ajoutée",
+  "title_slug": "Taxe_sur_la_valeur_ajoutée",
+  "title_display": "Taxe sur la valeur ajoutée",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Taxe_sur_la_valeur_ajoutée",
   "hints": {
     "level1": [
-      "1 mot · 9 lettres",
-      "Première lettre : D"
+      "5 mots · 22 lettres",
+      "Premières lettres : T · S · L · V · A"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-05-31T22:21:48.780424+00:00"
+  "generated_at": "2026-06-01T22:15:37.844108+00:00"
 }

@@ -1,27 +1,29 @@
 {
   "date": "2026-02-19",
-  "puzzle_num": 1377,
-  "word": "Hélicoptère",
-  "title_slug": "Hélicoptère",
-  "title_display": "Hélicoptère",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hélicoptère",
+  "puzzle_num": 1378,
+  "word": "Mirage",
+  "title_slug": "Mirage",
+  "title_display": "Mirage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mirage",
   "hints": {
     "level1": [
-      "1 mot · 11 lettres",
-      "Première lettre : H"
+      "1 mot · 6 lettres",
+      "Première lettre : M"
     ],
     "level2": [
-      "aéronef à voilures tournantes",
-      "Invention française"
+      "phénomène optique naturel",
+      "Photométéore",
+      "Illusion d'optique"
     ],
     "level3": [
-      "Un ___ est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs."
+      "Le ___ est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes."
     ]
   },
-  "extract": "Un hélicoptère est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs.",
+  "extract": "Le mirage est un phénomène optique dû à la déviation des faisceaux lumineux par des superpositions de couches d'air de températures différentes.",
   "categories": [
-    "aéronef à voilures tournantes",
-    "Invention française"
+    "phénomène optique naturel",
+    "Photométéore",
+    "Illusion d'optique"
   ],
-  "generated_at": "2026-04-27T22:15:40.264630+00:00"
+  "generated_at": "2026-04-27T22:15:40.087493+00:00"
 }

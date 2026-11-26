@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-27",
+  "puzzle_num": 1987,
+  "word": "SHEAF",
+  "letter_count": 5,
+  "translation": "liasse, gerbe",
+  "senses": [
+    {
+      "pos": "nom",
+      "text": "Liasse, gerbe."
+    },
+    {
+      "pos": "nom",
+      "text": "Faisceau."
+    },
+    {
+      "pos": "verbe",
+      "text": "Engerber, mettre en gerbes."
+    }
+  ],
+  "definition_en": "Nom : A quantity of the stalks and ears of wheat, rye, or other grain, bound together; a bundle of grain or straw.",
+  "editor": "Tracy Bennett",
+  "generated_at": "2026-11-26T23:18:50.875480+00:00"
+}

@@ -1,165 +1,165 @@
 {
-  "date": "2026-11-26",
-  "puzzle_num": 1730,
-  "word": "virtuel",
-  "first_letter": "V",
-  "word_length": 7,
-  "definition": "Qui est seulement en puissance et sans effet actuel.",
+  "date": "2026-11-27",
+  "puzzle_num": 1731,
+  "word": "imminent",
+  "first_letter": "I",
+  "word_length": 8,
+  "definition": "Qui menace de survenir, en parlant d’un danger, d’un événement redouté.",
   "hints": {
     "level1": [
       {
-        "word": "streaming",
+        "word": "épiphénomène",
         "percentile": 200,
-        "definition": "Lecture en continu, diffusion en flux, lecture en transit, diffusion en continu, sans sauvegarder un fichier entier."
+        "definition": "Manifestation associée à un phénomène et qui n’exerce pas d’influence directe sur lui."
       },
       {
-        "word": "kilobyte",
+        "word": "trahison",
         "percentile": 267,
-        "definition": "Kilooctet."
+        "definition": "Action d’une personne qui trahit."
       },
       {
-        "word": "accro",
+        "word": "occupant",
         "percentile": 334,
-        "definition": "Personne dépendante d’une drogue."
+        "definition": "Qui occupe un lieu."
       }
     ],
     "level2": [
       {
-        "word": "mental",
+        "word": "sursaut",
         "percentile": 500,
-        "definition": "Qui se fait, qui s’exécute dans l’esprit, dans l’entendement."
+        "definition": "Mouvement brusque occasionné par quelque sensation subite et violente."
       },
       {
-        "word": "audiotex",
+        "word": "hallali",
         "percentile": 567,
-        "definition": "Service automatisé délivrant des messages vocaux digitalisés reçus par téléphone."
+        "definition": "Cri de victoire dans la chasse à courre, pour annoncer que la bête est aux abois."
       },
       {
-        "word": "tchat",
+        "word": "ensevelissement",
         "percentile": 634,
-        "definition": "Conversation écrite virtuelle et en temps réel, par écran interposé, sur internet."
+        "definition": "Action d’ensevelir."
       }
     ],
     "level3": [
       {
-        "word": "protéiforme",
+        "word": "patatras",
         "percentile": 800,
-        "definition": "Qui est susceptible de prendre les formes les plus différentes."
+        "definition": ""
       },
       {
-        "word": "permettre",
+        "word": "catastrophisme",
         "percentile": 850,
-        "definition": "Donner liberté, pouvoir de faire, de dire."
+        "definition": "Attitude qui consiste à toujours envisager le pire."
       },
       {
-        "word": "irréel",
+        "word": "conséquence",
         "percentile": 900,
-        "definition": "Qui n’est pas réel, qui est illusoire."
+        "definition": "Suite qu’une action ou un évènement peut avoir."
       }
     ]
   },
-  "tried_count": 52,
-  "generated_at": "2026-11-25T23:15:36.132773+00:00",
+  "tried_count": 276,
+  "generated_at": "2026-11-26T23:18:48.118599+00:00",
   "nearby_top": [
     {
-      "word": "virtuel",
+      "word": "imminent",
       "percentile": 1000,
       "similarity": 100.0
     },
     {
-      "word": "virtuellement",
+      "word": "imminence",
       "percentile": 999,
-      "similarity": 61.4
+      "similarity": 57.1
     },
     {
-      "word": "interactif",
+      "word": "annoncer",
       "percentile": 998,
-      "similarity": 53.99
+      "similarity": 44.52
     },
     {
-      "word": "virtualité",
+      "word": "éventualité",
       "percentile": 997,
-      "similarity": 51.97
+      "similarity": 42.41
     },
     {
-      "word": "cyberspace",
+      "word": "retarder",
       "percentile": 996,
-      "similarity": 51.92
+      "similarity": 39.85
     },
     {
-      "word": "interactivité",
+      "word": "menacer",
       "percentile": 995,
-      "similarity": 50.56
+      "similarity": 39.27
     },
     {
-      "word": "cyberespace",
+      "word": "péril",
       "percentile": 994,
-      "similarity": 49.37
+      "similarity": 39.14
     },
     {
-      "word": "virtualiser",
+      "word": "prématuré",
       "percentile": 993,
-      "similarity": 49.0
+      "similarity": 39.09
     },
     {
-      "word": "réel",
+      "word": "menace",
       "percentile": 992,
-      "similarity": 46.08
+      "similarity": 39.09
     },
     {
-      "word": "cyberculture",
+      "word": "danger",
       "percentile": 991,
-      "similarity": 45.98
+      "similarity": 38.1
     },
     {
-      "word": "interagir",
+      "word": "prévisible",
       "percentile": 990,
-      "similarity": 45.93
+      "similarity": 37.72
     },
     {
-      "word": "numérique",
+      "word": "probable",
       "percentile": 989,
-      "similarity": 43.64
+      "similarity": 37.56
     },
     {
-      "word": "fictif",
+      "word": "précipiter",
       "percentile": 988,
-      "similarity": 42.35
+      "similarity": 37.51
     },
     {
-      "word": "internet",
+      "word": "catastrophe",
       "percentile": 987,
-      "similarity": 41.67
+      "similarity": 37.36
     },
     {
-      "word": "goréen",
+      "word": "effondrement",
       "percentile": 986,
-      "similarity": 41.61
+      "similarity": 36.73
     },
     {
-      "word": "haptique",
+      "word": "inévitable",
       "percentile": 985,
-      "similarity": 40.86
+      "similarity": 36.25
     },
     {
-      "word": "ordinateur",
+      "word": "prévenir",
       "percentile": 984,
-      "similarity": 39.53
+      "similarity": 35.21
     },
     {
-      "word": "immersif",
+      "word": "annonciateur",
       "percentile": 983,
-      "similarity": 39.41
+      "similarity": 34.77
     },
     {
-      "word": "simuler",
+      "word": "alarmiste",
       "percentile": 982,
-      "similarity": 39.31
+      "similarity": 34.56
     },
     {
-      "word": "imaginaire",
+      "word": "redouter",
       "percentile": 981,
-      "similarity": 38.96
+      "similarity": 34.49
     }
   ]
 }

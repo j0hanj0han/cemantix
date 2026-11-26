@@ -1,25 +1,23 @@
 {
   "date": "2026-07-28",
-  "puzzle_num": 1536,
-  "word": "Baie d'Hudson",
-  "title_slug": "Baie_d'Hudson",
-  "title_display": "Baie d'Hudson",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Baie_d'Hudson",
+  "puzzle_num": 1537,
+  "word": "Cahokia",
+  "title_slug": "Cahokia",
+  "title_display": "Cahokia",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cahokia",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : B · D"
+      "1 mot · 7 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "baie canadienne"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "La ___ est à la fois une ___ et une mer de l'océan Arctique."
+      "Extrait non disponible"
     ]
   },
-  "extract": "La baie d'Hudson est à la fois une baie et une mer de l'océan Arctique.",
-  "categories": [
-    "baie canadienne"
-  ],
-  "generated_at": "2026-07-30T07:20:34.544328+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-07-30T07:20:34.393225+00:00"
 }

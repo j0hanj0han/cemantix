@@ -1,25 +1,25 @@
 {
   "date": "2026-07-18",
-  "puzzle_num": 1526,
-  "word": "Ouest américain",
-  "title_slug": "Ouest_américain",
-  "title_display": "Ouest américain",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ouest_américain",
+  "puzzle_num": 1527,
+  "word": "World Wide Web",
+  "title_slug": "World_Wide_Web",
+  "title_display": "World Wide Web",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/World_Wide_Web",
   "hints": {
     "level1": [
-      "2 mots · 14 lettres",
-      "Premières lettres : O · A"
+      "3 mots · 12 lettres",
+      "Premières lettres : W · W · W"
     ],
     "level2": [
-      "région occidentale des États-Unis"
+      "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
     ],
     "level3": [
-      "L’___, en anglais : Western United States, aussi appelé Far-West ou Far West, est une région située dans l'___ des États-Unis."
+      "Le ___, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet."
     ]
   },
-  "extract": "L’Ouest américain, en anglais : Western United States, aussi appelé Far-West ou Far West, est une région située dans l'ouest des États-Unis.",
+  "extract": "Le World Wide Web, abrégé en WWW, W3, le Web, la toile mondiale ou simplement la toile, est un système hypertexte public fonctionnant sur Internet.",
   "categories": [
-    "région occidentale des États-Unis"
+    "système mondial de documents liés entre eux par des liens hypertextes et accessibles via l'Internet"
   ],
-  "generated_at": "2026-07-19T22:15:45.954292+00:00"
+  "generated_at": "2026-07-19T22:15:45.799498+00:00"
 }

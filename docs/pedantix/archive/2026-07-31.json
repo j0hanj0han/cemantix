@@ -1,25 +1,25 @@
 {
   "date": "2026-07-31",
-  "puzzle_num": 1539,
-  "word": "Momie",
-  "title_slug": "Momie",
-  "title_display": "Momie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Momie",
+  "puzzle_num": 1540,
+  "word": "La Nuit (Wiesel)",
+  "title_slug": "La_Nuit_(Wiesel)",
+  "title_display": "La Nuit (Wiesel)",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/La_Nuit_(Wiesel)",
   "hints": {
     "level1": [
-      "1 mot · 5 lettres",
-      "Première lettre : M"
+      "3 mots · 14 lettres",
+      "Premières lettres : L · N · ("
     ],
     "level2": [
-      "cadavre qui a été préservé de la destruction"
+      "récit d'Élie Wiesel"
     ],
     "level3": [
-      "Une ___ est un cadavre qui a été préservé de la destruction et de la putréfaction par des effets naturels ou par des techniques humaines."
+      "La ___ est un récit d'Elie Wiesel fondé sur son expérience lorsque, jeune juif orthodoxe, il est déporté avec sa famille dans le camp d'extermination nazi d'Auschwitz, puis dans le camp de concentration de Buchenwald, dont il est libéré le 11 avril 1945, à l'âge de 16 ans."
     ]
   },
-  "extract": "Une momie est un cadavre qui a été préservé de la destruction et de la putréfaction par des effets naturels ou par des techniques humaines.",
+  "extract": "La Nuit est un récit d'Elie Wiesel fondé sur son expérience lorsque, jeune juif orthodoxe, il est déporté avec sa famille dans le camp d'extermination nazi d'Auschwitz, puis dans le camp de concentration de Buchenwald, dont il est libéré le 11 avril 1945, à l'âge de 16 ans.",
   "categories": [
-    "cadavre qui a été préservé de la destruction"
+    "récit d'Élie Wiesel"
   ],
-  "generated_at": "2026-07-31T22:20:49.128285+00:00"
+  "generated_at": "2026-08-01T22:21:26.798519+00:00"
 }

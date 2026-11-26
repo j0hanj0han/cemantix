@@ -1,31 +1,27 @@
 {
   "date": "2026-10-07",
-  "puzzle_num": 1607,
-  "word": "Autant en emporte le vent (film)",
-  "title_slug": "Autant_en_emporte_le_vent_(film)",
-  "title_display": "Autant en emporte le vent (film)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Autant_en_emporte_le_vent_(film)",
+  "puzzle_num": 1608,
+  "word": "Nazisme",
+  "title_slug": "Nazisme",
+  "title_display": "Nazisme",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nazisme",
   "hints": {
     "level1": [
-      "6 mots · 27 lettres",
-      "Premières lettres : A · E · E · L · V · ("
+      "1 mot · 7 lettres",
+      "Première lettre : N"
     ],
     "level2": [
-      "Film de Victor Fleming, sorti en 1939",
-      "Film américain sorti en 1939",
-      "Film dramatique américain",
-      "Film romantique américain"
+      "idéologie politique du Parti nazi",
+      "Idéologie politique"
     ],
     "level3": [
-      "___ en ___ le ___ est un film américain de Victor Fleming sorti en 1939, adapté du roman du même nom de Margaret Mitchell paru en 1936."
+      "Le national-socialisme, couramment abrégé ___, est l'idéologie politique du Parti national-socialiste des travailleurs allemands (NSDAP), parti politique d'extrême droite, fondé en Allemagne en 1920 et dirigé par Adolf Hitler."
     ]
   },
-  "extract": "Autant en emporte le vent est un film américain de Victor Fleming sorti en 1939, adapté du roman du même nom de Margaret Mitchell paru en 1936.",
+  "extract": "Le national-socialisme, couramment abrégé nazisme, est l'idéologie politique du Parti national-socialiste des travailleurs allemands (NSDAP), parti politique d'extrême droite, fondé en Allemagne en 1920 et dirigé par Adolf Hitler.",
   "categories": [
-    "Film de Victor Fleming, sorti en 1939",
-    "Film américain sorti en 1939",
-    "Film dramatique américain",
-    "Film romantique américain"
+    "idéologie politique du Parti nazi",
+    "Idéologie politique"
   ],
-  "generated_at": "2026-10-07T22:15:37.552279+00:00"
+  "generated_at": "2026-10-08T22:21:26.359865+00:00"
 }

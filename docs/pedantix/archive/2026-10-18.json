@@ -1,29 +1,31 @@
 {
   "date": "2026-10-18",
-  "puzzle_num": 1618,
-  "word": "Antiquité tardive",
-  "title_slug": "Antiquité_tardive",
-  "title_display": "Antiquité tardive",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Antiquité_tardive",
+  "puzzle_num": 1619,
+  "word": "Bordeaux",
+  "title_slug": "Bordeaux",
+  "title_display": "Bordeaux",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bordeaux",
   "hints": {
     "level1": [
-      "2 mots · 16 lettres",
-      "Premières lettres : A · T"
+      "1 mot · 8 lettres",
+      "Première lettre : B"
     ],
     "level2": [
-      "période de l’histoire européenne et méditerranéenne",
-      "Terminologie en historiographie",
-      "Période, étude, concept de l'historiographie du haut Moyen Âge"
+      "ville et commune française, chef-lieu du département de la Gironde",
+      "Population de 2017 en infobox",
+      "Population de 2023 en infobox",
+      "Commune en Gironde"
     ],
     "level3": [
-      "L’___ est une période de l’histoire européenne et méditerranéenne qui commence à la fin du IIIe siècle mais dont le terme est flou."
+      "___ est une commune du Sud-Ouest de la France, préfecture du département de la Gironde et chef-lieu de la région Nouvelle-Aquitaine."
     ]
   },
-  "extract": "L’Antiquité tardive est une période de l’histoire européenne et méditerranéenne qui commence à la fin du IIIe siècle mais dont le terme est flou.",
+  "extract": "Bordeaux est une commune du Sud-Ouest de la France, préfecture du département de la Gironde et chef-lieu de la région Nouvelle-Aquitaine.",
   "categories": [
-    "période de l’histoire européenne et méditerranéenne",
-    "Terminologie en historiographie",
-    "Période, étude, concept de l'historiographie du haut Moyen Âge"
+    "ville et commune française, chef-lieu du département de la Gironde",
+    "Population de 2017 en infobox",
+    "Population de 2023 en infobox",
+    "Commune en Gironde"
   ],
-  "generated_at": "2026-10-21T23:22:51.055808+00:00"
+  "generated_at": "2026-10-21T23:22:50.217358+00:00"
 }

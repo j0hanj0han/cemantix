@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-27",
+  "puzzle_num": 1731,
+  "word": "imminent",
+  "first_letter": "I",
+  "word_length": 8,
+  "definition": "Qui menace de survenir, en parlant d’un danger, d’un événement redouté.",
+  "hints": {
+    "level1": [
+      {
+        "word": "épiphénomène",
+        "percentile": 200,
+        "definition": "Manifestation associée à un phénomène et qui n’exerce pas d’influence directe sur lui."
+      },
+      {
+        "word": "trahison",
+        "percentile": 267,
+        "definition": "Action d’une personne qui trahit."
+      },
+      {
+        "word": "occupant",
+        "percentile": 334,
+        "definition": "Qui occupe un lieu."
+      }
+    ],
+    "level2": [
+      {
+        "word": "sursaut",
+        "percentile": 500,
+        "definition": "Mouvement brusque occasionné par quelque sensation subite et violente."
+      },
+      {
+        "word": "hallali",
+        "percentile": 567,
+        "definition": "Cri de victoire dans la chasse à courre, pour annoncer que la bête est aux abois."
+      },
+      {
+        "word": "ensevelissement",
+        "percentile": 634,
+        "definition": "Action d’ensevelir."
+      }
+    ],
+    "level3": [
+      {
+        "word": "patatras",
+        "percentile": 800,
+        "definition": ""
+      },
+      {
+        "word": "catastrophisme",
+        "percentile": 850,
+        "definition": "Attitude qui consiste à toujours envisager le pire."
+      },
+      {
+        "word": "conséquence",
+        "percentile": 900,
+        "definition": "Suite qu’une action ou un évènement peut avoir."
+      }
+    ]
+  },
+  "tried_count": 276,
+  "generated_at": "2026-11-26T23:18:48.118599+00:00",
+  "nearby_top": [
+    {
+      "word": "imminent",
+      "percentile": 1000,
+      "similarity": 100.0
+    },
+    {
+      "word": "imminence",
+      "percentile": 999,
+      "similarity": 57.1
+    },
+    {
+      "word": "annoncer",
+      "percentile": 998,
+      "similarity": 44.52
+    },
+    {
+      "word": "éventualité",
+      "percentile": 997,
+      "similarity": 42.41
+    },
+    {
+      "word": "retarder",
+      "percentile": 996,
+      "similarity": 39.85
+    },
+    {
+      "word": "menacer",
+      "percentile": 995,
+      "similarity": 39.27
+    },
+    {
+      "word": "péril",
+      "percentile": 994,
+      "similarity": 39.14
+    },
+    {
+      "word": "prématuré",
+      "percentile": 993,
+      "similarity": 39.09
+    },
+    {
+      "word": "menace",
+      "percentile": 992,
+      "similarity": 39.09
+    },
+    {
+      "word": "danger",
+      "percentile": 991,
+      "similarity": 38.1
+    },
+    {
+      "word": "prévisible",
+      "percentile": 990,
+      "similarity": 37.72
+    },
+    {
+      "word": "probable",
+      "percentile": 989,
+      "similarity": 37.56
+    },
+    {
+      "word": "précipiter",
+      "percentile": 988,
+      "similarity": 37.51
+    },
+    {
+      "word": "catastrophe",
+      "percentile": 987,
+      "similarity": 37.36
+    },
+    {
+      "word": "effondrement",
+      "percentile": 986,
+      "similarity": 36.73
+    },
+    {
+      "word": "inévitable",
+      "percentile": 985,
+      "similarity": 36.25
+    },
+    {
+      "word": "prévenir",
+      "percentile": 984,
+      "similarity": 35.21
+    },
+    {
+      "word": "annonciateur",
+      "percentile": 983,
+      "similarity": 34.77
+    },
+    {
+      "word": "alarmiste",
+      "percentile": 982,
+      "similarity": 34.56
+    },
+    {
+      "word": "redouter",
+      "percentile": 981,
+      "similarity": 34.49
+    }
+  ]
+}

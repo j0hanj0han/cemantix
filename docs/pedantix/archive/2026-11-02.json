@@ -1,31 +1,27 @@
 {
   "date": "2026-11-02",
-  "puzzle_num": 1633,
-  "word": "Étourneau sansonnet",
-  "title_slug": "Étourneau_sansonnet",
-  "title_display": "Étourneau sansonnet",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Étourneau_sansonnet",
+  "puzzle_num": 1634,
+  "word": "Pharmacien",
+  "title_slug": "Pharmacien",
+  "title_display": "Pharmacien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pharmacien",
   "hints": {
     "level1": [
-      "2 mots · 18 lettres",
-      "Premières lettres : É · S"
+      "1 mot · 10 lettres",
+      "Première lettre : P"
     ],
     "level2": [
-      "espèce d'oiseaux passeriformes de la famille des sturnidae",
-      "Taxobox utilisant la classification du Congrès ornithologique international",
-      "Taxobox début par provenance de l'image - A",
-      "Statut UICN Préoccupation mineure"
+      "professionnel de la santé pratiquant la pharmacie",
+      "Métier de la santé"
     ],
     "level3": [
-      "L’___ est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique."
+      "Un ___ est un professionnel de santé, spécialiste du médicament, dont le rôle consiste à assurer la conformité de la prise en charge pharmaceutique et l'éducation thérapeutique du patient."
     ]
   },
-  "extract": "L’étourneau sansonnet est une espèce de passereaux de la famille des sturnidés, originaire de la plus grande partie de l'Eurasie, mais qui a été introduite dans tous les continents excepté l'Antarctique.",
+  "extract": "Un pharmacien est un professionnel de santé, spécialiste du médicament, dont le rôle consiste à assurer la conformité de la prise en charge pharmaceutique et l'éducation thérapeutique du patient.",
   "categories": [
-    "espèce d'oiseaux passeriformes de la famille des sturnidae",
-    "Taxobox utilisant la classification du Congrès ornithologique international",
-    "Taxobox début par provenance de l'image - A",
-    "Statut UICN Préoccupation mineure"
+    "professionnel de la santé pratiquant la pharmacie",
+    "Métier de la santé"
   ],
-  "generated_at": "2026-11-02T23:16:42.638479+00:00"
+  "generated_at": "2026-11-03T23:15:40.494262+00:00"
 }

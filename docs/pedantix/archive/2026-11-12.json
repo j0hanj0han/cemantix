@@ -1,27 +1,27 @@
 {
   "date": "2026-11-12",
-  "puzzle_num": 1643,
-  "word": "Belgique",
-  "title_slug": "Belgique",
-  "title_display": "Belgique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Belgique",
+  "puzzle_num": 1644,
+  "word": "Psychologie du développement",
+  "title_slug": "Psychologie_du_développement",
+  "title_display": "Psychologie du développement",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Psychologie_du_développement",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : B"
+      "3 mots · 26 lettres",
+      "Premières lettres : P · D · D"
     ],
     "level2": [
-      "État d'Europe occidentale depuis 1830",
-      "Éponyme d'une épithète spécifique"
+      "branche de la psychologie qui traite du comportement des personnes",
+      "Typographie à vérifier"
     ],
     "level3": [
-      "La ___, en forme longue le royaume de ___, est un pays d'Europe de l'Ouest, bordé par la France, les Pays-Bas, l'Allemagne, le Luxembourg et la mer du Nord."
+      "La ___ est une branche de la ___."
     ]
   },
-  "extract": "La Belgique, en forme longue le royaume de Belgique, est un pays d'Europe de l'Ouest, bordé par la France, les Pays-Bas, l'Allemagne, le Luxembourg et la mer du Nord.",
+  "extract": "La psychologie du développement est une branche de la psychologie.",
   "categories": [
-    "État d'Europe occidentale depuis 1830",
-    "Éponyme d'une épithète spécifique"
+    "branche de la psychologie qui traite du comportement des personnes",
+    "Typographie à vérifier"
   ],
-  "generated_at": "2026-11-12T23:16:13.183183+00:00"
+  "generated_at": "2026-11-13T23:16:03.265515+00:00"
 }

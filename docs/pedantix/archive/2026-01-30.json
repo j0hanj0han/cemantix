@@ -1,14 +1,14 @@
 {
   "date": "2026-01-30",
-  "puzzle_num": 1357,
-  "word": "Ours blanc",
-  "title_slug": "Ours_blanc",
-  "title_display": "Ours blanc",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ours_blanc",
+  "puzzle_num": 1358,
+  "word": "Holographie",
+  "title_slug": "Holographie",
+  "title_display": "Holographie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Holographie",
   "hints": {
     "level1": [
-      "2 mots · 9 lettres",
-      "Premières lettres : O · B"
+      "1 mot · 11 lettres",
+      "Première lettre : H"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:26.232718+00:00"
+  "generated_at": "2026-04-28T22:16:26.001309+00:00"
 }

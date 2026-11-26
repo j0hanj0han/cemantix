@@ -1,31 +1,27 @@
 {
   "date": "2026-11-17",
-  "puzzle_num": 1648,
-  "word": "Tourte voyageuse",
-  "title_slug": "Tourte_voyageuse",
-  "title_display": "Tourte voyageuse",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tourte_voyageuse",
+  "puzzle_num": 1649,
+  "word": "Milan",
+  "title_slug": "Milan",
+  "title_display": "Milan",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Milan",
   "hints": {
     "level1": [
-      "2 mots · 15 lettres",
-      "Premières lettres : T · V"
+      "1 mot · 5 lettres",
+      "Première lettre : M"
     ],
     "level2": [
-      "espèce d'oiseaux columbiformes éteinte de la famille des columbidae",
-      "Taxobox utilisant la classification du Congrès ornithologique international",
-      "Taxobox début par provenance de l'image - A",
-      "Taxon utilisant Taxobox plage"
+      "capitale de la région de Lombardie, Italie",
+      "Population de 2026 en infobox"
     ],
     "level3": [
-      "La ___, pigeon migrateur ou colombe ___ est une espèce d'oiseaux, aujourd'hui éteinte de la famille des Columbidae."
+      "___ est une ville d'Italie située au nord du pays, à proximité des Alpes."
     ]
   },
-  "extract": "La Tourte voyageuse, pigeon migrateur ou colombe voyageuse est une espèce d'oiseaux, aujourd'hui éteinte de la famille des Columbidae.",
+  "extract": "Milan est une ville d'Italie située au nord du pays, à proximité des Alpes.",
   "categories": [
-    "espèce d'oiseaux columbiformes éteinte de la famille des columbidae",
-    "Taxobox utilisant la classification du Congrès ornithologique international",
-    "Taxobox début par provenance de l'image - A",
-    "Taxon utilisant Taxobox plage"
+    "capitale de la région de Lombardie, Italie",
+    "Population de 2026 en infobox"
   ],
-  "generated_at": "2026-11-17T23:16:03.636761+00:00"
+  "generated_at": "2026-11-18T23:24:37.556710+00:00"
 }

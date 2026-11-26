@@ -1,14 +1,14 @@
 {
   "date": "2026-08-15",
-  "puzzle_num": 1554,
-  "word": "Histoire du Portugal",
-  "title_slug": "Histoire_du_Portugal",
-  "title_display": "Histoire du Portugal",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_du_Portugal",
+  "puzzle_num": 1555,
+  "word": "Théorie du complot",
+  "title_slug": "Théorie_du_complot",
+  "title_display": "Théorie du complot",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Théorie_du_complot",
   "hints": {
     "level1": [
-      "3 mots · 18 lettres",
-      "Premières lettres : H · D · P"
+      "3 mots · 16 lettres",
+      "Premières lettres : T · D · C"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-08-17T07:51:33.997218+00:00"
+  "generated_at": "2026-08-17T07:51:33.762448+00:00"
 }

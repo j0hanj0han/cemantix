@@ -1,31 +1,29 @@
 {
   "date": "2026-03-07",
-  "puzzle_num": 1393,
-  "word": "Querelle des Investitures",
-  "title_slug": "Querelle_des_Investitures",
-  "title_display": "Querelle des Investitures",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Querelle_des_Investitures",
+  "puzzle_num": 1394,
+  "word": "Sacramento",
+  "title_slug": "Sacramento",
+  "title_display": "Sacramento",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Sacramento",
   "hints": {
     "level1": [
-      "3 mots · 23 lettres",
-      "Premières lettres : Q · D · I"
+      "1 mot · 10 lettres",
+      "Première lettre : S"
     ],
     "level2": [
-      "conflit qui opposa la papauté et le Saint-Empire romain germanique entre 1075 et 1122",
-      "Histoire du catholicisme en Allemagne",
-      "Histoire de l'Allemagne médiévale",
-      "Histoire politique de l'Allemagne"
+      "capitale de l'État de Californie, aux États-Unis",
+      "Population de 2024 en infobox",
+      "Population de 2020 en infobox"
     ],
     "level3": [
-      "La ___ est le conflit qui oppose la papauté et le Saint-Empire romain germanique entre 1075 et 1122."
+      "___ est la capitale de l'État de Californie aux États-Unis."
     ]
   },
-  "extract": "La querelle des Investitures est le conflit qui oppose la papauté et le Saint-Empire romain germanique entre 1075 et 1122.",
+  "extract": "Sacramento est la capitale de l'État de Californie aux États-Unis.",
   "categories": [
-    "conflit qui opposa la papauté et le Saint-Empire romain germanique entre 1075 et 1122",
-    "Histoire du catholicisme en Allemagne",
-    "Histoire de l'Allemagne médiévale",
-    "Histoire politique de l'Allemagne"
+    "capitale de l'État de Californie, aux États-Unis",
+    "Population de 2024 en infobox",
+    "Population de 2020 en infobox"
   ],
-  "generated_at": "2026-04-26T22:15:36.879085+00:00"
+  "generated_at": "2026-04-26T22:15:36.551025+00:00"
 }

@@ -1,27 +1,29 @@
 {
   "date": "2026-09-30",
-  "puzzle_num": 1600,
-  "word": "Art contemporain",
-  "title_slug": "Art_contemporain",
-  "title_display": "Art contemporain",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Art_contemporain",
+  "puzzle_num": 1601,
+  "word": "Instrument de mesure",
+  "title_slug": "Instrument_de_mesure",
+  "title_display": "Instrument de mesure",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Instrument_de_mesure",
   "hints": {
     "level1": [
-      "2 mots · 15 lettres",
-      "Premières lettres : A · C"
+      "3 mots · 18 lettres",
+      "Premières lettres : I · D · M"
     ],
     "level2": [
-      "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
-      "Avant-garde artistique"
+      "dispositif permettant de réaliser la mesure d'une quantité physique",
+      "Invention",
+      "Innovation"
     ],
     "level3": [
-      "L'___ regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques ___es."
+      "Un ___ est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur."
     ]
   },
-  "extract": "L'art contemporain regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques contemporaines.",
+  "extract": "Un instrument de mesure est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur.",
   "categories": [
-    "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
-    "Avant-garde artistique"
+    "dispositif permettant de réaliser la mesure d'une quantité physique",
+    "Invention",
+    "Innovation"
   ],
-  "generated_at": "2026-09-30T22:16:14.454629+00:00"
+  "generated_at": "2026-10-01T22:17:51.777387+00:00"
 }

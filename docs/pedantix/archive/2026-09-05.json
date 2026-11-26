@@ -1,29 +1,31 @@
 {
   "date": "2026-09-05",
-  "puzzle_num": 1575,
-  "word": "Vampire",
-  "title_slug": "Vampire",
-  "title_display": "Vampire",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Vampire",
+  "puzzle_num": 1576,
+  "word": "Hypatie",
+  "title_slug": "Hypatie",
+  "title_display": "Hypatie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hypatie",
   "hints": {
     "level1": [
       "1 mot · 7 lettres",
-      "Première lettre : V"
+      "Première lettre : H"
     ],
     "level2": [
-      "type de revenant qui fait partie des grandes créatures légendaires",
-      "Vampires",
-      "Vampirisme"
+      "mathématicienne, astronome et philosophe grecque d'Alexandrie (vers 360-415)",
+      "Astronome de la Grèce antique",
+      "Écrivain de langue grecque d'époque romaine",
+      "Femme astronome"
     ],
     "level3": [
-      "Le ___ est un type de revenant qui fait partie des grandes créatures légendaires issues des mythologies où se combinent de diverses manières l'inquiétude de l'au-delà et le mystère du sang."
+      "___, née entre 355 et 370 selon les sources et assassinée par des chrétiens fanatiques en 415, est une philosophe néoplatonicienne, astronome et mathématicienne grecque d'Alexandrie."
     ]
   },
-  "extract": "Le vampire est un type de revenant qui fait partie des grandes créatures légendaires issues des mythologies où se combinent de diverses manières l'inquiétude de l'au-delà et le mystère du sang.",
+  "extract": "Hypatie, née entre 355 et 370 selon les sources et assassinée par des chrétiens fanatiques en 415, est une philosophe néoplatonicienne, astronome et mathématicienne grecque d'Alexandrie.",
   "categories": [
-    "type de revenant qui fait partie des grandes créatures légendaires",
-    "Vampires",
-    "Vampirisme"
+    "mathématicienne, astronome et philosophe grecque d'Alexandrie (vers 360-415)",
+    "Astronome de la Grèce antique",
+    "Écrivain de langue grecque d'époque romaine",
+    "Femme astronome"
   ],
-  "generated_at": "2026-09-05T22:18:04.015781+00:00"
+  "generated_at": "2026-09-06T22:16:28.062690+00:00"
 }

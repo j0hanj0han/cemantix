@@ -1,31 +1,31 @@
 {
   "date": "2026-10-10",
-  "puzzle_num": 1610,
-  "word": "Nanotube de carbone",
-  "title_slug": "Nanotube_de_carbone",
-  "title_display": "Nanotube de carbone",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nanotube_de_carbone",
+  "puzzle_num": 1611,
+  "word": "Nikita Khrouchtchev",
+  "title_slug": "Nikita_Khrouchtchev",
+  "title_display": "Nikita Khrouchtchev",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nikita_Khrouchtchev",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : N · D · C"
+      "2 mots · 18 lettres",
+      "Premières lettres : N · K"
     ],
     "level2": [
-      "forme allotropique du carbone appartenant à la famille des fullerènes",
-      "Nanotechnologie",
-      "Nanomatériau",
-      "Fullerène"
+      "homme d’État soviétique",
+      "Chef du gouvernement de l'Union soviétique",
+      "Secrétaire général du Parti communiste de l'Union soviétique",
+      "Dirigeant de l'Union soviétique"
     ],
     "level3": [
-      "Les ___s de ___ sont une forme allotropique du ___ appartenant à la famille des fullerènes."
+      "___ Sergueïevitch ___, né le 3 avril 1894 à Kalinovka, dans l'Empire russe, et mort le 11 septembre 1971 à Moscou, est un homme d'État soviétique qui dirigea l'URSS durant une partie de la guerre froide."
     ]
   },
-  "extract": "Les nanotubes de carbone sont une forme allotropique du carbone appartenant à la famille des fullerènes.",
+  "extract": "Nikita Sergueïevitch Khrouchtchev, né le 3 avril 1894 à Kalinovka, dans l'Empire russe, et mort le 11 septembre 1971 à Moscou, est un homme d'État soviétique qui dirigea l'URSS durant une partie de la guerre froide.",
   "categories": [
-    "forme allotropique du carbone appartenant à la famille des fullerènes",
-    "Nanotechnologie",
-    "Nanomatériau",
-    "Fullerène"
+    "homme d’État soviétique",
+    "Chef du gouvernement de l'Union soviétique",
+    "Secrétaire général du Parti communiste de l'Union soviétique",
+    "Dirigeant de l'Union soviétique"
   ],
-  "generated_at": "2026-10-10T22:16:16.640673+00:00"
+  "generated_at": "2026-10-14T09:18:34.083961+00:00"
 }

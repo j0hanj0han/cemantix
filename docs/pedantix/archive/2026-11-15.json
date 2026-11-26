@@ -1,31 +1,23 @@
 {
   "date": "2026-11-15",
-  "puzzle_num": 1646,
-  "word": "Pierre de Coubertin",
-  "title_slug": "Pierre_de_Coubertin",
-  "title_display": "Pierre de Coubertin",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pierre_de_Coubertin",
+  "puzzle_num": 1647,
+  "word": "Volga",
+  "title_slug": "Volga",
+  "title_display": "Volga",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Volga",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : P · D · C"
+      "1 mot · 5 lettres",
+      "Première lettre : V"
     ],
     "level2": [
-      "historien et pédagogue français, fondateur des Jeux olympiques de l'ère moderne",
-      "Historien français du XXe siècle",
-      "Pédagogue français",
-      "Dirigeant sportif français"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "___, né Charles ___ Fredy de ___ le 1er janvier 1863 à Paris et mort le 2 septembre 1937 à Genève en Suisse, est le rénovateur des Jeux olympiques qu'il relance à la fin du XIXe siècle, devenant le père des Jeux modernes."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Pierre de Coubertin, né Charles Pierre Fredy de Coubertin le 1er janvier 1863 à Paris et mort le 2 septembre 1937 à Genève en Suisse, est le rénovateur des Jeux olympiques qu'il relance à la fin du XIXe siècle, devenant le père des Jeux modernes.",
-  "categories": [
-    "historien et pédagogue français, fondateur des Jeux olympiques de l'ère moderne",
-    "Historien français du XXe siècle",
-    "Pédagogue français",
-    "Dirigeant sportif français"
-  ],
-  "generated_at": "2026-11-15T23:24:20.626637+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-11-26T23:18:56.851290+00:00"
 }

@@ -1,25 +1,31 @@
 {
   "date": "2026-06-06",
-  "puzzle_num": 1484,
-  "word": "Musée du Louvre",
-  "title_slug": "Musée_du_Louvre",
-  "title_display": "Musée du Louvre",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Musée_du_Louvre",
+  "puzzle_num": 1485,
+  "word": "Prix Nobel",
+  "title_slug": "Prix_Nobel",
+  "title_display": "Prix Nobel",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prix_Nobel",
   "hints": {
     "level1": [
-      "3 mots · 13 lettres",
-      "Premières lettres : M · D · L"
+      "2 mots · 9 lettres",
+      "Premières lettres : P · N"
     ],
     "level2": [
-      "musée d'art et d'archéologie à Paris, France"
+      "ensemble de récompenses décernées annuellement",
+      "Distinction fondée en 1901",
+      "Distinction en Suède",
+      "Alfred Nobel"
     ],
     "level3": [
-      "Le ___ est un ___ parisien situé au sein du palais du ___ dans le 1er arrondissement."
+      "Le ___ est une récompense de portée internationale."
     ]
   },
-  "extract": "Le musée du Louvre est un musée parisien situé au sein du palais du Louvre dans le 1er arrondissement.",
+  "extract": "Le prix Nobel est une récompense de portée internationale.",
   "categories": [
-    "musée d'art et d'archéologie à Paris, France"
+    "ensemble de récompenses décernées annuellement",
+    "Distinction fondée en 1901",
+    "Distinction en Suède",
+    "Alfred Nobel"
   ],
-  "generated_at": "2026-06-06T22:15:46.701714+00:00"
+  "generated_at": "2026-06-07T22:16:00.533898+00:00"
 }

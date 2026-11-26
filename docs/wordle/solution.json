@@ -1,28 +1,24 @@
 {
-  "date": "2026-11-26",
-  "puzzle_num": 1986,
-  "word": "TENSE",
+  "date": "2026-11-27",
+  "puzzle_num": 1987,
+  "word": "SHEAF",
   "letter_count": 5,
-  "translation": "tendu, qui subit une tension",
+  "translation": "liasse, gerbe",
   "senses": [
     {
-      "pos": "adjectif",
-      "text": "Tendu, qui subit une tension."
-    },
-    {
-      "pos": "adjectif",
-      "text": "Tendu, anxieux, nerveux."
-    },
-    {
-      "pos": "adjectif",
-      "text": "Tendue."
+      "pos": "nom",
+      "text": "Liasse, gerbe."
     },
     {
       "pos": "nom",
-      "text": "Temps."
+      "text": "Faisceau."
+    },
+    {
+      "pos": "verbe",
+      "text": "Engerber, mettre en gerbes."
     }
   ],
-  "definition_en": "Nom : The property of indicating the point in time at which an action or state of being occurs or exists.",
+  "definition_en": "Nom : A quantity of the stalks and ears of wheat, rye, or other grain, bound together; a bundle of grain or straw.",
   "editor": "Tracy Bennett",
-  "generated_at": "2026-11-25T23:15:38.393249+00:00"
+  "generated_at": "2026-11-26T23:18:50.875480+00:00"
 }

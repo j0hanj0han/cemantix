@@ -1,31 +1,25 @@
 {
   "date": "2026-10-24",
-  "puzzle_num": 1624,
-  "word": "Black Sabbath",
-  "title_slug": "Black_Sabbath",
-  "title_display": "Black Sabbath",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Black_Sabbath",
+  "puzzle_num": 1625,
+  "word": "Cuisine japonaise",
+  "title_slug": "Cuisine_japonaise",
+  "title_display": "Cuisine japonaise",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cuisine_japonaise",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : B · S"
+      "2 mots · 16 lettres",
+      "Premières lettres : C · J"
     ],
     "level2": [
-      "groupe de rock britannique",
-      "Groupe anglais de heavy metal",
-      "Groupe anglais de hard rock",
-      "Groupe musical de Birmingham"
+      "cuisine du Japon"
     ],
     "level3": [
-      "___ est un groupe britannique de rock orienté hard rock, originaire de Birmingham, en Angleterre."
+      "La ___ peut être définie strictement comme la ___ traditionnelle du Japon, appelée en japonais Nihon ryōri (日本料理) ou washoku (和食), précédant l'ère Meiji, par opposition à la ___ yōshoku (洋食, litt."
     ]
   },
-  "extract": "Black Sabbath est un groupe britannique de rock orienté hard rock, originaire de Birmingham, en Angleterre.",
+  "extract": "La cuisine japonaise peut être définie strictement comme la cuisine traditionnelle du Japon, appelée en japonais Nihon ryōri (日本料理) ou washoku (和食), précédant l'ère Meiji, par opposition à la cuisine yōshoku (洋食, litt.",
   "categories": [
-    "groupe de rock britannique",
-    "Groupe anglais de heavy metal",
-    "Groupe anglais de hard rock",
-    "Groupe musical de Birmingham"
+    "cuisine du Japon"
   ],
-  "generated_at": "2026-10-26T04:46:56.323708+00:00"
+  "generated_at": "2026-10-26T04:46:55.616464+00:00"
 }

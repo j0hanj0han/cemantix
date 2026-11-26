@@ -1,25 +1,27 @@
 {
   "date": "2026-07-22",
-  "puzzle_num": 1530,
-  "word": "Basilique Saint-Pierre",
-  "title_slug": "Basilique_Saint-Pierre",
-  "title_display": "Basilique Saint-Pierre",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Basilique_Saint-Pierre",
+  "puzzle_num": 1531,
+  "word": "Royaume de France",
+  "title_slug": "Royaume_de_France",
+  "title_display": "Royaume de France",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Royaume_de_France",
   "hints": {
     "level1": [
-      "2 mots · 21 lettres",
-      "Premières lettres : B · S"
+      "3 mots · 15 lettres",
+      "Premières lettres : R · D · F"
     ],
     "level2": [
-      "basilique catholique de la Cité du Vatican"
+      "entité géopolitique monarchique ayant gouverné la France de 987 à 1792, puis de 1814 à 1848 (à l'exception des Cent-Jours en 1815)",
+      "Wikipédia:Triple révocation"
     ],
     "level3": [
-      "La ___ ou la ___ papale ___ au Vatican, parfois appelée ___ de Rome, est l'édifice religieux le plus important du catholicisme."
+      "Le ___ est le nom donné à différentes périodes politiques de la ___, de ses débuts au Moyen Âge jusqu'à l'époque moderne, puis brièvement durant la période contemporaine."
     ]
   },
-  "extract": "La basilique Saint-Pierre ou la basilique papale Saint-Pierre au Vatican, parfois appelée Saint-Pierre de Rome, est l'édifice religieux le plus important du catholicisme.",
+  "extract": "Le royaume de France est le nom donné à différentes périodes politiques de la France, de ses débuts au Moyen Âge jusqu'à l'époque moderne, puis brièvement durant la période contemporaine.",
   "categories": [
-    "basilique catholique de la Cité du Vatican"
+    "entité géopolitique monarchique ayant gouverné la France de 987 à 1792, puis de 1814 à 1848 (à l'exception des Cent-Jours en 1815)",
+    "Wikipédia:Triple révocation"
   ],
-  "generated_at": "2026-07-22T22:15:58.897108+00:00"
+  "generated_at": "2026-07-23T22:17:03.336876+00:00"
 }

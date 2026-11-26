@@ -1,23 +1,31 @@
 {
   "date": "2026-05-12",
-  "puzzle_num": 1459,
-  "word": "Maximilien de Robespierre",
-  "title_slug": "Maximilien_de_Robespierre",
-  "title_display": "Maximilien de Robespierre",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Maximilien_de_Robespierre",
+  "puzzle_num": 1460,
+  "word": "Symphonie",
+  "title_slug": "Symphonie",
+  "title_display": "Symphonie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Symphonie",
   "hints": {
     "level1": [
-      "3 mots · 23 lettres",
-      "Premières lettres : M · D · R"
+      "1 mot · 9 lettres",
+      "Première lettre : S"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "composition musicale classique",
+      "Typographie à vérifier",
+      "Genre musical classique",
+      "Vocabulaire de la musique classique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "Une ___ est une œuvre musicale instrumentale savante, de proportions généralement vastes, comprenant plusieurs mouvements joints ou disjoints et faisant appel aux ressources de l'orchestre symphonique."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-05-12T22:15:51.815427+00:00"
+  "extract": "Une symphonie est une œuvre musicale instrumentale savante, de proportions généralement vastes, comprenant plusieurs mouvements joints ou disjoints et faisant appel aux ressources de l'orchestre symphonique.",
+  "categories": [
+    "composition musicale classique",
+    "Typographie à vérifier",
+    "Genre musical classique",
+    "Vocabulaire de la musique classique"
+  ],
+  "generated_at": "2026-05-13T22:16:09.105107+00:00"
 }

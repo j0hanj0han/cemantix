@@ -1,31 +1,31 @@
 {
   "date": "2026-09-18",
-  "puzzle_num": 1588,
-  "word": "John Wesley",
-  "title_slug": "John_Wesley",
-  "title_display": "John Wesley",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/John_Wesley",
+  "puzzle_num": 1589,
+  "word": "Superstition",
+  "title_slug": "Superstition",
+  "title_display": "Superstition",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Superstition",
   "hints": {
     "level1": [
-      "2 mots · 10 lettres",
-      "Premières lettres : J · W"
+      "1 mot · 12 lettres",
+      "Première lettre : S"
     ],
     "level2": [
-      "prêtre anglican et fondateur du méthodisme",
-      "Typographie à vérifier",
-      "Antiesclavagiste britannique",
-      "Militant britannique du XVIIIe siècle"
+      "croyance de nature irrationnelle",
+      "Anthropologie des religions",
+      "Psychose",
+      "Sociologie de l'imaginaire"
     ],
     "level3": [
-      "___, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme."
+      "La ___ est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles."
     ]
   },
-  "extract": "John Wesley, né le 28 juin 1703 et mort le 2 mars 1791, est un ecclésiastique, théologien et évangélisateur anglais qui fut le déclencheur d'un mouvement de réveil au sein de l'Église d'Angleterre, connu sous le nom de méthodisme.",
+  "extract": "La superstition est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles.",
   "categories": [
-    "prêtre anglican et fondateur du méthodisme",
-    "Typographie à vérifier",
-    "Antiesclavagiste britannique",
-    "Militant britannique du XVIIIe siècle"
+    "croyance de nature irrationnelle",
+    "Anthropologie des religions",
+    "Psychose",
+    "Sociologie de l'imaginaire"
   ],
-  "generated_at": "2026-09-18T22:20:57.444300+00:00"
+  "generated_at": "2026-09-19T22:17:12.254437+00:00"
 }

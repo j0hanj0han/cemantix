@@ -1,31 +1,31 @@
 {
   "date": "2026-09-14",
-  "puzzle_num": 1584,
-  "word": "Mary Shelley",
-  "title_slug": "Mary_Shelley",
-  "title_display": "Mary Shelley",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mary_Shelley",
+  "puzzle_num": 1585,
+  "word": "Cloche",
+  "title_slug": "Cloche",
+  "title_display": "Cloche",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cloche",
   "hints": {
     "level1": [
-      "2 mots · 11 lettres",
-      "Premières lettres : M · S"
+      "1 mot · 6 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "romancière et autrice dramatique britannique",
-      "Naissance en août 1797",
-      "Naissance à Camden (borough londonien)",
-      "Écrivain britannique du XIXe siècle"
+      "objet destiné à l'émission d'un son",
+      "Clocher",
+      "Idiophone",
+      "Instrument de musique sacré"
     ],
     "level3": [
-      "___, née ___ Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage."
+      "Une ___ est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son."
     ]
   },
-  "extract": "Mary Shelley, née Mary Wollstonecraft Godwin le 30 août 1797 à Somers Town, un faubourg de Londres, et morte le 1er février 1851 à Belgravia (Londres), est une femme de lettres britannique, auteure notamment de romans, de nouvelles, de biographies et de récits de voyage.",
+  "extract": "Une cloche est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son.",
   "categories": [
-    "romancière et autrice dramatique britannique",
-    "Naissance en août 1797",
-    "Naissance à Camden (borough londonien)",
-    "Écrivain britannique du XIXe siècle"
+    "objet destiné à l'émission d'un son",
+    "Clocher",
+    "Idiophone",
+    "Instrument de musique sacré"
   ],
-  "generated_at": "2026-09-14T22:16:22.216895+00:00"
+  "generated_at": "2026-09-15T22:16:20.153945+00:00"
 }

@@ -1,31 +1,25 @@
 {
   "date": "2026-06-07",
-  "puzzle_num": 1485,
-  "word": "Prix Nobel",
-  "title_slug": "Prix_Nobel",
-  "title_display": "Prix Nobel",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prix_Nobel",
+  "puzzle_num": 1486,
+  "word": "Yttrium",
+  "title_slug": "Yttrium",
+  "title_display": "Yttrium",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Yttrium",
   "hints": {
     "level1": [
-      "2 mots · 9 lettres",
-      "Premières lettres : P · N"
+      "1 mot · 7 lettres",
+      "Première lettre : Y"
     ],
     "level2": [
-      "ensemble de récompenses décernées annuellement",
-      "Distinction fondée en 1901",
-      "Distinction en Suède",
-      "Alfred Nobel"
+      "élément chimique de numéro atomique 39 et de symbole Y"
     ],
     "level3": [
-      "Le ___ est une récompense de portée internationale."
+      "L'___ est l'élément chimique de numéro atomique 39, de symbole Y."
     ]
   },
-  "extract": "Le prix Nobel est une récompense de portée internationale.",
+  "extract": "L'yttrium est l'élément chimique de numéro atomique 39, de symbole Y.",
   "categories": [
-    "ensemble de récompenses décernées annuellement",
-    "Distinction fondée en 1901",
-    "Distinction en Suède",
-    "Alfred Nobel"
+    "élément chimique de numéro atomique 39 et de symbole Y"
   ],
-  "generated_at": "2026-06-07T22:16:00.533898+00:00"
+  "generated_at": "2026-06-08T22:16:11.463398+00:00"
 }

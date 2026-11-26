@@ -1,25 +1,25 @@
 {
   "date": "2026-08-10",
-  "puzzle_num": 1549,
-  "word": "Bore",
-  "title_slug": "Bore",
-  "title_display": "Bore",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Bore",
+  "puzzle_num": 1550,
+  "word": "Burkina Faso",
+  "title_slug": "Burkina_Faso",
+  "title_display": "Burkina Faso",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Burkina_Faso",
   "hints": {
     "level1": [
-      "1 mot · 4 lettres",
-      "Première lettre : B"
+      "2 mots · 11 lettres",
+      "Premières lettres : B · F"
     ],
     "level2": [
-      "élément chimique de numéro atomique 5 et de symbole B"
+      "pays d'Afrique de l'Ouest indépendant depuis 1960"
     ],
     "level3": [
-      "Le ___ est l'élément chimique de numéro atomique 5, de symbole « B »."
+      "Le ___, « patrie des (Hommes) intègres » ou « patrie de l'intégrité » ou ___, anciennement république de Haute-Volta, est un pays d'Afrique de l'Ouest."
     ]
   },
-  "extract": "Le bore est l'élément chimique de numéro atomique 5, de symbole « B ».",
+  "extract": "Le Burkina Faso, « patrie des (Hommes) intègres » ou « patrie de l'intégrité » ou Burkina, anciennement république de Haute-Volta, est un pays d'Afrique de l'Ouest.",
   "categories": [
-    "élément chimique de numéro atomique 5 et de symbole B"
+    "pays d'Afrique de l'Ouest indépendant depuis 1960"
   ],
-  "generated_at": "2026-08-10T22:15:39.704371+00:00"
+  "generated_at": "2026-08-11T22:15:35.608094+00:00"
 }

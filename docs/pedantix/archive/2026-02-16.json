@@ -1,31 +1,31 @@
 {
   "date": "2026-02-16",
-  "puzzle_num": 1374,
-  "word": "Organisation des Nations unies pour l'éducation, la science et la culture",
-  "title_slug": "Organisation_des_Nations_unies_pour_l'éducation,_la_science_et_la_culture",
-  "title_display": "Organisation des Nations unies pour l'éducation, la science et la culture",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Organisation_des_Nations_unies_pour_l'éducation,_la_science_et_la_culture",
+  "puzzle_num": 1375,
+  "word": "Mythologie aborigène",
+  "title_slug": "Mythologie_aborigène",
+  "title_display": "Mythologie aborigène",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mythologie_aborigène",
   "hints": {
     "level1": [
-      "11 mots · 63 lettres",
-      "Premières lettres : O · D · N · U · P · L · L · S · E · L · C"
+      "2 mots · 19 lettres",
+      "Premières lettres : M · A"
     ],
     "level2": [
-      "agence spécialisée des Nations unies pour l'éducation, les sciences et la culture",
-      "Association ou organisme ayant son siège dans le 7e arrondissement de Paris",
-      "Organisme fondé en 1945",
-      "Éponyme d'un objet céleste"
+      "histoires rituelles et traditionnelles racontées par les peuples aborigènes de l'Australie",
+      "Religion aborigène",
+      "Religion en Australie",
+      "Spiritualité autres"
     ],
     "level3": [
-      "L'___ est une institution spécialisée internationale de l'___ des ___ ___ (ONU), créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale."
+      "Les mythes ___s, également connus sous le nom d’histoires du Temps du rêve, sont les histoires traditionnelles racontées par les peuples ___s, au sein de chaque groupe linguistique ___ d'Australie."
     ]
   },
-  "extract": "L'Organisation des Nations unies pour l'éducation, la science et la culture est une institution spécialisée internationale de l'Organisation des Nations unies (ONU), créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale.",
+  "extract": "Les mythes aborigènes, également connus sous le nom d’histoires du Temps du rêve, sont les histoires traditionnelles racontées par les peuples aborigènes, au sein de chaque groupe linguistique aborigène d'Australie.",
   "categories": [
-    "agence spécialisée des Nations unies pour l'éducation, les sciences et la culture",
-    "Association ou organisme ayant son siège dans le 7e arrondissement de Paris",
-    "Organisme fondé en 1945",
-    "Éponyme d'un objet céleste"
+    "histoires rituelles et traditionnelles racontées par les peuples aborigènes de l'Australie",
+    "Religion aborigène",
+    "Religion en Australie",
+    "Spiritualité autres"
   ],
-  "generated_at": "2026-04-27T22:15:41.046548+00:00"
+  "generated_at": "2026-04-27T22:15:40.873492+00:00"
 }

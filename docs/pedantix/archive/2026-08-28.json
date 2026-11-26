@@ -1,31 +1,23 @@
 {
   "date": "2026-08-28",
-  "puzzle_num": 1567,
-  "word": "Franklin Delano Roosevelt",
-  "title_slug": "Franklin_Delano_Roosevelt",
-  "title_display": "Franklin Delano Roosevelt",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Franklin_Delano_Roosevelt",
+  "puzzle_num": 1568,
+  "word": "Théorème fondamental de l'algèbre",
+  "title_slug": "Théorème_fondamental_de_l'algèbre",
+  "title_display": "Théorème fondamental de l'algèbre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Théorème_fondamental_de_l'algèbre",
   "hints": {
     "level1": [
-      "3 mots · 23 lettres",
-      "Premières lettres : F · D · R"
+      "4 mots · 30 lettres",
+      "Premières lettres : T · F · D · L"
     ],
     "level2": [
-      "homme d'État américain",
-      "Naissance en janvier 1882",
-      "Naissance dans le comté de Dutchess",
-      "Décès en avril 1945"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "___, généralement appelé ___ D."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Franklin Delano Roosevelt, généralement appelé Franklin D.",
-  "categories": [
-    "homme d'État américain",
-    "Naissance en janvier 1882",
-    "Naissance dans le comté de Dutchess",
-    "Décès en avril 1945"
-  ],
-  "generated_at": "2026-08-28T22:27:29.721672+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-08-29T22:15:58.831414+00:00"
 }

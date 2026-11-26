@@ -1,31 +1,25 @@
 {
   "date": "2026-08-08",
-  "puzzle_num": 1547,
-  "word": "Déportation des peuples en URSS",
-  "title_slug": "Déportation_des_peuples_en_URSS",
-  "title_display": "Déportation des peuples en URSS",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Déportation_des_peuples_en_URSS",
+  "puzzle_num": 1548,
+  "word": "Séisme et tsunami de 2004 dans l'océan Indien",
+  "title_slug": "Séisme_et_tsunami_de_2004_dans_l'océan_Indien",
+  "title_display": "Séisme et tsunami de 2004 dans l'océan Indien",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Séisme_et_tsunami_de_2004_dans_l'océan_Indien",
   "hints": {
     "level1": [
-      "5 mots · 27 lettres",
-      "Premières lettres : D · D · P · E · U"
+      "8 mots · 38 lettres",
+      "Premières lettres : S · E · T · D · 2 · D · L · I"
     ],
     "level2": [
-      "transfert et déportation des populations en Union Soviétique",
-      "Typographie à vérifier",
-      "Déportation des peuples en Union soviétique",
-      "Politique en Union soviétique"
+      "séisme en Indonésie et tsunami dans l'océan Indien"
     ],
     "level3": [
-      "La ___ est une des formes de répression politique en ___."
+      "Le ___ du 26 décembre ___ ___ ___ ___ est un tremblement de terre d’une magnitude de 9,1 à 9,3 qui s'est produit au large de l'île indonésienne de Sumatra."
     ]
   },
-  "extract": "La déportation des peuples en URSS est une des formes de répression politique en URSS.",
+  "extract": "Le séisme du 26 décembre 2004 dans l'océan Indien est un tremblement de terre d’une magnitude de 9,1 à 9,3 qui s'est produit au large de l'île indonésienne de Sumatra.",
   "categories": [
-    "transfert et déportation des populations en Union Soviétique",
-    "Typographie à vérifier",
-    "Déportation des peuples en Union soviétique",
-    "Politique en Union soviétique"
+    "séisme en Indonésie et tsunami dans l'océan Indien"
   ],
-  "generated_at": "2026-08-08T22:16:08.827905+00:00"
+  "generated_at": "2026-08-09T22:17:52.462234+00:00"
 }

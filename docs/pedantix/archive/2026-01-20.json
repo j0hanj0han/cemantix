@@ -1,14 +1,14 @@
 {
   "date": "2026-01-20",
-  "puzzle_num": 1347,
-  "word": "Vanuatu",
-  "title_slug": "Vanuatu",
-  "title_display": "Vanuatu",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Vanuatu",
+  "puzzle_num": 1348,
+  "word": "Icône",
+  "title_slug": "Icône",
+  "title_display": "Icône",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Icône",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : V"
+      "1 mot · 5 lettres",
+      "Première lettre : I"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:28.382825+00:00"
+  "generated_at": "2026-04-28T22:16:28.156811+00:00"
 }

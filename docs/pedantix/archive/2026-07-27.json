@@ -1,23 +1,25 @@
 {
   "date": "2026-07-27",
-  "puzzle_num": 1535,
-  "word": "Wapiti",
-  "title_slug": "Wapiti",
-  "title_display": "Wapiti",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Wapiti",
+  "puzzle_num": 1536,
+  "word": "Baie d'Hudson",
+  "title_slug": "Baie_d'Hudson",
+  "title_display": "Baie d'Hudson",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Baie_d'Hudson",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : W"
+      "2 mots · 12 lettres",
+      "Premières lettres : B · D"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "baie canadienne"
     ],
     "level3": [
-      "Extrait non disponible"
+      "La ___ est à la fois une ___ et une mer de l'océan Arctique."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-07-30T07:20:34.781225+00:00"
+  "extract": "La baie d'Hudson est à la fois une baie et une mer de l'océan Arctique.",
+  "categories": [
+    "baie canadienne"
+  ],
+  "generated_at": "2026-07-30T07:20:34.544328+00:00"
 }

@@ -1,29 +1,23 @@
 {
   "date": "2026-06-29",
-  "puzzle_num": 1507,
-  "word": "San Francisco",
-  "title_slug": "San_Francisco",
-  "title_display": "San Francisco",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/San_Francisco",
+  "puzzle_num": 1508,
+  "word": "Seize Royaumes",
+  "title_slug": "Seize_Royaumes",
+  "title_display": "Seize Royaumes",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Seize_Royaumes",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : S · F"
+      "2 mots · 13 lettres",
+      "Premières lettres : S · R"
     ],
     "level2": [
-      "ville des États-Unis située dans l'état de Californie",
-      "Population de 2024 en infobox",
-      "Population de 2016 en infobox"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "___, officiellement « ville et comté de ___ », est une ville des États-Unis et l'un des comtés de l'État de Californie."
+      "Extrait non disponible"
     ]
   },
-  "extract": "San Francisco, officiellement « ville et comté de San Francisco », est une ville des États-Unis et l'un des comtés de l'État de Californie.",
-  "categories": [
-    "ville des États-Unis située dans l'état de Californie",
-    "Population de 2024 en infobox",
-    "Population de 2016 en infobox"
-  ],
-  "generated_at": "2026-06-29T22:17:13.780324+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-06-30T22:17:55.564539+00:00"
 }

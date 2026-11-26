@@ -1,27 +1,31 @@
 {
   "date": "2026-11-24",
-  "puzzle_num": 1655,
-  "word": "Moldavie",
-  "title_slug": "Moldavie",
-  "title_display": "Moldavie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Moldavie",
+  "puzzle_num": 1656,
+  "word": "Thor",
+  "title_slug": "Thor",
+  "title_display": "Thor",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Thor",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : M"
+      "1 mot · 4 lettres",
+      "Première lettre : T"
     ],
     "level2": [
-      "pays d'Europe orientale, enclavé entre la Roumanie et l'Ukraine",
-      "État postsoviétique"
+      "dieu du Tonnerre dans la mythologie nordique",
+      "Dieu Ase",
+      "Divinité liée aux orages",
+      "Divinité de la guerre"
     ],
     "level3": [
-      "La ___, en forme longue république de ___ ou république de Moldova, est un pays d'Europe orientale, enclavé entre la Roumanie et l'Ukraine, englobant en partie des régions historiques de Bessarabie et de Podolie méridionale."
+      "___ est le dieu du Tonnerre dans la mythologie nordique et dans le paganisme germanique."
     ]
   },
-  "extract": "La Moldavie, en forme longue république de Moldavie ou république de Moldova, est un pays d'Europe orientale, enclavé entre la Roumanie et l'Ukraine, englobant en partie des régions historiques de Bessarabie et de Podolie méridionale.",
+  "extract": "Thor est le dieu du Tonnerre dans la mythologie nordique et dans le paganisme germanique.",
   "categories": [
-    "pays d'Europe orientale, enclavé entre la Roumanie et l'Ukraine",
-    "État postsoviétique"
+    "dieu du Tonnerre dans la mythologie nordique",
+    "Dieu Ase",
+    "Divinité liée aux orages",
+    "Divinité de la guerre"
   ],
-  "generated_at": "2026-11-24T23:16:02.517411+00:00"
+  "generated_at": "2026-11-25T23:15:48.168690+00:00"
 }

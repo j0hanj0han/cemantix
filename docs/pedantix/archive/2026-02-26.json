@@ -1,29 +1,31 @@
 {
   "date": "2026-02-26",
-  "puzzle_num": 1384,
-  "word": "Locomotive à vapeur",
-  "title_slug": "Locomotive_à_vapeur",
-  "title_display": "Locomotive à vapeur",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Locomotive_à_vapeur",
+  "puzzle_num": 1385,
+  "word": "Jane Austen",
+  "title_slug": "Jane_Austen",
+  "title_display": "Jane Austen",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Jane_Austen",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : L · À · V"
+      "2 mots · 10 lettres",
+      "Premières lettres : J · A"
     ],
     "level2": [
-      "type de locomotive propulsée à la vapeur, généralement de l'eau chauffée au charbon",
-      "Locomotive",
-      "Invention britannique"
+      "romancière et femme de lettres anglaise",
+      "Naissance en décembre 1775",
+      "Naissance dans le Hampshire",
+      "Pionnière en littérature"
     ],
     "level3": [
-      "Une ___ est un type de ___, c'est un engin moteur pour les chemins de fer, mis en mouvement par une machine à ___."
+      "___ [ˈd͡ʒeɪn ˈɒstɪn], née le 16 décembre 1775 à Steventon dans le Hampshire en Angleterre et morte le 18 juillet 1817 à Winchester dans le même comté, est une romancière et femme de lettres anglaise."
     ]
   },
-  "extract": "Une locomotive à vapeur est un type de locomotive, c'est un engin moteur pour les chemins de fer, mis en mouvement par une machine à vapeur.",
+  "extract": "Jane Austen [ˈd͡ʒeɪn ˈɒstɪn], née le 16 décembre 1775 à Steventon dans le Hampshire en Angleterre et morte le 18 juillet 1817 à Winchester dans le même comté, est une romancière et femme de lettres anglaise.",
   "categories": [
-    "type de locomotive propulsée à la vapeur, généralement de l'eau chauffée au charbon",
-    "Locomotive",
-    "Invention britannique"
+    "romancière et femme de lettres anglaise",
+    "Naissance en décembre 1775",
+    "Naissance dans le Hampshire",
+    "Pionnière en littérature"
   ],
-  "generated_at": "2026-04-26T22:15:40.112232+00:00"
+  "generated_at": "2026-04-26T22:15:39.771432+00:00"
 }

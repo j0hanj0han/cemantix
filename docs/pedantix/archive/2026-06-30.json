@@ -1,23 +1,25 @@
 {
   "date": "2026-06-30",
-  "puzzle_num": 1508,
-  "word": "Seize Royaumes",
-  "title_slug": "Seize_Royaumes",
-  "title_display": "Seize Royaumes",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Seize_Royaumes",
+  "puzzle_num": 1509,
+  "word": "Diélectrique",
+  "title_slug": "Diélectrique",
+  "title_display": "Diélectrique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diélectrique",
   "hints": {
     "level1": [
-      "2 mots · 13 lettres",
-      "Premières lettres : S · R"
+      "1 mot · 12 lettres",
+      "Première lettre : D"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "Un milieu est ___ s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-06-30T22:17:55.564539+00:00"
+  "extract": "Un milieu est diélectrique s'il ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique.",
+  "categories": [
+    "matériau qui ne contient pas de charges électriques susceptibles de se déplacer de façon macroscopique"
+  ],
+  "generated_at": "2026-07-01T22:15:40.943478+00:00"
 }

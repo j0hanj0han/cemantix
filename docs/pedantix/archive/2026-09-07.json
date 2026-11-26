@@ -1,29 +1,31 @@
 {
   "date": "2026-09-07",
-  "puzzle_num": 1577,
-  "word": "Saint-Louis (Missouri)",
-  "title_slug": "Saint-Louis_(Missouri)",
-  "title_display": "Saint-Louis (Missouri)",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Saint-Louis_(Missouri)",
+  "puzzle_num": 1578,
+  "word": "Longévité",
+  "title_slug": "Longévité",
+  "title_display": "Longévité",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Longévité",
   "hints": {
     "level1": [
-      "2 mots · 21 lettres",
-      "Premières lettres : S · ("
+      "1 mot · 9 lettres",
+      "Première lettre : L"
     ],
     "level2": [
-      "municipalité du Missouri, aux États-Unis",
-      "Population de 2020 en infobox",
-      "Toponyme évoquant une personnalité"
+      "durée de vie supérieure à la normale, notamment pour les humains",
+      "Liste en rapport avec les animaux",
+      "Centenaire",
+      "Gériatrie"
     ],
     "level3": [
-      "___ est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi."
+      "La ___ potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique."
     ]
   },
-  "extract": "Saint-Louis est une ville indépendante du Missouri, deuxième plus grande ville de cet État américain du Midwest, et un important port sur le fleuve Mississippi.",
+  "extract": "La longévité potentielle d'un être vivant est la durée de vie pour laquelle il est programmé en tant qu'espèce biologique.",
   "categories": [
-    "municipalité du Missouri, aux États-Unis",
-    "Population de 2020 en infobox",
-    "Toponyme évoquant une personnalité"
+    "durée de vie supérieure à la normale, notamment pour les humains",
+    "Liste en rapport avec les animaux",
+    "Centenaire",
+    "Gériatrie"
   ],
-  "generated_at": "2026-09-07T22:16:27.861370+00:00"
+  "generated_at": "2026-09-08T22:18:48.398529+00:00"
 }

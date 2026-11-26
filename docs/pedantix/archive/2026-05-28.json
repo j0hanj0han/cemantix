@@ -1,25 +1,23 @@
 {
   "date": "2026-05-28",
-  "puzzle_num": 1475,
-  "word": "Calvinisme",
-  "title_slug": "Calvinisme",
-  "title_display": "Calvinisme",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Calvinisme",
+  "puzzle_num": 1476,
+  "word": "Ernest Shackleton",
+  "title_slug": "Ernest_Shackleton",
+  "title_display": "Ernest Shackleton",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ernest_Shackleton",
   "hints": {
     "level1": [
-      "1 mot · 10 lettres",
-      "Première lettre : C"
+      "2 mots · 16 lettres",
+      "Premières lettres : E · S"
     ],
     "level2": [
-      "branche du protestantisme"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "Le ___, aussi appelé tradition réformée, foi réformée ou théologie réformée, est une doctrine théologique et une approche de la vie chrétienne reposant principalement sur la souveraineté de Dieu en toutes choses."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Le calvinisme, aussi appelé tradition réformée, foi réformée ou théologie réformée, est une doctrine théologique et une approche de la vie chrétienne reposant principalement sur la souveraineté de Dieu en toutes choses.",
-  "categories": [
-    "branche du protestantisme"
-  ],
-  "generated_at": "2026-05-28T22:15:40.537232+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-05-29T22:17:48.120300+00:00"
 }

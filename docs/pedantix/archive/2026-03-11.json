@@ -1,27 +1,31 @@
 {
   "date": "2026-03-11",
-  "puzzle_num": 1397,
-  "word": "Mitose",
-  "title_slug": "Mitose",
-  "title_display": "Mitose",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mitose",
+  "puzzle_num": 1398,
+  "word": "Coyote",
+  "title_slug": "Coyote",
+  "title_display": "Coyote",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Coyote",
   "hints": {
     "level1": [
       "1 mot · 6 lettres",
-      "Première lettre : M"
+      "Première lettre : C"
     ],
     "level2": [
-      "division cellulaire des eucaryotes",
-      "Reproduction cellulaire"
+      "espèce de canidé",
+      "Taxobox utilisant une classification non précisée",
+      "Taxobox début par provenance de l'image - A",
+      "Statut UICN Préoccupation mineure"
     ],
     "level3": [
-      "La ___, du grec mitos qui signifie « filament », est la division cellulaire des eucaryotes par laquelle une cellule mère se transforme en deux cellules filles qui lui sont génétiquement identiques."
+      "Le ___, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord."
     ]
   },
-  "extract": "La mitose, du grec mitos qui signifie « filament », est la division cellulaire des eucaryotes par laquelle une cellule mère se transforme en deux cellules filles qui lui sont génétiquement identiques.",
+  "extract": "Le Coyote, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord.",
   "categories": [
-    "division cellulaire des eucaryotes",
-    "Reproduction cellulaire"
+    "espèce de canidé",
+    "Taxobox utilisant une classification non précisée",
+    "Taxobox début par provenance de l'image - A",
+    "Statut UICN Préoccupation mineure"
   ],
-  "generated_at": "2026-04-26T22:15:35.518296+00:00"
+  "generated_at": "2026-04-26T22:15:35.198985+00:00"
 }

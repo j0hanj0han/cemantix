@@ -1,25 +1,31 @@
 {
   "date": "2026-05-15",
-  "puzzle_num": 1462,
-  "word": "Dromadaire",
-  "title_slug": "Dromadaire",
-  "title_display": "Dromadaire",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dromadaire",
+  "puzzle_num": 1463,
+  "word": "Richard Cœur de Lion",
+  "title_slug": "Richard_Cœur_de_Lion",
+  "title_display": "Richard Cœur de Lion",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Richard_Cœur_de_Lion",
   "hints": {
     "level1": [
-      "1 mot · 10 lettres",
-      "Première lettre : D"
+      "4 mots · 17 lettres",
+      "Premières lettres : R · C · D · L"
     ],
     "level2": [
-      "espèce de mammifères"
+      "roi d'Angleterre de 1189 à 1199",
+      "Plantagenêts",
+      "Enfant d'Henri II (roi d'Angleterre)",
+      "Monarque d'Angleterre du XIIe siècle"
     ],
     "level3": [
-      "Le ___, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés."
+      "___ Ier dit ___ de ___, né le 8 septembre 1157 au palais de Beaumont à Oxford, et mort le 6 avril 1199 au siège du château de Châlus-Chabrol, est roi d'Angleterre, duc de Normandie, comte du Maine et comte d'Anjou de 1189 à sa mort, et duc d'Aquitaine et comte de Poitiers dès 1171 ou 1172."
     ]
   },
-  "extract": "Le dromadaire, ou chameau d'Arabie, est une espèce de chameaux, mammifères artiodactyles de la famille des camélidés.",
+  "extract": "Richard Ier dit Cœur de Lion, né le 8 septembre 1157 au palais de Beaumont à Oxford, et mort le 6 avril 1199 au siège du château de Châlus-Chabrol, est roi d'Angleterre, duc de Normandie, comte du Maine et comte d'Anjou de 1189 à sa mort, et duc d'Aquitaine et comte de Poitiers dès 1171 ou 1172.",
   "categories": [
-    "espèce de mammifères"
+    "roi d'Angleterre de 1189 à 1199",
+    "Plantagenêts",
+    "Enfant d'Henri II (roi d'Angleterre)",
+    "Monarque d'Angleterre du XIIe siècle"
   ],
-  "generated_at": "2026-05-15T22:15:39.101691+00:00"
+  "generated_at": "2026-05-16T22:16:00.998249+00:00"
 }

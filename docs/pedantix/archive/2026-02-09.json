@@ -1,29 +1,25 @@
 {
   "date": "2026-02-09",
-  "puzzle_num": 1367,
-  "word": "Cancer de la prostate",
-  "title_slug": "Cancer_de_la_prostate",
-  "title_display": "Cancer de la prostate",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_de_la_prostate",
+  "puzzle_num": 1368,
+  "word": "Histoire de la Turquie",
+  "title_slug": "Histoire_de_la_Turquie",
+  "title_display": "Histoire de la Turquie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_de_la_Turquie",
   "hints": {
     "level1": [
-      "4 mots · 18 lettres",
-      "Premières lettres : C · D · L · P"
+      "4 mots · 19 lettres",
+      "Premières lettres : H · D · L · T"
     ],
     "level2": [
-      "type de cancer",
-      "Maladie tumorale de l'appareil reproducteur masculin",
-      "Condition masculine"
+      "étude et narration du passé de la Turquie"
     ],
     "level3": [
-      "Le ___ est un ___ fréquent touchant la ___, une glande de l'appareil reproducteur de l'homme."
+      "On parle d'___ pour désigner celle de la république de ___ issue de la Guerre d'indépendance menée jusqu'en 1922 par Mustafa Kemal Atatürk contre l'occupation de l'Empire ottoman par les Alliés de la Première Guerre mondiale."
     ]
   },
-  "extract": "Le cancer de la prostate est un cancer fréquent touchant la prostate, une glande de l'appareil reproducteur de l'homme.",
+  "extract": "On parle d'histoire de la Turquie pour désigner celle de la république de Turquie issue de la Guerre d'indépendance menée jusqu'en 1922 par Mustafa Kemal Atatürk contre l'occupation de l'Empire ottoman par les Alliés de la Première Guerre mondiale.",
   "categories": [
-    "type de cancer",
-    "Maladie tumorale de l'appareil reproducteur masculin",
-    "Condition masculine"
+    "étude et narration du passé de la Turquie"
   ],
-  "generated_at": "2026-04-27T22:15:42.784416+00:00"
+  "generated_at": "2026-04-27T22:15:42.585062+00:00"
 }

@@ -1,25 +1,23 @@
 {
   "date": "2026-05-21",
-  "puzzle_num": 1468,
-  "word": "Astate",
-  "title_slug": "Astate",
-  "title_display": "Astate",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Astate",
+  "puzzle_num": 1469,
+  "word": "Illusion d'optique",
+  "title_slug": "Illusion_d'optique",
+  "title_display": "Illusion d'optique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Illusion_d'optique",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : A"
+      "2 mots · 17 lettres",
+      "Premières lettres : I · D"
     ],
     "level2": [
-      "élément chimique de numéro atomique 85 et de symbole At"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "L'___ est un radioélément, de symbole At et de numéro atomique 85."
+      "Extrait non disponible"
     ]
   },
-  "extract": "L'astate est un radioélément, de symbole At et de numéro atomique 85.",
-  "categories": [
-    "élément chimique de numéro atomique 85 et de symbole At"
-  ],
-  "generated_at": "2026-05-21T22:15:37.099929+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-05-22T22:15:29.684256+00:00"
 }

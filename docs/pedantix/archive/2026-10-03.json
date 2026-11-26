@@ -1,31 +1,31 @@
 {
   "date": "2026-10-03",
-  "puzzle_num": 1603,
-  "word": "Zodiaque",
-  "title_slug": "Zodiaque",
-  "title_display": "Zodiaque",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Zodiaque",
+  "puzzle_num": 1604,
+  "word": "Vente",
+  "title_slug": "Vente",
+  "title_display": "Vente",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Vente",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : Z"
+      "1 mot · 5 lettres",
+      "Première lettre : V"
     ],
     "level2": [
-      "zone circulaire de la sphère céleste",
-      "Astrologie",
-      "Zodiaques tropical et sidéral",
-      "Constellation"
+      "convention par laquelle l'un s'oblige à livrer une chose, et l'autre à la payer",
+      "À illustrer",
+      "Droit des affaires",
+      "Marketing"
     ],
     "level3": [
-      "Le ___ est une zone circulaire de la sphère céleste, dont l'écliptique occupe le milieu."
+      "Une ___ est une convention par laquelle le vendeur s'oblige à livrer un bien ou un service, et l'acheteur à le payer."
     ]
   },
-  "extract": "Le zodiaque est une zone circulaire de la sphère céleste, dont l'écliptique occupe le milieu.",
+  "extract": "Une vente est une convention par laquelle le vendeur s'oblige à livrer un bien ou un service, et l'acheteur à le payer.",
   "categories": [
-    "zone circulaire de la sphère céleste",
-    "Astrologie",
-    "Zodiaques tropical et sidéral",
-    "Constellation"
+    "convention par laquelle l'un s'oblige à livrer une chose, et l'autre à la payer",
+    "À illustrer",
+    "Droit des affaires",
+    "Marketing"
   ],
-  "generated_at": "2026-10-03T22:19:04.255482+00:00"
+  "generated_at": "2026-10-04T22:15:35.311232+00:00"
 }

@@ -1,25 +1,29 @@
 {
   "date": "2026-09-01",
-  "puzzle_num": 1571,
-  "word": "Rayonnement ionisant",
-  "title_slug": "Rayonnement_ionisant",
-  "title_display": "Rayonnement ionisant",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Rayonnement_ionisant",
+  "puzzle_num": 1572,
+  "word": "Tortue marine",
+  "title_slug": "Tortue_marine",
+  "title_display": "Tortue marine",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tortue_marine",
   "hints": {
     "level1": [
-      "2 mots · 19 lettres",
-      "Premières lettres : R · I"
+      "2 mots · 12 lettres",
+      "Premières lettres : T · M"
     ],
     "level2": [
-      "radiation capable d'arracher des électrons à des atomes"
+      "superfamille de tortues",
+      "Taxobox utilisant la classification World Register of Marine Species",
+      "Taxobox début par provenance de l'image - A"
     ],
     "level3": [
-      "Un ___ est un ___ électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière."
+      "Les ___s ___s sont les ___s de la super-famille des Chelonioidea."
     ]
   },
-  "extract": "Un rayonnement ionisant est un rayonnement électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière.",
+  "extract": "Les tortues marines sont les tortues de la super-famille des Chelonioidea.",
   "categories": [
-    "radiation capable d'arracher des électrons à des atomes"
+    "superfamille de tortues",
+    "Taxobox utilisant la classification World Register of Marine Species",
+    "Taxobox début par provenance de l'image - A"
   ],
-  "generated_at": "2026-09-01T22:22:53.465578+00:00"
+  "generated_at": "2026-09-02T22:24:17.459154+00:00"
 }

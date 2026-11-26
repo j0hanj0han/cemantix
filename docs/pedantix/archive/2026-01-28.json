@@ -1,25 +1,23 @@
 {
   "date": "2026-01-28",
-  "puzzle_num": 1355,
-  "word": "Patrimoine mondial",
-  "title_slug": "Patrimoine_mondial",
-  "title_display": "Patrimoine mondial",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Patrimoine_mondial",
+  "puzzle_num": 1356,
+  "word": "Brûlure",
+  "title_slug": "Brûlure",
+  "title_display": "Brûlure",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Brûlure",
   "hints": {
     "level1": [
-      "2 mots · 17 lettres",
-      "Premières lettres : P · M"
+      "1 mot · 7 lettres",
+      "Première lettre : B"
     ],
     "level2": [
-      "lieux consacrés par l'UNESCO"
+      "Catégories non disponibles"
     ],
     "level3": [
-      "Le ___ est un ensemble de biens culturels et naturels reconnu par l'Organisation des Nations unies pour l'éducation, la science et la culture (Unesco) comme présentant un intérêt exceptionnel pour l'humanité, d'où les appellations officieuses de ___ de l'humanité et de ___ de l'Unesco."
+      "Extrait non disponible"
     ]
   },
-  "extract": "Le patrimoine mondial est un ensemble de biens culturels et naturels reconnu par l'Organisation des Nations unies pour l'éducation, la science et la culture (Unesco) comme présentant un intérêt exceptionnel pour l'humanité, d'où les appellations officieuses de patrimoine de l'humanité et de patrimoine mondial de l'Unesco.",
-  "categories": [
-    "lieux consacrés par l'UNESCO"
-  ],
-  "generated_at": "2026-04-28T22:16:26.638433+00:00"
+  "extract": "",
+  "categories": [],
+  "generated_at": "2026-04-28T22:16:26.464463+00:00"
 }

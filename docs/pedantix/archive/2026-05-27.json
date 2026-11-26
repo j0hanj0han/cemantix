@@ -1,31 +1,25 @@
 {
   "date": "2026-05-27",
-  "puzzle_num": 1474,
-  "word": "Dynastie Zhou",
-  "title_slug": "Dynastie_Zhou",
-  "title_display": "Dynastie Zhou",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Dynastie_Zhou",
+  "puzzle_num": 1475,
+  "word": "Calvinisme",
+  "title_slug": "Calvinisme",
+  "title_display": "Calvinisme",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Calvinisme",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : D · Z"
+      "1 mot · 10 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "dynastie chinoise, de 1046 à 256 av. J.-C.",
-      "Typographie à vérifier",
-      "Âge du bronze en Chine",
-      "Période des Printemps et des Automnes"
+      "branche du protestantisme"
     ],
     "level3": [
-      "La ___ est selon l'historiographie traditionnelle la troisième ___ chinoise."
+      "Le ___, aussi appelé tradition réformée, foi réformée ou théologie réformée, est une doctrine théologique et une approche de la vie chrétienne reposant principalement sur la souveraineté de Dieu en toutes choses."
     ]
   },
-  "extract": "La dynastie Zhou est selon l'historiographie traditionnelle la troisième dynastie chinoise.",
+  "extract": "Le calvinisme, aussi appelé tradition réformée, foi réformée ou théologie réformée, est une doctrine théologique et une approche de la vie chrétienne reposant principalement sur la souveraineté de Dieu en toutes choses.",
   "categories": [
-    "dynastie chinoise, de 1046 à 256 av. J.-C.",
-    "Typographie à vérifier",
-    "Âge du bronze en Chine",
-    "Période des Printemps et des Automnes"
+    "branche du protestantisme"
   ],
-  "generated_at": "2026-05-27T22:16:01.943135+00:00"
+  "generated_at": "2026-05-28T22:15:40.537232+00:00"
 }

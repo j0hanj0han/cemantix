@@ -1,29 +1,27 @@
 {
   "date": "2026-09-29",
-  "puzzle_num": 1599,
-  "word": "Juifs",
-  "title_slug": "Juifs",
-  "title_display": "Juifs",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Juifs",
+  "puzzle_num": 1600,
+  "word": "Art contemporain",
+  "title_slug": "Art_contemporain",
+  "title_display": "Art contemporain",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Art_contemporain",
   "hints": {
     "level1": [
-      "1 mot · 5 lettres",
-      "Première lettre : J"
+      "2 mots · 15 lettres",
+      "Premières lettres : A · C"
     ],
     "level2": [
-      "peuple lié au judaïsme",
-      "Groupe ethnique en Israël",
-      "Peuple de la Rome antique"
+      "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
+      "Avant-garde artistique"
     ],
     "level3": [
-      "Les ___ sont les membres d’un peuple identifié à sa propre religion, le judaïsme, et, au sens large du terme, à une appartenance ethnique même non religieuse."
+      "L'___ regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques ___es."
     ]
   },
-  "extract": "Les Juifs sont les membres d’un peuple identifié à sa propre religion, le judaïsme, et, au sens large du terme, à une appartenance ethnique même non religieuse.",
+  "extract": "L'art contemporain regroupe un ensemble d'œuvres, d'institutions, de courants et de pratiques artistiques contemporaines.",
   "categories": [
-    "peuple lié au judaïsme",
-    "Groupe ethnique en Israël",
-    "Peuple de la Rome antique"
+    "art du temps présent, avec de multiples définitions sur ce que sont l'art et le temps présent",
+    "Avant-garde artistique"
   ],
-  "generated_at": "2026-09-29T22:20:57.101648+00:00"
+  "generated_at": "2026-09-30T22:16:14.454629+00:00"
 }

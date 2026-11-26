@@ -1,14 +1,14 @@
 {
   "date": "2026-01-22",
-  "puzzle_num": 1349,
-  "word": "Ville de Bruxelles",
-  "title_slug": "Ville_de_Bruxelles",
-  "title_display": "Ville de Bruxelles",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ville_de_Bruxelles",
+  "puzzle_num": 1350,
+  "word": "Guerre de Sept Ans",
+  "title_slug": "Guerre_de_Sept_Ans",
+  "title_display": "Guerre de Sept Ans",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Sept_Ans",
   "hints": {
     "level1": [
-      "3 mots · 16 lettres",
-      "Premières lettres : V · D · B"
+      "4 mots · 15 lettres",
+      "Premières lettres : G · D · S · A"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:27.931954+00:00"
+  "generated_at": "2026-04-28T22:16:27.700609+00:00"
 }

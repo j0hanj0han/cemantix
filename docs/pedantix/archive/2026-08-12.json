@@ -1,23 +1,25 @@
 {
   "date": "2026-08-12",
-  "puzzle_num": 1551,
-  "word": "Ski alpin",
-  "title_slug": "Ski_alpin",
-  "title_display": "Ski alpin",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ski_alpin",
+  "puzzle_num": 1552,
+  "word": "Pharaon",
+  "title_slug": "Pharaon",
+  "title_display": "Pharaon",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pharaon",
   "hints": {
     "level1": [
-      "2 mots · 8 lettres",
-      "Premières lettres : S · A"
+      "1 mot · 7 lettres",
+      "Première lettre : P"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "souverain de l'Égypte antique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "Le ___ est le roi ou la reine de l'Égypte antique."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-08-12T22:21:18.341534+00:00"
+  "extract": "Le pharaon est le roi ou la reine de l'Égypte antique.",
+  "categories": [
+    "souverain de l'Égypte antique"
+  ],
+  "generated_at": "2026-08-13T22:16:55.862799+00:00"
 }

@@ -1,31 +1,29 @@
 {
   "date": "2026-03-12",
-  "puzzle_num": 1398,
-  "word": "Coyote",
-  "title_slug": "Coyote",
-  "title_display": "Coyote",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Coyote",
+  "puzzle_num": 1399,
+  "word": "Anglicanisme",
+  "title_slug": "Anglicanisme",
+  "title_display": "Anglicanisme",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Anglicanisme",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : C"
+      "1 mot · 12 lettres",
+      "Première lettre : A"
     ],
     "level2": [
-      "espèce de canidé",
-      "Taxobox utilisant une classification non précisée",
-      "Taxobox début par provenance de l'image - A",
-      "Statut UICN Préoccupation mineure"
+      "religion chrétienne protestante",
+      "Courant spirituel protestant",
+      "Histoire de la Réforme"
     ],
     "level3": [
-      "Le ___, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord."
+      "L'___ est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie."
     ]
   },
-  "extract": "Le Coyote, du nahuatl : coyōtl, est une espèce de canidés du genre Canis originaire d'Amérique du Nord.",
+  "extract": "L'anglicanisme est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie.",
   "categories": [
-    "espèce de canidé",
-    "Taxobox utilisant une classification non précisée",
-    "Taxobox début par provenance de l'image - A",
-    "Statut UICN Préoccupation mineure"
+    "religion chrétienne protestante",
+    "Courant spirituel protestant",
+    "Histoire de la Réforme"
   ],
-  "generated_at": "2026-04-26T22:15:35.198985+00:00"
+  "generated_at": "2026-04-26T22:15:34.977726+00:00"
 }

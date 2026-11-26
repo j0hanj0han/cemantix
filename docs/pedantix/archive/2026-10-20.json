@@ -1,25 +1,25 @@
 {
   "date": "2026-10-20",
-  "puzzle_num": 1620,
-  "word": "Musique de la période classique",
-  "title_slug": "Musique_de_la_période_classique",
-  "title_display": "Musique de la période classique",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Musique_de_la_période_classique",
+  "puzzle_num": 1621,
+  "word": "Équitation",
+  "title_slug": "Équitation",
+  "title_display": "Équitation",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Équitation",
   "hints": {
     "level1": [
-      "5 mots · 27 lettres",
-      "Premières lettres : M · D · L · P · C"
+      "1 mot · 10 lettres",
+      "Première lettre : É"
     ],
     "level2": [
-      "période de l'histoire musicale européenne"
+      "art ou pratique sportive de monter à cheval"
     ],
     "level3": [
-      "La ___ recouvre par convention la ___ écrite entre la mort de Johann Sebastian Bach soit 1750 et le début de la ___ romantique, soit les années 1820."
+      "L’___ est la technique de conduite d'un équidé monté, sous l'action humaine."
     ]
   },
-  "extract": "La musique de la période classique recouvre par convention la musique écrite entre la mort de Johann Sebastian Bach soit 1750 et le début de la période romantique, soit les années 1820.",
+  "extract": "L’équitation est la technique de conduite d'un équidé monté, sous l'action humaine.",
   "categories": [
-    "période de l'histoire musicale européenne"
+    "art ou pratique sportive de monter à cheval"
   ],
-  "generated_at": "2026-10-21T23:22:49.357940+00:00"
+  "generated_at": "2026-10-21T23:22:48.526883+00:00"
 }

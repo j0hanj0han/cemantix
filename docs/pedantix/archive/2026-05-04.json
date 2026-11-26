@@ -1,23 +1,25 @@
 {
   "date": "2026-05-04",
-  "puzzle_num": 1451,
-  "word": "Jeux olympiques antiques",
-  "title_slug": "Jeux_olympiques_antiques",
-  "title_display": "Jeux olympiques antiques",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Jeux_olympiques_antiques",
+  "puzzle_num": 1452,
+  "word": "Alains",
+  "title_slug": "Alains",
+  "title_display": "Alains",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Alains",
   "hints": {
     "level1": [
-      "3 mots · 22 lettres",
-      "Premières lettres : J · O · A"
+      "1 mot · 6 lettres",
+      "Première lettre : A"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "peuple scythique et nomade"
     ],
     "level3": [
-      "Extrait non disponible"
+      "Les ___ sont un ancien peuple de culture guerrière, nomades puis sédentarisés, largement établis en Ciscaucasie centrale."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-05-04T22:19:36.742713+00:00"
+  "extract": "Les Alains sont un ancien peuple de culture guerrière, nomades puis sédentarisés, largement établis en Ciscaucasie centrale.",
+  "categories": [
+    "peuple scythique et nomade"
+  ],
+  "generated_at": "2026-05-05T22:15:34.612673+00:00"
 }

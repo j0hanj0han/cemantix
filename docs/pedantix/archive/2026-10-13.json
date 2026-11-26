@@ -1,31 +1,31 @@
 {
   "date": "2026-10-13",
-  "puzzle_num": 1613,
-  "word": "Poisson abyssal",
-  "title_slug": "Poisson_abyssal",
-  "title_display": "Poisson abyssal",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Poisson_abyssal",
+  "puzzle_num": 1614,
+  "word": "Expressionnisme abstrait",
+  "title_slug": "Expressionnisme_abstrait",
+  "title_display": "Expressionnisme abstrait",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Expressionnisme_abstrait",
   "hints": {
     "level1": [
-      "2 mots · 14 lettres",
-      "Premières lettres : P · A"
+      "2 mots · 23 lettres",
+      "Premières lettres : E · A"
     ],
     "level2": [
-      "espèce de poissons",
-      "Poisson par adaptation",
-      "Abysses",
-      "Liste de poissons"
+      "mouvement américain de l'avant garde artistique",
+      "Mouvement artistique contemporain",
+      "Art contemporain aux États-Unis",
+      "Expressionnisme"
     ],
     "level3": [
-      "Les ___s abyssaux, ___s des abysses ou ___s des profondeurs sont des ___s qui passent la plus grande partie de leur vie dans les abysses."
+      "L'___ est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis."
     ]
   },
-  "extract": "Les poissons abyssaux, poissons des abysses ou poissons des profondeurs sont des poissons qui passent la plus grande partie de leur vie dans les abysses.",
+  "extract": "L'expressionnisme abstrait est un mouvement artistique qui s'est développé peu après la Seconde Guerre mondiale aux États-Unis.",
   "categories": [
-    "espèce de poissons",
-    "Poisson par adaptation",
-    "Abysses",
-    "Liste de poissons"
+    "mouvement américain de l'avant garde artistique",
+    "Mouvement artistique contemporain",
+    "Art contemporain aux États-Unis",
+    "Expressionnisme"
   ],
-  "generated_at": "2026-10-14T09:18:33.340280+00:00"
+  "generated_at": "2026-10-14T22:17:37.155135+00:00"
 }

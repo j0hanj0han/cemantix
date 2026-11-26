@@ -1,25 +1,31 @@
 {
   "date": "2026-05-18",
-  "puzzle_num": 1465,
-  "word": "Diego Vélasquez",
-  "title_slug": "Diego_Vélasquez",
-  "title_display": "Diego Vélasquez",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Diego_Vélasquez",
+  "puzzle_num": 1466,
+  "word": "Histoire de l'Israël antique",
+  "title_slug": "Histoire_de_l'Israël_antique",
+  "title_display": "Histoire de l'Israël antique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Histoire_de_l'Israël_antique",
   "hints": {
     "level1": [
-      "2 mots · 14 lettres",
-      "Premières lettres : D · V"
+      "4 mots · 25 lettres",
+      "Premières lettres : H · D · L · A"
     ],
     "level2": [
-      "peintre espagnol (1599-1660)"
+      "Typographie à vérifier",
+      "Orthographe à vérifier",
+      "Archéologie de la Bible",
+      "Index égyptologique"
     ],
     "level3": [
-      "___ Rodríguez de Silva y Velázquez, dit ___ Velázquez, ou ___ en français, né puis baptisé à Séville le 6 juin 1599 et mort à Madrid le 6 août 1660, est un peintre baroque espagnol."
+      "L'___ concerne les populations israélites qui ont établi des royaumes à l'âge du fer dans le Proche-Orient ancien."
     ]
   },
-  "extract": "Diego Rodríguez de Silva y Velázquez, dit Diego Velázquez, ou Diego Vélasquez en français, né puis baptisé à Séville le 6 juin 1599 et mort à Madrid le 6 août 1660, est un peintre baroque espagnol.",
+  "extract": "L'histoire de l'Israël antique concerne les populations israélites qui ont établi des royaumes à l'âge du fer dans le Proche-Orient ancien.",
   "categories": [
-    "peintre espagnol (1599-1660)"
+    "Typographie à vérifier",
+    "Orthographe à vérifier",
+    "Archéologie de la Bible",
+    "Index égyptologique"
   ],
-  "generated_at": "2026-05-18T22:15:44.525077+00:00"
+  "generated_at": "2026-05-19T22:21:04.749695+00:00"
 }

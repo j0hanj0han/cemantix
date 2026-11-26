@@ -1,25 +1,31 @@
 {
   "date": "2026-04-30",
-  "puzzle_num": 1447,
-  "word": "Nouvel Empire",
-  "title_slug": "Nouvel_Empire",
-  "title_display": "Nouvel Empire",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nouvel_Empire",
+  "puzzle_num": 1448,
+  "word": "Ammoniac",
+  "title_slug": "Ammoniac",
+  "title_display": "Ammoniac",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ammoniac",
   "hints": {
     "level1": [
-      "2 mots · 12 lettres",
-      "Premières lettres : N · E"
+      "1 mot · 8 lettres",
+      "Première lettre : A"
     ],
     "level2": [
-      "période de 1550 à 1070 avant J.-C. en Égypte ancienne"
+      "composé chimique",
+      "Produit chimique corrosif",
+      "Chimiebox à maintenir",
+      "Composé de l'azote"
     ],
     "level3": [
-      "Le ___ est la période la plus prospère de toute l'histoire égyptienne après l'âge d'or connu dans l'Ancien ___."
+      "L'___ est un composé chimique de formule NH3."
     ]
   },
-  "extract": "Le Nouvel Empire est la période la plus prospère de toute l'histoire égyptienne après l'âge d'or connu dans l'Ancien Empire.",
+  "extract": "L'ammoniac est un composé chimique de formule NH3.",
   "categories": [
-    "période de 1550 à 1070 avant J.-C. en Égypte ancienne"
+    "composé chimique",
+    "Produit chimique corrosif",
+    "Chimiebox à maintenir",
+    "Composé de l'azote"
   ],
-  "generated_at": "2026-04-30T22:19:17.131247+00:00"
+  "generated_at": "2026-05-01T22:16:01.922691+00:00"
 }

@@ -1,27 +1,25 @@
 {
   "date": "2026-11-18",
-  "puzzle_num": 1649,
-  "word": "Milan",
-  "title_slug": "Milan",
-  "title_display": "Milan",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Milan",
+  "puzzle_num": 1650,
+  "word": "Tir à l'arc",
+  "title_slug": "Tir_à_l'arc",
+  "title_display": "Tir à l'arc",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Tir_à_l'arc",
   "hints": {
     "level1": [
-      "1 mot · 5 lettres",
-      "Première lettre : M"
+      "3 mots · 9 lettres",
+      "Premières lettres : T · À · L"
     ],
     "level2": [
-      "capitale de la région de Lombardie, Italie",
-      "Population de 2026 en infobox"
+      "sport"
     ],
     "level3": [
-      "___ est une ville d'Italie située au nord du pays, à proximité des Alpes."
+      "Le ___ est un sport de précision et de concentration dans lequel les compétiteurs tentent de tirer leurs flèches au centre d'une cible avec leur arc."
     ]
   },
-  "extract": "Milan est une ville d'Italie située au nord du pays, à proximité des Alpes.",
+  "extract": "Le tir à l'arc est un sport de précision et de concentration dans lequel les compétiteurs tentent de tirer leurs flèches au centre d'une cible avec leur arc.",
   "categories": [
-    "capitale de la région de Lombardie, Italie",
-    "Population de 2026 en infobox"
+    "sport"
   ],
-  "generated_at": "2026-11-18T23:24:37.556710+00:00"
+  "generated_at": "2026-11-19T23:18:25.507493+00:00"
 }

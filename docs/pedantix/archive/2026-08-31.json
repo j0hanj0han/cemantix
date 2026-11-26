@@ -1,31 +1,25 @@
 {
   "date": "2026-08-31",
-  "puzzle_num": 1570,
-  "word": "Cetacea",
-  "title_slug": "Cetacea",
-  "title_display": "Cetacea",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cetacea",
+  "puzzle_num": 1571,
+  "word": "Rayonnement ionisant",
+  "title_slug": "Rayonnement_ionisant",
+  "title_display": "Rayonnement ionisant",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Rayonnement_ionisant",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : C"
+      "2 mots · 19 lettres",
+      "Premières lettres : R · I"
     ],
     "level2": [
-      "ordre de mammifères marins",
-      "Orthographe à vérifier",
-      "Taxobox utilisant la classification World Register of Marine Species",
-      "Taxobox début par provenance de l'image - A"
+      "radiation capable d'arracher des électrons à des atomes"
     ],
     "level3": [
-      "Les Cétacés sont un infra-ordre de mammifères aquatiques."
+      "Un ___ est un ___ électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière."
     ]
   },
-  "extract": "Les Cétacés sont un infra-ordre de mammifères aquatiques.",
+  "extract": "Un rayonnement ionisant est un rayonnement électromagnétique ou corpusculaire capable de produire directement ou indirectement des ions lors de son passage à travers la matière.",
   "categories": [
-    "ordre de mammifères marins",
-    "Orthographe à vérifier",
-    "Taxobox utilisant la classification World Register of Marine Species",
-    "Taxobox début par provenance de l'image - A"
+    "radiation capable d'arracher des électrons à des atomes"
   ],
-  "generated_at": "2026-08-31T22:16:07.612393+00:00"
+  "generated_at": "2026-09-01T22:22:53.465578+00:00"
 }

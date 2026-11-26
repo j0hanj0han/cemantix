@@ -1,31 +1,31 @@
 {
   "date": "2026-09-25",
-  "puzzle_num": 1595,
-  "word": "Grec ancien",
-  "title_slug": "Grec_ancien",
-  "title_display": "Grec ancien",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Grec_ancien",
+  "puzzle_num": 1596,
+  "word": "Déméter",
+  "title_slug": "Déméter",
+  "title_display": "Déméter",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Déméter",
   "hints": {
     "level1": [
-      "2 mots · 10 lettres",
-      "Premières lettres : G · A"
+      "1 mot · 7 lettres",
+      "Première lettre : D"
     ],
     "level2": [
-      "langue grecque antique",
-      "Langue SOV",
-      "Langue SVO",
-      "Langue flexionnelle"
+      "déesse grecque antique de l'agriculture et des moissons",
+      "Agriculture dans la mythologie grecque",
+      "Divinité de la fertilité",
+      "Divinité grecque chthonienne"
     ],
     "level3": [
-      "Le ___ est l’étape historique de la langue ___que qui s'étend du IXe siècle av."
+      "Dans la religion grecque antique, ___ est la déesse de l'agriculture et des moissons."
     ]
   },
-  "extract": "Le grec ancien est l’étape historique de la langue grecque qui s'étend du IXe siècle av.",
+  "extract": "Dans la religion grecque antique, Déméter est la déesse de l'agriculture et des moissons.",
   "categories": [
-    "langue grecque antique",
-    "Langue SOV",
-    "Langue SVO",
-    "Langue flexionnelle"
+    "déesse grecque antique de l'agriculture et des moissons",
+    "Agriculture dans la mythologie grecque",
+    "Divinité de la fertilité",
+    "Divinité grecque chthonienne"
   ],
-  "generated_at": "2026-09-25T22:18:59.771678+00:00"
+  "generated_at": "2026-09-26T22:16:11.601882+00:00"
 }

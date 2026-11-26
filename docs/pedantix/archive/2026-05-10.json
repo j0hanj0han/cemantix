@@ -1,23 +1,25 @@
 {
   "date": "2026-05-10",
-  "puzzle_num": 1457,
-  "word": "Joan Miró",
-  "title_slug": "Joan_Miró",
-  "title_display": "Joan Miró",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Joan_Miró",
+  "puzzle_num": 1458,
+  "word": "Groupe fondamental",
+  "title_slug": "Groupe_fondamental",
+  "title_display": "Groupe fondamental",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Groupe_fondamental",
   "hints": {
     "level1": [
-      "2 mots · 8 lettres",
-      "Premières lettres : J · M"
+      "2 mots · 17 lettres",
+      "Premières lettres : G · F"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "En mathématiques, et plus spécifiquement en topologie algébrique, le ___, ou ___ de Poincaré, est un invariant topologique."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-05-10T22:21:59.671161+00:00"
+  "extract": "En mathématiques, et plus spécifiquement en topologie algébrique, le groupe fondamental, ou groupe de Poincaré, est un invariant topologique.",
+  "categories": [
+    "Ensemble des classes d'homotopie de lacets d'une certaine base, d'un espace topologique"
+  ],
+  "generated_at": "2026-05-11T22:20:17.736019+00:00"
 }

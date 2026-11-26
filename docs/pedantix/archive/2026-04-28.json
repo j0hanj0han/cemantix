@@ -1,14 +1,14 @@
 {
   "date": "2026-04-28",
-  "puzzle_num": 1445,
-  "word": "Polynésie française",
-  "title_slug": "Polynésie_française",
-  "title_display": "Polynésie française",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Polynésie_française",
+  "puzzle_num": 1446,
+  "word": "Moto",
+  "title_slug": "Moto",
+  "title_display": "Moto",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Moto",
   "hints": {
     "level1": [
-      "2 mots · 18 lettres",
-      "Premières lettres : P · F"
+      "1 mot · 4 lettres",
+      "Première lettre : M"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:24.599089+00:00"
+  "generated_at": "2026-04-29T22:18:16.842248+00:00"
 }

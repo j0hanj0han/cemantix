@@ -1,29 +1,31 @@
 {
   "date": "2026-07-15",
-  "puzzle_num": 1523,
-  "word": "Hérésie",
-  "title_slug": "Hérésie",
-  "title_display": "Hérésie",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hérésie",
+  "puzzle_num": 1524,
+  "word": "Cocotier",
+  "title_slug": "Cocotier",
+  "title_display": "Cocotier",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cocotier",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : H"
+      "1 mot · 8 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "doctrine ou opinion considérée comme erronée par rapport à une croyance religieuse établie",
-      "Vocabulaire religieux",
-      "Inquisition"
+      "espèce de palmiers",
+      "Taxobox utilisant la classification APG III",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
     ],
     "level3": [
-      "Une ___ est une doctrine contraire aux croyances d'une religion établie."
+      "Le ___ est une espèce de palmiers de la famille des Arecaceae, décrite par Carl von Linné."
     ]
   },
-  "extract": "Une hérésie est une doctrine contraire aux croyances d'une religion établie.",
+  "extract": "Le Cocotier est une espèce de palmiers de la famille des Arecaceae, décrite par Carl von Linné.",
   "categories": [
-    "doctrine ou opinion considérée comme erronée par rapport à une croyance religieuse établie",
-    "Vocabulaire religieux",
-    "Inquisition"
+    "espèce de palmiers",
+    "Taxobox utilisant la classification APG III",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
   ],
-  "generated_at": "2026-07-16T22:19:10.431002+00:00"
+  "generated_at": "2026-07-16T22:19:10.084154+00:00"
 }

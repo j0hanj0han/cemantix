@@ -1,31 +1,29 @@
 {
   "date": "2026-09-15",
-  "puzzle_num": 1585,
-  "word": "Cloche",
-  "title_slug": "Cloche",
-  "title_display": "Cloche",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cloche",
+  "puzzle_num": 1586,
+  "word": "Psychopathie",
+  "title_slug": "Psychopathie",
+  "title_display": "Psychopathie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Psychopathie",
   "hints": {
     "level1": [
-      "1 mot · 6 lettres",
-      "Première lettre : C"
+      "1 mot · 12 lettres",
+      "Première lettre : P"
     ],
     "level2": [
-      "objet destiné à l'émission d'un son",
-      "Clocher",
-      "Idiophone",
-      "Instrument de musique sacré"
+      "trouble psychologique",
+      "Criminalité",
+      "Criminologie"
     ],
     "level3": [
-      "Une ___ est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son."
+      "La ___ est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains »."
     ]
   },
-  "extract": "Une cloche est un instrument idiophone fait de métal, creux, ouvert, destiné à l'émission d'un son.",
+  "extract": "La psychopathie est un trouble de la personnalité, caractérisé par un comportement antisocial, un manque de remords et un manque de « comportements humains ».",
   "categories": [
-    "objet destiné à l'émission d'un son",
-    "Clocher",
-    "Idiophone",
-    "Instrument de musique sacré"
+    "trouble psychologique",
+    "Criminalité",
+    "Criminologie"
   ],
-  "generated_at": "2026-09-15T22:16:20.153945+00:00"
+  "generated_at": "2026-09-16T22:16:34.406070+00:00"
 }

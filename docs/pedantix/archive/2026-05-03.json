@@ -1,14 +1,14 @@
 {
   "date": "2026-05-03",
-  "puzzle_num": 1450,
-  "word": "Houston",
-  "title_slug": "Houston",
-  "title_display": "Houston",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Houston",
+  "puzzle_num": 1451,
+  "word": "Jeux olympiques antiques",
+  "title_slug": "Jeux_olympiques_antiques",
+  "title_display": "Jeux olympiques antiques",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Jeux_olympiques_antiques",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : H"
+      "3 mots · 22 lettres",
+      "Premières lettres : J · O · A"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-05-03T22:19:15.380633+00:00"
+  "generated_at": "2026-05-04T22:19:36.742713+00:00"
 }

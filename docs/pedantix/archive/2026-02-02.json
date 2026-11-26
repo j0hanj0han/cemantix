@@ -1,14 +1,14 @@
 {
   "date": "2026-02-02",
-  "puzzle_num": 1360,
-  "word": "Écritures du japonais",
-  "title_slug": "Écritures_du_japonais",
-  "title_display": "Écritures du japonais",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Écritures_du_japonais",
+  "puzzle_num": 1361,
+  "word": "Ancien Empire",
+  "title_slug": "Ancien_Empire",
+  "title_display": "Ancien Empire",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ancien_Empire",
   "hints": {
     "level1": [
-      "3 mots · 19 lettres",
-      "Premières lettres : É · D · J"
+      "2 mots · 12 lettres",
+      "Premières lettres : A · E"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-04-28T22:16:25.522042+00:00"
+  "generated_at": "2026-04-28T22:16:25.295159+00:00"
 }

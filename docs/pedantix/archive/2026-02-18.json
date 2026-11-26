@@ -1,31 +1,27 @@
 {
   "date": "2026-02-18",
-  "puzzle_num": 1376,
-  "word": "Guerre de Trente Ans",
-  "title_slug": "Guerre_de_Trente_Ans",
-  "title_display": "Guerre de Trente Ans",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Trente_Ans",
+  "puzzle_num": 1377,
+  "word": "Hélicoptère",
+  "title_slug": "Hélicoptère",
+  "title_display": "Hélicoptère",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Hélicoptère",
   "hints": {
     "level1": [
-      "4 mots · 17 lettres",
-      "Premières lettres : G · D · T · A"
+      "1 mot · 11 lettres",
+      "Première lettre : H"
     ],
     "level2": [
-      "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
-      "Conflit militaire géolocalisable sans coordonnées paramétrées",
-      "Guerre du XVIIe siècle",
-      "Christianisme au XVIIe siècle"
+      "aéronef à voilures tournantes",
+      "Invention française"
     ],
     "level3": [
-      "La ___ est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648."
+      "Un ___ est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs."
     ]
   },
-  "extract": "La guerre de Trente Ans est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648.",
+  "extract": "Un hélicoptère est un aéronef dont la sustentation et la propulsion sont assurées par une voilure tournante, couramment appelée rotor, et entraînée par un ou plusieurs moteurs.",
   "categories": [
-    "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
-    "Conflit militaire géolocalisable sans coordonnées paramétrées",
-    "Guerre du XVIIe siècle",
-    "Christianisme au XVIIe siècle"
+    "aéronef à voilures tournantes",
+    "Invention française"
   ],
-  "generated_at": "2026-04-27T22:15:40.567398+00:00"
+  "generated_at": "2026-04-27T22:15:40.264630+00:00"
 }

@@ -1,31 +1,27 @@
 {
   "date": "2026-09-20",
-  "puzzle_num": 1590,
-  "word": "Origine du langage",
-  "title_slug": "Origine_du_langage",
-  "title_display": "Origine du langage",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Origine_du_langage",
+  "puzzle_num": 1591,
+  "word": "Immunologie",
+  "title_slug": "Immunologie",
+  "title_display": "Immunologie",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Immunologie",
   "hints": {
     "level1": [
-      "3 mots · 16 lettres",
-      "Premières lettres : O · D · L"
+      "1 mot · 11 lettres",
+      "Première lettre : I"
     ],
     "level2": [
-      "Langage",
-      "Linguistique historique",
-      "Anthropologie linguistique",
-      "Cerveau"
+      "branche de la biologie qui s'occupe de l'étude du système immunitaire",
+      "Discipline fondamentale en médecine"
     ],
     "level3": [
-      "L'___ humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive."
+      "L'___ est la branche de la biologie qui s'occupe de l'étude du système immunitaire, protecteur de l'organisme contre les bactéries et autres agents infectieux."
     ]
   },
-  "extract": "L'origine du langage humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive.",
+  "extract": "L'immunologie est la branche de la biologie qui s'occupe de l'étude du système immunitaire, protecteur de l'organisme contre les bactéries et autres agents infectieux.",
   "categories": [
-    "Langage",
-    "Linguistique historique",
-    "Anthropologie linguistique",
-    "Cerveau"
+    "branche de la biologie qui s'occupe de l'étude du système immunitaire",
+    "Discipline fondamentale en médecine"
   ],
-  "generated_at": "2026-09-20T22:15:48.844879+00:00"
+  "generated_at": "2026-09-21T22:18:00.842796+00:00"
 }

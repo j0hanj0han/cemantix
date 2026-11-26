@@ -1,31 +1,31 @@
 {
   "date": "2026-02-17",
-  "puzzle_num": 1375,
-  "word": "Mythologie aborigène",
-  "title_slug": "Mythologie_aborigène",
-  "title_display": "Mythologie aborigène",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mythologie_aborigène",
+  "puzzle_num": 1376,
+  "word": "Guerre de Trente Ans",
+  "title_slug": "Guerre_de_Trente_Ans",
+  "title_display": "Guerre de Trente Ans",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Trente_Ans",
   "hints": {
     "level1": [
-      "2 mots · 19 lettres",
-      "Premières lettres : M · A"
+      "4 mots · 17 lettres",
+      "Premières lettres : G · D · T · A"
     ],
     "level2": [
-      "histoires rituelles et traditionnelles racontées par les peuples aborigènes de l'Australie",
-      "Religion aborigène",
-      "Religion en Australie",
-      "Spiritualité autres"
+      "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
+      "Conflit militaire géolocalisable sans coordonnées paramétrées",
+      "Guerre du XVIIe siècle",
+      "Christianisme au XVIIe siècle"
     ],
     "level3": [
-      "Les mythes ___s, également connus sous le nom d’histoires du Temps du rêve, sont les histoires traditionnelles racontées par les peuples ___s, au sein de chaque groupe linguistique ___ d'Australie."
+      "La ___ est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648."
     ]
   },
-  "extract": "Les mythes aborigènes, également connus sous le nom d’histoires du Temps du rêve, sont les histoires traditionnelles racontées par les peuples aborigènes, au sein de chaque groupe linguistique aborigène d'Australie.",
+  "extract": "La guerre de Trente Ans est une série de conflits armés qui ont déchiré l’Europe du 23 mai 1618 au 24 octobre 1648.",
   "categories": [
-    "histoires rituelles et traditionnelles racontées par les peuples aborigènes de l'Australie",
-    "Religion aborigène",
-    "Religion en Australie",
-    "Spiritualité autres"
+    "série de conflits armés qui ont déchiré l’Europe de 1618 à 1648",
+    "Conflit militaire géolocalisable sans coordonnées paramétrées",
+    "Guerre du XVIIe siècle",
+    "Christianisme au XVIIe siècle"
   ],
-  "generated_at": "2026-04-27T22:15:40.873492+00:00"
+  "generated_at": "2026-04-27T22:15:40.567398+00:00"
 }

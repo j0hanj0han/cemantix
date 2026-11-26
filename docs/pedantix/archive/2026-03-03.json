@@ -1,31 +1,31 @@
 {
   "date": "2026-03-03",
-  "puzzle_num": 1389,
-  "word": "Huguenot",
-  "title_slug": "Huguenot",
-  "title_display": "Huguenot",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Huguenot",
+  "puzzle_num": 1390,
+  "word": "Cathédrale Notre-Dame de Chartres",
+  "title_slug": "Cathédrale_Notre-Dame_de_Chartres",
+  "title_display": "Cathédrale Notre-Dame de Chartres",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cathédrale_Notre-Dame_de_Chartres",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : H"
+      "4 mots · 30 lettres",
+      "Premières lettres : C · N · D · C"
     ],
     "level2": [
-      "groupe ethnoreligieux des calvinistes français",
-      "Histoire du protestantisme",
-      "Religion sous l'Ancien Régime",
-      "Répression du protestantisme"
+      "cathédrale située en Eure-et-Loir, en France",
+      "Cathédrale transformée au XIIe siècle",
+      "Cathédrale incendiée au XIIe siècle",
+      "Édifice religieux incendié en 1194"
     ],
     "level3": [
-      "Les ___s sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques."
+      "La ___ est un édifice catholique situé au cœur de la ville de ___ dans le département français d'Eure-et-Loir, en région Centre-Val de Loire."
     ]
   },
-  "extract": "Les huguenots sont les protestants des royaumes de France et de Navarre pendant les guerres de Religion (1562-1598), au cours desquelles ils s'opposaient aux catholiques.",
+  "extract": "La cathédrale Notre-Dame de Chartres est un édifice catholique situé au cœur de la ville de Chartres dans le département français d'Eure-et-Loir, en région Centre-Val de Loire.",
   "categories": [
-    "groupe ethnoreligieux des calvinistes français",
-    "Histoire du protestantisme",
-    "Religion sous l'Ancien Régime",
-    "Répression du protestantisme"
+    "cathédrale située en Eure-et-Loir, en France",
+    "Cathédrale transformée au XIIe siècle",
+    "Cathédrale incendiée au XIIe siècle",
+    "Édifice religieux incendié en 1194"
   ],
-  "generated_at": "2026-04-26T22:15:38.244820+00:00"
+  "generated_at": "2026-04-26T22:15:37.929727+00:00"
 }

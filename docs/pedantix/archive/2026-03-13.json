@@ -1,29 +1,31 @@
 {
   "date": "2026-03-13",
-  "puzzle_num": 1399,
-  "word": "Anglicanisme",
-  "title_slug": "Anglicanisme",
-  "title_display": "Anglicanisme",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Anglicanisme",
+  "puzzle_num": 1400,
+  "word": "Cancer du sein",
+  "title_slug": "Cancer_du_sein",
+  "title_display": "Cancer du sein",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_du_sein",
   "hints": {
     "level1": [
-      "1 mot · 12 lettres",
-      "Première lettre : A"
+      "3 mots · 12 lettres",
+      "Premières lettres : C · D · S"
     ],
     "level2": [
-      "religion chrétienne protestante",
-      "Courant spirituel protestant",
-      "Histoire de la Réforme"
+      "tumeur maligne de la glande mammaire",
+      "Orthographe à vérifier",
+      "Typographie à vérifier",
+      "Maladie liée au chromosome 13 humain"
     ],
     "level3": [
-      "L'___ est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie."
+      "Le ___ est un ___ de la glande mammaire, dont la fonction est de sécréter le lait."
     ]
   },
-  "extract": "L'anglicanisme est une confession chrétienne issue de la rupture du roi d'Angleterre Henri VIII avec l'Église catholique romaine et la papauté en 1534, formalisée par l'Acte de suprématie.",
+  "extract": "Le cancer du sein est un cancer de la glande mammaire, dont la fonction est de sécréter le lait.",
   "categories": [
-    "religion chrétienne protestante",
-    "Courant spirituel protestant",
-    "Histoire de la Réforme"
+    "tumeur maligne de la glande mammaire",
+    "Orthographe à vérifier",
+    "Typographie à vérifier",
+    "Maladie liée au chromosome 13 humain"
   ],
-  "generated_at": "2026-04-26T22:15:34.977726+00:00"
+  "generated_at": "2026-04-26T22:15:34.657570+00:00"
 }

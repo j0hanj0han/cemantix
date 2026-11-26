@@ -1,31 +1,31 @@
 {
   "date": "2026-02-22",
-  "puzzle_num": 1380,
-  "word": "Ayn Rand",
-  "title_slug": "Ayn_Rand",
-  "title_display": "Ayn Rand",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Ayn_Rand",
+  "puzzle_num": 1381,
+  "word": "Fernando Pessoa",
+  "title_slug": "Fernando_Pessoa",
+  "title_display": "Fernando Pessoa",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fernando_Pessoa",
   "hints": {
     "level1": [
-      "2 mots · 7 lettres",
-      "Premières lettres : A · R"
+      "2 mots · 14 lettres",
+      "Premières lettres : F · P"
     ],
     "level2": [
-      "philosophe, scénariste et romancière américaine d'origine russe",
-      "Typographie à vérifier",
-      "Romancière américaine du XXe siècle",
-      "Romancière américaine de science-fiction"
+      "écrivain et poète portugais",
+      "Infobox avec une légende automatique à partir de la date de l'image",
+      "Naissance à Lisbonne",
+      "Écrivain portugais du XXe siècle"
     ],
     "level3": [
-      "___ [ˈaɪn ˈɹænd], de son vrai nom Alissa Zinovievna Rosenbaum, est une philosophe, scénariste et romancière américaine d'origine russe, juive athée, née le 2 février 1905 à Saint-Pétersbourg et morte le 6 mars 1982 à New York."
+      "___ António Nogueira ___ est un écrivain, critique, polémiste et poète portugais trilingue."
     ]
   },
-  "extract": "Ayn Rand [ˈaɪn ˈɹænd], de son vrai nom Alissa Zinovievna Rosenbaum, est une philosophe, scénariste et romancière américaine d'origine russe, juive athée, née le 2 février 1905 à Saint-Pétersbourg et morte le 6 mars 1982 à New York.",
+  "extract": "Fernando António Nogueira Pessoa est un écrivain, critique, polémiste et poète portugais trilingue.",
   "categories": [
-    "philosophe, scénariste et romancière américaine d'origine russe",
-    "Typographie à vérifier",
-    "Romancière américaine du XXe siècle",
-    "Romancière américaine de science-fiction"
+    "écrivain et poète portugais",
+    "Infobox avec une légende automatique à partir de la date de l'image",
+    "Naissance à Lisbonne",
+    "Écrivain portugais du XXe siècle"
   ],
-  "generated_at": "2026-04-27T22:15:39.587801+00:00"
+  "generated_at": "2026-04-27T22:15:39.262906+00:00"
 }

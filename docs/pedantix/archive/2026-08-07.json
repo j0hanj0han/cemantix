@@ -1,23 +1,31 @@
 {
   "date": "2026-08-07",
-  "puzzle_num": 1546,
-  "word": "Mosquée",
-  "title_slug": "Mosquée",
-  "title_display": "Mosquée",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Mosquée",
+  "puzzle_num": 1547,
+  "word": "Déportation des peuples en URSS",
+  "title_slug": "Déportation_des_peuples_en_URSS",
+  "title_display": "Déportation des peuples en URSS",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Déportation_des_peuples_en_URSS",
   "hints": {
     "level1": [
-      "1 mot · 7 lettres",
-      "Première lettre : M"
+      "5 mots · 27 lettres",
+      "Premières lettres : D · D · P · E · U"
     ],
     "level2": [
-      "Catégories non disponibles"
+      "transfert et déportation des populations en Union Soviétique",
+      "Typographie à vérifier",
+      "Déportation des peuples en Union soviétique",
+      "Politique en Union soviétique"
     ],
     "level3": [
-      "Extrait non disponible"
+      "La ___ est une des formes de répression politique en ___."
     ]
   },
-  "extract": "",
-  "categories": [],
-  "generated_at": "2026-08-07T22:15:36.283018+00:00"
+  "extract": "La déportation des peuples en URSS est une des formes de répression politique en URSS.",
+  "categories": [
+    "transfert et déportation des populations en Union Soviétique",
+    "Typographie à vérifier",
+    "Déportation des peuples en Union soviétique",
+    "Politique en Union soviétique"
+  ],
+  "generated_at": "2026-08-08T22:16:08.827905+00:00"
 }

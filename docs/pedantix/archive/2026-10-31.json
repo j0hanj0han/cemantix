@@ -1,31 +1,31 @@
 {
   "date": "2026-10-31",
-  "puzzle_num": 1631,
-  "word": "Canis lupus",
-  "title_slug": "Canis_lupus",
-  "title_display": "Canis lupus",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Canis_lupus",
+  "puzzle_num": 1632,
+  "word": "Malcolm X",
+  "title_slug": "Malcolm_X",
+  "title_display": "Malcolm X",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Malcolm_X",
   "hints": {
     "level1": [
-      "2 mots · 10 lettres",
-      "Premières lettres : C · L"
+      "2 mots · 8 lettres",
+      "Premières lettres : M · X"
     ],
     "level2": [
-      "espèce de canidé",
-      "Taxobox utilisant la classification ITIS",
-      "Taxobox début par provenance de l'image - A",
-      "Taxon utilisant Taxobox plage"
+      "militant américain des droits de l'homme",
+      "Écrivain afro-américain",
+      "Écrivain américain du XXe siècle",
+      "Personnalité politique afro-américaine"
     ],
     "level3": [
-      "___, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés."
+      "___, né ___ Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain."
     ]
   },
-  "extract": "Canis lupus, le Loup, plus spécifiquement désigné sous le nom de Loup gris, plus rarement sous ceux de Loup commun ou Loup vulgaire, est une espèce de mammifères carnivores de la famille des canidés.",
+  "extract": "Malcolm X, né Malcolm Little, également nommé Al-Hâjj Mâlik al-Shabazz, né le 19 mai 1925 à Omaha (Nebraska) et mort assassiné le 21 février 1965 à Harlem, est un orateur, prédicateur, porte-parole de Nation of Islam, militant politique et défenseur des droits de l'homme afro-américain.",
   "categories": [
-    "espèce de canidé",
-    "Taxobox utilisant la classification ITIS",
-    "Taxobox début par provenance de l'image - A",
-    "Taxon utilisant Taxobox plage"
+    "militant américain des droits de l'homme",
+    "Écrivain afro-américain",
+    "Écrivain américain du XXe siècle",
+    "Personnalité politique afro-américaine"
   ],
-  "generated_at": "2026-10-31T23:22:14.341837+00:00"
+  "generated_at": "2026-11-01T23:15:50.529427+00:00"
 }

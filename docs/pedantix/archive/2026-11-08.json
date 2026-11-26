@@ -1,31 +1,31 @@
 {
   "date": "2026-11-08",
-  "puzzle_num": 1639,
-  "word": "Clovis Ier",
-  "title_slug": "Clovis_Ier",
-  "title_display": "Clovis Ier",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Clovis_Ier",
+  "puzzle_num": 1640,
+  "word": "Guerre de Crimée",
+  "title_slug": "Guerre_de_Crimée",
+  "title_display": "Guerre de Crimée",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Guerre_de_Crimée",
   "hints": {
     "level1": [
-      "2 mots · 9 lettres",
-      "Premières lettres : C · I"
+      "3 mots · 14 lettres",
+      "Premières lettres : G · D · C"
     ],
     "level2": [
-      "roi des Francs de 481 à 511",
-      "Mérovingiens",
-      "Roi des Francs",
-      "Personnalité des Gaules du VIe siècle"
+      "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
+      "Guerres russo-turques",
+      "Guerre du Caucase",
+      "Invasion en Russie"
     ],
     "level3": [
-      "___ Ier, en latin Chlodovechus, né vers 466 et mort le 27 novembre 511 à Paris, est roi des Francs saliens, puis roi de tous les Francs de 481 à 511."
+      "La ___ oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne."
     ]
   },
-  "extract": "Clovis Ier, en latin Chlodovechus, né vers 466 et mort le 27 novembre 511 à Paris, est roi des Francs saliens, puis roi de tous les Francs de 481 à 511.",
+  "extract": "La guerre de Crimée oppose de 1853 à 1856 l'Empire russe à une coalition formée de l'Empire ottoman, de l'Empire français, du Royaume-Uni et du royaume de Sardaigne.",
   "categories": [
-    "roi des Francs de 481 à 511",
-    "Mérovingiens",
-    "Roi des Francs",
-    "Personnalité des Gaules du VIe siècle"
+    "guerre s'étant déroulée de 1853 à 1856, opposant l'Empire russe à une coalition composée de l'Empire ottoman, de la France, du Royaume-Uni et du royaume de Sardaigne",
+    "Guerres russo-turques",
+    "Guerre du Caucase",
+    "Invasion en Russie"
   ],
-  "generated_at": "2026-11-09T09:08:34.681587+00:00"
+  "generated_at": "2026-11-09T23:16:10.723570+00:00"
 }

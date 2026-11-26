@@ -1,31 +1,31 @@
 {
   "date": "2026-03-14",
-  "puzzle_num": 1400,
-  "word": "Cancer du sein",
-  "title_slug": "Cancer_du_sein",
-  "title_display": "Cancer du sein",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Cancer_du_sein",
+  "puzzle_num": 1401,
+  "word": "Brahmapoutre",
+  "title_slug": "Brahmapoutre",
+  "title_display": "Brahmapoutre",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Brahmapoutre",
   "hints": {
     "level1": [
-      "3 mots · 12 lettres",
-      "Premières lettres : C · D · S"
+      "1 mot · 12 lettres",
+      "Première lettre : B"
     ],
     "level2": [
-      "tumeur maligne de la glande mammaire",
-      "Orthographe à vérifier",
-      "Typographie à vérifier",
-      "Maladie liée au chromosome 13 humain"
+      "grand fleuve de Chine, d'Inde et du Bangladesh",
+      "Accessibilité : Graphique timeline sans alternative",
+      "Système hydrologique du Brahmapoutre",
+      "Cours d'eau au Bangladesh"
     ],
     "level3": [
-      "Le ___ est un ___ de la glande mammaire, dont la fonction est de sécréter le lait."
+      "Le ___[réf. à confirmer] — du sanskrit ब्रह्मपुत्र (Brahmaputra) signifiant « fils de Brahmâ » — est un fleuve de l'Asie du Sud, long de 2 900 km, ayant sa source principale dans l'Himalaya tibétain, à 5 542 m d'altitude, au glacier Gyima Yangzoin, dans le xian de Zhongba."
     ]
   },
-  "extract": "Le cancer du sein est un cancer de la glande mammaire, dont la fonction est de sécréter le lait.",
+  "extract": "Le Brahmapoutre[réf. à confirmer] — du sanskrit ब्रह्मपुत्र (Brahmaputra) signifiant « fils de Brahmâ » — est un fleuve de l'Asie du Sud, long de 2 900 km, ayant sa source principale dans l'Himalaya tibétain, à 5 542 m d'altitude, au glacier Gyima Yangzoin, dans le xian de Zhongba.",
   "categories": [
-    "tumeur maligne de la glande mammaire",
-    "Orthographe à vérifier",
-    "Typographie à vérifier",
-    "Maladie liée au chromosome 13 humain"
+    "grand fleuve de Chine, d'Inde et du Bangladesh",
+    "Accessibilité : Graphique timeline sans alternative",
+    "Système hydrologique du Brahmapoutre",
+    "Cours d'eau au Bangladesh"
   ],
-  "generated_at": "2026-04-26T22:15:34.657570+00:00"
+  "generated_at": "2026-04-26T22:15:34.442216+00:00"
 }

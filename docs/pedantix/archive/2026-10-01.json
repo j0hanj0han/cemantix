@@ -1,29 +1,31 @@
 {
   "date": "2026-10-01",
-  "puzzle_num": 1601,
-  "word": "Instrument de mesure",
-  "title_slug": "Instrument_de_mesure",
-  "title_display": "Instrument de mesure",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Instrument_de_mesure",
+  "puzzle_num": 1602,
+  "word": "Fourmi",
+  "title_slug": "Fourmi",
+  "title_display": "Fourmi",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Fourmi",
   "hints": {
     "level1": [
-      "3 mots · 18 lettres",
-      "Premières lettres : I · D · M"
+      "1 mot · 6 lettres",
+      "Première lettre : F"
     ],
     "level2": [
-      "dispositif permettant de réaliser la mesure d'une quantité physique",
-      "Invention",
-      "Innovation"
+      "famille d'insectes",
+      "Taxobox utilisant une classification non précisée",
+      "Taxobox début par provenance de l'image - A",
+      "Taxon utilisant Taxobox plage"
     ],
     "level3": [
-      "Un ___ est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur."
+      "Les ___s sont des insectes, de l'ordre des Hyménoptères et du sous-ordre des Apocrites, qui constituent la famille des Formicidés (Formicidae)."
     ]
   },
-  "extract": "Un instrument de mesure est un dispositif destiné à obtenir des valeurs qu'on puisse attribuer à une grandeur.",
+  "extract": "Les fourmis sont des insectes, de l'ordre des Hyménoptères et du sous-ordre des Apocrites, qui constituent la famille des Formicidés (Formicidae).",
   "categories": [
-    "dispositif permettant de réaliser la mesure d'une quantité physique",
-    "Invention",
-    "Innovation"
+    "famille d'insectes",
+    "Taxobox utilisant une classification non précisée",
+    "Taxobox début par provenance de l'image - A",
+    "Taxon utilisant Taxobox plage"
   ],
-  "generated_at": "2026-10-01T22:17:51.777387+00:00"
+  "generated_at": "2026-10-02T22:15:50.487030+00:00"
 }

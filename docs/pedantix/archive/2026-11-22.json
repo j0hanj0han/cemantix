@@ -1,31 +1,29 @@
 {
   "date": "2026-11-22",
-  "puzzle_num": 1653,
-  "word": "Clavecin",
-  "title_slug": "Clavecin",
-  "title_display": "Clavecin",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Clavecin",
+  "puzzle_num": 1654,
+  "word": "Miami",
+  "title_slug": "Miami",
+  "title_display": "Miami",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Miami",
   "hints": {
     "level1": [
-      "1 mot · 8 lettres",
-      "Première lettre : C"
+      "1 mot · 5 lettres",
+      "Première lettre : M"
     ],
     "level2": [
-      "instrument de musique à clavier et cordes pincées",
-      "Instrument de musique classique",
-      "Instrument à clavier",
-      "Instrument à cordes pincées"
+      "ville américaine située en Floride",
+      "Population de 2020 en infobox",
+      "Division administrative fondée en 1836"
     ],
     "level3": [
-      "Le ___ est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers."
+      "___ est une ville américaine située dans le sud-est de l'État de Floride, sur la baie de Biscayne."
     ]
   },
-  "extract": "Le clavecin est un instrument de musique à cordes pincées muni d'un ou plusieurs claviers.",
+  "extract": "Miami est une ville américaine située dans le sud-est de l'État de Floride, sur la baie de Biscayne.",
   "categories": [
-    "instrument de musique à clavier et cordes pincées",
-    "Instrument de musique classique",
-    "Instrument à clavier",
-    "Instrument à cordes pincées"
+    "ville américaine située en Floride",
+    "Population de 2020 en infobox",
+    "Division administrative fondée en 1836"
   ],
-  "generated_at": "2026-11-22T23:16:06.542137+00:00"
+  "generated_at": "2026-11-23T23:18:05.746481+00:00"
 }

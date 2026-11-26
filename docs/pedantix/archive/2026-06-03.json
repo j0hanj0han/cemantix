@@ -1,14 +1,14 @@
 {
   "date": "2026-06-03",
-  "puzzle_num": 1481,
-  "word": "Pont du Golden Gate",
-  "title_slug": "Pont_du_Golden_Gate",
-  "title_display": "Pont du Golden Gate",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Pont_du_Golden_Gate",
+  "puzzle_num": 1482,
+  "word": "Nébuleuse de la Carène",
+  "title_slug": "Nébuleuse_de_la_Carène",
+  "title_display": "Nébuleuse de la Carène",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Nébuleuse_de_la_Carène",
   "hints": {
     "level1": [
-      "4 mots · 16 lettres",
-      "Premières lettres : P · D · G · G"
+      "4 mots · 19 lettres",
+      "Premières lettres : N · D · L · C"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-06-03T22:15:40.481273+00:00"
+  "generated_at": "2026-06-04T22:15:44.444331+00:00"
 }

@@ -1,31 +1,31 @@
 {
   "date": "2026-09-19",
-  "puzzle_num": 1589,
-  "word": "Superstition",
-  "title_slug": "Superstition",
-  "title_display": "Superstition",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Superstition",
+  "puzzle_num": 1590,
+  "word": "Origine du langage",
+  "title_slug": "Origine_du_langage",
+  "title_display": "Origine du langage",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Origine_du_langage",
   "hints": {
     "level1": [
-      "1 mot · 12 lettres",
-      "Première lettre : S"
+      "3 mots · 16 lettres",
+      "Premières lettres : O · D · L"
     ],
     "level2": [
-      "croyance de nature irrationnelle",
-      "Anthropologie des religions",
-      "Psychose",
-      "Sociologie de l'imaginaire"
+      "Langage",
+      "Linguistique historique",
+      "Anthropologie linguistique",
+      "Cerveau"
     ],
     "level3": [
-      "La ___ est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles."
+      "L'___ humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive."
     ]
   },
-  "extract": "La superstition est la croyance irraisonnée fondée sur la crainte ou l’ignorance qui prête un caractère surnaturel ou sacré à certains phénomènes, à certains actes et à certaines paroles.",
+  "extract": "L'origine du langage humain constitue une question à la croisée de la linguistique, de l’anthropologie, de l’archéologie, des neurosciences, de la psychologie cognitive, de la génétique et de la biologie évolutive.",
   "categories": [
-    "croyance de nature irrationnelle",
-    "Anthropologie des religions",
-    "Psychose",
-    "Sociologie de l'imaginaire"
+    "Langage",
+    "Linguistique historique",
+    "Anthropologie linguistique",
+    "Cerveau"
   ],
-  "generated_at": "2026-09-19T22:17:12.254437+00:00"
+  "generated_at": "2026-09-20T22:15:48.844879+00:00"
 }

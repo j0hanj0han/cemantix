@@ -1,31 +1,25 @@
 {
   "date": "2026-09-09",
-  "puzzle_num": 1579,
-  "word": "Prévention et dépistage du cancer du col utérin",
-  "title_slug": "Prévention_et_dépistage_du_cancer_du_col_utérin",
-  "title_display": "Prévention et dépistage du cancer du col utérin",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Prévention_et_dépistage_du_cancer_du_col_utérin",
+  "puzzle_num": 1580,
+  "word": "Téléphérique",
+  "title_slug": "Téléphérique",
+  "title_display": "Téléphérique",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Téléphérique",
   "hints": {
     "level1": [
-      "8 mots · 40 lettres",
-      "Premières lettres : P · E · D · D · C · D · C · U"
+      "1 mot · 12 lettres",
+      "Première lettre : T"
     ],
     "level2": [
-      "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
-      "Anatomopathologie",
-      "Dépistage et diagnostic en gynécologie-obstétrique",
-      "Diagnostic du cancer"
+      "moyen de transport par câble aérien"
     ],
     "level3": [
-      "La ___ et le ___ du ___ du col ___ sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce ___, principalement causé par une infection persistante par des papillomavirus humains oncogènes."
+      "Un ___ ou téléférique est un moyen de transport par câble aérien."
     ]
   },
-  "extract": "La prévention et le dépistage du cancer du col utérin sont l’ensemble des stratégies visant à réduire l’incidence et la mortalité de ce cancer, principalement causé par une infection persistante par des papillomavirus humains oncogènes.",
+  "extract": "Un téléphérique ou téléférique est un moyen de transport par câble aérien.",
   "categories": [
-    "ensemble des stratégies visant à réduire l’incidence et la mortalité du cancer du col utérin",
-    "Anatomopathologie",
-    "Dépistage et diagnostic en gynécologie-obstétrique",
-    "Diagnostic du cancer"
+    "moyen de transport par câble aérien"
   ],
-  "generated_at": "2026-09-09T22:20:54.906485+00:00"
+  "generated_at": "2026-09-10T22:24:12.486760+00:00"
 }

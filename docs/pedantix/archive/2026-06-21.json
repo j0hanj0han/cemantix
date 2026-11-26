@@ -1,14 +1,14 @@
 {
   "date": "2026-06-21",
-  "puzzle_num": 1499,
-  "word": "British Museum",
-  "title_slug": "British_Museum",
-  "title_display": "British Museum",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/British_Museum",
+  "puzzle_num": 1500,
+  "word": "Reconquista",
+  "title_slug": "Reconquista",
+  "title_display": "Reconquista",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Reconquista",
   "hints": {
     "level1": [
-      "2 mots · 13 lettres",
-      "Premières lettres : B · M"
+      "1 mot · 11 lettres",
+      "Première lettre : R"
     ],
     "level2": [
       "Catégories non disponibles"
@@ -19,5 +19,5 @@
   },
   "extract": "",
   "categories": [],
-  "generated_at": "2026-06-21T22:15:41.915050+00:00"
+  "generated_at": "2026-06-22T22:15:45.000440+00:00"
 }

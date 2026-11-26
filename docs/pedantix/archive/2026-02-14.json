@@ -1,31 +1,31 @@
 {
   "date": "2026-02-14",
-  "puzzle_num": 1372,
-  "word": "Homme de Néandertal",
-  "title_slug": "Homme_de_Néandertal",
-  "title_display": "Homme de Néandertal",
-  "wikipedia_url": "https://fr.wikipedia.org/wiki/Homme_de_Néandertal",
+  "puzzle_num": 1373,
+  "word": "Chamaeleonidae",
+  "title_slug": "Chamaeleonidae",
+  "title_display": "Chamaeleonidae",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Chamaeleonidae",
   "hints": {
     "level1": [
-      "3 mots · 17 lettres",
-      "Premières lettres : H · D · N"
+      "1 mot · 14 lettres",
+      "Première lettre : C"
     ],
     "level2": [
-      "espèce disparue du genre Homo dont ne subsistent que des fossiles",
-      "Taxobox utilisant la classification MSW",
+      "famille de sauriens",
+      "Taxobox utilisant la classification Reptile Database",
       "Taxobox début par provenance de l'image - A",
-      "Taxon utilisant Taxobox plage"
+      "Famille de sauriens (nom scientifique)"
     ],
     "level3": [
-      "L'___, ou ___ien, est une espèce éteinte du genre Homo, qui a vécu en Europe, au Moyen-Orient et en Asie centrale, jusqu'à environ 40 000 ans avant le présent."
+      "Les Caméléonidés (___) sont une famille de sauriens surtout arboricoles, définie par Constantin Rafinesque en 1815."
     ]
   },
-  "extract": "L'Homme de Néandertal, ou Néandertalien, est une espèce éteinte du genre Homo, qui a vécu en Europe, au Moyen-Orient et en Asie centrale, jusqu'à environ 40 000 ans avant le présent.",
+  "extract": "Les Caméléonidés (Chamaeleonidae) sont une famille de sauriens surtout arboricoles, définie par Constantin Rafinesque en 1815.",
   "categories": [
-    "espèce disparue du genre Homo dont ne subsistent que des fossiles",
-    "Taxobox utilisant la classification MSW",
+    "famille de sauriens",
+    "Taxobox utilisant la classification Reptile Database",
     "Taxobox début par provenance de l'image - A",
-    "Taxon utilisant Taxobox plage"
+    "Famille de sauriens (nom scientifique)"
   ],
-  "generated_at": "2026-04-27T22:15:41.655022+00:00"
+  "generated_at": "2026-04-27T22:15:41.349019+00:00"
 }

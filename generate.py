@@ -29,7 +29,7 @@ GAMES_CFG = {
     "sutom":        {"pub_time": (0, 15),  "title_prefix": "Solution Sutom du"},
     "tusmo":        {"pub_time": (0, 15),  "title_prefix": "Solution Tusmo du"},
     "wordle":       {"pub_time": (0, 15),  "title_prefix": "Réponse Wordle du"},
-    "pedantix":     {"pub_time": (0, 15),  "title_prefix": "Solution Pédantix du"},
+    "pedantix":     {"pub_time": (12, 5),  "title_prefix": "Solution Pédantix du"},  # change à midi
     "loto":         {"pub_time": (22, 0),  "title_prefix": "Résultats Loto du"},
     "euromillions": {"pub_time": (21, 30), "title_prefix": "Résultats EuroMillions du"},
 }
@@ -937,7 +937,8 @@ def regenerate_all(today: date | None = None) -> dict:
     pedantix_json = DOCS_DIR / "pedantix" / "solution.json"
     if pedantix_json.exists():
         data = json.loads(pedantix_json.read_text(encoding="utf-8"))
-        if data.get("date") == today_str:
+        # Pédantix change à midi : avant midi, le puzzle en cours est daté de la veille.
+        if data.get("date") in (today_str, (today - timedelta(days=1)).isoformat()):
             pedantix_data = data
             from games import pedantix as pd
             title_display = data.get("title_display") or data.get("word", "?")
@@ -945,7 +946,8 @@ def regenerate_all(today: date | None = None) -> dict:
             hints = data.get("hints", {"level1": [], "level2": [], "level3": []})
             extract = data.get("extract", "")
             print(f"Régénération HTML Pédantix #{data['puzzle_num']} '{title_display}'")
-            pd._generate_all_html(today, data["puzzle_num"], title_display, title_slug, hints, extract, data.get("generated_at"))
+            pd._generate_all_html(date.fromisoformat(data["date"]), data["puzzle_num"], title_display,
+                                  title_slug, hints, extract, data.get("generated_at"))
             print("✅ HTML Pédantix régénéré")
 
     loto_json = DOCS_DIR / "loto" / "solution.json"
@@ -1010,6 +1012,25 @@ def daily_urls(today: date, game_data: dict) -> list[str]:
         if (DOCS_DIR / path / "index.html").exists():
             urls.append(f"{SITE_URL}/{path}")
     return urls
+
+
+def run_pedantix_noon(today: date | None = None) -> int:
+    """Run de 12h05 (run_pedantix.sh) : résout le Pédantix qui vient de commencer,
+    puis régénère hub, sitemaps et flux.
+
+    Code retour : 0 = puzzle du jour résolu, 2 = la page affiche encore le puzzle
+    d'hier (réessayer plus tard), 3 = puzzle du jour non résolu.
+    """
+    if today is None:
+        today = date.today()
+    from games.pedantix import run as run_pedantix
+    print(f"\n=== Pédantix (run de midi) — {today.isoformat()} ===\n")
+    data = run_pedantix(today)
+    regenerate_all(today)
+    if data and data.get("date") == today.isoformat():
+        return 0
+    from games.pedantix import get_puzzle_number, puzzle_date
+    return 2 if puzzle_date(get_puzzle_number()) < today else 3
 
 
 def ping_daily_indexnow(today: date | None = None, game_data: dict | None = None) -> bool:

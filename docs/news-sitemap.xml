@@ -57,6 +57,28 @@
     </news:news>
   </url>
   <url>
+    <loc>https://solution-du-jour.fr/tusmo/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-27T02:30:13+01:00</news:publication_date>
+      <news:title>Solution Tusmo du vendredi 27 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/tusmo/archive/2026-11-26</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-26T02:30:13+01:00</news:publication_date>
+      <news:title>Solution Tusmo du jeudi 26 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://solution-du-jour.fr/wordle/</loc>
     <news:news>
       <news:publication>

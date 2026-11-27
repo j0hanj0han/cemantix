@@ -2,40 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://solution-du-jour.fr/cemantix/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T00:18:48+01:00</news:publication_date>
-      <news:title>Solution Cémantix du vendredi 27 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/indice/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T00:18:48+01:00</news:publication_date>
-      <news:title>Indices Cémantix du vendredi 27 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/cemantix/archive/2026-11-26</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-26T00:15:36+01:00</news:publication_date>
-      <news:title>Solution Cémantix du jeudi 26 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://solution-du-jour.fr/sutom/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-28T00:23:52+01:00</news:publication_date>
+      <news:title>Solution Sutom du samedi 28 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-27</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -46,40 +24,18 @@
     </news:news>
   </url>
   <url>
-    <loc>https://solution-du-jour.fr/sutom/archive/2026-11-26</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-26T00:15:36+01:00</news:publication_date>
-      <news:title>Solution Sutom du jeudi 26 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T02:30:13+01:00</news:publication_date>
-      <news:title>Solution Tusmo du vendredi 27 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/tusmo/archive/2026-11-26</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-26T02:30:13+01:00</news:publication_date>
-      <news:title>Solution Tusmo du jeudi 26 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://solution-du-jour.fr/wordle/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Solutions du Jour</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-28T00:23:53+01:00</news:publication_date>
+      <news:title>Réponse Wordle du samedi 28 novembre 2026</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://solution-du-jour.fr/wordle/archive/2026-11-27</loc>
     <news:news>
       <news:publication>
         <news:name>Solutions du Jour</news:name>
@@ -87,50 +43,6 @@
       </news:publication>
       <news:publication_date>2026-11-27T00:18:50+01:00</news:publication_date>
       <news:title>Réponse Wordle du vendredi 27 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/wordle/archive/2026-11-26</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-26T00:15:38+01:00</news:publication_date>
-      <news:title>Réponse Wordle du jeudi 26 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T21:27:01+01:00</news:publication_date>
-      <news:title>Solution Pédantix du vendredi 27 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/pedantix/archive/2026-11-26</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T00:20:16+01:00</news:publication_date>
-      <news:title>Solution Pédantix du jeudi 26 novembre 2026</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://solution-du-jour.fr/euromillions/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Solutions du Jour</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-11-27T21:26:57+01:00</news:publication_date>
-      <news:title>Résultats EuroMillions du vendredi 27 novembre 2026</news:title>
     </news:news>
   </url>
 </urlset>

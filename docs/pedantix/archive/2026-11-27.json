@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-27",
+  "puzzle_num": 1659,
+  "word": "Droits des femmes",
+  "title_slug": "Droits_des_femmes",
+  "title_display": "Droits des femmes",
+  "wikipedia_url": "https://fr.wikipedia.org/wiki/Droits_des_femmes",
+  "hints": {
+    "level1": [
+      "3 mots · 15 lettres",
+      "Premières lettres : D · D · F"
+    ],
+    "level2": [
+      "droits pour les femmes à travers le monde"
+    ],
+    "level3": [
+      "Les ___ sont des ___ revendiqués pour les ___ dans de nombreuses sociétés à travers le monde, qui constituent la base du mouvement pour les ___ du XIXe siècle ainsi que le combat des mouvements féministes depuis le XXe siècle."
+    ]
+  },
+  "extract": "Les droits des femmes sont des droits revendiqués pour les femmes dans de nombreuses sociétés à travers le monde, qui constituent la base du mouvement pour les droits des femmes du XIXe siècle ainsi que le combat des mouvements féministes depuis le XXe siècle.",
+  "categories": [
+    "droits pour les femmes à travers le monde"
+  ],
+  "generated_at": "2026-11-27T20:27:01.566083+00:00"
+}
